@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-2-kiss-keep-it-simple",
+  "subtopicTitle": "KISS — Keep It Simple",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:34.124Z",
+  "cards": [
+    {
+      "front": "The acronym KISS stands for \"Keep It Simple, _________.\"",
+      "back": "The acronym KISS stands for \"Keep It Simple, Stupid.\" It's a design principle emphasizing that most systems work best if they are kept simple rather than made complicated.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary benefit of adhering to the KISS principle in software development?",
+      "back": "The primary benefit is improved clarity and maintainability. Simple code is easier to understand, debug, test, and modify by current and future developers, leading to fewer errors, faster development cycles, and lower long-term costs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two practical strategies to apply the KISS principle when writing code.",
+      "back": "Two practical strategies include:\n1.  **Avoid premature optimization:** Don't add complexity for hypothetical future needs; build only what's necessary now.\n2.  **Refactor regularly:** Continuously simplify existing complex code or designs.\n3.  **Write small, focused functions/modules:** Each component should have a single, clear responsibility.\n4.  **Use clear, descriptive naming:** Improves readability and reduces cognitive load.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how KISS differs from \"dumb\" or overly simplistic code, and when complexity might be justified.",
+      "back": "KISS advocates for *necessary* simplicity, not *naïve* simplicity. \"Dumb\" code might ignore critical requirements, edge cases, or performance needs, leading to bugs or unscalable solutions. Complexity is justified when it directly addresses a fundamental problem, significantly improves robustness, or provides a crucial performance/scalability gain for a *proven* bottleneck, provided simpler solutions have been thoroughly explored and ruled out. The goal is the *simplest effective* solution, not just the simplest.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You have a function that validates user input, saves it to a database, and then sends a confirmation email. How could you apply KISS to this function's design?",
+      "back": "To apply KISS, you would break this single function into three smaller, more focused functions, each with a single responsibility:\n1.  `validate_user_input(data)`\n2.  `save_user_to_database(user_data)`\n3.  `send_confirmation_email(user_email)`\nA main function would then orchestrate these calls. This separation makes each part simpler, easier to test, and less prone to errors.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does strict adherence to KISS always lead to the most performant or scalable solution? Explain why or why not.",
+      "back": "Not always. While simplicity often aids performance by reducing overhead, there are scenarios where a more complex algorithm or data structure (e.g., a balanced tree vs. a simple array for search operations) is necessary to achieve optimal performance or scalability for large datasets or high-throughput systems. KISS encourages starting with the simplest solution and only introducing complexity when profiling or requirements *prove* it's necessary, rather than prematurely optimizing. The goal is the *simplest effective* solution, which sometimes requires a degree of complexity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which other software design principle is closely related to KISS by advocating for avoiding unnecessary functionality?",
+      "back": "YAGNI (You Aren't Gonna Need It). Both principles encourage building only what is currently required and avoiding speculative future features or overly complex designs that might never be used, thus keeping the system simpler and reducing wasted effort.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the KISS principle directly impact the debugging process?",
+      "back": "Simple code has fewer moving parts, clearer logic, and smaller, more isolated components. This makes it significantly easier to pinpoint the source of a bug because there are fewer places for errors to hide, and the flow of execution is easier to trace. Each function or module doing one thing well means errors are often localized to a specific, manageable area.",
+      "difficulty": "medium"
+    }
+  ]
+}

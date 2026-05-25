@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-3-raising-exceptions-raise-custom-exception-classes",
+  "subtopicTitle": "Raising exceptions — raise, custom exception classes",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:15.001Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `raise` statement in Python?",
+      "back": "The `raise` statement is used to explicitly trigger an exception, interrupting the normal flow of program execution and signaling that an error or exceptional condition has occurred.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you raise a built-in `ValueError` with the message \"Invalid configuration file.\"?",
+      "back": "```python\nraise ValueError(\"Invalid configuration file.\")\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Inside an `except` block, what is the key difference between `raise` (without arguments) and `raise NewError(\"message\")`?",
+      "back": "`raise` (without arguments) re-raises the *currently active exception* that was just caught, preserving its original traceback. `raise NewError(\"message\")` creates and raises a *new* exception, starting a new traceback from the point of the `raise` statement. Use plain `raise` to propagate the original error after logging or cleanup.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a basic custom exception class named `AuthenticationError` that inherits correctly from the standard base class.",
+      "back": "```python\nclass AuthenticationError(Exception):\n    \"\"\"Custom exception for authentication failures.\"\"\"\n    pass\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a function `check_username(username)` that raises your `AuthenticationError` if `username` is an empty string.",
+      "back": "```python\nclass AuthenticationError(Exception):\n    pass\n\ndef check_username(username):\n    if not username:\n        raise AuthenticationError(\"Username cannot be empty.\")\n    # Further validation or processing...\n    return True\n\n# Example usage:\n# try:\n#     check_username(\"\")\n# except AuthenticationError as e:\n#     print(f\"Error: {e}\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Modify `AuthenticationError` to accept and store an `error_code` attribute, then show how to raise and catch it.",
+      "back": "```python\nclass AuthenticationError(Exception):\n    def __init__(self, message, error_code=None):\n        super().__init__(message)\n        self.error_code = error_code\n\n# Raising and catching:\ntry:\n    raise AuthenticationError(\"Invalid credentials\", error_code=401)\nexcept AuthenticationError as e:\n    print(f\"Auth Error: {e.args[0]} (Code: {e.error_code})\")\n# Output: Auth Error: Invalid credentials (Code: 401)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why custom exception classes should typically inherit from `Exception` rather than `BaseException`.",
+      "back": "Inheriting from `Exception` ensures your custom errors are caught by typical `except Exception` blocks, which is standard practice for application-level errors. `BaseException` is the root of *all* exceptions, including `SystemExit` and `KeyboardInterrupt`, which are usually meant to terminate the program or interrupt execution. Catching `BaseException` broadly could inadvertently suppress these critical system signals, leading to unintended program behavior or preventing proper termination.",
+      "difficulty": "hard"
+    }
+  ]
+}

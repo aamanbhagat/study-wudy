@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-6-radix-sort-lsd-msd-o-d-n-k",
+  "subtopicTitle": "Radix sort — LSD, MSD; O(d(n+k))",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:30.889Z",
+  "cards": [
+    {
+      "front": "What is Radix Sort, and what fundamental principle does it use to sort elements?",
+      "back": "Radix Sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by individual digits which share the same significant position and value. It processes digits from either the least significant digit (LSD) or most significant digit (MSD). It relies on a stable sorting algorithm (like Counting Sort) for each digit pass.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the step-by-step process of Least Significant Digit (LSD) Radix Sort for sorting a list of numbers.",
+      "back": "LSD Radix Sort processes digits from right to left (least significant to most significant).\n1.  Determine the maximum number of digits, $d$, in any number.\n2.  For each digit position $i$ from $0$ to $d-1$ (starting from the rightmost digit):\n    a.  Perform a stable sort (e.g., Counting Sort) on the input array based on the digit at position $i$.\nThe array becomes sorted after $d$ passes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the step-by-step process of Most Significant Digit (MSD) Radix Sort for sorting a list of numbers.",
+      "back": "MSD Radix Sort processes digits from left to right (most significant to least significant) and is typically recursive.\n1.  Determine the maximum number of digits, $d$.\n2.  Sort the numbers based on their most significant digit (MSD) using a stable sort. This partitions the array into \"buckets\" based on the MSD.\n3.  Recursively apply MSD Radix Sort to each bucket for the next significant digit, until all digits are processed or a bucket contains only one element.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the time complexity of Radix Sort, $O(d(n+k))$, explaining what $d$, $n$, and $k$ represent.",
+      "back": "The time complexity is $O(d(n+k))$.\n*   $n$: The number of elements to be sorted.\n*   $k$: The range of possible values for each digit (the base or radix, e.g., 10 for decimal digits, 256 for bytes).\n*   $d$: The maximum number of digits (or passes) required to represent the largest number in the chosen base.\nEach pass (for each digit position) typically uses Counting Sort, which takes $O(n+k)$ time. Since there are $d$ passes, the total time complexity is $O(d(n+k))$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it crucial for Radix Sort to use a *stable* sorting algorithm (like Counting Sort) for each digit pass, especially in LSD Radix Sort?",
+      "back": "A stable sort preserves the relative order of elements with equal keys. In LSD Radix Sort, if two numbers have the same digit at the current position, their relative order from previous (less significant) passes must be maintained. If an unstable sort were used, elements already correctly ordered by their less significant digits could be reordered, breaking the overall sort.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare LSD and MSD Radix Sort, highlighting their primary differences and when one might be preferred over the other.",
+      "back": "LSD (Least Significant Digit):\n*   Sorts right-to-left (iterative).\n*   Requires all numbers to be padded to the same length.\n*   Efficient when numbers have varying lengths but a small maximum length.\n\nMSD (Most Significant Digit):\n*   Sorts left-to-right (recursive).\n*   Can be more efficient for data with very long keys but few distinct leading digits, as it can stop sorting sub-arrays early.\n*   Handles variable-length keys naturally without padding.\n*   Can have higher overhead due to recursion and managing sub-arrays.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what conditions is Radix Sort generally more efficient than comparison-based sorting algorithms (e.g., Merge Sort, Quick Sort)?",
+      "back": "Radix Sort is more efficient when:\n1.  The keys are integers or can be easily converted to integers.\n2.  The number of digits ($d$) and the radix ($k$) are small relative to the number of elements ($n$).\n3.  The maximum key value is not excessively large, making $d$ manageable.\n4.  Memory is not a major constraint, as Counting Sort (often used internally) may require additional auxiliary space $O(n+k)$.\nIt achieves $O(d(n+k))$ vs. $O(n \\log n)$ for comparison sorts, making it faster when $d \\cdot k$ is less than $\\log n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the choice of the base (radix $k$) affect the performance of Radix Sort, specifically impacting $d$ and the overall time complexity?",
+      "back": "Choosing the radix $k$ is a trade-off:\n*   **Larger $k$**: Decreases $d$ (fewer passes needed) because each digit can represent a wider range of values. This reduces the number of outer loops. However, each pass ($O(n+k)$) becomes more expensive due to the larger size of the counting array.\n*   **Smaller $k$**: Increases $d$ (more passes needed). This increases the number of outer loops. However, each pass is cheaper because the counting array is smaller.\nOptimally, $k$ is chosen such that $k \\approx n$ or $k$ is a power of 2 (e.g., 256 for byte-sized digits) to align with computer architecture, balancing $d$ and the cost of each pass.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can Radix Sort be adapted to sort non-negative floating-point numbers or strings, given its reliance on integer digits?",
+      "back": "1.  **Floating-point numbers**: Can be sorted by converting them to integers while preserving their order. For non-negative floats, this involves an integer representation (e.g., IEEE 754 bit pattern) and then applying Radix Sort. For negative floats, a special handling or two's complement-like transformation is needed to ensure correct ordering.\n2.  **Strings**: Can be sorted by treating characters as digits. Each character can be mapped to an integer value (e.g., ASCII or Unicode value). MSD Radix Sort is often more suitable for strings due to varying lengths and the ability to stop early. Padding shorter strings with a sentinel character (e.g., null) can make LSD applicable.",
+      "difficulty": "hard"
+    }
+  ]
+}

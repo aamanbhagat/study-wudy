@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-noexcept-specifier",
+  "subtopicTitle": "noexcept specifier",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:43.565Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `noexcept` specifier in C++?",
+      "back": "The `noexcept` specifier indicates that a function does not throw exceptions. This allows compilers to perform optimizations (e.g., avoiding stack unwinding machinery) and provides a strong guarantee to callers, which is crucial for exception-safe code and performance in generic programming.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the immediate consequence if a function declared with `noexcept` (or `noexcept(true)`) actually throws an exception?",
+      "back": "If a `noexcept` function throws an exception, the C++ runtime calls `std::terminate` immediately. This abruptly ends the program without any stack unwinding, as the runtime assumes no cleanup is necessary for a function that guaranteed not to throw.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can you programmatically determine at compile time if a given expression or function call is guaranteed not to throw an exception?",
+      "back": "Using the `noexcept` operator. For an expression `expr`, `noexcept(expr)` evaluates to a `bool` compile-time constant.\n```cpp\nbool is_safe = noexcept(some_function_call());\n```\nThis is distinct from the `noexcept` specifier used in function declarations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify two categories of special member functions that are implicitly declared `noexcept` by default in C++11 and later, provided their implicitly generated definitions would also be `noexcept`.",
+      "back": "1. Destructors (unless explicitly declared `noexcept(false)`).\n2. Move constructors and move assignment operators (if all operations they perform are `noexcept`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why marking move constructors and move assignment operators as `noexcept` is crucial for the performance and correct behavior of `std::vector` when it needs to reallocate its internal buffer.",
+      "back": "When `std::vector` reallocates (e.g., due to `push_back` exceeding capacity), it needs to move existing elements to the new memory location. If a type's move constructor is *not* `noexcept`, `std::vector` cannot use it for reallocation because throwing during a move would leave the container in an invalid, potentially corrupted state (some elements moved, some not). Instead, to guarantee strong exception safety, `std::vector` will fall back to using the slower *copy* constructor, even if a move constructor exists. Marking the move constructor `noexcept` signals to `std::vector` that it's safe to use for efficient, non-throwing moves.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write a function signature for a template function `foo` that should be `noexcept` only if the move constructor of its template parameter `T` is also `noexcept`.",
+      "back": "```cpp\ntemplate <typename T>\nvoid foo() noexcept(noexcept(T(std::declval<T>()))) {\n    // Function body\n}\n```\nHere, `noexcept(T(std::declval<T>()))` uses the `noexcept` operator to query the exception specification of `T`'s move constructor at compile time, and this result then determines `foo`'s `noexcept` specification.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a virtual function `void Base::func()` declared in a base class. What are the rules regarding the `noexcept` specifier when overriding `func` in a derived class `Derived::func()`?",
+      "back": "When overriding a virtual function, the `noexcept` specification of the derived function must be *at least as permissive* as the base function's.\n1. If `Base::func()` is `noexcept`, then `Derived::func()` *must also be `noexcept`*. (It cannot throw if the base guarantees not to).\n2. If `Base::func()` is *not* `noexcept` (i.e., it either has no `noexcept` specifier or is `noexcept(false)`), then `Derived::func()` *can be `noexcept` or not `noexcept`*. It can strengthen the guarantee but not weaken it.\nThis rule ensures that a pointer or reference to `Base` can always call `func` without violating its `noexcept` guarantee, even if it's dynamically dispatched to `Derived::func`.",
+      "difficulty": "hard"
+    }
+  ]
+}

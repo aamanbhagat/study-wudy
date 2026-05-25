@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-kepler-s-third-law-t-a-derivation",
+  "subtopicTitle": "Kepler's third law — T² ∝ a³ — derivation",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:45.443Z",
+  "cards": [
+    {
+      "front": "State Kepler's Third Law of Planetary Motion.",
+      "back": "Kepler's Third Law states that the square of the orbital period ($T$) of a planet is directly proportional to the cube of the semi-major axis ($a$) of its orbit. Mathematically, $T^2 \\propto a^3$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the mathematical expression for Newton's Law of Universal Gravitation?",
+      "back": "The gravitational force ($F_g$) between two masses $M_1$ and $M_2$ separated by a distance $r$ is given by: $$F_g = G \\frac{M_1 M_2}{r^2}$$ where $G$ is the gravitational constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the centripetal force ($F_c$) required to keep an object of mass $m$ moving in a circular path of radius $r$ at velocity $v$?",
+      "back": "The centripetal force is given by: $$F_c = \\frac{mv^2}{r}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an object in a circular orbit of radius $r$ and orbital period $T$, what is its orbital speed $v$?",
+      "back": "The orbital speed $v$ is the distance traveled (circumference $2\\pi r$) divided by the time taken (period $T$): $$v = \\frac{2\\pi r}{T}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To begin the derivation of Kepler's Third Law for a circular orbit, which two fundamental forces are equated?",
+      "back": "For an object in a stable circular orbit, the gravitational force ($F_g$) providing the attraction towards the central body is equal to the centripetal force ($F_c$) required to maintain the circular motion. Thus, $F_g = F_c$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive Kepler's Third Law ($T^2 \\propto r^3$) for a circular orbit of radius $r$ around a central mass $M$, starting from the equality of gravitational and centripetal forces.",
+      "back": "1. Equate gravitational and centripetal forces: $G \\frac{Mm}{r^2} = \\frac{mv^2}{r}$\n2. Cancel $m$ (mass of orbiting object) and one $r$: $G \\frac{M}{r} = v^2$\n3. Substitute $v = \\frac{2\\pi r}{T}$: $G \\frac{M}{r} = \\left(\\frac{2\\pi r}{T}\\right)^2$\n4. Expand: $G \\frac{M}{r} = \\frac{4\\pi^2 r^2}{T^2}$\n5. Rearrange to solve for $T^2$: $T^2 = \\frac{4\\pi^2 r^2 \\cdot r}{GM}$\n6. Simplify: $$T^2 = \\left(\\frac{4\\pi^2}{GM}\\right) r^3$$\nThis shows $T^2 \\propto r^3$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the derived form of Kepler's Third Law for circular orbits generalized to elliptical orbits, and what is the constant of proportionality?",
+      "back": "For elliptical orbits, the orbital radius $r$ is replaced by the semi-major axis $a$. The law becomes: $$T^2 = \\left(\\frac{4\\pi^2}{GM}\\right) a^3$$\nThe constant of proportionality is $\\frac{4\\pi^2}{GM}$, which depends only on the gravitational constant $G$ and the mass of the central body $M$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the primary assumptions made in the derivation of Kepler's Third Law?",
+      "back": "1. The mass of the orbiting body ($m$) is negligible compared to the mass of the central body ($M$), i.e., $m \\ll M$.\n2. The only significant force acting on the orbiting body is the gravitational force from the central body (two-body problem).\n3. The central body is stationary or its motion is negligible (or we are in the center of mass frame).\n4. The orbit is a perfect ellipse (or circle).",
+      "difficulty": "hard"
+    }
+  ]
+}

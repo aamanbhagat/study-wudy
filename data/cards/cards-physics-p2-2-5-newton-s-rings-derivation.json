@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p2-2-5-newton-s-rings-derivation",
+  "subtopicTitle": "Newton's rings — derivation",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:44.491Z",
+  "cards": [
+    {
+      "front": "What optical phenomenon is responsible for Newton's rings, and what is the typical experimental setup?",
+      "back": "Newton's rings are caused by **interference of light** due to reflection from the top and bottom surfaces of a **thin air film**. The setup typically involves a **plano-convex lens** with a large radius of curvature placed on a **flat glass plate**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Newton's rings, what two light rays interfere, and what is the primary source of their path difference?",
+      "back": "The two interfering rays are: 1) Light reflected from the **bottom surface of the plano-convex lens** (top surface of the air film). 2) Light reflected from the **top surface of the flat glass plate** (bottom surface of the air film). The path difference arises from the extra distance traveled by the second ray through the air film.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When light reflects from the air film in Newton's rings, which reflection experiences a phase change of $\\pi$ radians?",
+      "back": "Light reflecting from the **bottom surface of the air film** (i.e., from the air-glass interface, where light goes from a rarer medium, air, to a denser medium, glass) undergoes a phase change of $\\pi$ radians (or an equivalent path difference of $\\lambda/2$). The reflection from the top surface of the air film (glass-air interface) does not experience a phase change.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a plano-convex lens of radius $R$ resting on a flat plate, derive the relationship between the air film thickness $t$ at a distance $r$ from the point of contact.",
+      "back": "Consider a cross-section. Let $O$ be the center of curvature of the lens. The radius of the lens is $R$. At a distance $r$ from the point of contact, the film thickness is $t$. From geometry (Pythagorean theorem on the right triangle formed by $R-t$, $r$, and $R$):\n$$R^2 = r^2 + (R-t)^2$$\n$$R^2 = r^2 + R^2 - 2Rt + t^2$$\n$$0 = r^2 - 2Rt + t^2$$\nSince $t$ is very small compared to $R$, $t^2 \\approx 0$.\nThus, $r^2 = 2Rt$, or $t = \\frac{r^2}{2R}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the condition for destructive interference (dark rings) in Newton's rings, considering path difference and phase change.",
+      "back": "The path difference between the two interfering rays is $2t$. Due to the $\\pi$ phase change upon reflection from the denser medium (air-glass interface), an additional path difference of $\\lambda/2$ is introduced.\nFor destructive interference, the total path difference must be an odd multiple of $\\lambda/2$:\n$$2t + \\frac{\\lambda}{2} = (2m+1)\\frac{\\lambda}{2}$$\n$$2t = (2m+1)\\frac{\\lambda}{2} - \\frac{\\lambda}{2}$$\n$$2t = 2m\\frac{\\lambda}{2}$$\n$$2t = m\\lambda$$\nSubstituting $t = \\frac{r^2}{2R}$:\n$$2\\left(\\frac{r_m^2}{2R}\\right) = m\\lambda$$\n$$\\frac{r_m^2}{R} = m\\lambda$$\n$$r_m = \\sqrt{mR\\lambda}$$\nwhere $m=0, 1, 2, \\dots$ represents the order of the dark ring.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the condition for constructive interference (bright rings) in Newton's rings.",
+      "back": "The path difference is $2t$. With the $\\lambda/2$ phase shift from reflection, for constructive interference, the total path difference must be an integer multiple of $\\lambda$:\n$$2t + \\frac{\\lambda}{2} = m\\lambda$$\n$$2t = m\\lambda - \\frac{\\lambda}{2}$$\n$$2t = (2m-1)\\frac{\\lambda}{2}$$\nSubstituting $t = \\frac{r^2}{2R}$:\n$$2\\left(\\frac{r_m^2}{2R}\\right) = (2m-1)\\frac{\\lambda}{2}$$\n$$\\frac{r_m^2}{R} = (2m-1)\\frac{\\lambda}{2}$$\n$$r_m = \\sqrt{(2m-1)\\frac{R\\lambda}{2}}$$\nwhere $m=1, 2, 3, \\dots$ represents the order of the bright ring.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the nature of the central spot in Newton's rings, and why?",
+      "back": "The central spot ($r=0$) is **dark**. At the point of contact, the air film thickness $t=0$. Using the condition for dark rings ($2t = m\\lambda$), if $t=0$, then $m=0$, which corresponds to the central dark spot. Alternatively, at $t=0$, the path difference is $0$. However, the $\\pi$ phase change upon reflection from the bottom surface means the two rays are effectively out of phase by $\\pi$, leading to destructive interference.",
+      "difficulty": "medium"
+    }
+  ]
+}

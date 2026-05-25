@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-kalman-gain-minimizes-trace-of-covariance",
+  "subtopicTitle": "Kalman gain — minimizes trace of covariance",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:59.257Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the Kalman gain ($K_k$) in a Kalman filter?",
+      "back": "The Kalman gain ($K_k$) is a weighting factor that determines how much the filter trusts the new measurement versus its own prediction when updating the state estimate. It optimally combines the predicted state and the measurement to produce the posterior (updated) state estimate.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the Kalman gain ($K_k$) in its standard form.",
+      "back": "The Kalman gain is given by:\n$$K_k = P_k^- H_k^T (H_k P_k^- H_k^T + R_k)^{-1}$$\nWhere:\n*   $P_k^-$ is the *a priori* (predicted) error covariance matrix.\n*   $H_k$ is the measurement matrix.\n*   $R_k$ is the measurement noise covariance matrix.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain how the Kalman gain balances trust between the predicted state and the measurement.",
+      "back": "A large Kalman gain implies high trust in the measurement (e.g., low $R_k$) and low trust in the prediction ($P_k^-$), leading to a significant adjustment of the state estimate towards the measurement. Conversely, a small Kalman gain implies low trust in the measurement and high trust in the prediction, resulting in a smaller adjustment. It's a dynamic trade-off based on relative uncertainties.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The Kalman gain is derived to minimize a specific statistical property of the posterior error covariance matrix. What is this property?",
+      "back": "The Kalman gain is derived to minimize the *trace* of the posterior (or *a posteriori*) error covariance matrix, $P_k$. Minimizing the trace minimizes the sum of the variances of the individual state variables, which represents the total estimation uncertainty.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is minimizing the *trace* of the posterior error covariance matrix ($P_k$) the objective, rather than some other matrix norm?",
+      "back": "The trace of a covariance matrix, $\\text{Tr}(P_k)$, is the sum of the variances of the individual state variables (i.e., $\\text{Tr}(P_k) = \\sum_{i=1}^n \\text{Var}(x_{k,i}))$. Minimizing the trace ensures that the overall uncertainty in the state estimate, considering all its components, is minimized. It provides a single, scalar measure of the total estimation uncertainty that is easy to optimize.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly outline the mathematical approach used to derive the Kalman gain formula by minimizing the trace of the posterior error covariance.",
+      "back": "The derivation involves expressing the posterior error covariance $P_k$ in terms of the Kalman gain $K_k$, the *a priori* covariance $P_k^-$, and the measurement noise $R_k$. Then, the trace of $P_k$ is taken, and its derivative with respect to $K_k$ is computed using matrix calculus. Setting this derivative to zero and solving for $K_k$ yields the optimal Kalman gain formula.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens to the Kalman gain ($K_k$) if the measurement noise covariance $R_k$ approaches zero?",
+      "back": "If $R_k \\to 0$, the Kalman filter places infinite trust in the measurement. The term $(H_k P_k^- H_k^T + R_k)^{-1}$ simplifies to $(H_k P_k^- H_k^T)^{-1}$, and the Kalman gain $K_k$ becomes $P_k^- H_k^T (H_k P_k^- H_k^T)^{-1}$. In this scenario, the measurement effectively *overrides* the prediction, as the filter assumes the measurement is perfectly accurate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to the Kalman gain ($K_k$) if the *a priori* error covariance $P_k^-$ approaches zero?",
+      "back": "If $P_k^- \\to 0$, it means the filter's prediction is considered perfectly accurate (zero uncertainty). In this case, the numerator $P_k^- H_k^T \\to 0$, causing the Kalman gain $K_k \\to 0$. This means the filter completely ignores the measurement and relies solely on its (perfect) prediction, as there's no need to correct an already perfect estimate.",
+      "difficulty": "medium"
+    }
+  ]
+}

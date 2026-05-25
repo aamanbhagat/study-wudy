@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-1-big-o-notation-formal-definition-mathematical",
+  "subtopicTitle": "Big-O notation — formal definition, mathematical",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:00.164Z",
+  "cards": [
+    {
+      "front": "State the formal mathematical definition of Big-O notation for a function $f(n)$.",
+      "back": "A function $f(n)$ is said to be $O(g(n))$ (read as \"$f$ of $n$ is Big-O of $g$ of $n$\") if there exist positive constants $c$ and $n_0$ such that for all $n \\ge n_0$, the following inequality holds: $$0 \\le f(n) \\le c \\cdot g(n)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Intuitively, what does $f(n) = O(g(n))$ imply about the growth rate of $f(n)$ relative to $g(n)$ as $n$ becomes very large?",
+      "back": "It implies that $f(n)$ grows no faster than $g(n)$ asymptotically. In other words, $g(n)$ provides an asymptotic upper bound for $f(n)$. For sufficiently large $n$, $f(n)$ will always be bounded by some constant multiple of $g(n)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using the formal definition, prove that $f(n) = 2n^2 + 3n + 1$ is $O(n^2)$.",
+      "back": "We need to find positive constants $c$ and $n_0$ such that for all $n \\ge n_0$, $2n^2 + 3n + 1 \\le c \\cdot n^2$.\nFor $n \\ge 1$:\n$3n \\le 3n^2$\n$1 \\le n^2$\nSo, $2n^2 + 3n + 1 \\le 2n^2 + 3n^2 + n^2 = 6n^2$.\nThus, we can choose $c=6$ and $n_0=1$. Since $c$ and $n_0$ are positive constants, the definition is satisfied.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Big-O analysis, why are constant factors and lower-order terms typically disregarded when determining the asymptotic complexity?",
+      "back": "Big-O notation focuses on the *asymptotic* behavior of functions as $n$ approaches infinity. For sufficiently large $n$, the highest-order term in a polynomial (or the dominant term in any function) will overwhelm the contribution of constant factors and lower-order terms. The constants $c$ and $n_0$ in the formal definition precisely allow us to absorb these less significant parts.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why $f(n) = n^3$ is *not* $O(n^2)$, referencing the formal definition.",
+      "back": "To show $n^3 \\ne O(n^2)$, we must demonstrate that for *any* positive constants $c$ and $n_0$, there exists an $n \\ge n_0$ such that $n^3 > c \\cdot n^2$.\nAssume for contradiction that $n^3 = O(n^2)$. Then there exist $c, n_0 > 0$ such that for all $n \\ge n_0$, $n^3 \\le c \\cdot n^2$.\nIf $n > 0$, we can divide by $n^2$: $n \\le c$.\nHowever, $n$ can be arbitrarily large. If we choose any $n > \\max(n_0, c)$, this inequality ($n \\le c$) will be violated. Therefore, no such $c$ and $n_0$ can exist, and $n^3$ is not $O(n^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Transitivity Property for Big-O notation.",
+      "back": "If $f(n) = O(g(n))$ and $g(n) = O(h(n))$, then it follows that $f(n) = O(h(n))$.\nThis means if $f$ is asymptotically bounded by $g$, and $g$ is asymptotically bounded by $h$, then $f$ is also asymptotically bounded by $h$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $f_1(n) = O(g_1(n))$ and $f_2(n) = O(g_2(n))$, what is the Big-O complexity of their sum, $f_1(n) + f_2(n)$?",
+      "back": "$f_1(n) + f_2(n) = O(\\max(g_1(n), g_2(n)))$. This is often called the Sum Rule.\nFor example, if an algorithm has two sequential parts, one $O(n)$ and one $O(n^2)$, the total complexity is $O(\\max(n, n^2)) = O(n^2)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

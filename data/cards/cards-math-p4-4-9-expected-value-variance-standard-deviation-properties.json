@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-9-expected-value-variance-standard-deviation-properties",
+  "subtopicTitle": "Expected value, variance, standard deviation — properties",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:35.657Z",
+  "cards": [
+    {
+      "front": "Define the expected value $E[X]$ for a discrete random variable $X$.",
+      "back": "For a discrete random variable $X$ with probability mass function $P(X=x)$, the expected value is given by the sum over all possible values $x$: $$E[X] = \\sum_x x P(X=x)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the linearity property of expectation for random variables $X, Y$ and constants $a, b, c$.",
+      "back": "The linearity property of expectation states that: $$E[aX + bY + c] = aE[X] + bE[Y] + c$$ This holds true for any random variables $X$ and $Y$, regardless of their independence.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define $Var(X)$ and state its alternative computational formula.",
+      "back": "The variance of a random variable $X$ is defined as the expected squared deviation from its mean: $$Var(X) = E[(X - E[X])^2]$$ The alternative computational formula, often easier to use, is: $$Var(X) = E[X^2] - (E[X])^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does $Var(aX + b)$ relate to $Var(X)$ for constants $a, b$?",
+      "back": "The variance of a linearly transformed random variable $X$ is given by: $$Var(aX + b) = a^2 Var(X)$$ Note that the constant $b$ (shift) does not affect the variance, as variance measures spread, not location.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $X$ and $Y$ are independent random variables, what are $Var(X+Y)$ and $Var(X-Y)$?",
+      "back": "If $X$ and $Y$ are independent random variables, then: $$Var(X+Y) = Var(X) + Var(Y)$$ and $$Var(X-Y) = Var(X) + Var(Y)$$ Independence is a sufficient condition for this additive property. More generally, $Var(X \\pm Y) = Var(X) + Var(Y) \\pm 2Cov(X,Y)$. If $X,Y$ are independent, $Cov(X,Y)=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the computational formula for variance: $Var(X) = E[X^2] - (E[X])^2$.",
+      "back": "Starting from the definition of variance: $$Var(X) = E[(X - E[X])^2]$$ Expand the squared term: $$Var(X) = E[X^2 - 2XE[X] + (E[X])^2]$$ By the linearity of expectation ($E[A+B] = E[A]+E[B]$ and $E[cX] = cE[X]$): $$Var(X) = E[X^2] - E[2XE[X]] + E[(E[X])^2]$$ Since $E[X]$ is a constant, $2E[X]$ is also a constant: $$Var(X) = E[X^2] - 2E[X]E[X] + (E[X])^2$$ $$Var(X) = E[X^2] - 2(E[X])^2 + (E[X])^2$$ $$Var(X) = E[X^2] - (E[X])^2$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition does $E[XY] = E[X]E[Y]$ hold true? Is the converse true?",
+      "back": "The property $E[XY] = E[X]E[Y]$ holds true if $X$ and $Y$ are independent random variables. The converse is generally *not* true; $E[XY] = E[X]E[Y]$ (which implies $Cov(X,Y)=0$) does not necessarily mean $X$ and $Y$ are independent. For example, if $X$ is a standard normal variable and $Y=X^2$, they are dependent, but $Cov(X,Y)=0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define standard deviation $SD(X)$ and explain its primary advantage over variance.",
+      "back": "The standard deviation $SD(X)$ is the square root of the variance: $$SD(X) = \\sqrt{Var(X)}$$ Its primary advantage is that it is expressed in the same units as the random variable $X$ and its expected value $E[X]$. This makes it more interpretable as a measure of the typical spread or dispersion of the data points around the mean, compared to variance which is in squared units.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For any random variable $X$, what is the relationship between $E[X^2]$ and $(E[X])^2$? Provide a brief justification.",
+      "back": "For any random variable $X$, we always have $E[X^2] \\ge (E[X])^2$. This is because $Var(X) = E[X^2] - (E[X])^2$, and variance must always be non-negative ($Var(X) \\ge 0$). Thus, $E[X^2] - (E[X])^2 \\ge 0$, which implies $E[X^2] \\ge (E[X])^2$. This is also a specific instance of Jensen's inequality for the convex function $f(x)=x^2$.",
+      "difficulty": "hard"
+    }
+  ]
+}

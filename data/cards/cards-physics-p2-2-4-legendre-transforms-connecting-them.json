@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-4-legendre-transforms-connecting-them",
+  "subtopicTitle": "Legendre transforms connecting them",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:53.502Z",
+  "cards": [
+    {
+      "front": "Define the Legendre transform $f^*(p)$ of a function $f(x)$ with respect to $x$.",
+      "back": "The Legendre transform $f^*(p)$ of a function $f(x)$ is given by $f^*(p) = px - f(x)$, where $p = \\frac{df}{dx}$ is the conjugate variable. The variable $x$ is then expressed as a function of $p$, $x(p)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of Legendre transforms in thermodynamics for connecting different thermodynamic potentials?",
+      "back": "Legendre transforms are crucial for changing the set of independent variables (natural variables) of a thermodynamic potential. This allows us to describe systems under different experimental conditions (e.g., constant entropy and volume vs. constant temperature and volume) by 'trading' an extensive variable for its conjugate intensive variable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Helmholtz Free Energy $F(T, V, N)$ from the Internal Energy $U(S, V, N)$ using a Legendre transform.",
+      "back": "Given the Internal Energy $U(S,V,N)$ with natural variables $S, V, N$, we want to change the independent variable $S$ to its conjugate intensive variable $T$. We know that $T = \\left(\\frac{\\partial U}{\\partial S}\\right)_{V,N}$. Following the general form $f^*(p) = px - f(x)$, we get $F(T,V,N) = TS - U$. However, in thermodynamics, the convention for energy-like potentials is often $U - TS$, which means the definition of $p$ is $p = -\\frac{df}{dx}$ or $f^*(p) = -px + f(x)$ effectively. So, $F(T,V,N) = U - TS$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $F(T,V,N) = U - TS$, derive $(\\partial F / \\partial T)_{V,N}$ and explain its significance.",
+      "back": "Starting from $F = U - TS$, we take the differential: $dF = dU - TdS - SdT$. We know the fundamental thermodynamic relation for $U$: $dU = TdS - PdV + \\mu dN$. Substituting this into the $dF$ expression: $dF = (TdS - PdV + \\mu dN) - TdS - SdT = -PdV - SdT + \\mu dN$. From this, we can directly read off the partial derivative: $(\\partial F / \\partial T)_{V,N} = -S$. This demonstrates that the Legendre transform correctly swaps the roles of the original extensive variable ($S$) and its conjugate intensive variable ($T$) in the derivatives of the new potential.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Express the Enthalpy $H(S, P, N)$ as a Legendre transform of the Internal Energy $U(S, V, N)$.",
+      "back": "To obtain Enthalpy $H(S,P,N)$ from Internal Energy $U(S,V,N)$, we need to change the independent variable $V$ to its conjugate intensive variable $P$. We know that $P = -\\left(\\frac{\\partial U}{\\partial V}\\right)_{S,N}$. Using the thermodynamic convention for Legendre transforms, $H(S,P,N) = U - (-PV) = U + PV$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the Gibbs Free Energy $G(T, P, N)$ as a Legendre transform of the Helmholtz Free Energy $F(T, V, N)$.",
+      "back": "To obtain Gibbs Free Energy $G(T,P,N)$ from Helmholtz Free Energy $F(T,V,N)$, we need to change the independent variable $V$ to its conjugate intensive variable $P$. We know that $P = -\\left(\\frac{\\partial F}{\\partial V}\\right)_{T,N}$. Using the thermodynamic convention for Legendre transforms, $G(T,P,N) = F - (-PV) = F + PV$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What mathematical condition must a function $f(x)$ satisfy for its Legendre transform $f^*(p)$ to be well-defined and unique, allowing for a reversible transformation?",
+      "back": "For a Legendre transform to be well-defined, unique, and reversible (meaning we can transform back to the original function), the original function $f(x)$ must be convex (or concave). This ensures that the derivative $p = df/dx$ is a monotonic function of $x$, allowing for a unique inverse $x(p)$. In thermodynamics, this condition is related to the stability of the system.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the physical meaning of \"conjugate variables\" (e.g., $T$ and $S$) in thermodynamic Legendre transforms?",
+      "back": "Conjugate variables in thermodynamics are pairs of intensive and extensive quantities whose product has units of energy. In a Legendre transform, we swap an extensive variable (like entropy $S$, or volume $V$) for its conjugate intensive variable (like temperature $T$, or pressure $-P$) as the independent variable. This effectively changes the ensemble or the set of controlled experimental conditions for the system.",
+      "difficulty": "easy"
+    }
+  ]
+}

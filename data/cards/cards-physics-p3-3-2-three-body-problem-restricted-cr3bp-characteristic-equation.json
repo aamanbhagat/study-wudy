@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-three-body-problem-restricted-cr3bp-characteristic-equation",
+  "subtopicTitle": "Three-body problem — restricted (CR3BP), characteristic equation",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:32.938Z",
+  "cards": [
+    {
+      "front": "Define the Circular Restricted Three-Body Problem (CR3BP).",
+      "back": "The CR3BP describes the motion of a massless third body under the gravitational influence of two primary bodies that orbit each other in circular paths. The third body's mass is negligible and does not affect the primaries' motion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key assumptions made in the Circular Restricted Three-Body Problem (CR3BP).",
+      "back": "1. Two primary bodies ($m_1, m_2$) orbit their common barycenter in circular paths. 2. A third body ($m_3$) has negligible mass ($m_3 \\ll m_1, m_2$). 3. The third body's motion does not affect the primaries. 4. All motion is planar (2D).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the most convenient coordinate system for analyzing the CR3BP, and why?",
+      "back": "A synodic (rotating) coordinate system, with its origin at the barycenter of the primaries and axes rotating with the primaries. This makes the primaries appear stationary, simplifying the equations of motion by removing the time-dependence of their positions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Jacobi Integral ($C$) for the CR3BP and explain its significance.",
+      "back": "The Jacobi Integral, $C$, is a conserved quantity in the CR3BP. It is given by $C = 2U - (\\dot{x}^2 + \\dot{y}^2)$, where $U$ is the effective potential. It acts as an \"energy-like\" integral of motion in the rotating frame, defining regions of allowed motion for the massless body.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are the five Lagrange points ($L_1$ to $L_5$) defined in the CR3BP?",
+      "back": "Lagrange points are the five equilibrium points in the rotating frame of the CR3BP where the gravitational forces from the two primaries and the centrifugal force balance out. A massless body placed at one of these points will remain stationary relative to the primaries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the characteristic equation when analyzing the stability of equilibrium points in the CR3BP?",
+      "back": "The characteristic equation is used to find the eigenvalues of the linearized system matrix (Jacobian) around an equilibrium point. These eigenvalues determine the local stability of the equilibrium point: whether small perturbations will grow, decay, or oscillate around the point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a linearized system $\\dot{\\mathbf{x}} = A\\mathbf{x}$ around an equilibrium point, what is the characteristic equation used to find its eigenvalues?",
+      "back": "The characteristic equation is given by $\\det(A - \\lambda I) = 0$, where $A$ is the Jacobian matrix of the linearized system, $\\lambda$ represents the eigenvalues, and $I$ is the identity matrix. Solving this polynomial equation for $\\lambda$ yields the eigenvalues.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how the eigenvalues ($\\lambda$) of the characteristic equation determine the stability of an equilibrium point in the CR3BP.",
+      "back": "1. If all $\\text{Re}(\\lambda) < 0$: The point is asymptotically stable. 2. If any $\\text{Re}(\\lambda) > 0$: The point is unstable. 3. If all $\\text{Re}(\\lambda) = 0$ (and no generalized eigenvectors for eigenvalues with zero real part): The point is marginally stable (e.g., center, stable oscillations). In CR3BP, $L_1, L_2, L_3$ are typically unstable, while $L_4, L_5$ are linearly stable for $\\mu < \\mu_{crit}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

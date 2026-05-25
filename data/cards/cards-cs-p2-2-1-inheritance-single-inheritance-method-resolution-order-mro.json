@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-inheritance-single-inheritance-method-resolution-order-mro",
+  "subtopicTitle": "Inheritance — single inheritance, method resolution order (MRO)",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:24.629Z",
+  "cards": [
+    {
+      "front": "Define \"single inheritance\" in Object-Oriented Programming.",
+      "back": "Single inheritance is an OOP mechanism where a class (subclass or derived class) inherits properties and behaviors from only one other class (superclass or base class). This creates a straightforward, linear hierarchy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Python, how do you declare a class `Dog` that inherits from a single base class `Animal`?",
+      "back": "You specify the base class name in parentheses after the subclass name:\n```python\nclass Animal:\n    def speak(self):\n        pass\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof!\"\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary benefit of using single inheritance in OOP?",
+      "back": "The main advantage is **code reusability**. Subclasses can reuse methods and attributes defined in their base class, reducing redundancy, promoting a clear \"is-a\" relationship, and making code easier to maintain and extend.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the `super()` function when used in a subclass constructor (`__init__`) in single inheritance.",
+      "back": "`super()` allows a subclass to call methods (most commonly the `__init__` constructor) of its direct parent class. It ensures that the parent class's initialization logic or method implementation is executed, preventing code duplication and properly setting up inherited attributes.\n```python\nclass Animal:\n    def __init__(self, name):\n        self.name = name\n\nclass Dog(Animal):\n    def __init__(self, name, breed):\n        super().__init__(name) # Calls Animal's __init__\n        self.breed = breed\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"Method Resolution Order (MRO)\" in the context of OOP inheritance.",
+      "back": "MRO is the sequence in which Python (or other OOP languages) searches for a method or attribute in an inheritance hierarchy. When a method is called on an object, Python follows the MRO to find the correct implementation, starting from the object's class and moving up the hierarchy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a single inheritance chain: `class A: pass`, `class B(A): pass`, `class C(B): pass`. What is the MRO for class `C`?",
+      "back": "The MRO for class `C` is `[C, B, A, object]`. Python's MRO algorithm (C3 linearization) ensures a consistent order, starting from the class itself, then its direct parent, and so on, finally reaching the base `object` class.\n```python\nclass A: pass\nclass B(A): pass\nclass C(B): pass\nprint(C.__mro__) # Output: (<class '__main__.C'>, <class '__main__.B'>, <class '__main__.A'>, <class 'object'>)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `class A: def method_a(): pass`, `class B(A): def method_a(): pass`, `class C(B): pass`. If `c_obj = C()`, which `method_a` is invoked by `c_obj.method_a()` and why?",
+      "back": "The `method_a` from class `B` is invoked. This is because Python follows the MRO for `C`, which is `[C, B, A, object]`. It searches from left to right: `C` has no `method_a`, then `B` has `method_a`, so that implementation is used. The search stops at the first found method.\n```python\nclass A:\n    def method_a(self): return \"From A\"\nclass B(A):\n    def method_a(self): return \"From B\"\nclass C(B):\n    pass\nc_obj = C()\nprint(c_obj.method_a()) # Output: From B\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does `super()` leverage the MRO to determine which method to call in a single inheritance hierarchy?",
+      "back": "`super()` doesn't simply call the *direct parent's* method; it calls the method of the *next class in the current instance's MRO*. When `super().method_name()` is called from within a method of class `X`, Python finds `X` in the MRO, then looks for `method_name` in the class *immediately following* `X` in that MRO. This ensures proper method chaining and consistent behavior, even in single inheritance.",
+      "difficulty": "hard"
+    }
+  ]
+}

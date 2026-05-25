@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-stability-of-equilibria-stable-unstable-saddle-spiral-centre",
+  "subtopicTitle": "Stability of equilibria — stable, unstable, saddle, spiral, centre",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:10.484Z",
+  "cards": [
+    {
+      "front": "For an autonomous system $\\frac{d\\mathbf{x}}{dt} = \\mathbf{f}(\\mathbf{x})$, what is an equilibrium point?",
+      "back": "An equilibrium point $\\mathbf{x}_0$ is a constant solution where $\\mathbf{f}(\\mathbf{x}_0) = \\mathbf{0}$. If the system starts at $\\mathbf{x}_0$, it remains there for all $t$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a stable equilibrium point $\\mathbf{x}_0$ for an autonomous system $\\frac{d\\mathbf{x}}{dt} = \\mathbf{f}(\\mathbf{x})$.",
+      "back": "An equilibrium $\\mathbf{x}_0$ is stable if for every $\\epsilon > 0$, there exists a $\\delta > 0$ such that if $||\\mathbf{x}(0) - \\mathbf{x}_0|| < \\delta$, then $||\\mathbf{x}(t) - \\mathbf{x}_0|| < \\epsilon$ for all $t \\ge 0$. Intuitively, solutions starting sufficiently close to $\\mathbf{x}_0$ stay arbitrarily close to $\\mathbf{x}_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the stability of an equilibrium point $\\mathbf{x}_0$ for a non-linear system $\\frac{d\\mathbf{x}}{dt} = \\mathbf{f}(\\mathbf{x})$ typically analyzed?",
+      "back": "By linearizing the system around $\\mathbf{x}_0$. This involves computing the Jacobian matrix $J(\\mathbf{x}) = \\frac{\\partial \\mathbf{f}}{\\partial \\mathbf{x}}$ at $\\mathbf{x}_0$, denoted as $A = J(\\mathbf{x}_0)$. The stability of the non-linear system near $\\mathbf{x}_0$ is then determined by the stability of the linear system $\\frac{d\\mathbf{y}}{dt} = A\\mathbf{y}$, where $\\mathbf{y} = \\mathbf{x} - \\mathbf{x}_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 2D linear system $\\frac{d\\mathbf{x}}{dt} = A\\mathbf{x}$, what types of equilibrium points occur if eigenvalues $\\lambda_1, \\lambda_2$ are real and distinct?",
+      "back": "If $\\lambda_1, \\lambda_2$ are real and distinct:\n*   **Stable Node:** If $\\lambda_1 < 0$ and $\\lambda_2 < 0$. Solutions approach the equilibrium.\n*   **Unstable Node:** If $\\lambda_1 > 0$ and $\\lambda_2 > 0$. Solutions move away from the equilibrium.\n*   **Saddle Point:** If $\\lambda_1$ and $\\lambda_2$ have opposite signs (one positive, one negative). Solutions approach along one direction, recede along another.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 2D linear system $\\frac{d\\mathbf{x}}{dt} = A\\mathbf{x}$, what types of equilibrium points occur if eigenvalues are complex conjugates $\\lambda = \\alpha \\pm i\\beta$ (with $\\beta \\ne 0$)?",
+      "back": "If eigenvalues are complex conjugates $\\lambda = \\alpha \\pm i\\beta$ ($\\beta \\ne 0$):\n*   **Stable Spiral (Focus):** If $\\alpha < 0$. Solutions spiral inwards towards the equilibrium.\n*   **Unstable Spiral (Focus):** If $\\alpha > 0$. Solutions spiral outwards away from the equilibrium.\n*   **Centre:** If $\\alpha = 0$. Solutions form closed orbits around the equilibrium, neither approaching nor receding.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Summarize the stability classification for an equilibrium point based on the real parts of the eigenvalues $\\lambda_1, \\lambda_2$ of the Jacobian matrix $A$.",
+      "back": "Let $\\text{Re}(\\lambda_1)$ and $\\text{Re}(\\lambda_2)$ be the real parts of the eigenvalues:\n*   **Stable Node/Spiral:** Both $\\text{Re}(\\lambda_1) < 0$ and $\\text{Re}(\\lambda_2) < 0$. (Attractor)\n*   **Unstable Node/Spiral:** Both $\\text{Re}(\\lambda_1) > 0$ and $\\text{Re}(\\lambda_2) > 0$. (Repeller)\n*   **Saddle Point:** $\\text{Re}(\\lambda_1)$ and $\\text{Re}(\\lambda_2)$ have opposite signs.\n*   **Centre:** Both $\\text{Re}(\\lambda_1) = 0$ and $\\text{Re}(\\lambda_2) = 0$ (requires complex conjugate eigenvalues).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the difference between a stable equilibrium and an asymptotically stable equilibrium, using a \"centre\" as an example.",
+      "back": "An equilibrium is **stable** if solutions starting sufficiently close to it stay arbitrarily close. A **centre** is stable because solutions orbit around it, never moving far away if they start close.\n\nAn equilibrium is **asymptotically stable** if it is stable AND solutions starting sufficiently close to it also *approach* the equilibrium as $t \\to \\infty$. A **centre** is *not* asymptotically stable because its solutions orbit indefinitely and do not converge to the equilibrium point itself.",
+      "difficulty": "hard"
+    }
+  ]
+}

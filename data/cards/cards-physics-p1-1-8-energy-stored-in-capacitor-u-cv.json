@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-energy-stored-in-capacitor-u-cv",
+  "subtopicTitle": "Energy stored in capacitor U = ½CV²",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:39.900Z",
+  "cards": [
+    {
+      "front": "State the formula for the energy $U$ stored in a capacitor in terms of its capacitance $C$ and voltage $V$.",
+      "back": "The energy $U$ stored in a capacitor is given by: $$U = \\frac{1}{2}CV^2$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the energy $U$ stored in a capacitor, starting from the definition of work done to move charge.",
+      "back": "When a small charge $dq$ is moved against a potential difference $V$, the work done is $dW = V dq$. For a capacitor, the potential difference $V$ at any point during charging is related to the instantaneous charge $Q$ by $V = Q/C$. So, $dW = (Q/C) dq$. To charge a capacitor from $0$ to a total charge $Q_{total}$, the total energy stored (work done) is:\n$$U = \\int_0^{Q_{total}} \\frac{Q}{C} dQ = \\frac{1}{C} \\left[ \\frac{Q^2}{2} \\right]_0^{Q_{total}} = \\frac{Q_{total}^2}{2C}$$\nSince $Q_{total} = CV$, substitute this into the equation:\n$$U = \\frac{(CV)^2}{2C} = \\frac{C^2V^2}{2C} = \\frac{1}{2}CV^2$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Express the energy $U$ stored in a capacitor in two alternative forms, using the relationship $Q=CV$.",
+      "back": "The three forms for the energy $U$ stored in a capacitor are:\n1.  In terms of $C$ and $V$: $U = \\frac{1}{2}CV^2$\n2.  In terms of $Q$ and $C$ (substituting $V=Q/C$): $U = \\frac{1}{2}C\\left(\\frac{Q}{C}\\right)^2 = \\frac{1}{2}\\frac{Q^2}{C}$\n3.  In terms of $Q$ and $V$ (substituting $C=Q/V$): $U = \\frac{1}{2}\\left(\\frac{Q}{V}\\right)V^2 = \\frac{1}{2}QV$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively *why* energy is stored in a capacitor and what form this energy takes.",
+      "back": "Energy is stored in a capacitor because work must be done to move charge from one plate to the other against the repulsive force of already accumulated charge on the destination plate (and attractive force from the source plate). As more charge accumulates, the potential difference across the plates increases, making it progressively harder to move additional charge. This work done is stored as potential energy in the electric field established between the capacitor plates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the SI units for energy stored, capacitance, and voltage in the formula $U = \\frac{1}{2}CV^2$? Show how they are consistent.",
+      "back": "The SI units are:\n*   Energy ($U$): Joules (J)\n*   Capacitance ($C$): Farads (F)\n*   Voltage ($V$): Volts (V)\n\nConsistency check:\nWe know that $1\\text{ Farad (F)} = 1\\text{ Coulomb (C)} / 1\\text{ Volt (V)}$.\nAnd $1\\text{ Joule (J)} = 1\\text{ Coulomb (C)} \\cdot 1\\text{ Volt (V)}$.\n\nSo, $1\\text{ F} \\cdot (1\\text{ V})^2 = (1\\text{ C/V}) \\cdot 1\\text{ V}^2 = 1\\text{ C} \\cdot 1\\text{ V} = 1\\text{ J}$. The units are consistent.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A capacitor is charged to a voltage $V_0$ and then disconnected from the battery. If its capacitance is then doubled (e.g., by inserting a dielectric), what happens to the stored energy $U$?",
+      "back": "When the capacitor is disconnected from the battery, the charge $Q$ on its plates remains constant. The initial energy stored is $U_0 = \\frac{1}{2}\\frac{Q^2}{C_0}$.\nIf the capacitance is doubled to $C_1 = 2C_0$, the new stored energy $U_1$ (since $Q$ is constant) will be:\n$$U_1 = \\frac{1}{2}\\frac{Q^2}{C_1} = \\frac{1}{2}\\frac{Q^2}{2C_0} = \\frac{1}{2} \\left(\\frac{1}{2}\\frac{Q^2}{C_0}\\right) = \\frac{1}{2}U_0$$\nThe stored energy is halved. (The voltage across the capacitor would also halve, as $V_1 = Q/C_1 = Q/(2C_0) = V_0/2$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A parallel-plate capacitor is charged by a battery to voltage $V_0$, then disconnected. A dielectric material with constant $\\kappa > 1$ is then inserted, completely filling the space between the plates. How does the stored energy change, and is work done by or on the dielectric?",
+      "back": "1.  **Initial State:** The capacitor has capacitance $C_0$, charge $Q_0 = C_0 V_0$, and stored energy $U_0 = \\frac{1}{2}C_0 V_0^2 = \\frac{1}{2}\\frac{Q_0^2}{C_0}$.\n2.  **After Disconnecting:** The charge $Q_0$ on the capacitor plates remains constant.\n3.  **After Inserting Dielectric:** The new capacitance becomes $C_1 = \\kappa C_0$. The new stored energy $U_1$ (since $Q_0$ is constant) is:\n    $$U_1 = \\frac{1}{2}\\frac{Q_0^2}{C_1} = \\frac{1}{2}\\frac{Q_0^2}{\\kappa C_0} = \\frac{1}{\\kappa} \\left(\\frac{1}{2}\\frac{Q_0^2}{C_0}\\right) = \\frac{U_0}{\\kappa}$$\n    Since $\\kappa > 1$, the stored energy *decreases* ($U_1 < U_0$).\n4.  **Work Done:** The decrease in stored energy implies that work must have been done *by* the electric field on the dielectric as it was inserted. The dielectric is pulled into the capacitor, meaning the electric field does positive work on the dielectric. This work is typically converted into kinetic energy of the dielectric or dissipated as heat if the insertion is slow.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-3-static-routing-vs-dynamic-routing",
+  "subtopicTitle": "Static routing vs dynamic routing",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:30.123Z",
+  "cards": [
+    {
+      "front": "What is static routing?",
+      "back": "Static routing involves manually configuring routes in a router's routing table by an administrator. These routes remain fixed unless manually changed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define dynamic routing.",
+      "back": "Dynamic routing uses routing protocols (e.g., OSPF, BGP) to automatically discover networks, exchange routing information, and update routing tables without manual intervention.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide two specific scenarios where static routing is a suitable choice.",
+      "back": "1. **Stub Networks:** Networks with only one exit/entry point, where all traffic must go to a single next-hop router.\n2. **Small, Stable Networks:** Where topology changes are rare, and manual configuration is manageable.\n3. **Backup Routes:** As a failover mechanism for dynamically learned routes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does static routing become impractical and error-prone in large, complex network environments?",
+      "back": "In large networks, manually configuring every route on every router is time-consuming, highly susceptible to human error, and extremely difficult to maintain when network topology changes occur. It simply does not scale efficiently.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how dynamic routing protocols handle network topology changes, such as a link failure, without human intervention.",
+      "back": "Dynamic routing protocols detect changes (e.g., a link going down) through hello messages or other mechanisms. They then update their internal routing information and propagate these updates to neighboring routers. Routers recalculate optimal paths based on the new information and update their routing tables, allowing traffic to reroute automatically.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the CPU and memory resource overhead of static routing versus dynamic routing.",
+      "back": "Static routing has minimal CPU and memory overhead as it requires no protocol processing, routing table calculations, or periodic updates. Dynamic routing, however, consumes CPU for running routing protocol processes, calculating routes, and exchanging updates, and uses memory for storing routing tables and often a separate topology database.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "From a security perspective, what is a key advantage of static routing and a potential vulnerability of dynamic routing?",
+      "back": "**Static Routing Advantage:** More secure because routes are explicitly defined by an administrator, reducing the risk of unauthorized route injection or manipulation by malicious actors.\n**Dynamic Routing Vulnerability:** Routing protocols can be exploited (e.g., by injecting false routes, performing DoS attacks against protocol processes) if not properly secured with authentication, access controls, and encryption.",
+      "difficulty": "hard"
+    }
+  ]
+}

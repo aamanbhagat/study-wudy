@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-2-stl-containers-vector-list-deque-array-set-multiset-map-multimap-unordered-map-unordered-set",
+  "subtopicTitle": "STL containers — vector, list, deque, array, set, multiset, map, multimap, unordered_map, unordered_set",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:33.974Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of an STL container in C++?",
+      "back": "An STL container is an object that stores a collection of other objects (elements). It manages the memory for these elements and provides member functions to access and manipulate them, abstracting away low-level memory management and common data structures.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate `std::vector` from `std::array` in C++ based on size flexibility and memory allocation.",
+      "back": "`std::vector` is a dynamic-size array that can grow or shrink at runtime, allocating memory on the heap. `std::array` is a fixed-size array whose size is determined at compile time, typically allocated on the stack (or globally/statically if declared outside a function).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare `std::vector` and `std::list` regarding memory locality, insertion/deletion complexity, and random access.",
+      "back": "<ul><li>`std::vector`: Contiguous memory, excellent cache performance. $O(1)$ random access. $O(N)$ insertion/deletion in the middle, $O(1)$ amortized at end.</li><li>`std::list`: Non-contiguous memory (doubly-linked nodes). Poor cache performance. $O(N)$ random access (requires traversal). $O(1)$ insertion/deletion anywhere (given an iterator).</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would `std::deque` be a more suitable choice than `std::vector` or `std::list`?",
+      "back": "`std::deque` (double-ended queue) is suitable when frequent insertions and deletions are needed at *both ends* of the sequence. It provides $O(1)$ insertion/deletion at front and back, and $O(1)$ random access, unlike `std::list` (no random access) or `std::vector` ($O(N)$ insertion/deletion at front). It uses a sequence of fixed-size contiguous blocks of memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key differences in element storage and access between `std::set`, `std::multiset`, `std::map`, and `std::multimap`.",
+      "back": "All are ordered associative containers, typically implemented as balanced binary search trees (e.g., red-black trees), providing $O(\\log N)$ complexity for insertion, deletion, and lookup:\n<ul><li>`std::set`: Stores unique keys; no associated values.</li><li>`std::multiset`: Stores non-unique keys; no associated values.</li><li>`std::map`: Stores unique key-value pairs.</li><li>`std::multimap`: Stores non-unique key-value pairs.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference in underlying data structure and average time complexity between `std::map` and `std::unordered_map`?",
+      "back": "<ul><li>`std::map`: Implemented using a balanced binary search tree (e.g., red-black tree). Elements are stored in sorted order by key. Average time complexity for insertion, deletion, lookup is $O(\\log N)$.</li><li>`std::unordered_map`: Implemented using a hash table. Elements are not stored in any particular order. Average time complexity for insertion, deletion, lookup is $O(1)$, but worst-case is $O(N)$ (due to hash collisions). Requires a hash function for the key type.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a scenario where `std::multimap` is the most appropriate STL container.",
+      "back": "A `std::multimap` is ideal when you need to store multiple values associated with the same key, and you require these key-value pairs to be kept in sorted order based on the keys. For example, storing a dictionary where a word (key) can have multiple definitions (values), and you want to retrieve all definitions for a word efficiently, while keeping words alphabetically sorted.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the average time complexity for insertion, deletion, and lookup in `std::unordered_map`? When does its worst-case complexity occur?",
+      "back": "<ul><li>**Average Case:** $O(1)$ for insertion, deletion, and lookup.</li><li>**Worst Case:** $O(N)$ for insertion, deletion, and lookup. This occurs when all elements hash to the same bucket (e.g., due to a poorly chosen hash function, malicious input, or a very high load factor causing excessive collisions), effectively degenerating the hash table into a linked list.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why do keys in `std::set`, `std::map`, `std::multiset`, and `std::multimap` require a strict weak ordering?",
+      "back": "These containers are typically implemented using balanced binary search trees. A strict weak ordering (e.g., provided by `operator<` or a custom comparator) is necessary to correctly compare and position elements within the tree, ensuring that the tree remains sorted and search operations can efficiently locate elements. Without it, the tree structure cannot be maintained, leading to incorrect behavior or performance degradation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary advantage of using `std::array` over a raw C-style array (e.g., `int arr[10];`)?",
+      "back": "`std::array` provides bounds checking (via `at()` method), iterators, and integrates seamlessly with STL algorithms. It also knows its own size via `size()` and `empty()` methods, preventing common errors like buffer overflows and making it safer and more convenient than raw arrays, while still offering stack allocation and compile-time size guarantees.",
+      "difficulty": "easy"
+    }
+  ]
+}

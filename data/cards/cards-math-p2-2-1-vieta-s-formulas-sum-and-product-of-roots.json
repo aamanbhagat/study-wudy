@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p2-2-1-vieta-s-formulas-sum-and-product-of-roots",
+  "subtopicTitle": "Vieta's formulas — sum and product of roots",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:17.604Z",
+  "cards": [
+    {
+      "front": "State Vieta's formulas for the sum and product of roots of a quadratic equation $ax^2 + bx + c = 0$, where $\\alpha$ and $\\beta$ are its roots.",
+      "back": "For $ax^2 + bx + c = 0$ with roots $\\alpha$ and $\\beta$:\nSum of roots: $\\alpha + \\beta = -\\frac{b}{a}$\nProduct of roots: $\\alpha\\beta = \\frac{c}{a}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the sum of roots of a quadratic equation $ax^2 + bx + c = 0$ in terms of its coefficients.",
+      "back": "If $\\alpha$ and $\\beta$ are the roots of $ax^2 + bx + c = 0$, we can write the equation as $a(x-\\alpha)(x-\\beta) = 0$. Expanding this:\n$a(x^2 - (\\alpha+\\beta)x + \\alpha\\beta) = 0$\n$ax^2 - a(\\alpha+\\beta)x + a\\alpha\\beta = 0$\nComparing this to $ax^2 + bx + c = 0$, we equate the coefficients of $x$:\n$-a(\\alpha+\\beta) = b \\implies \\alpha+\\beta = -\\frac{b}{a}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the product of roots of a quadratic equation $ax^2 + bx + c = 0$ in terms of its coefficients.",
+      "back": "From the derivation of the sum of roots, we have $ax^2 - a(\\alpha+\\beta)x + a\\alpha\\beta = 0$. Comparing this to $ax^2 + bx + c = 0$, we equate the constant terms:\n$a\\alpha\\beta = c \\implies \\alpha\\beta = \\frac{c}{a}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the quadratic equation $3x^2 - 5x + 2 = 0$, find the sum and product of its roots.",
+      "back": "Given $3x^2 - 5x + 2 = 0$, we have $a=3$, $b=-5$, $c=2$.\nSum of roots: $-b/a = -(-5)/3 = 5/3$\nProduct of roots: $c/a = 2/3$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Form a quadratic equation whose roots are $x_1 = -4$ and $x_2 = 7$.",
+      "back": "First, find the sum and product of the roots:\nSum $S = x_1 + x_2 = -4 + 7 = 3$\nProduct $P = x_1 x_2 = (-4)(7) = -28$\nA quadratic equation can be written as $x^2 - Sx + P = 0$. Substituting the values:\n$x^2 - (3)x + (-28) = 0$\n$x^2 - 3x - 28 = 0$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Vieta's formulas for the sum of roots, sum of products of roots taken two at a time, and product of roots for a cubic equation $ax^3 + bx^2 + cx + d = 0$, with roots $\\alpha, \\beta, \\gamma$.",
+      "back": "For $ax^3 + bx^2 + cx + d = 0$ with roots $\\alpha, \\beta, \\gamma$:\nSum of roots: $\\alpha + \\beta + \\gamma = -\\frac{b}{a}$\nSum of products of roots taken two at a time: $\\alpha\\beta + \\beta\\gamma + \\gamma\\alpha = \\frac{c}{a}$\nProduct of roots: $\\alpha\\beta\\gamma = -\\frac{d}{a}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Generalize Vieta's formulas: For a polynomial $P(x) = a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0$ with roots $r_1, r_2, \\dots, r_n$, what are the formulas for the sum of roots and the product of roots?",
+      "back": "For $P(x) = a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0$:\nSum of roots: $\\sum_{i=1}^n r_i = r_1 + r_2 + \\dots + r_n = -\\frac{a_{n-1}}{a_n}$\nProduct of roots: $\\prod_{i=1}^n r_i = r_1 r_2 \\dots r_n = (-1)^n \\frac{a_0}{a_n}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $x^2 + bx + c = 0$ has roots $\\alpha$ and $\\beta$, find a quadratic equation whose roots are $1/\\alpha$ and $1/\\beta$.",
+      "back": "Given $x^2 + bx + c = 0$, we have $\\alpha + \\beta = -b$ and $\\alpha\\beta = c$.\nFor the new equation with roots $1/\\alpha$ and $1/\\beta$:\nNew sum $S' = \\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{\\alpha + \\beta}{\\alpha\\beta} = \\frac{-b}{c}$\nNew product $P' = \\left(\\frac{1}{\\alpha}\\right)\\left(\\frac{1}{\\beta}\\right) = \\frac{1}{\\alpha\\beta} = \\frac{1}{c}$\nThe new quadratic equation is $x^2 - S'x + P' = 0$:\n$x^2 - \\left(-\\frac{b}{c}\\right)x + \\frac{1}{c} = 0$\n$x^2 + \\frac{b}{c}x + \\frac{1}{c} = 0$\nMultiplying by $c$ (assuming $c \\neq 0$): $cx^2 + bx + 1 = 0$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the quadratic equation $ax^2 + bx + c = 0$, what can be immediately concluded about the coefficient $c$ if one of its roots is $0$?",
+      "back": "If one of the roots, say $\\alpha$, is $0$, then the product of the roots is $\\alpha\\beta = 0 \\cdot \\beta = 0$. According to Vieta's formulas, the product of roots is $c/a$. Therefore, $c/a = 0$, which implies $c=0$.",
+      "difficulty": "medium"
+    }
+  ]
+}

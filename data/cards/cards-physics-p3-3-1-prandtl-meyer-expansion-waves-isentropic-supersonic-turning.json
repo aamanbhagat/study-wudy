@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-1-prandtl-meyer-expansion-waves-isentropic-supersonic-turning",
+  "subtopicTitle": "Prandtl-Meyer expansion waves — isentropic, supersonic turning",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:24.008Z",
+  "cards": [
+    {
+      "front": "Define a Prandtl-Meyer expansion wave.",
+      "back": "A Prandtl-Meyer expansion wave is an isentropic, supersonic turning process that occurs when a supersonic flow encounters a convex corner, causing the flow to turn away from the surface and expand. It consists of a continuous fan of Mach waves originating from the corner.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What conditions are necessary for a Prandtl-Meyer expansion wave to form?",
+      "back": "A Prandtl-Meyer expansion wave forms when:\n1.  The upstream flow is supersonic ($M_1 > 1$).\n2.  The flow encounters a convex corner (i.e., the wall turns away from the flow).\n3.  The flow is inviscid and adiabatic (leading to isentropic turning).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the four key characteristics of flow properties across a Prandtl-Meyer expansion wave.",
+      "back": "Across a Prandtl-Meyer expansion wave:\n1.  **Isentropic**: Entropy remains constant ($s_2 = s_1$).\n2.  **Supersonic**: Flow remains supersonic ($M_2 > M_1 > 1$).\n3.  **Expansion**: Pressure, temperature, and density decrease ($P_2 < P_1$, $T_2 < T_1$, $\rho_2 < \rho_1$).\n4.  **Acceleration**: Mach number increases ($M_2 > M_1$) and velocity increases ($V_2 > V_1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Prandtl-Meyer function $\\nu(M)$ and explain its physical significance.",
+      "back": "The Prandtl-Meyer function is given by:\n$$ \\nu(M) = \\sqrt{\\frac{\\gamma+1}{\\gamma-1}} \\arctan\\sqrt{\\frac{\\gamma-1}{\\gamma+1}(M^2-1)} - \\arctan\\sqrt{M^2-1} $$\nIt represents the angle (in radians) through which a supersonic flow, initially at $M=1$, must turn to reach a Mach number $M$ via an isentropic expansion. It is a unique function of Mach number for a given $\\gamma$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an initial Mach number $M_1$ and a turning angle $\\theta$, how do you find the final Mach number $M_2$ across a Prandtl-Meyer expansion?",
+      "back": "1.  Calculate the initial Prandtl-Meyer function value: $\\nu_1 = \\nu(M_1)$.\n2.  Determine the final Prandtl-Meyer function value: $\\nu_2 = \\nu_1 + \\theta$. (Note: $\\theta$ must be in radians if $\\nu$ is in radians, and $\\theta$ is positive for expansion).\n3.  Invert the Prandtl-Meyer function to find $M_2$ such that $\\nu(M_2) = \\nu_2$. This typically requires numerical methods or tables.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why Mach number increases and static pressure decreases across a Prandtl-Meyer expansion wave.",
+      "back": "As supersonic flow turns around a convex corner, it expands. To accommodate this expansion and turn away from the surface, the streamlines must diverge. This divergence causes the flow to accelerate (increase in Mach number) while simultaneously decreasing its static pressure and temperature, similar to how flow accelerates in a de Laval nozzle's diverging section when supersonic. The energy for acceleration comes from the internal energy of the gas, leading to a drop in static temperature and pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do Prandtl-Meyer expansion waves fundamentally differ from oblique shock waves in terms of entropy, Mach number, and turning direction?",
+      "back": "1.  **Entropy**: Expansion waves are isentropic ($\\Delta s = 0$); oblique shocks are non-isentropic ($\\Delta s > 0$).\n2.  **Mach Number**: Expansion waves increase Mach number ($M_2 > M_1$); oblique shocks decrease Mach number ($M_2 < M_1$).\n3.  **Turning Direction**: Expansion waves turn flow *away* from the surface (convex corner); oblique shocks turn flow *towards* the surface (concave corner).\n4.  **Nature**: Expansion waves are continuous fans; oblique shocks are discrete discontinuities.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is there a theoretical maximum turning angle for a Prandtl-Meyer expansion? What happens at this limit?",
+      "back": "Yes, there is a theoretical maximum turning angle. This occurs when the flow expands to its maximum possible Mach number, which is theoretically infinite ($M_2 \\to \\infty$). At this point, the static temperature and pressure drop to absolute zero ($T_2 \\to 0$, $P_2 \\to 0$). The maximum turning angle is given by $\\nu_{max} = \\nu(\\infty) = \\frac{\\pi}{2}\\left(\\sqrt{\\frac{\\gamma+1}{\\gamma-1}} - 1\\right)$. In reality, condensation and liquefaction would occur before reaching such extreme conditions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the key idealizations/assumptions made when applying Prandtl-Meyer theory?",
+      "back": "1.  **Inviscid flow**: No friction or viscous effects.\n2.  **Adiabatic flow**: No heat transfer.\n3.  **Steady flow**: Flow properties do not change with time.\n4.  **Perfect gas**: Constant specific heats and ideal gas law applies.\n5.  **Two-dimensional flow**: Flow is planar, simplifying analysis.\n6.  **Supersonic upstream flow**: $M_1 > 1$.",
+      "difficulty": "medium"
+    }
+  ]
+}

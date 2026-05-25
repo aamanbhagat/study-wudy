@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p1-1-5-relation-to-linear-quantities-v-r-a-t-r-a-c-r",
+  "subtopicTitle": "Relation to linear quantities: v = rω, a_t = rα, a_c = rω²",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:20.280Z",
+  "cards": [
+    {
+      "front": "What does $r$ represent in the equations relating linear and rotational quantities (e.g., $v=r\\omega$)?",
+      "back": "$r$ is the perpendicular distance from the axis of rotation to the point or particle whose linear motion is being described. It represents the radius of the circular path traced by that point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental relationship between linear speed ($v$) and angular speed ($\\omega$) for a point moving in a circle of radius $r$.",
+      "back": "The linear speed $v$ is related to the angular speed $\\omega$ by the formula $v = r\\omega$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain intuitively why a point on the rim of a rotating wheel has a greater linear speed than a point closer to the center, given they share the same angular speed.",
+      "back": "For a given angular speed $\\omega$, all points on a rigid rotating object complete a full revolution in the same amount of time. A point further from the center (larger $r$) must travel a larger circumference ($2\\pi r$) in that same time, thus requiring a greater linear speed $v = r\\omega$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is tangential acceleration ($a_t$) related to angular acceleration ($\\alpha$) for a point at a distance $r$ from the axis of rotation?",
+      "back": "Tangential acceleration $a_t$ is the component of linear acceleration tangent to the circular path, responsible for changes in the *magnitude* of the linear velocity. It is given by $a_t = r\\alpha$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the formula for centripetal (radial) acceleration ($a_c$) in terms of angular speed ($\\omega$) and radius ($r$), and what is its direction?",
+      "back": "Centripetal acceleration $a_c$ is the component of linear acceleration pointing towards the center of the circular path, responsible for changes in the *direction* of the linear velocity. It is given by $a_c = r\\omega^2$. Alternatively, it can be expressed as $a_c = v^2/r$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship $v = r\\omega$ starting from the definition of angular displacement and arc length.",
+      "back": "For a point moving in a circle of radius $r$, the arc length $s$ traversed for an angular displacement $\\theta$ (in radians) is $s = r\\theta$.\nTo find the linear speed $v$, we differentiate $s$ with respect to time $t$:\n$$v = \\frac{ds}{dt}$$\nSince $r$ is constant for a given circular path,\n$$v = \\frac{d}{dt}(r\\theta) = r\\frac{d\\theta}{dt}$$\nBy definition, angular speed $\\omega = \\frac{d\\theta}{dt}$.\nTherefore, $v = r\\omega$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A point on a spinning object has a total linear acceleration $\\vec{a}$. If the object is speeding up, what are the components of $\\vec{a}$ in terms of $r$, $\\omega$, and $\\alpha$?",
+      "back": "The total linear acceleration $\\vec{a}$ is the vector sum of two perpendicular components:\n1.  **Tangential acceleration ($\\vec{a_t}$):** Responsible for changing the *magnitude* of linear velocity. It is tangent to the circular path.\n    Magnitude: $a_t = r\\alpha$.\n2.  **Centripetal (radial) acceleration ($\\vec{a_c}$):** Responsible for changing the *direction* of linear velocity. It points towards the center of the circular path.\n    Magnitude: $a_c = r\\omega^2$.\nThe total acceleration is $\\vec{a} = \\vec{a_t} + \\vec{a_c}$, and its magnitude is $|\\vec{a}| = \\sqrt{a_t^2 + a_c^2} = \\sqrt{(r\\alpha)^2 + (r\\omega^2)^2}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

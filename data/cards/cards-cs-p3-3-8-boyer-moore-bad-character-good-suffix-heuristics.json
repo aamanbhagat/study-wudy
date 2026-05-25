@@ -1,0 +1,51 @@
+{
+  "subtopicId": "cs-p3-3-8-boyer-moore-bad-character-good-suffix-heuristics",
+  "subtopicTitle": "Boyer-Moore — bad character, good suffix heuristics",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:03.842Z",
+  "cards": [
+    {
+      "front": "What is the primary source of efficiency for the Boyer-Moore string matching algorithm?",
+      "back": "Boyer-Moore achieves efficiency by comparing the pattern against the text from **right to left** and using **heuristics (Bad Character and Good Suffix)** to make large shifts, often skipping many text characters.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"Bad Character Heuristic\" in the Boyer-Moore algorithm.",
+      "back": "When a mismatch occurs at $T[i]$ (text character) and $P[j]$ (pattern character), the Bad Character Heuristic shifts the pattern to align the mismatched text character $T[i]$ with its **rightmost occurrence** in the part of the pattern *to the left of* $P[j]$. If $T[i]$ is not in the pattern, it shifts past $T[i]$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a mismatch at $P[j]$ with $T[i]$, what is the Bad Character Heuristic shift formula? Assume $last[c]$ is the rightmost index of $c$ in $P$.",
+      "back": "The shift is calculated as:\n$$ \\text{shift}_{BC} = \\max(1, j - \\text{last}[T[i]]) $$\nwhere $j$ is the index in the pattern where the mismatch occurred (0-indexed from the left, so $P[j]$ is the character at position $j$). If $T[i]$ does not appear in $P$, $last[T[i]]$ is typically considered -1, resulting in a shift of $j + 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"Good Suffix Heuristic\" in the Boyer-Moore algorithm.",
+      "back": "When a suffix $S$ of the pattern $P$ (length $m$) has matched successfully, but a mismatch occurs at $P[j-1]$, the Good Suffix Heuristic shifts the pattern to align the matched suffix $S$ with its **next occurrence** in $P$ such that the character *preceding* $S$ in the new alignment is different from $P[j-1]$. If no such occurrence exists, it aligns the longest prefix of $P$ that is also a suffix of $S$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the two main cases for calculating the shift using the Good Suffix Heuristic.",
+      "back": "Given a matched suffix $S = P[j \\dots m-1]$:\n1.  **Case 1 (Matching Suffix):** Find the smallest shift $k > 0$ such that $P[0 \\dots m-1-k]$ contains $S$ as a suffix, i.e., $P[m - |S| - k \\dots m-1-k] = S$, AND $P[j-1] \\neq P[j-1-k]$. This finds an earlier occurrence of the *entire* matched suffix.\n2.  **Case 2 (Partial Suffix/Prefix Alignment):** If Case 1 yields no valid shift, or if no full occurrence of $S$ exists elsewhere, find the largest $k$ such that $P[0 \\dots k-1]$ (a prefix of $P$) is a suffix of $S$. The pattern is shifted to align this prefix of $P$ with the corresponding suffix of $S$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What precomputation is performed for the Bad Character Heuristic, and what is its time complexity?",
+      "back": "A \"last occurrence\" table (e.g., `last_occurrence[char] = index`) is precomputed. For each character in the alphabet, it stores the index of its rightmost occurrence in the pattern. If a character is not in the pattern, its value is typically -1.\n```python\ndef preprocess_bad_char(pattern):\n    last = {}\n    for i, char in enumerate(pattern):\n        last[char] = i\n    return last\n```\nTime complexity: $O(|\\Sigma| + m)$, where $|\\Sigma|$ is the alphabet size and $m$ is the pattern length.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the Good Suffix Heuristic, what are the key precomputed arrays and their purpose?",
+      "back": "1.  **`suff` array (or `N` array):** `suff[i]` stores the length of the longest suffix of $P[0 \\dots i]$ that is also a suffix of $P$ itself. This is often computed using a KMP-like algorithm on the *reversed* pattern.\n2.  **`L'` array (or `good_suffix_shift` array):** `L'[i]` stores the smallest shift $s > 0$ such that $P[i \\dots m-1]$ (a suffix of length $m-i$) matches $P[i-s \\dots m-1-s]$ and $P[i-1] \\neq P[i-1-s]$. This array helps find the \"next occurrence\" shift (Case 1 from Card 5).\n3.  **`L_prime` array (for Case 2):** This array helps find the shift for the longest prefix of $P$ that is also a suffix of the matched suffix (Case 2 from Card 5).\nThese arrays enable $O(m)$ lookup for the shift.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Boyer-Moore algorithm determine the final shift amount in each step?",
+      "back": "In each step, after a mismatch (or full match), the Boyer-Moore algorithm calculates two potential shifts:\n1.  $\\text{shift}_{BC}$: from the Bad Character Heuristic.\n2.  $\\text{shift}_{GS}$: from the Good Suffix Heuristic.\nThe algorithm then takes the **maximum** of these two shifts to ensure that no potential matches are skipped:\n$$ \\text{final_shift} = \\max(\\text{shift}_{BC}, \\text{shift}_{GS}) $$",
+      "difficulty": "easy"
+    }
+  ]
+}

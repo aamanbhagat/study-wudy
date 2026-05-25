@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-6-forced-oscillations-driving-frequency",
+  "subtopicTitle": "Forced oscillations — driving frequency",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:10.989Z",
+  "cards": [
+    {
+      "front": "Define a \"forced oscillation.\"",
+      "back": "An oscillation where an external, time-varying force (the driving force) continuously acts on the system, causing it to oscillate at the frequency of the driving force after initial transients die out. This contrasts with free oscillations, which occur at the system's natural frequency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a forced oscillation, what is the \"driving frequency\" ($\\omega_d$)?",
+      "back": "The frequency of the external, periodic force applied to the oscillating system. The system's steady-state oscillation frequency will match the driving frequency, not necessarily its natural frequency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the differential equation for a damped, forced simple harmonic oscillator with mass $m$, damping coefficient $b$, spring constant $k$, and driving force $F_d(t) = F_0 \\cos(\\omega_d t)$.",
+      "back": "The equation of motion is:\n$$m \\frac{d^2x}{dt^2} + b \\frac{dx}{dt} + kx = F_0 \\cos(\\omega_d t)$$\nDividing by $m$ and defining $\\gamma = b/m$ (damping rate) and $\\omega_0^2 = k/m$ (undamped natural angular frequency), we get:\n$$\\frac{d^2x}{dt^2} + \\gamma \\frac{dx}{dt} + \\omega_0^2 x = \\frac{F_0}{m} \\cos(\\omega_d t)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What phenomenon occurs when the driving frequency of a forced oscillator approaches its natural frequency?",
+      "back": "Resonance. This is a phenomenon where a small driving force can produce a large amplitude of oscillation when the driving frequency ($\\omega_d$) is close to the system's natural frequency ($\\omega_0$ or $\\omega'$ for damped systems). Energy is efficiently transferred from the driver to the oscillator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a *damped* forced oscillator, what is the angular frequency ($\\omega_{res}$) at which the amplitude of oscillation is maximum?",
+      "back": "The resonance angular frequency for maximum amplitude in a damped oscillator is:\n$$\\omega_{res} = \\sqrt{\\omega_0^2 - \\frac{\\gamma^2}{2}}$$\nwhere $\\omega_0 = \\sqrt{k/m}$ is the undamped natural frequency and $\\gamma = b/m$ is the damping rate. Note that $\\omega_{res} < \\omega_0$. If damping is very small ($\\gamma \\ll \\omega_0$), then $\\omega_{res} \\approx \\omega_0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the effect of increased damping on the amplitude-frequency response curve of a forced oscillator.",
+      "back": "Increased damping (larger $b$ or $\\gamma$) causes:\n1.  **Lower peak amplitude:** The maximum amplitude at resonance decreases.\n2.  **Broader peak:** The resonance curve becomes wider, meaning the system responds significantly over a larger range of driving frequencies.\n3.  **Shifted resonance frequency:** The resonance frequency for maximum amplitude slightly shifts to a lower value (closer to $\\omega_{res} = \\sqrt{\\omega_0^2 - \\gamma^2/2}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the phase difference between the driving force and the displacement of a *damped* forced oscillator when the driving frequency $\\omega_d$ equals the undamped natural frequency $\\omega_0$?",
+      "back": "When $\\omega_d = \\omega_0$, the phase difference $\\phi$ between the driving force $F_d(t) = F_0 \\cos(\\omega_d t)$ and the displacement $x(t) = A \\cos(\\omega_d t - \\phi)$ is $\\phi = \\pi/2$ (or $90^\\circ$). This means the displacement lags the driving force by a quarter cycle. At this point, the velocity of the oscillator is in phase with the driving force, maximizing energy transfer.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In steady state, why does a forced oscillator oscillate at the driving frequency ($\\omega_d$) rather than its natural frequency ($\\omega_0$)?",
+      "back": "The driving force continuously pumps energy into the system at its own frequency. While the system initially tries to oscillate at its natural frequency (transient behavior), damping forces eventually dissipate this natural oscillation. In the steady state, the system is \"forced\" to follow the rhythm of the external driver, as it's the only persistent energy input.",
+      "difficulty": "medium"
+    }
+  ]
+}

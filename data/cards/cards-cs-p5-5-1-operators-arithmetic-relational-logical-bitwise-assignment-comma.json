@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-operators-arithmetic-relational-logical-bitwise-assignment-comma",
+  "subtopicTitle": "Operators — arithmetic, relational, logical, bitwise, assignment, comma",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:01.621Z",
+  "cards": [
+    {
+      "front": "What are the five basic binary arithmetic operators in C, and what do they represent?",
+      "back": "The five basic binary arithmetic operators in C are:\n1. `+`: Addition\n2. `-`: Subtraction\n3. `*`: Multiplication\n4. `/`: Division\n5. `%`: Modulo (remainder of integer division)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the difference between integer division and floating-point division in C, and provide an example of the modulo operator's result.",
+      "back": "Integer division (e.g., `7 / 3`) truncates any fractional part, resulting in an integer (e.g., `2`). It always truncates towards zero. Floating-point division (e.g., `7.0 / 3.0`) produces a precise floating-point result (e.g., `2.333...`).\n\nThe modulo operator (`%`) gives the remainder of an integer division. For example, `7 % 3` evaluates to `1` (since $7 = 2 \\times 3 + 1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What integer values do relational and logical operators in C return to represent \"true\" and \"false\"?",
+      "back": "In C, relational and logical operators return `1` to represent \"true\" and `0` to represent \"false\". More generally, any non-zero integer is considered \"true\" in a boolean context, while `0` is \"false\".",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe C's short-circuit evaluation for the logical AND (`&&`) and logical OR (`||`) operators.",
+      "back": "Short-circuit evaluation means that the second operand of a logical operator is only evaluated if the first operand is insufficient to determine the result of the expression.\n\n- For `expr1 && expr2`: If `expr1` evaluates to `0` (false), `expr2` is not evaluated because the entire expression must be false.\n- For `expr1 || expr2`: If `expr1` evaluates to non-zero (true), `expr2` is not evaluated because the entire expression must be true.\n\nThis behavior is crucial for preventing side effects or runtime errors in the second operand if the first operand's value makes its evaluation unnecessary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you efficiently check if an integer `n` is odd or even using a bitwise operator in C?",
+      "back": "You can use the bitwise AND operator (`&`) with `1`. An integer `n` is even if `(n & 1)` evaluates to `0`, and it's odd if `(n & 1)` evaluates to `1`.\n\nThis works because the least significant bit (LSB) of any binary number is `1` for odd numbers and `0` for even numbers. Performing a bitwise AND with `1` isolates the LSB.\n\n```c\nint n = 7;\nif (n & 1) {\n    // n is odd\n}\n// Or for even:\nint m = 4;\nif (!(m & 1)) {\n    // m is even\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an 8-bit integer `byte_val`, write a C expression using bitwise operators to clear (set to 0) the 5th bit (0-indexed) while leaving all other bits unchanged.",
+      "back": "To clear the 5th bit, you need to create a mask where only the 5th bit is `0` and all other bits are `1`. Then, perform a bitwise AND operation with this mask.\n\n1.  **Create a bitmask with only the 5th bit set:** `1 << 5` (which is `00100000` in binary for an 8-bit value).\n2.  **Invert this mask:** `~(1 << 5)`. This results in a mask where all bits are `1` except the 5th bit, which is `0` (e.g., `11011111` in binary).\n3.  **Perform bitwise AND:** `byte_val & ~(1 << 5)`.\n\nExample: If `byte_val` is `01110101` (decimal 117):\n`01110101` (`byte_val`)\n`&`\n`11011111` (`~(1 << 5)`)\n`----------`\n`01010101` (The 5th bit is cleared from `1` to `0`).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the final values of `x` and `y` after the following C statements? `int x, y; y = 10; x = (y += 5) * 2;`",
+      "back": "The assignment operator (`=`) and compound assignment operators (`+=`, `-=`, etc.) have right-to-left associativity and return the value assigned.\n\n1.  `y = 10;`: `y` is initialized to `10`.\n2.  `y += 5;`: This is equivalent to `y = y + 5;`. `y` becomes `10 + 5 = 15`. The result of this expression is `15`.\n3.  `x = (15) * 2;`: `x` becomes `30`.\n\nTherefore, after the statements, `x` is `30` and `y` is `15`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In C, what is the value of `result` after the following statement? `int result = (printf(\"Hello\"), 10 + 5, 20);` Explain the comma operator's behavior and precedence.",
+      "back": "The value of `result` will be `20`.\n\nThe comma operator (`,`) evaluates its operands from left to right. It discards the result of all operands except the rightmost one, whose value becomes the result of the entire comma expression. The `printf(\"Hello\")` function will execute and print \"Hello\" to the console, then `10 + 5` (which is `15`) is evaluated and discarded, and finally `20` is evaluated, and its value is assigned to `result`.\n\nThe comma operator has the lowest precedence of all C operators. In this example, the parentheses `()` are crucial because they ensure the entire sequence `printf(\"Hello\"), 10 + 5, 20` is treated as a single expression before the assignment to `result`.",
+      "difficulty": "hard"
+    }
+  ]
+}

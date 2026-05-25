@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-1-relative-motion-1d-and-2d-river-boat-problems",
+  "subtopicTitle": "Relative motion — 1D and 2D; river-boat problems",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:36.792Z",
+  "cards": [
+    {
+      "front": "Define \"relative velocity\" in physics.",
+      "back": "The velocity of an object or point in space *with respect to* another object or point, often referred to as the observer or reference frame. It's the velocity an observer would measure if they were stationary relative to their own frame.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general vector formula for the velocity of object A relative to object B.",
+      "back": "The velocity of object A relative to object B, denoted $\\vec{v}_{A/B}$ or $\\vec{v}_{AB}$, is given by:\n$$\\vec{v}_{A/B} = \\vec{v}_A - \\vec{v}_B$$\nwhere $\\vec{v}_A$ and $\\vec{v}_B$ are the velocities of A and B, respectively, with respect to a common (usually ground) reference frame.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given the velocity of object A relative to B ($\\vec{v}_{A/B}$) and the velocity of B relative to C ($\\vec{v}_{B/C}$), what is the velocity of A relative to C ($\\vec{v}_{A/C}$)?",
+      "back": "The velocity of A relative to C is given by the vector sum:\n$$\\vec{v}_{A/C} = \\vec{v}_{A/B} + \\vec{v}_{B/C}$$\nThis principle is crucial for problems involving chained reference frames, such as river-boat problems (Boat relative to Water, Water relative to Ground).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A boat with speed $v_b$ (relative to water) crosses a river of width $W$ with current $v_r$. What is the minimum time to cross and how should the boat be steered?",
+      "back": "To achieve the minimum crossing time, the boat should be steered **perpendicular** to the river current. The minimum time $t_{min}$ is:\n$$t_{min} = \\frac{W}{v_b}$$\nThe river current only affects the downstream drift, not the time taken to cover the perpendicular width.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What condition must be met for a boat (speed $v_b$ relative to water) to cross a river (current $v_r$) straight across (zero drift)? How should it be steered?",
+      "back": "The condition for crossing straight across (zero drift) is that the boat's speed relative to water must be greater than or equal to the river current speed: $v_b \\ge v_r$.\n\nThe boat must be steered **upstream** at an angle $\\theta$ with respect to the perpendicular to the current, such that:\n$$\\sin\\theta = \\frac{v_r}{v_b}$$\nThis ensures the component of the boat's velocity relative to water that opposes the current exactly cancels the current's velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A boat crosses a river of width $W$ by heading perpendicular to the current. If the boat's speed relative to water is $v_b$ and the current speed is $v_r$, what is the downstream drift $D$?",
+      "back": "When heading perpendicular to the current, the time taken to cross the river is $t = W/v_b$. During this time, the river current carries the boat downstream. The downstream drift $D$ is:\n$$D = v_r \\times t = v_r \\times \\left(\\frac{W}{v_b}\\right) = \\frac{v_r}{v_b}W$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does steering a boat perpendicular to the river current result in the minimum crossing time, regardless of the current's speed?",
+      "back": "The time taken to cross the river depends solely on the component of the boat's velocity that is perpendicular to the river banks and the river's width. By steering perpendicular, the entire speed of the boat relative to water ($v_b$) contributes to this perpendicular component, maximizing it. Since $t = \\text{distance} / \\text{velocity}$, maximizing the perpendicular velocity component minimizes the time to cover the river's width. The current only affects the horizontal (downstream) component of velocity, which does not contribute to crossing the width.",
+      "difficulty": "medium"
+    }
+  ]
+}

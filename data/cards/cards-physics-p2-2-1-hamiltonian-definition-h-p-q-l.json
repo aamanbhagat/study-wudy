@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p2-2-1-hamiltonian-definition-h-p-q-l",
+  "subtopicTitle": "Hamiltonian — definition H = Σpᵢq̇ᵢ - L",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:11.183Z",
+  "cards": [
+    {
+      "front": "State the definition of the Hamiltonian $H$ in terms of the Lagrangian $L$ and canonical momenta $p_i$.",
+      "back": "The Hamiltonian $H$ is defined as: $$H = \\sum_i p_i \\dot{q}_i - L$$ where $p_i$ are the canonical momenta, $\\dot{q}_i$ are the generalized velocities, and $L$ is the Lagrangian.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the canonical (generalized) momentum $p_i$ associated with a generalized coordinate $q_i$.",
+      "back": "The canonical momentum $p_i$ corresponding to the generalized coordinate $q_i$ is defined as the partial derivative of the Lagrangian $L$ with respect to the generalized velocity $\\dot{q}_i$: $$p_i = \\frac{\\partial L}{\\partial \\dot{q}_i}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare the independent variables of the Hamiltonian $H$ with those of the Lagrangian $L$.",
+      "back": "The Lagrangian $L$ is a function of generalized coordinates, generalized velocities, and time: $L(q_i, \\dot{q}_i, t)$. The Hamiltonian $H$ is a function of generalized coordinates, canonical momenta, and time: $H(q_i, p_i, t)$. The key difference is the replacement of generalized velocities $\\dot{q}_i$ with canonical momenta $p_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 2D particle with Lagrangian $L = \\frac{1}{2}m(\\dot{x}^2 + \\dot{y}^2) - V(x,y)$, find the canonical momenta $p_x$ and $p_y$.",
+      "back": "Using the definition $p_i = \\frac{\\partial L}{\\partial \\dot{q}_i}$:\n$$p_x = \\frac{\\partial L}{\\partial \\dot{x}} = \\frac{\\partial}{\\partial \\dot{x}} \\left( \\frac{1}{2}m(\\dot{x}^2 + \\dot{y}^2) - V(x,y) \\right) = m\\dot{x}$$\n$$p_y = \\frac{\\partial L}{\\partial \\dot{y}} = \\frac{\\partial}{\\partial \\dot{y}} \\left( \\frac{1}{2}m(\\dot{x}^2 + \\dot{y}^2) - V(x,y) \\right) = m\\dot{y}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Hamiltonian for a 1D free particle starting from its Lagrangian $L = \\frac{1}{2}m\\dot{x}^2$.",
+      "back": "1. Find the canonical momentum: $p = \\frac{\\partial L}{\\partial \\dot{x}} = m\\dot{x}$.\n2. Express $\\dot{x}$ in terms of $p$: $\\dot{x} = \\frac{p}{m}$.\n3. Substitute into the Hamiltonian definition $H = p\\dot{x} - L$:\n$$H = p\\left(\\frac{p}{m}\\right) - \\frac{1}{2}m\\left(\\frac{p}{m}\\right)^2$$\n$$H = \\frac{p^2}{m} - \\frac{1}{2}m\\frac{p^2}{m^2}$$\n$$H = \\frac{p^2}{m} - \\frac{p^2}{2m}$$\n$$H = \\frac{p^2}{2m}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What mathematical transformation is used to convert the Lagrangian $L(q, \\dot{q}, t)$ into the Hamiltonian $H(q, p, t)$?",
+      "back": "The transformation used is a **Legendre Transformation**. For a function $f(x,y)$, its Legendre transform $g(y,z)$ (where $z = \\frac{\\partial f}{\\partial x}$) is given by $g = zx - f$. In analytical mechanics, the Lagrangian $L(q_i, \\dot{q}_i, t)$ is transformed to the Hamiltonian $H(q_i, p_i, t)$ by defining $p_i = \\frac{\\partial L}{\\partial \\dot{q}_i}$ and then constructing $H = \\sum p_i \\dot{q}_i - L$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what specific conditions does the Hamiltonian $H$ represent the total mechanical energy ($T+V$) of the system?",
+      "back": "The Hamiltonian $H$ represents the total mechanical energy ($T+V$) of a system if:\n1. The Lagrangian $L$ does not explicitly depend on time (i.e., $\\frac{\\partial L}{\\partial t} = 0$).\n2. The kinetic energy $T$ is a homogeneous quadratic function of the generalized velocities $\\dot{q}_i$ (e.g., $T = \\frac{1}{2}m\\dot{q}^2$), and the potential energy $V$ is independent of velocities. In this case, by Euler's theorem for homogeneous functions, $\\sum_i \\dot{q}_i \\frac{\\partial T}{\\partial \\dot{q}_i} = 2T$, and since $p_i = \\frac{\\partial L}{\\partial \\dot{q}_i} = \\frac{\\partial T}{\\partial \\dot{q}_i}$, we get $H = \\sum p_i \\dot{q}_i - L = 2T - (T-V) = T+V$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Hamiltonian for a 1D simple harmonic oscillator given its Lagrangian $L = \\frac{1}{2}m\\dot{x}^2 - \\frac{1}{2}kx^2$.",
+      "back": "1. Find the canonical momentum: $p = \\frac{\\partial L}{\\partial \\dot{x}} = m\\dot{x}$.\n2. Express $\\dot{x}$ in terms of $p$: $\\dot{x} = \\frac{p}{m}$.\n3. Substitute into the Hamiltonian definition $H = p\\dot{x} - L$:\n$$H = p\\left(\\frac{p}{m}\\right) - \\left(\\frac{1}{2}m\\left(\\frac{p}{m}\\right)^2 - \\frac{1}{2}kx^2\\right)$$\n$$H = \\frac{p^2}{m} - \\frac{p^2}{2m} + \\frac{1}{2}kx^2$$\n$$H = \\frac{p^2}{2m} + \\frac{1}{2}kx^2$$ This result shows that $H$ is indeed the total energy ($T+V$) for the simple harmonic oscillator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the kinetic energy $T$ is not a homogeneous quadratic function of generalized velocities (e.g., in a system with velocity-dependent potential or non-standard kinetic term), does $H$ still necessarily equal $T+V$?",
+      "back": "No, not necessarily. The condition for $H = T+V$ relies on $T$ being a homogeneous quadratic function of generalized velocities and $V$ being velocity-independent. If these conditions are not met, $H$ will still be defined as $H = \\sum p_i \\dot{q}_i - L$, but its physical interpretation as the total mechanical energy $T+V$ might no longer hold. For example, if $L$ includes velocity-dependent potential terms, $H$ will differ from $T+V$.",
+      "difficulty": "hard"
+    }
+  ]
+}

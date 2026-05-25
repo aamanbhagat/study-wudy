@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-6-lstm-gates-cell-state",
+  "subtopicTitle": "LSTM — gates, cell state",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:21.642Z",
+  "cards": [
+    {
+      "front": "What fundamental problem in processing sequential data do Long Short-Term Memory (LSTM) networks address better than traditional Recurrent Neural Networks (RNNs)?",
+      "back": "LSTMs primarily address the **vanishing and exploding gradient problems**, which allows them to effectively learn and retain **long-term dependencies** in sequential data, a task traditional RNNs struggle with over extended sequences.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the two primary 'memory' components within an LSTM cell and their general roles.",
+      "back": "The **Cell State ($C_t$)** acts as the long-term memory, carrying information across long sequences with minimal alteration. The **Hidden State ($h_t$)** acts as the short-term output, representing the current context and passed to the next cell as input.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the function of the Forget Gate ($f_t$) in an LSTM and provide its activation formula.",
+      "back": "The Forget Gate decides what information from the previous cell state ($C_{t-1}$) should be discarded or kept. It outputs values between 0 and 1, where 0 means 'completely forget' and 1 means 'completely keep'.\n$$f_t = \\sigma(W_f \\cdot [h_{t-1}, x_t] + b_f)$$\nwhere $\\sigma$ is the sigmoid function, $W_f$ is the weight matrix, $b_f$ is the bias, $h_{t-1}$ is the previous hidden state, and $x_t$ is the current input.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the two components of the Input Gate mechanism in an LSTM and their respective roles in preparing new information for the cell state.",
+      "back": "The Input Gate mechanism has two parts:\n1.  **Input Gate Activation ($i_t$)**: A sigmoid layer that decides which values from the new input are important to update.\n    $$i_t = \\sigma(W_i \\cdot [h_{t-1}, x_t] + b_i)$$\n2.  **Candidate Cell State ($\\tilde{C}_t$)**: A $\\tanh$ layer that creates a vector of new candidate values that *could* be added to the cell state.\n    $$\\tilde{C}_t = \\tanh(W_C \\cdot [h_{t-1}, x_t] + b_C)$$\nTogether, they determine what new information will be added to the cell state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the new Cell State ($C_t$) computed using the Forget Gate, Input Gate, and previous Cell State? Write the full formula.",
+      "back": "The new Cell State is computed by first forgetting irrelevant parts of the old state and then adding newly selected candidate information. It's an additive combination:\n$$C_t = f_t \\odot C_{t-1} + i_t \\odot \\tilde{C}_t$$\nwhere $\\odot$ denotes element-wise multiplication. $f_t$ scales the previous cell state $C_{t-1}$, and $i_t$ scales the candidate cell state $\\tilde{C}_t$, allowing the cell state to selectively forget and add information.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the purpose of the Output Gate ($o_t$) and how it influences the final Hidden State ($h_t$). Provide the formulas for both.",
+      "back": "The Output Gate decides what parts of the Cell State ($C_t$) will be exposed as the Hidden State ($h_t$) for the current timestep. It's a sigmoid layer:\n$$o_t = \\sigma(W_o \\cdot [h_{t-1}, x_t] + b_o)$$\nThe Hidden State is then calculated by element-wise multiplying the Output Gate's filtered values with the $\\tanh$-activated Cell State:\n$$h_t = o_t \\odot \\tanh(C_t)$$\nThis ensures only relevant information from the cell state contributes to the output.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Analogize the LSTM's cell state to a long conveyor belt carrying information. How do the three gates (Forget, Input, Output) interact with this conveyor belt to manage information flow?",
+      "back": "1.  **Forget Gate**: Acts like a selective filter or 'delete' button on the conveyor belt. It decides which items (information) currently on the belt ($C_{t-1}$) should be removed or attenuated before moving forward.\n2.  **Input Gate**: Functions as an 'add new items' station. It has two parts: one decides *which* new items to add ($i_t$), and the other creates the *new items themselves* ($\\tilde{C}_t$) to be placed on the belt.\n3.  **Output Gate**: Acts like a 'display' or 'read-out' mechanism. It decides *which* items currently on the conveyor belt ($C_t$) are relevant to show as the current output ($h_t$) without altering the belt's contents.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-gradient-vector-f-definition-properties",
+  "subtopicTitle": "Gradient vector ∇f — definition, properties",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:07.585Z",
+  "cards": [
+    {
+      "front": "Define the gradient vector $\\nabla f$ for a scalar function $f(x, y, z)$.",
+      "back": "The gradient vector $\\nabla f(x, y, z)$ is a vector whose components are the partial derivatives of $f$ with respect to each variable:\n$$ \\nabla f(x, y, z) = \\left\\langle \\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y}, \\frac{\\partial f}{\\partial z} \\right\\rangle = \\frac{\\partial f}{\\partial x} \\mathbf{i} + \\frac{\\partial f}{\\partial y} \\mathbf{j} + \\frac{\\partial f}{\\partial z} \\mathbf{k} $$\nFor a function of $n$ variables $f(x_1, \\dots, x_n)$, it is:\n$$ \\nabla f(x_1, \\dots, x_n) = \\left\\langle \\frac{\\partial f}{\\partial x_1}, \\dots, \\frac{\\partial f}{\\partial x_n} \\right\\rangle $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the gradient vector $\\nabla f$ for the function $f(x, y) = x^2 y + \\sin(xy)$.",
+      "back": "First, find the partial derivatives:\n$$ \\frac{\\partial f}{\\partial x} = \\frac{\\partial}{\\partial x}(x^2 y + \\sin(xy)) = 2xy + y\\cos(xy) $$\n$$ \\frac{\\partial f}{\\partial y} = \\frac{\\partial}{\\partial y}(x^2 y + \\sin(xy)) = x^2 + x\\cos(xy) $$\nTherefore, the gradient vector is:\n$$ \\nabla f(x, y) = \\left\\langle 2xy + y\\cos(xy), x^2 + x\\cos(xy) \\right\\rangle $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the geometric interpretation of the direction of $\\nabla f(P)$ at a point $P$?",
+      "back": "The gradient vector $\\nabla f(P)$ points in the direction of the greatest rate of increase (steepest ascent) of the function $f$ at the point $P$. Conversely, $-\\nabla f(P)$ points in the direction of the greatest rate of decrease (steepest descent).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the magnitude of the gradient vector, $|\\nabla f(P)|$, represent at a point $P$?",
+      "back": "The magnitude $|\\nabla f(P)|$ represents the maximum rate of change of the function $f$ at the point $P$. This maximum rate of change occurs in the direction of $\\nabla f(P)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the gradient vector $\\nabla f(P)$ related to the level curve/surface of $f$ passing through $P$?",
+      "back": "The gradient vector $\\nabla f(P)$ is always normal (perpendicular, orthogonal) to the level curve $f(x, y) = k$ or level surface $f(x, y, z) = k$ that passes through the point $P$. This is because moving along a level set means $f$ does not change, so the direction of maximum change must be perpendicular to it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the relationship between the directional derivative $D_{\\mathbf{u}} f(P)$ and the gradient vector $\\nabla f(P)$.",
+      "back": "The directional derivative of $f$ at point $P$ in the direction of a unit vector $\\mathbf{u}$ is given by the dot product of the gradient vector and the unit vector:\n$$ D_{\\mathbf{u}} f(P) = \\nabla f(P) \\cdot \\mathbf{u} $$\nThis formula highlights that the directional derivative is the projection of the gradient onto the direction $\\mathbf{u}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Chain Rule for the derivative of $f(\\mathbf{r}(t))$, where $\\mathbf{r}(t) = \\langle x(t), y(t), z(t) \\rangle$.",
+      "back": "If $f$ is a differentiable scalar function of $x, y, z$ and $\\mathbf{r}(t) = \\langle x(t), y(t), z(t) \\rangle$ is a differentiable vector-valued function, then the derivative of the composite function $F(t) = f(\\mathbf{r}(t))$ with respect to $t$ is given by:\n$$ \\frac{dF}{dt} = \\frac{d}{dt} f(x(t), y(t), z(t)) = \\nabla f(\\mathbf{r}(t)) \\cdot \\mathbf{r}'(t) $$\nThis relates the rate of change of $f$ along a path to its gradient and the path's velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the linearity property of the gradient operator for scalar functions $f$ and $g$ and constant $c$.",
+      "back": "The gradient operator is linear, meaning:\n1.  **Sum Rule:** $\\nabla(f+g) = \\nabla f + \\nabla g$\n2.  **Constant Multiple Rule:** $\\nabla(cf) = c \\nabla f$\nThese properties hold provided $f$ and $g$ are differentiable functions.",
+      "difficulty": "medium"
+    }
+  ]
+}

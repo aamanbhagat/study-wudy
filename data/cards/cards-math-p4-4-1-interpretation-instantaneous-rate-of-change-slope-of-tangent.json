@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-interpretation-instantaneous-rate-of-change-slope-of-tangent",
+  "subtopicTitle": "Interpretation — instantaneous rate of change, slope of tangent",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:03.922Z",
+  "cards": [
+    {
+      "front": "The instantaneous rate of change of a function $f(x)$ at a point $x=a$ is defined as the limit of the _________ as the interval shrinks to zero.",
+      "back": "...limit of the **average rate of change** as the interval shrinks to zero. Mathematically, it's $\\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, the instantaneous rate of change of $f(x)$ at $x=a$ represents the _________ of the tangent line to the graph of $f(x)$ at the point $(a, f(a))$.",
+      "back": "...represents the **slope** of the tangent line to the graph of $f(x)$ at the point $(a, f(a))$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the limit definition of the derivative $f'(a)$ (or $\\frac{dy}{dx}|_{x=a}$) using the \"h-approach\".",
+      "back": "$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$. This formula represents both the instantaneous rate of change of $f(x)$ at $x=a$ and the slope of the tangent line to $y=f(x)$ at $(a, f(a))$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between the slope of a secant line and the slope of a tangent line using the concept of a limit.",
+      "back": "The slope of a secant line connecting two points $(a, f(a))$ and $(a+h, f(a+h))$ is $\\frac{f(a+h) - f(a)}{h}$. As $h \\to 0$, the second point approaches the first point, and the secant line \"rotates\" to become the tangent line at $(a, f(a))$. Thus, the slope of the tangent line is the limit of the slopes of the secant lines.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $V(t)$ represents the volume of water in a tank in liters at time $t$ in minutes, what are the units of $V'(t)$ and what does $V'(5) = -2$ mean in practical terms?",
+      "back": "The units of $V'(t)$ are $\\frac{\\text{liters}}{\\text{minute}}$. $V'(5) = -2$ means that at exactly $t=5$ minutes, the volume of water in the tank is decreasing at an instantaneous rate of 2 liters per minute.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a graph of $f(x)$, how would you visually estimate $f'(a)$?",
+      "back": "To visually estimate $f'(a)$, draw the tangent line to the curve $y=f(x)$ at the point $(a, f(a))$. Then, pick two distinct points on this tangent line and calculate its slope using the rise-over-run formula: $m = \\frac{\\Delta y}{\\Delta x}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For what types of functions or points does the instantaneous rate of change (or derivative) *not* exist? Provide an example.",
+      "back": "The instantaneous rate of change (derivative) does not exist if the limit $\\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$ does not exist. This occurs at:\n1.  **Corners:** e.g., $f(x) = |x|$ at $x=0$.\n2.  **Cusps:** e.g., $f(x) = x^{2/3}$ at $x=0$.\n3.  **Vertical Tangents:** e.g., $f(x) = x^{1/3}$ at $x=0$.\n4.  **Discontinuities:** If a function is not continuous at a point, it cannot be differentiable there.",
+      "difficulty": "hard"
+    }
+  ]
+}

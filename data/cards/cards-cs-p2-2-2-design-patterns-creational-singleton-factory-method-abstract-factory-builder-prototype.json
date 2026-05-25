@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-2-design-patterns-creational-singleton-factory-method-abstract-factory-builder-prototype",
+  "subtopicTitle": "Design Patterns — Creational: Singleton, Factory Method, Abstract Factory, Builder, Prototype",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:38.248Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of the Singleton design pattern?",
+      "back": "To ensure that a class has only one instance and to provide a global point of access to that instance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can thread-safe lazy initialization be achieved for a Singleton in Java without synchronizing the entire `getInstance()` method?",
+      "back": "Using the Double-Checked Locking (DCL) pattern or the Initialization-on-demand holder idiom. DCL involves checking the instance twice with a `synchronized` block:\n```java\npublic class Singleton {\n    private static volatile Singleton instance;\n    private Singleton() {}\n    public static Singleton getInstance() {\n        if (instance == null) {\n            synchronized (Singleton.class) {\n                if (instance == null) {\n                    instance = new Singleton();\n                }\n            }\n        }\n        return instance;\n    }\n}\n```\nThe `volatile` keyword is crucial for DCL to prevent instruction reordering issues.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Differentiate between the Factory Method and Abstract Factory patterns in terms of their primary purpose and the scope of objects they create.",
+      "back": "<ul><li><b>Factory Method:</b> Defines an interface for creating a <i>single</i> object, but lets subclasses decide which concrete class to instantiate. It focuses on creating <i>one product</i>.</li><li><b>Abstract Factory:</b> Provides an interface for creating <i>families of related or dependent objects</i> without specifying their concrete classes. It focuses on creating <i>multiple, related products</i> that form a coherent set.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You're developing a cross-platform application that needs to render UI elements specific to the operating system (e.g., Windows Button, Mac Button). Which creational pattern is best suited to manage the creation of these OS-specific UI component families?",
+      "back": "The <b>Abstract Factory</b> pattern. It allows you to define an interface for creating families of related objects (e.g., `WindowsFactory` creates `WindowsButton` and `WindowsCheckbox`, `MacFactory` creates `MacButton` and `MacCheckbox`), ensuring that all components from a specific factory are compatible and belong to the same platform family.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What common design problem, often referred to as the \"telescoping constructor anti-pattern,\" does the Builder pattern effectively resolve?",
+      "back": "The Builder pattern resolves the issue of having a constructor with a large number of optional parameters, which leads to an explosion of overloaded constructors (telescoping constructors). It separates the construction logic from the object's representation, allowing for step-by-step object creation with clear, readable method calls.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the Builder design pattern, what are the distinct responsibilities of the `Director` and the `Concrete Builder` components?",
+      "back": "<ul><li><b>Director:</b> Orchestrates the construction process. It knows the sequence of steps required to build a complex object but doesn't know the specifics of the product. It tells the builder what to build.</li><li><b>Concrete Builder:</b> Implements the building steps defined by the `Builder` interface. It constructs and assembles parts of the product and provides a method to retrieve the final product. It knows how to build the product.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is the Prototype pattern particularly advantageous over direct object instantiation using constructors, especially concerning performance or dynamic object creation?",
+      "back": "<ul><li><b>Performance:</b> When object creation is computationally expensive, cloning an existing object (prototype) can be faster than creating a new one from scratch.</li><li><b>Dynamic Creation:</b> When the types of objects to create are specified at runtime, or when you need to create objects without knowing their concrete classes. The client asks the prototype to clone itself, decoupling the client from concrete instantiation.</li><li><b>Avoiding Subclassing:</b> Avoids creating a parallel class hierarchy of factories for each product type, simplifying the system.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the critical difference between a shallow copy and a deep copy when implementing the `clone()` method for the Prototype pattern, focusing on how mutable object references are handled.",
+      "back": "<ul><li><b>Shallow Copy:</b> Creates a new object, but instead of creating copies of the nested objects, it copies their <i>references</i>. Both the original and the cloned object will point to the <i>same</i> nested mutable objects. Changes to these nested objects in one instance will affect the other.</li><li><b>Deep Copy:</b> Creates a new object and recursively creates new copies of all nested mutable objects. The original and cloned objects are completely independent; changes to nested objects in one will not affect the other.</li></ul>\nThe choice depends on whether the cloned object needs to be fully independent or can share mutable state.",
+      "difficulty": "hard"
+    }
+  ]
+}

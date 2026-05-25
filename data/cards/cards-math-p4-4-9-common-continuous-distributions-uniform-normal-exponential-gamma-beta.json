@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-9-common-continuous-distributions-uniform-normal-exponential-gamma-beta",
+  "subtopicTitle": "Common continuous distributions — Uniform, Normal, Exponential, Gamma, Beta",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:17:02.321Z",
+  "cards": [
+    {
+      "front": "State the probability density function (PDF) for a continuous Uniform distribution $X \\sim U(a, b)$.",
+      "back": "$$f(x) = \\begin{cases} \\frac{1}{b-a} & \\text{for } a \\le x \\le b \\\\ 0 & \\text{otherwise} \\end{cases}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a Normal distribution $X \\sim N(\\mu, \\sigma^2)$, what do the parameters $\\mu$ and $\\sigma^2$ represent intuitively?",
+      "back": "$\\mu$ (mu) represents the mean (or expected value) of the distribution, indicating its central tendency. $\\sigma^2$ (sigma-squared) represents the variance, which measures the spread or dispersion of the data around the mean. A larger $\\sigma^2$ means data points are more spread out from the mean.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the memoryless property of the Exponential distribution, $P(X > s+t \\mid X > s) = P(X > t)$, for $X \\sim \\text{Exp}(\\lambda)$.",
+      "back": "The CDF is $F(x) = 1 - e^{-\\lambda x}$ for $x \\ge 0$, so $P(X > x) = e^{-\\lambda x}$.\n$$P(X > s+t \\mid X > s) = \\frac{P(X > s+t \\text{ and } X > s)}{P(X > s)}$$\nSince $X > s+t$ implies $X > s$, the numerator simplifies to $P(X > s+t)$.\n$$= \\frac{P(X > s+t)}{P(X > s)} = \\frac{e^{-\\lambda(s+t)}}{e^{-\\lambda s}} = \\frac{e^{-\\lambda s} e^{-\\lambda t}}{e^{-\\lambda s}} = e^{-\\lambda t}$$ \nSince $P(X > t) = e^{-\\lambda t}$, we have $P(X > s+t \\mid X > s) = P(X > t)$. This means the probability of an event occurring in the future is independent of how much time has already passed.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Gamma distribution generalize the Exponential distribution? What are the parameters of a Gamma distribution and their common interpretations?",
+      "back": "The Gamma distribution $X \\sim \\text{Gamma}(k, \\theta)$ (or $\\text{Gamma}(\\alpha, \\beta)$) models the waiting time for $k$ events to occur, where each event's waiting time is exponentially distributed with rate $\\lambda = 1/\\theta$ (or $\\beta$).\n*   $k$ (shape parameter, often $\\alpha$): The number of events. If $k=1$, Gamma reduces to Exponential.\n*   $\\theta$ (scale parameter, often $1/\\beta$): The average waiting time for *one* event. (Or $\\beta$ as rate parameter).\nIt can be seen as the sum of $k$ independent and identically distributed (i.i.d.) exponential random variables.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the support of the Beta distribution, and what kind of quantities is it typically used to model?",
+      "back": "The Beta distribution is defined on the interval $[0, 1]$. It is typically used to model probabilities, proportions, or rates that are constrained to be between 0 and 1. For example, it can model the probability of success in a series of Bernoulli trials when the underlying probability is unknown (as a prior distribution in Bayesian inference).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $X \\sim N(\\mu, \\sigma^2)$, how do you transform $X$ into a standard normal variable $Z \\sim N(0, 1)$? Why is this transformation useful?",
+      "back": "The transformation is $Z = \\frac{X - \\mu}{\\sigma}$.\nThis transformation is useful because it allows us to convert any normal distribution into a standard normal distribution, for which probabilities (areas under the curve) are extensively tabulated (Z-tables) or easily computed by software. This standardizes the scale, making it easier to compare values from different normal distributions and calculate probabilities.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the Beta distribution can be constructed from two independent Gamma-distributed random variables.",
+      "back": "If $X \\sim \\text{Gamma}(\\alpha, 1)$ and $Y \\sim \\text{Gamma}(\\beta, 1)$ are two independent Gamma random variables (with a common scale parameter, here 1), then the random variable $Z = \\frac{X}{X+Y}$ follows a Beta distribution with parameters $\\text{Beta}(\\alpha, \\beta)$. This construction highlights the Beta distribution's role in modeling proportions where the numerator and denominator are sums of exponential waiting times.",
+      "difficulty": "hard"
+    }
+  ]
+}

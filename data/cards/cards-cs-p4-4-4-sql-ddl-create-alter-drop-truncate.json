@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-4-sql-ddl-create-alter-drop-truncate",
+  "subtopicTitle": "SQL DDL — CREATE, ALTER, DROP, TRUNCATE",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:42.307Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of SQL DDL commands?",
+      "back": "DDL (Data Definition Language) commands are used to define, modify, and delete database objects such as databases, tables, views, indexes, and constraints. They manage the structure and schema of the database.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the SQL DDL statement to create a table named `Books` with columns `book_id` (integer, primary key) and `title` (varchar(255), not null).",
+      "back": "```sql\nCREATE TABLE Books (\n    book_id INT PRIMARY KEY,\n    title VARCHAR(255) NOT NULL\n);\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A `Customers` table exists. First, add a `registration_date` column (DATE type, default to current date). Then, remove an `old_email` column from the same table.",
+      "back": "```sql\nALTER TABLE Customers\nADD COLUMN registration_date DATE DEFAULT CURRENT_DATE;\n\nALTER TABLE Customers\nDROP COLUMN old_email;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Modify the `title` column in the `Books` table to allow up to 500 characters and ensure that each title is unique.",
+      "back": "```sql\n-- PostgreSQL/SQL Server syntax for modifying type and adding constraint\nALTER TABLE Books\nALTER COLUMN title TYPE VARCHAR(500);\n\nALTER TABLE Books\nADD CONSTRAINT UQ_BookTitle UNIQUE (title);\n\n-- MySQL syntax for modifying column and adding constraint simultaneously\n-- ALTER TABLE Books\n-- MODIFY COLUMN title VARCHAR(500) UNIQUE;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between `DROP TABLE my_table;` and `DROP TABLE my_table CASCADE;` (or `RESTRICT`) in databases that support these options.",
+      "back": "`DROP TABLE my_table;` attempts to drop the table. If other database objects (e.g., foreign keys in other tables) depend on `my_table`, the operation might fail (often defaulting to `RESTRICT` behavior).\n\n`DROP TABLE my_table CASCADE;` will drop `my_table` and automatically drop all dependent objects (e.g., foreign key constraints in other tables that reference `my_table`). `RESTRICT` explicitly prevents the drop if any dependencies exist, requiring them to be dropped manually first.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the key differences between `TRUNCATE TABLE` and `DELETE FROM` in terms of DDL/DML classification, transaction logging, and auto-increment behavior?",
+      "back": "1.  **DDL/DML:** `TRUNCATE` is DDL (Data Definition Language); `DELETE` is DML (Data Manipulation Language).\n2.  **Transaction Logging:** `TRUNCATE` is typically minimally logged, making it faster for large tables, but it often cannot be rolled back. `DELETE` is fully logged, allowing rollback.\n3.  **Auto-increment:** `TRUNCATE` usually resets auto-incrementing (identity) columns to their starting value. `DELETE` does not reset them; the next inserted row will continue the sequence.\n4.  **WHERE clause:** `DELETE` can use a `WHERE` clause to remove specific rows; `TRUNCATE` removes all rows and does not support a `WHERE` clause.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the DDL statement to create a new database named `InventoryDB`.",
+      "back": "```sql\nCREATE DATABASE InventoryDB;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Add a foreign key constraint to the `Orders` table, linking its `customer_id` column to the `customer_id` in the `Customers` table.",
+      "back": "```sql\nALTER TABLE Orders\nADD CONSTRAINT FK_CustomerOrder\nFOREIGN KEY (customer_id) REFERENCES Customers(customer_id);\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You have a `Products` table with a `stock_quantity` column (INT). Change its type to `SMALLINT` and add a `CHECK` constraint ensuring `stock_quantity` is non-negative.",
+      "back": "```sql\n-- Change column data type (syntax may vary slightly by DB)\nALTER TABLE Products\nALTER COLUMN stock_quantity TYPE SMALLINT; -- PostgreSQL syntax\n-- Or for MySQL: ALTER TABLE Products MODIFY COLUMN stock_quantity SMALLINT;\n-- Or for SQL Server: ALTER TABLE Products ALTER COLUMN stock_quantity SMALLINT;\n\n-- Add CHECK constraint\nALTER TABLE Products\nADD CONSTRAINT CHK_PositiveStock CHECK (stock_quantity >= 0);\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

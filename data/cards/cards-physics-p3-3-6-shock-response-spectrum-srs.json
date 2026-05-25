@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-6-shock-response-spectrum-srs",
+  "subtopicTitle": "Shock response spectrum (SRS)",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:50.074Z",
+  "cards": [
+    {
+      "front": "Define \"Shock Response Spectrum (SRS)\" and state its primary purpose in spacecraft engineering.",
+      "back": "The Shock Response Spectrum (SRS) is a plot of the peak response (e.g., acceleration, velocity, displacement) of an array of single-degree-of-freedom (SDOF) systems to a given transient shock input, plotted as a function of the natural frequency of each SDOF system. Its primary purpose in spacecraft engineering is to characterize the severity of a shock event (like launch or stage separation) on components and to establish design and test requirements.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Briefly describe the conceptual process of generating a Shock Response Spectrum (SRS) from a time-domain shock event.",
+      "back": "To generate an SRS, a time-domain shock acceleration input $a(t)$ is applied to a series of SDOF oscillators, each with a different natural frequency $\\omega_n$ and a specified damping ratio $\\zeta$. For each SDOF system, the maximum absolute response (e.g., acceleration) during and after the shock is recorded. These peak responses are then plotted against the natural frequency $\\omega_n$ of each oscillator to form the SRS.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the three primary parameters that define an SDOF system used to generate an SRS, and how does damping typically affect the spectrum?",
+      "back": "The three primary parameters are:\n1.  **Natural Frequency ($\\omega_n$ or $f_n$)**: The inherent frequency at which the system would oscillate if disturbed.\n2.  **Damping Ratio ($\\zeta$)**: A dimensionless measure describing how oscillations in a system decay after a disturbance.\n3.  **Peak Response**: The maximum absolute value of acceleration, velocity, or displacement experienced by the SDOF system.\nHigher damping ratios generally result in lower peak responses across the frequency range, smoothing out the spectrum and reducing the severity of the shock.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between \"Primary SRS,\" \"Residual SRS,\" and \"Maximax SRS.\"",
+      "back": "*   **Primary SRS**: The maximum absolute response of the SDOF system *during* the time the shock input is applied.\n*   **Residual SRS**: The maximum absolute response of the SDOF system *after* the shock input has ceased, representing the free vibration response.\n*   **Maximax SRS**: The overall maximum absolute response of the SDOF system, considering both the primary and residual phases. This is the most commonly used SRS for design and testing as it captures the absolute peak response.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is an SRS used in the design and qualification of spacecraft components, particularly when comparing test data to design specifications?",
+      "back": "An SRS provides a frequency-domain envelope of the shock severity. For design, engineers ensure that the natural frequencies of critical components do not coincide with peaks in the expected SRS, or that the components can withstand the peak acceleration at their natural frequencies. For qualification, a component's SRS from a test (e.g., pyrotechnic shock test) is compared against the specified design SRS. The test SRS must \"envelope\" (be greater than or equal to) the design SRS across the relevant frequency range to demonstrate that the component has been adequately tested for the expected operational shock environment.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What critical information about a shock event is *not* captured by a standard Shock Response Spectrum (SRS)?",
+      "back": "A standard SRS does not capture:\n1.  **Duration of the shock**: It only shows peak response, not how long the shock lasts.\n2.  **Phase information**: It's a magnitude plot and discards phase relationships between frequency components.\n3.  **Number of cycles**: It doesn't indicate how many times a certain stress level is experienced, which is crucial for fatigue analysis.\n4.  **Non-linear behavior**: SRS assumes linear SDOF systems, which may not accurately represent complex real-world structures under severe shock.\n5.  **Directionality**: A single SRS typically represents response in one direction; a full characterization requires SRS for multiple axes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an SDOF system, what is the relationship between the damping ratio $\\zeta$ and the quality factor (Q-factor), and why is the Q-factor often preferred in SRS specifications?",
+      "back": "The relationship between damping ratio $\\zeta$ and the Q-factor is given by:\n$$Q = \\frac{1}{2\\zeta}$$\nThe Q-factor is often preferred in SRS specifications because it provides a more intuitive measure of the amplification at resonance. A higher Q-factor indicates lower damping and thus a sharper, higher peak response at the natural frequency. Common Q-factors for SRS are 10 (corresponding to $\\zeta = 0.05$) or 20 (corresponding to $\\zeta = 0.025$), representing lightly damped structures typical in aerospace.",
+      "difficulty": "medium"
+    }
+  ]
+}

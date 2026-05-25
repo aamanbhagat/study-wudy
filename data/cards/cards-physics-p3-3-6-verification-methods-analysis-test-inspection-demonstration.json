@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-verification-methods-analysis-test-inspection-demonstration",
+  "subtopicTitle": "Verification methods — analysis, test, inspection, demonstration",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:06.130Z",
+  "cards": [
+    {
+      "front": "In systems engineering, what is the primary objective of \"verification\"?",
+      "back": "Verification is the process of confirming that a system or component meets its specified requirements and design specifications. It answers the question, \"Did we build the system right?\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the four primary methods used for system verification in spacecraft engineering.",
+      "back": "The four primary verification methods are: 1. Analysis, 2. Test, 3. Inspection, 4. Demonstration.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a scenario where \"analysis\" is the most appropriate verification method for a spacecraft component, and state one key advantage.",
+      "back": "Analysis is ideal for verifying complex physical phenomena (e.g., thermal expansion, structural stress under extreme launch loads, orbital mechanics) where testing is impractical, too costly, or impossible. A key advantage is its ability to explore a wide range of conditions and parameters without physical hardware, often providing deeper insight into underlying physics.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is \"testing\" the preferred verification method for a spacecraft system, and what is its primary strength compared to analysis?",
+      "back": "Testing is preferred when direct measurement of performance under representative operational conditions is required, especially for complex interactions or emergent behaviors not easily modeled (e.g., avionics integration, propulsion system firing, environmental qualification). Its primary strength is providing empirical evidence of actual performance, reducing reliance on assumptions inherent in models.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of requirements are typically verified through \"inspection\" in spacecraft manufacturing, and provide an example.",
+      "back": "Inspection typically verifies qualitative requirements, physical characteristics, workmanship standards, and documentation compliance. Examples include checking for correct component installation, proper cable routing, absence of foreign object debris (FOD), correct part numbers, or verifying that all required fasteners are present and torqued to specification.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does \"demonstration\" differ from \"testing\" as a verification method, and what kind of requirements does it typically address?",
+      "back": "Demonstration typically verifies functional capabilities or operational sequences in a pass/fail manner, often at a higher system level, without requiring detailed quantitative measurements. Unlike testing, which often involves controlled conditions and data collection for performance assessment, demonstration focuses on showing that a system can perform its intended function or sequence of operations. It often addresses user-centric or high-level operational requirements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A requirement states: \"The spacecraft's primary structure shall withstand a maximum launch acceleration of $6g$ without permanent deformation.\" Which verification method(s) is most appropriate and why?",
+      "back": "<b>Analysis</b> (e.g., Finite Element Analysis - FEA) would be the primary method, supplemented by <b>Test</b> (e.g., static load testing of critical joints or a full-scale structural test article). FEA can simulate the stress distribution under $6g$ loads across the entire structure, exploring various load cases. Testing provides empirical validation for the FEA models and confirms the actual material and joint strengths under representative loads, especially where analytical models might be less accurate.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For verifying the thermal control system's ability to maintain critical avionics within $20 \\pm 5^\\circ C$ during orbital operations, discuss the trade-offs between relying solely on \"analysis\" versus \"testing.\"",
+      "back": "<ul><li><b>Analysis (Thermal Modeling)</b>: Pros - Can simulate various orbital environments (e.g., eclipse, sun exposure, different orientations) and mission phases without physical hardware; cost-effective for exploring design changes. Cons - Relies on accurate material properties, boundary conditions, and model fidelity; may miss unforeseen thermal paths or component interactions.</li><li><b>Testing (Thermal Vacuum Test - TVAC)</b>: Pros - Provides empirical proof of performance in a simulated space environment; captures real-world interactions and heat transfer mechanisms. Cons - Extremely expensive and time-consuming; difficult to perfectly replicate all orbital conditions; limited number of test cycles/configurations possible.</li></ul><b>Trade-off</b>: Analysis is crucial for initial design and optimization, exploring the design space. Testing provides the ultimate confidence in the final design's performance under representative conditions, validating the analytical models. A combined approach (analysis-driven design, test-verified performance) is usually optimal.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-1-factoring-common-factor-extraction-grouping-using-identities",
+  "subtopicTitle": "Factoring — common factor extraction, grouping, using identities",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:21.044Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of 'factoring' a polynomial in algebra?",
+      "back": "To express the polynomial as a product of two or more simpler polynomials (its factors). This is the reverse process of multiplication or expansion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you determine the Greatest Common Factor (GCF) for terms like $12x^3y^2$ and $18x^2y^4$?",
+      "back": "1. Find the GCF of the coefficients ($12, 18 \\rightarrow 6$). 2. For each common variable, take the lowest power ($x^2$ for $x$, $y^2$ for $y$). The GCF is the product of these: $6x^2y^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Factor the polynomial $15a^4b^2 - 25a^3b^3 + 5a^2b^2$ by extracting the common factor.",
+      "back": "The GCF of all terms is $5a^2b^2$. Factoring it out gives: $$5a^2b^2(3a^2 - 5ab + 1)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is 'factoring by grouping' typically applied, and what's the initial step in this method?",
+      "back": "It's often used for polynomials with four or more terms where no common factor exists for *all* terms. The initial step is to group terms (usually into pairs) that share a common factor, then extract the GCF from each group.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Factor the expression $3x^3 - 2x^2 + 12x - 8$ using the grouping method.",
+      "back": "$$(3x^3 - 2x^2) + (12x - 8) = x^2(3x - 2) + 4(3x - 2) = (3x - 2)(x^2 + 4)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Factor the expression $16x^4 - 81y^4$ completely using the difference of squares identity.",
+      "back": "$$16x^4 - 81y^4 = (4x^2)^2 - (9y^2)^2 = (4x^2 - 9y^2)(4x^2 + 9y^2)$$\nThe first factor is also a difference of squares:\n$$( (2x)^2 - (3y)^2 )(4x^2 + 9y^2) = (2x - 3y)(2x + 3y)(4x^2 + 9y^2)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify the identity and factor the trinomial $9p^2 - 30pq + 25q^2$.",
+      "back": "This is a perfect square trinomial of the form $a^2 - 2ab + b^2 = (a-b)^2$.\nHere, $a = \\sqrt{9p^2} = 3p$ and $b = \\sqrt{25q^2} = 5q$.\nCheck middle term: $2ab = 2(3p)(5q) = 30pq$.\nSo, the factored form is $$(3p - 5q)^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formulas for the sum and difference of cubes. Then, factor $8m^3 + 27$.",
+      "back": "Sum of Cubes: $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$\nDifference of Cubes: $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$\n\nFor $8m^3 + 27$: $a = \\sqrt[3]{8m^3} = 2m$ and $b = \\sqrt[3]{27} = 3$.\nUsing the sum of cubes formula:\n$$(2m+3)((2m)^2 - (2m)(3) + 3^2) = (2m+3)(4m^2 - 6m + 9)$$",
+      "difficulty": "hard"
+    }
+  ]
+}

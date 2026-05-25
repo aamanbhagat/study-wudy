@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-2-inclined-planes-with-and-without-friction",
+  "subtopicTitle": "Inclined planes — with and without friction",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:26.956Z",
+  "cards": [
+    {
+      "front": "What is the most convenient coordinate system for analyzing forces on an object on an inclined plane, and why?",
+      "back": "A tilted coordinate system where the x-axis is parallel to the incline and the y-axis is perpendicular to it. This simplifies calculations for the normal force and friction, as they will align with these axes, and the acceleration (if any) will typically be along the x-axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are the gravitational force components (parallel and perpendicular) determined for an object of mass $m$ on an inclined plane with angle $\theta$?",
+      "back": "The component parallel to the incline (down the slope) is $F_{g,x} = mg \\sin\\theta$. The component perpendicular to the incline (into the slope) is $F_{g,y} = mg \\cos\\theta$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the acceleration of an object sliding down a *frictionless* inclined plane of angle $\\theta$.",
+      "back": "Applying Newton's Second Law along the x-axis (parallel to the incline, positive down):\n$$ \\Sigma F_x = ma_x $$\nOnly the parallel component of gravity acts in this direction:\n$$ mg \\sin\\theta = ma_x $$\n$$ a_x = g \\sin\\theta $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the magnitude of the normal force $N$ on an object of mass $m$ on an inclined plane with angle $\\theta$, *regardless* of friction?",
+      "back": "Applying Newton's Second Law along the y-axis (perpendicular to the incline):\n$$ \\Sigma F_y = ma_y $$\nSince there is no acceleration perpendicular to the plane ($a_y=0$):\n$$ N - mg \\cos\\theta = 0 $$\n$$ N = mg \\cos\\theta $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare and contrast static friction ($f_s$) and kinetic friction ($f_k$) on an inclined plane, including their force equations.",
+      "back": "Static friction ($f_s \\le \\mu_s N$) opposes the *tendency* of motion and can vary from zero up to a maximum value $\\mu_s N$. It acts to prevent motion.\nKinetic friction ($f_k = \\mu_k N$) opposes *actual* motion and has a constant magnitude when the object is sliding. $\\mu_s$ (coefficient of static friction) is generally greater than $\\mu_k$ (coefficient of kinetic friction).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the condition for an object to *start* sliding down an inclined plane, in terms of the angle $\\theta$ and static friction coefficient $\\mu_s$.",
+      "back": "The object starts sliding when the parallel component of gravity overcomes the maximum static friction:\n$$ mg \\sin\\theta > f_{s,max} $$\n$$ mg \\sin\\theta > \\mu_s N $$\nSince $N = mg \\cos\\theta$:\n$$ mg \\sin\\theta > \\mu_s mg \\cos\\theta $$\n$$ \\sin\\theta > \\mu_s \\cos\\theta $$\n$$ \\tan\\theta > \\mu_s $$\nThis angle is often referred to as the angle of repose.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the acceleration of an object sliding *down* an inclined plane with angle $\\theta$ and kinetic friction coefficient $\\mu_k$.",
+      "back": "Applying Newton's Second Law along the x-axis (parallel to the incline, positive down):\n$$ \\Sigma F_x = ma_x $$\nForces acting down the incline: $mg \\sin\\theta$. Force acting up the incline (kinetic friction): $f_k = \\mu_k N = \\mu_k mg \\cos\\theta$.\n$$ mg \\sin\\theta - \\mu_k mg \\cos\\theta = ma_x $$\n$$ a_x = g(\\sin\\theta - \\mu_k \\cos\\theta) $$\nThis assumes $mg \\sin\\theta > \\mu_k mg \\cos\\theta$; otherwise, the object would not slide down or would decelerate if already moving.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An object is pushed *up* an inclined plane with angle $\\theta$ and kinetic friction coefficient $\\mu_k$. What is the magnitude and direction of the kinetic friction force?",
+      "back": "The kinetic friction force always opposes the direction of motion. Since the object is moving *up* the incline, the friction force acts *down* the incline. Its magnitude is $f_k = \\mu_k N = \\mu_k mg \\cos\\theta$.",
+      "difficulty": "hard"
+    }
+  ]
+}

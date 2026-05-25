@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-instance-methods-class-methods-classmethod-static-methods-staticmethod",
+  "subtopicTitle": "Instance methods, class methods (@classmethod), static methods (@staticmethod)",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:20.330Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of an instance method in Python?",
+      "back": "The primary purpose of an instance method is to operate on and potentially modify the state (attributes) of a specific instance of a class. It requires `self` as its first parameter, which refers to the instance itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the purpose of the `@classmethod` decorator in Python?",
+      "back": "The `@classmethod` decorator defines a method that operates on the class itself, rather than an instance. It receives the class (`cls`) as its first argument, allowing it to access and modify class-level attributes or create new instances (e.g., as a factory method).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the purpose of the `@staticmethod` decorator in Python?",
+      "back": "The `@staticmethod` decorator defines a method that belongs to the class but does not operate on the instance (`self`) or the class (`cls`). It behaves like a regular function that is logically grouped within the class namespace, without needing access to instance or class state.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You need to create an alternative constructor for a `User` class that takes a dictionary of user data. Which type of method would you use and why?",
+      "back": "You would use a **class method**. Class methods receive the class (`cls`) as their first argument, enabling them to instantiate new objects of that class (e.g., `return cls(**data)`), making them ideal for alternative constructors or factory methods.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A `Validator` class needs a method `is_valid_email(email_address)` that checks a string format. This method doesn't need any instance-specific data or class-specific data. Which type of method should it be?",
+      "back": "It should be a **static method**. It performs a utility function logically related to the `Validator` class's domain but doesn't require access to `self` (instance state) or `cls` (class state). It's a self-contained function within the class.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference in arguments received by instance, class, and static methods in Python, and how this impacts their typical use cases.",
+      "back": "<ul><li>**Instance methods** receive `self` (the instance) as their first argument, allowing them to access and modify instance-specific attributes. Use: Operating on instance state.</li><li>**Class methods** receive `cls` (the class) as their first argument, allowing them to access and modify class-level attributes or create new instances. Use: Factory methods, class-level operations.</li><li>**Static methods** receive no special first argument (neither `self` nor `cls`). They are essentially regular functions nested within the class namespace. Use: Utility functions that logically belong to the class but don't need class or instance state.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the following Python code. Explain what would happen if you tried to call `Product.get_discount_rate()` directly without creating an instance.",
+      "back": "```python\nclass Product:\n    def get_discount_rate(self):\n        return 0.10\n```\nIt would raise a `TypeError`. Instance methods require an instance to be called upon, as `self` needs to be bound to an object. When called directly on the class, Python doesn't know what `self` should refer to. You would need `Product().get_discount_rate()`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a class `Logger` with a class variable `LOG_LEVEL = 'INFO'`, write a method that can change this `LOG_LEVEL`. This method should operate on the class itself, not an instance.",
+      "back": "```python\nclass Logger:\n    LOG_LEVEL = 'INFO'\n\n    @classmethod\n    def set_log_level(cls, new_level):\n        cls.LOG_LEVEL = new_level\n\n# Example usage:\n# print(Logger.LOG_LEVEL) # INFO\n# Logger.set_log_level('DEBUG')\n# print(Logger.LOG_LEVEL) # DEBUG\n```\nThis uses a class method because it needs to access and modify a class-level attribute (`LOG_LEVEL`) and operates on the class rather than a specific instance.",
+      "difficulty": "medium"
+    }
+  ]
+}

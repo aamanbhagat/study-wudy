@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-scheduling-on-multiprocessors-load-balancing-affinity",
+  "subtopicTitle": "Scheduling on multiprocessors — load balancing, affinity",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:58.255Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of CPU scheduling in a multiprocessor system, beyond simply maximizing CPU utilization?",
+      "back": "The primary goal is to maximize CPU utilization *and* ensure fair and efficient distribution of workload across multiple processing cores, aiming to minimize average response time, maximize throughput, and maintain system stability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"load balancing\" in the context of multiprocessor scheduling.",
+      "back": "Load balancing is the process of distributing the workload (processes or threads) as evenly as possible among all available processors in a multiprocessor system. Its goal is to maximize overall system throughput and minimize response times by preventing some CPUs from being idle while others are overloaded.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between \"push migration\" and \"pull migration\" as strategies for load balancing.",
+      "back": "<ul><li><b>Push Migration:</b> A specific processor (or a global scheduler) periodically checks the load on all processors and \"pushes\" processes from an overloaded processor's queue to an underloaded one.</li><li><b>Pull Migration:</b> An idle or underloaded processor actively \"pulls\" a waiting task from a busy processor's queue to execute it.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is \"processor affinity\" and why is it generally desirable in multiprocessor scheduling?",
+      "back": "Processor affinity is the tendency for a process or thread to run on the same CPU core it previously executed on. It is desirable because it allows the process to benefit from cached data (in L1/L2/L3 caches) and Translation Lookaside Buffer (TLB) entries specific to that core, significantly reducing memory access times and improving performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the difference between \"soft affinity\" and \"hard affinity,\" providing an example for hard affinity.",
+      "back": "<ul><li><b>Soft Affinity:</b> The operating system *attempts* to keep a process on the same processor for performance benefits but may migrate it for load balancing or other system needs. It's a preference, not a strict rule.</li><li><b>Hard Affinity:</b> The process is *guaranteed* to run only on a specified set of processors, often configured by the user or application. Example: A real-time application might use `sched_setaffinity()` in Linux to bind a critical thread to a specific core to minimize latency and avoid interference from other tasks.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the inherent trade-off between aggressive load balancing and maintaining strong processor affinity.",
+      "back": "Aggressive load balancing frequently migrates processes to achieve even distribution, which directly conflicts with processor affinity. Migrating a process causes it to lose the performance benefits of cached data and TLB entries on its previous core. The new core will experience a \"cache cold start,\" leading to increased memory access times and initial performance degradation. The trade-off is balancing overall system throughput (via load balancing) against individual process performance (via affinity).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does Non-Uniform Memory Access (NUMA) architecture complicate multiprocessor scheduling, particularly concerning affinity?",
+      "back": "In NUMA systems, memory access times vary based on the processor's physical proximity to the memory module. Scheduling a process on a CPU far from the memory node where its data resides can incur significant performance penalties due to slower access. This necessitates NUMA-aware scheduling, which extends processor affinity to include *memory affinity*, attempting to schedule processes on CPUs that are \"close\" to their allocated memory nodes, even if it means slightly compromising a perfectly even CPU load distribution.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "subtopicId": "cs-p4-4-6-nfa-formal-definition-epsilon-transitions",
+  "subtopicTitle": "NFA — formal definition, epsilon transitions",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:09.515Z",
+  "cards": [
+    {
+      "front": "Formally define a Nondeterministic Finite Automaton (NFA).",
+      "back": "An NFA is formally defined as a 5-tuple $M = (Q, \\Sigma, \\delta, q_0, F)$, where:\n1.  $Q$ is a finite set of states.\n2.  $\\Sigma$ is a finite input alphabet.\n3.  $\\delta$ is the transition function.\n4.  $q_0 \\in Q$ is the start state.\n5.  $F \\subseteq Q$ is the set of final (accepting) states.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the transition function $\\delta$ of an NFA formally differ from that of a DFA?",
+      "back": "For a DFA, the transition function is $\\delta: Q \\times \\Sigma \\to Q$, meaning it maps a state and an input symbol to exactly one next state.\nFor an NFA, the transition function is $\\delta: Q \\times (\\Sigma \\cup \\{\\epsilon\\}) \\to \\mathcal{P}(Q)$, where $\\mathcal{P}(Q)$ is the power set of $Q$. This allows an NFA to transition to zero, one, or multiple states for a given input, and also to make $\\epsilon$-transitions without consuming input.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is an $\\epsilon$-transition in an NFA, and what is its significance?",
+      "back": "An $\\epsilon$-transition is a move from one state to another without consuming any input symbol. It's represented by transitions like $q_j \\in \\delta(q_i, \\epsilon)$. Its significance is that it allows the NFA to change states spontaneously, effectively being 'in' multiple states simultaneously even before reading the next input symbol, which adds to its non-deterministic nature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the $\\epsilon$-closure of a state $q \\in Q$ in an NFA, denoted $E(q)$ or $CLOSE_{\\epsilon}(q)$.",
+      "back": "The $\\epsilon$-closure of a state $q$, $E(q)$, is the set of all states reachable from $q$ by following zero or more $\\epsilon$-transitions. Formally:\n1.  $q \\in E(q)$ (zero $\\epsilon$-transitions).\n2.  If $p \\in E(q)$ and there is an $\\epsilon$-transition from $p$ to $r$ (i.e., $r \\in \\delta(p, \\epsilon)$), then $r \\in E(q)$.\nThis process is repeated until no new states can be added to the set.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an NFA with states $Q=\\{q_0, q_1, q_2, q_3\\}$ and transitions:\n$\\delta(q_0, \\epsilon)=\\{q_1\\}$\n$\\delta(q_1, \\epsilon)=\\{q_2\\}$\n$\\delta(q_2, a)=\\{q_3\\}$\nCalculate $E(q_0)$.",
+      "back": "To calculate $E(q_0)$:\n1.  Start with $q_0$. Current set: $\\{q_0\\}$.\n2.  From $q_0$, there is an $\\epsilon$-transition to $q_1$. Add $q_1$. Current set: $\\{q_0, q_1\\}$.\n3.  From $q_1$, there is an $\\epsilon$-transition to $q_2$. Add $q_2$. Current set: $\\{q_0, q_1, q_2\\}$.\n4.  From $q_2$, there are no $\\epsilon$-transitions to new states.\n5.  No new states can be added.\nTherefore, $E(q_0) = \\{q_0, q_1, q_2\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the extended transition function $\\hat{\\delta}$ for an NFA with $\\epsilon$-transitions, processing an input string $w = xa$ where $x \\in \\Sigma^*$ and $a \\in \\Sigma$.",
+      "back": "The extended transition function $\\hat{\\delta}: Q \\times \\Sigma^* \\to \\mathcal{P}(Q)$ is defined recursively:\n1.  Base case: $\\hat{\\delta}(q, \\epsilon) = E(q)$ (the $\\epsilon$-closure of state $q$).\n2.  Recursive step for $w = xa$:\n    $\\hat{\\delta}(q, xa) = E(\\bigcup_{p \\in \\hat{\\delta}(q, x)} \\delta(p, a))$\nThis means: first, find all states reachable from $q$ by processing string $x$ (including $\\epsilon$-transitions). Then, from each of those resulting states, take an $a$-transition. Finally, take the $\\epsilon$-closure of all states reached by those $a$-transitions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does an NFA with $\\epsilon$-transitions formally accept an input string $w$?",
+      "back": "An NFA $M = (Q, \\Sigma, \\delta, q_0, F)$ accepts a string $w \\in \\Sigma^*$ if and only if $\\hat{\\delta}(q_0, w) \\cap F \\neq \\emptyset$.\nThis means that after processing the entire string $w$ starting from the initial state $q_0$ (considering all possible paths due to non-determinism and $\\epsilon$-transitions), if *at least one* of the states in the final set of reachable states is an accepting state, then the string $w$ is accepted by the NFA.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the intuitive meaning of 'non-determinism' in an NFA, especially regarding its state at any given point?",
+      "back": "Intuitively, 'non-determinism' means that an NFA doesn't have a single, fixed path for an input. For a given state and input symbol (or $\\epsilon$), it can transition to zero, one, or multiple next states. This implies the NFA can be thought of as exploring all possible paths simultaneously. At any point, the NFA is not in a single state, but rather 'in' a *set* of states, representing all possible configurations it could be in given the input processed so far.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-4-6dof-equations-translational-newton-rotational-euler-s-equations",
+  "subtopicTitle": "6DOF equations — translational (Newton), rotational (Euler's equations)",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:23.072Z",
+  "cards": [
+    {
+      "front": "What does \"6DOF\" stand for in rocket flight mechanics, and what physical quantities does it represent?",
+      "back": "6DOF stands for \"Six Degrees of Freedom.\" It represents the three translational degrees of freedom (movement along X, Y, Z axes) and three rotational degrees of freedom (rotation about X, Y, Z axes, often called roll, pitch, and yaw).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Newton's second law for the translational motion of a rocket, identifying the primary forces.",
+      "back": "Newton's second law is $\\sum \\mathbf{F} = m\\mathbf{a}$. For a rocket, the primary forces are:\n*   $\\mathbf{F}_T$: Thrust vector\n*   $\\mathbf{F}_D$: Aerodynamic Drag vector\n*   $\\mathbf{F}_L$: Aerodynamic Lift vector (if applicable)\n*   $\\mathbf{F}_G$: Gravitational force vector\nSo, $\\mathbf{F}_T + \\mathbf{F}_D + \\mathbf{F}_L + \\mathbf{F}_G = m\\mathbf{a}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are Euler's rotational equations of motion typically formulated in the body-fixed frame of a rocket?",
+      "back": "The body-fixed frame is used because the rocket's moment of inertia tensor, $\\mathbf{I}$, is constant when expressed in this frame (assuming a rigid body and no mass expulsion changes its geometry relative to the body frame). This simplifies the equations significantly, avoiding time-varying inertia terms that would arise in an inertial frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the full vector form of Euler's rotational equations of motion for a rigid body.",
+      "back": "The full vector form of Euler's rotational equations for a rigid body is:\n$$ \\sum \\mathbf{M} = \\mathbf{I}\\dot{\\boldsymbol{\\omega}} + \\boldsymbol{\\omega} \\times (\\mathbf{I}\\boldsymbol{\\omega}) $$\nwhere $\\sum \\mathbf{M}$ is the sum of external moments, $\\mathbf{I}$ is the moment of inertia tensor, $\\dot{\\boldsymbol{\\omega}}$ is the angular acceleration, and $\\boldsymbol{\\omega}$ is the angular velocity, all expressed in the body frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a rigid body with principal axes of inertia ($I_x, I_y, I_z$), write out Euler's rotational equations in component form.",
+      "back": "If the body axes are aligned with the principal axes of inertia, the inertia tensor is diagonal, $\\mathbf{I} = \\text{diag}(I_x, I_y, I_z)$. The equations become:\n$$ M_x = I_x \\dot{\\omega}_x - (I_y - I_z)\\omega_y \\omega_z $$\n$$ M_y = I_y \\dot{\\omega}_y - (I_z - I_x)\\omega_z \\omega_x $$\n$$ M_z = I_z \\dot{\\omega}_z - (I_x - I_y)\\omega_x \\omega_y $$\nwhere $M_x, M_y, M_z$ are the moments about the respective body axes, and $\\omega_x, \\omega_y, \\omega_z$ are the components of angular velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the physical significance of the $\\boldsymbol{\\omega} \\times (\\mathbf{I}\\boldsymbol{\\omega})$ term in Euler's rotational equations.",
+      "back": "This term, often called the \"gyroscopic\" or \"precessional\" term, accounts for the change in angular momentum due to the rotation of the body frame itself. Even if the angular momentum vector $\\mathbf{H} = \\mathbf{I}\\boldsymbol{\\omega}$ is constant in the inertial frame, its components in the rotating body frame will change. This term captures the \"apparent\" rate of change of angular momentum as seen from the rotating body frame. It's crucial for understanding phenomena like gyroscopic precession and nutation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the translational and rotational 6DOF equations of motion couple in a rocket simulation?",
+      "back": "They couple through:\n1.  **Forces/Moments:** Thrust vectoring (gimbaling) creates both a force (translational) and a moment (rotational). Aerodynamic forces (drag, lift) depend on the rocket's attitude (orientation), which is determined by rotational motion.\n2.  **Center of Mass/Pressure:** The location of the center of mass (CM) affects moments. The center of pressure (CP) relative to the CM creates aerodynamic moments.\n3.  **Velocity/Angular Velocity:** Translational velocity affects aerodynamic forces. Angular velocity affects aerodynamic moments and contributes to the total velocity of points on the rocket.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the primary external forces and moments that must be modeled in a comprehensive 6DOF rocket simulation.",
+      "back": "**Forces:**\n*   Thrust ($\\mathbf{F}_T$)\n*   Aerodynamic Drag ($\\mathbf{F}_D$)\n*   Aerodynamic Lift ($\\mathbf{F}_L$)\n*   Gravity ($\\mathbf{F}_G$)\n**Moments:**\n*   Thrust Moment ($\\mathbf{M}_T$, from thrust vectoring relative to CM)\n*   Aerodynamic Pitch Moment ($\\mathbf{M}_{P}$)\n*   Aerodynamic Yaw Moment ($\\mathbf{M}_{Y}$)\n*   Aerodynamic Roll Moment ($\\mathbf{M}_{R}$)\n*   Control Moments (e.g., from fins, reaction control system, gimbaling)",
+      "difficulty": "medium"
+    }
+  ]
+}

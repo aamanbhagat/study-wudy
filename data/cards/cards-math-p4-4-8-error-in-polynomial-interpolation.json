@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-error-in-polynomial-interpolation",
+  "subtopicTitle": "Error in polynomial interpolation",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:23.981Z",
+  "cards": [
+    {
+      "front": "Define the error in polynomial interpolation for a function $f(x)$ approximated by $P_n(x)$.",
+      "back": "The error $E_n(x)$ in polynomial interpolation is the difference between the actual function value and the interpolated polynomial value: $E_n(x) = f(x) - P_n(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the error $E_n(x)$ when interpolating $f(x)$ with an $n$-th degree polynomial $P_n(x)$ at distinct nodes $x_0, \\dots, x_n$.",
+      "back": "The error is given by $E_n(x) = f(x) - P_n(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!} \\prod_{i=0}^{n} (x - x_i)$, where $\\xi$ is some point in the smallest open interval containing $x, x_0, \\dots, x_n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the error formula $E_n(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!} \\prod_{i=0}^{n} (x - x_i)$, what does $\\xi$ represent, and how is its existence guaranteed?",
+      "back": "$\\xi$ is an unknown point within the smallest open interval containing $x$ and all interpolation nodes $x_0, \\dots, x_n$. Its existence is guaranteed by a generalized Mean Value Theorem or by repeated application of Rolle's Theorem on an auxiliary function constructed during the proof of the error formula.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the key steps to derive the error formula $E_n(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!} \\prod_{i=0}^{n} (x - x_i)$.",
+      "back": "Consider an auxiliary function $G(t) = f(t) - P_n(t) - C \\prod_{i=0}^{n}(t-x_i)$, where $C$ is chosen such that $G(x)=0$ for a specific $x$ (not an interpolation node). $G(t)$ has $n+2$ roots (the $n+1$ nodes $x_i$ and the chosen $x$). By repeatedly applying Rolle's Theorem, $G^{(n+1)}(t)$ must have at least one root, $\\xi$, in the interval containing all roots. Setting $G^{(n+1)}(\\xi)=0$ allows us to solve for $C$ and substitute it back into the $G(x)=0$ equation to obtain the error formula.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If the exact value of $f^{(n+1)}(\\xi)$ is unknown, how can you bound the interpolation error $|E_n(x)|$?",
+      "back": "We can bound the error by finding the maximum possible value of the $(n+1)$-th derivative over the interval of interest: $|E_n(x)| \\le \\frac{M_{n+1}}{(n+1)!} \\left| \\prod_{i=0}^{n} (x - x_i) \\right|$, where $M_{n+1} = \\max_{t \\in [a,b]} |f^{(n+1)}(t)|$ for $[a,b]$ being the smallest interval containing $x$ and all interpolation nodes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain Runge's phenomenon and its implication for increasing the degree of the polynomial in interpolation.",
+      "back": "Runge's phenomenon describes the problem where, for certain functions (e.g., $f(x) = \\frac{1}{1+25x^2}$) and equally spaced interpolation nodes, increasing the degree of the interpolating polynomial does not necessarily improve the approximation. Instead, the error can grow significantly, especially near the endpoints of the interval, leading to large oscillations. This implies that simply increasing the polynomial degree with equally spaced nodes does not always guarantee better accuracy.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What strategy is commonly used to minimize the magnitude of the product term $\\prod_{i=0}^{n} (x - x_i)$ in the error formula when choosing interpolation nodes?",
+      "back": "To minimize the maximum value of $\\left| \\prod_{i=0}^{n} (x - x_i) \\right|$ over a given interval $[a,b]$, one should choose the interpolation nodes $x_i$ to be the roots of Chebyshev polynomials (scaled to the interval $[a,b]$). These are known as Chebyshev nodes, and they tend to cluster near the endpoints of the interval.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two primary factors that influence the magnitude of the error in polynomial interpolation.",
+      "back": "Two primary factors are:\n1.  The smoothness of the function $f(x)$ (specifically, the magnitude of its $(n+1)$-th derivative, $f^{(n+1)}(\\xi)$).\n2.  The distribution and number of interpolation nodes $x_i$ (which affects the magnitude of the product term $\\prod_{i=0}^{n} (x - x_i)$).",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-3-specific-impulse-isp-v-e-g-definition-physical-meaning-units",
+  "subtopicTitle": "Specific impulse Isp = v_e/g₀ — definition, physical meaning, units",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:23.946Z",
+  "cards": [
+    {
+      "front": "Define specific impulse ($I_{sp}$) and state its primary formula.",
+      "back": "$I_{sp}$ is a measure of the efficiency of a rocket engine or jet engine. It is defined as the total impulse (change in momentum) delivered per unit of propellant mass consumed. The primary formula is: $$ I_{sp} = \\frac{v_e}{g_0} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the specific impulse formula $I_{sp} = v_e/g_0$, what do $v_e$ and $g_0$ denote?",
+      "back": "$v_e$ is the effective exhaust velocity of the propellant (m/s). $g_0$ is the standard acceleration due to gravity at sea level on Earth, approximately $9.80665 \\text{ m/s}^2$. It serves as a conversion factor, not the local gravity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the standard SI units for specific impulse ($I_{sp}$) using the formula $I_{sp} = v_e/g_0$.",
+      "back": "The units of $v_e$ (effective exhaust velocity) are $\\text{m/s}$. The units of $g_0$ (standard acceleration due to gravity) are $\\text{m/s}^2$. Therefore, the units of $I_{sp}$ are: $$ \\frac{\\text{m/s}}{\\text{m/s}^2} = \\frac{\\text{m}}{\\text{s}} \\cdot \\frac{\\text{s}^2}{\\text{m}} = \\text{s} $$ The standard SI unit for specific impulse is seconds (s).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical meaning of specific impulse ($I_{sp}$) in intuitive terms, considering its units of seconds.",
+      "back": "$I_{sp}$ represents how long a unit mass of propellant can produce a unit of thrust. For example, an $I_{sp}$ of 300 seconds means that 1 kg of propellant can produce 1 N of thrust for 300 seconds (or 300 kg of propellant can produce 1 N of thrust for 1 second). It's a direct measure of propellant efficiency: higher $I_{sp}$ means more thrust per unit of propellant consumed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an alternative definition of specific impulse ($I_{sp}$) relating it to thrust and propellant mass flow rate. Explain why $g_0$ is present.",
+      "back": "Specific impulse can also be defined as: $$ I_{sp} = \\frac{F}{\\dot{m} g_0} $$ where $F$ is thrust (N) and $\\dot{m}$ is the propellant mass flow rate (kg/s). The $g_0$ factor is included to convert the denominator from 'mass flow rate' (kg/s) to 'weight flow rate' (N/s) at standard gravity. This historical convention allows $I_{sp}$ to have units of seconds and be interpreted as 'seconds of thrust per unit weight of propellant'.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is a high specific impulse ($I_{sp}$) a crucial and desirable characteristic for rocket engines?",
+      "back": "A high $I_{sp}$ indicates greater propellant efficiency. For a given amount of thrust, an engine with higher $I_{sp}$ consumes less propellant mass per unit of time. This means the rocket can achieve a greater change in velocity (delta-v) with the same amount of fuel, or achieve the same delta-v with less fuel, leading to a lighter rocket, larger payload capacity, or longer mission duration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Two rocket engines produce the same thrust. Engine A has $I_{sp} = 300 \\text{ s}$, and Engine B has $I_{sp} = 450 \\text{ s}$. Which engine consumes propellant faster?",
+      "back": "Engine A ($I_{sp} = 300 \\text{ s}$) consumes propellant faster. From the alternative definition $I_{sp} = \\frac{F}{\\dot{m} g_0}$, we can rearrange for mass flow rate: $\\dot{m} = \\frac{F}{I_{sp} g_0}$. Since thrust ($F$) and $g_0$ are constant for both engines, the mass flow rate ($\\dot{m}$) is inversely proportional to $I_{sp}$. A lower $I_{sp}$ means a higher mass flow rate is required to produce the same thrust, making Engine A less efficient.",
+      "difficulty": "hard"
+    }
+  ]
+}

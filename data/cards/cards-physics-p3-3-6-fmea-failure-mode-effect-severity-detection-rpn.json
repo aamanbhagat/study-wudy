@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-fmea-failure-mode-effect-severity-detection-rpn",
+  "subtopicTitle": "FMEA — failure mode, effect, severity, detection, RPN",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:05.942Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a Failure Mode and Effects Analysis (FMEA) in spacecraft engineering?",
+      "back": "The primary purpose of FMEA is to systematically identify potential failure modes in a system, analyze their causes and effects, and prioritize them based on risk to prevent or mitigate them, thereby improving reliability and safety.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"Failure Mode\" in the context of FMEA for a spacecraft component, providing an example.",
+      "back": "A \"Failure Mode\" is a specific way in which a component, subsystem, or system could potentially fail to perform its intended function. For example, for a spacecraft's solar panel array, a failure mode could be \"Loss of power generation\" or \"Panel deployment failure.\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a spacecraft's reaction wheel, describe a potential \"Failure Effect\" resulting from a \"Bearing Seizure\" failure mode.",
+      "back": "A \"Bearing Seizure\" in a reaction wheel could lead to the \"Loss of attitude control capability\" for that specific axis. This failure effect could further escalate to \"Uncontrolled spacecraft tumble\" or \"Inability to point scientific instruments,\" jeopardizing mission objectives.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In FMEA, describe the \"Severity (S)\" rating and provide an example of a \"10\" (Catastrophic) severity for a crewed spacecraft system.",
+      "back": "Severity (S) is a rating of the seriousness of the failure's effect on the system, mission, or personnel. A \"10\" (Catastrophic) for a crewed spacecraft could be a \"Primary propulsion system failure during ascent,\" leading to \"Loss of mission, vehicle, and human life.\"",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"Detection (D)\" rating in FMEA and list factors that influence its score for a spacecraft system.",
+      "back": "Detection (D) is a rating of the likelihood that the failure mode will be detected by existing controls (e.g., design reviews, tests, monitoring systems, diagnostics) before it reaches the end-user or causes a critical effect. Factors influencing D include the effectiveness of test coverage, sensor capabilities, diagnostic algorithms, and inspection methods.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the \"Occurrence (O)\" rating represent in FMEA, and how might it be estimated for a novel spacecraft component?",
+      "back": "Occurrence (O) is a rating of the likelihood or frequency of the failure mode happening. For a novel spacecraft component, it might be estimated based on reliability data from similar components, engineering judgment, physics-of-failure models, accelerated life testing, or probabilistic risk assessment (PRA) results.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the Risk Priority Number (RPN) for a spacecraft component failure with Severity (S) = 9, Occurrence (O) = 7, and Detection (D) = 2. Explain what this RPN value signifies.",
+      "back": "The RPN is calculated as $RPN = S \\times O \\times D$. For S=9, O=7, D=2, $RPN = 9 \\times 7 \\times 2 = 126$. This RPN value signifies a relatively high-risk failure mode. While the severity and occurrence are high, the detection likelihood is also high (a low D score indicates high detection). A high RPN indicates that this failure mode requires significant attention for mitigation or prevention.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the typical steps involved in conducting an FMEA for a complex spacecraft subsystem.",
+      "back": "The typical steps are:\n1.  **Define Scope:** Identify the system/subsystem, boundaries, and functions.\n2.  **Decompose System:** Break down into components/processes.\n3.  **Identify Failure Modes:** For each component, list ways it can fail.\n4.  **Determine Failure Effects:** Analyze consequences of each failure mode.\n5.  **Identify Causes:** Determine root causes of each failure mode.\n6.  **Assign Severity (S):** Rate the impact of the effect.\n7.  **Assign Occurrence (O):** Rate the likelihood of the cause/failure mode.\n8.  **Assign Detection (D):** Rate the likelihood of detecting the failure before it impacts.\n9.  **Calculate RPN:** $RPN = S \\times O \\times D$.\n10. **Prioritize & Act:** Address high RPN items with corrective actions.\n11. **Re-evaluate RPN:** After actions, recalculate RPN to confirm risk reduction.",
+      "difficulty": "hard"
+    }
+  ]
+}

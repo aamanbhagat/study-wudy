@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-6-doppler-effect-all-cases-source-moving-observer-moving-both",
+  "subtopicTitle": "Doppler effect — all cases: source moving, observer moving, both",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:00.010Z",
+  "cards": [
+    {
+      "front": "Define the Doppler effect.",
+      "back": "The Doppler effect is the apparent change in frequency (and consequently wavelength) of a wave observed when there is relative motion between the source of the wave and the observer.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the observed frequency $f'$ when an observer moves with speed $v_o$ towards a stationary source emitting frequency $f$ in a medium where wave speed is $v$.",
+      "back": "When an observer moves towards a stationary source, the relative speed of the wavefronts with respect to the observer is $v + v_o$. Since the wavelength $\\lambda = v/f$ remains unchanged, the observed frequency $f'$ is given by:\n$$f' = \\frac{\\text{relative speed}}{\\lambda} = \\frac{v + v_o}{v/f} = f \\left( \\frac{v + v_o}{v} \\right)$$\nIf the observer moves away, the relative speed is $v - v_o$, so $f' = f \\left( \\frac{v - v_o}{v} \\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the observed frequency $f'$ when a source moves with speed $v_s$ towards a stationary observer, emitting frequency $f$ in a medium where wave speed is $v$.",
+      "back": "When a source moves towards a stationary observer, the wavefronts in front of the source are compressed. In one period $T = 1/f$, the source travels $v_s T$ distance, and the wave travels $v T$. The new wavelength $\\lambda'$ is the distance between successive crests:\n$$\\lambda' = v T - v_s T = (v - v_s)T = \\frac{v - v_s}{f}$$\nThe observed frequency $f'$ is then:\n$$f' = \\frac{v}{\\lambda'} = \\frac{v}{(v - v_s)/f} = f \\left( \\frac{v}{v - v_s} \\right)$$\nIf the source moves away, the wavelength is stretched, so $f' = f \\left( \\frac{v}{v + v_s} \\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the general Doppler effect formula for sound waves when both source and observer are moving, and explain the sign convention for $v_o$ and $v_s$.",
+      "back": "The general Doppler effect formula for sound waves is:\n$$f' = f \\left( \\frac{v \\pm v_o}{v \\mp v_s} \\right)$$\n**Sign Convention:**\n*   **Observer speed ($v_o$):** Use '+' if the observer is moving **TOWARDS** the source. Use '-' if the observer is moving **AWAY** from the source.\n*   **Source speed ($v_s$):** Use '-' if the source is moving **TOWARDS** the observer. Use '+' if the source is moving **AWAY** from the observer.\n\n(A useful mnemonic: \"Observer on Top, Source on Bottom. Towards makes frequency higher, Away makes it lower.\")",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An ambulance siren emits a frequency of $1000 \\text{ Hz}$. If it approaches you at $30 \\text{ m/s}$ and the speed of sound is $340 \\text{ m/s}$, what frequency do you hear?",
+      "back": "Given:\n*   Source frequency $f = 1000 \\text{ Hz}$\n*   Source speed $v_s = 30 \\text{ m/s}$ (approaching, so use '-' in denominator)\n*   Observer speed $v_o = 0 \\text{ m/s}$ (stationary)\n*   Speed of sound $v = 340 \\text{ m/s}$\n\nUsing the general formula $f' = f \\left( \\frac{v \\pm v_o}{v \\mp v_s} \\right)$:\n$$f' = 1000 \\text{ Hz} \\left( \\frac{340 \\text{ m/s} + 0}{340 \\text{ m/s} - 30 \\text{ m/s}} \\right)$$\n$$f' = 1000 \\text{ Hz} \\left( \\frac{340}{310} \\right) \\approx 1096.77 \\text{ Hz}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to the observed frequency and wavelength when a sound source approaches the speed of sound in the medium? What phenomenon occurs?",
+      "back": "As the source speed $v_s$ approaches the speed of sound $v$ (i.e., $v_s \\to v$), the denominator $(v - v_s)$ in the formula $f' = f \\left( \\frac{v}{v - v_s} \\right)$ approaches zero. Consequently, the observed frequency $f'$ approaches infinity, and the wavelength $\\lambda'$ in front of the source approaches zero.\n\nThis condition leads to the formation of a **shock wave**, commonly known as a **sonic boom**. The wavefronts pile up, creating a region of extremely high pressure and density, which propagates as a conical wave.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Doppler effect for electromagnetic waves (light) fundamentally differ from that for sound waves, especially at high speeds?",
+      "back": "The fundamental differences arise from the nature of the waves and the principles of relativity:\n1.  **Medium:** Sound waves require a medium for propagation, so source and observer speeds are relative to that medium. Light waves are electromagnetic and do not require a medium; their speed $c$ is constant for all inertial observers.\n2.  **Relativity:** For light, the classical Doppler formulas are only approximations. At speeds significant compared to $c$, relativistic effects (time dilation and length contraction) become dominant. The relativistic Doppler effect formula for relative velocity $v_{rel}$ is $f' = f \\sqrt{\\frac{1 \\pm v_{rel}/c}{1 \\mp v_{rel}/c}}$.\n3.  **Transverse Doppler Effect:** For light, a frequency shift occurs even when the source moves perpendicular to the observer's line of sight (transverse Doppler effect), purely due to time dilation. This effect does not exist for sound waves.",
+      "difficulty": "hard"
+    }
+  ]
+}

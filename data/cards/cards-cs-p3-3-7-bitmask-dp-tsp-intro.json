@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-7-bitmask-dp-tsp-intro",
+  "subtopicTitle": "Bitmask DP — TSP intro",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:14.946Z",
+  "cards": [
+    {
+      "front": "What is a bitmask primarily used for in algorithm design?",
+      "back": "A bitmask is an integer where individual bits are used to represent the presence or absence of elements in a set. Each bit position corresponds to a unique element.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a bitmask `mask` and an item index `i`, how do you check if item `i` is included in the set represented by `mask`?",
+      "back": "You can check if the $i$-th bit is set using bitwise operations:\n```cpp\nbool is_set = (mask & (1 << i)) != 0;\n// or equivalently\nbool is_set = (mask >> i) & 1;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Bitmask DP, what does a typical DP state `dp[mask]` or `dp[mask][i]` generally represent?",
+      "back": "`dp[mask]` usually represents the optimal solution for the subset of items represented by `mask`. `dp[mask][i]` often means the optimal solution for the subset `mask`, *ending* at item `i` (common in pathfinding problems like TSP).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly describe the Traveling Salesperson Problem (TSP).",
+      "back": "Given a set of $N$ cities and the distances between every pair of cities, the goal is to find the shortest possible route that visits each city exactly once and returns to the origin city.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For Bitmask DP on TSP, if we want to find the minimum cost to visit a subset of cities and end at a specific city, how would you define the DP state `dp[mask][i]`?",
+      "back": "`dp[mask][i]` represents the minimum cost to visit all cities specified by the `mask` (where the $k$-th bit being set means city $k$ has been visited), ending the path at city `i`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the recurrence relation for `dp[mask][i]` in Bitmask DP for TSP, assuming `cost[j][i]` is the distance from city `j` to city `i`.",
+      "back": "The recurrence relation is:\n$$dp[mask][i] = \\min_{j \\text{ s.t. } (mask \\text{ & } (1 \\ll j)) \\ne 0 \\text{ and } j \\ne i} (dp[mask \\text{ XOR } (1 \\ll i)][j] + \\text{cost}[j][i])$$ \nThis means to reach city `i` as the last city in `mask`, we must have come from some city `j` that was part of `mask` (excluding `i`), having already visited the cities represented by `mask` excluding `i`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the base case for the Bitmask DP state `dp[mask][i]` for TSP, assuming city 0 is the fixed starting city?",
+      "back": "The base case is for starting the path:\n`dp[1 << 0][0] = 0` (The cost to visit only city 0, ending at city 0, is 0).\nAll other `dp[1 << i][i]` for `i \\ne 0` are initialized to $\\infty$ (or a very large number) if city 0 must be the starting point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity of the Bitmask DP solution for TSP with $N$ cities?",
+      "back": "The time complexity is $O(N^2 \\cdot 2^N)$.\n*   There are $2^N$ possible bitmasks.\n*   For each mask, there are $N$ possible ending cities `i`.\n*   For each state `dp[mask][i]`, we iterate through $N$ possible previous cities `j` to find the minimum.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After computing all `dp[mask][i]` values, how do you find the final minimum cost for TSP, assuming city 0 is the start and end?",
+      "back": "The final answer is the minimum value among `dp[(1 << N) - 1][i] + cost[i][0]` for all `i` from $1$ to $N-1$. Here, `(1 << N) - 1` represents the mask where all $N$ cities have been visited. We add `cost[i][0]` to account for the return trip from the last city `i` to the starting city `0`.",
+      "difficulty": "medium"
+    }
+  ]
+}

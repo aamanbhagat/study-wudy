@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-3-integral-test-proof-p-series",
+  "subtopicTitle": "Integral test — proof, p-series",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:05.595Z",
+  "cards": [
+    {
+      "front": "What three conditions must a function $f(x)$ satisfy for the Integral Test to be applicable to the series $\\sum_{n=N}^\\infty a_n$, where $a_n = f(n)$?",
+      "back": "For the Integral Test to apply to $\\sum_{n=N}^\\infty a_n$ (where $a_n = f(n)$), the function $f(x)$ must be:\n1.  **Continuous** on $[N, \\infty)$.\n2.  **Positive** on $[N, \\infty)$.\n3.  **Decreasing** on $[N, \\infty)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the conclusion of the Integral Test regarding the convergence or divergence of a series $\\sum_{n=N}^\\infty a_n$ and an improper integral $\\int_N^\\infty f(x) \\, dx$.",
+      "back": "If $f(x)$ satisfies the conditions of the Integral Test, then:\n*   If $\\int_N^\\infty f(x) \\, dx$ converges, then $\\sum_{n=N}^\\infty a_n$ converges.\n*   If $\\int_N^\\infty f(x) \\, dx$ diverges, then $\\sum_{n=N}^\\infty a_n$ diverges.\n(Note: The value of the integral is generally not equal to the sum of the series.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, how do we bound the sum $\\sum_{n=N}^\\infty f(n)$ using integrals to illustrate the Integral Test?",
+      "back": "By comparing the series to Riemann sums:\n*   For a decreasing function, the sum of right-endpoint rectangles is less than or equal to the integral: $\\sum_{n=N+1}^\\infty f(n) \\le \\int_N^\\infty f(x) \\, dx$.\n*   The sum of left-endpoint rectangles is greater than or equal to the integral: $\\int_N^\\infty f(x) \\, dx \\le \\sum_{n=N}^\\infty f(n)$.\nCombining these, we get the fundamental inequality:\n$$ \\int_{N+1}^\\infty f(x) \\, dx \\le \\sum_{n=N+1}^\\infty f(n) \\le \\int_N^\\infty f(x) \\, dx $$\nThis shows that the series converges if and only if the integral converges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define a p-series using summation notation.",
+      "back": "A p-series is a series of the form:\n$$ \\sum_{n=1}^\\infty \\frac{1}{n^p} = \\frac{1}{1^p} + \\frac{1}{2^p} + \\frac{1}{3^p} + \\dots $$\nwhere $p$ is a positive real number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For what values of $p$ does the p-series $\\sum_{n=1}^\\infty \\frac{1}{n^p}$ converge, and for what values does it diverge?",
+      "back": "A p-series $\\sum_{n=1}^\\infty \\frac{1}{n^p}$ converges if $p > 1$ and diverges if $0 < p \\le 1$.\nThis is determined by evaluating the integral $\\int_1^\\infty \\frac{1}{x^p} \\, dx$:\n*   If $p=1$, $\\int_1^\\infty \\frac{1}{x} \\, dx = [\\ln|x|]_1^\\infty = \\infty$ (diverges).\n*   If $p \\ne 1$, $\\int_1^\\infty x^{-p} \\, dx = \\left[\\frac{x^{-p+1}}{-p+1}\\right]_1^\\infty$. This converges if $-p+1 < 0 \\implies p > 1$, and diverges if $-p+1 > 0 \\implies p < 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Integral Test to determine whether the series $\\sum_{n=2}^\\infty \\frac{1}{n \\ln n}$ converges or diverges.",
+      "back": "Let $f(x) = \\frac{1}{x \\ln x}$.\n1.  **Continuous:** $f(x)$ is continuous on $[2, \\infty)$.\n2.  **Positive:** $f(x) > 0$ on $[2, \\infty)$.\n3.  **Decreasing:** $f'(x) = -\\frac{\\ln x + 1}{(x \\ln x)^2} < 0$ for $x \\ge 2$, so $f(x)$ is decreasing.\nNow, evaluate the integral:\n$$ \\int_2^\\infty \\frac{1}{x \\ln x} \\, dx $$\nLet $u = \\ln x$, so $du = \\frac{1}{x} \\, dx$. The limits change from $x=2$ to $u=\\ln 2$, and $x=\\infty$ to $u=\\infty$.\n$$ \\int_{\\ln 2}^\\infty \\frac{1}{u} \\, du = [\\ln|u|]_{\\ln 2}^\\infty = \\lim_{b \\to \\infty} (\\ln(\\ln b) - \\ln(\\ln 2)) = \\infty $$\nSince the integral diverges, by the Integral Test, the series $\\sum_{n=2}^\\infty \\frac{1}{n \\ln n}$ **diverges**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the condition that $f(x)$ must be decreasing is crucial for the Integral Test to be valid.",
+      "back": "The decreasing condition is vital because it allows us to establish the upper and lower bounds for the series using integrals based on Riemann sums. If $f(x)$ is not decreasing, the rectangles used in the Riemann sum comparison might not consistently under- or overestimate the area under the curve. For instance, if $f(x)$ oscillates, a left-endpoint sum might be smaller than the integral in some intervals and larger in others, breaking the fundamental inequalities that form the basis of the test. Without this monotonicity, the geometric argument fails, and the convergence of the integral no longer reliably guarantees the convergence of the series (or vice-versa).",
+      "difficulty": "hard"
+    }
+  ]
+}

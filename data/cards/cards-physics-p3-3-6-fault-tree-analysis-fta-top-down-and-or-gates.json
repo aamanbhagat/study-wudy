@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-6-fault-tree-analysis-fta-top-down-and-or-gates",
+  "subtopicTitle": "Fault tree analysis (FTA) — top-down, AND/OR gates",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:07.363Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Fault Tree Analysis (FTA) in systems engineering?",
+      "back": "FTA is a top-down, deductive failure analysis technique used to determine the causes of a specified undesirable event (the 'top event') by modeling the logical combinations of lower-level events (basic events) that can lead to it. Its primary purpose is to identify potential system failures and their root causes to improve reliability and safety.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain what 'top-down' means in the context of Fault Tree Analysis.",
+      "back": "The 'top-down' approach in FTA means that the analysis starts with a specific, undesirable system-level event (the 'top event') and then deductively breaks it down into its immediate necessary and/or sufficient causes. This process continues until basic, independent events are identified, forming a tree-like structure from top to bottom.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In FTA, define an AND gate and state its Boolean expression and probability rule for independent events.",
+      "back": "An AND gate in FTA indicates that its output event occurs only if *all* of its input events simultaneously occur. Boolean expression: $A \\text{ AND } B = A \\cdot B$. Probability rule for independent inputs $P(A)$ and $P(B)$: $P(A \\text{ AND } B) = P(A) \\cdot P(B)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In FTA, define an OR gate and state its Boolean expression and probability rule for independent events.",
+      "back": "An OR gate in FTA indicates that its output event occurs if *any one or more* of its input events occur. Boolean expression: $A \\text{ OR } B = A + B$. Probability rule for independent inputs $P(A)$ and $P(B)$: $P(A \\text{ OR } B) = P(A) + P(B) - P(A) \\cdot P(B)$. For rare events, this often simplifies to $P(A \\text{ OR } B) \\approx P(A) + P(B)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between a 'Top Event,' an 'Intermediate Event,' and a 'Basic Event' in a Fault Tree.",
+      "back": "<ul><li><b>Top Event:</b> The ultimate, undesirable system-level event whose causes are being analyzed (e.g., 'Spacecraft Loss').</li><li><b>Intermediate Event:</b> An event that results from a combination of other events (inputs to a gate) and is itself an input to a higher-level gate. It's not a root cause but a consequence of lower-level failures (e.g., 'Propulsion System Failure').</li><li><b>Basic Event:</b> A fundamental, primary failure or fault that is assumed not to be broken down further. These are the root causes at the lowest level of the tree (e.g., 'Valve 1 Fails Closed').</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A satellite loses power if *either* its primary solar array fails *or* both its backup battery banks fail. Identify the Top Event and immediate gate structure.",
+      "back": "<ul><li><b>Top Event:</b> 'Satellite Loses Power'</li><li><b>Immediate Gate Structure:</b> An OR gate, with two inputs: <ol><li>'Primary Solar Array Fails' (Intermediate/Basic Event)</li><li>An AND gate, with two inputs: <ol><li>'Backup Battery Bank A Fails' (Basic Event)</li><li>'Backup Battery Bank B Fails' (Basic Event)</li></ol></li></ol>This represents: (Primary Solar Array Fails) OR (Backup Battery A Fails AND Backup Battery B Fails).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given independent basic events $A$, $B$, $C$ with $P(A)=0.01$, $P(B)=0.02$, $P(C)=0.005$. If $X = A \\text{ OR } B$ and $Y = X \\text{ AND } C$, calculate $P(Y)$ assuming rare events for OR gate simplification.",
+      "back": "First, calculate $P(X)$: Since $X = A \\text{ OR } B$ and events are rare, $P(X) \\approx P(A) + P(B) = 0.01 + 0.02 = 0.03$. Next, calculate $P(Y)$: Since $Y = X \\text{ AND } C$ and events are independent, $P(Y) = P(X) \\cdot P(C)$. $P(Y) = 0.03 \\cdot 0.005 = 0.00015$. So, $P(Y) = 0.00015$.",
+      "difficulty": "hard"
+    }
+  ]
+}

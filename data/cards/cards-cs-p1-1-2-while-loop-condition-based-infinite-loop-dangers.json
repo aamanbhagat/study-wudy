@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-while-loop-condition-based-infinite-loop-dangers",
+  "subtopicTitle": "while loop — condition-based, infinite loop dangers",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:58.750Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of a `while` loop in Python, and what is its basic syntax?",
+      "back": "A `while` loop repeatedly executes a block of code as long as a specified boolean `condition` remains `True`. \n```python\nwhile condition:\n    # Code block to be executed\n    # (ensure condition eventually becomes False to avoid infinite loop)\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how a `while` loop determines whether to execute its code block, focusing on the `condition`.",
+      "back": "Before each iteration, the `while` loop evaluates its `condition`. If the `condition` is `True`, the code block inside the loop executes. If the `condition` is `False`, the loop terminates, and program execution continues with the statement immediately following the loop.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a Python `while` loop that prints numbers from 3 down to 1, then prints \"Go!\".",
+      "back": "```python\ncount = 3\nwhile count >= 1:\n    print(count)\n    count -= 1\nprint(\"Go!\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define an \"infinite loop\" in the context of `while` loops and identify its primary cause.",
+      "back": "An \"infinite loop\" is a `while` loop that never terminates because its controlling `condition` always evaluates to `True`. The primary cause is failing to update any variable(s) within the loop's body that would eventually make the `condition` `False`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The following Python code contains an infinite loop. Identify the problem and provide the corrected code.\n```python\nnum = 1\nwhile num <= 3:\n    print(num)\n```",
+      "back": "The problem is that `num` is never incremented, so the condition `num <= 3` always remains `True`.\nCorrected code:\n```python\nnum = 1\nwhile num <= 3:\n    print(num)\n    num += 1 # This line is crucial for termination\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you immediately terminate a `while` loop and exit its execution, even if its condition is still `True`?",
+      "back": "You can use the `break` statement. When `break` is encountered inside a loop, the loop is immediately exited, and program execution continues with the first statement after the loop.\n```python\ncount = 0\nwhile True: # An intentional infinite loop\n    print(count)\n    count += 1\n    if count >= 3:\n        break # Exits the loop when count is 3\n# Program continues here\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an example of a real-world programming scenario where an infinite `while` loop is intentionally designed, and explain how it's typically managed without crashing the program.",
+      "back": "An intentional infinite `while` loop is often used in event-driven programs like game loops, server applications, or user interface main loops. For example, a game loop `while True:` continuously updates game state and renders graphics. It's managed by an internal `break` condition (e.g., user quits the game, server receives a shutdown command) or by the operating system terminating the process.",
+      "difficulty": "hard"
+    }
+  ]
+}

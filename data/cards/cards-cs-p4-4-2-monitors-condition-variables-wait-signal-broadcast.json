@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-monitors-condition-variables-wait-signal-broadcast",
+  "subtopicTitle": "Monitors — condition variables, wait, signal, broadcast",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:02.737Z",
+  "cards": [
+    {
+      "front": "What is a monitor in the context of operating systems, and what primary problem does it solve?",
+      "back": "A monitor is a high-level synchronization construct that encapsulates shared data and the procedures that operate on that data. It ensures mutual exclusion, meaning only one thread can be active inside any of its procedures at any given time, thereby solving the critical section problem and preventing race conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are condition variables necessary *within* a monitor, even though the monitor already provides mutual exclusion?",
+      "back": "Condition variables are necessary because mutual exclusion alone isn't sufficient for complex synchronization. Threads often need to wait for a specific *condition* to become true (e.g., a buffer not empty) *while holding the monitor lock*. Condition variables allow a thread to temporarily release the monitor lock and block until another thread signals that the condition might be true, preventing busy-waiting and deadlocks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the atomic actions performed by a thread calling `condition_variable.wait()` inside a monitor.",
+      "back": "When a thread calls `condition_variable.wait()`, it performs two atomic actions:\n1.  It releases the monitor lock, allowing other threads to enter the monitor.\n2.  It blocks itself and is placed into a queue associated with that specific condition variable. \nIt will remain blocked until another thread calls `signal()` or `broadcast()` on the same condition variable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of `condition_variable.signal()`, and how many waiting threads does it typically affect?",
+      "back": "The primary purpose of `condition_variable.signal()` is to wake up one thread that is waiting on that specific condition variable. If there are threads waiting, one of them is unblocked and made ready to run. The exact timing of when the awakened thread reacquires the monitor lock depends on the monitor's semantics (Hoare vs. Mesa).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When should `condition_variable.broadcast()` be used instead of `condition_variable.signal()`?",
+      "back": "`condition_variable.broadcast()` should be used when multiple waiting threads might need to be awakened because the condition they are waiting for could satisfy *all* of them, or when it's unclear which specific thread should be awakened. For example, if a resource becomes available and multiple threads are waiting for it, `broadcast` wakes them all up to contend for the resource or re-evaluate their conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the fundamental difference between Hoare and Mesa monitor semantics regarding the `signal()` operation and monitor ownership transfer.",
+      "back": "The fundamental difference lies in when the monitor lock is transferred:\n*   **Hoare Semantics:** When `signal()` is called, the signaling thread immediately relinquishes the monitor lock, and the awakened thread *atomically* acquires the monitor lock and resumes execution. The signaling thread is typically placed in an urgent queue.\n*   **Mesa Semantics:** When `signal()` is called, the signaling thread *continues to hold* the monitor lock and finishes its critical section. The awakened thread is moved from the condition variable's queue to the monitor's entry queue (or a ready queue) and will contend for the monitor lock *later*, once the signaling thread exits the monitor.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it crucial for a thread to re-check its waiting condition in a `while` loop (e.g., `while (!condition) cv.wait();`) immediately after `cv.wait()` returns?",
+      "back": "It's crucial for several reasons:\n1.  **Mesa Semantics:** With Mesa semantics, the signaling thread continues to run after `signal()`, potentially invalidating the condition before the waiting thread gets to run. Another thread might also enter the monitor and change the condition.\n2.  **Spurious Wakeups:** Threads can sometimes be woken up from `wait()` without an explicit `signal()` or `broadcast()` (a \"spurious wakeup\").\n3.  **Multiple Waiters:** With `broadcast()`, multiple threads wake up, but the condition might only be partially met or only one can proceed.\nA `while` loop ensures the condition is *actually* true before proceeding, preventing logical errors and ensuring correctness.",
+      "difficulty": "hard"
+    }
+  ]
+}

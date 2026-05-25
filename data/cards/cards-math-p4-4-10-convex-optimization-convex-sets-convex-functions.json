@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-convex-optimization-convex-sets-convex-functions",
+  "subtopicTitle": "Convex optimization — convex sets, convex functions",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:12.088Z",
+  "cards": [
+    {
+      "front": "Define a convex set $C \\subseteq \\mathbb{R}^n$.",
+      "back": "A set $C$ is convex if for any two points $x_1, x_2 \\in C$ and any scalar $\\theta \\in [0, 1]$, the point $\\theta x_1 + (1-\\theta) x_2$ also belongs to $C$. Geometrically, the entire line segment connecting any two points in the set must lie within the set.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the definition of a convex function $f: \\mathbb{R}^n \\to \\mathbb{R}$.",
+      "back": "A function $f$ is convex if its domain $\\text{dom}(f)$ is a convex set and for all $x, y \\in \\text{dom}(f)$ and $\\theta \\in [0, 1]$, the following inequality holds: $$f(\\theta x + (1-\\theta) y) \\le \\theta f(x) + (1-\\theta) f(y)$$ Geometrically, the line segment connecting any two points on the graph of the function lies above or on the graph itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the convexity of a function $f$ related to its epigraph $\\text{epi}(f)$?",
+      "back": "A function $f: \\mathbb{R}^n \\to \\mathbb{R}$ is convex if and only if its epigraph, defined as $\\text{epi}(f) = \\{ (x, t) \\mid x \\in \\text{dom}(f), f(x) \\le t \\}$, is a convex set in $\\mathbb{R}^{n+1}$. This property provides a fundamental link between convex functions and convex sets.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the second-order condition for a twice-differentiable function $f: \\mathbb{R}^n \\to \\mathbb{R}$ to be convex.",
+      "back": "If $f$ is twice-differentiable, it is convex if and only if its Hessian matrix $\\nabla^2 f(x)$ is positive semidefinite for all $x \\in \\text{dom}(f)$. This means that for any vector $v \\in \\mathbb{R}^n$, $v^T \\nabla^2 f(x) v \\ge 0$. For a function of a single variable, this simplifies to $f''(x) \\ge 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name three operations that preserve the convexity of sets.",
+      "back": "1.  **Intersection:** The intersection of any number of convex sets is a convex set. \\n2.  **Affine mapping:** If $C$ is convex, then its image under an affine mapping, $f(C) = \\{Ax+b \\mid x \\in C\\}$, is convex for any matrix $A$ and vector $b$. \\n3.  **Cartesian product:** If $C_1, C_2, \\dots, C_k$ are convex sets, then their Cartesian product $C_1 \\times C_2 \\times \\dots \\times C_k$ is convex.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that the sum of two convex functions is convex.",
+      "back": "Let $f_1$ and $f_2$ be convex functions. Their sum is $g(x) = f_1(x) + f_2(x)$. For any $x, y \\in \\text{dom}(f_1) \\cap \\text{dom}(f_2)$ and $\\theta \\in [0, 1]$: \\n$g(\\theta x + (1-\\theta) y) = f_1(\\theta x + (1-\\theta) y) + f_2(\\theta x + (1-\\theta) y)$ \\nSince $f_1$ and $f_2$ are convex: \\n$\\le (\\theta f_1(x) + (1-\\theta) f_1(y)) + (\\theta f_2(x) + (1-\\theta) f_2(y))$ \\n$= \\theta (f_1(x) + f_2(x)) + (1-\\theta) (f_1(y) + f_2(y))$ \\n$= \\theta g(x) + (1-\\theta) g(y)$ \\nThus, $g(x) = f_1(x) + f_2(x)$ is convex.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is the set $C = \\{ (x,y) \\in \\mathbb{R}^2 \\mid xy \\ge 1 \\}$ convex? Justify your answer.",
+      "back": "No, the set $C$ is not convex. \\nConsider two points in $C$: $p_1 = (1, 1)$ and $p_2 = (-1, -1)$. \\nFor $p_1$: $1 \\times 1 = 1 \\ge 1$. \\nFor $p_2$: $(-1) \\times (-1) = 1 \\ge 1$. \\nNow, consider the midpoint of the line segment connecting $p_1$ and $p_2$ (with $\\theta = 0.5$): \\n$p_m = 0.5 p_1 + 0.5 p_2 = 0.5(1,1) + 0.5(-1,-1) = (0,0)$. \\nFor $p_m$: $0 \\times 0 = 0$, which is not $\\ge 1$. \\nSince the line segment connecting $p_1$ and $p_2$ (specifically, the midpoint) is not entirely within $C$, the set $C$ is not convex.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does a quasiconvex function differ from a convex function?",
+      "back": "A function $f$ is quasiconvex if its sublevel sets $S_\\alpha = \\{x \\in \\text{dom}(f) \\mid f(x) \\le \\alpha\\}$ are convex for all $\\alpha \\in \\mathbb{R}$. Every convex function is quasiconvex, but the converse is not true. For example, $f(x) = \\sqrt{|x|}$ is quasiconvex but not convex. Unlike convex functions, quasiconvex functions can have non-convex epigraphs, as they only require the 'slices' below a certain value to be convex.",
+      "difficulty": "medium"
+    }
+  ]
+}

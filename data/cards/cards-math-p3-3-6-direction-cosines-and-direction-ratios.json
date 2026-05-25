@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-6-direction-cosines-and-direction-ratios",
+  "subtopicTitle": "Direction cosines and direction ratios",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:30.296Z",
+  "cards": [
+    {
+      "front": "Define the direction cosines of a directed line in 3D space.",
+      "back": "The direction cosines of a directed line are the cosines of the angles it makes with the positive directions of the $x, y,$ and $z$ axes, respectively. They are typically denoted by $l, m, n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental property relating the direction cosines $l, m, n$ of any line in 3D space?",
+      "back": "The sum of the squares of the direction cosines is always equal to 1: $l^2 + m^2 + n^2 = 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the fundamental property $l^2 + m^2 + n^2 = 1$ for direction cosines.",
+      "back": "Consider a directed line passing through the origin $O(0,0,0)$ and a point $P(x,y,z)$. Let $r = OP = \\sqrt{x^2+y^2+z^2}$. The angles with the positive axes are $\\alpha, \\beta, \\gamma$. \nThen $l = \\cos\\alpha = \\frac{x}{r}$, $m = \\cos\\beta = \\frac{y}{r}$, $n = \\cos\\gamma = \\frac{z}{r}$.\nSquaring and adding: $l^2+m^2+n^2 = \\frac{x^2}{r^2} + \\frac{y^2}{r^2} + \\frac{z^2}{r^2} = \\frac{x^2+y^2+z^2}{r^2} = \\frac{r^2}{r^2} = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define direction ratios of a line and explain their relationship to direction cosines.",
+      "back": "Any three numbers $a, b, c$ that are proportional to the direction cosines $l, m, n$ of a line are called its direction ratios. This means $l = ka, m = kb, n = kc$ for some non-zero constant $k$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given direction ratios $a, b, c$ for a line, how do you find its direction cosines $l, m, n$?",
+      "back": "If $a, b, c$ are direction ratios, then the direction cosines are:\n$l = \\frac{a}{\\pm\\sqrt{a^2+b^2+c^2}}$\n$m = \\frac{b}{\\pm\\sqrt{a^2+b^2+c^2}}$\n$n = \\frac{c}{\\pm\\sqrt{a^2+b^2+c^2}}$\nThe sign depends on the chosen direction of the line. For a specific directed line, the sign is unique.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find the direction cosines of a line passing through two points $P_1(x_1, y_1, z_1)$ and $P_2(x_2, y_2, z_2)$?",
+      "back": "First, find the differences in coordinates, which serve as direction ratios: $a = x_2-x_1$, $b = y_2-y_1$, $c = z_2-z_1$.\nThen, calculate the distance $d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$.\nThe direction cosines are:\n$l = \\frac{x_2-x_1}{d}$\n$m = \\frac{y_2-y_1}{d}$\n$n = \\frac{z_2-z_1}{d}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why direction cosines are unique for a *directed* line, but direction ratios are not.",
+      "back": "Direction cosines $l, m, n$ are derived from the specific angles a *directed* line makes with the positive axes. These angles are unique for a given direction, so $l, m, n$ are unique. Direction ratios $a, b, c$ are merely *proportional* to $l, m, n$. If $(a,b,c)$ are direction ratios, then $(ka, kb, kc)$ for any $k \\neq 0$ are also valid direction ratios. This means there are infinitely many sets of direction ratios for a single line, but only one set of direction cosines for a *directed* line.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the direction cosines of the positive Y-axis?",
+      "back": "The positive Y-axis makes an angle of $90^\\circ$ with the positive X-axis, $0^\\circ$ with the positive Y-axis, and $90^\\circ$ with the positive Z-axis.\nSo, $l = \\cos(90^\\circ) = 0$\n$m = \\cos(0^\\circ) = 1$\n$n = \\cos(90^\\circ) = 0$\nThe direction cosines are $(0, 1, 0)$.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-electric-field-definition-field-lines-superposition",
+  "subtopicTitle": "Electric field — definition, field lines, superposition",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:30.650Z",
+  "cards": [
+    {
+      "front": "Define the electric field $\\vec{E}$ at a point in space and state its SI units.",
+      "back": "The electric field $\\vec{E}$ at a point is defined as the electric force $\\vec{F}$ experienced by a small positive test charge $q_0$ placed at that point, divided by the magnitude of the test charge. Mathematically, $\\vec{E} = \\frac{\\vec{F}}{q_0}$. Its SI unit is Newtons per Coulomb (N/C) or Volts per meter (V/m).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the electric field $\\vec{E}$ produced by a point charge $q$ at a distance $r$ from it.",
+      "back": "The electric field $\\vec{E}$ produced by a point charge $q$ at a distance $r$ is given by Coulomb's Law for electric fields: $\\vec{E} = k \\frac{q}{r^2} \\hat{r}$, where $k = \\frac{1}{4\\pi\\epsilon_0}$ is Coulomb's constant (approximately $8.987 \\times 10^9 \\text{ N m}^2/\\text{C}^2$), $q$ is the source charge, $r$ is the distance from the charge to the point, and $\\hat{r}$ is a unit vector pointing radially away from $q$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three fundamental properties of electric field lines.",
+      "back": "1. Electric field lines originate on positive charges and terminate on negative charges (or extend to infinity).\n2. The tangent to an electric field line at any point gives the direction of the electric field $\\vec{E}$ at that point.\n3. The density of the field lines (number of lines per unit area perpendicular to the lines) is proportional to the magnitude of the electric field.\n4. Electric field lines never cross each other.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do electric field lines visually represent the strength of the electric field?",
+      "back": "The strength (magnitude) of the electric field is represented by the density of the field lines. Where the field lines are closer together, the electric field is stronger. Where they are farther apart, the field is weaker. For example, near a point charge, the lines are dense, indicating a strong field, and they spread out further away, indicating a weaker field.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the principle of superposition as it applies to electric fields.",
+      "back": "The principle of superposition states that the net electric field $\\vec{E}_{\\text{net}}$ at any point due to a collection of source charges is the vector sum of the electric fields produced by each individual source charge at that point. Mathematically, for $N$ charges, $\\vec{E}_{\\text{net}} = \\vec{E}_1 + \\vec{E}_2 + \\dots + \\vec{E}_N = \\sum_{i=1}^{N} \\vec{E}_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Two point charges, $q_1 = +1 \\text{ nC}$ at $(0,0)$ and $q_2 = -2 \\text{ nC}$ at $(1 \\text{ m}, 0)$, are placed on the x-axis. Calculate the net electric field at $(0.5 \\text{ m}, 0)$.",
+      "back": "Let $k = 9 \\times 10^9 \\text{ N m}^2/\\text{C}^2$.\n$\\vec{E}_1$ due to $q_1$ at $(0.5, 0)$: $r_1 = 0.5 \\text{ m}$. $\\vec{E}_1 = k \\frac{q_1}{r_1^2} \\hat{i} = (9 \\times 10^9) \\frac{1 \\times 10^{-9}}{(0.5)^2} \\hat{i} = 36 \\text{ N/C } \\hat{i}$.\n$\\vec{E}_2$ due to $q_2$ at $(0.5, 0)$: $r_2 = 0.5 \\text{ m}$ (distance from $q_2$ at $1\\text{ m}$ to $0.5\\text{ m}$). Since $q_2$ is negative, $\\vec{E}_2$ points towards $q_2$, i.e., in the positive x-direction. $\\vec{E}_2 = k \\frac{|q_2|}{r_2^2} \\hat{i} = (9 \\times 10^9) \\frac{2 \\times 10^{-9}}{(0.5)^2} \\hat{i} = 72 \\text{ N/C } \\hat{i}$.\n$\\vec{E}_{\\text{net}} = \\vec{E}_1 + \\vec{E}_2 = (36 + 72) \\hat{i} = 108 \\text{ N/C } \\hat{i}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If an electric field $\\vec{E}$ already exists at a point, and a positive test charge $q_0$ is placed there, does $q_0$ contribute to the existing field $\\vec{E}$? Explain.",
+      "back": "No, the test charge $q_0$ does *not* contribute to the existing electric field $\\vec{E}$ at that point. The electric field $\\vec{E}$ is defined as the force *per unit charge* exerted *by other charges* on $q_0$. The field $\\vec{E}$ exists whether $q_0$ is there or not. While $q_0$ *experiences* the field $\\vec{E}$, and it *produces its own* electric field in the surrounding space, it does not alter the field created by the original source charges at its own location.",
+      "difficulty": "hard"
+    }
+  ]
+}

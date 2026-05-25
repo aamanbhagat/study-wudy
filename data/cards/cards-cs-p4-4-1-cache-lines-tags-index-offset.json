@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-cache-lines-tags-index-offset",
+  "subtopicTitle": "Cache lines, tags, index, offset",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:34.390Z",
+  "cards": [
+    {
+      "front": "Define a \"cache line\" in the context of CPU caches.",
+      "back": "A cache line (or cache block) is the smallest unit of data that can be transferred between main memory and the cache. It typically consists of multiple contiguous memory words and is the granularity at which data is stored and retrieved from the cache.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When a CPU needs to access data, a memory address is logically divided into three primary components for cache lookup. Name them.",
+      "back": "The three primary components are: Tag, Index, and Offset.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a cache with a block size (cache line size) of $B$ bytes, how many bits are required for the cache offset?",
+      "back": "The number of bits required for the cache offset is $\\log_2(B)$. This field specifies the byte position within a cache line and is used to select the desired byte or word after a cache hit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a cache with $N$ cache lines (or sets, for set-associative caches), how do you determine the number of bits for the cache index?",
+      "back": "The number of bits required for the cache index is $\\log_2(N)$. This field identifies which specific cache line (for direct-mapped) or set (for set-associative) a block of main memory data maps to.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a memory address is $M$ bits wide, and you've determined the number of bits for the cache index ($I$) and cache offset ($O$), how do you calculate the number of bits for the cache tag ($T$)?",
+      "back": "The number of bits for the cache tag ($T$) is calculated as $T = M - I - O$. The tag uniquely identifies a specific block of main memory data that might be stored within a particular cache line or set.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A system has 32-bit memory addresses. Its L1 data cache is 16KB, 4-way set-associative, with a cache line size of 64 bytes. How many bits are allocated for the Tag, Index, and Offset fields?",
+      "back": "1.  **Offset bits**: $\\log_2(64 \\text{ bytes}) = 6$ bits.\n2.  **Number of sets**: Cache Size / (Associativity $\\times$ Line Size) = $16 \\text{KB} / (4 \\times 64 \\text{B}) = 16384 \\text{B} / 256 \\text{B} = 64$ sets.\n3.  **Index bits**: $\\log_2(64 \\text{ sets}) = 6$ bits.\n4.  **Tag bits**: Total Address Bits - Index Bits - Offset Bits = $32 - 6 - 6 = 20$ bits.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the primary role of the \"tag\" field in a cache lookup operation.",
+      "back": "The primary role of the tag field is to uniquely identify which specific block of main memory data is stored in a particular cache line. After the index points to a potential cache line (or set), the tag from the memory address is compared against the stored tag in the cache line to confirm if it's the correct data block (a cache hit).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary role of the \"index\" field in a cache lookup operation.",
+      "back": "The primary role of the index field is to quickly locate the specific cache line (in a direct-mapped cache) or set of cache lines (in a set-associative cache) where the requested memory block *might* reside. It acts as an address into the cache's array of lines/sets, narrowing down the search space.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the concepts of Tag, Index, and Offset, describe the exact conditions that must be met for a CPU to register a \"cache hit.\"",
+      "back": "A cache hit occurs when all of the following conditions are met:\n1.  The `Index` field of the memory address points to a valid cache line (or set) within the cache.\n2.  The `Valid` bit associated with that cache line (or one of the lines in the set) is set to '1', indicating the line contains valid data.\n3.  The `Tag` field of the memory address exactly matches the stored tag in the corresponding valid cache line.\nIf these conditions are met, the data at the `Offset` within that cache line is retrieved.",
+      "difficulty": "hard"
+    }
+  ]
+}

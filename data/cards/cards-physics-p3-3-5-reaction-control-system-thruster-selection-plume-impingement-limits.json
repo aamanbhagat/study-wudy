@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-reaction-control-system-thruster-selection-plume-impingement-limits",
+  "subtopicTitle": "Reaction control system — thruster selection, plume impingement limits",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:27.941Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a Reaction Control System (RCS) in spacecraft?",
+      "back": "The primary function of an RCS is to provide small forces and torques for precise attitude control (orientation), station-keeping (maintaining orbit), and minor trajectory adjustments (e.g., rendezvous and docking maneuvers).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key factors influencing the selection of thrusters for a Reaction Control System.",
+      "back": "Key factors for RCS thruster selection include: thrust level (magnitude), specific impulse ($I_{sp}$), response time, propellant type (monopropellant vs. bipropellant), mass, power consumption, operational life, and plume characteristics (e.g., temperature, composition, spread angle).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare monopropellant and bipropellant thrusters in terms of specific impulse and complexity for RCS applications.",
+      "back": "Monopropellant thrusters (e.g., hydrazine decomposing over a catalyst) are generally simpler, lighter, and have faster response times, but offer lower specific impulse ($I_{sp}$). Bipropellant thrusters (e.g., NTO/MMH) provide higher $I_{sp}$ and thrust levels, but are more complex, heavier, and typically have slower response times due to needing two separate propellant tanks and a more intricate feed system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"plume impingement\" in the context of spacecraft Reaction Control Systems.",
+      "back": "Plume impingement occurs when the exhaust gases (plume) from a thruster strike a surface of the spacecraft itself or another nearby object (e.g., a docking partner), transferring momentum and heat, and potentially depositing contaminants.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe at least three detrimental effects of plume impingement on spacecraft components.",
+      "back": "Detrimental effects of plume impingement include:\n1.  **Contamination:** Deposition of unburnt propellant, combustion products, or catalyst particles on sensitive surfaces (optics, solar panels, thermal blankets).\n2.  **Heating:** Localized thermal loads on surfaces, potentially causing material degradation or thermal stress.\n3.  **Structural Loads:** Unintended forces and torques exerted on the spacecraft structure, affecting attitude stability or potentially damaging delicate components.\n4.  **Degradation:** Erosion or discoloration of thermal control coatings and solar cells, reducing their efficiency and lifespan.\n5.  **Sensor Interference:** Obscuring or affecting the performance of optical or navigation sensors.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What design strategies are employed to minimize or prevent plume impingement effects on a spacecraft?",
+      "back": "Design strategies to minimize plume impingement include:\n1.  **Thruster Placement:** Carefully orienting thrusters so their exhaust plumes exit clear of critical spacecraft surfaces and instruments.\n2.  **Nozzle Design:** Using specialized nozzle geometries (e.g., low-expansion ratio nozzles for RCS) to shape the plume and reduce its spread angle in critical directions.\n3.  **Shielding:** Protecting vulnerable components with thermal blankets, physical barriers, or specialized coatings.\n4.  **Operational Constraints:** Implementing flight rules that restrict thruster firing durations, orientations, or specific thrusters during critical phases or near sensitive components.\n5.  **Plume Modeling:** Utilizing Computational Fluid Dynamics (CFD) during the design phase to predict plume behavior and optimize thruster layout.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The force exerted by a thruster plume impinging on a surface can be estimated. If the plume mass flow rate is $\\dot{m}_p$ and its velocity component normal to the surface is $v_{p,n}$, what is the approximate force component perpendicular to the surface due to momentum transfer?",
+      "back": "The approximate force component perpendicular to the surface due to momentum transfer from an impinging plume is given by $F_{imp} \\approx \\dot{m}_p v_{p,n}$. This simplified model assumes the gas particles are absorbed or perfectly reflected, and provides a basic understanding of the momentum transfer. A more accurate calculation involves integrating the momentum flux over the impinged area, considering plume density, velocity profiles, and gas-surface interaction models.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is plume impingement a particularly critical concern for spacecraft with large, delicate structures like solar arrays or deployable antennas?",
+      "back": "Large, delicate structures such as solar arrays and deployable antennas are highly susceptible to plume impingement because:\n1.  **Large Surface Area:** They present a significant target for the plume, increasing the likelihood and extent of impingement.\n2.  **Fragility:** They are often lightweight and not designed to withstand significant thermal or structural loads.\n3.  **Performance Degradation:** Contamination from the plume can reduce the efficiency of solar cells or alter the RF performance of antennas. Thermal loads can cause warping or damage to delicate mechanisms and materials.\n4.  **Deployment Issues:** Impingement during deployment could cause structural failure or prevent full deployment.",
+      "difficulty": "medium"
+    }
+  ]
+}

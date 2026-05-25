@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-enumerations",
+  "subtopicTitle": "Enumerations",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:51.803Z",
+  "cards": [
+    {
+      "front": "What is an `enum` in C, and what primary problem does it solve?",
+      "back": "An `enum` (enumeration) in C is a user-defined data type that consists of a set of named integer constants. It primarily solves the problem of using 'magic numbers' in code by providing meaningful names, which significantly improves readability and maintainability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Declare an `enum` for days of the week (MONDAY to SUNDAY). What are the default integer values assigned to MONDAY, TUESDAY, and SUNDAY?",
+      "back": "```c\nenum Day {\n    MONDAY,\n    TUESDAY,\n    WEDNESDAY,\n    THURSDAY,\n    FRIDAY,\n    SATURDAY,\n    SUNDAY\n};\n```\nBy default, the first enumerator (MONDAY) is assigned $0$. Subsequent enumerators are assigned values incrementing by $1$. So, MONDAY=$0$, TUESDAY=$1$, and SUNDAY=$6$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `enum Status { SUCCESS = 1, WARNING, ERROR = 10, FATAL };`, what are the integer values of `WARNING` and `FATAL`?",
+      "back": "When an enumerator is explicitly assigned a value, subsequent enumerators without explicit assignments continue incrementing from that value.\n- `SUCCESS` = $1$\n- `WARNING` = $2$ (increments from `SUCCESS`)\n- `ERROR` = $10$\n- `FATAL` = $11$ (increments from `ERROR`)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If `enum Color { RED, GREEN, BLUE };` is defined, and `enum Color myColor;` is declared, can `myColor` be assigned any integer value, e.g., `myColor = 100;`? Explain.",
+      "back": "Yes, in C, an `enum` variable can be implicitly assigned any integer value, even if that value does not correspond to a named enumerator. The C standard treats `enum` types as compatible with integer types. However, this is generally poor practice as it defeats the purpose of type safety and readability provided by `enum`. Compilers might issue a warning.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider `enum TrafficLight { RED, YELLOW, GREEN };`. What is the scope of `TrafficLight` versus `RED`, `YELLOW`, `GREEN`?",
+      "back": "The `enum` tag `TrafficLight` is in the ordinary identifier namespace and its scope is typically global or local to the block where it's defined. The enumerators (`RED`, `YELLOW`, `GREEN`) are in the same scope as other variables and functions, and they are treated as integer constants. This means you can use `RED` directly without `TrafficLight.RED` (which is not valid C syntax).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What determines the underlying integer type and thus the `sizeof` an `enum` type in C? Provide an example where `sizeof(enum MyEnum)` might not be `sizeof(int)`.",
+      "back": "The C standard states that the underlying type of an `enum` is an integer type capable of representing all its enumerator values. The compiler chooses this type, typically `int`, but it could be `char`, `short`, `long`, or `long long` if needed, or even an unsigned type. The choice is implementation-defined.\nExample:\n```c\nenum SmallEnum {\n    A = 0,\n    B = 1\n}; // sizeof(enum SmallEnum) might be 1 (char) on some systems\n```\nA compiler might choose `char` for `SmallEnum` if it can represent $0$ and $1$, resulting in `sizeof(enum SmallEnum)` being $1$ byte instead of $4$ bytes for `int`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Demonstrate a common use case for an anonymous `enum` in C, specifically for defining bit flags. Explain why an anonymous `enum` is suitable here.",
+      "back": "Anonymous enums are useful when you only need the enumerator constants and not a named type. They are frequently used for bit flags:\n```c\n#include <stdio.h>\n\nenum { // Anonymous enum for bit flags\n    READ_PERMISSION  = 1 << 0, // 0001\n    WRITE_PERMISSION = 1 << 1, // 0010\n    EXEC_PERMISSION  = 1 << 2  // 0100\n};\n\nint main() {\n    int user_permissions = READ_PERMISSION | EXEC_PERMISSION;\n    if (user_permissions & READ_PERMISSION) {\n        printf(\"User has read permission.\\n\");\n    }\n    return 0;\n}\n```\nAn anonymous `enum` is suitable because we don't need to declare variables of type `enum <tag>`. We only need the symbolic integer constants (`READ_PERMISSION`, etc.) which are directly available in the current scope.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can an `enum` type be forward declared in C, similar to `struct`s? If not, why?",
+      "back": "No, `enum` types cannot be forward declared in C. Unlike `struct`s, where the compiler only needs to know the *name* to allocate a pointer (e.g., `struct MyStruct *ptr;`), an `enum`'s definition requires knowing all its enumerators to determine its underlying integer type and size. The compiler needs the full definition to correctly interpret `enum` variables and their values.",
+      "difficulty": "medium"
+    }
+  ]
+}

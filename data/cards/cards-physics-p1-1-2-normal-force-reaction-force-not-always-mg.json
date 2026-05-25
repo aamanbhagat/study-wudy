@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-2-normal-force-reaction-force-not-always-mg",
+  "subtopicTitle": "Normal force — reaction force, not always = mg",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:44.008Z",
+  "cards": [
+    {
+      "front": "Define the normal force and state its direction relative to the contact surface.",
+      "back": "The normal force ($F_N$ or $N$) is the component of a contact force perpendicular to the surface that an object rests on or interacts with. It always acts perpendicular to the surface and away from it.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the relationship between the normal force exerted by a surface on an object and the force exerted by the object on the surface, according to Newton's Third Law.",
+      "back": "According to Newton's Third Law, the normal force exerted by a surface on an object is an action-reaction pair with the force exerted by the object on the surface. They are equal in magnitude and opposite in direction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what specific conditions is the magnitude of the normal force ($F_N$) acting on an object resting on a horizontal surface exactly equal to its weight ($mg$)?",
+      "back": "The normal force $F_N$ is equal to $mg$ when:\n1.  The surface is horizontal.\n2.  There are no other vertical forces acting on the object (e.g., no additional push/pull up or down).\n3.  The object is not accelerating vertically (i.e., its vertical acceleration $a_y = 0$).\nIn this specific scenario, applying Newton's Second Law vertically: $\\Sigma F_y = F_N - mg = ma_y = 0 \\implies F_N = mg$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the normal force ($F_N$) acting on an object of mass $m$ resting on an inclined plane with an angle $\\theta$ relative to the horizontal. Assume no friction or other external forces.",
+      "back": "1.  Draw a Free Body Diagram (FBD). Forces are gravity ($mg$) straight down, and normal force ($F_N$) perpendicular to the incline.\n2.  Resolve the gravitational force into components parallel and perpendicular to the incline.\n    *   Component perpendicular to incline: $mg \\cos\\theta$\n    *   Component parallel to incline: $mg \\sin\\theta$\n3.  Apply Newton's Second Law in the direction perpendicular to the incline. Since the object is not accelerating into or off the plane, $a_\\perp = 0$.\n    $$ \\Sigma F_\\perp = F_N - mg \\cos\\theta = ma_\\perp = 0 $$\n    Therefore, the normal force is:\n    $$ F_N = mg \\cos\\theta $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An object of mass $m$ is inside an elevator. Calculate the normal force ($F_N$) exerted by the elevator floor on the object when the elevator is:\na) Accelerating upwards with acceleration $a$.\nb) Accelerating downwards with acceleration $a$.",
+      "back": "Let's define the positive y-direction as upwards.\nForces acting on the object are normal force ($F_N$) upwards and gravity ($mg$) downwards.\nAccording to Newton's Second Law: $\\Sigma F_y = ma_y$.\na) **Accelerating upwards ($a_y = +a$):**\n    $$ F_N - mg = ma $$\n    $$ F_N = mg + ma = m(g+a) $$\n    In this case, $F_N > mg$.\nb) **Accelerating downwards ($a_y = -a$):**\n    $$ F_N - mg = m(-a) $$\n    $$ F_N = mg - ma = m(g-a) $$\n    In this case, $F_N < mg$. If $a=g$, then $F_N=0$ (freefall).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A block of mass $m$ rests on a horizontal surface. A person applies an additional downward force $F_D$ on the block. What is the normal force ($F_N$) exerted by the surface on the block? How does this change if the person instead pulls upwards with force $F_U$?",
+      "back": "Assume the block is not accelerating vertically ($a_y = 0$).\n1.  **Downward force $F_D$:**\n    Forces acting vertically are: normal force ($F_N$) upwards, gravity ($mg$) downwards, and the applied downward force ($F_D$) downwards.\n    Applying Newton's Second Law:\n    $$ \\Sigma F_y = F_N - mg - F_D = ma_y = 0 $$\n    $$ F_N = mg + F_D $$\n    The normal force increases.\n2.  **Upward force $F_U$:**\n    Forces acting vertically are: normal force ($F_N$) upwards, gravity ($mg$) downwards, and the applied upward force ($F_U$) upwards.\n    Applying Newton's Second Law:\n    $$ \\Sigma F_y = F_N + F_U - mg = ma_y = 0 $$\n    $$ F_N = mg - F_U $$\n    The normal force decreases. If $F_U \\ge mg$, the block lifts off the surface, and $F_N$ becomes zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why the normal force is not always equal to an object's weight ($mg$), connecting your explanation to Newton's Second Law.",
+      "back": "The normal force is a contact force that adjusts its magnitude to prevent an object from accelerating *into* or *through* a surface. It's not a fixed value like gravity.\nAccording to Newton's Second Law ($\\Sigma F = ma$), if an object is not accelerating perpendicular to the surface ($a_\\perp = 0$), then the net force perpendicular to the surface must be zero. The normal force will therefore exactly balance all other perpendicular forces (like the component of gravity, or external pushes/pulls).\nIf there *is* perpendicular acceleration (e.g., in an accelerating elevator), the normal force will adjust to provide the necessary net force for that acceleration. It essentially acts as the \"support\" the surface provides, and that support changes based on how much \"support\" is needed to maintain the object's motion (or lack thereof) relative to the surface.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens to the normal force acting on an object if the object loses contact with the surface it was resting on? Provide an example.",
+      "back": "If an object loses contact with the surface, the normal force acting on it immediately becomes zero. This is because the normal force is a *contact* force; without contact, there is no surface to exert the force.\nExample:\n*   An object in an elevator that goes into freefall ($a=g$ downwards): The object becomes weightless relative to the floor, and the normal force exerted by the floor on the object becomes zero.\n*   A car going over a hump at high speed: If the speed is high enough, the car can momentarily lift off the road, and the normal force from the road becomes zero.",
+      "difficulty": "medium"
+    }
+  ]
+}

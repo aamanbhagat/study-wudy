@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-1-harvard-architecture-separate-instruction-data-memory",
+  "subtopicTitle": "Harvard architecture — separate instruction/data memory",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:24.941Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of the Harvard architecture?",
+      "back": "The Harvard architecture is fundamentally characterized by having physically separate memory spaces and dedicated buses for instructions and data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the Harvard architecture fundamentally differ from the Von Neumann architecture regarding memory organization and access?",
+      "back": "Harvard architecture uses separate memory spaces and independent buses for instructions and data, allowing simultaneous access. Von Neumann architecture uses a single shared memory space and a single bus for both, requiring sequential access.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary performance advantage gained by the Harvard architecture's separate instruction and data memories?",
+      "back": "The primary advantage is the ability to fetch an instruction and access data simultaneously. This parallel access eliminates the 'Von Neumann bottleneck', potentially doubling memory bandwidth and improving CPU throughput by allowing concurrent operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the bus structure required by a pure Harvard architecture to support its defining characteristic.",
+      "back": "A pure Harvard architecture requires two independent sets of buses: one address bus and one data bus dedicated solely for instruction memory access, and a separate, independent address bus and data bus dedicated solely for data memory access.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what types of embedded computing systems is the Harvard architecture commonly found, and why is it preferred there?",
+      "back": "It is commonly found in Digital Signal Processors (DSPs) and microcontrollers (e.g., PIC microcontrollers). It's preferred for these applications due to its ability to execute instructions and fetch data concurrently, which is crucial for real-time processing, high-throughput data manipulation, and predictable timing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant disadvantage or design complexity introduced by the Harvard architecture's memory separation?",
+      "back": "A significant disadvantage is the increased hardware complexity due to separate memory systems and buses. It also makes memory management more rigid; for example, a program cannot easily treat instruction memory as data (e.g., for self-modifying code, JIT compilation, or loading program overlays) without special, often complex, mechanisms.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the concept of a \"Modified Harvard Architecture\" and its primary motivation.",
+      "back": "A Modified Harvard Architecture retains separate instruction and data caches (or separate internal buses) but allows them to share a common address space and/or a unified main memory. The primary motivation is to combine the performance benefits of parallel instruction/data access (via separate caches) with the flexibility of a single address space for main memory, enabling easier data loading into instruction memory or vice-versa (e.g., for dynamic linking, JIT compilation, or data processing on instructions).",
+      "difficulty": "hard"
+    }
+  ]
+}

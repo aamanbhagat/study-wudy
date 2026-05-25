@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-separable-odes-technique-implicit-solutions",
+  "subtopicTitle": "Separable ODEs — technique, implicit solutions",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:39.745Z",
+  "cards": [
+    {
+      "front": "Define a separable ordinary differential equation (ODE).",
+      "back": "An ODE is separable if it can be written in the form $\\frac{dy}{dx} = g(x)h(y)$, where $g(x)$ is a function of $x$ only and $h(y)$ is a function of $y$ only.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the first step to solve a separable ODE of the form $\\frac{dy}{dx} = g(x)h(y)$?",
+      "back": "Separate the variables by algebraic manipulation to get all $y$ terms (including $dy$) on one side and all $x$ terms (including $dx$) on the other: $\\frac{1}{h(y)} dy = g(x) dx$. This step assumes $h(y) \\neq 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After separating variables to $\\frac{1}{h(y)} dy = g(x) dx$, what is the next step, and what kind of solution does it typically yield?",
+      "back": "Integrate both sides: $\\int \\frac{1}{h(y)} dy = \\int g(x) dx$. This integration typically yields an **implicit solution** of the form $H(y) = G(x) + C$, where $H(y)$ is an antiderivative of $\\frac{1}{h(y)}$ and $G(x)$ is an antiderivative of $g(x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve the separable ODE: $\\frac{dy}{dx} = \\frac{x^2}{y}$.",
+      "back": "1. Separate variables: $y \\, dy = x^2 \\, dx$.\n2. Integrate both sides: $\\int y \\, dy = \\int x^2 \\, dx$.\n3. Result: $\\frac{y^2}{2} = \\frac{x^3}{3} + C$. This is an implicit solution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between an implicit and an explicit solution to an ODE. Why are implicit solutions common for separable ODEs?",
+      "back": "An **explicit solution** expresses the dependent variable directly in terms of the independent variable, e.g., $y = f(x)$. An **implicit solution** defines a relationship between the variables, e.g., $F(x, y) = C$, which may not be easily solvable for $y$. Separable ODEs often yield implicit solutions because the integration of $\\frac{1}{h(y)}$ might not result in a function that can be easily inverted to solve for $y$ explicitly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the ODE $\\frac{dy}{dx} = \\frac{x}{y}$ and initial condition $y(1)=2$, find the implicit solution.",
+      "back": "1. Separate variables: $y \\, dy = x \\, dx$.\n2. Integrate: $\\int y \\, dy = \\int x \\, dx \\implies \\frac{y^2}{2} = \\frac{x^2}{2} + C$.\n3. Apply initial condition $y(1)=2$: $\\frac{(2)^2}{2} = \\frac{(1)^2}{2} + C \\implies 2 = \\frac{1}{2} + C \\implies C = \\frac{3}{2}$.\n4. Implicit solution: $\\frac{y^2}{2} = \\frac{x^2}{2} + \\frac{3}{2}$, which simplifies to $y^2 = x^2 + 3$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When solving $\\frac{dy}{dx} = g(x)h(y)$, what potential issue arises if $h(y)=0$ for some $y$? How is this handled?",
+      "back": "If $h(y_0)=0$ for some constant $y_0$, then $y(x) = y_0$ is a constant solution to the ODE, since $\\frac{dy}{dx} = 0$ and $g(x)h(y_0) = g(x) \\cdot 0 = 0$. This solution, called a **singular solution** or **equilibrium solution**, might be lost when dividing by $h(y)$ during separation. Always check if $h(y)=0$ yields valid solutions that are not covered by the general implicit solution.",
+      "difficulty": "hard"
+    }
+  ]
+}

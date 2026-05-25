@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-2-even-and-odd-functions-graphical-and-algebraic-tests",
+  "subtopicTitle": "Even and odd functions — graphical and algebraic tests",
+  "topicId": "math-p2-2-2-functions",
+  "topicTitle": "Functions",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:31.292Z",
+  "cards": [
+    {
+      "front": "A function $f(x)$ is defined as an **even function** if, for every $x$ in its domain, $f(-x) = \\text{_____}$.",
+      "back": "$f(x)$. This means substituting $-x$ for $x$ in the function's expression yields the original function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Graphically, an **even function** exhibits symmetry about the \\text{_____}.",
+      "back": "y-axis. If you can fold the graph along the y-axis and the two halves perfectly match, it's an even function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A function $f(x)$ is defined as an **odd function** if, for every $x$ in its domain, $f(-x) = \\text{_____}$.",
+      "back": "$-f(x)$. This means substituting $-x$ for $x$ in the function's expression yields the negative of the original function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Graphically, an **odd function** exhibits symmetry about the \\text{_____}.",
+      "back": "origin. This means if you rotate the graph 180 degrees around the origin, it looks identical to the original graph.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Algebraically test if $f(x) = 2x^6 - 4x^2 + 7$ is an even, odd, or neither function.",
+      "back": "To test, we evaluate $f(-x)$:\n$$f(-x) = 2(-x)^6 - 4(-x)^2 + 7$$\n$$f(-x) = 2x^6 - 4x^2 + 7$$\nSince $f(-x) = f(x)$, the function $f(x)$ is an **even function**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Algebraically test if $g(x) = x^5 - 3x^3 + 2x$ is an even, odd, or neither function.",
+      "back": "To test, we evaluate $g(-x)$:\n$$g(-x) = (-x)^5 - 3(-x)^3 + 2(-x)$$\n$$g(-x) = -x^5 + 3x^3 - 2x$$\nWe can factor out $-1$:\n$$g(-x) = -(x^5 - 3x^3 + 2x)$$\nSince $g(-x) = -g(x)$, the function $g(x)$ is an **odd function**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Algebraically test if $h(x) = x^3 + x^2 - 1$ is an even, odd, or neither function.",
+      "back": "To test, we evaluate $h(-x)$:\n$$h(-x) = (-x)^3 + (-x)^2 - 1$$\n$$h(-x) = -x^3 + x^2 - 1$$\nComparing $h(-x)$ with $h(x)$ and $-h(x)$:\n$h(-x) \\neq h(x)$ (because of the $-x^3$ term).\n$-h(x) = -(x^3 + x^2 - 1) = -x^3 - x^2 + 1$.\n$h(-x) \\neq -h(x)$ (because of the $x^2$ and $-1$ terms).\nTherefore, $h(x)$ is **neither** an even nor an odd function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is it possible for a non-zero function to be both even and odd simultaneously? Justify your answer.",
+      "back": "No, a non-zero function cannot be both even and odd. If a function $f(x)$ were both even and odd, it would satisfy two conditions:\n1.  $f(-x) = f(x)$ (for even)\n2.  $f(-x) = -f(x)$ (for odd)\n\nEquating these two conditions gives $f(x) = -f(x)$, which implies $2f(x) = 0$, and therefore $f(x) = 0$ for all $x$ in its domain. Thus, only the zero function, $f(x)=0$, can be both even and odd.",
+      "difficulty": "hard"
+    }
+  ]
+}

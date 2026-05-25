@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-arithmetic-operators-floor-div-modulo-power",
+  "subtopicTitle": "Arithmetic operators — +, -, *, /, //, %, ** (floor div, modulo, power)",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:51.601Z",
+  "cards": [
+    {
+      "front": "Identify the Python arithmetic operators for addition, subtraction, multiplication, and true division.",
+      "back": "The operators are:\n*   Addition: `+`\n*   Subtraction: `-`\n*   Multiplication: `*`\n*   True Division: `/`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the result of `7 / 2` in Python, and what is its data type?",
+      "back": "The result is `3.5`. In Python 3, the `/` operator (true division) always returns a `float` data type, even if the operands are integers and the mathematical result is a whole number (e.g., `4 / 2` is `2.0`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain Python's `//` operator (floor division) and provide the result of `7 // 2`.",
+      "back": "Floor division `//` divides two numbers and rounds the result *down* to the nearest whole number (integer). For `7 // 2`, the result is `3` (since $7/2 = 3.5$, rounded down to $3$). The data type will be an integer if both operands are integers, otherwise a float.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the result of `-7 // 2` and `-7 // -2` in Python, and why?",
+      "back": "*   `-7 // 2`: Result is `-4`.\n    *   Calculation: $-7 / 2 = -3.5$.\n    *   Floor division rounds *down* to the nearest whole number. The nearest whole number less than or equal to $-3.5$ is $-4$.\n*   `-7 // -2`: Result is `3`.\n    *   Calculation: $-7 / -2 = 3.5$.\n    *   Floor division rounds *down* to the nearest whole number. The nearest whole number less than or equal to $3.5$ is $3$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain Python's `%` operator (modulo) and provide the result of `7 % 2`.",
+      "back": "The modulo operator `%` returns the remainder of the division. For `7 % 2`, the result is `1`. This is because $7 = 2 \\times 3 + 1$. The remainder is $1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the result of `-7 % 2` and `7 % -2` in Python, and what rule determines the sign of the result?",
+      "back": "*   `-7 % 2`: Result is `1`.\n    *   Python's modulo operator `a % n` always returns a result with the same sign as the *divisor* (`n`). Here, the divisor `2` is positive, so the result is positive. Mathematically, $-7 = 2 \\times (-4) + 1$.\n*   `7 % -2`: Result is `-1`.\n    *   Here, the divisor `-2` is negative, so the result is negative. Using the formula `a - n * (a // n)`: `7 - (-2) * (7 // -2)` $\\Rightarrow$ `7 - (-2) * (-4)` $\\Rightarrow$ `7 - 8` $\\Rightarrow$ `-1`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you calculate $2^3$ and $9^{0.5}$ (square root of 9) in Python, and what operator is used?",
+      "back": "The exponentiation operator is `**`.\n*   To calculate $2^3$: `2 ** 3` results in `8`.\n*   To calculate $9^{0.5}$: `9 ** 0.5` results in `3.0`.\nThe `**` operator can handle both integer and float exponents.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the Python expression `5 + 3 * 2 ** 2` and explain the order of operations.",
+      "back": "The result is `17`.\nPython follows standard mathematical operator precedence (similar to PEMDAS/BODMAS):\n1.  **Exponentiation (`**`)**: `2 ** 2` evaluates to `4`.\n2.  **Multiplication (`*`)**: `3 * 4` evaluates to `12`.\n3.  **Addition (`+`)**: `5 + 12` evaluates to `17`.\n\n```python\nprint(5 + 3 * 2 ** 2) # Output: 17\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

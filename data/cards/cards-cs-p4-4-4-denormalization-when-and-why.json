@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-4-denormalization-when-and-why",
+  "subtopicTitle": "Denormalization — when and why",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:51.588Z",
+  "cards": [
+    {
+      "front": "What is denormalization in database design, and how does it relate to normalization?",
+      "back": "Denormalization is the process of intentionally adding redundant data or grouping data in a database to optimize read performance, often by sacrificing some write performance and increasing data storage. It's a controlled departure from normalization principles, which aim to reduce data redundancy and improve data integrity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary performance benefit achieved by denormalizing a database?",
+      "back": "The primary benefit is improved read performance, specifically by reducing the number of complex joins required to retrieve frequently accessed data. This speeds up query execution, especially for analytical or reporting queries.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In what specific database system architectures or use cases is denormalization most commonly applied?",
+      "back": "Denormalization is most commonly applied in Online Analytical Processing (OLAP) systems, data warehouses, and reporting databases. These systems prioritize fast data retrieval for complex analytical queries over transactional integrity or write speed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two significant disadvantages of denormalizing a database.",
+      "back": "1.  **Increased Data Redundancy:** The same data may be stored in multiple places, leading to larger storage requirements.\n2.  **Update Anomalies:** If redundant data is updated in one place but not another, it can lead to data inconsistencies and integrity issues.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the 'pre-joining' denormalization technique. Provide a simple SQL example.",
+      "back": "Pre-joining involves storing data from two or more tables that would normally be joined, together in a single table or view. This eliminates the need for a join at query time.\nExample (conceptual):\n```sql\nCREATE TABLE OrdersWithCustomerInfo (\n    order_id INT PRIMARY KEY,\n    customer_id INT,\n    customer_name VARCHAR(255), -- Denormalized from Customers\n    order_date DATE,\n    total_amount DECIMAL(10, 2)\n);\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A product catalog has `Products` and `Categories`. Displaying a product always requires its category name. Suggest a denormalization strategy and its trade-off.",
+      "back": "Strategy: Add `category_name` directly to the `Products` table.\n```sql\nALTER TABLE Products ADD COLUMN category_name VARCHAR(255);\n```\nTrade-off: If a `category_name` changes, all `Products` associated with that category must be updated, increasing write complexity and risk of update anomalies. However, read queries for product listings become faster as they avoid a join.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can data integrity issues, arising from denormalization, be mitigated in an application?",
+      "back": "Mitigation strategies include:\n1.  **Application-level Logic:** Ensure all updates to redundant data are handled consistently across all affected tables.\n2.  **Database Triggers:** Use `BEFORE` or `AFTER` triggers to automatically update redundant data when the source data changes.\n3.  **Scheduled Synchronization:** For less critical real-time consistency, schedule batch jobs to periodically synchronize redundant data.\n4.  **Materialized Views:** Use materialized views (if supported by the DB) to store pre-computed, denormalized results that can be refreshed.",
+      "difficulty": "hard"
+    }
+  ]
+}

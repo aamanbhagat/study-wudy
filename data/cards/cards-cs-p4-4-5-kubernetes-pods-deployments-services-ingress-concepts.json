@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-kubernetes-pods-deployments-services-ingress-concepts",
+  "subtopicTitle": "Kubernetes — pods, deployments, services, ingress (concepts)",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:06.123Z",
+  "cards": [
+    {
+      "front": "In Kubernetes, what is the smallest deployable unit that encapsulates one or more containers, storage, and network resources?",
+      "back": "A Pod. Pods provide a shared environment for co-located containers, including a unique IP address, shared network namespace, and shared volumes, simplifying inter-container communication.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why does Kubernetes use Pods to group containers instead of directly managing individual containers?",
+      "back": "Pods provide a higher-level abstraction. They ensure co-located containers share the same network namespace, IP address, and can access shared storage volumes. This simplifies communication between tightly coupled containers and streamlines their lifecycle management as a single unit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What Kubernetes resource manages the desired state of a set of identical Pods, enabling features like rolling updates and rollbacks?",
+      "back": "A Deployment. Deployments manage ReplicaSets, which in turn ensure a specified number of Pod replicas are running and available. They automate updates and rollbacks, maintaining application availability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the high-level process of how a Kubernetes Deployment performs a rolling update to a new application version.",
+      "back": "During a rolling update, a Deployment creates a new ReplicaSet for the new application version. It then gradually scales up the new ReplicaSet while simultaneously scaling down the old one. This ensures that new Pods are brought online before old ones are terminated, maintaining service availability with zero downtime.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What Kubernetes resource provides a stable network endpoint and load-balancing for a dynamic set of Pods, abstracting their ephemeral nature?",
+      "back": "A Service. Services abstract away the ephemeral nature of Pods (their changing IPs) by providing a consistent IP address and DNS name. They enable reliable access and load-balancing across a group of Pods that provide the same function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between a `ClusterIP` Service and a `NodePort` Service in terms of how they expose an application.",
+      "back": "<ul><li>`ClusterIP`: Exposes the Service on an internal IP address within the cluster. It's only reachable from other Pods/Services inside the cluster.</li><li>`NodePort`: Exposes the Service on a static port on each Node's IP address. This makes the Service accessible from outside the cluster using `<NodeIP>:<NodePort>`.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For external HTTP/S access to multiple Services in a Kubernetes cluster, what resource provides Layer 7 routing and traffic management?",
+      "back": "An Ingress. Ingress is an API object that manages external access to services, typically HTTP/S. It allows for advanced routing rules based on hostnames or URL paths, SSL/TLS termination, and acts as a single entry point for external traffic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain a key scenario where using an Ingress is preferred over a `LoadBalancer` type Service for exposing applications externally.",
+      "back": "Ingress is preferred when you need to expose multiple services under a single external IP address, often with different hostnames or URL paths (e.g., `app.example.com/api` to Service A, `app.example.com/web` to Service B). A `LoadBalancer` Service typically provides one external IP per service, which can be costly and less flexible for routing complex applications with many microservices. Ingress also offers advanced Layer 7 features like SSL termination and path-based routing, which `LoadBalancer` Services do not inherently provide.",
+      "difficulty": "hard"
+    }
+  ]
+}

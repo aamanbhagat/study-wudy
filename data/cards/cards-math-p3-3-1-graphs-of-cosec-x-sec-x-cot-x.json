@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-1-graphs-of-cosec-x-sec-x-cot-x",
+  "subtopicTitle": "Graphs of cosec x, sec x, cot x",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:28.225Z",
+  "cards": [
+    {
+      "front": "Define $\\csc x$, $\\sec x$, and $\\cot x$ using their reciprocal trigonometric functions.",
+      "back": "$\\csc x = \\frac{1}{\\sin x}$\n$\\sec x = \\frac{1}{\\cos x}$\n$\\cot x = \\frac{1}{\\tan x}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the occurrence of vertical asymptotes for $y = \\csc x$ at $x = n\\pi$, where $n \\in \\mathbb{Z}$.",
+      "back": "Vertical asymptotes occur when the denominator of the reciprocal function is zero. Since $\\csc x = \\frac{1}{\\sin x}$, asymptotes exist when $\\sin x = 0$. This condition is met at $x = n\\pi$ for any integer $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the domain and range for the function $y = \\sec x$.",
+      "back": "Domain: $x \\in \\mathbb{R}$, $x \\neq \\frac{\\pi}{2} + n\\pi$ for $n \\in \\mathbb{Z}$ (i.e., $x$ cannot be an odd multiple of $\\frac{\\pi}{2}$).\nRange: $(-\\infty, -1] \\cup [1, \\infty)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the steps to accurately sketch the graph of $y = \\sec x$ by first graphing $y = \\cos x$.",
+      "back": "1. Sketch the graph of $y = \\cos x$.\n2. Draw vertical asymptotes wherever $\\cos x = 0$ (i.e., at $x = \\frac{\\pi}{2} + n\\pi$).\n3. Wherever $\\cos x = 1$, $\\sec x = 1$. These points are local minima for $y = \\sec x$.\n4. Wherever $\\cos x = -1$, $\\sec x = -1$. These points are local maxima for $y = \\sec x$.\n5. Sketch U-shaped curves between the asymptotes, opening upwards where $\\cos x > 0$ and downwards where $\\cos x < 0$, approaching the asymptotes and touching the points identified in steps 3 and 4.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the periods of $y = \\cot x$ and $y = \\csc x$? Is $y = \\cot x$ an odd or even function?",
+      "back": "The period of $y = \\cot x$ is $\\pi$.\nThe period of $y = \\csc x$ is $2\\pi$.\n$y = \\cot x$ is an odd function because $\\cot(-x) = \\frac{\\cos(-x)}{\\sin(-x)} = \\frac{\\cos x}{-\\sin x} = -\\cot x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $y = \\cot x$ in the interval $[0, 2\\pi]$, identify all $x$-intercepts and vertical asymptotes.",
+      "back": "$x$-intercepts: Occur when $\\cot x = 0$, meaning $\\cos x = 0$. In $[0, 2\\pi]$, these are $x = \\frac{\\pi}{2}$ and $x = \\frac{3\\pi}{2}$.\nVertical asymptotes: Occur when $\\sin x = 0$. In $[0, 2\\pi]$, these are $x = 0$, $x = \\pi$, and $x = 2\\pi$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how the parameters $A, B, C, D$ transform the graph of $y = \\sec x$ into $y = A \\sec(Bx - C) + D$.",
+      "back": "$|A|$: Vertical stretch/compression. If $A<0$, the graph is reflected across the $x$-axis (U-shapes flip).\n$B$: Affects the period. The new period is $\\frac{2\\pi}{|B|}$. It also causes horizontal compression/stretch.\n$C$: Phase shift (horizontal shift). The graph shifts right by $\\frac{C}{B}$ units.\n$D$: Vertical shift. The entire graph shifts up by $D$ units. The horizontal axis from which the U-shapes open away shifts from $y=0$ to $y=D$.",
+      "difficulty": "hard"
+    }
+  ]
+}

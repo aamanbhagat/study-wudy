@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-first-order-linear-odes-integrating-factor-method-derivation",
+  "subtopicTitle": "First-order linear ODEs — integrating factor method (derivation)",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:43.190Z",
+  "cards": [
+    {
+      "front": "What is the general form of a first-order linear ordinary differential equation?",
+      "back": "The general form is $ a_1(x) \\frac{dy}{dx} + a_0(x) y = g(x) $, where $ a_1(x) \\neq 0 $.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the standard form of a first-order linear ODE, $ \\frac{dy}{dx} + P(x)y = Q(x) $?",
+      "back": "The standard form is $ \\frac{dy}{dx} + P(x)y = Q(x) $, where $ P(x) = \\frac{a_0(x)}{a_1(x)} $ and $ Q(x) = \\frac{g(x)}{a_1(x)} $ after dividing the general form by $ a_1(x) $.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When solving $ \\frac{dy}{dx} + P(x)y = Q(x) $, what is the key idea behind the integrating factor method to simplify the LHS?",
+      "back": "The key idea is to multiply the entire ODE by a special function, the integrating factor $ \\mu(x) $, such that the left-hand side (LHS) becomes the exact derivative of a product: $ \\frac{d}{dx}[\\mu(x)y] $.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Starting with $ \\frac{dy}{dx} + P(x)y = Q(x) $, derive the differential equation that the integrating factor $ \\mu(x) $ must satisfy.",
+      "back": "1. Multiply the ODE by $ \\mu(x) $: $ \\mu(x)\\frac{dy}{dx} + \\mu(x)P(x)y = \\mu(x)Q(x) $.\n2. We want the LHS to be $ \\frac{d}{dx}[\\mu(x)y] = \\mu(x)\\frac{dy}{dx} + \\mu'(x)y $ (using the product rule).\n3. Comparing the desired LHS with the actual LHS from step 1, we must have $ \\mu(x)P(x)y = \\mu'(x)y $.\n4. Dividing by $y$ (assuming $y \\neq 0$), we get $ \\mu'(x) = P(x)\\mu(x) $. This is the differential equation for $ \\mu(x) $.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Solve the separable ODE $ \\frac{d\\mu}{dx} = P(x)\\mu $ to find the general form of the integrating factor $ \\mu(x) $.",
+      "back": "1. Separate variables: $ \\frac{d\\mu}{\\mu} = P(x)dx $.\n2. Integrate both sides: $ \\int \\frac{d\\mu}{\\mu} = \\int P(x)dx $.\n3. This gives $ \\ln|\\mu| = \\int P(x)dx + C_1 $.\n4. Exponentiate both sides: $ |\\mu| = e^{\\int P(x)dx + C_1} = e^{C_1} e^{\\int P(x)dx} $.\n5. Let $ C_2 = \\pm e^{C_1} $. We can choose $ C_2 = 1 $ for simplicity, as any non-zero constant multiple of an integrating factor is also an integrating factor.\n6. Thus, $ \\mu(x) = e^{\\int P(x)dx} $.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for the integrating factor $ \\mu(x) $ used to solve $ \\frac{dy}{dx} + P(x)y = Q(x) $.",
+      "back": "The formula for the integrating factor is $ \\mu(x) = e^{\\int P(x)dx} $. (Note: The constant of integration for $ \\int P(x)dx $ can be taken as zero.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After multiplying a first-order linear ODE $ \\frac{dy}{dx} + P(x)y = Q(x) $ by its integrating factor $ \\mu(x) $, what is the next step to solve for $y$?",
+      "back": "After multiplying by $ \\mu(x) $, the ODE transforms into $ \\frac{d}{dx}[\\mu(x)y] = \\mu(x)Q(x) $. The next step is to integrate both sides with respect to $x$: $ \\int \\frac{d}{dx}[\\mu(x)y]dx = \\int \\mu(x)Q(x)dx $. This yields $ \\mu(x)y = \\int \\mu(x)Q(x)dx + C $.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the general solution formula for a first-order linear ODE $ \\frac{dy}{dx} + P(x)y = Q(x) $ using the integrating factor method.",
+      "back": "1. Multiply the standard form by the integrating factor $ \\mu(x) = e^{\\int P(x)dx} $:\n   $ e^{\\int P(x)dx} \\frac{dy}{dx} + P(x)e^{\\int P(x)dx} y = Q(x)e^{\\int P(x)dx} $.\n2. Recognize the LHS as the derivative of a product: $ \\frac{d}{dx}[y e^{\\int P(x)dx}] $.\n3. So, the equation becomes: $ \\frac{d}{dx}[y e^{\\int P(x)dx}] = Q(x)e^{\\int P(x)dx} $.\n4. Integrate both sides with respect to $x$:\n   $ \\int \\frac{d}{dx}[y e^{\\int P(x)dx}]dx = \\int Q(x)e^{\\int P(x)dx}dx $.\n5. This gives: $ y e^{\\int P(x)dx} = \\int Q(x)e^{\\int P(x)dx}dx + C $.\n6. Finally, solve for $y$:\n   $ y = e^{-\\int P(x)dx} \\left( \\int Q(x)e^{\\int P(x)dx}dx + C \\right) $.",
+      "difficulty": "hard"
+    }
+  ]
+}

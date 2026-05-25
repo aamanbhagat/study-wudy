@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-3-general-term-of-binomial-expansion-finding-specific-terms",
+  "subtopicTitle": "General term of binomial expansion — finding specific terms",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:59.948Z",
+  "cards": [
+    {
+      "front": "State the formula for the general term $T_{r+1}$ in the binomial expansion of $(a+b)^n$.",
+      "back": "The general term $T_{r+1}$ is given by: $$T_{r+1} = \\binom{n}{r} a^{n-r} b^r$$ where $n$ is a non-negative integer, and $r$ is an integer such that $0 \\le r \\le n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the general term $T_{r+1} = \\binom{n}{r} a^{n-r} b^r$, what does the index $r$ represent in relation to the term number?",
+      "back": "The index $r$ represents the exponent of the second term $b$ and also the lower index in the binomial coefficient $\\binom{n}{r}$. If we are looking for the $k$-th term, then $k = r+1$, which means $r = k-1$. For example, for the 1st term, $r=0$; for the 2nd term, $r=1$, and so on.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Find the 5th term in the expansion of $(x+3)^6$.",
+      "back": "For the 5th term, we have $r+1=5 \\implies r=4$. Here, $a=x$, $b=3$, and $n=6$. \n$$T_{4+1} = T_5 = \\binom{6}{4} x^{6-4} 3^4$$\n$$T_5 = \\frac{6 \\cdot 5}{2 \\cdot 1} x^2 \\cdot 81 = 15 x^2 \\cdot 81 = 1215x^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine the 7th term in the expansion of $(3x - \\frac{1}{x^2})^{10}$.",
+      "back": "For the 7th term, $r+1=7 \\implies r=6$. Here, $a=3x$, $b=-\\frac{1}{x^2}$, and $n=10$. \n$$T_{6+1} = T_7 = \\binom{10}{6} (3x)^{10-6} \\left(-\\frac{1}{x^2}\\right)^6$$\n$$T_7 = \\binom{10}{4} (3x)^4 \\left(\\frac{1}{x^{12}}\\right)$$\n$$T_7 = \\frac{10 \\cdot 9 \\cdot 8 \\cdot 7}{4 \\cdot 3 \\cdot 2 \\cdot 1} \\cdot 3^4 x^4 \\cdot x^{-12}$$\n$$T_7 = 210 \\cdot 81 x^{4-12} = 17010 x^{-8}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the term independent of $x$ in the expansion of $(x^3 + \\frac{2}{x^2})^{10}$.",
+      "back": "The general term is $T_{r+1} = \\binom{10}{r} (x^3)^{10-r} \\left(\\frac{2}{x^2}\\right)^r$. \n$$T_{r+1} = \\binom{10}{r} x^{3(10-r)} 2^r x^{-2r}$$\n$$T_{r+1} = \\binom{10}{r} 2^r x^{30-3r-2r} = \\binom{10}{r} 2^r x^{30-5r}$$ \nFor the term independent of $x$, the exponent of $x$ must be $0$. \n$30-5r = 0 \\implies 5r = 30 \\implies r = 6$. \nSubstitute $r=6$ back into the general term: \n$$T_{6+1} = T_7 = \\binom{10}{6} 2^6 x^{30-5(6)} = \\binom{10}{4} 2^6 x^0$$\n$$T_7 = \\frac{10 \\cdot 9 \\cdot 8 \\cdot 7}{4 \\cdot 3 \\cdot 2 \\cdot 1} \\cdot 64 = 210 \\cdot 64 = 13440$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the coefficient of $x^5$ in the expansion of $(2x^2 - \\frac{1}{x})^8$.",
+      "back": "The general term is $T_{r+1} = \\binom{8}{r} (2x^2)^{8-r} \\left(-\\frac{1}{x}\\right)^r$. \n$$T_{r+1} = \\binom{8}{r} 2^{8-r} (x^2)^{8-r} (-1)^r x^{-r}$$\n$$T_{r+1} = \\binom{8}{r} 2^{8-r} (-1)^r x^{2(8-r)-r}$$\n$$T_{r+1} = \\binom{8}{r} 2^{8-r} (-1)^r x^{16-2r-r} = \\binom{8}{r} 2^{8-r} (-1)^r x^{16-3r}$$ \nWe want the power of $x$ to be $5$. \n$16-3r = 5 \\implies 3r = 11 \\implies r = \\frac{11}{3}$. \nSince $r$ must be a non-negative integer, a non-integer value for $r$ means that a term with $x^5$ does not exist in this expansion. Therefore, the coefficient of $x^5$ is $0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it imply if, when solving for $r$ to find a specific term (e.g., a term with a certain power of $x$), you obtain a non-integer value for $r$?",
+      "back": "If $r$ is not a non-negative integer (i.e., $r \\notin \\{0, 1, 2, \\dots, n\\}$), it means that the specific term you are looking for (e.g., a term with that exact power of $x$) does not exist in the binomial expansion. The general term formula $T_{r+1}$ is only valid for integer values of $r$ within the range $0 \\le r \\le n$.",
+      "difficulty": "medium"
+    }
+  ]
+}

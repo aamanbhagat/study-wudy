@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-tvc-dynamics-gimbal-servo-bandwidth-time-delay",
+  "subtopicTitle": "TVC dynamics — gimbal servo bandwidth, time delay",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:51.463Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Thrust Vector Control (TVC) in a rocket, and what mechanical mechanism enables it?",
+      "back": "TVC's primary purpose is to control the rocket's attitude (pitch, yaw, roll) and trajectory by changing the direction of the thrust vector. This is mechanically enabled by **gimbaling** the engine nozzle, allowing it to pivot.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the essential components of a typical gimbal servo system responsible for TVC, and their roles.",
+      "back": "A gimbal servo system typically includes: 1) A **controller** (e.g., flight computer) that issues desired thrust vector commands. 2) An **actuator** (e.g., hydraulic, electric) that physically moves the engine nozzle. 3) A **feedback sensor** (e.g., LVDT, rotary encoder) that measures the actual nozzle position. 4) A **feedback loop** that compares desired vs. actual position, allowing the controller to adjust actuator commands.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the context of a TVC gimbal servo, what does \"bandwidth\" fundamentally represent?",
+      "back": "Servo bandwidth represents the **frequency range** over which the servo system can effectively track input commands. It's often defined as the frequency at which the closed-loop system's gain drops to -3 dB (or the open-loop gain crossover frequency). A higher bandwidth means the system can respond to faster changes in commanded thrust vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how insufficient gimbal servo bandwidth can negatively impact a rocket's attitude control and stability.",
+      "back": "Insufficient bandwidth means the TVC system cannot respond quickly enough to high-frequency disturbances or rapid attitude changes commanded by the flight computer. This can lead to: 1) **Reduced stability margins**: The control system might struggle to damp oscillations. 2) **Poor tracking performance**: The actual thrust vector may lag significantly behind the commanded vector, leading to larger attitude errors. 3) **Potential for instability**: If the control loop attempts to command frequencies beyond the servo's bandwidth, it can excite unmodeled dynamics or introduce phase lag that destabilizes the rocket.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List common sources of \"time delay\" (latency) in a TVC gimbal servo system.",
+      "back": "Time delays in a TVC system can arise from: 1) **Sensor latency**: Time for position measurement and conversion. 2) **Controller processing delay**: Time for the flight computer to compute control laws. 3) **Communication latency**: Time for signals to travel between components. 4) **Actuator response time**: Inherent inertia and fluid dynamics in hydraulic or motor response. 5) **Filtering delays**: Digital filters used for noise reduction introduce phase lag.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the approximate phase lag introduced by a pure time delay $\\tau$ at a given frequency $\\omega$, and explain its critical implication for TVC system stability.",
+      "back": "A pure time delay $\\tau$ in the system's transfer function is represented by $e^{-s\\tau}$. In the frequency domain, substituting $s = j\\omega$, the phase contribution is $\\angle e^{-j\\omega\\tau} = -\\omega\\tau$ radians.\n\nThis means for every frequency $\\omega$, there's a phase lag of $\\omega\\tau$. Critical implication: This phase lag directly reduces the system's **phase margin**. If the total phase lag (including delay) reaches $-180^\\circ$ at the gain crossover frequency, the system becomes unstable. Even small delays can significantly degrade stability, especially for high-bandwidth control systems trying to operate near their stability limits.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Discuss the fundamental trade-off between increasing gimbal servo bandwidth and the detrimental effects of time delay on TVC system design.",
+      "back": "Increasing servo bandwidth generally improves responsiveness and tracking. However, it also makes the system more sensitive to time delays. As bandwidth increases, the gain crossover frequency (where magnitude is 1) shifts to higher frequencies. At these higher frequencies, even a small fixed time delay $\\tau$ introduces a larger phase lag ($-\\omega\\tau$). This larger phase lag can rapidly erode the phase margin, potentially leading to instability. Therefore, designers must carefully balance the desired responsiveness (bandwidth) with the unavoidable time delays in the system, often accepting a lower bandwidth than mechanically possible to maintain sufficient stability margins.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a common design strategy to mitigate the negative impact of time delays in a high-performance TVC system?",
+      "back": "A common strategy is to implement **phase lead compensation** or **predictive control** within the flight computer's control law. Phase lead compensation adds positive phase shift at critical frequencies to counteract the phase lag introduced by delays and other system dynamics. Predictive control attempts to anticipate future states based on current measurements and a system model, effectively \"looking ahead\" to compensate for the time it takes for commands to propagate through the servo.",
+      "difficulty": "medium"
+    }
+  ]
+}

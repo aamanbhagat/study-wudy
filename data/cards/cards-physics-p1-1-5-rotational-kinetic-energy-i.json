@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-rotational-kinetic-energy-i",
+  "subtopicTitle": "Rotational kinetic energy = ½Iω²",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:30.061Z",
+  "cards": [
+    {
+      "front": "State the formula for rotational kinetic energy.",
+      "back": "The formula for rotational kinetic energy is $K_{rot} = \\frac{1}{2}I\\omega^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the rotational kinetic energy formula $K_{rot} = \\frac{1}{2}I\\omega^2$, what do $I$ and $\\omega$ represent?",
+      "back": "$I$ represents the moment of inertia (or rotational inertia) of the object, and $\\omega$ represents its angular velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the SI units for rotational kinetic energy ($K_{rot}$), moment of inertia ($I$), and angular velocity ($\\omega$)?",
+      "back": "The SI units are:\n- Rotational kinetic energy ($K_{rot}$): Joules (J)\n- Moment of inertia ($I$): kilogram-meter squared (kg·m²)\n- Angular velocity ($\\omega$): radians per second (rad/s)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for rotational kinetic energy, $K_{rot} = \\frac{1}{2}I\\omega^2$, starting from the translational kinetic energy of a system of particles.",
+      "back": "Consider a rigid body rotating about a fixed axis with angular velocity $\\omega$. The body is composed of many particles, each with mass $m_i$ at a distance $r_i$ from the axis of rotation.\n\n1.  Each particle has a tangential speed $v_i = r_i \\omega$.\n2.  The translational kinetic energy of each particle is $K_i = \\frac{1}{2}m_i v_i^2$.\n3.  The total rotational kinetic energy of the body is the sum of the kinetic energies of all its particles:\n    $$K_{rot} = \\sum_i K_i = \\sum_i \\frac{1}{2}m_i v_i^2$$\n4.  Substitute $v_i = r_i \\omega$:\n    $$K_{rot} = \\sum_i \\frac{1}{2}m_i (r_i \\omega)^2 = \\sum_i \\frac{1}{2}m_i r_i^2 \\omega^2$$\n5.  Since $\\frac{1}{2}$ and $\\omega^2$ are constant for all particles in a rigid body, factor them out of the summation:\n    $$K_{rot} = \\frac{1}{2} \\omega^2 \\sum_i m_i r_i^2$$\n6.  The term $\\sum_i m_i r_i^2$ is defined as the moment of inertia, $I$.\n7.  Therefore, $K_{rot} = \\frac{1}{2}I\\omega^2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Draw an analogy between the formula for rotational kinetic energy, $K_{rot} = \\frac{1}{2}I\\omega^2$, and translational kinetic energy, $K_{trans} = \\frac{1}{2}mv^2$. Identify the corresponding terms.",
+      "back": "The analogy is direct:\n- Rotational kinetic energy ($K_{rot}$) corresponds to translational kinetic energy ($K_{trans}$). Both represent energy due to motion.\n- Moment of inertia ($I$) corresponds to mass ($m$). Both are measures of inertia (resistance to change in motion).\n- Angular velocity ($\\omega$) corresponds to linear velocity ($v$). Both describe the speed of motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A solid cylinder ($I = \\frac{1}{2}MR^2$) and a hollow cylinder ($I = MR^2$) of identical mass $M$ and radius $R$ are rotating about their central axes with the same angular velocity $\\omega$. Which cylinder has greater rotational kinetic energy?",
+      "back": "The hollow cylinder has greater rotational kinetic energy. The formula is $K_{rot} = \\frac{1}{2}I\\omega^2$. Since both cylinders have the same angular velocity $\\omega$, the one with the larger moment of inertia ($I$) will have greater rotational kinetic energy. The hollow cylinder has $I_{hollow} = MR^2$, while the solid cylinder has $I_{solid} = \\frac{1}{2}MR^2$. Therefore, $I_{hollow} > I_{solid}$, meaning $K_{rot, hollow} > K_{rot, solid}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A uniform rod of mass $M$ and length $L$ pivots freely about one end. If it is released from rest in a horizontal position, what is its angular velocity when it reaches the vertical position? (Moment of inertia about an end is $I = \\frac{1}{3}ML^2$)",
+      "back": "We use the principle of conservation of mechanical energy: $K_i + U_i = K_f + U_f$.\n\n1.  **Initial state (horizontal, at rest):**\n    $K_i = 0$ (released from rest).\n    Let the pivot point be the reference for potential energy. The center of mass (CM) of the rod is at $L/2$ from the pivot.\n    $U_i = Mg(L/2)$.\n\n2.  **Final state (vertical, lowest point):**\n    $K_f = \\frac{1}{2}I\\omega^2$.\n    The CM of the rod is now at a vertical distance of $-L/2$ from the pivot.\n    $U_f = Mg(-L/2)$.\n\n3.  **Substitute into energy conservation:**\n    $$0 + Mg(L/2) = \\frac{1}{2}I\\omega^2 + Mg(-L/2)$$\n    $$Mg(L/2) + Mg(L/2) = \\frac{1}{2}I\\omega^2$$\n    $$MgL = \\frac{1}{2}I\\omega^2$$\n\n4.  **Substitute $I = \\frac{1}{3}ML^2$:**\n    $$MgL = \\frac{1}{2}\\left(\\frac{1}{3}ML^2\\right)\\omega^2$$\n    $$MgL = \\frac{1}{6}ML^2\\omega^2$$\n\n5.  **Solve for $\\omega$ (cancel $M$ and one $L$):**\n    $$g = \\frac{1}{6}L\\omega^2$$\n    $$\\omega^2 = \\frac{6g}{L}$$\n    $$\\omega = \\sqrt{\\frac{6g}{L}}$$",
+      "difficulty": "hard"
+    }
+  ]
+}

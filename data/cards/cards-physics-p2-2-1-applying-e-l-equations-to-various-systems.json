@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p2-2-1-applying-e-l-equations-to-various-systems",
+  "subtopicTitle": "Applying E-L equations to various systems",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:59.147Z",
+  "cards": [
+    {
+      "front": "State the general form of the Euler-Lagrange equation for a system with generalized coordinate $q_i$.",
+      "back": "The Euler-Lagrange equation for a generalized coordinate $q_i$ is given by: $$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_i}\\right) - \\frac{\\partial L}{\\partial q_i} = 0$$ where $L = T - V$ is the Lagrangian, $T$ is the kinetic energy, and $V$ is the potential energy of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the general procedure for solving a mechanics problem using the Euler-Lagrange equations.",
+      "back": "1. **Choose generalized coordinates:** Select the minimum number of independent coordinates ($q_i$) to describe the system's configuration.\n2. **Determine Kinetic Energy ($T$):** Express $T$ in terms of $q_i$ and $\\dot{q}_i$.\n3. **Determine Potential Energy ($V$):** Express $V$ in terms of $q_i$.\n4. **Form the Lagrangian ($L$):** Construct $L = T - V$.\n5. **Apply E-L equations:** For each generalized coordinate $q_i$, apply $\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_i}\\right) - \\frac{\\partial L}{\\partial q_i} = 0$.\n6. **Solve equations of motion:** Solve the resulting differential equations for $q_i(t)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the equation of motion for a 1D simple harmonic oscillator (mass $m$, spring constant $k$) using the Euler-Lagrange equation.",
+      "back": "Let $x$ be the generalized coordinate. The kinetic energy is $T = \\frac{1}{2}m\\dot{x}^2$ and the potential energy is $V = \\frac{1}{2}kx^2$. The Lagrangian is $L = T - V = \\frac{1}{2}m\\dot{x}^2 - \\frac{1}{2}kx^2$.\n\nPartial derivatives:\n$\\frac{\\partial L}{\\partial \\dot{x}} = m\\dot{x}$\n$\\frac{\\partial L}{\\partial x} = -kx$\n\nApplying the E-L equation:\n$\\frac{d}{dt}\\left(m\\dot{x}\\right) - (-kx) = 0$\n$m\\ddot{x} + kx = 0$\nThis is the standard equation of motion for a simple harmonic oscillator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the equation of motion for a simple pendulum of mass $m$ and length $l$ using the Euler-Lagrange equation.",
+      "back": "Let $\\theta$ be the generalized coordinate (angle with the vertical). The Cartesian coordinates are $x = l\\sin\\theta$, $y = -l\\cos\\theta$ (origin at pivot, potential energy reference at pivot).\nKinetic Energy: $T = \\frac{1}{2}m(\\dot{x}^2 + \\dot{y}^2) = \\frac{1}{2}m(l^2\\dot{\\theta}^2\\cos^2\\theta + l^2\\dot{\\theta}^2\\sin^2\\theta) = \\frac{1}{2}ml^2\\dot{\\theta}^2$.\nPotential Energy: $V = mgy = -mgl\\cos\\theta$.\nLagrangian: $L = T - V = \\frac{1}{2}ml^2\\dot{\\theta}^2 + mgl\\cos\\theta$.\n\nPartial derivatives:\n$\\frac{\\partial L}{\\partial \\dot{\\theta}} = ml^2\\dot{\\theta}$\n$\\frac{\\partial L}{\\partial \\theta} = -mgl\\sin\\theta$\n\nApplying the E-L equation:\n$\\frac{d}{dt}\\left(ml^2\\dot{\\theta}\\right) - (-mgl\\sin\\theta) = 0$\n$ml^2\\ddot{\\theta} + mgl\\sin\\theta = 0$\n$\\ddot{\\theta} + \\frac{g}{l}\\sin\\theta = 0$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle is constrained to move on the surface of a sphere of radius $R$. How many generalized coordinates are needed, and what are common choices?",
+      "back": "A particle in 3D space initially has 3 degrees of freedom. The constraint that it moves on the surface of a sphere ($x^2 + y^2 + z^2 = R^2$) removes one degree of freedom. Therefore, $3 - 1 = 2$ generalized coordinates are needed.\n\nCommon choices for these two generalized coordinates are spherical coordinates: the polar angle $\\theta$ (from the z-axis) and the azimuthal angle $\\phi$ (around the z-axis).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the Euler-Lagrange equation, $\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_i}\right) - \\frac{\\partial L}{\\partial q_i} = 0$, what does the term $\\frac{\\partial L}{\\partial q_i}$ physically represent?",
+      "back": "The term $\\frac{\\partial L}{\\partial q_i}$ represents the generalized force associated with the generalized coordinate $q_i$. For conservative systems, where $L = T - V$, this term is equal to $-\\frac{\\partial V}{\\partial q_i}$. This is analogous to how a force in Newtonian mechanics is the negative gradient of potential energy ($F_x = -\\frac{\\partial V}{\\partial x}$). It drives the change in motion along the $q_i$ direction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how the Euler-Lagrange equations lead to a conservation law when a generalized coordinate $q_k$ is \"cyclic\" (ignorable).",
+      "back": "A generalized coordinate $q_k$ is considered cyclic (or ignorable) if the Lagrangian $L$ does not explicitly depend on $q_k$, meaning $\\frac{\\partial L}{\\partial q_k} = 0$.\n\nWhen this condition holds, the Euler-Lagrange equation for $q_k$ simplifies:\n$$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_k}\\right) - \\frac{\\partial L}{\\partial q_k} = 0$$\n$$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_k}\\right) - 0 = 0$$\n$$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_k}\\right) = 0$$\nThis implies that the quantity $\\frac{\\partial L}{\\partial \\dot{q}_k}$ is constant over time. This quantity is defined as the generalized momentum (or canonical momentum) conjugate to $q_k$, denoted $p_k$. Thus, if $q_k$ is cyclic, its conjugate momentum $p_k$ is conserved. This is a direct consequence of Noether's theorem.",
+      "difficulty": "hard"
+    }
+  ]
+}

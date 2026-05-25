@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-half-range-sine-and-cosine-series",
+  "subtopicTitle": "Half-range sine and cosine series",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:28.971Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of half-range Fourier series for a function $f(x)$ defined on $[0, L]$?",
+      "back": "The primary purpose is to represent $f(x)$ using either only sine terms (half-range sine series) or only cosine terms (half-range cosine series). This is often crucial in solving Partial Differential Equations (PDEs) where boundary conditions dictate the form of the solution (e.g., fixed ends vs. insulated ends).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is a function $f(x)$ on $[0, L]$ extended to form an *odd* function on $[-L, L]$ for a half-range sine series?",
+      "back": "To form an odd function $f_{\\text{odd}}(x)$ on $[-L, L]$, the extension is defined as: $$f_{\\text{odd}}(x) = \\begin{cases} f(x) & 0 \\le x \\le L \\\\ -f(-x) & -L \\le x < 0 \\end{cases}$$ This ensures $f_{\\text{odd}}(-x) = -f_{\\text{odd}}(x)$ for all $x \\in [-L, L]$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the coefficients $b_n$ in a half-range *sine* series for $f(x)$ on $[0, L]$.",
+      "back": "The half-range sine series for $f(x)$ on $[0, L]$ is given by $f(x) = \\sum_{n=1}^{\\infty} b_n \\sin\\left(\\frac{n\\pi x}{L}\\right)$, where the coefficients $b_n$ are: $$b_n = \\frac{2}{L} \\int_0^L f(x) \\sin\\left(\\frac{n\\pi x}{L}\\right) dx$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is a function $f(x)$ on $[0, L]$ extended to form an *even* function on $[-L, L]$ for a half-range cosine series?",
+      "back": "To form an even function $f_{\\text{even}}(x)$ on $[-L, L]$, the extension is defined as: $$f_{\\text{even}}(x) = \\begin{cases} f(x) & 0 \\le x \\le L \\\\ f(-x) & -L \\le x < 0 \\end{cases}$$ This ensures $f_{\\text{even}}(-x) = f_{\\text{even}}(x)$ for all $x \\in [-L, L]$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formulas for the coefficients $a_0$ and $a_n$ in a half-range *cosine* series for $f(x)$ on $[0, L]$.",
+      "back": "The half-range cosine series for $f(x)$ on $[0, L]$ is given by $f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} a_n \\cos\\left(\\frac{n\\pi x}{L}\\right)$, where the coefficients are: $$a_0 = \\frac{2}{L} \\int_0^L f(x) dx$$ $$a_n = \\frac{2}{L} \\int_0^L f(x) \\cos\\left(\\frac{n\\pi x}{L}\\right) dx \\quad \\text{for } n=1, 2, \\dots$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why an odd extension of $f(x)$ on $[0, L]$ leads to a Fourier series with *only sine terms* on $[-L, L]$.",
+      "back": "For an odd function $F(x)$ on $[-L, L]$, the general Fourier coefficients are $a_0 = \\frac{1}{L}\\int_{-L}^L F(x) dx$, $a_n = \\frac{1}{L}\\int_{-L}^L F(x) \\cos(\\frac{n\\pi x}{L}) dx$, and $b_n = \\frac{1}{L}\\int_{-L}^L F(x) \\sin(\\frac{n\\pi x}{L}) dx$. Since $F(x)$ is odd, $F(x)\\cos(\\frac{n\\pi x}{L})$ is also odd (odd $\\times$ even), so $a_0$ and $a_n$ are zero because the integral of an odd function over a symmetric interval is zero. $F(x)\\sin(\\frac{n\\pi x}{L})$ is even (odd $\\times$ odd), so $b_n$ coefficients are non-zero, leading to only sine terms.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $f(x)=x$ on $[0, \\pi]$, calculate the $b_1$ coefficient of its half-range sine series.",
+      "back": "Given $f(x)=x$ on $[0, \\pi]$, we have $L=\\pi$. The coefficient $b_1$ is: $$b_1 = \\frac{2}{L} \\int_0^L f(x) \\sin\\left(\\frac{1\\pi x}{L}\\right) dx = \\frac{2}{\\pi} \\int_0^{\\pi} x \\sin(x) dx$$ Using integration by parts ($\\int u dv = uv - \\int v du$ with $u=x, dv=\\sin(x)dx \\implies du=dx, v=-\\cos(x)$): $$ \\int x \\sin(x) dx = -x\\cos(x) - \\int (-\\cos(x)) dx = -x\\cos(x) + \\sin(x) $$ Evaluating from $0$ to $\\pi$: $$ [-x\\cos(x) + \\sin(x)]_0^{\\pi} = (-\\pi\\cos(\\pi) + \\sin(\\pi)) - (-0\\cos(0) + \\sin(0)) $$ $$ = (-\\pi(-1) + 0) - (0 + 0) = \\pi $$ Therefore, $b_1 = \\frac{2}{\\pi} (\\pi) = 2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In solving the heat equation $u_t = k u_{xx}$ on a rod of length $L$ with boundary conditions $u(0,t)=0$ and $u(L,t)=0$, which type of half-range series is typically used for the initial temperature profile $u(x,0)=f(x)$?",
+      "back": "A half-range *sine* series is typically used. The boundary conditions $u(0,t)=0$ and $u(L,t)=0$ (Dirichlet conditions, representing fixed zero temperature at the ends) naturally lead to solutions involving $\\sin\\left(\\frac{n\\pi x}{L}\\right)$ terms. Therefore, representing the initial condition $f(x)$ with a sine series ensures it satisfies these boundary conditions and matches the eigenfunction basis of the problem.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-4-reentry-mechanics-ballistic-coefficient-m-cda",
+  "subtopicTitle": "Reentry mechanics — ballistic coefficient β = m/(CDA)",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:31.413Z",
+  "cards": [
+    {
+      "front": "Define the ballistic coefficient ($\\beta$) in the context of atmospheric reentry.",
+      "back": "The ballistic coefficient ($\\beta$) quantifies an object's ability to overcome atmospheric drag. It's a measure of how \"aerodynamically dense\" an object is, indicating its resistance to deceleration by drag forces.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the ballistic coefficient and its standard SI units.",
+      "back": "The formula is $\\beta = \\frac{m}{C_D A}$, where $m$ is mass, $C_D$ is the drag coefficient, and $A$ is the reference area. Its standard SI units are $\\text{kg/m}^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the physical significance of mass ($m$), drag coefficient ($C_D$), and reference area ($A$) in the ballistic coefficient formula.",
+      "back": "<ul><li>$m$: The object's mass. Higher mass means more inertia to overcome drag.</li><li>$C_D$: The drag coefficient, a dimensionless measure of an object's aerodynamic efficiency. Lower $C_D$ means less drag.</li><li>$A$: The reference area, typically the maximum cross-sectional area perpendicular to the flow. Larger $A$ means more drag.</li></ul>Thus, higher $m$ and lower $C_D A$ result in a higher $\\beta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does an *increase* in a spacecraft's ballistic coefficient affect its peak deceleration altitude and magnitude during reentry?",
+      "back": "A higher ballistic coefficient means the spacecraft penetrates deeper into the atmosphere before significant deceleration occurs. This results in a *lower* altitude for peak deceleration and generally a *higher* magnitude of peak deceleration (higher G-forces) because it encounters denser air at higher speeds.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the reentry heating characteristics (peak heating rate and total heat load) for a high-$\\beta$ vs. a low-$\\beta$ spacecraft.",
+      "back": "<ul><li><b>High $\\beta$:</b> Experiences higher peak heating rates due to decelerating faster in denser air at higher speeds. However, the total heat load is generally lower because the reentry duration is shorter.</li><li><b>Low $\\beta$:</b> Experiences lower peak heating rates as it \"skims\" the upper atmosphere, decelerating more gradually. However, the total heat load is higher due to a longer exposure time to heating.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Show how the ballistic coefficient $\\beta$ arises from the drag equation $D = \\frac{1}{2} \\rho v^2 C_D A$ when considering the equation of motion for a reentering object.",
+      "back": "The equation of motion along the trajectory is $m \\frac{dv}{dt} = -D$, where $D$ is drag. Substituting the drag equation:\n$$m \\frac{dv}{dt} = -\\frac{1}{2} \\rho v^2 C_D A$$\nDividing by $m$:\n$$\\frac{dv}{dt} = -\\frac{1}{2} \\rho v^2 \\frac{C_D A}{m}$$\nRecognizing $\\beta = \\frac{m}{C_D A}$, we can rewrite this as:\n$$\\frac{dv}{dt} = -\\frac{1}{2} \\rho v^2 \\frac{1}{\\beta}$$\nThis shows that deceleration is inversely proportional to $\\beta$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why a high ballistic coefficient is often chosen for atmospheric probes (e.g., Mars entry) while a low ballistic coefficient is preferred for human-rated crew capsules.",
+      "back": "<ul><li><b>High $\\beta$ (Probes):</b> Allows for rapid descent through thin atmospheres (like Mars) to reach the surface quickly, minimizing drift and increasing landing precision. The high G-forces are acceptable for robotic payloads.</li><li><b>Low $\\beta$ (Crew Capsules):</b> Prioritizes human safety by \"loitering\" in the upper atmosphere, spreading out deceleration and heating over a longer period. This reduces peak G-forces and peak heating rates, making the reentry survivable and more comfortable for astronauts.</li></ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

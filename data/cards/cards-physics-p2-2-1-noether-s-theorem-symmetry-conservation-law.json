@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-noether-s-theorem-symmetry-conservation-law",
+  "subtopicTitle": "Noether's theorem — symmetry ↔ conservation law",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:31.787Z",
+  "cards": [
+    {
+      "front": "State the core principle of Noether's Theorem.",
+      "back": "Noether's Theorem states that for every continuous symmetry of the action of a physical system, there exists a corresponding conserved quantity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Noether's Theorem applies to systems described by a Lagrangian. What specific type of symmetry is required for a conservation law to emerge?",
+      "back": "Noether's Theorem requires a *continuous symmetry* of the action. This means the action is invariant under a transformation parameterized by one or more real numbers, allowing for infinitesimal variations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the general formula for the conserved quantity (Noether charge) $J$ corresponding to a continuous transformation $q_i \\to q_i + \\epsilon \\eta_i(q, \\dot{q}, t)$ that leaves the action invariant?",
+      "back": "If a Lagrangian $L$ transforms such that $\\delta L = \\frac{dF}{dt}$ under an infinitesimal continuous transformation $q_i \\to q_i + \\epsilon \\eta_i$, then the conserved quantity (Noether charge) is given by: $$J = \\sum_i \\frac{\\partial L}{\\partial \\dot{q}_i} \\eta_i - F$$ where $\\frac{dJ}{dt} = 0$. If the Lagrangian is strictly invariant ($\\delta L = 0$), then $F=0$ and $J = \\sum_i \\frac{\\partial L}{\\partial \\dot{q}_i} \\eta_i$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which conserved quantity arises from the continuous symmetry of a Lagrangian under time translation?",
+      "back": "If the Lagrangian does not explicitly depend on time ($L$ is invariant under $t \\to t + \\delta t$), the corresponding conserved quantity is the **energy** of the system, often expressed as the Hamiltonian: $H = \\sum_i \\dot{q}_i \\frac{\\partial L}{\\partial \\dot{q}_i} - L$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the conserved quantity linked to the Lagrangian's invariance under spatial translation.",
+      "back": "If the Lagrangian is invariant under spatial translation (e.g., $x \\to x + \\delta x$), meaning it doesn't explicitly depend on the absolute position coordinates, the corresponding conserved quantity is **linear momentum** in that direction, $p_x = \\frac{\\partial L}{\\partial \\dot{x}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What conservation law is a direct consequence of a system's Lagrangian exhibiting rotational symmetry?",
+      "back": "Rotational symmetry of the Lagrangian (invariance under rotations about an axis) leads to the conservation of **angular momentum** about that axis. For instance, if $L$ is invariant under $\\phi \\to \\phi + \\delta \\phi$ (rotation about z-axis), then $L_z = \\frac{\\partial L}{\\partial \\dot{\\phi}}$ is conserved.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond providing specific conservation laws, what is the profound significance of Noether's Theorem in theoretical physics?",
+      "back": "Noether's Theorem establishes a fundamental and deep connection between continuous symmetries and conservation laws, unifying these concepts. It provides a powerful tool for discovering conserved quantities without solving equations of motion, and it underpins the structure of modern physics theories, including quantum field theory and general relativity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Noether's Theorem applies if the action is invariant. What if the Lagrangian itself is not invariant, but changes by a total time derivative, i.e., $\\delta L = \\frac{dF}{dt}$?",
+      "back": "If $\\delta L = \\frac{dF}{dt}$, the action $\\int L dt$ is still invariant up to boundary terms. Noether's Theorem still applies, but the conserved quantity is modified to $J = \\sum_i \\frac{\\partial L}{\\partial \\dot{q}_i} \\eta_i - F$. This is crucial because Lagrangians differing by a total time derivative describe the same physical system.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p1-1-1-the-cpu-alu-control-unit-registers",
+  "subtopicTitle": "The CPU — ALU, control unit, registers",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:42.264Z",
+  "cards": [
+    {
+      "front": "What is the primary role of the Central Processing Unit (CPU) in a computer system?",
+      "back": "The CPU is the \"brain\" of the computer, responsible for executing instructions, performing calculations, and managing the overall flow of data and control within the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the three core functional units that constitute a CPU.",
+      "back": "The three main components are the Arithmetic Logic Unit (ALU), the Control Unit (CU), and Registers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The ALU performs two main categories of operations. What are they, and give an example for each?",
+      "back": "The ALU performs **Arithmetic Operations** (e.g., addition, subtraction, multiplication, division) and **Logic Operations** (e.g., AND, OR, NOT, XOR, comparisons).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary function of the Control Unit (CU) during the instruction cycle.",
+      "back": "The CU fetches instructions from memory, decodes them, and then generates control signals to coordinate the other components (ALU, registers, memory) to execute the instruction. It orchestrates the entire \"fetch-decode-execute\" cycle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are CPU registers, and why are they significantly faster for data access than main memory (RAM)?",
+      "back": "Registers are small, high-speed storage locations directly within the CPU. They are faster than RAM due to physical proximity to the ALU and Control Unit, use of faster (and more expensive) technology, and dedicated data paths, minimizing latency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the distinct roles of the Program Counter (PC) and the Instruction Register (IR) during program execution.",
+      "back": "The **Program Counter (PC)** holds the memory address of the *next* instruction to be fetched. The **Instruction Register (IR)** holds the *current* instruction that has been fetched and is currently being decoded and executed by the Control Unit. The PC is updated after each fetch, while the IR holds the instruction *during* execution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After an ALU operation, what is the purpose of \"flags\" (e.g., Zero Flag, Carry Flag) in the Status Register?",
+      "back": "Flags are single-bit indicators set by the ALU after an operation to reflect its outcome. For example, the Zero Flag indicates if the result was zero, and the Carry Flag indicates an arithmetic overflow. These flags are crucial for conditional branching and error handling in programs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Trace the data flow through CPU components for an `ADD R1, R2` instruction (add content of R2 to R1).",
+      "back": "1.  **CU** fetches `ADD R1, R2` from memory (address from **PC**) into **IR**.\n2.  **CU** decodes `ADD R1, R2`, identifies operands R1, R2.\n3.  **CU** signals to move contents of R1 and R2 to **ALU** input registers.\n4.  **CU** signals **ALU** to perform addition.\n5.  **ALU** adds R1 and R2, sets **flags**.\n6.  **ALU** outputs result to a temporary register.\n7.  **CU** signals to store the result back into R1.\n8.  **PC** is updated to point to the next instruction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the specific functions of the Memory Address Register (MAR) and the Memory Data Register (MDR) in CPU-memory interaction?",
+      "back": "The **MAR** holds the memory address of the data or instruction that the CPU wants to access (read from or write to). The **MDR** temporarily holds the data being fetched from memory or data waiting to be written to memory. They act as buffers between the CPU and the main memory.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-vector-fields-definition-visualization",
+  "subtopicTitle": "Vector fields — definition, visualization",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:27.010Z",
+  "cards": [
+    {
+      "front": "Define a vector field $F$ in $\\mathbb{R}^n$.",
+      "back": "A vector field $F$ is a function that assigns a vector to each point in its domain. Specifically, for a domain $D \\subseteq \\mathbb{R}^n$, it is a function $F: D \\to \\mathbb{R}^n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express a 2D vector field $F(x,y)$ and a 3D vector field $F(x,y,z)$ in component form using standard basis vectors.",
+      "back": "A 2D vector field is typically written as $F(x,y) = P(x,y)\\mathbf{i} + Q(x,y)\\mathbf{j}$ or $\\langle P(x,y), Q(x,y) \\rangle$. A 3D vector field is $F(x,y,z) = P(x,y,z)\\mathbf{i} + Q(x,y,z)\\mathbf{j} + R(x,y,z)\\mathbf{k}$ or $\\langle P(x,y,z), Q(x,y,z), R(x,y,z) \\rangle$. Here, $P, Q, R$ are scalar functions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When visualizing a vector field $F(x,y)$, what do the direction and length of an arrow placed at $(x_0,y_0)$ represent?",
+      "back": "The arrow's tail is positioned at $(x_0,y_0)$. Its direction indicates the direction of the vector $F(x_0,y_0)$, and its length (magnitude) is proportional to $|F(x_0,y_0)|$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Sketch the vector field $F(x,y) = \\langle -y, x \\rangle$ by drawing vectors at the points $(1,0), (0,1), (-1,0), (0,-1)$.",
+      "back": "At $(1,0)$, $F(1,0) = \\langle 0, 1 \\rangle$ (upwards).\nAt $(0,1)$, $F(0,1) = \\langle -1, 0 \\rangle$ (leftwards).\nAt $(-1,0)$, $F(-1,0) = \\langle 0, -1 \\rangle$ (downwards).\nAt $(0,-1)$, $F(0,-1) = \\langle 1, 0 \\rangle$ (rightwards).\nThis field represents a counter-clockwise rotation around the origin.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What physical phenomenon might the vector field $F(x,y) = \\langle x, y \\rangle$ model? Describe its behavior.",
+      "back": "This vector field models a **radial outflow** from the origin. Vectors point directly away from the origin, and their magnitudes increase linearly with distance from the origin (i.e., $|F(x,y)| = \\sqrt{x^2+y^2}$). Examples include fluid flow from a source or an electric field from a positive point charge.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between a scalar field and a vector field, including their respective codomains.",
+      "back": "A **scalar field** assigns a *scalar value* (a single real number) to each point in its domain. For a domain $D \\subseteq \\mathbb{R}^n$, its codomain is $\\mathbb{R}$. Example: Temperature $T(x,y,z)$.\nA **vector field** assigns a *vector* to each point in its domain. For a domain $D \\subseteq \\mathbb{R}^n$, its codomain is $\\mathbb{R}^n$. Example: Wind velocity $V(x,y,z)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the general approach to visualizing a 3D vector field $F(x,y,z)$ and discuss practical limitations.",
+      "back": "To visualize a 3D vector field, one selects a grid of points $(x_i,y_i,z_i)$ within the domain. At each point, an arrow is drawn with its tail at $(x_i,y_i,z_i)$, its direction matching $F(x_i,y_i,z_i)$, and its length proportional to $|F(x_i,y_i,z_i)|$.\n\n**Limitations:** Visualizing 3D vectors on a 2D medium (screen/paper) is inherently challenging due to perspective. A dense grid of arrows can lead to severe clutter and occlusion, making the field's structure difficult to discern. Often, techniques like plotting streamlines, cutting cross-sections, or using color to represent magnitude are employed to mitigate these issues.",
+      "difficulty": "hard"
+    }
+  ]
+}

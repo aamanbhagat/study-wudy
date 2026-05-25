@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-combinational-logic-half-adder-full-adder-multiplexer-decoder",
+  "subtopicTitle": "Combinational logic — half adder, full adder, multiplexer, decoder",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:33.333Z",
+  "cards": [
+    {
+      "front": "What defines a combinational logic circuit?",
+      "back": "A combinational logic circuit's output depends solely on its current inputs. It has no memory elements, meaning past inputs do not affect current outputs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a half adder with inputs A and B, what are the Boolean expressions for the Sum (S) and Carry-out ($C_{out}$)?",
+      "back": "$S = A \\oplus B$ (A XOR B)\n$C_{out} = A \\cdot B$ (A AND B)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how a full adder can be constructed using two half adders and one additional basic logic gate.",
+      "back": "A full adder can be built by connecting the sum output of the first half adder (inputs A, B) to one input of the second half adder. The other input of the second half adder is $C_{in}$. The carry outputs from both half adders are then fed into an OR gate to produce the final $C_{out}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Boolean expressions for the Sum (S) and Carry-out ($C_{out}$) of a full adder with inputs A, B, and $C_{in}$.",
+      "back": "Using the properties of XOR and AND gates:\n$S = A \\oplus B \\oplus C_{in}$\n$C_{out} = (A \\cdot B) + (C_{in} \\cdot (A \\oplus B))$\nAn alternative form for $C_{out}$ is: $C_{out} = (A \\cdot B) + (A \\cdot C_{in}) + (B \\cdot C_{in})$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary function of a multiplexer (MUX), and what are its key inputs and outputs?",
+      "back": "A multiplexer selects one of several input data lines and routes it to a single output line. It has multiple data inputs, one output, and a set of select lines that determine which input is chosen.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A 4-to-1 multiplexer has select lines $S_1 S_0$. If $S_1 S_0 = 10_2$, which data input ($I_0, I_1, I_2, I_3$) is connected to the output?",
+      "back": "The select lines $S_1 S_0 = 10_2$ correspond to the decimal value 2. Therefore, data input $I_2$ is connected to the output.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary function of a decoder, and how many active outputs does an $N$-to-$2^N$ decoder have for any given input combination?",
+      "back": "A decoder converts an $N$-bit binary input into a unique active output line out of $2^N$ possible output lines. For any given input combination, exactly one of the $2^N$ output lines will be active (e.g., high), while all others are inactive (low).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a 3-to-8 decoder can be used in a memory system to select one of eight distinct memory chips.",
+      "back": "In a memory system, the 3-bit address lines (e.g., A0, A1, A2) from the CPU can be connected to the inputs of the 3-to-8 decoder. Each of the decoder's 8 output lines is then connected to the Chip Select (CS) or Enable (EN) pin of a different memory chip. When the CPU places a specific 3-bit address on the lines, the decoder activates only one of its output lines, thereby enabling (selecting) only the corresponding memory chip for read/write operations.",
+      "difficulty": "hard"
+    }
+  ]
+}

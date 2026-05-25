@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-5-parallel-axis-theorem-i-i-cm-md-proof",
+  "subtopicTitle": "Parallel axis theorem — I = I_CM + Md² — proof",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:24.296Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Parallel Axis Theorem in rotational mechanics?",
+      "back": "The Parallel Axis Theorem ($I = I_{CM} + Md^2$) allows us to calculate an object's moment of inertia ($I$) about *any* axis if we know its moment of inertia ($I_{CM}$) about a *parallel* axis passing through its center of mass.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Parallel Axis Theorem formula and define each variable.",
+      "back": "The formula is $I = I_{CM} + Md^2$.\n*   $I$: Moment of inertia about the new axis.\n*   $I_{CM}$: Moment of inertia about a parallel axis passing through the object's center of mass.\n*   $M$: Total mass of the object.\n*   $d$: Perpendicular distance between the two parallel axes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the crucial requirement for the $I_{CM}$ term when applying the Parallel Axis Theorem?",
+      "back": "The $I_{CM}$ term *must* be the moment of inertia about an axis that passes **through the object's center of mass**. The \"new\" axis (for which $I$ is calculated) must then be parallel to this CM axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To prove the Parallel Axis Theorem, how should we strategically set up a coordinate system relative to the center of mass and the two parallel axes?",
+      "back": "Place the origin of the coordinate system at the object's center of mass (CM). Let the axis through the CM be the z-axis. The second parallel axis (for which we want to find $I$) will also be parallel to the z-axis and located at a perpendicular distance $d$ from the CM axis. We can simplify by aligning the x-axis such that the new axis passes through the point $(d, 0, 0)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using the coordinate system setup where the CM is at the origin and the CM axis is the z-axis, derive the initial integral for the moment of inertia $I$ about a parallel axis at $(d,0,0)$.",
+      "back": "For a mass element $dm$ at $(x,y,z)$, its perpendicular distance $r'$ from the new axis (which passes through $(d,0,0)$ and is parallel to the z-axis) is given by $r'^2 = (x-d)^2 + y^2$.\nThus, the moment of inertia $I$ about this new axis is:\n$$I = \\int r'^2 dm = \\int \\left( (x-d)^2 + y^2 \\right) dm$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Expand the integral $I = \\int \\left( (x-d)^2 + y^2 \\right) dm$ and identify terms related to $I_{CM}$ and the definition of the center of mass.",
+      "back": "Expanding the integral:\n$$I = \\int (x^2 - 2xd + d^2 + y^2) dm$$\n$$I = \\int (x^2+y^2) dm - 2d \\int x dm + d^2 \\int dm$$\nIdentify the terms:\n1.  $\\int (x^2+y^2) dm$: This is the moment of inertia about the z-axis (the CM axis), so it equals $I_{CM}$.\n2.  $\\int x dm$: Since the origin is at the center of mass, the first moment of mass about the yz-plane is zero. That is, $M\\bar{x} = \\int x dm = 0$ because $\\bar{x}=0$.\n3.  $\\int dm$: This is the total mass of the object, $M$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Substitute the identified terms from the previous step to complete the proof of the Parallel Axis Theorem.",
+      "back": "Substituting the identified terms into the expanded integral:\n$$I = I_{CM} - 2d(0) + d^2 M$$\n$$I = I_{CM} + Md^2$$\nThis derivation successfully proves the Parallel Axis Theorem.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "From an intuitive perspective, why does the $Md^2$ term appear in the Parallel Axis Theorem, and what does it represent?",
+      "back": "The $Md^2$ term accounts for the *extra* resistance to rotation when the axis of rotation is shifted away from the object's center of mass. It intuitively represents the moment of inertia of the entire object's mass $M$ *as if it were concentrated at its center of mass* and rotating in a circle of radius $d$ about the new parallel axis. This added term reflects that it's harder to rotate an object when its mass is further from the axis of rotation.",
+      "difficulty": "medium"
+    }
+  ]
+}

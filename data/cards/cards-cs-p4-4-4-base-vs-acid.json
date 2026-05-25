@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-base-vs-acid",
+  "subtopicTitle": "BASE vs ACID",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:52.415Z",
+  "cards": [
+    {
+      "front": "In database theory, what do the letters A-C-I-D represent?",
+      "back": "ACID stands for:\n1.  **Atomicity**: All or nothing.\n2.  **Consistency**: Valid state transitions.\n3.  **Isolation**: Concurrent transactions appear sequential.\n4.  **Durability**: Committed data survives failures.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In distributed systems, what do the letters B-A-S-E represent?",
+      "back": "BASE stands for:\n1.  **Basically Available**: The system guarantees availability for reads/writes.\n2.  **Soft state**: The state of the system may change over time, even without input, due to eventual consistency.\n3.  **Eventually consistent**: Replicas will converge to the same value given enough time and no new updates.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the \"Atomicity\" property of ACID transactions using a bank transfer example.",
+      "back": "Atomicity ensures a transaction is an \"all or nothing\" operation. If transferring $100 from Account A to Account B, either both the debit from A and credit to B succeed, or both fail and are rolled back. There is never a state where only one part of the transfer occurs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe \"Eventually consistent\" in the context of BASE databases and when it's acceptable.",
+      "back": "\"Eventually consistent\" means that given enough time, all replicas of a data item will converge to the same value, provided no new updates occur. It's acceptable in systems like social media feeds, personalized recommendations, or IoT sensor data where immediate, strong consistency isn't critical and slight data staleness is tolerable for higher availability and scalability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary trade-off or design philosophy difference between ACID and BASE systems regarding data consistency and availability?",
+      "back": "ACID systems prioritize strong consistency and reliability, often at the expense of availability during network partitions. BASE systems prioritize high availability and partition tolerance, accepting eventual consistency as a trade-off for scale and continuous operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the CAP theorem helps categorize the fundamental trade-offs between ACID and BASE database design principles.",
+      "back": "The CAP theorem states a distributed system can only guarantee two of three properties: Consistency, Availability, Partition Tolerance.\n\n*   **ACID** databases (especially traditional RDBMS) typically prioritize **C**onsistency and **A**vailability over **P**artition Tolerance (or struggle with P in distributed environments).\n*   **BASE** databases (NoSQL) typically prioritize **A**vailability and **P**artition Tolerance over strong **C**onsistency, opting for eventual consistency.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide two distinct scenarios where choosing a BASE-compliant database would be more appropriate than an ACID-compliant one.",
+      "back": "1.  **Massive Scale & High Availability**: For global web applications (e.g., social media feeds, e-commerce product catalogs) requiring continuous uptime and handling millions of concurrent users, where slight data staleness is acceptable for uninterrupted service.\n2.  **Partition Tolerance**: When network partitions are common or expected (e.g., geographically distributed systems, edge computing), and the system must remain operational even if parts are isolated, prioritizing availability over immediate global consistency.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does \"Soft state\" imply for data in a BASE-compliant system?",
+      "back": "\"Soft state\" implies that the state of the system may change over time, even without external input, due to the asynchronous propagation of updates across distributed nodes. Data is not immediately consistent across all replicas and can become stale before converging to the latest value, reflecting the eventual consistency model.",
+      "difficulty": "medium"
+    }
+  ]
+}

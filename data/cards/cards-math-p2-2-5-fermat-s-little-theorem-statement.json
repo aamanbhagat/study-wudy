@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-5-fermat-s-little-theorem-statement",
+  "subtopicTitle": "Fermat's little theorem (statement)",
+  "topicId": "math-p2-2-5-number-theory-intermediate",
+  "topicTitle": "Number Theory (Intermediate)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:59.083Z",
+  "cards": [
+    {
+      "front": "What is the statement of Fermat's Little Theorem for an integer $a$ and a prime $p$ such that $p \\nmid a$?",
+      "back": "Fermat's Little Theorem states that if $p$ is a prime number and $a$ is an integer not divisible by $p$, then $a^{p-1} \\equiv 1 \\pmod{p}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two essential conditions that must be met for Fermat's Little Theorem to state $a^{p-1} \\equiv 1 \\pmod{p}$?",
+      "back": "The two essential conditions are:\n1. $p$ must be a prime number.\n2. $a$ must be an integer not divisible by $p$ (i.e., $p \\nmid a$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the alternative form of Fermat's Little Theorem that holds for *any* integer $a$ and a prime $p$, regardless of whether $p$ divides $a$.",
+      "back": "The alternative form of Fermat's Little Theorem states that if $p$ is a prime number, then for any integer $a$, $a^p \\equiv a \\pmod{p}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using Fermat's Little Theorem, what is the value of $5^{10} \\pmod{11}$?",
+      "back": "By Fermat's Little Theorem, since $11$ is a prime number and $11 \\nmid 5$, we have $5^{11-1} \\equiv 5^{10} \\equiv 1 \\pmod{11}$. So, the value is $1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does Fermat's Little Theorem guarantee that $3^8 \\equiv 1 \\pmod{9}$? Explain why or why not.",
+      "back": "No. Fermat's Little Theorem requires the modulus $p$ to be a prime number. $9$ is not a prime number ($9 = 3^2$), so the theorem does not apply in this case.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $p$ is a prime number, under what specific condition does the statement $a^{p-1} \\equiv 1 \\pmod{p}$ *not* apply, even though $p$ is prime? What happens instead?",
+      "back": "The statement $a^{p-1} \\equiv 1 \\pmod{p}$ does not apply when $p$ divides $a$ (i.e., $p|a$). In this case, $a \\equiv 0 \\pmod{p}$, so $a^{p-1} \\equiv 0^{p-1} \\equiv 0 \\pmod{p}$ (for $p > 1$). The alternative form $a^p \\equiv a \\pmod{p}$ still holds, as $0^p \\equiv 0 \\pmod{p}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Complete the statement: According to Fermat's Little Theorem, if $p$ is a prime number and $a$ is an integer such that $p \\nmid a$, then $a^{p-1} \\equiv \\underline{\\hspace{2cm}} \\pmod{p}$.",
+      "back": "$1$",
+      "difficulty": "easy"
+    }
+  ]
+}

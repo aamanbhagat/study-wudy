@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-5-code-coverage-line-branch-path-coverage",
+  "subtopicTitle": "Code coverage — line, branch, path coverage",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:31.541Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of code coverage in software testing?",
+      "back": "Code coverage is a metric that measures the percentage of source code executed by a test suite. Its primary purpose is to identify untested parts of the code, helping to assess the thoroughness and effectiveness of the tests.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"line coverage.\"",
+      "back": "Line coverage measures the percentage of executable lines of code that have been executed by the test suite. An executable line is considered covered if it has been executed at least once during the tests.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the line coverage percentage for the `process_value(5)` call?",
+      "back": "```python\ndef process_value(x):\n    if x > 0:\n        y = x * 2\n        return y\n    else:\n        y = x + 1\n        return y\n```\nExecutable lines (statements): `if x > 0:`, `y = x * 2`, `return y` (first), `y = x + 1`, `return y` (second). (5 lines)\nFor `process_value(5)`:\nExecuted lines: `if x > 0:`, `y = x * 2`, `return y` (first). (3 lines)\nLine coverage = $3/5 = 60\\%$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"branch coverage\" and explain how it differs from line coverage.",
+      "back": "Branch coverage (or decision coverage) measures whether each branch (e.g., the `true` and `false` outcomes of an `if` statement, or each `case` in a `switch`) in the code has been executed. It is stronger than line coverage because executing a line doesn't guarantee all its branches were taken (e.g., an `if` statement line is executed, but only its `true` branch is taken, leaving the `false` branch untested).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the branch coverage for `test_value(0)`?",
+      "back": "```python\ndef test_value(x):\n    if x > 0:\n        print(\"Positive\")\n    elif x < 0:\n        print(\"Negative\")\n    else:\n        print(\"Zero\")\n```\nBranches:\n1. `x > 0` (True)\n2. `x > 0` (False) $\\rightarrow$ leads to `x < 0` check\n3. `x < 0` (True)\n4. `x < 0` (False) $\\rightarrow$ leads to `else`\n\nFor `test_value(0)`:\n- `x > 0` is False (branch 2 taken).\n- `x < 0` is False (branch 4 taken).\nExecuted branches: 2 and 4. Total distinct branches: 4.\nBranch coverage = $2/4 = 50\\%$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"path coverage.\"",
+      "back": "Path coverage measures whether every unique sequence of control flow (i.e., every possible path from the entry to the exit of a function) has been executed by the test suite. It is considered the strongest form of code coverage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List all distinct execution paths for the `process_order` function.",
+      "back": "```python\ndef process_order(quantity, is_member):\n    if quantity > 10:\n        price = 100\n    else:\n        price = 50\n\n    if is_member:\n        final_price = price * 0.9\n    else:\n        final_price = price\n\n    return final_price\n```\nPaths:\n1. `quantity > 10` (True) $\\rightarrow$ `is_member` (True)\n2. `quantity > 10` (True) $\\rightarrow$ `is_member` (False)\n3. `quantity > 10` (False) $\\rightarrow$ `is_member` (True)\n4. `quantity > 10` (False) $\\rightarrow$ `is_member` (False)\nThere are 4 distinct execution paths.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Rank line, branch, and path coverage from weakest to strongest, and explain the hierarchy.",
+      "back": "1.  **Line Coverage (Weakest):** Ensures each executable line is run at least once.\n2.  **Branch Coverage (Stronger):** Ensures each branch outcome (true/false) is taken. If all branches are covered, all lines are necessarily covered.\n3.  **Path Coverage (Strongest):** Ensures every unique sequence of control flow is executed. If all paths are covered, all branches are necessarily covered, and thus all lines are covered.\n\nThis forms a strict hierarchy: Line $\\subseteq$ Branch $\\subseteq$ Path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is achieving 100% path coverage often impractical or impossible for real-world software?",
+      "back": "The number of unique execution paths can grow exponentially with each additional conditional statement, loop, or function call. For even moderately complex functions, the number of paths can become astronomically large, making it infeasible to write tests for every single path. Furthermore, some theoretical paths might be logically unreachable due to constraints in the code, making 100% path coverage impossible to achieve.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-9-independence-of-random-variables-formal-definition",
+  "subtopicTitle": "Independence of random variables — formal definition",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:37.455Z",
+  "cards": [
+    {
+      "front": "What is the formal definition of independence for two discrete random variables $X$ and $Y$?",
+      "back": "Two discrete random variables $X$ and $Y$ are independent if for all possible values $x$ of $X$ and $y$ of $Y$, their joint probability mass function (PMF) is equal to the product of their marginal PMFs:\n$$P(X=x, Y=y) = P(X=x)P(Y=y)$$\nThis can also be written as $p_{X,Y}(x,y) = p_X(x)p_Y(y)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formal definition of independence for two continuous random variables $X$ and $Y$?",
+      "back": "Two continuous random variables $X$ and $Y$ are independent if for all $x \\in \\mathbb{R}$ and $y \\in \\mathbb{R}$, their joint probability density function (PDF) is equal to the product of their marginal PDFs:\n$$f_{X,Y}(x,y) = f_X(x)f_Y(y)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the most general formal definition of independence for any two random variables $X$ and $Y$, using their cumulative distribution functions (CDFs).",
+      "back": "Two random variables $X$ and $Y$ are independent if and only if for all $x \\in \\mathbb{R}$ and $y \\in \\mathbb{R}$, their joint cumulative distribution function (CDF) is equal to the product of their marginal CDFs:\n$$F_{X,Y}(x,y) = F_X(x)F_Y(y)$$\nwhere $F_{X,Y}(x,y) = P(X \\le x, Y \\le y)$, $F_X(x) = P(X \\le x)$, and $F_Y(y) = P(Y \\le y)$. This definition applies to discrete, continuous, and mixed random variables.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is mutual independence defined for a collection of $n$ random variables $X_1, X_2, \\dots, X_n$?",
+      "back": "A collection of $n$ random variables $X_1, X_2, \\dots, X_n$ is mutually independent if and only if for all $x_1, x_2, \\dots, x_n \\in \\mathbb{R}$, their joint cumulative distribution function (CDF) is equal to the product of their marginal CDFs:\n$$F_{X_1, \\dots, X_n}(x_1, \\dots, x_n) = F_{X_1}(x_1)F_{X_2}(x_2)\\dots F_{X_n}(x_n)$$\nThis implies that any subcollection of these variables is also mutually independent. Pairwise independence (where $F_{X_i, X_j}(x_i, x_j) = F_{X_i}(x_i)F_{X_j}(x_j)$ for all pairs $i \\ne j$) is a weaker condition and does not imply mutual independence for $n > 2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Intuitively, what does it mean for two random variables $X$ and $Y$ to be independent?",
+      "back": "Intuitively, two random variables $X$ and $Y$ are independent if the outcome or value of one variable provides no information about the outcome or value of the other variable. Knowing $X=x$ does not change the probability distribution of $Y$, and vice versa.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $X$ and $Y$ are independent random variables, what is the relationship between $E[XY]$ and $E[X]E[Y]$?",
+      "back": "If $X$ and $Y$ are independent random variables, then the expectation of their product is equal to the product of their individual expectations:\n$$E[XY] = E[X]E[Y]$$\nThis is a very useful property. Note that the converse is not generally true; $E[XY] = E[X]E[Y]$ does not necessarily imply independence. However, if $X$ and $Y$ are independent, then $Cov(X,Y) = E[XY] - E[X]E[Y] = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a joint PMF $p_{X,Y}(x,y)$, how would you formally check if discrete random variables $X$ and $Y$ are independent?",
+      "back": "To formally check for independence, you must verify if $p_{X,Y}(x,y) = p_X(x)p_Y(y)$ holds for *all* possible pairs $(x,y)$.\n1.  Calculate the marginal PMF for $X$: $p_X(x) = \\sum_y p_{X,Y}(x,y)$ for all $x$.\n2.  Calculate the marginal PMF for $Y$: $p_Y(y) = \\sum_x p_{X,Y}(x,y)$ for all $y$.\n3.  For each $(x,y)$ pair, compare $p_{X,Y}(x,y)$ with the product $p_X(x)p_Y(y)$. If even one pair fails the equality, $X$ and $Y$ are not independent. If the equality holds for all pairs, they are independent.",
+      "difficulty": "medium"
+    }
+  ]
+}

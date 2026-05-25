@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-2-hohmann-v-calculation-both-maneuvers",
+  "subtopicTitle": "Hohmann Δv calculation — both maneuvers",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:10.676Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a Hohmann transfer orbit?",
+      "back": "A Hohmann transfer is a two-impulse orbital maneuver used to transfer a spacecraft between two circular, coplanar orbits. It utilizes an elliptical transfer orbit that is tangent to both the initial and final circular orbits.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key assumptions required for a standard Hohmann transfer to be applicable.",
+      "back": "The key assumptions are:\n1.  Initial and final orbits are circular.\n2.  Initial and final orbits are coplanar.\n3.  Impulsive burns (instantaneous velocity changes).\n4.  Burns are tangential to the current orbit (applied at periapsis/apoapsis of the transfer ellipse).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Vis-viva equation, which gives the speed ($v$) of an orbiting body at any point in its elliptical orbit. Define all terms.",
+      "back": "The Vis-viva equation is: $$v = \\sqrt{\\mu \\left(\\frac{2}{r} - \\frac{1}{a}\\right)}$$\nWhere:\n*   $v$ is the orbital speed at radius $r$.\n*   $\\mu$ is the standard gravitational parameter of the central body (e.g., $GM$ for Earth).\n*   $r$ is the current radial distance from the central body.\n*   $a$ is the semi-major axis of the elliptical orbit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the first $\\Delta v$ impulse ($\\Delta v_1$) required for a Hohmann transfer from an inner circular orbit of radius $r_1$ to an outer circular orbit of radius $r_2$. Include the velocity of the initial circular orbit ($v_1$) and the velocity at the periapsis of the transfer ellipse ($v_{trans,p}$).",
+      "back": "The first impulse occurs at the periapsis of the transfer ellipse, which is also the initial circular orbit's radius $r_1$. The $\\Delta v_1$ is the difference between the transfer orbit's periapsis velocity and the initial circular orbit's velocity.\n1.  Initial circular orbit velocity: $v_1 = \\sqrt{\\frac{\\mu}{r_1}}$\n2.  Semi-major axis of the transfer ellipse: $a_{trans} = \\frac{r_1 + r_2}{2}$\n3.  Velocity at periapsis of transfer ellipse (using Vis-viva at $r=r_1$):\n    $v_{trans,p} = \\sqrt{\\mu \\left(\\frac{2}{r_1} - \\frac{1}{a_{trans}}\\right)} = \\sqrt{\\mu \\left(\\frac{2}{r_1} - \\frac{2}{r_1+r_2}\\right)}$\n4.  First impulse: $\\Delta v_1 = v_{trans,p} - v_1 = \\sqrt{\\mu \\left(\\frac{2}{r_1} - \\frac{2}{r_1+r_2}\\right)} - \\sqrt{\\frac{\\mu}{r_1}}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for the second $\\Delta v$ impulse ($\\Delta v_2$) required for a Hohmann transfer from an inner circular orbit of radius $r_1$ to an outer circular orbit of radius $r_2$. Include the velocity of the final circular orbit ($v_2$) and the velocity at the apoapsis of the transfer ellipse ($v_{trans,a}$).",
+      "back": "The second impulse occurs at the apoapsis of the transfer ellipse, which is also the final circular orbit's radius $r_2$. The $\\Delta v_2$ is the difference between the final circular orbit's velocity and the transfer orbit's apoapsis velocity.\n1.  Final circular orbit velocity: $v_2 = \\sqrt{\\frac{\\mu}{r_2}}$\n2.  Semi-major axis of the transfer ellipse: $a_{trans} = \\frac{r_1 + r_2}{2}$\n3.  Velocity at apoapsis of transfer ellipse (using Vis-viva at $r=r_2$):\n    $v_{trans,a} = \\sqrt{\\mu \\left(\\frac{2}{r_2} - \\frac{1}{a_{trans}}\\right)} = \\sqrt{\\mu \\left(\\frac{2}{r_2} - \\frac{2}{r_1+r_2}\\right)}$\n4.  Second impulse: $\\Delta v_2 = v_2 - v_{trans,a} = \\sqrt{\\frac{\\mu}{r_2}} - \\sqrt{\\mu \\left(\\frac{2}{r_2} - \\frac{2}{r_1+r_2}\\right)}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the Hohmann transfer considered the most fuel-efficient two-impulse transfer between two coplanar circular orbits?",
+      "back": "It is the most fuel-efficient because both impulses are applied tangentially at the periapsis and apoapsis of the transfer ellipse. These points correspond to the maximum and minimum velocities of the elliptical orbit, respectively, allowing for the most efficient change in orbital energy for a given $\\Delta v$. The burns are aligned with the current velocity vector, maximizing the change in kinetic energy per unit of $\\Delta v$. Any non-tangential burn would require a larger $\\Delta v$ for the same orbital change.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the time of flight ($TOF$) for a Hohmann transfer calculated, given the radii of the initial ($r_1$) and final ($r_2$) circular orbits and the central body's standard gravitational parameter ($\\mu$)?",
+      "back": "The transfer covers exactly half of the elliptical transfer orbit. The period ($T$) of an elliptical orbit is given by Kepler's Third Law:\n$$T = 2\\pi \\sqrt{\\frac{a^3}{\\mu}}$$\nFor the Hohmann transfer, the semi-major axis of the transfer ellipse is $a_{trans} = \\frac{r_1 + r_2}{2}$.\nTherefore, the time of flight is half the period of the transfer ellipse:\n$$TOF = \\frac{T_{trans}}{2} = \\pi \\sqrt{\\frac{a_{trans}^3}{\\mu}} = \\pi \\sqrt{\\frac{\\left(\\frac{r_1 + r_2}{2}\\right)^3}{\\mu}}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

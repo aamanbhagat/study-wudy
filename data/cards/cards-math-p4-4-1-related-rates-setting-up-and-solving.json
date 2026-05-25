@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-related-rates-setting-up-and-solving",
+  "subtopicTitle": "Related rates — setting up and solving",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:06.462Z",
+  "cards": [
+    {
+      "front": "What is the fundamental concept behind \"related rates\" problems in calculus?",
+      "back": "Related rates problems involve finding the rate at which one quantity changes by relating it to other quantities whose rates of change are known. All quantities are typically functions of time $t$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the general 5-step strategy for solving a related rates problem.",
+      "back": "1. **Draw a diagram** (if applicable) and label all known and unknown quantities.\n2. **Identify variables** and rates. List what is given (e.g., $\\frac{dx}{dt}$, $x$) and what needs to be found (e.g., $\\frac{dy}{dt}$).\n3. **Find an equation** relating the variables. This is often a geometric formula.\n4. **Differentiate implicitly** with respect to time $t$. Remember the chain rule!\n5. **Substitute known values** *after* differentiation and solve for the unknown rate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is implicit differentiation with respect to time $t$ crucial for solving related rates problems?",
+      "back": "Implicit differentiation with respect to time $t$ allows us to find the relationship between the rates of change of variables that are themselves functions of time. Since we're interested in how quantities change *over time*, differentiating with respect to $t$ (and applying the chain rule for each variable) directly yields expressions involving rates like $\\frac{dV}{dt}$, $\\frac{dr}{dt}$, etc.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a related rates problem, when should numerical values for variables be substituted into the equation?",
+      "back": "Numerical values for variables that are *changing* should be substituted *after* differentiating the equation with respect to time. Substituting them *before* differentiation would treat them as constants, making their derivatives zero and incorrectly simplifying the problem. However, values that are *constant throughout the entire process* can be substituted before differentiation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A 10-ft ladder leans against a wall. If the bottom slides away at $1 \\text{ ft/s}$, how fast is the top sliding down when the bottom is $6 \\text{ ft}$ from the wall?",
+      "back": "Let $x$ be the distance of the ladder's bottom from the wall and $y$ be the distance of the ladder's top from the ground.\nWe have $x^2 + y^2 = 10^2 = 100$.\nGiven $\\frac{dx}{dt} = 1 \\text{ ft/s}$ and we want to find $\\frac{dy}{dt}$ when $x=6 \\text{ ft}$.\nWhen $x=6$, $6^2 + y^2 = 100 \\Rightarrow 36 + y^2 = 100 \\Rightarrow y^2 = 64 \\Rightarrow y=8 \\text{ ft}$.\nDifferentiate $x^2 + y^2 = 100$ implicitly with respect to $t$:\n$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0$\n$x \\frac{dx}{dt} + y \\frac{dy}{dt} = 0$\nSubstitute known values: $6(1) + 8 \\frac{dy}{dt} = 0$\n$6 + 8 \\frac{dy}{dt} = 0$\n$8 \\frac{dy}{dt} = -6$\n$\\frac{dy}{dt} = -\\frac{6}{8} = -\\frac{3}{4} \\text{ ft/s}$.\nThe top of the ladder is sliding down at a rate of $0.75 \\text{ ft/s}$. The negative sign indicates it's decreasing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it important to include units in your final answer for a related rates problem?",
+      "back": "Including units is crucial because rates of change have specific units (e.g., ft/s, cm$^3$/min, rad/hr). Units provide context and confirm the physical meaning of the calculated rate. They also serve as a useful check; if units don't align, it indicates a potential error in the setup or calculation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a related rates problem involving a right triangle, if one angle is changing, why must you use trigonometric functions (e.g., $\\sin \\theta$, $\\cos \\theta$) instead of just the Pythagorean theorem for the primary relationship?",
+      "back": "The Pythagorean theorem, $a^2 + b^2 = c^2$, relates the *sides* of a right triangle. If an angle $\\theta$ is changing, its rate of change $\\frac{d\\theta}{dt}$ cannot be directly found by differentiating the Pythagorean theorem. Instead, you need an equation that explicitly involves $\\theta$, such as $\\sin \\theta = \\frac{\\text{opposite}}{\\text{hypotenuse}}$, $\\cos \\theta = \\frac{\\text{adjacent}}{\\text{hypotenuse}}$, or $\\tan \\theta = \\frac{\\text{opposite}}{\\text{adjacent}}$. Differentiating these trigonometric relationships with respect to time will correctly introduce $\\frac{d\\theta}{dt}$ into the equation.",
+      "difficulty": "medium"
+    }
+  ]
+}

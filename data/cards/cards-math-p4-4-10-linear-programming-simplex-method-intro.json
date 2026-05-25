@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-linear-programming-simplex-method-intro",
+  "subtopicTitle": "Linear programming — simplex method (intro)",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:14.239Z",
+  "cards": [
+    {
+      "front": "What is the standard form for a maximization linear programming problem suitable for the simplex method?",
+      "back": "Maximize $c^T x$ subject to $Ax = b$, $x \\ge 0$. Here, $A$ is an $m \\times n$ matrix, $x$ is an $n$-vector of decision variables, $b$ is an $m$-vector of resources, and $c$ is an $n$-vector of objective function coefficients. All variables must be non-negative, and all constraints must be equalities.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are \"less than or equal to\" ($\\le$) constraints converted into equality constraints for the simplex method?",
+      "back": "By introducing non-negative **slack variables**. For a constraint $\\sum_{j=1}^n a_{ij}x_j \\le b_i$, we introduce $s_i \\ge 0$ such that $\\sum_{j=1}^n a_{ij}x_j + s_i = b_i$. Slack variables represent the unused capacity or resources.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a **Basic Feasible Solution (BFS)** in the context of the simplex method.",
+      "back": "A solution $x$ to $Ax=b, x \\ge 0$ is a BFS if it has at most $m$ non-zero variables (where $m$ is the number of constraints). These non-zero variables are called **basic variables**, and the remaining $n-m$ zero variables are **non-basic variables**. Geometrically, a BFS corresponds to a corner point (vertex) of the feasible region.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the general structure of a simplex tableau.",
+      "back": "A simplex tableau is a compact way to represent the system of equations $Ax=b$ and the objective function $z = c^T x$. It typically includes columns for each variable (decision, slack), an \"RHS\" column for $b$, and a bottom row (row 0 or objective row) for the objective function coefficients, often expressed as $z - c^T x = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a maximization problem, how is the **pivot column** (entering variable) chosen in the simplex method?",
+      "back": "The pivot column is chosen by selecting the column with the most negative coefficient in the objective function row (row 0). This coefficient indicates the variable that, if increased, will lead to the greatest improvement in the objective function value per unit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After selecting the pivot column, how is the **pivot row** (leaving variable) determined using the ratio test?",
+      "back": "For each row $i$ with a positive entry $a_{ij}$ in the pivot column $j$, calculate the ratio $b_i / a_{ij}$. The pivot row is the one corresponding to the **smallest non-negative ratio**. This ensures feasibility is maintained, preventing any basic variable from becoming negative. If all $a_{ij} \\le 0$ in the pivot column, the problem is unbounded.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the optimality condition for a maximization problem in the simplex method?",
+      "back": "An optimal solution is reached when all coefficients in the objective function row (row 0) are non-negative. At this point, no further improvement in the objective function value can be made by introducing any non-basic variable into the basis.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the main steps of one iteration of the simplex method, assuming a standard form maximization problem.",
+      "back": "1. Check for optimality: If all coefficients in row 0 are non-negative, stop (optimal solution found).\n2. Select pivot column: Choose the column with the most negative coefficient in row 0 (entering variable).\n3. Select pivot row: Perform the ratio test ($b_i / a_{ij}$) to find the smallest non-negative ratio (leaving variable).\n4. Perform pivot operation: Use row operations to make the pivot element 1 and all other elements in the pivot column 0. Update the tableau.\n5. Repeat.",
+      "difficulty": "hard"
+    }
+  ]
+}

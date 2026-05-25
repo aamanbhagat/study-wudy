@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-5-pole-placement-ackermann-s-formula",
+  "subtopicTitle": "Pole placement — Ackermann's formula",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:16.434Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of \"pole placement\" in control systems design?",
+      "back": "The primary goal of pole placement is to design a state-feedback controller $K$ such that the eigenvalues (poles) of the closed-loop system are moved to desired locations in the complex plane. This allows for achieving desired system dynamics, such as stability, response speed, and damping.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a fundamental prerequisite for applying pole placement techniques, including Ackermann's formula, to a linear time-invariant (LTI) system?",
+      "back": "The system must be **controllable**. If the system pair $(A, B)$ is not controllable, it is impossible to arbitrarily place all the closed-loop poles using state feedback, meaning some modes of the system cannot be influenced by the control input.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a single-input LTI system $\\dot{x} = Ax + Bu$ with state feedback $u = -Kx$, what is the characteristic polynomial of the closed-loop system?",
+      "back": "The closed-loop system dynamics are given by $\\dot{x} = (A - BK)x$. Its characteristic polynomial is $P_{cl}(s) = \\det(sI - (A - BK))$. The roots of this polynomial are the closed-loop poles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Ackermann's formula for calculating the state-feedback gain $K$ for a single-input controllable system $\\dot{x} = Ax + Bu$ to place poles at desired locations specified by $\\alpha_d(s)$.",
+      "back": "Ackermann's formula is given by: $$K = [0 \\ 0 \\ \\dots \\ 1] \\mathcal{C}^{-1} \\alpha_d(A)$$ where $\\mathcal{C} = [B \\ AB \\ A^2B \\ \\dots \\ A^{n-1}B]$ is the controllability matrix, and $\\alpha_d(A) = A^n + \\alpha_{n-1}A^{n-1} + \\dots + \\alpha_1A + \\alpha_0I$. The desired characteristic polynomial is $\\alpha_d(s) = s^n + \\alpha_{n-1}s^{n-1} + \\dots + \\alpha_1s + \\alpha_0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly outline the key idea behind the derivation of Ackermann's formula, relating it to the Cayley-Hamilton theorem.",
+      "back": "The derivation leverages the Cayley-Hamilton theorem, which states that every square matrix satisfies its own characteristic polynomial. By transforming the system into controllable canonical form, the state feedback gain $K$ can be directly related to the coefficients of the desired characteristic polynomial. Ackermann's formula then provides a method to compute $K$ in the original coordinate system without explicitly performing the transformation, using the controllability matrix and the desired characteristic polynomial evaluated at $A$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a desired closed-loop characteristic polynomial $\\alpha_d(s) = s^n + \\alpha_{n-1}s^{n-1} + \\dots + \\alpha_1s + \\alpha_0$, how is the matrix $\\alpha_d(A)$ constructed for use in Ackermann's formula?",
+      "back": "The matrix $\\alpha_d(A)$ is constructed by substituting the system matrix $A$ for $s$ in the desired characteristic polynomial: $$\\alpha_d(A) = A^n + \\alpha_{n-1}A^{n-1} + \\dots + \\alpha_1A + \\alpha_0I$$ Note that the constant term $\\alpha_0$ becomes $\\alpha_0I$, where $I$ is the identity matrix of the same dimension as $A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the specific role of the row vector $[0 \\ 0 \\ \\dots \\ 1]$ in Ackermann's formula, $K = [0 \\ 0 \\ \\dots \\ 1] \\mathcal{C}^{-1} \\alpha_d(A)$?",
+      "back": "This row vector, often denoted as $e_n^T$ (the $n$-th standard basis vector), effectively \"picks out\" the last row of the matrix product $\\mathcal{C}^{-1} \\alpha_d(A)$. In the context of the controllable canonical form, the feedback gain $K$ is directly related to the coefficients of the desired characteristic polynomial, and this vector helps extract those specific coefficients when transforming back to the original system coordinates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is Ackermann's formula generally preferred for single-input systems rather than multi-input systems for pole placement?",
+      "back": "Ackermann's formula is specifically derived for single-input systems, where $B$ is a column vector and the state feedback gain $K$ is unique for a given set of desired poles. For multi-input systems, the state feedback gain $K$ is not unique, and Ackermann's formula does not directly provide a method to choose a specific $K$ from the many possibilities. Other methods, such as LQR (Linear Quadratic Regulator), are often preferred for multi-input systems as they provide a systematic way to find an optimal $K$ based on performance objectives.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider an $n$-state system. If we desire to place all $n$ poles, and the system is controllable, what is the minimum rank requirement for the controllability matrix $\\mathcal{C}$?",
+      "back": "For an $n$-state system to be controllable, the controllability matrix $\\mathcal{C} = [B \\ AB \\ A^2B \\ \\dots \\ A^{n-1}B]$ must have full row rank, which means its rank must be equal to the number of states, $n$. That is, $\\text{rank}(\\mathcal{C}) = n$. This ensures that $\\mathcal{C}^{-1}$ exists, which is crucial for applying Ackermann's formula.",
+      "difficulty": "hard"
+    }
+  ]
+}

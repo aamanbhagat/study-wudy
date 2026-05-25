@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-adaptive-step-size-rk45-error-control",
+  "subtopicTitle": "Adaptive step-size — RK45, error control",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:21.416Z",
+  "cards": [
+    {
+      "front": "What is the primary motivation for using adaptive step-size methods in numerical integration of ODEs?",
+      "back": "The primary motivation is to efficiently maintain a desired level of accuracy. Fixed step-size methods are either inefficient (using a small $h$ everywhere for accuracy in 'difficult' regions) or inaccurate (using a large $h$ and failing in those regions). Adaptive methods adjust $h$ dynamically to balance accuracy and computational cost.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does \"RK45\" specifically refer to in the context of adaptive step-size methods for ODEs?",
+      "back": "RK45, commonly referring to the Runge-Kutta-Fehlberg method, is an embedded Runge-Kutta method. It simultaneously computes two approximations of different orders (a 4th-order solution, $y^{(4)}$, and a 5th-order solution, $y^{(5)}$) at each step using the same set of function evaluations. The difference between these solutions is used to estimate the local truncation error.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the local truncation error (LTE) estimated in a Runge-Kutta-Fehlberg (RKF45) method?",
+      "back": "The LTE for the lower-order solution (the 4th-order solution, $y^{(4)}$) is estimated by taking the difference between the higher-order solution and the lower-order solution at the end of the current step: $$LTE \\approx ||y^{(5)}(t+h) - y^{(4)}(t+h)||$$ This difference provides an estimate of the error in $y^{(4)}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In RKF45, after estimating the error, which of the two solutions ($y^{(4)}$ or $y^{(5)}$) is typically accepted as the numerical solution for the current step, and why?",
+      "back": "The higher-order solution, $y^{(5)}$, is typically accepted as the numerical solution for the current step. This is because its local truncation error is of a higher order (e.g., $O(h^6)$ for $y^{(5)}$ vs $O(h^5)$ for $y^{(4)}$), making it inherently more accurate. The lower-order solution $y^{(4)}$ is primarily used for the error estimation itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the new step size $h_{new}$ in an adaptive step-size algorithm, given the current step $h$, estimated error $E$, desired tolerance $TOL$, safety factor $S$, and method order $p$.",
+      "back": "The local truncation error $E$ for a method of order $p$ scales as $E \\propto h^{p+1}$. We want a new error $E_{new}$ to be approximately $TOL$. So, we can write the ratio: $$ \\frac{E_{new}}{E} \\approx \\left(\\frac{h_{new}}{h}\\right)^{p+1} $$ Setting $E_{new} = TOL$, we get: $$ \\frac{TOL}{E} \\approx \\left(\\frac{h_{new}}{h}\\right)^{p+1} $$ Solving for $h_{new}$ and including a safety factor $S \\in (0,1)$ to prevent frequent step rejections: $$ h_{new} = h \\cdot S \\cdot \\left(\\frac{TOL}{E}\\right)^{1/(p+1)} $$ For RKF45, when controlling the error of the 4th-order solution, $p=4$, so the exponent is $1/5$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What actions are taken by an adaptive step-size algorithm if the estimated error $E$ is significantly larger than the tolerance $TOL$, or significantly smaller?",
+      "back": "If $E \\gg TOL$: The current step is rejected because it did not meet the accuracy requirement. A new, smaller step size $h_{new}$ is calculated using the step-size control formula, and the integration is retried from the beginning of the rejected step.\n\nIf $E \\ll TOL$: The current step is accepted. A new, larger step size $h_{new}$ is calculated for the *next* step to improve computational efficiency while staying within the desired accuracy bounds.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why do adaptive step-size methods primarily control the Local Truncation Error (LTE) rather than the Global Truncation Error (GTE)? What are the implications of this choice?",
+      "back": "Adaptive methods control LTE because GTE is much harder to estimate directly without knowing the true solution, and it accumulates over many steps. By keeping the LTE below a specified tolerance at each step, the algorithm attempts to indirectly control the GTE. The implication is that controlling LTE does not *guarantee* a controlled GTE, especially for unstable ODEs or very long integration intervals where error propagation can amplify local errors, potentially leading to a large overall error despite small local errors.",
+      "difficulty": "hard"
+    }
+  ]
+}

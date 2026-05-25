@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-7-independent-events-multiplication-rule",
+  "subtopicTitle": "Independent events — multiplication rule",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:22.805Z",
+  "cards": [
+    {
+      "front": "What does it mean for two events, $A$ and $B$, to be independent?",
+      "back": "Two events $A$ and $B$ are independent if the occurrence of one does not affect the probability of the occurrence of the other. Formally, this means $P(A|B) = P(A)$ (if $P(B) > 0$) or $P(B|A) = P(B)$ (if $P(A) > 0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the multiplication rule for two independent events $A$ and $B$.",
+      "back": "If events $A$ and $B$ are independent, then the probability that both $A$ and $B$ occur is given by: $$P(A \\cap B) = P(A)P(B)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A fair coin is flipped twice. What is the probability of getting two heads?",
+      "back": "Let $H_1$ be the event of getting a head on the first flip, and $H_2$ be the event of getting a head on the second flip. Since the flips are independent, $P(H_1) = 0.5$ and $P(H_2) = 0.5$.\nUsing the multiplication rule for independent events:\n$P(H_1 \\cap H_2) = P(H_1)P(H_2) = 0.5 \\times 0.5 = 0.25$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can two events $A$ and $B$ be both independent and mutually exclusive (assuming $P(A)>0, P(B)>0$)? Explain.",
+      "back": "No, they cannot.\nIf $A$ and $B$ are mutually exclusive, then $P(A \\cap B) = 0$.\nIf $A$ and $B$ are independent, then $P(A \\cap B) = P(A)P(B)$.\nFor both to be true, $P(A)P(B) = 0$. Since we assume $P(A)>0$ and $P(B)>0$, this is a contradiction.\nTherefore, two events with non-zero probabilities cannot be both independent and mutually exclusive.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the multiplication rule for independent events, $P(A \\cap B) = P(A)P(B)$, starting from the definition of independence $P(A|B)=P(A)$.",
+      "back": "The definition of conditional probability states:\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\nGiven that $A$ and $B$ are independent, we know $P(A|B) = P(A)$.\nSubstitute this into the conditional probability formula:\n$$P(A) = \\frac{P(A \\cap B)}{P(B)}$$\nNow, multiply both sides by $P(B)$ (assuming $P(B)>0$):\n$$P(A)P(B) = P(A \\cap B)$$\nThus, $P(A \\cap B) = P(A)P(B)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If events $A, B,$ and $C$ are mutually independent, what is the probability that all three events occur?",
+      "back": "If events $A, B,$ and $C$ are mutually independent, then the probability that all three events occur is the product of their individual probabilities:\n$$P(A \\cap B \\cap C) = P(A)P(B)P(C)$$\nThis extends to any number of mutually independent events.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $P(A)=0.4$, $P(B)=0.5$, and $P(A \\cup B)=0.7$. Are events $A$ and $B$ independent?",
+      "back": "First, find $P(A \\cap B)$ using the general addition rule:\n$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\n$0.7 = 0.4 + 0.5 - P(A \\cap B)$\n$0.7 = 0.9 - P(A \\cap B)$\n$P(A \\cap B) = 0.9 - 0.7 = 0.2$\n\nNow, check for independence using the multiplication rule:\n$P(A)P(B) = 0.4 \\times 0.5 = 0.2$\n\nSince $P(A \\cap B) = P(A)P(B)$ ($0.2 = 0.2$), events $A$ and $B$ are independent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If events $A$ and $B$ are independent, are their complements $A^c$ and $B^c$ also independent?",
+      "back": "Yes, if $A$ and $B$ are independent, then $A^c$ and $B^c$ are also independent.\nProof:\nWe know $P(A \\cap B) = P(A)P(B)$ (due to independence of $A$ and $B$).\n$P(A^c \\cap B^c) = P((A \\cup B)^c)$ (De Morgan's Laws)\n$P((A \\cup B)^c) = 1 - P(A \\cup B)$\nUsing the general addition rule: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\nSubstitute $P(A \\cap B) = P(A)P(B)$:\n$P(A \\cup B) = P(A) + P(B) - P(A)P(B)$\nSo, $P(A^c \\cap B^c) = 1 - (P(A) + P(B) - P(A)P(B))$\n$P(A^c \\cap B^c) = 1 - P(A) - P(B) + P(A)P(B)$\nFactor this expression: $P(A^c \\cap B^c) = (1 - P(A))(1 - P(B))$\nSince $P(A^c) = 1 - P(A)$ and $P(B^c) = 1 - P(B)$,\n$P(A^c \\cap B^c) = P(A^c)P(B^c)$.\nThus, $A^c$ and $B^c$ are independent.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-turbopump-design-centrifugal-pump-axial-turbine-stages-npsh",
+  "subtopicTitle": "Turbopump design — centrifugal pump, axial turbine stages, NPSH",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:58.305Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a turbopump in a liquid-propellant rocket engine?",
+      "back": "The primary function of a turbopump is to increase the pressure of liquid propellants from their relatively low tank pressure to the much higher combustion chamber injection pressure, overcoming pressure losses and enabling high thrust operation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the fundamental energy conversion process within a centrifugal pump.",
+      "back": "A centrifugal pump converts mechanical energy (from the rotating impeller) into kinetic energy of the fluid. This high-velocity fluid is then directed into a diffuser or volute, which converts the fluid's kinetic energy into static pressure energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the key components of a centrifugal pump and their roles in creating fluid pressure?",
+      "back": "The key components are:\n1.  **Impeller:** The rotating component with vanes that imparts kinetic energy to the fluid.\n2.  **Eye:** The central inlet section of the impeller where the fluid first enters.\n3.  **Volute/Diffuser:** The stationary casing that collects the high-velocity fluid from the impeller and gradually slows it down, converting its kinetic energy into static pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are centrifugal pumps commonly used as the main pump stage in rocket turbopumps, despite axial pumps potentially offering higher efficiency for certain flow regimes?",
+      "back": "Centrifugal pumps are favored in rocket turbopumps for their ability to achieve very high pressure rises in a single stage, their robustness, and relative simplicity. These characteristics are critical for meeting the extreme pressure demands and ensuring the high reliability required in rocket engine applications.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define Net Positive Suction Head (NPSH) and provide its general formula for available NPSH ($NPSH_A$).",
+      "back": "NPSH is the absolute pressure at the suction side of a pump, expressed in terms of head, above the vapor pressure of the liquid. It represents the margin against cavitation.\n$$NPSH_A = \\frac{P_{in}}{\\rho g} + \\frac{V_{in}^2}{2g} - \\frac{P_v}{\\rho g}$$\nwhere $P_{in}$ is inlet pressure, $\\rho$ is fluid density, $g$ is acceleration due to gravity, $V_{in}$ is inlet velocity, and $P_v$ is the vapor pressure of the fluid.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why low NPSH is a critical concern for rocket turbopumps, especially with cryogenic propellants, and what design feature is often employed to mitigate this.",
+      "back": "Low NPSH can lead to cavitation, where local pressure drops below the propellant's vapor pressure, causing bubbles to form and violently collapse. This damages pump components, reduces performance, and can cause failure. Cryogenic propellants (e.g., LOX, LH2) are highly susceptible due to their low boiling points and high vapor pressures at operational temperatures. To mitigate this, an **inducer** (a small, axial-flow pump stage) is often placed upstream of the main centrifugal pump. It provides an initial pressure boost with minimal pressure drop, effectively increasing the available NPSH for the main pump.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does an axial turbine stage extract energy from the hot gas stream to drive the pump? Identify its primary components.",
+      "back": "An axial turbine extracts energy by directing a high-velocity hot gas stream through stationary **stator vanes** (or nozzle guide vanes), which accelerate and precisely angle the gas. This gas then impinges upon and imparts momentum to rotating **rotor blades**, causing the turbine shaft to spin. This converts the gas's thermal and kinetic energy into mechanical rotational work to drive the pump.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare and contrast the primary function and energy conversion mechanisms of the centrifugal pump and the axial turbine within a turbopump assembly.",
+      "back": "The **centrifugal pump's** primary function is to increase the *liquid propellant's* pressure. It converts mechanical energy (from the turbine) into kinetic energy of the fluid via an impeller, then into static pressure energy using a volute/diffuser.\nThe **axial turbine's** primary function is to extract energy from a *hot gas stream* (e.g., from a preburner) to drive the pump. It converts the thermal and kinetic energy of the high-velocity gas into mechanical rotational energy via stationary stator vanes and rotating rotor blades.\nBoth are critical for energy transfer, but in opposite directions and with different fluid types (liquid vs. gas).",
+      "difficulty": "hard"
+    }
+  ]
+}

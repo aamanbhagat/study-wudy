@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-range-start-stop-step",
+  "subtopicTitle": "range() — start, stop, step",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:54.660Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Python's `range()` function, and what type of object does it return?",
+      "back": "The `range()` function is used to generate a sequence of numbers. It returns an immutable `range` object, which is an iterable sequence type.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the three possible ways to call `range()` and state the default values for `start` and `step`.",
+      "back": "The three ways are:\n1. `range(stop)`: `start` defaults to $0$, `step` defaults to $1$.\n2. `range(start, stop)`: `step` defaults to $1$.\n3. `range(start, stop, step)`: All parameters are explicitly provided.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What sequence of numbers does `list(range(5))` produce? Why is the last number not included?",
+      "back": "It produces the sequence: `[0, 1, 2, 3, 4]`.\nThe `stop` value in `range()` is *exclusive*, meaning the sequence generates numbers up to, but not including, the `stop` value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Python expression using `range()` to generate numbers from $10$ up to (but not including) $15$, incrementing by $1$.",
+      "back": "```python\nrange(10, 15)\n```\nThis uses the default `step` of $1$. If explicitly needed, it would be `range(10, 15, 1)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What sequence of numbers does `list(range(2, 10, 2))` produce? Describe the role of each argument.",
+      "back": "It produces the sequence: `[2, 4, 6, 8]`.\n- `2` is the `start` value (inclusive).\n- `10` is the `stop` value (exclusive).\n- `2` is the `step` value, indicating an increment of $2$ for each subsequent number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you use `range()` to count down from $10$ to $1$ (inclusive)? Provide the Python expression.",
+      "back": "```python\nrange(10, 0, -1)\n```\nWhen using a negative `step`, the `start` value should be greater than the `stop` value. The sequence will stop *before* reaching the `stop` value.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the output of `list(range(5, 2, 1))`? Explain the reasoning.",
+      "back": "The output is `[]` (an empty list).\nWhen the `step` is positive ($1$ in this case), `range()` expects `start` to be less than `stop` to generate any numbers. Since $5 \\not< 2$, no numbers are generated.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens if you try to use a `step` value of `0` in `range()`? Why is this restriction in place?",
+      "back": "Attempting to use `step=0` will raise a `ValueError`:\n```\nValueError: range() arg 3 must not be zero\n```\nThis restriction is in place because a step of zero would lead to an infinite sequence (or an infinite loop if iterated over) as the numbers would never change and thus never reach the `stop` condition.",
+      "difficulty": "medium"
+    }
+  ]
+}

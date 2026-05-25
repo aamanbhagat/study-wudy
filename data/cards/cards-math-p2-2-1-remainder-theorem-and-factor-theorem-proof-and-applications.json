@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-1-remainder-theorem-and-factor-theorem-proof-and-applications",
+  "subtopicTitle": "Remainder theorem and factor theorem — proof and applications",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:39.164Z",
+  "cards": [
+    {
+      "front": "State the Remainder Theorem for a polynomial $P(x)$ when divided by a linear polynomial $x-a$.",
+      "back": "If a polynomial $P(x)$ is divided by $x-a$, then the remainder is $P(a)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove the Remainder Theorem using the Polynomial Division Algorithm.",
+      "back": "By the Polynomial Division Algorithm, for a polynomial $P(x)$ and a non-zero polynomial $D(x)$, there exist unique polynomials $Q(x)$ (quotient) and $R(x)$ (remainder) such that $P(x) = Q(x)D(x) + R(x)$, where $\\text{deg}(R(x)) < \\text{deg}(D(x))$.\nFor $D(x) = x-a$, its degree is 1. Thus, $\\text{deg}(R(x))$ must be 0, meaning $R(x)$ is a constant, let's call it $R$.\nSo, $P(x) = Q(x)(x-a) + R$.\nSubstitute $x=a$:\n$P(a) = Q(a)(a-a) + R$\n$P(a) = Q(a)(0) + R$\n$P(a) = R$\nHence, the remainder when $P(x)$ is divided by $x-a$ is $P(a)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Factor Theorem.",
+      "back": "The Factor Theorem states that for a polynomial $P(x)$:\n1. If $P(a) = 0$, then $x-a$ is a factor of $P(x)$.\n2. If $x-a$ is a factor of $P(x)$, then $P(a) = 0$.\nThis is a direct consequence of the Remainder Theorem.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Without performing long division, find the remainder when $P(x) = 2x^3 - 3x^2 + 4x - 1$ is divided by $x-3$.",
+      "back": "According to the Remainder Theorem, the remainder is $P(3)$.\n$P(3) = 2(3)^3 - 3(3)^2 + 4(3) - 1$\n$P(3) = 2(27) - 3(9) + 12 - 1$\n$P(3) = 54 - 27 + 12 - 1$\n$P(3) = 27 + 11$\n$P(3) = 38$\nThe remainder is $38$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Factor Theorem to determine if $x+2$ is a factor of $P(x) = x^3 + 5x^2 + 7x + 2$.",
+      "back": "For $x+2$ to be a factor, $P(-2)$ must be equal to 0.\n$P(-2) = (-2)^3 + 5(-2)^2 + 7(-2) + 2$\n$P(-2) = -8 + 5(4) - 14 + 2$\n$P(-2) = -8 + 20 - 14 + 2$\n$P(-2) = 12 - 14 + 2$\n$P(-2) = -2 + 2$\n$P(-2) = 0$\nSince $P(-2)=0$, $x+2$ is indeed a factor of $P(x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $x-2$ is a factor of $P(x) = x^3 - kx^2 + 5x - 6$, find the value of $k$.",
+      "back": "By the Factor Theorem, if $x-2$ is a factor of $P(x)$, then $P(2)$ must be equal to 0.\n$P(2) = (2)^3 - k(2)^2 + 5(2) - 6 = 0$\n$8 - 4k + 10 - 6 = 0$\n$12 - 4k = 0$\n$4k = 12$\n$k = 3$\nThe value of $k$ is $3$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the relationship between the Remainder Theorem and the Factor Theorem.",
+      "back": "The Factor Theorem is a special case of the Remainder Theorem.\nThe Remainder Theorem states that when $P(x)$ is divided by $x-a$, the remainder is $P(a)$.\nThe Factor Theorem states that $x-a$ is a factor of $P(x)$ if and only if $P(a)=0$.\nThis \"if and only if\" condition directly follows from the Remainder Theorem: if $P(a)=0$, then the remainder is 0, which means $x-a$ divides $P(x)$ perfectly, making it a factor. Conversely, if $x-a$ is a factor, then the remainder must be 0, implying $P(a)=0$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-1-registers-general-purpose-special-pc-sp-lr-cpsr",
+  "subtopicTitle": "Registers — general purpose, special (PC, SP, LR, CPSR)",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:28.147Z",
+  "cards": [
+    {
+      "front": "What are CPU registers, and what is their primary advantage over main memory?",
+      "back": "CPU registers are small, high-speed storage locations directly within the CPU. Their primary advantage is speed, as they can be accessed much faster (typically in a single clock cycle) than main memory (RAM), reducing memory access latency and improving instruction execution performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do General Purpose Registers (GPRs) differ from Special Purpose Registers (SPRs) in terms of programmer usage?",
+      "back": "GPRs are typically available for programmers to use for various data manipulation tasks (e.g., storing operands, intermediate results, addresses). SPRs, however, have dedicated, hardware-defined functions (e.g., Program Counter, Stack Pointer) and are often implicitly managed by the CPU or accessed via specific instructions for system control, rather than direct data storage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary function of the Program Counter (PC) register in a CPU?",
+      "back": "The Program Counter (PC) holds the memory address of the *next* instruction to be fetched and executed. After an instruction is fetched, the PC is typically incremented by the instruction's size to point to the subsequent instruction in memory, ensuring sequential program execution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A stack typically grows downwards (towards lower memory addresses). How does the Stack Pointer (SP) change during a `PUSH` operation?",
+      "back": "For a downward-growing stack, a `PUSH` operation first *decrements* the Stack Pointer (SP) by the size of the data item to be pushed. Then, the data is written to the memory location now pointed to by the new SP value.\n```\nSP = SP - sizeof(data)\nMemory[SP] = data\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In architectures like ARM, what is the purpose of the Link Register (LR) during a function (subroutine) call?",
+      "back": "When a function call instruction (e.g., `BL` in ARM) is executed, the Link Register (LR) is automatically loaded with the return address (the address of the instruction immediately following the call). This allows the called function to return control to the correct location in the calling function by branching to the address stored in LR upon completion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name and briefly describe at least four important flags typically found within the Current Program Status Register (CPSR).",
+      "back": "The CPSR contains various status and control flags:\n*   **N (Negative Flag):** Set if the result of an arithmetic/logical operation is negative.\n*   **Z (Zero Flag):** Set if the result of an arithmetic/logical operation is zero.\n*   **C (Carry Flag):** Set if an unsigned operation resulted in a carry-out (addition) or borrow (subtraction).\n*   **V (Overflow Flag):** Set if a signed operation resulted in an overflow (result exceeds signed capacity).\n*   **I (IRQ Disable):** Disables IRQ interrupts when set.\n*   **M (Mode Bits):** Indicates the current processor operating mode (e.g., User, System, Supervisor).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what common scenario would a programmer explicitly save the Link Register (LR) to the stack?",
+      "back": "A common scenario is when a function calls *another* function (nested function calls). If the outer function's return address (stored in LR by its caller) is not explicitly saved to the stack before the inner function call, the inner function will overwrite LR with its own return address. Saving LR to the stack preserves the return path for the outer function, allowing it to correctly return to its caller after the inner function completes.",
+      "difficulty": "hard"
+    }
+  ]
+}

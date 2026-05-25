@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-observability-when-kf-can-estimate-state",
+  "subtopicTitle": "Observability — when KF can estimate state",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:51.718Z",
+  "cards": [
+    {
+      "front": "Define \"observability\" in the context of a linear time-invariant (LTI) system.",
+      "back": "A system is observable if, for any initial state $x(t_0)$, it is possible to uniquely determine this state from the output $y(t)$ over a finite time interval $t_0 \\le t \\le t_f$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Intuitively, what does it mean for a system's states to be \"observable\"?",
+      "back": "It means that all internal states of the system can be inferred or reconstructed solely by observing its outputs (measurements) over a finite period. If a state doesn't affect any output, directly or indirectly, it is unobservable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical condition for observability of an LTI system given by $\\dot{x} = Ax + Bu$, $y = Cx + Du$.",
+      "back": "An LTI system is observable if and only if its observability matrix $\\mathcal{O}$ has full rank. For an $n$-dimensional state vector $x$, this means $\\text{rank}(\\mathcal{O}) = n$, where:\n$$ \\mathcal{O} = \\begin{bmatrix} C \\\\ CA \\\\ CA^2 \\\\ \\vdots \\\\ CA^{n-1} \\end{bmatrix} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the observability of a system directly impact a Kalman Filter's (KF) ability to estimate the system's state?",
+      "back": "A Kalman Filter can only accurately estimate states that are observable. If a state is unobservable, the KF's estimate for that state will not converge to the true value, and its uncertainty (covariance) for that state will not decrease, potentially diverging or remaining constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a system has unobservable states, how might this manifest in the Kalman Filter's behavior (e.g., in the state estimates and covariance matrix)?",
+      "back": "For unobservable states, the KF's estimates will not be corrected by measurements and will rely solely on the system model, potentially drifting. The corresponding diagonal elements in the state covariance matrix $P$ (representing uncertainty) will not decrease or might even grow indefinitely, indicating persistent uncertainty about those specific states.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a 1D system: position $p$, velocity $v$. State $x = \\begin{bmatrix} p \\\\ v \\end{bmatrix}$. If we only measure position $y=p$, write $A, C$ and check observability.",
+      "back": "System dynamics (simplified, constant velocity): $ \\dot{p} = v $, $ \\dot{v} = 0 $.\nSo, $A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$.\nMeasurement: $y = p$, so $C = \\begin{bmatrix} 1 & 0 \\end{bmatrix}$.\nObservability matrix:\n$$ \\mathcal{O} = \\begin{bmatrix} C \\\\ CA \\end{bmatrix} = \\begin{bmatrix} 1 & 0 \\\\ \\begin{bmatrix} 1 & 0 \\end{bmatrix} \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix} \\end{bmatrix} = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} $$\nSince $\\text{rank}(\\mathcal{O}) = 2$, which equals $n$ (the number of states), the system is fully observable. Both position and velocity can be estimated from position measurements.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a key practical implication of observability analysis for GNC engineers when designing a system's sensor suite?",
+      "back": "Observability analysis helps determine the minimum set and optimal placement of sensors required to estimate all relevant system states. If a proposed sensor suite leads to an unobservable system, engineers must add or reconfigure sensors to ensure all critical states can be inferred from measurements, thereby enabling effective state estimation by a Kalman Filter.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-virtual-memory-concept-page-table-virtual-to-physical-translation",
+  "subtopicTitle": "Virtual memory — concept, page table, virtual-to-physical translation",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:41.859Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of virtual memory in a modern operating system?",
+      "back": "Virtual memory provides several key benefits:\n1.  **Illusion of large, contiguous memory:** Each process sees its own private, large address space, simplifying programming.\n2.  **Memory protection:** Isolates processes from each other, preventing one process from corrupting another's memory.\n3.  **Efficient memory sharing:** Allows multiple processes to share common code or data segments.\n4.  **Memory management:** Enables swapping pages between RAM and disk, allowing programs larger than physical memory to run and improving multi-programming.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between a 'page' and a 'frame' in the context of virtual memory.",
+      "back": "A **page** is a fixed-size block of virtual memory. When a program's memory is divided, it's divided into pages.\nA **frame** (or **page frame**) is a fixed-size block of physical memory. Pages from virtual memory are mapped into frames in physical memory. Pages and frames are always the same size.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the high-level steps involved in translating a virtual address (VA) to a physical address (PA) using a page table.",
+      "back": "The translation process is as follows:\n1.  The CPU generates a **Virtual Address (VA)**.\n2.  The VA is split into two parts: the **Virtual Page Number (VPN)** and the **Page Offset**.\n3.  The VPN is used as an index into the process's **Page Table** to find the corresponding **Page Table Entry (PTE)**.\n4.  The PTE contains the **Physical Frame Number (PFN)** where the page resides in physical memory.\n5.  The PFN is concatenated with the original Page Offset to form the **Physical Address (PA)**, which is then sent to the memory controller.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What essential information does a Page Table Entry (PTE) typically contain, and what is the role of the 'Valid' bit?",
+      "back": "A PTE typically contains:\n*   **Physical Frame Number (PFN):** The most crucial part, indicating the physical memory location.\n*   **Valid bit:** A flag indicating whether the virtual page is currently loaded into physical memory (1) or not (0). If 0, accessing this page triggers a page fault.\n*   **Dirty bit:** Indicates if the page has been modified since being loaded (used for write-back caches).\n*   **Accessed bit:** Indicates if the page has been read or written recently (used by page replacement algorithms).\n*   **Read/Write/Execute permissions:** Control access rights to the page.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a 32-bit virtual address space, a 4KB page size, and a 4-byte Page Table Entry (PTE), calculate the maximum size of a single-level page table.",
+      "back": "1.  **Virtual Address Space Size:** $2^{32}$ bytes.\n2.  **Page Size:** $4 \text{KB} = 4 \times 1024 \text{ bytes} = 2^{12}$ bytes.\n3.  **Number of Virtual Pages:** To find how many pages fit into the virtual address space, divide the total address space by the page size:\n    $$ \\text{Number of Pages} = \\frac{2^{32} \\text{ bytes}}{2^{12} \\text{ bytes/page}} = 2^{(32-12)} = 2^{20} \\text{ pages} $$\n4.  **Page Table Entry (PTE) Size:** 4 bytes.\n5.  **Total Page Table Size:** Multiply the number of pages by the size of each PTE:\n    $$ \\text{Page Table Size} = 2^{20} \\text{ pages} \\times 4 \\text{ bytes/PTE} = 2^{20} \\times 2^2 \\text{ bytes} = 2^{22} \\text{ bytes} $$\n    $2^{22}$ bytes is $4 \times 1024 \times 1024$ bytes, which equals **4 MB**.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a 'page fault,' and what is the typical operating system response when one occurs?",
+      "back": "A **page fault** is an exception (a type of interrupt) that occurs when a program tries to access a virtual page that is not currently present in physical memory (i.e., its 'Valid' bit in the PTE is 0). This usually means the page is stored on disk (e.g., in a swap file).\n\nWhen a page fault occurs, the OS typically:\n1.  **Traps to the kernel:** The CPU switches to kernel mode and executes the page fault handler.\n2.  **Locates the page:** Determines where on disk the required page is stored.\n3.  **Finds a free frame:** Selects a free physical memory frame. If none are free, it uses a page replacement algorithm (e.g., LRU, FIFO) to evict an existing page from a frame, potentially writing it back to disk if 'dirty'.\n4.  **Loads the page:** Reads the required page from disk into the chosen physical frame.\n5.  **Updates the PTE:** Sets the 'Valid' bit to 1 and updates the PFN in the PTE.\n6.  **Restarts the instruction:** Returns control to the user process, restarting the instruction that caused the page fault, which now successfully accesses the page.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a Translation Lookaside Buffer (TLB) improves the performance of virtual-to-physical address translation.",
+      "back": "Virtual-to-physical address translation typically requires at least one memory access to the page table (often two or more for multi-level page tables). This can be a significant performance bottleneck.\n\nThe **Translation Lookaside Buffer (TLB)** is a small, fast, hardware cache that stores recent virtual-to-physical address translations. When the CPU generates a virtual address:\n1.  It first checks the TLB for the corresponding translation.\n2.  If a **TLB hit** occurs (the translation is found), the physical address is retrieved almost instantly, avoiding a slower memory access to the page table.\n3.  If a **TLB miss** occurs (the translation is not found), the hardware or OS must then access the page table in main memory to perform the translation. Once found, this new translation is loaded into the TLB (potentially replacing an older entry) for future fast access.\n\nBy leveraging locality of reference, the TLB significantly reduces the average time required for address translation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are multi-level page tables used in modern systems, and how do they reduce memory consumption compared to a single-level page table?",
+      "back": "Multi-level page tables (e.g., two-level, three-level, or four-level) are primarily used to **reduce the physical memory consumed by the page table itself**, especially for processes that only use a small portion of their vast virtual address space.\n\nFor a single-level page table, if a process has a large virtual address space (e.g., $2^{64}$ bytes), the page table would be enormous ($16 \\text{ EB}$ for $4 \\text{ KB}$ pages, even if most entries are invalid) and would need to reside entirely in physical memory. This is impractical.\n\nMulti-level page tables solve this by:\n1.  **Exploiting sparsity:** They are structured like a tree. Only the page directory and lower-level page tables corresponding to *active* or *valid* virtual address ranges need to be allocated in physical memory.\n2.  **Paging the page table:** The page tables themselves can be paged in and out of memory, just like regular data pages. This means only the top-level page directory and the necessary intermediate page tables (and the final page table for the currently accessed page) need to be in RAM at any given time.\n\nThis hierarchical structure ensures that memory is only allocated for page table entries that are actually needed, saving significant physical memory.",
+      "difficulty": "hard"
+    }
+  ]
+}

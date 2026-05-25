@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-super-calling-parent-methods",
+  "subtopicTitle": "super() — calling parent methods",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:26.910Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `super()` keyword/function in object-oriented programming?",
+      "back": "`super()` provides a way to refer to the parent or superclass, primarily to access and invoke methods or attributes defined in that parent class. It facilitates cooperative inheritance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When a child class overrides a method from its parent, why might it still be beneficial to call the parent's version of that method using `super()`?",
+      "back": "Calling the parent's method allows the child class to *extend* or *augment* the parent's behavior rather than completely replacing it. This ensures the parent's essential logic is executed, and the child can add its specific functionality before or after.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Python, how would a `Dog` class inheriting from `Animal` correctly call the `Animal` class's `__init__` method from within `Dog.__init__` to initialize shared attributes?",
+      "back": "By using `super().__init__()`.\n```python\nclass Animal:\n    def __init__(self, name):\n        self.name = name\n        print(f\"Animal {self.name} initialized.\")\n\nclass Dog(Animal):\n    def __init__(self, name, breed):\n        super().__init__(name) # Calls Animal.__init__(name)\n        self.breed = breed\n        print(f\"Dog {self.name} ({self.breed}) initialized.\")\n\nmy_dog = Dog(\"Buddy\", \"Golden Retriever\")\n# Output: Animal Buddy initialized.\n# Output: Dog Buddy (Golden Retriever) initialized.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a `Child` class that overrides a method `do_something()` inherited from its `Parent`. How can `Child.do_something()` explicitly invoke the `Parent`'s original `do_something()`?",
+      "back": "`Child.do_something()` can call `super().do_something()`.\n```python\nclass Parent:\n    def do_something(self):\n        print(\"Parent is doing something.\")\n\nclass Child(Parent):\n    def do_something(self):\n        print(\"Child is doing something unique.\")\n        super().do_something() # Calls Parent's do_something()\n        print(\"Child finished its unique task.\")\n\nc = Child()\nc.do_something()\n# Output: Child is doing something unique.\n# Output: Parent is doing something.\n# Output: Child finished its unique task.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a Python class hierarchy involving multiple inheritance, how does `super()` determine which specific parent method to call when invoked?",
+      "back": "`super()` determines the next method to call by traversing the class's Method Resolution Order (MRO). The MRO is a linear ordering of classes that Python uses to search for methods. `super()` finds the next class in the MRO *after* the class where `super()` was called and then invokes the method from that class.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the key syntactic difference in how `super()` is typically called between Python 2 and Python 3, and what does this imply?",
+      "back": "The key difference is in the arguments:\n*   **Python 3:** `super()` (no arguments). It implicitly figures out the current class and instance.\n*   **Python 2:** `super(CurrentClass, self)` (explicit arguments). You had to pass the current class and the instance.\nThis change in Python 3 simplifies syntax and reduces potential errors by removing the need to explicitly specify `CurrentClass` and `self`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is it always true that `super()` calls a method from the *immediate* parent class in the inheritance tree? Explain why or why not.",
+      "back": "No, this is a common misconception. `super()` does *not* strictly call the immediate parent. Instead, it calls the method from the next class in the Method Resolution Order (MRO). In single inheritance, this often *is* the immediate parent. However, in multiple inheritance, `super()` might call a method from a \"sibling\" class (one that shares a common ancestor but isn't a direct parent) if that class appears next in the MRO.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a significant advantage of using `super()` for cooperative inheritance, especially in complex hierarchies, compared to directly calling `ParentClass.method(self, ...)`?",
+      "back": "`super()` promotes more robust and maintainable code by correctly navigating the Method Resolution Order (MRO). It avoids hardcoding parent class names, which means if the inheritance hierarchy changes (e.g., a new class is inserted between a parent and child), the `super()` call automatically adapts without needing modification. Direct calls, however, would break or require manual updates.",
+      "difficulty": "medium"
+    }
+  ]
+}

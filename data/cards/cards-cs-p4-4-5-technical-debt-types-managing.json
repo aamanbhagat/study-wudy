@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-technical-debt-types-managing",
+  "subtopicTitle": "Technical debt — types, managing",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:10.380Z",
+  "cards": [
+    {
+      "front": "Define \"technical debt\" and its core analogy.",
+      "back": "Technical debt is a metaphor for the eventual cost of choosing an easy, limited solution now instead of a better approach that would take longer. Like financial debt, it incurs \"interest\" in the form of increased future development effort, maintenance, and risk.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the four quadrants of Martin Fowler's Technical Debt Quadrant.",
+      "back": "1.  **Reckless & Deliberate:** \"We don't have time for design.\" (e.g., cutting corners knowingly)\n2.  **Prudent & Deliberate:** \"We'll do it the quick way for the MVP, then refactor.\" (e.g., strategic shortcut)\n3.  **Reckless & Inadvertent:** \"What's a unit test?\" (e.g., lack of skill/knowledge)\n4.  **Prudent & Inadvertent:** \"Now we understand the problem better, we should have done X.\" (e.g., unavoidable learning)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between \"code debt\" and \"architectural debt.\"",
+      "back": "**Code Debt:** Issues within a specific module or function, like unreadable code, duplicated logic, or poorly structured methods. It's localized and often fixable via refactoring.\n**Architectural Debt:** Problems with the overall structure and design of the system, such as tight coupling between major components, incorrect technology choices, or a monolithic design that should be microservices. It's systemic and harder to fix.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does accumulating technical debt affect a software development team's productivity and morale?",
+      "back": "High technical debt leads to:\n*   **Reduced Productivity:** Slower feature development due to constant workarounds and bug fixing.\n*   **Increased Bugs:** Fragile codebases are more prone to errors.\n*   **Developer Burnout:** Frustration from working with difficult, messy code.\n*   **Difficulty Adapting:** Resistance to change, making it hard to implement new features or pivot.\n*   **Higher Maintenance Costs:** More time spent on fixing than building.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline a systematic approach to prioritize technical debt items for repayment.",
+      "back": "1.  **Identify & Document:** Catalog debt items with descriptions, location, and impact.\n2.  **Assess Impact:** Evaluate how severely each item affects development velocity, stability, user experience, and future features (e.g., high, medium, low).\n3.  **Estimate Effort:** Determine the time and resources required to fix each item.\n4.  **Cost of Delay:** Consider the ongoing \"interest\" cost if the debt is not repaid.\n5.  **Prioritization Matrix:** Use a matrix (e.g., High Impact/Low Effort first, then High Impact/High Effort) or a \"debt backlog\" refined with stakeholder input.\n6.  **Allocate Time:** Dedicate specific time (e.g., \"debt sprints,\" percentage of sprint) to address prioritized debt.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how \"test debt\" arises and its long-term consequences.",
+      "back": "Test debt occurs when a project lacks sufficient automated tests (unit, integration, end-to-end) or has tests that are poorly written, flaky, or outdated.\n**Arises from:** Rushing development, lack of testing culture, insufficient skills, or evolving requirements without test updates.\n**Consequences:** Reduced confidence in code changes, increased bugs in production, slower refactoring, fear of making changes, higher manual testing effort, and ultimately, slower delivery.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A legacy system uses an outdated library with known security vulnerabilities. What type of technical debt is this, and what's a key management strategy?",
+      "back": "This is primarily **Environmental/Dependency Debt** (or potentially **Architectural Debt** if the library is deeply embedded).\n**Management Strategy:**\n1.  **Risk Assessment:** Evaluate the severity of vulnerabilities and exposure.\n2.  **Upgrade Path:** Plan for upgrading the library, considering breaking changes.\n3.  **Isolation/Mitigation:** If immediate upgrade isn't possible, isolate the component using the library or implement compensating controls (e.g., WAF, stricter input validation) to mitigate risk.\n4.  **Dedicated Effort:** Allocate specific time for the upgrade, potentially refactoring code dependent on the library.",
+      "difficulty": "hard"
+    }
+  ]
+}

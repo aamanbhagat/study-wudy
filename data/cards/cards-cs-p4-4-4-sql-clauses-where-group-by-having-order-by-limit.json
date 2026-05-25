@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-sql-clauses-where-group-by-having-order-by-limit",
+  "subtopicTitle": "SQL clauses — WHERE, GROUP BY, HAVING, ORDER BY, LIMIT",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:44.028Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the `WHERE` clause in SQL?",
+      "back": "The `WHERE` clause filters individual rows from the table(s) based on specified conditions *before* any grouping or aggregation takes place. It operates on non-aggregated data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the main purpose of the `GROUP BY` clause in SQL?",
+      "back": "The `GROUP BY` clause groups rows that have the same values in specified columns into summary rows. It is typically used in conjunction with aggregate functions (e.g., `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`) to perform calculations on each group.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the key difference between SQL's `WHERE` and `HAVING` clauses.",
+      "back": "`WHERE` filters individual rows *before* `GROUP BY` and aggregation. `HAVING` filters groups of rows *after* `GROUP BY` and aggregation, based on conditions that can involve aggregate functions or grouped columns. `WHERE` cannot use aggregate functions directly, while `HAVING` can.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a query to list `department_id`s where the `AVG(salary)` exceeds $50,000, using `Employees(department_id, salary)`.",
+      "back": "```sql\nSELECT department_id, AVG(salary)\nFROM Employees\nGROUP BY department_id\nHAVING AVG(salary) > 50000;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the `ORDER BY` clause work, and how do you specify sorting direction?",
+      "back": "The `ORDER BY` clause sorts the final result set based on one or more columns. `ASC` (ascending, default) sorts from lowest to highest, and `DESC` (descending) sorts from highest to lowest. You append `ASC` or `DESC` after the column name.\n```sql\nSELECT name, salary FROM Employees ORDER BY salary DESC, name ASC;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `LIMIT` clause in SQL?",
+      "back": "The `LIMIT` clause restricts the number of rows returned by a query. It's typically applied as the very last step in query execution and is often used with `ORDER BY` to retrieve the top N or bottom N results.\n```sql\nSELECT product_name FROM Products ORDER BY price DESC LIMIT 5;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the logical order of execution for `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `SELECT`, `ORDER BY`, and `LIMIT` clauses in a SQL query.",
+      "back": "The logical order of execution is crucial for understanding how a query processes data:\n1.  `FROM`/`JOIN`: Determine and combine data sources.\n2.  `WHERE`: Filter individual rows based on conditions.\n3.  `GROUP BY`: Group filtered rows into summary groups.\n4.  `HAVING`: Filter groups based on conditions (often with aggregates).\n5.  `SELECT`: Project specified columns/expressions for each row/group.\n6.  `DISTINCT` (if present): Remove duplicate rows from the selected data.\n7.  `ORDER BY`: Sort the final result set.\n8.  `LIMIT`/`OFFSET`: Restrict the number of output rows.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why might `SELECT department_name, COUNT(*) FROM Employees GROUP BY department_id;` cause an error if `department_name` is not in `GROUP BY`?",
+      "back": "In standard SQL, when `GROUP BY` is used, any non-aggregated column in the `SELECT` list *must* also be present in the `GROUP BY` clause. If `department_name` is not grouped, the database wouldn't know which single `department_name` to associate with a `department_id` group if multiple names existed for that ID, or if it's simply not functionally dependent on `department_id`. This is often called a \"non-group by column in select list\" error.",
+      "difficulty": "hard"
+    }
+  ]
+}

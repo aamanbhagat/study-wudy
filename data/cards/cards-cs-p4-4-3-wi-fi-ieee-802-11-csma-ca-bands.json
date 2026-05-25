@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-wi-fi-ieee-802-11-csma-ca-bands",
+  "subtopicTitle": "Wi-Fi (IEEE 802.11) — CSMA/CA, bands",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:23.756Z",
+  "cards": [
+    {
+      "front": "What IEEE standard defines Wi-Fi technology, and what does '802.11' specifically refer to?",
+      "back": "Wi-Fi is defined by the **IEEE 802.11** family of standards. '802.11' refers to the working group within IEEE responsible for wireless local area network (WLAN) specifications, defining the physical and MAC layers for wireless communication.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does CSMA/CA stand for, and why is 'Collision Avoidance' (CA) preferred over 'Collision Detection' (CD) in wireless networks like Wi-Fi?",
+      "back": "CSMA/CA stands for **Carrier Sense Multiple Access with Collision Avoidance**. CA is preferred because collision detection (as in CSMA/CD for wired Ethernet) is difficult in wireless environments. A station transmitting cannot simultaneously listen for collisions on its own signal, and the 'hidden terminal problem' makes it impossible for a station to detect all potential collisions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the basic steps a Wi-Fi station takes using CSMA/CA to transmit data, assuming no RTS/CTS is used.",
+      "back": "1. **Sense Channel**: Station listens if the channel is idle for a Distributed Interframe Space (DIFS).\n2. **Backoff**: If idle, it waits a random backoff period. If busy, it defers and restarts the backoff when idle.\n3. **Transmit Data**: After backoff, if the channel remains idle, it transmits the data frame.\n4. **Receive ACK**: The receiving station sends an Acknowledgment (ACK) after a Short Interframe Space (SIFS). If no ACK is received, the sender assumes a collision and retransmits.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the 'hidden terminal problem' in Wi-Fi and how the RTS/CTS mechanism addresses it.",
+      "back": "The **hidden terminal problem** occurs when two stations (A and C) are out of range of each other but both are within range of a third station (B). A and C cannot 'hear' each other, so they might transmit simultaneously to B, causing a collision at B.\n\n**RTS/CTS (Request To Send/Clear To Send)** addresses this: A sends an RTS to B. B replies with a CTS, which is heard by both A and C (and all stations in B's range). The CTS tells all stations, including C, to defer transmission for a specified duration, thus avoiding collision at B.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the 2.4 GHz and 5 GHz Wi-Fi bands in terms of typical range, throughput, and susceptibility to interference.",
+      "back": "1.  **2.4 GHz Band**: Longer range, better penetration through walls. Lower theoretical maximum throughput and more susceptible to interference from other devices (microwaves, Bluetooth, cordless phones) due to its crowded spectrum.\n2.  **5 GHz Band**: Shorter range, poorer penetration. Higher theoretical maximum throughput and generally less susceptible to interference due to more available non-overlapping channels and less common usage by other devices.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Network Allocation Vector (NAV) contribute to collision avoidance in CSMA/CA, especially in conjunction with RTS/CTS?",
+      "back": "The **NAV (Network Allocation Vector)** is a timer maintained by each station, indicating how long the channel is expected to be busy. When a station receives an RTS or CTS frame, it reads the 'duration' field within the frame. It then sets its NAV to this duration, effectively scheduling itself to defer any transmissions until the NAV timer expires. This creates a 'virtual carrier sense' mechanism, ensuring stations that might not physically hear the actual data transmission still avoid transmitting during the reservation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the implications of using wider channels (e.g., 40 MHz or 80 MHz) in Wi-Fi networks compared to standard 20 MHz channels?",
+      "back": "Using wider channels (e.g., 40 MHz in 802.11n, 80/160 MHz in 802.11ac/ax) allows for **higher data throughput** by aggregating multiple 20 MHz channels. However, this comes with trade-offs:\n1.  **Reduced Channel Availability**: Fewer non-overlapping wider channels are available, increasing the likelihood of interference in dense environments.\n2.  **Increased Interference**: Wider channels consume more spectrum, potentially causing more interference with neighboring Wi-Fi networks or other devices if not managed carefully.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond 2.4 GHz and 5 GHz, what newer Wi-Fi band offers significantly more non-overlapping channels for higher throughput and lower latency, introduced with Wi-Fi 6E?",
+      "back": "The newer Wi-Fi band is **6 GHz**. Introduced with Wi-Fi 6E (IEEE 802.11ax extended), it provides a large contiguous block of spectrum, allowing for many more non-overlapping 80 MHz and 160 MHz channels. This significantly reduces congestion, improves throughput, and lowers latency, especially in dense environments.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "subtopicId": "physics-p1-1-5-perpendicular-axis-theorem-i-z-i-x-i-y-proof-restrictions",
+  "subtopicTitle": "Perpendicular axis theorem — I_z = I_x + I_y — proof, restrictions",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:25.278Z",
+  "cards": [
+    {
+      "front": "State the Perpendicular Axis Theorem, including its formula.",
+      "back": "The Perpendicular Axis Theorem states that for a planar body, the moment of inertia about an axis perpendicular to its plane ($I_z$) is equal to the sum of its moments of inertia about two mutually perpendicular axes ($I_x$ and $I_y$) lying in the plane and intersecting the perpendicular axis at a common point.\n\nFormula: $$I_z = I_x + I_y$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the essential restrictions or conditions for the Perpendicular Axis Theorem to be valid?",
+      "back": "The Perpendicular Axis Theorem has two crucial restrictions:\n\n1.  **Planar Body:** The theorem applies only to planar objects (or laminar bodies), meaning the entire mass of the object must lie in a single plane.\n2.  **Axis Intersection:** The three mutually perpendicular axes ($x, y, z$) must intersect at a common point. The $x$ and $y$ axes must lie in the plane of the body, and the $z$-axis must be perpendicular to the plane of the body.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a planar body of mass $m$ lying in the $xy$-plane, define the moments of inertia $I_x$, $I_y$, and $I_z$ in terms of the mass distribution and coordinates.",
+      "back": "For a planar body in the $xy$-plane, with a differential mass element $dm$ at coordinates $(x, y)$:\n\n*   Moment of inertia about the $x$-axis ($I_x$): $$I_x = \\int r_x^2 \\,dm = \\int y^2 \\,dm$$\n*   Moment of inertia about the $y$-axis ($I_y$): $$I_y = \\int r_y^2 \\,dm = \\int x^2 \\,dm$$\n*   Moment of inertia about the $z$-axis ($I_z$): $$I_z = \\int r_z^2 \\,dm = \\int (x^2 + y^2) \\,dm$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Perpendicular Axis Theorem, $I_z = I_x + I_y$, for a planar body.",
+      "back": "Consider a planar body lying in the $xy$-plane. Let $dm$ be a differential mass element at coordinates $(x, y)$.\n\nThe moment of inertia about the $z$-axis (perpendicular to the plane) is:\n$$I_z = \\int r^2 \\,dm$$\nwhere $r$ is the perpendicular distance of $dm$ from the $z$-axis. From the Pythagorean theorem, $r^2 = x^2 + y^2$.\n\nSo, $$I_z = \\int (x^2 + y^2) \\,dm$$\nWe can split the integral:\n$$I_z = \\int x^2 \\,dm + \\int y^2 \\,dm$$\nBy definition, the moment of inertia about the $y$-axis ($I_y$) is $\\int x^2 \\,dm$ (as $x$ is the perpendicular distance from $dm$ to the $y$-axis).\nAnd the moment of inertia about the $x$-axis ($I_x$) is $\\int y^2 \\,dm$ (as $y$ is the perpendicular distance from $dm$ to the $x$-axis).\n\nTherefore, substituting these definitions:\n$$I_z = I_y + I_x$$\nOr, as commonly written: $$I_z = I_x + I_y$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A uniform thin circular disk of mass $M$ and radius $R$ lies in the $xy$-plane. Its moment of inertia about an axis perpendicular to its plane and passing through its center is $I_z = \\frac{1}{2}MR^2$. What is its moment of inertia about any diameter?",
+      "back": "Since the disk is a planar body and uniform, its moment of inertia about any diameter will be the same due to symmetry. Let $I_x$ and $I_y$ be the moments of inertia about two perpendicular diameters (e.g., $x$-axis and $y$-axis).\n\nAccording to the Perpendicular Axis Theorem:\n$$I_z = I_x + I_y$$\nGiven $I_z = \\frac{1}{2}MR^2$ and $I_x = I_y = I_d$ (where $I_d$ is the moment of inertia about a diameter).\n\nSo, $$\\frac{1}{2}MR^2 = I_d + I_d$$\n$$\\frac{1}{2}MR^2 = 2I_d$$\n$$I_d = \\frac{1}{4}MR^2$$\n\nThe moment of inertia about any diameter is $\\frac{1}{4}MR^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why is the Perpendicular Axis Theorem restricted to planar objects, and why does it fail for 3D objects like a cube or a sphere?",
+      "back": "The theorem relies on the fact that for every mass element $dm$ in the planar body, its distance from the $z$-axis ($r_z$) is related to its distances from the $x$ and $y$ axes ($r_x=y$ and $r_y=x$) by the Pythagorean relation $r_z^2 = x^2 + y^2$. This is only true if the mass element lies in the $xy$-plane (i.e., its $z$-coordinate is zero).\n\nFor a 3D object, a mass element $dm$ at $(x, y, z)$ has:\n*   $r_x^2 = y^2 + z^2$ (distance from $x$-axis)\n*   $r_y^2 = x^2 + z^2$ (distance from $y$-axis)\n*   $r_z^2 = x^2 + y^2$ (distance from $z$-axis)\n\nIf we sum $I_x$ and $I_y$ for a 3D object:\n$$I_x + I_y = \\int (y^2+z^2)\\,dm + \\int (x^2+z^2)\\,dm$$\n$$I_x + I_y = \\int (x^2+y^2+2z^2)\\,dm$$\n$$I_x + I_y = \\int (x^2+y^2)\\,dm + \\int 2z^2\\,dm$$\n$$I_x + I_y = I_z + \\int 2z^2\\,dm$$\nSince $\\int 2z^2 \\,dm$ is generally non-zero for a 3D object, $I_x + I_y \\neq I_z$. The theorem fails because mass elements are not confined to the plane, introducing additional $z^2$ terms in $I_x$ and $I_y$ that are not present in $I_z$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-1-control-flow-if-else-switch-while-do-while-for-break-continue-goto",
+  "subtopicTitle": "Control flow — if/else, switch, while, do-while, for, break, continue, goto",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:33.622Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `if-else` statement in C, and what is its basic syntax?",
+      "back": "The `if-else` statement allows conditional execution of code blocks. It executes a block if a condition is true, and optionally another block if false. Syntax:\n```c\nif (condition) {\n    // code to execute if condition is true\n} else {\n    // code to execute if condition is false\n}\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can multiple conditions be combined within an `if` statement in C, and what are the two primary logical operators used?",
+      "back": "Multiple conditions can be combined using logical operators. The two primary operators are:\n*   Logical AND (`&&`): Returns true if *both* operands are true.\n*   Logical OR (`||`): Returns true if *at least one* operand is true.\n\nExample:\n```c\nif (age >= 18 && hasLicense) {\n    // code\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is a `switch` statement generally preferred over a series of `if-else if` statements in C?",
+      "back": "A `switch` statement is preferred when you need to compare a single expression against multiple constant integer (or char, enum) values. It can be more readable and potentially more efficient than a long `if-else if` chain for such scenarios, especially when dealing with many discrete cases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the 'fall-through' behavior in a C `switch` statement and how to prevent it.",
+      "back": "Fall-through occurs when, after a `case` block is executed, control proceeds to the next `case` block (or `default`) without checking its condition. This happens if `break` is omitted. To prevent fall-through, explicitly use the `break;` statement at the end of each `case` block you want to terminate:\n```c\nswitch (val) {\n    case 1: printf(\"One\"); break;\n    case 2: printf(\"Two\"); // Fall-through if no break\n    default: printf(\"Other\");\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference in execution guarantee between a `while` loop and a `do-while` loop in C?",
+      "back": "A `while` loop checks its condition *before* executing the loop body, meaning the body might execute zero times if the condition is initially false. A `do-while` loop executes its body *at least once* before checking the condition, guaranteeing at least one iteration.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the three components of a C `for` loop header and provide a common use case.",
+      "back": "The `for` loop header has three optional expressions: `for (initialization; condition; increment/decrement)`.\n1.  `initialization`: executed once before the loop starts.\n2.  `condition`: checked before each iteration; loop continues if true.\n3.  `increment/decrement`: executed after each iteration.\nCommon use case: iterating a fixed number of times, e.g.:\n```c\nfor (int i = 0; i < 10; i++) {\n    // Loop body executes 10 times\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between the effects of `break` and `continue` statements when used inside a loop in C.",
+      "back": "The `break` statement immediately terminates the innermost loop it's contained within, transferring control to the statement immediately following the loop. The `continue` statement skips the rest of the current iteration of the innermost loop and proceeds to the next iteration (re-evaluating the loop condition).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider nested loops. If `break` or `continue` is used, which loop's execution is affected?",
+      "back": "Both `break` and `continue` statements only affect the *innermost* loop they are contained within. They do not propagate their effect to outer loops. To break out of multiple nested loops, you typically need flags or a `goto` statement (though `goto` is often avoided due to readability concerns).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the purpose of the `goto` statement in C and why its use is generally discouraged.",
+      "back": "The `goto` statement provides an unconditional jump to a specified label within the same function. Its purpose is to alter the normal sequential flow of execution. It's discouraged because it can lead to 'spaghetti code' that is difficult to read, debug, and maintain, making program logic hard to follow. Modern C programming rarely requires `goto`.",
+      "difficulty": "hard"
+    }
+  ]
+}

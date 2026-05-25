@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-arrays-and-pointers-array-name-decays-to-pointer",
+  "subtopicTitle": "Arrays and pointers — array name decays to pointer",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:37.766Z",
+  "cards": [
+    {
+      "front": "In C, what does it mean for an array name to \"decay\" to a pointer?",
+      "back": "It means that in most expression contexts, the array name is implicitly converted to a pointer to its first element. This pointer's type is `type*`, where `type` is the element type of the array.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `int arr[5];`, write a line of code that demonstrates array decay by assigning `arr` to an `int*` variable.",
+      "back": "```c\nint arr[5];\nint* ptr = arr;\n```\nHere, `arr` decays to a pointer to its first element (equivalent to `&arr[0]`), which is then assigned to `ptr`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name two specific contexts where an array name in C does *not* decay to a pointer.",
+      "back": "1.  When used as the operand of the `sizeof` operator: `sizeof(arr)` yields the total size of the array in bytes, not the size of a pointer.\n2.  When used as the operand of the unary `&` (address-of) operator: `&arr` yields a pointer to the entire array (type `type(*)[size]`), not a pointer to its first element.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using an `int` array `arr` and an index `i`, write the pointer arithmetic equivalent for `arr[i]` that relies on array decay.",
+      "back": "`arr[i]` is equivalent to `*(arr + i)`. Due to array decay, `arr` becomes a pointer to its first element, `(arr + i)` performs pointer arithmetic to move `i` elements past the start, then `*` dereferences that location.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does array decay affect the way arrays are passed to functions in C?",
+      "back": "When an array is passed as an argument to a function, it decays into a pointer to its first element. The function parameter then receives a pointer, not a copy of the entire array. This means changes made to the \"array\" inside the function affect the original array in the caller's scope. For example, `void func(int arr[])` is functionally equivalent to `void func(int* arr)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the output of `sizeof(arr)` vs `sizeof(ptr)` for the following code, and why?\n```c\nint arr[10];\nint* ptr = arr;\nprintf(\"%zu\\n\", sizeof(arr));\nprintf(\"%zu\\n\", sizeof(ptr));\n```",
+      "back": "Assuming `sizeof(int)` is 4 bytes and `sizeof(int*)` is 8 bytes (on a 64-bit system):\n*   `sizeof(arr)` will output `40`. This is because `arr` is an array *definition*, and in the `sizeof` context, it does *not* decay. It evaluates to the total size of the array in bytes ($10 \\times \\text{sizeof(int)}$).\n*   `sizeof(ptr)` will output `8`. This is because `ptr` is a pointer variable, and `sizeof` applied to a pointer yields the size of the pointer itself (i.e., the size of a memory address), not the size of what it points to.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a 2D array `int arr[3][4];`, describe what `arr` decays to and what `arr[0]` decays to.",
+      "back": "1.  `arr` (the 2D array name) decays to a pointer to its first *row*. Its type becomes `int (*)[4]`, which is a pointer to an array of 4 integers.\n2.  `arr[0]` (the first row, which is a 1D array of 4 integers) decays to a pointer to its first *element*. Its type becomes `int*`.\nThis distinction is crucial for correct pointer arithmetic with multidimensional arrays.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "From a practical perspective, why is the \"array decay to pointer\" mechanism useful in C?",
+      "back": "It simplifies array handling by allowing arrays to be treated like pointers to their starting elements in many contexts. This enables:\n1.  **Efficient Function Arguments:** Arrays are passed by reference (effectively) without copying the entire data structure, saving memory and time.\n2.  **Flexible Pointer Arithmetic:** Pointers can be used interchangeably with array indexing for iterating through elements.\n3.  **Generic Functions:** A function expecting `int*` can work with any `int` array, promoting code reuse.\nIt provides a powerful, albeit sometimes confusing, way to manage contiguous memory blocks.",
+      "difficulty": "medium"
+    }
+  ]
+}

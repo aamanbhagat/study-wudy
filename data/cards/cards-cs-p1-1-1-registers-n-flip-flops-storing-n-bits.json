@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-registers-n-flip-flops-storing-n-bits",
+  "subtopicTitle": "Registers — N flip-flops storing N bits",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:30.868Z",
+  "cards": [
+    {
+      "front": "In computer architecture, what is the primary function of a register?",
+      "back": "A register is a small, high-speed storage location within the CPU or other digital circuits, used to temporarily hold data, instructions, or memory addresses during processing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental digital logic component is a register primarily composed of, and what does each instance of this component store?",
+      "back": "A register is primarily composed of **flip-flops**. Each flip-flop stores **one bit** of binary data (0 or 1).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a register is described as an \"N-bit register,\" how many flip-flops does it contain, and what is the total number of distinct binary values it can store?",
+      "back": "An N-bit register contains **N flip-flops**. It can store $2^N$ distinct binary values, as each of the N bits can independently be either 0 or 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain how a 4-bit register stores the binary value `1011`.",
+      "back": "A 4-bit register consists of four individual flip-flops. To store `1011`, the most significant bit (MSB) flip-flop would be set to 1, the next to 0, the third to 1, and the least significant bit (LSB) flip-flop to 1. Each flip-flop maintains its state until a new value is loaded.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two common types of registers found in a CPU and briefly describe their primary functions.",
+      "back": "1.  **Program Counter (PC):** Holds the memory address of the next instruction to be fetched.\n2.  **Instruction Register (IR):** Holds the instruction currently being executed.\n3.  **Accumulator (ACC):** Stores intermediate arithmetic and logic results.\n4.  **Memory Address Register (MAR):** Holds the address of the memory location to be accessed.\n(Any two of these or similar CPU registers are valid.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the concept of \"parallel loading\" for a register.",
+      "back": "Parallel loading is a method where all N bits of data are loaded into an N-bit register simultaneously, in a single clock cycle. Each flip-flop receives its corresponding data bit input at the same time, allowing for fast data transfer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a \"shift register,\" and provide one common application where it is particularly useful.",
+      "back": "A shift register is a type of register that allows its stored bits to be moved (shifted) left or right in sequence. This sequential movement is controlled by clock pulses.\n\n**Application:** Serial-to-parallel or parallel-to-serial data conversion (e.g., in Universal Asynchronous Receiver-Transmitters - UARTs for communication), multiplication/division by powers of 2, or creating delay lines.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are registers significantly faster to access and operate on compared to main memory (RAM)?",
+      "back": "Registers are significantly faster because they are physically located directly within the CPU, very close to the processing units. They are also implemented with faster, more expensive logic (like D-type flip-flops) optimized for speed, unlike the larger, denser, and slower dynamic RAM (DRAM) cells used for main memory.",
+      "difficulty": "medium"
+    }
+  ]
+}

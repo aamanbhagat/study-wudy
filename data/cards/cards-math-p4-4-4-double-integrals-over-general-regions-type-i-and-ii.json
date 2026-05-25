@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-double-integrals-over-general-regions-type-i-and-ii",
+  "subtopicTitle": "Double integrals over general regions — Type I and II",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:25.069Z",
+  "cards": [
+    {
+      "front": "Define a Type I region $D$ for double integrals.",
+      "back": "A Type I region $D$ is bounded by vertical lines $x=a$, $x=b$ and by two continuous functions of $x$, $y=g_1(x)$ and $y=g_2(x)$, such that $g_1(x) \\le g_2(x)$ for all $x$ in $[a,b]$. Formally: $D = \\{(x,y) \\mid a \\le x \\le b, g_1(x) \\le y \\le g_2(x)\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a Type II region $D$ for double integrals.",
+      "back": "A Type II region $D$ is bounded by horizontal lines $y=c$, $y=d$ and by two continuous functions of $y$, $x=h_1(y)$ and $x=h_2(y)$, such that $h_1(y) \\le h_2(y)$ for all $y$ in $[c,d]$. Formally: $D = \\{(x,y) \\mid c \\le y \\le d, h_1(y) \\le x \\le h_2(y)\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is $\\iint_D f(x,y) \\,dA$ set up for a Type I region $D = \\{(x,y) \\mid a \\le x \\le b, g_1(x) \\le y \\le g_2(x)\\}$?",
+      "back": "For a Type I region, the integral is set up as:\n$$\\iint_D f(x,y) \\,dA = \\int_a^b \\int_{g_1(x)}^{g_2(x)} f(x,y) \\,dy \\,dx$$\nThe inner integral is with respect to $y$, with bounds depending on $x$. The outer integral is with respect to $x$, with constant bounds.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is $\\iint_D f(x,y) \\,dA$ set up for a Type II region $D = \\{(x,y) \\mid c \\le y \\le d, h_1(y) \\le x \\le h_2(y)\\}$?",
+      "back": "For a Type II region, the integral is set up as:\n$$\\iint_D f(x,y) \\,dA = \\int_c^d \\int_{h_1(y)}^{h_2(y)} f(x,y) \\,dx \\,dy$$\nThe inner integral is with respect to $x$, with bounds depending on $y$. The outer integral is with respect to $y$, with constant bounds.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the region $D$ bounded by $y=x^2$ and $y=x$ as both Type I and Type II.",
+      "back": "The curves intersect at $(0,0)$ and $(1,1)$.\nAs **Type I**: $D = \\{(x,y) \\mid 0 \\le x \\le 1, x^2 \\le y \\le x\\}$.\nAs **Type II**: $D = \\{(x,y) \\mid 0 \\le y \\le 1, y \\le x \\le \\sqrt{y}\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Reverse the order of integration for $\\int_0^1 \\int_y^1 f(x,y) \\,dx \\,dy$.",
+      "back": "The original integral describes a Type II region: $0 \\le y \\le 1$, $y \\le x \\le 1$. This region is a triangle with vertices $(0,0)$, $(1,0)$, and $(1,1)$.\nTo express this as a Type I region: $0 \\le x \\le 1$. For a given $x$, $y$ ranges from $0$ to $x$.\nSo, the reversed integral is $\\int_0^1 \\int_0^x f(x,y) \\,dy \\,dx$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would you set up a double integral over a region $D$ that is neither Type I nor Type II?",
+      "back": "If a region $D$ is neither Type I nor Type II, it can often be decomposed into a finite number of subregions $D_1, D_2, \\dots, D_n$, where each $D_i$ is either Type I or Type II (or both).\nThen, the integral over $D$ is the sum of the integrals over the subregions:\n$$\\iint_D f(x,y) \\,dA = \\sum_{i=1}^n \\iint_{D_i} f(x,y) \\,dA$$\nThis is based on the additive property of integrals.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the double integral $\\iint_D 1 \\,dA$ represent geometrically?",
+      "back": "The double integral $\\iint_D 1 \\,dA$ represents the **area** of the region $D$ in the $xy$-plane.\nMore generally, if $f(x,y) \\ge 0$, then $\\iint_D f(x,y) \\,dA$ represents the volume of the solid that lies above $D$ and below the surface $z=f(x,y)$.",
+      "difficulty": "easy"
+    }
+  ]
+}

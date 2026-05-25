@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-1-half-angle-formulas-derivations-from-double-angle",
+  "subtopicTitle": "Half angle formulas — derivations from double angle",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:28.779Z",
+  "cards": [
+    {
+      "front": "State the three forms of the double angle formula for $\\cos(2\\theta)$.",
+      "back": "The three forms are:\n1. $\\cos(2\\theta) = \\cos^2\\theta - \\sin^2\\theta$\n2. $\\cos(2\\theta) = 2\\cos^2\\theta - 1$\n3. $\\cos(2\\theta) = 1 - 2\\sin^2\\theta$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the half-angle formula for $\\cos(\\theta/2)$ in terms of $\\cos(\\theta)$ from a double angle identity.",
+      "back": "Start with the double angle identity: $\\cos(2A) = 2\\cos^2 A - 1$.\nLet $A = \\theta/2$. Then $2A = \\theta$.\nSubstitute $A$ into the identity: $\\cos(\\theta) = 2\\cos^2(\\theta/2) - 1$.\nRearrange to solve for $\\cos^2(\\theta/2)$:\n$2\\cos^2(\\theta/2) = 1 + \\cos(\\theta)$\n$\\cos^2(\\theta/2) = \\frac{1 + \\cos(\\theta)}{2}$\nTake the square root of both sides:\n$\\cos(\\theta/2) = \\pm\\sqrt{\\frac{1 + \\cos(\\theta)}{2}}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the half-angle formula for $\\sin(\\theta/2)$ in terms of $\\cos(\\theta)$ from a double angle identity.",
+      "back": "Start with the double angle identity: $\\cos(2A) = 1 - 2\\sin^2 A$.\nLet $A = \\theta/2$. Then $2A = \\theta$.\nSubstitute $A$ into the identity: $\\cos(\\theta) = 1 - 2\\sin^2(\\theta/2)$.\nRearrange to solve for $\\sin^2(\\theta/2)$:\n$2\\sin^2(\\theta/2) = 1 - \\cos(\\theta)$\n$\\sin^2(\\theta/2) = \\frac{1 - \\cos(\\theta)}{2}$\nTake the square root of both sides:\n$\\sin(\\theta/2) = \\pm\\sqrt{\\frac{1 - \\cos(\\theta)}{2}}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the significance of the $\\pm$ sign in the half-angle formulas for $\\sin(\\theta/2)$ and $\\cos(\\theta/2)$.",
+      "back": "The $\\pm$ sign indicates that the sign of the trigonometric function for the half-angle depends on the quadrant in which $\\theta/2$ lies. For example, if $\\theta/2$ is in Quadrant I or IV, $\\cos(\\theta/2)$ is positive. If $\\theta/2$ is in Quadrant II or III, $\\cos(\\theta/2)$ is negative. The square root operation itself only yields the principal (positive) root, so the $\\pm$ is explicitly included to account for all possible signs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the half-angle formula for $\\tan(\\theta/2)$ using the derived formulas for $\\sin(\\theta/2)$ and $\\cos(\\theta/2)$.",
+      "back": "We know that $\\tan(\\theta/2) = \\frac{\\sin(\\theta/2)}{\\cos(\\theta/2)}$.\nSubstitute the half-angle formulas for sine and cosine:\n$\\tan(\\theta/2) = \\frac{\\pm\\sqrt{\\frac{1 - \\cos(\\theta)}{2}}}{\\pm\\sqrt{\\frac{1 + \\cos(\\theta)}{2}}}$\nCombine under a single square root:\n$\\tan(\\theta/2) = \\pm\\sqrt{\\frac{\\frac{1 - \\cos(\\theta)}{2}}{\\frac{1 + \\cos(\\theta)}{2}}} = \\pm\\sqrt{\\frac{1 - \\cos(\\theta)}{1 + \\cos(\\theta)}}$\nThe sign depends on the quadrant of $\\theta/2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the alternative half-angle formula $\\tan(\\theta/2) = \\frac{1 - \\cos(\\theta)}{\\sin(\\theta)}$.",
+      "back": "Start with $\\tan(\\theta/2) = \\frac{\\sin(\\theta/2)}{\\cos(\\theta/2)}$.\nMultiply the numerator and denominator by $2\\sin(\\theta/2)$:\n$\\tan(\\theta/2) = \\frac{2\\sin^2(\\theta/2)}{2\\sin(\\theta/2)\\cos(\\theta/2)}$\nUsing the double angle identities: $2\\sin^2(A) = 1 - \\cos(2A)$ and $2\\sin(A)\\cos(A) = \\sin(2A)$.\nLet $A = \\theta/2$, so $2A = \\theta$. Substitute these into the expression:\n$\\tan(\\theta/2) = \\frac{1 - \\cos(\\theta)}{\\sin(\\theta)}$\nThis form avoids the square root and the $\\pm$ ambiguity, as the sign is determined by $\\sin(\\theta)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the alternative half-angle formula $\\tan(\\theta/2) = \\frac{\\sin(\\theta)}{1 + \\cos(\\theta)}$.",
+      "back": "Start with $\\tan(\\theta/2) = \\frac{\\sin(\\theta/2)}{\\cos(\\theta/2)}$.\nMultiply the numerator and denominator by $2\\cos(\\theta/2)$:\n$\\tan(\\theta/2) = \\frac{2\\sin(\\theta/2)\\cos(\\theta/2)}{2\\cos^2(\\theta/2)}$\nUsing the double angle identities: $2\\sin(A)\\cos(A) = \\sin(2A)$ and $2\\cos^2(A) = 1 + \\cos(2A)$.\nLet $A = \\theta/2$, so $2A = \\theta$. Substitute these into the expression:\n$\\tan(\\theta/2) = \\frac{\\sin(\\theta)}{1 + \\cos(\\theta)}$\nThis form also avoids the square root and the $\\pm$ ambiguity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $\\cos(\\theta) = -1/2$ and $\\theta \\in [\\pi, 3\\pi/2]$, find the exact value of $\\sin(\\theta/2)$.",
+      "back": "Given $\\cos(\\theta) = -1/2$ and $\\theta \\in [\\pi, 3\\pi/2]$.\nFirst, determine the quadrant for $\\theta/2$: Divide the interval by 2:\n$\\frac{\\pi}{2} \\le \\frac{\\theta}{2} \\le \\frac{3\\pi}{4}$.\nThis means $\\theta/2$ is in Quadrant II. In Quadrant II, $\\sin(\\theta/2)$ is positive.\nUse the half-angle formula: $\\sin(\\theta/2) = \\sqrt{\\frac{1 - \\cos(\\theta)}{2}}$.\nSubstitute the value of $\\cos(\\theta)$:\n$\\sin(\\theta/2) = \\sqrt{\\frac{1 - (-1/2)}{2}} = \\sqrt{\\frac{1 + 1/2}{2}} = \\sqrt{\\frac{3/2}{2}} = \\sqrt{\\frac{3}{4}} = \\frac{\\sqrt{3}}{2}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

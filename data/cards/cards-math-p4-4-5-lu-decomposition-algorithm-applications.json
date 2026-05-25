@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-lu-decomposition-algorithm-applications",
+  "subtopicTitle": "LU decomposition — algorithm, applications",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:47.683Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of LU decomposition for a square matrix $A$?",
+      "back": "To factorize $A$ into the product of a lower triangular matrix $L$ and an upper triangular matrix $U$, such that $A = LU$. Often, $L$ is a unit lower triangular matrix (ones on the diagonal).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a square matrix $A$ to have an LU decomposition without pivoting, what condition must its principal minors satisfy?",
+      "back": "All leading principal minors (determinants of the top-left $k \\times k$ submatrices, denoted $A_k$) must be non-zero. That is, $\\det(A_k) \\neq 0$ for $k=1, \\dots, n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between Gaussian elimination and the computation of $L$ and $U$ in an LU decomposition.",
+      "back": "Gaussian elimination transforms $A$ into an upper triangular matrix $U$ using elementary row operations. The matrix $L$ is formed by collecting the *multipliers* used in these row operations. Specifically, if $E_k$ are elementary matrices for elimination, $E_m \\dots E_1 A = U$, then $A = E_1^{-1} \\dots E_m^{-1} U$. The matrix $L = E_1^{-1} \\dots E_m^{-1}$ is a unit lower triangular matrix, where $L_{ij}$ for $i > j$ are the multipliers $l_{ij}$ used to eliminate $a_{ij}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $A=LU$, outline the two-step process to solve the linear system $Ax=b$.",
+      "back": "1. Substitute $A=LU$ into $Ax=b$ to get $LUx=b$. Let $Ux=y$. Solve the system $Ly=b$ for $y$ using forward substitution.\n2. With $y$ found, solve the system $Ux=y$ for $x$ using backward substitution. This approach is efficient because $L$ and $U$ are triangular matrices.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is pivoting often necessary for LU decomposition, and how does it modify the factorization?",
+      "back": "Pivoting is necessary when a leading principal minor is zero, or when a pivot element is zero or very small, which can lead to division by zero or numerical instability. It modifies the factorization to $PA = LU$, where $P$ is a permutation matrix that reorders the rows of $A$ (e.g., to bring a non-zero or largest possible element to the pivot position) before decomposition.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition is the LU decomposition of a matrix $A$ unique?",
+      "back": "If $A$ is invertible and $L$ is required to be a unit lower triangular matrix (i.e., having ones on its main diagonal), then the LU decomposition ($A=LU$) is unique.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can LU decomposition be used to efficiently compute the determinant of a matrix $A$?",
+      "back": "If $A=LU$, then $\\det(A) = \\det(L) \\det(U)$. Since $L$ and $U$ are triangular matrices, their determinants are simply the product of their diagonal entries. If $L$ is unit lower triangular, $\\det(L)=1$, so $\\det(A) = \\prod_{i=1}^n U_{ii}$. If $PA=LU$, then $\\det(A) = \\det(P)^{-1} \\det(L) \\det(U) = (-1)^k \\prod_{i=1}^n U_{ii}$, where $k$ is the number of row swaps in $P$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Perform LU decomposition for $A = \\begin{pmatrix} 2 & 1 \\\\ 4 & 3 \\end{pmatrix}$.",
+      "back": "1. To eliminate $a_{21}$, perform the row operation $R_2 \\to R_2 - 2R_1$. The multiplier used is $l_{21}=2$.\n   The resulting upper triangular matrix $U$ is:\n   $$ U = \\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix} $$\n2. The lower triangular matrix $L$ is constructed with ones on the diagonal and the multipliers below the diagonal:\n   $$ L = \\begin{pmatrix} 1 & 0 \\\\ l_{21} & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 2 & 1 \\end{pmatrix} $$\n   Check: $LU = \\begin{pmatrix} 1 & 0 \\\\ 2 & 1 \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 4 & 3 \\end{pmatrix} = A$.",
+      "difficulty": "hard"
+    }
+  ]
+}

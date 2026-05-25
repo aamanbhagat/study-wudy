@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-groundtrack-analysis-swath-revisit",
+  "subtopicTitle": "Groundtrack analysis — swath, revisit",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:42.473Z",
+  "cards": [
+    {
+      "front": "Define the term 'groundtrack' for a satellite.",
+      "back": "The groundtrack (or subsatellite point trace) is the path on the surface of a planet directly below a satellite, projected perpendicularly from the satellite to the planet's surface. It represents the sequence of nadir points as the satellite orbits.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the 'swath' of a satellite sensor, and how does it differ from the groundtrack?",
+      "back": "The swath is the area on the planet's surface that a satellite's sensor can observe during a single pass. It is typically a strip of finite width centered on the groundtrack. While the groundtrack is a line, the swath is an area, representing the sensor's instantaneous field of view projected onto the surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify three key orbital parameters that primarily determine a satellite's groundtrack pattern over time.",
+      "back": "Three key orbital parameters are:\n1.  **Inclination ($i$)**: Determines the maximum latitude reached by the groundtrack.\n2.  **Orbital Period ($P$)**: Influences the longitudinal shift between successive passes due to Earth's rotation.\n3.  **Eccentricity ($e$)**: Affects the satellite's speed, causing the groundtrack to appear denser near apogee and sparser near perigee.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a satellite's altitude and sensor's Field of View (FOV) angle determine its swath width. Provide the simplified formula for a nadir-pointing sensor with FOV $\\alpha$ at altitude $h$.",
+      "back": "The swath width is directly proportional to both the satellite's altitude and the sensor's FOV angle. A higher altitude or a wider FOV angle results in a larger swath.\nFor a nadir-pointing sensor with total conical FOV $\\alpha$ at altitude $h$, the approximate swath width $W$ (assuming small FOV or flat Earth) is:\n$$ W \\approx 2h \\tan(\\alpha/2) $$\nThis formula provides a good estimate for many practical scenarios, though a spherical Earth model is more accurate for very wide FOVs or low altitudes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define 'revisit time' in the context of satellite remote sensing.",
+      "back": "Revisit time (or recurrence interval) is the time elapsed between two successive observations of the same geographical point or area on the Earth's surface by a satellite. It is a critical parameter for applications requiring temporal monitoring.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What conditions must an orbit satisfy to achieve a 'repeat groundtrack' over a specific period, and how does this relate to revisit time predictability?",
+      "back": "A repeat groundtrack orbit occurs when the satellite's groundtrack exactly retraces its path after a certain number of nodal periods ($N$) and Earth rotations ($D$). The condition is that the satellite's orbital period ($P$) must be commensurate with the Earth's rotation period ($P_E \\approx 23h \\ 56m \\ 4s$). Specifically, the ratio of the number of orbits to the number of sidereal days must be an integer or simple fraction:\n$$ N \\cdot P = D \\cdot P_E $$\nRepeat groundtrack orbits lead to highly predictable revisit times for specific locations, as the satellite will pass over the same region at regular intervals.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how nodal regression affects a satellite's groundtrack and why it's crucial for maintaining specific illumination conditions in Sun-synchronous orbits (SSOs).",
+      "back": "Nodal regression is the precession of the orbital plane's ascending node due to the Earth's oblateness (J2 perturbation). It causes the groundtrack to shift longitudinally with each orbit.\nFor a Sun-synchronous orbit (SSO), the nodal regression rate is designed to match the Earth's mean orbital rate around the Sun (approx. $0.9856^\\circ$ per day). This ensures that the orbital plane maintains a constant orientation relative to the Sun, resulting in consistent local solar time for each groundtrack crossing. This consistency is vital for applications requiring uniform illumination, such as Earth observation and meteorology.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the fundamental trade-off between a sensor's swath width and the revisit time for a single satellite in a given orbit.",
+      "back": "Generally, a wider swath allows a satellite to cover a larger area of the Earth's surface in a single pass. This increased coverage per pass often leads to a shorter revisit time for any given point within the covered region, as the satellite doesn't need to make as many passes to observe the entire area.\nHowever, a wider swath typically implies a coarser spatial resolution (larger pixel size) for a given sensor aperture and altitude. Conversely, a narrower swath provides higher resolution but requires more passes to cover the same area, leading to longer revisit times. This is a critical design trade-off in remote sensing missions.",
+      "difficulty": "medium"
+    }
+  ]
+}

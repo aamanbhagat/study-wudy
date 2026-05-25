@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-std-function-and-std-bind",
+  "subtopicTitle": "std::function and std::bind",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:10.767Z",
+  "cards": [
+    {
+      "front": "In C++, what is the primary purpose of `std::function`?",
+      "back": "`std::function` is a general-purpose polymorphic function wrapper. It can store, copy, and invoke any callable target (function pointers, function objects, lambdas, member functions) that shares a compatible signature, providing a uniform interface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Declare an `std::function` named `op` that takes two `int`s and returns an `int`, then assign a lambda `[](int a, int b){ return a + b; }` to it.",
+      "back": "```cpp\n#include <functional>\n\nstd::function<int(int, int)> op;\nop = [](int a, int b){ return a + b; };\n// Or directly initialize:\n// std::function<int(int, int)> op = [](int a, int b){ return a + b; };\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how `std::function` achieves its ability to store different callable types with the same signature, referencing \"type erasure.\"",
+      "back": "`std::function` uses type erasure to hide the concrete type of the stored callable. It internally holds a pointer to a dynamically allocated object (or uses small object optimization) that knows how to invoke the original callable. This object provides a common interface (e.g., a virtual `operator()` or a function pointer to a trampoline function), allowing `std::function` to present a uniform interface regardless of whether it holds a lambda, function pointer, or functor.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is `std::bind` used for in C++?",
+      "back": "`std::bind` is a function adaptor that generates a new callable object (a \"binder\" object) by binding arguments to an existing callable. It allows for partial application of arguments, reordering arguments, or binding member functions to specific objects.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use `std::bind` to create a callable `subtract_from_ten` that takes one `int` argument `x` and returns $10 - x$.",
+      "back": "```cpp\n#include <functional>\n\nint subtract(int a, int b) { return a - b; }\n\n// std::placeholders::_1 represents the first argument passed to the bound object\nauto subtract_from_ten = std::bind(subtract, 10, std::placeholders::_1);\n\n// Example usage:\n// int result = subtract_from_ten(3); // result will be 7\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a class `Foo` with `void print(int x)` and an object `foo_obj`, use `std::bind` to create a callable `printer` that calls `foo_obj.print(int x)`.",
+      "back": "```cpp\n#include <functional>\n#include <iostream>\n\nclass Foo {\npublic:\n    void print(int x) { std::cout << \"Foo::print(\" << x << \")\" << std::endl; }\n};\n\n// ... inside main or another function ...\nFoo foo_obj;\nauto printer = std::bind(&Foo::print, &foo_obj, std::placeholders::_1);\n\n// Example usage:\n// printer(42); // Calls foo_obj.print(42)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In modern C++ (C++11 and later), when is it generally recommended to use a lambda expression instead of `std::bind`?",
+      "back": "Lambdas are generally preferred over `std::bind` for several reasons:\n1.  **Readability:** Lambdas often result in more concise and readable code, especially for simple operations or captures.\n2.  **Type Safety:** Lambdas have well-defined types, whereas `std::bind` returns an unspecified callable object, which can sometimes complicate template deduction or require `auto`.\n3.  **Flexibility:** Lambdas can capture variables by value or reference, and their bodies can contain arbitrary statements, not just a single function call.\n4.  **Performance:** For simple cases, lambdas can sometimes be optimized better by the compiler as they don't involve the overhead of a generic binder object.\n`std::bind` might still be useful for very complex argument reordering or when dealing with legacy C-style function pointers that cannot be easily wrapped by a lambda.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-condition-number-absolute-relative-ill-conditioned-problems",
+  "subtopicTitle": "Condition number — absolute, relative; ill-conditioned problems",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:52.169Z",
+  "cards": [
+    {
+      "front": "Define the absolute condition number for a problem $f(x)$.",
+      "back": "The absolute condition number $C_{abs}$ measures the sensitivity of the output $f(x)$ to small absolute changes in the input $x$. It is given by $C_{abs} = \\frac{|\\Delta f|}{|\\Delta x|} \\approx |f'(x)|$ for small $\\Delta x$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the relative condition number for a problem $f(x)$.",
+      "back": "The relative condition number $C_{rel}$ measures the sensitivity of the *relative* change in output to the *relative* change in input. It is given by $C_{rel} = \\frac{|\\Delta f|/|f(x)|}{|\\Delta x|/|x|} \\approx \\left|\\frac{x f'(x)}{f(x)}\\right|$ for small $\\Delta x$. This is the more commonly used condition number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Intuitively, what does it mean for a mathematical problem to be 'ill-conditioned'?",
+      "back": "An ill-conditioned problem is one where a small change in the input data can lead to a disproportionately large change in the output or solution. It means the problem itself is inherently sensitive to perturbations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the relative condition number $C_{rel}$ quantify whether a problem is ill-conditioned?",
+      "back": "A problem is considered ill-conditioned if its relative condition number $C_{rel}$ is large. A large $C_{rel}$ indicates that relative errors in the input are magnified significantly in the relative errors of the output.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the relative condition number $C_{rel}$ for a differentiable function $f(x)$.",
+      "back": "Given $f(x+\\Delta x) \\approx f(x) + f'(x)\\Delta x$.<br>Then $\\Delta f = f(x+\\Delta x) - f(x) \\approx f'(x)\\Delta x$.<br>The relative change in output is $\\frac{|\\Delta f|}{|f(x)|} \\approx \\frac{|f'(x)\\Delta x|}{|f(x)|}$.<br>The relative change in input is $\\frac{|\\Delta x|}{|x|}$.<br>So, $C_{rel} = \\frac{|\\Delta f|/|f(x)|}{|\\Delta x|/|x|} \\approx \\frac{|f'(x)\\Delta x|/|f(x)|}{|\\Delta x|/|x|} = \\left|\\frac{x f'(x)}{f(x)}\\right|$. This formula assumes $f(x) \\neq 0$ and $x \\neq 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an example of a type of problem that is often ill-conditioned.",
+      "back": "Solving a system of linear equations $Ax=b$ where the matrix $A$ is nearly singular (i.e., its determinant is close to zero). Small perturbations in $A$ or $b$ can lead to very large changes in the solution $x$. Another example is finding roots of polynomials with very close roots.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the practical implication of solving an ill-conditioned problem using a numerical algorithm?",
+      "back": "Even if a numerical algorithm is perfectly stable, solving an ill-conditioned problem will likely yield an inaccurate solution. This is because any small rounding errors or measurement errors in the input data will be greatly amplified in the output, regardless of the algorithm's precision.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference between an 'ill-conditioned problem' and an 'unstable algorithm'.",
+      "back": "An **ill-conditioned problem** is an inherent property of the mathematical problem itself, meaning its solution is highly sensitive to small changes in input data. An **unstable algorithm** is a property of the method used to solve a problem, meaning it amplifies errors (e.g., round-off errors) even for well-conditioned problems. A good algorithm for an ill-conditioned problem will still produce an inaccurate answer due to the problem's sensitivity, but an unstable algorithm can produce inaccurate answers for *any* problem.",
+      "difficulty": "hard"
+    }
+  ]
+}

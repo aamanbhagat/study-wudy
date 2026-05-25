@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-4-maxwell-relations-derivation-from-each-potential",
+  "subtopicTitle": "Maxwell relations — derivation from each potential",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:31.335Z",
+  "cards": [
+    {
+      "front": "What are Maxwell relations, and what is their general purpose in thermodynamics?",
+      "back": "Maxwell relations are a set of four equations in thermodynamics that relate the partial derivatives of thermodynamic variables (temperature $T$, pressure $P$, volume $V$, and entropy $S$) to each other. Their general purpose is to allow us to express quantities that are difficult to measure directly (like entropy changes) in terms of easily measurable quantities (like $P, V, T$). They are derived from the exactness of the four fundamental thermodynamic potentials.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental thermodynamic relation for Internal Energy ($U$) and identify its natural variables.",
+      "back": "The fundamental thermodynamic relation for Internal Energy ($U$) is given by: $$dU = TdS - PdV$$ Its natural variables are entropy ($S$) and volume ($V$). This means that when $U$ is expressed as a function of $S$ and $V$, its partial derivatives yield $T$ and $-P$ respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Maxwell relation from the fundamental thermodynamic relation for Internal Energy ($U$).",
+      "back": "The fundamental thermodynamic relation for Internal Energy is $dU = TdS - PdV$. Since $dU$ is an exact differential, we can apply Euler's reciprocity relation (Clairaut's theorem) to its coefficients. If $dU = Mdx + Ndy$, then $\\left(\\frac{\\partial M}{\\partial y}\\right)_x = \\left(\\frac{\\partial N}{\\partial x}\\right)_y$.\n\nHere, $M = T$, $dx = dS$, $N = -P$, $dy = dV$. \n\nThus, we have:\n$$ \\left(\\frac{\\partial T}{\\partial V}\\right)_S = \\left(\\frac{\\partial (-P)}{\\partial S}\\right)_V $$\n$$ \\implies \\left(\\frac{\\partial T}{\\partial V}\\right)_S = -\\left(\\frac{\\partial P}{\\partial S}\\right)_V $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the Maxwell relation from the fundamental thermodynamic relation for Enthalpy ($H$).",
+      "back": "The fundamental thermodynamic relation for Enthalpy is $dH = TdS + VdP$. Since $dH$ is an exact differential, we apply Euler's reciprocity relation.\n\nHere, $M = T$, $dx = dS$, $N = V$, $dy = dP$.\n\nThus, we have:\n$$ \\left(\\frac{\\partial T}{\\partial P}\\right)_S = \\left(\\frac{\\partial V}{\\partial S}\\right)_P $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the Maxwell relation from the fundamental thermodynamic relation for Helmholtz Free Energy ($A$).",
+      "back": "The fundamental thermodynamic relation for Helmholtz Free Energy is $dA = -SdT - PdV$. Since $dA$ is an exact differential, we apply Euler's reciprocity relation.\n\nHere, $M = -S$, $dx = dT$, $N = -P$, $dy = dV$.\n\nThus, we have:\n$$ \\left(\\frac{\\partial (-S)}{\\partial V}\\right)_T = \\left(\\frac{\\partial (-P)}{\\partial T}\\right)_V $$\n$$ \\implies -\\left(\\frac{\\partial S}{\\partial V}\\right)_T = -\\left(\\frac{\\partial P}{\\partial T}\\right)_V $$\n$$ \\implies \\left(\\frac{\\partial S}{\\partial V}\\right)_T = \\left(\\frac{\\partial P}{\\partial T}\\right)_V $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the Maxwell relation from the fundamental thermodynamic relation for Gibbs Free Energy ($G$).",
+      "back": "The fundamental thermodynamic relation for Gibbs Free Energy is $dG = -SdT + VdP$. Since $dG$ is an exact differential, we apply Euler's reciprocity relation.\n\nHere, $M = -S$, $dx = dT$, $N = V$, $dy = dP$.\n\nThus, we have:\n$$ \\left(\\frac{\\partial (-S)}{\\partial P}\\right)_T = \\left(\\frac{\\partial V}{\\partial T}\\right)_P $$\n$$ \\implies -\\left(\\frac{\\partial S}{\\partial P}\\right)_T = \\left(\\frac{\\partial V}{\\partial T}\\right)_P $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What mathematical property of thermodynamic potentials allows for the derivation of Maxwell relations?",
+      "back": "The mathematical property that allows for the derivation of Maxwell relations is that the fundamental thermodynamic relations (e.g., $dU = TdS - PdV$) represent **exact differentials**. For an exact differential $df = Mdx + Ndy$, the mixed second partial derivatives are equal: $\\left(\\frac{\\partial M}{\\partial y}\\right)_x = \\left(\\frac{\\partial N}{\\partial x}\\right)_y$. This is known as **Euler's reciprocity relation** or **Clairaut's theorem** on the equality of mixed partials.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a practical example of how a Maxwell relation can be used in experimental thermodynamics.",
+      "back": "A practical use of Maxwell relations is to relate an entropy derivative (which is hard to measure directly) to a pressure or volume derivative (which is easier to measure). For example, the Maxwell relation from Helmholtz free energy, $\\left(\\frac{\\partial S}{\\partial V}\\right)_T = \\left(\\frac{\\partial P}{\\partial T}\\right)_V$, allows us to calculate how entropy changes with volume at constant temperature by measuring how pressure changes with temperature at constant volume. This is particularly useful for understanding the behavior of gases and phase transitions.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-3-standard-library-math-random-os-sys-datetime-time-collections-itertools-functools",
+  "subtopicTitle": "Standard library — math, random, os, sys, datetime, time, collections, itertools, functools",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:18.114Z",
+  "cards": [
+    {
+      "front": "What is the purpose of `math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)`?",
+      "back": "It checks if two floating-point values `a` and `b` are close to each other, considering both relative tolerance (percentage difference) and absolute tolerance (fixed difference). This is crucial for comparing floats due to potential precision errors that make direct equality checks (`a == b`) unreliable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you generate a random integer between 1 and 100 (inclusive) and then randomly select two unique elements from a list `['A', 'B', 'C', 'D']`?",
+      "back": "```python\nimport random\n\n# Random integer between 1 and 100 (inclusive)\nrand_int = random.randint(1, 100)\n\n# Select two unique elements from a list\nmy_list = ['A', 'B', 'C', 'D']\nselected_elements = random.sample(my_list, 2)\n# Example output: ['C', 'A'] (order and elements vary)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how to get the current working directory, list its contents, and retrieve the command-line arguments passed to a Python script.",
+      "back": "```python\nimport os\nimport sys\n\n# Get current working directory\ncurrent_dir = os.getcwd()\n\n# List contents of current directory\ndir_contents = os.listdir(current_dir)\n\n# Retrieve command-line arguments\n# sys.argv[0] is the script name itself.\n# sys.argv[1:] contains the actual arguments.\nargs = sys.argv[1:]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you calculate the difference between two `datetime` objects and then add 5 days and 3 hours to a specific `datetime`?",
+      "back": "```python\nfrom datetime import datetime, timedelta\n\ndt1 = datetime(2023, 1, 1, 10, 0, 0)\ndt2 = datetime(2023, 1, 5, 13, 30, 0)\n\n# Calculate difference (returns a timedelta object)\ntime_difference = dt2 - dt1\n# time_difference will be timedelta(days=4, seconds=12600)\n\n# Add 5 days and 3 hours to dt1\nnew_dt = dt1 + timedelta(days=5, hours=3)\n# new_dt will be datetime(2023, 1, 6, 13, 0, 0)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the primary use case for `collections.Counter` and provide a small example.",
+      "back": "`collections.Counter` is a subclass of `dict` used for counting hashable objects. It's ideal for quickly finding the frequency of items in a sequence (like a list or string). It maps items to their counts.\n\nExample:\n```python\nfrom collections import Counter\nmy_list = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']\ncounts = Counter(my_list)\n# counts will be Counter({'apple': 3, 'banana': 2, 'orange': 1})\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using `itertools`, how would you generate all unique combinations of 2 elements from `[1, 2, 3]` and then create a sequence that endlessly cycles through `['A', 'B', 'C']`?",
+      "back": "```python\nimport itertools\n\n# Unique combinations of 2 elements\ncombinations = list(itertools.combinations([1, 2, 3], 2))\n# Result: [(1, 2), (1, 3), (2, 3)]\n\n# Endless cycle\nmy_cycle = itertools.cycle(['A', 'B', 'C'])\n# To get elements:\n# next(my_cycle) -> 'A'\n# next(my_cycle) -> 'B'\n# next(my_cycle) -> 'C'\n# next(my_cycle) -> 'A' (repeats)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can `functools.lru_cache` improve performance, and what is its primary mechanism?",
+      "back": "`functools.lru_cache` is a decorator used for memoization. It stores the results of expensive function calls and returns the cached result when the same inputs occur again. This avoids recomputing values. \"LRU\" stands for \"Least Recently Used,\" meaning it discards the least recently used items when the cache reaches its maximum size.\n\nExample:\n```python\nfrom functools import lru_cache\n\n@lru_cache(maxsize=128) # Cache up to 128 distinct calls\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you measure the execution time of a piece of code in Python?",
+      "back": "The `time` module provides functions for measuring execution time. `time.perf_counter()` is generally recommended for measuring short durations, as it provides a high-resolution timer with no relation to system clock changes.\n\nExample:\n```python\nimport time\n\nstart_time = time.perf_counter()\n\n# --- Code to measure starts here ---\nresult = sum(range(10**6))\n# --- Code to measure ends here ---\n\nend_time = time.perf_counter()\nelapsed_time = end_time - start_time\nprint(f\"Execution time: {elapsed_time:.4f} seconds\")\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

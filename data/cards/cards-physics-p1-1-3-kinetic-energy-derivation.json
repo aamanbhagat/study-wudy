@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-3-kinetic-energy-derivation",
+  "subtopicTitle": "Kinetic energy — derivation",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:58.897Z",
+  "cards": [
+    {
+      "front": "Define kinetic energy in simple terms.",
+      "back": "Kinetic energy is the energy an object possesses due to its motion. It depends on the object's mass and speed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the SI units for kinetic energy?",
+      "back": "The SI unit for kinetic energy is the Joule (J). One Joule is equivalent to $1 \\text{ kg} \\cdot \\text{m}^2/\\text{s}^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Work-Energy Theorem.",
+      "back": "The Work-Energy Theorem states that the net work done on an object is equal to the change in its kinetic energy: $W_{net} = \\Delta KE = KE_f - KE_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental physics principles are combined to derive the formula for kinetic energy from the Work-Energy Theorem for constant force in one dimension?",
+      "back": "The derivation combines:\n1. The definition of work done by a constant force ($W = Fd$).\n2. Newton's Second Law ($F_{net} = ma$).\n3. A kinematic equation relating displacement, initial velocity, final velocity, and acceleration ($v_f^2 = v_i^2 + 2ad$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for kinetic energy, $KE = \\frac{1}{2}mv^2$, starting from the definition of work done by a constant net force and using kinematic equations. Assume initial velocity $v_i$ and final velocity $v_f$.",
+      "back": "1. Start with the definition of work done by a constant net force: $W_{net} = F_{net}d$.\n2. From Newton's Second Law: $F_{net} = ma$. Substitute this into the work equation: $W_{net} = (ma)d$.\n3. From kinematics, for constant acceleration: $v_f^2 = v_i^2 + 2ad$.\n4. Rearrange the kinematic equation to solve for $ad$: $ad = \\frac{v_f^2 - v_i^2}{2}$.\n5. Substitute this expression for $ad$ back into the work equation: $W_{net} = m \\left( \\frac{v_f^2 - v_i^2}{2} \\right)$.\n6. Distribute $m/2$: $W_{net} = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2$.\n7. By the Work-Energy Theorem, $W_{net} = \\Delta KE = KE_f - KE_i$.\n8. Comparing the expressions, we define kinetic energy as $KE = \\frac{1}{2}mv^2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the derivation of kinetic energy often introduced through the concept of \"work done by a net force\"?",
+      "back": "The concept of kinetic energy naturally arises from the Work-Energy Theorem. When a net force does work on an object, it changes the object's speed, and thus its energy of motion. The derivation shows that this work precisely quantifies the change in a specific form of energy, which we define as kinetic energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the derivation of the Work-Energy Theorem (and thus kinetic energy) change if the net force is not constant, requiring calculus?",
+      "back": "For a variable net force, the work done is calculated using an integral: $W_{net} = \\int \\vec{F}_{net} \\cdot d\\vec{r}$.\nUsing Newton's Second Law $\\vec{F}_{net} = m\\vec{a} = m\\frac{d\\vec{v}}{dt}$ and the chain rule $\\frac{d\\vec{v}}{dt} = \\frac{d\\vec{v}}{d\\vec{r}}\\frac{d\\vec{r}}{dt} = \\vec{v}\\frac{d\\vec{v}}{d\\vec{r}}$, the integral becomes:\n$W_{net} = \\int_{r_i}^{r_f} m \\frac{d\\vec{v}}{dt} \\cdot d\\vec{r} = \\int_{v_i}^{v_f} m \\vec{v} \\cdot d\\vec{v} = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2$.\nThis confirms $W_{net} = \\Delta KE$ even for variable forces.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What crucial assumption about the direction of motion and force is made in the simplified derivation of $KE = \\frac{1}{2}mv^2$ using $W = Fd$ and scalar kinematic equations?",
+      "back": "The simplified derivation assumes that the net force is constant and acts in the same direction as the displacement (or opposite to it, if decelerating), meaning the motion is in one dimension and the force and displacement vectors are parallel. This allows $W = Fd$ rather than $W = \\vec{F} \\cdot \\vec{d}$ or $W = \\int \\vec{F} \\cdot d\\vec{r}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

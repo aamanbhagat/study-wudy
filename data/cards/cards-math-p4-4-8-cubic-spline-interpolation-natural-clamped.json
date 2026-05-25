@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-cubic-spline-interpolation-natural-clamped",
+  "subtopicTitle": "Cubic spline interpolation — natural, clamped",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:04.810Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of cubic spline interpolation, and what level of continuity does it guarantee across data points?",
+      "back": "The primary purpose is to construct a piecewise cubic polynomial $S(x)$ that interpolates a given set of data points $(x_i, y_i)$. It guarantees continuity of the function itself, its first derivative, and its second derivative across the interior data points, i.e., $S(x)$, $S'(x)$, and $S''(x)$ are continuous.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a cubic spline segment $S_i(x)$ on $[x_i, x_{i+1}]$, express its general form in terms of $y_i, y_{i+1}, M_i, M_{i+1}$ and $h_i = x_{i+1}-x_i$, where $M_k = S''(x_k)$.",
+      "back": "The cubic spline segment $S_i(x)$ on $[x_i, x_{i+1}]$ can be written as:\n$$S_i(x) = \\frac{M_i}{6h_i}(x_{i+1}-x)^3 + \\frac{M_{i+1}}{6h_i}(x-x_i)^3 + \\left(\\frac{y_i}{h_i} - \\frac{M_i h_i}{6}\\right)(x_{i+1}-x) + \\left(\\frac{y_{i+1}}{h_i} - \\frac{M_{i+1} h_i}{6}\\right)(x-x_i)$$\nThis form ensures $S_i(x_i)=y_i$, $S_i(x_{i+1})=y_{i+1}$, $S_i''(x_i)=M_i$, and $S_i''(x_{i+1})=M_{i+1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the continuity condition for the first derivative at an interior point $x_i$ for cubic splines, leading to the tridiagonal system relating $M_{i-1}, M_i, M_{i+1}$.",
+      "back": "By enforcing $S'_{i-1}(x_i) = S'_i(x_i)$, and using the derivative of the general form of $S_k(x)$, we arrive at the continuity condition for the first derivative:\n$$\\frac{h_{i-1}}{6}M_{i-1} + \\frac{h_{i-1}+h_i}{3}M_i + \\frac{h_i}{6}M_{i+1} = \\frac{y_{i+1}-y_i}{h_i} - \\frac{y_i-y_{i-1}}{h_{i-1}}$$\nThis equation holds for $i=1, \\dots, n-1$ (for $n+1$ data points $x_0, \\dots, x_n$) and forms the core of the tridiagonal system used to solve for the $M_i$ values.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the boundary conditions that define a *natural* cubic spline.",
+      "back": "A natural cubic spline is defined by setting the second derivatives at the outermost data points to zero:\n$$S''(x_0) = M_0 = 0$$\n$$S''(x_n) = M_n = 0$$\nThis implies that the spline has zero curvature at its endpoints.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide a scenario where a natural cubic spline is suitable, and describe its primary limitation.",
+      "back": "Natural splines are suitable when there is no information about the derivatives at the endpoints, or when the underlying function is expected to be approximately linear near the boundaries. Its primary limitation is that setting $M_0=0$ and $M_n=0$ can sometimes lead to an unnatural 'flattening' effect at the ends if the true function has non-zero second derivatives there, potentially causing larger errors near the boundaries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the boundary conditions that define a *clamped* cubic spline.",
+      "back": "A clamped cubic spline requires the first derivatives at the outermost data points to match given values:\n$$S'(x_0) = y_0'$$\n$$S'(x_n) = y_n'$$\nThese values $y_0'$ and $y_n'$ must be provided or accurately estimated from the problem context.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When is a clamped cubic spline the preferred choice, and how do its boundary conditions modify the tridiagonal system for $M_i$?",
+      "back": "Clamped splines are preferred when the first derivatives of the underlying function are known or can be accurately estimated at the endpoints. This provides more control over the spline's behavior at the boundaries, often leading to a better approximation of the true function.\nIts boundary conditions $S'(x_0)=y_0'$ and $S'(x_n)=y_n'$ are used to derive two additional equations involving $M_0, M_1$ and $M_{n-1}, M_n$ respectively. These two equations, combined with the $n-1$ interior continuity equations, form a complete system of $n+1$ equations for $M_0, \\dots, M_n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $n+1$ data points $(x_0, \\dots, x_n)$, compare the number of unknown $M_i$ values and the total number of equations in the tridiagonal system for a natural vs. a clamped cubic spline.",
+      "back": "For both natural and clamped cubic splines, there are $n+1$ unknown second derivative values, $M_0, M_1, \\dots, M_n$.\n\n*   **Natural Spline:** The $n-1$ continuity conditions for $S'(x)$ at interior points ($x_1, \\dots, x_{n-1}$) provide $n-1$ equations. The boundary conditions $M_0=0$ and $M_n=0$ directly provide the remaining 2 equations. Total $n+1$ equations.\n*   **Clamped Spline:** The $n-1$ continuity conditions for $S'(x)$ at interior points provide $n-1$ equations. The boundary conditions $S'(x_0)=y_0'$ and $S'(x_n)=y_n'$ are used to derive two additional equations that involve $M_0, M_1$ and $M_{n-1}, M_n$ respectively. These two equations, combined with the $n-1$ interior equations, form a system of $n+1$ equations for $M_0, \\dots, M_n$.",
+      "difficulty": "hard"
+    }
+  ]
+}

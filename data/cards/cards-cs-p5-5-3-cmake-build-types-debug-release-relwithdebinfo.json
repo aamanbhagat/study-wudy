@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-3-cmake-build-types-debug-release-relwithdebinfo",
+  "subtopicTitle": "CMake build types — Debug, Release, RelWithDebInfo",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:25.447Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a CMake \"Debug\" build type, and what are its key characteristics regarding optimization and debug symbols?",
+      "back": "The \"Debug\" build type is designed for development and debugging. It typically disables most compiler optimizations (e.g., `-O0` or `-Og` in GCC/Clang) to ensure the code executes as written, making it easier to step through with a debugger. It includes full debug symbols (e.g., `-g`) to map compiled code back to source lines, variable names, and function names.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of a CMake \"Release\" build type, and what are its key characteristics regarding optimization and debug symbols?",
+      "back": "The \"Release\" build type is designed for deployment to end-users. It enables aggressive compiler optimizations (e.g., `-O3` or `-Os` in GCC/Clang) to maximize performance and minimize executable size. It typically omits debug symbols to reduce binary size and prevent reverse engineering, making debugging difficult or impossible with standard tools.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the purpose of the CMake \"RelWithDebInfo\" build type, and how does it balance optimization and debug information?",
+      "back": "\"RelWithDebInfo\" (Release with Debug Information) is a hybrid build type. Its purpose is to provide an optimized executable that can still be debugged, particularly useful for profiling or debugging crashes in deployed applications. It enables optimizations (e.g., `-O2` or `-O3`) but includes debug symbols (e.g., `-g`). The optimizations might reorder code, making step-by-step debugging less intuitive than a pure Debug build, but stack traces and variable inspection are still possible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When should a developer typically choose a \"Debug\" build over \"Release\" or \"RelWithDebInfo\", and vice-versa?",
+      "back": "<ul><li><b>Debug</b>: Use during active development, when frequently stepping through code, setting breakpoints, or inspecting variables. Prioritizes ease of debugging over performance.</li><li><b>Release</b>: Use for final production builds, benchmarks, or when distributing to end-users. Prioritizes maximum performance and minimum size, sacrificing debuggability.</li><li><b>RelWithDebInfo</b>: Use for profiling, testing in environments closer to production, or when needing to debug crashes in optimized code (e.g., from crash reports). Offers a balance, but debugging can be trickier than pure Debug.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you specify the build type when configuring a CMake project from the command line?",
+      "back": "You can specify the build type using the `-DCMAKE_BUILD_TYPE` variable during the CMake configuration step for single-configuration generators (like Makefiles):\n```bash\nmkdir build\ncd build\ncmake .. -DCMAKE_BUILD_TYPE=Release\ncmake --build .\n```\nFor multi-configuration generators (like Visual Studio), you specify it during the build step:\n```bash\ncmake --build . --config Release\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a GCC/Clang compiler, list the typical optimization and debug flag combinations used for \"Debug\", \"Release\", and \"RelWithDebInfo\" CMake build types.",
+      "back": "<ul><li><b>Debug</b>:<ul><li>Optimization: `-O0` (no optimization) or `-Og` (debug-friendly optimization)</li><li>Debug symbols: `-g` (full debug information)</li></ul></li><li><b>Release</b>:<ul><li>Optimization: `-O3` (aggressive optimization) or `-Os` (optimize for size)</li><li>Debug symbols: (none, or `-s` for stripping symbols)</li></ul></li><li><b>RelWithDebInfo</b>:<ul><li>Optimization: `-O2` (moderate optimization) or `-O3`</li><li>Debug symbols: `-g` (full debug information)</li></ul></li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Rank the CMake build types (Debug, Release, RelWithDebInfo) from largest to smallest executable size and from slowest to fastest runtime performance.",
+      "back": "<ul><li><b>Executable Size (Largest to Smallest):</b><ol><li>Debug (includes full debug symbols, no size optimization)</li><li>RelWithDebInfo (includes full debug symbols, but also optimizations that might reduce code size)</li><li>Release (no debug symbols, aggressive size optimization)</li></ol></li><li><b>Runtime Performance (Slowest to Fastest):</b><ol><li>Debug (no optimizations)</li><li>RelWithDebInfo (optimized, but debug symbols might have a minor impact, or specific optimizations might be slightly less aggressive than pure Release)</li><li>Release (most aggressive optimizations)</li></ol></li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the default `CMAKE_BUILD_TYPE` if it's not explicitly set during CMake configuration for a single-configuration generator (e.g., Makefiles)?",
+      "back": "For single-configuration generators (like Unix Makefiles or Ninja), if `CMAKE_BUILD_TYPE` is not explicitly set, it defaults to an empty string. This means no specific optimization or debug flags are automatically added by CMake based on a predefined build type, and the compiler's default behavior (which varies but is often no optimization or basic optimization) will apply. It's best practice to always set `CMAKE_BUILD_TYPE`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain how a developer could define a custom CMake build type beyond Debug, Release, and RelWithDebInfo.",
+      "back": "Custom build types can be defined by manipulating CMake variables. For example, to create a \"MinSizeRel\" type, one would set `CMAKE_BUILD_TYPE` to \"MinSizeRel\" and then define `CMAKE_CXX_FLAGS_MINSIZEREL`, `CMAKE_C_FLAGS_MINSIZEREL`, `CMAKE_EXE_LINKER_FLAGS_MINSIZEREL`, etc., with the desired compiler and linker flags (e.g., `-Os -DNDEBUG`). This allows fine-grained control over specific flag combinations for unique project requirements.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-dynamic-shared-libraries-so-dll-dynamic-linking-pic",
+  "subtopicTitle": "Dynamic/shared libraries — .so / .dll, dynamic linking, PIC",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:20.704Z",
+  "cards": [
+    {
+      "front": "What are dynamic/shared libraries, and what are their typical file extensions on Linux and Windows, respectively?",
+      "back": "Dynamic/shared libraries are collections of compiled code and data that can be loaded into memory by programs at runtime, rather than being linked statically at compile time. On Linux, they typically use the `.so` (shared object) extension. On Windows, they use the `.dll` (dynamic-link library) extension.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compared to static linking, what are the main advantages of dynamic linking regarding executable size and memory usage?",
+      "back": "Dynamic linking generally results in smaller executable file sizes because the library code is not copied into each executable. It also saves memory at runtime because multiple processes can share a single copy of the library code in memory, loaded by the operating system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain 'DLL Hell' and its common causes.",
+      "back": "'DLL Hell' refers to problems arising from conflicts between different versions of shared libraries (DLLs on Windows, but the concept applies to `.so` files too). It occurs when multiple applications require different versions of the same shared library, or when installing a new application overwrites a shared library with an incompatible version, breaking existing applications.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is Position-Independent Code (PIC) essential for shared libraries (e.g., .so files)?",
+      "back": "PIC is crucial because shared libraries are loaded at arbitrary memory addresses by the operating system. If the code wasn't position-independent, it would need to be modified (relocated) every time it's loaded, which is inefficient and prevents sharing. PIC allows the code to execute correctly regardless of its base address, enabling a single copy of the library to be shared by multiple processes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do Position-Independent Code (PIC) binaries typically resolve references to global data and external functions at runtime?",
+      "back": "PIC uses two main tables:\n1.  **Global Offset Table (GOT):** Stores the actual memory addresses of global variables and functions. When the library refers to global data or an external function, it accesses the GOT.\n2.  **Procedure Linkage Table (PLT):** A small stub of code that acts as an intermediary for calls to external functions. The first time an external function is called, the PLT entry resolves its address (often by looking it up in the GOT and updating the GOT entry). Subsequent calls go directly through the updated GOT entry.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary role of the dynamic linker/loader (e.g., `ld.so` on Linux) when a dynamically linked program starts?",
+      "back": "The dynamic linker/loader is responsible for:\n1.  Locating and loading all necessary shared libraries into the program's memory space.\n2.  Performing any required relocations (e.g., updating GOT entries) to resolve symbols (functions and global variables) between the executable and the loaded libraries.\n3.  Initializing the loaded libraries.\nIt essentially sets up the environment so the program can correctly call functions and access data from shared libraries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using `gcc`, what command compiles `mylib.c` into a shared library named `libmylib.so`?",
+      "back": "```bash\ngcc -shared -fPIC mylib.c -o libmylib.so\n```\n`-shared` tells `gcc` to create a shared library.\n`-fPIC` tells `gcc` to generate Position-Independent Code, which is essential for shared libraries.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a shared library *lacked* Position-Independent Code (PIC), how would the OS handle its loading, and what are the primary drawbacks?",
+      "back": "Without PIC, the OS would have to perform **relocation** on the library's code and data sections every time it's loaded into a new process. This involves modifying the actual machine code to reflect the library's base address in that specific process's memory.\nDrawbacks:\n1.  **Increased Load Time:** Relocation is a costly operation.\n2.  **No Code Sharing:** Each process would need its own *private, modified* copy of the library's code in memory, negating a major benefit of shared libraries (memory savings).",
+      "difficulty": "hard"
+    }
+  ]
+}

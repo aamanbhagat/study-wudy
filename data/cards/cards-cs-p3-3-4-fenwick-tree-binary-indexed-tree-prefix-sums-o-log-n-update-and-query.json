@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-fenwick-tree-binary-indexed-tree-prefix-sums-o-log-n-update-and-query",
+  "subtopicTitle": "Fenwick tree (Binary Indexed Tree) — prefix sums, O(log n) update and query",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:32.373Z",
+  "cards": [
+    {
+      "front": "What is a Fenwick Tree (Binary Indexed Tree) and what is its primary purpose?",
+      "back": "A data structure that allows efficient calculation of prefix sums and point updates on an array. Both operations are performed in $O(\\log n)$ time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core idea of how a Fenwick Tree stores prefix sums using its tree-like structure.",
+      "back": "Each node `tree[i]` stores the sum of a *range* of elements, specifically from index $(i - (i \\text{ & } -i) + 1)$ to $i$. The length of this range is determined by the lowest set bit of $i$. These ranges are combined to form any required prefix sum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the `update(idx, val)` operation logic for a Fenwick Tree, explaining the role of `idx & -idx`.",
+      "back": "To update `arr[idx]` by `val`, we must update all Fenwick Tree nodes whose ranges *cover* `idx`. We find these nodes by repeatedly adding `idx & -idx` to `idx`. This expression isolates the lowest set bit, which represents the smallest power-of-2 range ending at `idx`. Adding it moves `idx` to the *next* parent node that covers a larger segment including the current one.\n```cpp\nvoid update(int idx, int val, int n, vector<int>& bit) {\n    for (; idx <= n; idx += idx & -idx) {\n        bit[idx] += val;\n    }\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the `query(idx)` operation logic for a Fenwick Tree (prefix sum up to `idx`), explaining `idx & -idx`.",
+      "back": "To find the prefix sum `sum[1...idx]`, we sum values from Fenwick Tree nodes whose ranges *collectively form* `1...idx`. We find these nodes by repeatedly subtracting `idx & -idx` from `idx`. This expression isolates the lowest set bit. Subtracting it effectively removes the contribution of the current node's range and moves `idx` to the *previous* node that covers the range just before it.\n```cpp\nint query(int idx, vector<int>& bit) {\n    int sum = 0;\n    for (; idx > 0; idx -= idx & -idx) {\n        sum += bit[idx];\n    }\n    return sum;\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the time complexity for Fenwick Tree `update` and `query` operations, and why?",
+      "back": "Both `update` and `query` operations have a time complexity of $O(\\log n)$. This is because in each step, `idx` is modified by adding or subtracting its lowest set bit. This process effectively traverses up or down the implicit tree structure, which has a height of $O(\\log n)$ (the number of bits in $n$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the space complexity of a Fenwick Tree for an array of size $N$?",
+      "back": "The space complexity is $O(N)$. A Fenwick Tree typically uses an auxiliary array of size $N+1$ (for 1-indexed implementation) to store its nodes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When is a Fenwick Tree more efficient than a simple prefix sum array? Provide an example problem.",
+      "back": "A Fenwick Tree is more efficient when there are frequent *point updates* on array elements interspersed with *prefix sum queries*. A simple prefix sum array has $O(1)$ query but $O(N)$ update, while a Fenwick Tree offers $O(\\log N)$ for both. Example: Given an array, find the sum of a range `[L, R]` after several elements have been modified.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you initialize a Fenwick Tree for an array `arr` of size `N` with initial values?",
+      "back": "Initialize the Fenwick Tree `bit` (an array of size $N+1$) with all zeros. Then, for each element `arr[i]` (assuming 1-indexed `arr`), call `update(i, arr[i], N, bit)`. This takes $O(N \\log N)$ time.\n```cpp\n// Assuming arr is 1-indexed std::vector<int>\nvector<int> bit(N + 1, 0);\nfor (int i = 1; i <= N; ++i) {\n    update(i, arr[i], N, bit); // Using the update function\n}\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

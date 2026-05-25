@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-4-scipy-linalg-more-stable-than-numpy-linalg-lu-qr-schur",
+  "subtopicTitle": "scipy.linalg — more stable than numpy.linalg, lu, qr, schur",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:35.904Z",
+  "cards": [
+    {
+      "front": "What is the primary reason to prefer `scipy.linalg` over `numpy.linalg` for numerical stability in scientific computing?",
+      "back": "`scipy.linalg` typically uses more sophisticated, robust, and numerically stable algorithms, often wrapping optimized Fortran libraries like LAPACK and BLAS. This makes it better suited for handling ill-conditioned matrices and edge cases, leading to more reliable results in complex computations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does LU decomposition factorize a square matrix $A$ into?",
+      "back": "LU decomposition factors a square matrix $A$ into a lower triangular matrix $L$, an upper triangular matrix $U$, and optionally a permutation matrix $P$, such that $PA = LU$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How would you perform LU decomposition on a matrix $A$ using `scipy.linalg` and reconstruct $A$ from its factors?",
+      "back": "```python\nimport numpy as np\nfrom scipy.linalg import lu\n\nA = np.array([[2, 1], [4, 3]])\nP, L, U = lu(A)\n\n# Reconstruct A\nA_reconstructed = P @ L @ U\n# np.allclose(A, A_reconstructed) should be True\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary use case for LU decomposition in solving linear systems?",
+      "back": "LU decomposition is highly efficient for solving multiple linear systems $Ax=b$ with the same matrix $A$ but different right-hand side vectors $b$. Once $A=LU$ (or $PA=LU$) is computed, solving $Ax=b$ reduces to two simpler steps: first solving $Ly=b$ for $y$ (forward substitution), then solving $Ux=y$ for $x$ (backward substitution).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does QR decomposition factorize a matrix $A$ into?",
+      "back": "QR decomposition factors a matrix $A$ into an orthogonal matrix $Q$ and an upper triangular matrix $R$, such that $A = QR$. For complex matrices, $Q$ is a unitary matrix.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How would you perform QR decomposition on a matrix $A$ using `scipy.linalg` and verify the orthogonality of $Q$?",
+      "back": "```python\nimport numpy as np\nfrom scipy.linalg import qr\n\nA = np.array([[1, 2], [3, 4], [5, 6]])\nQ, R = qr(A)\n\n# Verify Q is orthogonal (Q^T Q = I)\nidentity_check = Q.T @ Q\n# np.allclose(identity_check, np.eye(Q.shape[1])) should be True\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what scenario is QR decomposition often preferred over LU decomposition for solving linear least squares problems, and why?",
+      "back": "QR decomposition is preferred for solving linear least squares problems ($Ax \\approx b$) when $A$ is not square or is ill-conditioned. It is numerically more stable than methods involving the normal equations ($A^T A x = A^T b$) because it avoids explicitly computing $A^T A$, which can square the condition number of $A$ and amplify numerical errors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does Schur decomposition factorize a square matrix $A$ into?",
+      "back": "Schur decomposition factors a square matrix $A$ into $A = Q T Q^H$, where $Q$ is a unitary matrix ($Q^H Q = I$) and $T$ is an upper triangular matrix (called the Schur form or Schur matrix). $Q^H$ denotes the conjugate transpose of $Q$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What crucial information about a matrix $A$ can be directly read from the diagonal entries of its Schur form $T$?",
+      "back": "The diagonal entries of the Schur form $T$ are the eigenvalues of the matrix $A$. This is because $T$ is similar to $A$ ($T = Q^H A Q$), and similar matrices share the same eigenvalues.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why Schur decomposition is useful for eigenvalue problems, especially for non-symmetric matrices, beyond just providing eigenvalues.",
+      "back": "Schur decomposition is powerful because it triangularizes a matrix $A$ via a *unitary* transformation. Unitary transformations are numerically stable as they preserve the Euclidean norm. For non-symmetric matrices, eigenvectors might not be orthogonal or even form a complete basis. Schur decomposition provides a stable way to analyze spectral properties by transforming $A$ into a simpler triangular form ($T$) where eigenvalues are explicit. The off-diagonal elements of $T$ also provide insights into the 'non-normality' of the matrix, which is crucial for understanding its behavior and for stable numerical algorithms for eigenvalue computations.",
+      "difficulty": "hard"
+    }
+  ]
+}

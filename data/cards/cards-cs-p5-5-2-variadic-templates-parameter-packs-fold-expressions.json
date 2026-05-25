@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-variadic-templates-parameter-packs-fold-expressions",
+  "subtopicTitle": "Variadic templates — parameter packs, fold expressions",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:11.798Z",
+  "cards": [
+    {
+      "front": "In C++, what is a variadic template?",
+      "back": "A template that can accept an arbitrary, compile-time determined number of template arguments. This allows functions or classes to operate on a variable number of types or values, providing greater flexibility.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you declare a template parameter pack and a function parameter pack in C++?",
+      "back": "<ul><li>Template parameter pack: `template<typename... Args>` or `template<class... Types>`</li><li>Function parameter pack: `void func(Args... args)`</li></ul>The `...` (ellipsis) signifies a parameter pack, indicating it can hold zero or more arguments.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `template<typename T, typename... Args> void printAll(T first, Args... rest)`, how would you recursively print all arguments?",
+      "back": "```cpp\n#include <iostream>\n\n// Base case for recursion (handles an empty pack)\nvoid printAll() {\n    std::cout << \"\\n\";\n}\n\n// Recursive variadic function\ntemplate<typename T, typename... Args>\nvoid printAll(T first, Args... rest) {\n    std::cout << first << \" \";\n    printAll(rest...); // Pack expansion in a function call\n}\n\n// Example usage:\n// printAll(1, 2.5, \"hello\", 'C');\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is \"pack expansion\" in C++ variadic templates, and how is it denoted? Provide an example.",
+      "back": "Pack expansion is the mechanism by which a parameter pack is expanded into a sequence of individual arguments. It's denoted by `...` following the name of the pack or an expression involving the pack.\n\nExample:\n```cpp\ntemplate<typename... Args>\nvoid forwardArgs(Args... args) {\n    // 'args...' expands the pack into individual arguments\n    // e.g., if args was (int, double), this becomes (int_val, double_val)\n    someOtherFunction(args...);\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In C++17, what is a \"fold expression\"? Provide an example to sum all arguments of a variadic function.",
+      "back": "A fold expression provides a concise syntax to apply a binary operator over all elements of a parameter pack. It simplifies operations that would traditionally require explicit recursive variadic templates.\n\nExample (unary left fold to sum):\n```cpp\ntemplate<typename... Args>\nauto sumAll(Args... args) {\n    // (args + ...) expands to (arg1 + (arg2 + (... + argN)))\n    // Requires at least one argument. Will fail for empty pack.\n    return (args + ...);\n}\n\n// Example with an initial value (binary left fold):\ntemplate<typename... Args>\nauto sumAllWithInitial(Args... args) {\n    // (0 + ... + args) expands to (((0 + arg1) + arg2) + ... + argN)\n    // Works correctly even for an empty pack (returns 0).\n    return (0 + ... + args);\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the four forms of fold expressions in C++17, illustrating each with a simple example using `op` and `pack`.",
+      "back": "1.  **Unary left fold:** `(... op pack)` $\\rightarrow$ `(E1 op (E2 op (... op EN)))`\n    Example: `(... + args)` (sums `args` from left, e.g., `(arg1 + (arg2 + arg3))`).\n2.  **Unary right fold:** `(pack op ...)` $\\rightarrow$ `(((E1 op E2) op ...) op EN)`\n    Example: `(args + ...)` (sums `args` from right, e.g., `((arg1 + arg2) + arg3)`).\n3.  **Binary left fold:** `(init op ... op pack)` $\\rightarrow$ `(((init op E1) op E2) op ... op EN)`\n    Example: `(0 + ... + args)` (sums `args` starting with `0`).\n4.  **Binary right fold:** `(pack op ... op init)` $\\rightarrow$ `(E1 op (... op (EN op init)))`\n    Example: `(args && ... && true)` (logical AND of `args` ending with `true`).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When performing a simple operation like summing arguments, what are the primary advantages of using a C++17 fold expression over a recursive variadic template function?",
+      "back": "1.  **Conciseness:** Significantly reduces boilerplate code, eliminating the need for explicit base cases and recursive calls.\n2.  **Readability:** Often clearer and more direct for common, repetitive operations.\n3.  **Performance/Optimization:** Compilers can often generate more efficient code for fold expressions, potentially avoiding function call overheads inherent in recursion.\n4.  **No recursion depth limits:** Since fold expressions are a compile-time construct, they do not suffer from runtime stack overflow issues for very large parameter packs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can a C++ variadic template function have non-pack arguments *after* a function parameter pack? Explain why or why not.",
+      "back": "No, a function parameter pack must be the last argument in the function parameter list.\n\nExample (invalid):\n```cpp\ntemplate<typename... Args, typename Last>\nvoid func(Args... args, Last last_arg); // ERROR: parameter pack not at end\n```\nThis rule exists because the compiler wouldn't be able to unambiguously deduce which arguments belong to the pack `Args...` and which belong to `Last`. All arguments following the pack would be ambiguous, making it impossible for the compiler to parse the function call correctly.",
+      "difficulty": "hard"
+    }
+  ]
+}

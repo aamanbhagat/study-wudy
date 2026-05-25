@@ -1,0 +1,40 @@
+{
+  "subtopicId": "cs-p3-3-7-when-greedy-fails-0-1-knapsack-counter-example",
+  "subtopicTitle": "When greedy fails — 0/1 knapsack counter-example",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:37.196Z",
+  "cards": [
+    {
+      "front": "What is the fundamental constraint that defines the \"0/1\" in the 0/1 Knapsack problem?",
+      "back": "The \"0/1\" constraint means that for each item, you must make an \"all or nothing\" decision: either take the entire item (1) or leave it completely (0). You cannot take a fraction of an item.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a common greedy strategy for the Knapsack problem based on item properties.",
+      "back": "A common greedy strategy is to calculate the value-to-weight ratio ($v/w$) for each item. Then, sort the items in descending order of this ratio and pick items one by one until the knapsack's capacity is full. This strategy aims to maximize value per unit of weight.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a 0/1 Knapsack instance where the \"greedy by value/weight ratio\" strategy fails to find the optimal solution. Specify items, capacity, greedy choice, and optimal choice.",
+      "back": "Capacity $W=50$. Items: Item A ($v=60, w=10$), Item B ($v=100, w=20$), Item C ($v=120, w=30$).\n\nRatios:\n- A: $60/10 = 6$\n- B: $100/20 = 5$\n- C: $120/30 = 4$\n\nGreedy choice (sorted by ratio A, B, C):\n1. Take A ($w=10, v=60$). Remaining $W=40$.\n2. Take B ($w=20, v=100$). Remaining $W=20$.\n3. Cannot take C ($w=30$) as $20 < 30$.\nGreedy total: Items {A, B}, Weight $10+20=30$, Value $60+100=160$.\n\nOptimal choice:\nItems {B, C}, Weight $20+30=50$, Value $100+120=220$.\n\nGreedy ($160) \\neq$ Optimal ($220$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the greedy strategy (by value/weight ratio) fail for the 0/1 Knapsack problem?",
+      "back": "The greedy strategy fails because a locally optimal choice (picking an item with a high value/weight ratio) might consume capacity in a way that prevents a globally optimal solution. Since items must be taken whole, picking a 'best' item might leave insufficient capacity for other items that, when combined, would yield a higher total value. It lacks the 'greedy choice property' that guarantees local optimums lead to global optimums.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What algorithmic paradigm is typically used to solve the 0/1 Knapsack problem optimally?",
+      "back": "The 0/1 Knapsack problem is a classic example solved optimally using Dynamic Programming. It exhibits optimal substructure and overlapping subproblems, making DP an efficient approach to explore all relevant combinations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the greedy approach works for the Fractional Knapsack problem but fails for the 0/1 Knapsack problem.",
+      "back": "The greedy approach works for Fractional Knapsack because you can take *parts* of items. If you have remaining capacity, you can always fill it with a fraction of the next highest value/weight ratio item, never 'wasting' capacity. This ensures local optimality leads to global optimality. In 0/1 Knapsack, the 'all or nothing' constraint means you can't take fractions, so a locally optimal choice might block a better global solution by leaving capacity that no single remaining item can fully utilize optimally.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-equilibrium-of-rigid-bodies-translational-rotational",
+  "subtopicTitle": "Equilibrium of rigid bodies — translational + rotational",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:37.986Z",
+  "cards": [
+    {
+      "front": "Define \"equilibrium\" for a rigid body.",
+      "back": "A rigid body is in equilibrium if both its linear acceleration and its angular acceleration are zero. This implies that its linear velocity and angular velocity are constant (which can include zero).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical condition for **translational equilibrium** of a rigid body.",
+      "back": "The vector sum of all external forces acting on the body must be zero: $$ \\sum \\vec{F}_{\\text{ext}} = \\vec{0} $$ This means the net force component in any direction (e.g., x, y, z) is zero.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical condition for **rotational equilibrium** of a rigid body.",
+      "back": "The vector sum of all external torques acting on the body about *any arbitrary point* must be zero: $$ \\sum \\vec{\\tau}_{\\text{ext}} = \\vec{0} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a rigid body is in rotational equilibrium, why can we calculate the net torque about *any* arbitrary point and set it to zero?",
+      "back": "If the net torque is zero about one point $P_1$ (i.e., $\\sum \\vec{\\tau}_{P_1} = \\vec{0}$) AND the net force is zero ($\\sum \\vec{F} = \\vec{0}$), then the net torque about *any other* point $P_2$ will also be zero. This is because the torque about $P_2$ can be related to the torque about $P_1$ by $\\vec{\\tau}_{P_2} = \\vec{\\tau}_{P_1} + \\vec{r}_{P_2P_1} \\times \\sum \\vec{F}$. Since $\\sum \\vec{F} = \\vec{0}$, then $\\vec{\\tau}_{P_2} = \\vec{\\tau}_{P_1}$. This flexibility allows choosing a pivot point that eliminates unknown forces from the torque equation, simplifying problem-solving.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A uniform ladder leans against a frictionless wall. Describe the forces to consider for setting up equilibrium equations.",
+      "back": "1.  **Weight of the ladder ($\\vec{W}$):** Acts vertically downwards through the center of mass of the ladder.\n2.  **Normal force from the ground ($\\vec{N}_g$):** Acts vertically upwards at the base of the ladder.\n3.  **Static friction force from the ground ($\\vec{f}_s$):** Acts horizontally along the ground, preventing the ladder from slipping away from the wall.\n4.  **Normal force from the wall ($\\vec{N}_w$):** Acts horizontally, perpendicular to the wall, at the point of contact. (No friction from the wall, as stated).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A rigid body is in equilibrium under the action of three non-parallel forces. What must be true about their lines of action?",
+      "back": "For a rigid body to be in equilibrium under three non-parallel forces, their lines of action must be **concurrent** (i.e., they must all intersect at a single common point). If two forces intersect, their net torque about that intersection point is zero. For the total net torque to be zero, the third force must also pass through that same intersection point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can a rigid body be in translational equilibrium but *not* rotational equilibrium? If so, provide an example.",
+      "back": "Yes. Consider a rigid body subjected to a \"couple\" – two forces of equal magnitude, opposite direction, and parallel lines of action, but applied at different points.\n-   **Translational Equilibrium:** The vector sum of forces is $\\vec{F} + (-\\vec{F}) = \\vec{0}$.\n-   **Rotational Equilibrium:** The net torque is non-zero. For example, if $\\vec{F}$ is applied at $\\vec{r}_1$ and $-\\vec{F}$ at $\\vec{r}_2$, the net torque about the origin is $\\vec{r}_1 \\times \\vec{F} + \\vec{r}_2 \\times (-\\vec{F}) = (\\vec{r}_1 - \\vec{r}_2) \\times \\vec{F}$. Since $\\vec{r}_1 \\neq \\vec{r}_2$ and $\\vec{r}_1 - \\vec{r}_2$ is not parallel to $\\vec{F}$ (as forces are parallel but applied at different points), this torque is non-zero and would cause angular acceleration.",
+      "difficulty": "medium"
+    }
+  ]
+}

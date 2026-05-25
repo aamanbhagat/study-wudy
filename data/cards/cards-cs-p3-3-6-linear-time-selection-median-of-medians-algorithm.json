@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-6-linear-time-selection-median-of-medians-algorithm",
+  "subtopicTitle": "Linear time selection — median of medians algorithm",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:35.297Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of the 'selection problem' in computer science?",
+      "back": "The primary goal of the selection problem is to find the $k$-th smallest (or largest) element in an unsorted list or array, without necessarily sorting the entire array.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the main advantage of the Median of Medians algorithm over randomized selection algorithms (like Quickselect) for finding the $k$-th smallest element?",
+      "back": "The main advantage is that Median of Medians guarantees an $O(n)$ worst-case time complexity for finding the $k$-th smallest element. Randomized algorithms like Quickselect have an $O(n^2)$ worst-case complexity, even though their average-case is $O(n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the five main high-level steps of the Median of Medians algorithm for finding the $k$-th smallest element.",
+      "back": "1.  **Divide:** Partition the $n$ elements into $\\lceil n/5 \\rceil$ groups of 5 elements each (the last group may have fewer).\n2.  **Medians:** Find the median of each of these $\\lceil n/5 \\rceil$ groups (e.g., by sorting each small group).\n3.  **Pivot:** Recursively find the median of these medians. This element is chosen as the pivot.\n4.  **Partition:** Partition the original array around this pivot, placing elements smaller than the pivot to its left and larger elements to its right.\n5.  **Recurse:** If the pivot's position is $k$, return the pivot. Otherwise, recursively search in the appropriate sub-array (left if $k$ is smaller, right if $k$ is larger).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the Median of Medians algorithm typically uses groups of 5 elements. What would happen if a smaller group size, such as 3, were chosen?",
+      "back": "The group size of 5 is the smallest odd integer that guarantees a sufficient fraction of elements are smaller/larger than the chosen pivot, ensuring the recurrence relation resolves to $O(n)$.\n\nIf group size 3 were chosen:\n- There would be $\\lceil n/3 \\rceil$ medians.\n- The pivot (median of medians) would be such that at least half of these medians are $\\le$ the pivot. Each such median implies 2 elements from its group are $\\le$ it (and thus $\\le$ the pivot).\n- So, at least $2 \\times (\\frac{1}{2} \\times \\lceil n/3 \\rceil) \\approx n/3$ elements would be guaranteed smaller than the pivot. Similarly, $n/3$ elements would be larger.\n- The recursive subproblem size would be at most $n - n/3 = 2n/3$.\n- The recurrence would be $T(n) = T(\\lceil n/3 \\rceil) + T(\\lfloor 2n/3 \\rfloor) + O(n)$. This recurrence, by the Master Theorem or substitution, resolves to $O(n \\log n)$, not $O(n)$.\n\nGroup size 5 ensures the subproblem size is at most $7n/10$, leading to $O(n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the worst-case recurrence relation for the Median of Medians algorithm and briefly explain how it resolves to $O(n)$.",
+      "back": "Let $T(n)$ be the time complexity for an input of size $n$.\n1.  **Divide into groups and find medians:** Sorting each group of 5 takes constant time. There are $\\lceil n/5 \\rceil$ groups. Total time: $O(n)$.\n2.  **Recursive call for pivot:** Finding the median of $\\lceil n/5 \\rceil$ medians takes $T(\\lceil n/5 \\rceil)$ time.\n3.  **Partitioning:** Partitioning the array around the pivot takes $O(n)$ time.\n4.  **Recursive call on subproblem:** The pivot (median of medians) guarantees that at least $3/10$ of the elements are smaller than it, and at least $3/10$ are larger. Thus, the largest possible recursive subproblem is on at most $n - 3n/10 = 7n/10$ elements. This takes $T(\\lfloor 7n/10 \\rfloor)$ time.\n\nCombining these, the worst-case recurrence relation is: \n$$T(n) = T(\\lceil n/5 \\rceil) + T(\\lfloor 7n/10 \\rfloor) + O(n)$$\nTo show it resolves to $O(n)$, we can use the substitution method. Assume $T(n) \\le cn$ for some constant $c > 0$ and sufficiently large $n$. \n$$cn \\ge c(\\frac{n}{5}) + c(\\frac{7n}{10}) + An$$\n$$cn \\ge c(\\frac{2n}{10}) + c(\\frac{7n}{10}) + An$$\n$$cn \\ge c(\\frac{9n}{10}) + An$$\n$$cn - c(\\frac{9n}{10}) \\ge An$$\n$$c(\\frac{n}{10}) \\ge An$$\n$$c \\ge 10A$$\nWe can choose $c = 10A$ (or any $c > 10A$) to satisfy the inequality, thus proving $T(n) = O(n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the critical property of the pivot chosen by the Median of Medians algorithm that ensures its worst-case linear time complexity?",
+      "back": "The critical property is that the chosen pivot (the median of medians) guarantees that a constant fraction of elements are smaller than the pivot and a constant fraction are larger. Specifically, at least $3/10$ of the elements are guaranteed to be smaller than the pivot, and at least $3/10$ are guaranteed to be larger. This ensures that the size of the recursive subproblem is always at most $7/10$ of the original array size, preventing degenerate cases that could lead to $O(n^2)$ complexity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is the Median of Medians algorithm commonly used in practical implementations for selection? Why or why not?",
+      "back": "No, the Median of Medians algorithm is generally not used in practical implementations. While it offers a guaranteed $O(n)$ worst-case time complexity, the constant factor hidden by the big-O notation is relatively large. This is due to the overhead of multiple recursive calls (one for medians, one for the subproblem) and the multiple passes over the data. Randomized Quickselect, despite its $O(n^2)$ worst-case, has a much smaller average-case constant factor and performs better on average inputs, making it the preferred choice for most practical applications.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p2-2-7-binomial-distribution-pmf-mean-variance",
+  "subtopicTitle": "Binomial distribution — PMF, mean, variance",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:24.775Z",
+  "cards": [
+    {
+      "front": "What four conditions must be met for a random variable $X$ to follow a binomial distribution $B(n, p)$?",
+      "back": "1. Fixed number of trials, $n$.\n2. Each trial is independent.\n3. Each trial has only two possible outcomes (success/failure).\n4. The probability of success, $p$, is constant for every trial.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Probability Mass Function (PMF) for a binomial distribution $X \\sim B(n, p)$, representing the probability of $k$ successes in $n$ trials.",
+      "back": "$$P(X=k) = \\binom{n}{k} p^k (1-p)^{n-k}$$ where $k \\in \\{0, 1, \\dots, n\\}$ and $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A fair coin is flipped 10 times. What is the probability of getting exactly 3 heads?",
+      "back": "Let $X$ be the number of heads. $X \\sim B(10, 0.5)$.\n$$P(X=3) = \\binom{10}{3} (0.5)^3 (1-0.5)^{10-3}$$\n$$P(X=3) = \\frac{10!}{3!7!} (0.5)^3 (0.5)^7$$\n$$P(X=3) = 120 \\times (0.5)^{10} = 120 / 1024 \\approx 0.1172$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the formula for the expected value (mean) of a binomial distribution $X \\sim B(n, p)$?",
+      "back": "$$E[X] = np$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain intuitively why the mean of a binomial distribution $X \\sim B(n, p)$ is $np$.",
+      "back": "A binomial distribution is the sum of $n$ independent Bernoulli trials. Let $X_i$ be the outcome of the $i$-th Bernoulli trial (1 for success, 0 for failure). $E[X_i] = 1 \\cdot p + 0 \\cdot (1-p) = p$.\nBy linearity of expectation, $E[X] = E[X_1 + \\dots + X_n] = E[X_1] + \\dots + E[X_n] = p + \\dots + p \\text{ (n times)} = np$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the formula for the variance of a binomial distribution $X \\sim B(n, p)$?",
+      "back": "$$Var(X) = np(1-p)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the key idea for deriving the variance of a binomial distribution $X \\sim B(n, p)$ from its constituent Bernoulli trials.",
+      "back": "A binomial variable $X$ is the sum of $n$ independent Bernoulli random variables $X_i$. For a single Bernoulli trial $X_i$, $Var(X_i) = p(1-p)$.\nSince the trials are independent, the variance of their sum is the sum of their variances:\n$$Var(X) = Var(X_1 + \\dots + X_n) = Var(X_1) + \\dots + Var(X_n)$$\n$$Var(X) = p(1-p) + \\dots + p(1-p) \\text{ (n times)} = np(1-p)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A biased coin has a 70% chance of landing heads. If it's flipped 50 times, what are the expected number of heads and the variance of the number of heads?",
+      "back": "Let $X$ be the number of heads. $X \\sim B(50, 0.7)$.\nExpected number of heads (Mean): $E[X] = np = 50 \\times 0.7 = 35$.\nVariance of the number of heads: $Var(X) = np(1-p) = 50 \\times 0.7 \\times (1-0.7) = 50 \\times 0.7 \\times 0.3 = 10.5$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a binomial distribution $X \\sim B(n, p)$, what does the parameter $p$ represent, and how does it affect the distribution's shape?",
+      "back": "The parameter $p$ represents the probability of success on a single trial.\n*   If $p=0.5$, the distribution is symmetric.\n*   If $p < 0.5$, the distribution is positively (right) skewed.\n*   If $p > 0.5$, the distribution is negatively (left) skewed.\nAs $n$ increases, the distribution tends to become more symmetric and bell-shaped, regardless of $p$ (due to the Central Limit Theorem).",
+      "difficulty": "medium"
+    }
+  ]
+}

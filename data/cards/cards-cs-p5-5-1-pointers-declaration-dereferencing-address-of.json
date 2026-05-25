@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-pointers-declaration-dereferencing-address-of",
+  "subtopicTitle": "Pointers — declaration, dereferencing (*), address-of (&)",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:34.263Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of a pointer variable in C?",
+      "back": "A pointer is a variable that stores the memory address of another variable. Instead of holding data directly, it \"points\" to where the data is located in memory.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you declare a pointer named `p_value` that is intended to store the memory address of a `double` type variable?",
+      "back": "```c\ndouble *p_value;\n```\nThe `*` signifies that `p_value` is a pointer, and `double` specifies the data type of the variable it will point to.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the purpose and usage of the `&` (address-of) operator in C with an example.",
+      "back": "The `&` operator is used to obtain the memory address of a variable. When applied to a variable, it returns the location in memory where that variable's value is stored.\n```c\nint num = 42;\nint *p_num = &num; // p_num now holds the memory address of num\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose and usage of the `*` (dereference or indirection) operator when used with an already declared pointer variable in C, with an example.",
+      "back": "The `*` operator, when used with a pointer variable, accesses the value stored at the memory address that the pointer holds. It \"dereferences\" the pointer to get to the actual data.\n```c\nint value = 100;\nint *p_value = &value;\nprintf(\"%d\", *p_value); // Output: 100 (accesses the value of 'value')\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the following C code, what would be the value of `*ptr` and what type of value would `ptr` itself hold?\n```c\nint x = 15;\nint *ptr = &x;\n```",
+      "back": "*   `*ptr`: The value at the address `ptr` points to, which is `x`. So, `*ptr` would be `15`.\n*   `ptr`: The memory address of the variable `x`. Its exact value would be a hexadecimal memory address (e.g., `0x7ffee000`), not an integer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a C snippet that declares an `int` variable `count`, initializes it to `5`, then declares an `int` pointer `p_count` to point to `count`, and finally uses `p_count` to change `count`'s value to `10`.",
+      "back": "```c\nint count = 5;\nint *p_count = &count;\n\n*p_count = 10; // This modifies the value of 'count' through the pointer\n\n// Now, 'count' is 10\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the recommended practice for initializing a pointer variable if you don't have a valid memory address to assign to it immediately? Why is this important?",
+      "back": "It is recommended to initialize the pointer to `NULL`.\n```c\nint *myPointer = NULL;\n```\nThis is crucial because uninitialized pointers hold garbage memory addresses (often called \"wild pointers\"). Dereferencing such a pointer can lead to unpredictable behavior, program crashes (e.g., segmentation faults), or security vulnerabilities. Assigning `NULL` explicitly indicates that the pointer does not currently point to any valid memory location, allowing for safe checks (e.g., `if (myPointer != NULL)`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider `int data = 10;` and `char *p_data = (char *)&data;`. Why is the explicit cast `(char *)` necessary here, and what potential issues could arise from dereferencing `p_data`?",
+      "back": "The explicit cast `(char *)` is necessary because you are trying to assign the address of an `int` (typically 4 bytes) to a pointer to a `char` (typically 1 byte). C compilers would issue a warning about incompatible pointer types without the cast.\n\nDereferencing `p_data` (e.g., `*p_data`) would treat the memory location of `data` as if it holds a single `char`. This means:\n1.  You would only access the first byte of the `int`'s value.\n2.  The interpretation of that byte might not align with the `int`'s value due to endianness or the `char`'s signed/unsigned nature.\n3.  It can lead to incorrect values or undefined behavior if you attempt to read/write the entire `int` through `p_data` without careful byte-level manipulation. It breaks type safety.",
+      "difficulty": "hard"
+    }
+  ]
+}

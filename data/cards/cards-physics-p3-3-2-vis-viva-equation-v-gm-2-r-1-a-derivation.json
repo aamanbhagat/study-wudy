@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-2-vis-viva-equation-v-gm-2-r-1-a-derivation",
+  "subtopicTitle": "Vis-viva equation v² = GM(2/r - 1/a) — derivation",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:50.569Z",
+  "cards": [
+    {
+      "front": "What fundamental conservation law is the basis for the Vis-viva equation?",
+      "back": "The Vis-viva equation is derived directly from the **conservation of mechanical energy** for a two-body system under a central gravitational force.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the general expression for the total mechanical energy ($E$) of a body of mass $m$ orbiting a central body of mass $M$ at a distance $r$ with velocity $v$.",
+      "back": "The total mechanical energy $E$ is the sum of its kinetic energy ($T$) and gravitational potential energy ($U$):\n$$E = T + U = \\frac{1}{2}mv^2 - \\frac{GMm}{r}$$\nwhere $G$ is the gravitational constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a closed (elliptical or circular) orbit, how is the total mechanical energy $E$ related to the semi-major axis $a$ of the orbit?",
+      "back": "For a closed orbit (ellipse or circle), the total mechanical energy $E$ is constant and is given by:\n$$E = -\\frac{GMm}{2a}$$\nThis formula shows that the total energy depends only on the masses and the size of the orbit (semi-major axis), not the current position or velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the first step in deriving the Vis-viva equation by equating the two expressions for total mechanical energy?",
+      "back": "Equate the general energy expression $\\left(\\frac{1}{2}mv^2 - \\frac{GMm}{r}\\right)$ with the semi-major axis energy expression $\\left(-\\frac{GMm}{2a}\\right)$:\n$$\\frac{1}{2}mv^2 - \\frac{GMm}{r} = -\\frac{GMm}{2a}$$\nThis equation forms the core of the derivation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Vis-viva equation, $v^2 = GM\\left(\\frac{2}{r} - \\frac{1}{a}\\right)$, starting from the conservation of mechanical energy and its relation to the semi-major axis.",
+      "back": "1.  **Conservation of Energy:** For an orbiting body of mass $m$ around a central body $M$:\n    $$E = \\frac{1}{2}mv^2 - \\frac{GMm}{r}$$\n2.  **Energy in terms of semi-major axis:** For a closed orbit:\n    $$E = -\\frac{GMm}{2a}$$\n3.  **Equate the two expressions for $E$**:\n    $$\\frac{1}{2}mv^2 - \\frac{GMm}{r} = -\\frac{GMm}{2a}$$\n4.  **Divide by $m$**:\n    $$\\frac{1}{2}v^2 - \\frac{GM}{r} = -\\frac{GM}{2a}$$\n5.  **Multiply by 2**:\n    $$v^2 - \\frac{2GM}{r} = -\\frac{GM}{a}$$\n6.  **Rearrange to solve for $v^2$**:\n    $$v^2 = \\frac{2GM}{r} - \\frac{GM}{a}$$\n7.  **Factor out $GM$**:\n    $$v^2 = GM\\left(\\frac{2}{r} - \\frac{1}{a}\\right)$$\n    This is the Vis-viva equation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify each variable in the Vis-viva equation: $v^2 = GM\\left(\\frac{2}{r} - \\frac{1}{a}\\right)$.",
+      "back": "*   $v$: The instantaneous orbital speed of the body.\n*   $G$: The universal gravitational constant.\n*   $M$: The mass of the central body (e.g., Earth, Sun).\n*   $r$: The current distance between the orbiting body and the center of the central body.\n*   $a$: The semi-major axis of the orbit (for circular orbits, $a=r$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the Vis-viva equation simplify for a circular orbit?",
+      "back": "For a circular orbit, the distance $r$ is constant and equal to the semi-major axis $a$ (i.e., $r=a$). Substituting $r=a$ into the Vis-viva equation:\n$$v^2 = GM\\left(\\frac{2}{a} - \\frac{1}{a}\\right)$$\n$$v^2 = GM\\left(\\frac{1}{a}\\right)$$\n$$v = \\sqrt{\\frac{GM}{a}}$$\nThis is the well-known formula for circular orbital velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical interpretation of the term $\\left(\\frac{2}{r} - \\frac{1}{a}\\right)$ in the Vis-viva equation?",
+      "back": "This term represents the \"energy state\" of the orbit per unit mass, scaled by $GM$.\n*   The $\\frac{2}{r}$ term relates to the instantaneous potential energy (or the velocity required to escape from the current radius if the total energy were zero).\n*   The $-\\frac{1}{a}$ term relates to the total specific orbital energy (energy per unit mass), which is constant for a given orbit.\nEssentially, it compares the current potential energy (due to $r$) to the total energy of the orbit (defined by $a$) to determine the kinetic energy and thus velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What form does the Vis-viva equation take for a parabolic orbit, and why?",
+      "back": "For a parabolic orbit, the semi-major axis $a$ approaches infinity ($\\infty$). Therefore, the term $\\frac{1}{a}$ approaches zero.\nThe Vis-viva equation simplifies to:\n$$v^2 = GM\\left(\\frac{2}{r} - 0\\right)$$\n$$v^2 = \\frac{2GM}{r}$$\nThis is the formula for **escape velocity** at a distance $r$, as a parabolic trajectory represents the minimum velocity needed to escape the gravitational pull without further propulsion.",
+      "difficulty": "medium"
+    }
+  ]
+}

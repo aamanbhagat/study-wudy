@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-gain-margin-phase-margin-stability-margins",
+  "subtopicTitle": "Gain margin, phase margin — stability margins",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:51.718Z",
+  "cards": [
+    {
+      "front": "What are \"stability margins\" in the context of control systems?",
+      "back": "Stability margins quantify how close a control system is to instability. They measure the robustness of a closed-loop system to variations in gain and phase of its open-loop transfer function, $L(s)$. The two primary margins are Gain Margin (GM) and Phase Margin (PM).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the \"phase crossover frequency\" ($\\omega_{pc}$) for an open-loop transfer function $L(s)$.",
+      "back": "The phase crossover frequency ($\\omega_{pc}$) is the frequency at which the phase angle of the open-loop transfer function $L(j\\omega)$ crosses $-180^\\circ$. Mathematically, $\\angle L(j\\omega_{pc}) = -180^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an open-loop transfer function $L(s)$, how is the Gain Margin (GM) calculated and what is its unit?",
+      "back": "The Gain Margin (GM) is the reciprocal of the magnitude of $L(j\\omega)$ at the phase crossover frequency ($\\omega_{pc}$). $GM = \\frac{1}{|L(j\\omega_{pc})|}$. In decibels, $GM_{dB} = -20 \\log_{10} |L(j\\omega_{pc})|$. It is typically expressed in dB or as a ratio.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"gain crossover frequency\" ($\\omega_{gc}$) for an open-loop transfer function $L(s)$.",
+      "back": "The gain crossover frequency ($\\omega_{gc}$) is the frequency at which the magnitude of the open-loop transfer function $L(j\\omega)$ crosses $0 \\text{ dB}$ (i.e., $|L(j\\omega_{gc})| = 1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an open-loop transfer function $L(s)$, how is the Phase Margin (PM) calculated?",
+      "back": "The Phase Margin (PM) is the difference between the phase angle of $L(j\\omega)$ at the gain crossover frequency ($\\omega_{gc}$) and $-180^\\circ$. $PM = 180^\\circ + \\angle L(j\\omega_{gc})$. A positive PM indicates stability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the stability implications of a system having positive vs. negative Gain Margin (GM) or Phase Margin (PM).",
+      "back": "<ul><li><b>GM > 0 dB (or GM > 1 as ratio) AND PM > 0$^{\\circ}$</b>: The closed-loop system is stable.</li><li><b>GM < 0 dB (or GM < 1 as ratio) OR PM < 0$^{\\circ}$</b>: The closed-loop system is unstable.</li><li><b>GM = 0 dB (or GM = 1 as ratio) AND PM = 0$^{\\circ}$</b>: The closed-loop system is marginally stable (oscillatory).</li></ul>These margins indicate how much additional gain or phase lag can be tolerated before instability.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A control system has insufficient stability margins. What general approaches can be taken to improve both GM and PM?",
+      "back": "To improve both Gain Margin (GM) and Phase Margin (PM), common approaches include:<ol><li><b>Lead Compensator</b>: Adds phase lead, typically increasing PM and often GM at higher frequencies.</li><li><b>Lag Compensator</b>: Reduces gain at higher frequencies, often increasing GM and sometimes PM, but can reduce bandwidth.</li><li><b>PID Controller Tuning</b>: Adjusting $K_p$, $K_i$, $K_d$ parameters to reshape the open-loop frequency response.</li><li><b>Reducing overall loop gain</b>: While it improves stability, it can degrade steady-state error and transient response.</ol>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean if an open-loop transfer function $L(s)$ has no phase crossover frequency ($\\omega_{pc}$) or no gain crossover frequency ($\\omega_{gc}$)?",
+      "back": "<ul><li><b>No $\\omega_{pc}$ (phase never crosses $-180^\\circ$)</b>: If $\\angle L(j\\omega)$ is always greater than $-180^\\circ$, GM is infinite, implying unconditional stability with respect to gain variations. If always less than $-180^\\circ$, GM is negative infinity, implying instability.</li><li><b>No $\\omega_{gc}$ (magnitude never crosses $0 \\text{ dB}$)</b>: If $|L(j\\omega)|$ is always less than $0 \\text{ dB}$, PM is infinite (unconditionally stable). If always greater than $0 \\text{ dB}$, PM is negative infinity (unconditionally unstable).</li></ul>These indicate very robustly stable or unstable systems.",
+      "difficulty": "medium"
+    }
+  ]
+}

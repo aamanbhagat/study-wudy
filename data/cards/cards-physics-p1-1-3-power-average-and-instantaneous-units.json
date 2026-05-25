@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-3-power-average-and-instantaneous-units",
+  "subtopicTitle": "Power — average and instantaneous, units",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:01.685Z",
+  "cards": [
+    {
+      "front": "Define power in physics.",
+      "back": "Power is the rate at which work is done or energy is transferred. It quantifies how quickly energy is used or produced.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the SI unit of power, and how is it defined in terms of fundamental SI units?",
+      "back": "The SI unit of power is the Watt (W). One Watt is defined as one Joule per second ($1 \\text{ W} = 1 \\text{ J/s}$). In terms of fundamental SI units, $1 \\text{ W} = 1 \\text{ kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-3}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the formula for average power ($\\bar{P}$), explaining its components.",
+      "back": "Average power is the total work done ($\\Delta W$) or energy transferred over a specific time interval ($\\Delta t$):\n$$ \\bar{P} = \\frac{\\Delta W}{\\Delta t} $$\nWhere $\\Delta W$ is the work done and $\\Delta t$ is the time taken to do that work.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the formula for instantaneous power ($P$), explaining its components.",
+      "back": "Instantaneous power is the derivative of work with respect to time, representing the power at a specific moment:\n$$ P = \\frac{dW}{dt} $$\nWhere $dW$ is an infinitesimal amount of work done over an infinitesimal time interval $dt$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive or state the formula for instantaneous power in terms of force ($\\vec{F}$) and velocity ($\\vec{v}$).",
+      "back": "Instantaneous power can be expressed as the dot product of the applied force and the velocity of the object:\n$$ P = \\vec{F} \\cdot \\vec{v} $$\nThis is derived from $P = \\frac{dW}{dt}$ and $dW = \\vec{F} \\cdot d\\vec{r}$, so $P = \\frac{\\vec{F} \\cdot d\\vec{r}}{dt} = \\vec{F} \\cdot \\frac{d\\vec{r}}{dt} = \\vec{F} \\cdot \\vec{v}$. If force and velocity are in the same direction, $P = Fv$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name two common non-SI units of power and provide their approximate conversion to Watts.",
+      "back": "1.  **Horsepower (hp)**: Often used for engines. $1 \\text{ hp} \\approx 745.7 \\text{ W}$ (commonly rounded to 746 W).\n2.  **Kilowatt (kW)**: A multiple of the Watt, $1 \\text{ kW} = 1000 \\text{ W}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key conceptual difference between average power and instantaneous power.",
+      "back": "**Average power** describes the overall rate of work done or energy transfer over a *finite duration*. It smooths out any variations. **Instantaneous power** describes the rate of work done or energy transfer at a *specific moment in time*. It captures the exact power output at that instant, which can fluctuate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A crane lifts a 500 kg load vertically by 10 m in 20 seconds. Calculate the average power exerted by the crane. (Assume $g = 9.8 \\text{ m/s}^2$).",
+      "back": "Work done ($W$) = Force $\\times$ Distance = $mgh$\n$W = (500 \\text{ kg})(9.8 \\text{ m/s}^2)(10 \\text{ m}) = 49000 \\text{ J}$\nTime ($t$) = 20 s\nAverage Power ($\\bar{P}$) = $\\frac{W}{t} = \\frac{49000 \\text{ J}}{20 \\text{ s}} = 2450 \\text{ W}$ or $2.45 \\text{ kW}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle moves with velocity $\\vec{v}(t) = (2t \\hat{i} + 3 \\hat{j}) \\text{ m/s}$ under a constant force $\\vec{F} = (5 \\hat{i} - 2 \\hat{j}) \\text{ N}$. What is the instantaneous power at $t=1 \\text{ s}$?",
+      "back": "Instantaneous power $P = \\vec{F} \\cdot \\vec{v}$\nFirst, find $\\vec{v}$ at $t=1 \\text{ s}$:\n$\\vec{v}(1) = (2(1) \\hat{i} + 3 \\hat{j}) = (2 \\hat{i} + 3 \\hat{j}) \\text{ m/s}$\nNow, calculate the dot product:\n$P = (5 \\hat{i} - 2 \\hat{j}) \\cdot (2 \\hat{i} + 3 \\hat{j})$\n$P = (5)(2) + (-2)(3)$\n$P = 10 - 6 = 4 \\text{ W}$",
+      "difficulty": "hard"
+    }
+  ]
+}

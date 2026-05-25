@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-higher-order-derivatives-notation-physical-meaning",
+  "subtopicTitle": "Higher-order derivatives — notation, physical meaning",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:59.888Z",
+  "cards": [
+    {
+      "front": "What is the second derivative of a function $f(x)$ and how is it commonly denoted using prime notation and Leibniz notation?",
+      "back": "The second derivative of $f(x)$ is the derivative of its first derivative, $f'(x)$.\n\nCommon notations:\n\n*   Prime notation: $f''(x)$ or $y''$\n*   Leibniz notation: $\\frac{d^2y}{dx^2}$ or $\\frac{d^2f}{dx^2}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $s(t)$ represents the position of an object at time $t$, what does the second derivative $s''(t)$ represent physically?",
+      "back": "If $s(t)$ is the position function, then $s'(t)$ is the velocity function, and $s''(t)$ represents the **acceleration** of the object at time $t$. It describes the rate of change of the object's velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the $n$-th derivative of a function $y=f(x)$ denoted using Leibniz notation and prime notation?",
+      "back": "The $n$-th derivative of $y=f(x)$ is denoted as:\n\n*   Leibniz notation: $\\frac{d^n y}{dx^n}$ or $\\frac{d^n f}{dx^n}$\n*   Prime notation: $f^{(n)}(x)$ or $y^{(n)}$ (parentheses are used for $n \\ge 4$ to distinguish from powers, e.g., $f^4(x)$ typically means $(f(x))^4$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the second derivative of the function $f(x) = x^5 - 4x^3 + 2x - 7$.",
+      "back": "First derivative:\n$f'(x) = \\frac{d}{dx}(x^5 - 4x^3 + 2x - 7) = 5x^4 - 12x^2 + 2$\n\nSecond derivative:\n$f''(x) = \\frac{d}{dx}(5x^4 - 12x^2 + 2) = 20x^3 - 24x$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical meaning of the third derivative of a position function $s(t)$? What is its common name?",
+      "back": "The third derivative $s'''(t)$ (or $\\frac{d^3s}{dt^3}$) represents the **jerk**. Jerk is the rate of change of acceleration. It describes how quickly an object's acceleration changes over time. A high jerk value indicates a sudden change in acceleration, which can be felt as a 'jolt' or 'lurch'.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle's position is given by $s(t) = t^3 - 9t^2 + 24t$. Find $s''(3)$ and interpret its meaning.",
+      "back": "1.  Find the first derivative (velocity):\n    $s'(t) = 3t^2 - 18t + 24$\n2.  Find the second derivative (acceleration):\n    $s''(t) = 6t - 18$\n3.  Evaluate $s''(3)$:\n    $s''(3) = 6(3) - 18 = 18 - 18 = 0$\n\nInterpretation: At $t=3$ seconds, the particle's acceleration is zero. This means that at this specific instant, the particle is neither speeding up nor slowing down; its velocity is momentarily constant.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $f''(x) < 0$ over an interval, what does this tell us about the concavity of the function $f(x)$?",
+      "back": "If $f''(x) < 0$ over an interval, the function $f(x)$ is **concave down** on that interval. This means that the slope of the tangent line to $f(x)$ is decreasing, and the graph of the function lies below its tangent lines.",
+      "difficulty": "medium"
+    }
+  ]
+}

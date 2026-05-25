@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-5-adc-dac-resolution-sampling-rate-nyquist",
+  "subtopicTitle": "ADC/DAC — resolution, sampling rate, Nyquist",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:44.349Z",
+  "cards": [
+    {
+      "front": "What is the primary function of an Analog-to-Digital Converter (ADC)?",
+      "back": "An ADC converts a continuous analog signal (e.g., voltage, current) into a discrete digital representation (e.g., binary numbers) that a microcontroller or digital system can process.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary function of a Digital-to-Analog Converter (DAC)?",
+      "back": "A DAC converts a digital signal (e.g., binary numbers from a microcontroller) into a continuous analog signal (e.g., voltage, current) that can drive analog components like speakers or motors.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "An ADC has $N$ bits of resolution. How many discrete digital levels can it represent, and what is the smallest detectable voltage change for a given reference voltage $V_{ref}$?",
+      "back": "An $N$-bit ADC can represent $2^N$ discrete digital levels. The smallest detectable voltage change, also known as the quantization step size ($Q$), is given by the equation: $$Q = \\frac{V_{ref}}{2^N}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"sampling rate\" ($f_s$) in the context of an ADC and explain its importance.",
+      "back": "The sampling rate ($f_s$) is the number of samples an ADC takes per second from an analog signal. It dictates how frequently the analog signal's amplitude is measured and converted. A higher sampling rate allows for a more accurate digital representation of rapidly changing analog signals.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Nyquist-Shannon sampling theorem's requirement for perfect reconstruction of an analog signal from its samples.",
+      "back": "The Nyquist-Shannon sampling theorem states that to perfectly reconstruct an analog signal from its digital samples, the sampling rate ($f_s$) must be at least twice the highest frequency ($f_{max}$) present in the original analog signal. This minimum sampling rate, $2f_{max}$, is known as the Nyquist rate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is \"aliasing\" in ADC sampling, and how does it relate to the Nyquist theorem? Provide an intuitive example.",
+      "back": "Aliasing occurs when an analog signal is sampled at a rate lower than the Nyquist rate ($f_s < 2f_{max}$). High-frequency components in the original signal are misrepresented as lower-frequency components in the sampled digital signal, making accurate reconstruction impossible.\n\nIntuitive example: A rapidly spinning wagon wheel in a movie appearing to spin backward or stand still. The camera's frame rate (sampling rate) is too low to capture the true rotational speed, causing visual artifacts.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides aliasing, what other type of error is inherent in the ADC conversion process, and how is it related to resolution?",
+      "back": "Quantization error (or quantization noise) is the inherent difference between the actual analog input voltage and the discrete digital value assigned by the ADC. It arises because the ADC can only represent a finite number of levels. Higher resolution (more bits) reduces the quantization step size ($Q$), thereby decreasing the maximum quantization error.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Before an analog signal reaches an ADC, what type of filter is often used, and what is its purpose?",
+      "back": "An anti-aliasing filter (typically a low-pass filter) is used before the ADC. Its purpose is to remove or significantly attenuate any frequency components in the analog signal that are above half of the sampling rate ($f_s/2$, the Nyquist frequency). This prevents these higher frequencies from causing aliasing artifacts in the digitized signal.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After a DAC converts a digital signal back to analog, what characteristic does the output typically have, and what is often done to smooth it?",
+      "back": "The raw output of a DAC is typically a \"staircase\" or stepped waveform, as it holds each analog value until the next digital sample arrives. To smooth this into a continuous, more natural analog signal, a reconstruction filter (usually a low-pass filter) is applied to remove the high-frequency components introduced by the stepping.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An audio signal has a maximum frequency of 20 kHz. What minimum sampling rate is required for an ADC to avoid aliasing, and if a 16-bit ADC is used with a 5V reference, what is the voltage resolution?",
+      "back": "1.  **Minimum sampling rate ($f_s$)**: According to the Nyquist theorem, $f_s \\ge 2 \\times f_{max} = 2 \\times 20 \\text{ kHz} = 40 \\text{ kHz}$.\n2.  **Voltage resolution ($Q$)**: For a 16-bit ADC and $V_{ref} = 5\\text{ V}$:\n    $$Q = \\frac{V_{ref}}{2^N} = \\frac{5\\text{ V}}{2^{16}} = \\frac{5\\text{ V}}{65536} \\approx 76.29 \\text{ \\textmu V}$$",
+      "difficulty": "hard"
+    }
+  ]
+}

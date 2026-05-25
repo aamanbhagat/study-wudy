@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-laplace-transform-definition-region-of-convergence",
+  "subtopicTitle": "Laplace transform — definition, region of convergence",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:23.390Z",
+  "cards": [
+    {
+      "front": "Define the Laplace transform $\\mathcal{L}\\{f(t)\\}$ of a function $f(t)$ for $t \\ge 0$.",
+      "back": "The Laplace transform of a function $f(t)$ is defined as $$F(s) = \\mathcal{L}\\{f(t)\\} = \\int_{0}^{\\infty} e^{-st} f(t) dt$$ where $s$ is a complex variable, $s = \\sigma + i\\omega$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Conceptually, what kind of functions does the Laplace transform convert and into what domain?",
+      "back": "The Laplace transform converts a function of time $f(t)$ (from the time domain) into a function of a complex frequency variable $s$, denoted $F(s)$ (in the $s$-domain or frequency domain). It transforms differential equations into algebraic equations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the Region of Convergence (ROC) for a Laplace transform $F(s)$?",
+      "back": "The Region of Convergence (ROC) for a Laplace transform $F(s) = \\int_{0}^{\\infty} e^{-st} f(t) dt$ is the set of all complex values of $s$ for which the integral converges. For most practical functions, the ROC is a right half-plane, i.e., $\\text{Re}(s) > \\sigma_0$ for some real $\\sigma_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the Laplace transform $\\mathcal{L}\\{f(t)\\}$ to exist, what condition must $f(t)$ satisfy regarding its growth rate?",
+      "back": "For the Laplace transform to exist, $f(t)$ must be of **exponential order**. This means there exist constants $M > 0$ and $\\alpha$ such that $|f(t)| \\le M e^{\\alpha t}$ for all $t \\ge T$ for some $T \\ge 0$. The smallest such $\\alpha$ is called the abscissa of convergence, $\\sigma_c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Laplace transform of $f(t) = e^{at}$ for $t \\ge 0$ and state its Region of Convergence.",
+      "back": "$$ \\mathcal{L}\\{e^{at}\\} = \\int_{0}^{\\infty} e^{-st} e^{at} dt = \\int_{0}^{\\infty} e^{-(s-a)t} dt $$ This integral converges if $\\text{Re}(s-a) > 0$, which means $\\text{Re}(s) > \\text{Re}(a)$. Evaluating the integral: $$ = \\left[ \\frac{e^{-(s-a)t}}{-(s-a)} \\right]_{0}^{\\infty} = 0 - \\frac{e^0}{-(s-a)} = \\frac{1}{s-a} $$ The Laplace transform is $\\frac{1}{s-a}$, and its Region of Convergence is $\\text{Re}(s) > \\text{Re}(a)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a causal function $f(t)$ (i.e., $f(t)=0$ for $t<0$), what geometric shape does its Region of Convergence (ROC) in the complex $s$-plane always take?",
+      "back": "For a causal function $f(t)$, its Region of Convergence (ROC) is always a **right half-plane**. That is, it's of the form $\\text{Re}(s) > \\sigma_0$ for some real constant $\\sigma_0$, which is the abscissa of convergence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the **abscissa of convergence** $\\sigma_c$ for a Laplace transform $F(s)$.",
+      "back": "The abscissa of convergence $\\sigma_c$ is the smallest real number such that the Laplace transform integral $\\int_{0}^{\\infty} e^{-st} f(t) dt$ converges for all $s$ with $\\text{Re}(s) > \\sigma_c$. It defines the left boundary of the Region of Convergence. If $f(t)$ is of exponential order $\\alpha$, then $\\sigma_c \\le \\alpha$.",
+      "difficulty": "hard"
+    }
+  ]
+}

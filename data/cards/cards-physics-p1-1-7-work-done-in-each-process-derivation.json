@@ -1,0 +1,40 @@
+{
+  "subtopicId": "physics-p1-1-7-work-done-in-each-process-derivation",
+  "subtopicTitle": "Work done in each process — derivation",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:02.623Z",
+  "cards": [
+    {
+      "front": "What is the general differential formula for work done by a gas, and what is the convention for positive work?",
+      "back": "The general differential formula for work done by a gas is $dW = P dV$. Positive work is done *by* the system (expansion), meaning the system's volume increases ($dV > 0$). Negative work is done *on* the system (compression), meaning the system's volume decreases ($dV < 0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for work done by a gas during an isobaric process from initial volume $V_1$ to final volume $V_2$.",
+      "back": "For an isobaric process, the pressure $P$ remains constant. The general formula for work done is $W = \\int_{V_1}^{V_2} P dV$. Since $P$ is constant:\n$$W = P \\int_{V_1}^{V_2} dV = P [V]_{V_1}^{V_2} = P (V_2 - V_1)$$\nThus, $W = P \\Delta V$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why no work is done by a gas during an isochoric process.",
+      "back": "An isochoric process is defined by constant volume, meaning the change in volume, $dV$, is zero. Since the general formula for work done is $dW = P dV$, if $dV=0$, then $dW=0$. Consequently, the total work done $W = \\int dW = 0$. No work is done because there is no displacement against an external force.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for work done by $n$ moles of an ideal gas during a reversible isothermal expansion from $V_1$ to $V_2$ at temperature $T$.",
+      "back": "For an isothermal process, the temperature $T$ is constant. For an ideal gas, the ideal gas law states $PV = nRT$, so we can express pressure as $P = \\frac{nRT}{V}$.\n$$W = \\int_{V_1}^{V_2} P dV = \\int_{V_1}^{V_2} \\frac{nRT}{V} dV$$\nSince $n, R, T$ are constant for an isothermal process:\n$$W = nRT \\int_{V_1}^{V_2} \\frac{1}{V} dV = nRT [\\ln |V|]_{V_1}^{V_2}$$\n$$W = nRT (\\ln V_2 - \\ln V_1) = nRT \\ln \\left(\\frac{V_2}{V_1}\\right)$$\nUsing Boyle's Law for isothermal processes ($P_1V_1 = P_2V_2$), this can also be written as $W = nRT \\ln \\left(\\frac{P_1}{P_2}\\right)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for work done by a gas during a reversible adiabatic process from state $(P_1, V_1)$ to $(P_2, V_2)$, given $PV^\\gamma = K$ (constant).",
+      "back": "For a reversible adiabatic process, $PV^\\gamma = K$, where $K$ is a constant and $\\gamma$ is the adiabatic index. From this, $P = K V^{-\\gamma}$.\n$$W = \\int_{V_1}^{V_2} P dV = \\int_{V_1}^{V_2} K V^{-\\gamma} dV$$\n$$W = K \\left[ \\frac{V^{-\\gamma+1}}{-\\gamma+1} \\right]_{V_1}^{V_2} = \\frac{K}{1-\\gamma} [V^{1-\\gamma}]_{V_1}^{V_2}$$\n$$W = \\frac{K}{1-\\gamma} (V_2^{1-\\gamma} - V_1^{1-\\gamma})$$\nSubstitute $K=P_1V_1^\\gamma$ for the initial state and $K=P_2V_2^\\gamma$ for the final state:\n$$W = \\frac{P_2V_2^\\gamma V_2^{1-\\gamma} - P_1V_1^\\gamma V_1^{1-\\gamma}}{1-\\gamma} = \\frac{P_2V_2 - P_1V_1}{1-\\gamma}$$\nSince $\\gamma > 1$, it is often written as:\n$$W = \\frac{P_1V_1 - P_2V_2}{\\gamma-1}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the work done by a gas represented on a P-V diagram?",
+      "back": "On a P-V (Pressure-Volume) diagram, the work done by a gas during a thermodynamic process is represented by the area under the curve of the process. If the process involves expansion (volume increases, moving right on the diagram), the work done by the gas is positive. If the process involves compression (volume decreases, moving left on the diagram), the work done by the gas is negative.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-2-angle-of-friction-angle-of-repose-derivation",
+  "subtopicTitle": "Angle of friction, angle of repose — derivation",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:45.278Z",
+  "cards": [
+    {
+      "front": "Define the \"angle of friction\" ($\\lambda$) for an object on a horizontal surface on the verge of sliding.",
+      "back": "The angle between the resultant contact force (which is the vector sum of the normal force $\\vec{N}$ and the static friction force $\\vec{f_s}$) and the normal force $\\vec{N}$, when the object is on the verge of sliding.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the \"angle of repose\" ($\\theta_r$) for an object on an inclined plane or a granular material.",
+      "back": "The maximum angle of inclination of a plane with the horizontal at which an object placed on it will just begin to slide down. It also applies to granular materials as the steepest angle a pile can maintain without collapsing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the tangent of the angle of friction, $\\tan \\lambda$, in terms of the coefficient of static friction, $\\mu_s$.",
+      "back": "When an object on a horizontal surface is on the verge of sliding, the static friction force $f_s$ reaches its maximum value, $f_s = \\mu_s N$. The angle of friction $\\lambda$ is defined as the angle between the normal force $N$ and the resultant contact force $R$. From the force triangle, $\\tan \\lambda = \\frac{f_s}{N}$. Substituting $f_s = \\mu_s N$, we get $\\tan \\lambda = \\frac{\\mu_s N}{N} = \\mu_s$. Thus, $\\lambda = \\arctan(\\mu_s)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the tangent of the angle of repose, $\\tan \\theta_r$, for an object on an inclined plane.",
+      "back": "Consider an object on an inclined plane at an angle $\\theta_r$ where it is just about to slide. The forces are: 1. Gravitational force: $mg$ vertically downwards. 2. Normal force: $N = mg \\cos \\theta_r$. 3. Static friction force: $f_s$ parallel to the plane, upwards. For the object to be on the verge of sliding, the component of gravity down the plane, $mg \\sin \\theta_r$, must be balanced by the maximum static friction force, $f_s = \\mu_s N$. So, $mg \\sin \\theta_r = \\mu_s N$. Substitute $N = mg \\cos \\theta_r$: $mg \\sin \\theta_r = \\mu_s (mg \\cos \\theta_r)$. Dividing by $mg \\cos \\theta_r$: $\\frac{\\sin \\theta_r}{\\cos \\theta_r} = \\mu_s$. Therefore, $\\tan \\theta_r = \\mu_s$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the mathematical relationship between the angle of friction ($\\lambda$) and the angle of repose ($\\theta_r$), and what does it imply?",
+      "back": "Both the angle of friction and the angle of repose are equal to $\\arctan(\\mu_s)$, where $\\mu_s$ is the coefficient of static friction between the surfaces. Mathematically, $\\lambda = \\theta_r$. This implies that the maximum angle at which a plane can be inclined before an object starts to slide is numerically equal to the angle between the resultant contact force and the normal force when the object is on the verge of sliding on a horizontal surface.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A sandpile has a stable slope angle of $35^\\circ$. Estimate the coefficient of static friction between the sand grains.",
+      "back": "The stable slope angle of a granular material is its angle of repose, $\\theta_r = 35^\\circ$. We know that $\\tan \\theta_r = \\mu_s$. Therefore, $\\mu_s = \\tan(35^\\circ) \\approx 0.700$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "While $\\lambda = \\theta_r$, explain a key conceptual difference in their physical interpretation or observation.",
+      "back": "The angle of friction ($\\lambda$) describes the *direction of the total contact force* relative to the normal when an object is on the verge of motion, often visualized in a force diagram for a horizontal or arbitrarily inclined surface. The angle of repose ($\\theta_r$) describes the *actual physical inclination angle* of a surface (or a pile of material) at which an object (or the material) *just begins to slide*. One is a property of forces, the other is a property of a physical setup.",
+      "difficulty": "hard"
+    }
+  ]
+}

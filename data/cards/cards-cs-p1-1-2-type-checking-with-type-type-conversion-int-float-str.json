@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-type-checking-with-type-type-conversion-int-float-str",
+  "subtopicTitle": "Type checking with type(), type conversion int(), float(), str()",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:44.440Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the built-in `type()` function in Python?",
+      "back": "The `type()` function returns the type of an object. It's primarily used for introspection, debugging, and sometimes for conditional logic based on an object's type.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What will be the output of `type(10 / 2)` and `type('Hello')`?",
+      "back": "```python\ntype(10 / 2) # Output: <class 'float'> (because division always returns a float)\ntype('Hello') # Output: <class 'str'>\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When converting a floating-point number to an integer using `int()`, what happens to the decimal part? Provide an example.",
+      "back": "The `int()` function truncates (cuts off) the decimal part, effectively rounding down towards zero. It does not round to the nearest whole number.\n\nExample:\n```python\nint(3.14) # Output: 3\nint(3.99) # Output: 3\nint(-2.7) # Output: -2\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the result of `int(True)` and `float(False)` in Python?",
+      "back": "```python\nint(True)   # Output: 1\nfloat(False) # Output: 0.0\n```\nIn Python, `True` evaluates to $1$ and `False` evaluates to $0$ when converted to numeric types.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You have a string `s = \"123.45\"`. What happens if you try to convert it directly to an integer using `int(s)`? Why?",
+      "back": "Attempting `int(\"123.45\")` will raise a `ValueError`. The `int()` function can only convert strings that represent whole numbers (integers) without any decimal points or non-numeric characters (except for an optional sign). It cannot parse floating-point string representations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you successfully convert the string `s = \"123.45\"` into a numeric type, and then specifically into an integer, without error?",
+      "back": "To convert `s = \"123.45\"` into a numeric type, you must first convert it to a `float`, and then you can convert that `float` to an `int`.\n\n```python\ns = \"123.45\"\nfloat_s = float(s) # float_s is 123.45\nint_s = int(float_s) # int_s is 123 (decimal part is truncated)\n\nprint(type(float_s)) # <class 'float'>\nprint(type(int_s))   # <class 'int'>\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is `str()` considered the most 'forgiving' or 'universal' type conversion function in Python compared to `int()` or `float()`?",
+      "back": "The `str()` function can convert virtually any Python object into its string representation without typically raising a `ValueError` due to an invalid format. Unlike `int()` or `float()`, which require their input strings to strictly adhere to integer or float number formats, `str()` has a defined string representation for almost all built-in types and custom objects (via `__str__` or `__repr__` methods), making it highly robust.",
+      "difficulty": "hard"
+    }
+  ]
+}

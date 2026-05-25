@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-mutation-testing",
+  "subtopicTitle": "Mutation testing",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:03.564Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of mutation testing in software engineering?",
+      "back": "Mutation testing aims to evaluate the quality and effectiveness of a test suite by introducing small, syntactic changes (mutations) into the program's source code and checking if the existing test suite can detect these changes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the core steps involved in performing mutation testing.",
+      "back": "1. Create mutants by applying mutation operators to the original program. 2. Run the existing test suite against each mutant. 3. If a mutant causes a test to fail, it is 'killed'. If all tests pass, it 'survives'. 4. Calculate the mutation score based on killed mutants.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In mutation testing, what specifically is a 'mutant'?",
+      "back": "A 'mutant' is a slightly modified version of the original program, created by applying a single, small syntactic change (a mutation operator) to the source code. Each mutant represents a potential, simple fault.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide an example of a common mutation operator and its effect on code.",
+      "back": "A common mutation operator is 'Relational Operator Replacement (ROR)'. It replaces one relational operator with another (e.g., `>` with `>=`, `==` with `!=`). For example, `if (x > 5)` might become `if (x >= 5)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the mutation score calculated, and what does a high score indicate?",
+      "back": "The mutation score is calculated as: $$ \\frac{\\text{Killed Mutants}}{\\text{Total Mutants} - \\text{Equivalent Mutants}} \\times 100\\% $$ A high mutation score (ideally 100%) indicates a strong and effective test suite that is capable of detecting many subtle faults.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of an 'equivalent mutant' and why it poses a challenge for mutation testing.",
+      "back": "An 'equivalent mutant' is a modified version of the program that produces the exact same output as the original program for all possible inputs. It's impossible for any test suite to kill an equivalent mutant. They pose a challenge because identifying them is an undecidable problem in the general case, leading to an inflated denominator in the mutation score if not excluded.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a test suite achieves 100% statement coverage but a low mutation score, what does this imply about the test suite's quality?",
+      "back": "A low mutation score despite 100% statement coverage implies that while the test suite executes every line of code, it lacks sufficient 'sensitivity' or 'strength'. The tests might pass even when subtle logical errors (introduced by mutants) are present, indicating that the assertions or test inputs are not robust enough to detect these specific faults.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the code: ```python def multiply(a, b): return a * b ``` If a mutation operator changes `*` to `+`, what test case would kill this mutant, and why is it important?",
+      "back": "A test case like `assert multiply(2, 3) == 6` would kill the mutant. When `multiply(2, 3)` is run against the mutant `return a + b`, it would return `2 + 3 = 5`, causing the assertion `assert 5 == 6` to fail. This demonstrates that mutation testing helps identify specific test cases needed to detect particular types of faults, thereby improving test suite completeness and robustness.",
+      "difficulty": "hard"
+    }
+  ]
+}

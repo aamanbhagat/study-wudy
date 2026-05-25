@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-operator-precedence-full-table",
+  "subtopicTitle": "Operator precedence — full table",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:33.622Z",
+  "cards": [
+    {
+      "front": "What two properties determine the order in which operators are evaluated in an expression in C?",
+      "back": "Operator precedence and operator associativity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which category of C operators has the highest precedence, typically evaluated first?",
+      "back": "Postfix operators, including `()`, `[]`, `->`, `.`, `++` (postfix), and `--` (postfix).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate the C expression `5 + -2 * 3`, showing the intermediate steps based on operator precedence.",
+      "back": "1. Unary negation (`-`) has higher precedence than multiplication (`*`) and addition (`+`). So, `-2` evaluates to negative two.\n   Expression becomes `5 + (-2) * 3`.\n2. Multiplication (`*`) has higher precedence than addition (`+`). So, `(-2) * 3` evaluates to `-6`.\n   Expression becomes `5 + (-6)`.\n3. Addition (`+`) is performed last. `5 + (-6)` evaluates to `-1`.\n   Result: `-1`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the evaluation order of `*ptr++` in C, assuming `ptr` is a pointer.",
+      "back": "1. Postfix increment (`++`) has higher precedence than unary dereference (`*`).\n2. Due to left-to-right associativity for postfix `++`, `ptr++` is evaluated first. This increments `ptr` but *returns the original value of `ptr`* before the increment.\n3. The dereference operator `*` then applies to the *original value* of `ptr` (the value before it was incremented).\n   So, `*ptr++` dereferences the pointer at its current location, and *then* increments the pointer itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Order the following C operators from highest to lowest precedence: `&&`, `|`, `==`, `&`.",
+      "back": "1. `==` (Equality)\n2. `&` (Bitwise AND)\n3. `|` (Bitwise OR)\n4. `&&` (Logical AND)\n(Note: `||` (Logical OR) would be even lower than `&&`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Fully parenthesize the C expression `a = b + c * d > e && f | g` according to C's operator precedence and associativity rules.",
+      "back": "`a = (((b + (c * d)) > e) && (f | g))`\n\nPrecedence order (highest to lowest for relevant operators):\n1. Multiplicative (`*`)\n2. Additive (`+`)\n3. Relational (`>`)\n4. Bitwise OR (`|`)\n5. Logical AND (`&&`)\n6. Assignment (`=`)\n\nAll these operators (except assignment) have left-to-right associativity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the associativity of assignment operators (`=`, `+=`, etc.) in C, and what does it imply for `a = b = 5;`?",
+      "back": "Assignment operators have **right-to-left associativity**.\nThis means `a = b = 5;` is evaluated as `a = (b = 5);`.\nFirst, `b = 5` assigns `5` to `b`, and the result of this assignment (which is `5`) is then assigned to `a`. Both `a` and `b` will end up with the value `5`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the C expression `1 || 0 ? 2 : 3 && 4`.",
+      "back": "1. Logical OR (`||`) has higher precedence than the conditional operator (`?:`). `1 || 0` evaluates to `1` (true).\n   Expression becomes `1 ? 2 : 3 && 4`.\n2. Logical AND (`&&`) has higher precedence than the conditional operator (`?:`). `3 && 4` evaluates to `1` (true, as both `3` and `4` are non-zero).\n   Expression becomes `1 ? 2 : 1`.\n3. The conditional operator `?:` is evaluated: since the condition (`1`) is true, the result is the second operand (`2`).\n   Result: `2`.",
+      "difficulty": "hard"
+    }
+  ]
+}

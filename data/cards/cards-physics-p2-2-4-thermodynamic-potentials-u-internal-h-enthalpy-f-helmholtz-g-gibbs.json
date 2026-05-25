@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-4-thermodynamic-potentials-u-internal-h-enthalpy-f-helmholtz-g-gibbs",
+  "subtopicTitle": "Thermodynamic potentials — U (internal), H (enthalpy), F (Helmholtz), G (Gibbs)",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:50.541Z",
+  "cards": [
+    {
+      "front": "Define internal energy $U$ and state its natural variables. How is $dU$ expressed by the first law of thermodynamics?",
+      "back": "Internal energy $U$ is the total energy contained within a thermodynamic system. Its natural variables are entropy ($S$) and volume ($V$). The fundamental thermodynamic relation for $U$ is $dU = TdS - PdV$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define enthalpy $H$. Under what common experimental conditions is $H$ the most useful potential, and why?",
+      "back": "Enthalpy is defined as $H = U + PV$. It is most useful for processes occurring at constant pressure because, under these conditions, the change in enthalpy, $\\Delta H$, directly represents the heat absorbed or released by the system, $Q_P = \\Delta H$. Its natural variables are entropy ($S$) and pressure ($P$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define Helmholtz free energy $F$. What does its minimization signify for a system at constant temperature and volume?",
+      "back": "Helmholtz free energy is defined as $F = U - TS$. At constant temperature ($T$) and volume ($V$), the system will evolve to minimize $F$. A decrease in $F$ represents the maximum useful work (excluding P-V work) that can be extracted from the system. Its natural variables are temperature ($T$) and volume ($V$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define Gibbs free energy $G$. What does its minimization signify for a system at constant temperature and pressure?",
+      "back": "Gibbs free energy is defined as $G = H - TS = U + PV - TS$. At constant temperature ($T$) and pressure ($P$), the system will evolve to minimize $G$. A decrease in $G$ represents the maximum non-P-V work that can be extracted from the system, and its minimization determines the direction of spontaneous processes and chemical equilibrium. Its natural variables are temperature ($T$) and pressure ($P$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write down the fundamental thermodynamic relations for $dU$, $dH$, $dF$, and $dG$ in terms of their natural variables.",
+      "back": "The fundamental thermodynamic relations are:\n*   $dU = TdS - PdV$\n*   $dH = TdS + VdP$\n*   $dF = -SdT - PdV$\n*   $dG = -SdT + VdP$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how enthalpy ($H$), Helmholtz free energy ($F$), and Gibbs free energy ($G$) are related to internal energy ($U$) via Legendre transforms.",
+      "back": "Legendre transforms are used to switch the natural variables of a thermodynamic potential:\n*   $H = U + PV$: Transforms $U(S,V)$ to $H(S,P)$ by replacing $V$ with $P$ (conjugate variable to $V$ is $-P$).\n*   $F = U - TS$: Transforms $U(S,V)$ to $F(T,V)$ by replacing $S$ with $T$ (conjugate variable to $S$ is $T$).\n*   $G = H - TS = U + PV - TS$: Transforms $H(S,P)$ to $G(T,P)$ by replacing $S$ with $T$, or $F(T,V)$ to $G(T,P)$ by replacing $V$ with $P$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive one of the Maxwell relations, for example, from the exact differential of the Helmholtz free energy $F$.",
+      "back": "For an exact differential $dF = \\left(\\frac{\\partial F}{\\partial T}\\right)_V dT + \\left(\\frac{\\partial F}{\\partial V}\\right)_T dV$, we know that $\\left(\\frac{\\partial F}{\\partial T}\\right)_V = -S$ and $\\left(\\frac{\\partial F}{\\partial V}\\right)_T = -P$.\nSince $dF$ is an exact differential, the mixed partial derivatives must be equal (Clairaut's Theorem):\n$$ \\frac{\\partial}{\\partial V} \\left(\\frac{\\partial F}{\\partial T}\\right)_V = \\frac{\\partial}{\\partial T} \\left(\\frac{\\partial F}{\\partial V}\\right)_T $$\nSubstituting the expressions for the partial derivatives:\n$$ \\left(\\frac{\\partial (-S)}{\\partial V}\\right)_T = \\left(\\frac{\\partial (-P)}{\\partial T}\\right)_V $$\n$$ \\left(\\frac{\\partial S}{\\partial V}\\right)_T = \\left(\\frac{\\partial P}{\\partial T}\\right)_V $$\nThis is one of the Maxwell relations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A chemical reaction is studied in a sealed container at constant volume, immersed in a large water bath (constant temperature). Which thermodynamic potential is most appropriate for determining spontaneity?",
+      "back": "The Helmholtz free energy ($F$) is most appropriate. Since the process occurs at constant temperature ($T$) and constant volume ($V$), the spontaneity of the reaction is determined by the change in $F$. A spontaneous reaction will proceed in the direction that decreases $F$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p2-2-4-complementary-angle-relationships-sin-90-cos-etc",
+  "subtopicTitle": "Complementary angle relationships — sin(90-θ) = cos θ etc.",
+  "topicId": "math-p2-2-4-trigonometry-foundation",
+  "topicTitle": "Trigonometry — Foundation",
+  "field": "math",
+  "model": "gemini-3.1-pro-preview",
+  "generatedAt": "2026-05-25T15:01:07.569Z",
+  "cards": [
+    {
+      "front": "What are the complementary angle identities for sine and cosine in degrees?",
+      "back": "$\\sin(90^\\circ - \\theta) = \\cos(\\theta)$\n$\\cos(90^\\circ - \\theta) = \\sin(\\theta)$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the linguistic and geometric meaning of the prefix \"co-\" in trigonometric functions (e.g., cosine, cotangent)?",
+      "back": "It stands for \"complementary\". The cosine of an angle is the sine of its complementary angle. Geometrically, in a right triangle, the side adjacent to angle $\\theta$ is the side opposite to its complement $(90^\\circ - \\theta)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the complementary angle identities for tangent and secant using radians instead of degrees.",
+      "back": "$\\tan(\\frac{\\pi}{2} - \\theta) = \\cot(\\theta)$\n$\\sec(\\frac{\\pi}{2} - \\theta) = \\csc(\\theta)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the identity $\\sin(90^\\circ - \\theta) = \\cos(\\theta)$ using a right-angled triangle.",
+      "back": "In a right triangle with acute angle $\\theta$, the other acute angle is $90^\\circ - \\theta$. Let hypotenuse=$c$, opposite $\\theta$=$a$, and adjacent $\\theta$=$b$.\n\n$\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{b}{c}$\n\nFor angle $(90^\\circ - \\theta)$, the opposite side is $b$. Thus:\n$\\sin(90^\\circ - \\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{b}{c}$\n\nTherefore, $\\sin(90^\\circ - \\theta) = \\cos(\\theta)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $\\sin(2x) = \\cos(x + 15^\\circ)$ and both angles are acute, what is the value of $x$?",
+      "back": "Using the complementary identity $\\cos(\\alpha) = \\sin(90^\\circ - \\alpha)$, rewrite the equation:\n$\\sin(2x) = \\sin(90^\\circ - (x + 15^\\circ))$\n\nEquating the angles:\n$2x = 75^\\circ - x$\n$3x = 75^\\circ$\n$x = 25^\\circ$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Simplify the expression: $$\\frac{\\sin(40^\\circ)}{\\cos(50^\\circ)} + \\tan(10^\\circ)\\tan(80^\\circ)$$",
+      "back": "Since $40^\\circ + 50^\\circ = 90^\\circ$, $\\cos(50^\\circ) = \\sin(40^\\circ)$. Thus, the first fraction simplifies to $1$.\n\nSince $10^\\circ + 80^\\circ = 90^\\circ$, $\\tan(80^\\circ) = \\cot(10^\\circ)$.\n$\\tan(10^\\circ)\\cot(10^\\circ) = \\tan(10^\\circ) \\cdot \\frac{1}{\\tan(10^\\circ)} = 1$.\n\nResult: $1 + 1 = 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Do the complementary angle identities (e.g., $\\sin(\\frac{\\pi}{2} - \\theta) = \\cos(\\theta)$) hold true for angles where $\\theta \\ge \\frac{\\pi}{2}$ or $\\theta < 0$?",
+      "back": "Yes. While the right-triangle derivation only applies to acute angles ($0 < \\theta < \\frac{\\pi}{2}$), the complementary identities are universally true for all real numbers $\\theta$. This can be proven for all angles using the angle subtraction formulas (e.g., $\\sin(\\alpha - \\beta)$).",
+      "difficulty": "hard"
+    }
+  ]
+}

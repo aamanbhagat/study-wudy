@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-resolution-of-vectors-into-components-any-axes",
+  "subtopicTitle": "Resolution of vectors — into components (any axes)",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:21.891Z",
+  "cards": [
+    {
+      "front": "Define 'vector resolution' and its primary goal.",
+      "back": "Vector resolution is the process of breaking down a single vector into two or more component vectors whose vector sum is equal to the original vector. Its primary goal is to simplify analysis by aligning vector effects with specific, often orthogonal, directions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Beyond simplifying analysis, what practical advantage does vector resolution offer?",
+      "back": "It allows us to analyze the effect of a vector along specific directions independently, such as the forces perpendicular and parallel to an inclined surface, or to easily add/subtract vectors by summing their respective components.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A 2D vector $\\vec{A}$ has magnitude $A$ and makes an angle $\\theta$ with the positive x-axis. Express its x and y scalar components.",
+      "back": "$A_x = A \\cos \\theta$ and $A_y = A \\sin \\theta$. (Note: $\\theta$ must be measured counter-clockwise from the positive x-axis for these standard formulas to directly yield the correct signs for $A_x$ and $A_y$ in all quadrants).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 3D vector $\\vec{A}$ with magnitude $A$, making angles $\\alpha, \\beta, \\gamma$ with the positive x, y, z axes respectively, write its scalar components and state the term for $\\cos \\alpha, \\cos \\beta, \\cos \\gamma$.",
+      "back": "$A_x = A \\cos \\alpha$, $A_y = A \\cos \\beta$, $A_z = A \\cos \\gamma$. The terms $\\cos \\alpha, \\cos \\beta, \\cos \\gamma$ are known as the direction cosines of the vector $\\vec{A}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A vector $\\vec{R}$ is to be resolved into components along two non-perpendicular axes, $\\vec{u}$ and $\\vec{v}$. If $\\vec{R}$ makes an angle $\\alpha$ with $\\vec{u}$ and $\\beta$ with $\\vec{v}$, and the angle between $\\vec{u}$ and $\\vec{v}$ is $\\phi = \\alpha + \\beta$, derive the magnitudes of its components $R_u$ and $R_v$.",
+      "back": "Using the Law of Sines on the triangle formed by $\\vec{R}$ and its components $\\vec{R_u}$ and $\\vec{R_v}$: $$\\frac{R_u}{\\sin \\beta} = \\frac{R_v}{\\sin \\alpha} = \\frac{R}{\\sin \\phi}$$Therefore, the component magnitudes are: $$R_u = R \\frac{\\sin \\beta}{\\sin \\phi}$$ $$R_v = R \\frac{\\sin \\alpha}{\\sin \\phi}$$ This method applies when $\\vec{R}$ lies *between* the two axes. If it lies outside, the angles need careful consideration, but the principle of forming a parallelogram (or triangle) still holds.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A force $\\vec{F}$ of magnitude $F$ acts at an angle $\\theta$ above the horizontal. Resolve $\\vec{F}$ into its horizontal and vertical components.",
+      "back": "Horizontal component: $F_x = F \\cos \\theta$. Vertical component: $F_y = F \\sin \\theta$. (This is a direct application of standard 2D resolution, often seen in projectile motion or force analysis).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When resolving a vector into components along two directions, under what condition are these components unique? Explain why this condition is critical.",
+      "back": "The components are unique if and only if the two chosen directions are *not* parallel (i.e., they are linearly independent and form a basis). If the directions are parallel, infinitely many pairs of components could sum to the original vector (e.g., $3\\hat{i} + 2\\hat{i} = 5\\hat{i}$, but also $1\\hat{i} + 4\\hat{i} = 5\\hat{i}$). Geometrically, non-parallel directions guarantee a unique parallelogram (or rectangle) whose diagonal is the original vector and whose sides lie along the component directions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the scalar components $A_x$ and $A_y$ of a 2D vector $\\vec{A}$, write the formulas for its magnitude $A$ and its direction $\\theta$ with respect to the positive x-axis.",
+      "back": "Magnitude: $A = \\sqrt{A_x^2 + A_y^2}$. Direction: $\\theta = \\arctan \\left( \\frac{A_y}{A_x} \\right)$. (Crucially, one must consider the quadrant of $(A_x, A_y)$ to determine the correct angle $\\theta$, as $\\arctan$ only returns values in $(-\\pi/2, \\pi/2)$ or $(-90^\\circ, 90^\\circ)$).",
+      "difficulty": "medium"
+    }
+  ]
+}

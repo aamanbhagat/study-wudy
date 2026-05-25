@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-surface-tension-origin-young-laplace-equation",
+  "subtopicTitle": "Surface tension — origin, Young-Laplace equation",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:48.988Z",
+  "cards": [
+    {
+      "front": "What is the fundamental microscopic origin of surface tension in a liquid?",
+      "back": "Surface tension arises from the imbalance of intermolecular cohesive forces at the liquid-gas (or liquid-liquid) interface. Molecules in the bulk are attracted equally in all directions, but surface molecules experience a net inward attractive force from the bulk molecules, leading to a tendency to minimize surface area and an associated surface energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define surface tension ($\\gamma$) in terms of both energy and force, including its standard SI units.",
+      "back": "<ul><li><b>Energy definition:</b> Surface tension is the excess potential energy per unit area of the surface, measured in Joules per square meter ($J/m^2$).</li><li><b>Force definition:</b> Surface tension is the force per unit length acting parallel to the surface and perpendicular to a line drawn on the surface, measured in Newtons per meter ($N/m$).</li></ul>These units are equivalent ($J/m^2 = (N \\cdot m)/m^2 = N/m$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general form of the Young-Laplace equation for the pressure difference ($\\Delta P$) across a curved fluid interface, defining all variables.",
+      "back": "The Young-Laplace equation is:\n$$ \\Delta P = P_{inside} - P_{outside} = \\gamma \\left( \\frac{1}{R_1} + \\frac{1}{R_2} \\right) $$\nWhere:\n<ul><li>$\\Delta P$: Pressure difference across the interface.</li><li>$\\gamma$: Surface tension of the fluid.</li><li>$R_1, R_2$: The two principal radii of curvature of the interface at a given point. By convention, radii are positive if the center of curvature is on the \"inside\" (higher pressure side) of the interface.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Young-Laplace equation simplify for a perfectly spherical liquid droplet of radius $R$?",
+      "back": "For a spherical droplet, both principal radii of curvature are equal to the radius of the sphere ($R_1 = R_2 = R$).\nThe equation simplifies to:\n$$ \\Delta P = \\frac{2\\gamma}{R} $$\nThis means the pressure inside a spherical droplet is higher than the pressure outside.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference in the Young-Laplace equation application for a spherical liquid droplet versus a spherical soap bubble, both of radius $R$.",
+      "back": "<ul><li><b>Spherical Liquid Droplet:</b> Has only <b>one</b> air-liquid interface. The pressure difference is $\\Delta P = \\frac{2\\gamma}{R}$.</li><li><b>Spherical Soap Bubble:</b> Consists of a thin liquid film with <b>two</b> air-liquid interfaces (inner and outer). Each interface contributes to the pressure difference. Therefore, the total pressure difference between the inside of the bubble and the outside air is $\\Delta P = 2 \\times \\frac{2\\gamma}{R} = \\frac{4\\gamma}{R}$.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using a force balance approach, derive the Young-Laplace equation for a spherical interface of radius $R$.",
+      "back": "Consider a hypothetical plane cutting a spherical interface (e.g., a droplet) into two hemispheres. The pressure difference $\\Delta P$ acts on the circular cross-section of area $\\pi R^2$, creating an outward force $F_P = \\Delta P \\cdot \\pi R^2$. The surface tension $\\gamma$ acts along the circumference of the cut, pulling inwards. The total inward force from surface tension is $F_S = \\gamma \\cdot (2\\pi R)$.\nAt equilibrium, these forces balance:\n$$ F_P = F_S $$\n$$ \\Delta P \\cdot \\pi R^2 = \\gamma \\cdot 2\\pi R $$\n$$ \\Delta P = \\frac{2\\pi R \\gamma}{\\pi R^2} $$\n$$ \\Delta P = \\frac{2\\gamma}{R} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does a smaller soap bubble require a higher internal pressure to prevent collapse compared to a larger one?",
+      "back": "According to the Young-Laplace equation for a soap bubble, $\\Delta P = \\frac{4\\gamma}{R}$. This equation shows that the pressure difference across the bubble wall ($\\Delta P$) is inversely proportional to the radius $R$. As the radius $R$ decreases, the term $\\frac{4\\gamma}{R}$ increases, meaning a larger pressure difference is required to balance the increased curvature-induced surface tension forces. Thus, a smaller bubble must have a higher internal pressure relative to its surroundings.",
+      "difficulty": "medium"
+    }
+  ]
+}

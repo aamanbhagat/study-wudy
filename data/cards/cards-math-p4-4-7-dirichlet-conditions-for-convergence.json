@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-7-dirichlet-conditions-for-convergence",
+  "subtopicTitle": "Dirichlet conditions for convergence",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:22.521Z",
+  "cards": [
+    {
+      "front": "State the three primary Dirichlet conditions that a function $f(x)$ must satisfy on an interval $[a, b]$ for its Fourier series to converge.",
+      "back": "For its Fourier series to converge, $f(x)$ must satisfy:\n1.  $f(x)$ is absolutely integrable over the interval, i.e., $\\int_a^b |f(x)| dx < \\infty$.\n2.  $f(x)$ has a finite number of discontinuities in any given period.\n3.  $f(x)$ has a finite number of maxima and minima in any given period (i.e., it is of bounded variation).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a function $f(x)$ satisfies the Dirichlet conditions on an interval, what does its Fourier series converge to at a point $x$ where $f(x)$ is continuous?",
+      "back": "At any point $x$ where $f(x)$ is continuous, its Fourier series converges to $f(x)$ itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a function $f(x)$ satisfying Dirichlet conditions, what value does its Fourier series converge to at a point $x_0$ of finite discontinuity?",
+      "back": "At a point $x_0$ of finite discontinuity, the Fourier series converges to the average of the left-hand and right-hand limits of the function:\n$$S(x_0) = \\frac{f(x_0^-) + f(x_0^+)}{2}$$\nwhere $f(x_0^-) = \\lim_{h \\to 0^+} f(x_0-h)$ and $f(x_0^+) = \\lim_{h \\to 0^+} f(x_0+h)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a function $f(x)$ defined on $[-L, L]$ satisfying Dirichlet conditions. What does its Fourier series converge to at the endpoints $x = \\pm L$?",
+      "back": "The Fourier series converges to the average of the function's values at the periodic extensions of the endpoints. Specifically, at $x = \\pm L$, it converges to:\n$$S(\\pm L) = \\frac{f(-L^+) + f(L^-)}{2}$$\nThis is because the Fourier series represents the periodic extension of $f(x)$, and the endpoints of the original interval are points of discontinuity for the periodic extension (unless $f(-L^+) = f(L^-)$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are the Dirichlet conditions generally satisfied by functions that model physical phenomena in PDEs (e.g., temperature distribution, string displacement)?",
+      "back": "Physical phenomena are typically well-behaved. They usually have finite energy (implying integrability), don't have infinitely many oscillations in a finite interval (finite maxima/minima), and any sudden changes (discontinuities) are finite in number and magnitude. These properties align directly with the Dirichlet conditions, ensuring their Fourier series representations are valid and useful.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Construct a function $f(x)$ on $[-\\pi, \\pi]$ that *fails* at least one Dirichlet condition, preventing its Fourier series from converging pointwise everywhere.",
+      "back": "Consider $f(x) = \\frac{1}{x}$ on $[-\\pi, \\pi]$ (with $f(0)$ undefined or set to 0). This function is not absolutely integrable over the interval because $\\int_{-\\pi}^{\\pi} \\left|\\frac{1}{x}\\right| dx$ diverges due to the singularity at $x=0$.\nAnother example: $f(x) = \\sin(1/x)$ for $x \\neq 0$ and $f(0)=0$. This function has infinitely many maxima and minima near $x=0$, failing the bounded variation condition.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which of the Dirichlet conditions is equivalent to stating that $f(x)$ must be of \"bounded variation\" on the interval?",
+      "back": "The condition that $f(x)$ has a finite number of maxima and minima in any given period is equivalent to stating that $f(x)$ is of \"bounded variation\" on the interval. A function of bounded variation can be expressed as the difference of two non-decreasing functions.",
+      "difficulty": "medium"
+    }
+  ]
+}

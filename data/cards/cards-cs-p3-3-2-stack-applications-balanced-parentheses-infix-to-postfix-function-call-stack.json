@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p3-3-2-stack-applications-balanced-parentheses-infix-to-postfix-function-call-stack",
+  "subtopicTitle": "Stack applications — balanced parentheses, infix-to-postfix, function call stack",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:12.852Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of using a stack for checking if an expression has balanced parentheses?",
+      "back": "The primary purpose is to store unmatched opening delimiters (e.g., `(`, `{`, `[`) and pop them when a matching closing delimiter is encountered. This ensures that delimiters are correctly nested and appear in the correct order.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the algorithm for checking balanced parentheses using a stack.",
+      "back": "1. Initialize an empty stack.\n2. Iterate through the expression character by character.\n3. If an opening delimiter is found, push it onto the stack.\n4. If a closing delimiter is found:\n   a. If the stack is empty, the expression is unbalanced (unmatched closing delimiter).\n   b. Pop the top element from the stack. If it doesn't match the current closing delimiter, the expression is unbalanced (mismatched delimiters).\n5. After iterating through the entire expression:\n   a. If the stack is empty, the expression is balanced.\n   b. If the stack is not empty, the expression is unbalanced (unmatched opening delimiters).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine if the expression `{[()]}(` has balanced parentheses using a stack. Show the stack state at the end of processing.",
+      "back": "Processing steps:\n- `[`: Push `[`. Stack: `[`\n- `{`: Push `{`. Stack: `[`, `{`\n- `(`: Push `(`. Stack: `[`, `{`, `(`\n- `)`: Pop `(`. Match. Stack: `[`, `{`\n- `]`: Pop `[`. Mismatch! (Expected `{`, got `[` after popping `(`). Wait, my manual trace was wrong. The stack was `[`, `{` when `]` was encountered. Pop `{`. Mismatch. This expression is unbalanced.\n\nCorrected trace:\n- `[`: Push `[`. Stack: `[`\n- `{`: Push `{`. Stack: `[`, `{`\n- `(`: Push `(`. Stack: `[`, `{`, `(`\n- `)`: Pop `(`. Match. Stack: `[`, `{`\n- `]`: Pop `{`. Mismatch! The top of the stack was `{`, but `]` requires `[`. Therefore, the expression is **unbalanced**.\n\nFinal stack state (at point of error): `[` (after popping `{` and detecting mismatch).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is converting an infix expression to postfix (Reverse Polish Notation) useful in computer science?",
+      "back": "Postfix expressions can be evaluated directly using a stack without needing complex operator precedence rules or parentheses. This simplifies the design of compilers and interpreters for expression evaluation, as the order of operations is implicitly defined by the operator's position relative to its operands.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When converting infix to postfix, what are the rules for pushing operators onto the stack versus popping them, based on precedence and associativity?",
+      "back": "1. If the stack is empty or the top is `(`, push the incoming operator.\n2. If the incoming operator has higher precedence than the operator at the stack's top, push it.\n3. If the incoming operator has lower or equal precedence than the operator at the stack's top:\n   a. Pop operators from the stack to the output until an operator with lower precedence (or `(`) is found, or the stack is empty.\n   b. Then, push the incoming operator.\n   c. For operators with equal precedence, left-associativity means pop stack top, then push incoming; right-associativity means push incoming directly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert the infix expression $A * B + (C - D) / E$ to postfix notation. Show the final result.",
+      "back": "Infix: `A * B + (C - D) / E`\n\n1. `A`: Output `A`\n2. `*`: Stack `*`\n3. `B`: Output `A B`\n4. `+`: Pop `*` (output `*`), Stack `+`. Output `A B *`\n5. `(`: Stack `+ (`\n6. `C`: Output `A B * C`\n7. `-`: Stack `+ ( -`\n8. `D`: Output `A B * C D`\n9. `)`: Pop `-` (output `-`), Pop `(`. Stack `+`. Output `A B * C D -`\n10. `/`: `/` has higher precedence than `+`. Stack `+ /`. Output `A B * C D -`\n11. `E`: Output `A B * C D - E`\n12. End: Pop `/` (output `/`), Pop `+` (output `+`). Output `A B * C D - E / +`\n\nFinal Postfix: `A B * C D - E / +`",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the \"function call stack\" in computer science, and what fundamental principle does it follow?",
+      "back": "The function call stack is a region of memory used by a running program to manage function calls. Each time a function is called, a new \"stack frame\" is pushed onto this stack. When a function completes, its stack frame is popped. It follows the **Last-In, First-Out (LIFO)** principle, meaning the last function called is the first one to complete and have its frame removed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When a function is called, what key pieces of information are typically pushed onto the call stack as part of its \"stack frame\"?",
+      "back": "When a function is called, its stack frame (also known as an activation record) is pushed onto the call stack, typically containing:\n1.  **Return Address:** The memory address of the instruction in the calling function to return to.\n2.  **Function Parameters/Arguments:** The values passed into the function.\n3.  **Local Variables:** Storage for variables declared within the function's scope.\n4.  **Saved Registers:** Values of CPU registers that need to be preserved and restored after the function returns.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how recursion relies on the function call stack and what happens during a \"stack overflow\" error.",
+      "back": "Recursion heavily relies on the function call stack because each recursive call creates a new, distinct stack frame. This frame stores its own set of parameters, local variables, and a return address, allowing multiple instances of the same function to execute concurrently without interfering with each other's state.\n\nA \"stack overflow\" error occurs when a program makes too many nested function calls (often due to deep recursion without a proper base case, or an infinite loop of calls). This exhausts the finite memory allocated for the call stack, causing the program to crash because it can no longer allocate space for new stack frames.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the C++ code. Illustrate the conceptual state of the call stack just before `factorial(1)` returns.",
+      "back": "```cpp\nint factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\nint main() {\n    int result = factorial(3);\n    return 0;\n}\n```\n\nConceptual Call Stack (bottom to top):\n\n```\n[ main() stack frame ]\n    - result variable\n    - return address to OS/caller\n[ factorial(3) stack frame ]\n    - n = 3\n    - return address to main()\n[ factorial(2) stack frame ]\n    - n = 2\n    - return address to factorial(3)\n[ factorial(1) stack frame ]\n    - n = 1\n    - return address to factorial(2)\n```\n\nAt this point, `factorial(1)` has just received the return value from `factorial(0)` (which returned `1`) and is about to compute `1 * 1` and return to `factorial(2)`. The `factorial(0)` frame would have already been popped.",
+      "difficulty": "medium"
+    }
+  ]
+}

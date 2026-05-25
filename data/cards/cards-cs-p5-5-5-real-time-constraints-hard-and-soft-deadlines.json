@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-real-time-constraints-hard-and-soft-deadlines",
+  "subtopicTitle": "Real-time constraints — hard and soft deadlines",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:46.500Z",
+  "cards": [
+    {
+      "front": "What is the fundamental characteristic that defines a 'real-time system'?",
+      "back": "A real-time system is one where the correctness of its operations depends not only on the logical result of computation but also on the time at which the result is produced. Timeliness is as crucial as correctness.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a 'hard real-time' deadline and describe the typical consequences of missing it.",
+      "back": "A hard real-time deadline is one where missing it results in catastrophic failure, severe damage, loss of life, or unacceptable system degradation. The system must guarantee that all hard deadlines are met under all operating conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a 'soft real-time' deadline and describe the typical consequences of missing it.",
+      "back": "A soft real-time deadline is one where missing it results in degraded performance, reduced utility, or inconvenience, but the system continues to function without catastrophic failure. The system aims to meet most soft deadlines, but occasional misses are tolerable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an aircraft's flight control system, is the deadline for processing sensor inputs and adjusting control surfaces a hard or soft real-time constraint? Explain why.",
+      "back": "Hard real-time. Missing this deadline could lead to loss of aircraft control, a crash, and potential loss of life, which constitutes catastrophic failure. Such systems demand absolute determinism and guaranteed timely responses.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a web server handling user requests. Is the deadline for responding to a user query typically a hard or soft real-time constraint? Explain why.",
+      "back": "Soft real-time. Missing this deadline might cause a user to experience a delay, leading to a poorer user experience or frustration, but the server itself doesn't catastrophically fail. The system continues to operate, albeit with reduced quality of service.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary difference in design philosophy regarding worst-case execution time (WCET) guarantees between systems with hard real-time constraints versus those with only soft real-time constraints?",
+      "back": "For hard real-time systems, designers *must* guarantee that tasks always complete within their WCET, often requiring conservative estimations and deterministic scheduling to ensure no deadline misses. For soft real-time systems, average-case performance is often prioritized, and occasional WCET overruns or deadline misses are tolerated as long as they don't severely impact overall utility.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can a single embedded system contain both hard and soft real-time tasks? If so, how would a Real-Time Operating System (RTOS) typically manage their priorities?",
+      "back": "Yes, many complex embedded systems (e.g., automotive infotainment systems with safety-critical components) contain both. An RTOS would typically assign higher priority to hard real-time tasks to ensure their deadlines are met, often using pre-emptive, priority-based scheduling. Soft real-time tasks would run at lower priorities, utilizing CPU cycles not needed by the hard real-time tasks.",
+      "difficulty": "hard"
+    }
+  ]
+}

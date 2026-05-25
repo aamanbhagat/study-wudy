@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-capacitance-parallel-plate-derivation-cylindrical-spherical",
+  "subtopicTitle": "Capacitance — parallel plate derivation, cylindrical, spherical",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:37.105Z",
+  "cards": [
+    {
+      "front": "Define capacitance and state its SI unit.",
+      "back": "Capacitance ($C$) is a measure of a capacitor's ability to store electric charge. It is defined as the ratio of the magnitude of the charge ($Q$) on either conductor to the magnitude of the potential difference ($V$) between the conductors: $$C = \\frac{Q}{V}$$ The SI unit of capacitance is the Farad (F), which is equal to one Coulomb per Volt (C/V).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the general procedure to derive the capacitance of any capacitor geometry.",
+      "back": "To derive the capacitance of a capacitor, follow these steps:\n1.  **Assume a charge $Q$** on the conductors (e.g., $+Q$ on one plate and $-Q$ on the other).\n2.  **Use Gauss's Law** to determine the electric field $\\vec{E}$ in the region between the conductors.\n3.  **Calculate the potential difference $V$** between the conductors by integrating the electric field along a path from the negatively charged conductor to the positively charged conductor: $$V = -\\int_b^a \\vec{E} \\cdot d\\vec{l}$$ (where $a$ and $b$ are points on the positive and negative conductors, respectively).\n4.  **Compute the capacitance** using the definition $C = Q/V$. The charge $Q$ should cancel out, leaving an expression dependent only on the geometry and material properties.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the capacitance of a parallel plate capacitor with plate area $A$, plate separation $d$, and a vacuum between the plates.",
+      "back": "1.  Assume charge $+Q$ on one plate and $-Q$ on the other. The surface charge density is $\\sigma = Q/A$.\n2.  Using Gauss's Law, the electric field $\\vec{E}$ between the plates (and away from the edges) is uniform and given by: $$E = \\frac{\\sigma}{\\epsilon_0} = \\frac{Q}{A\\epsilon_0}$$\n3.  The potential difference $V$ between the plates is the electric field multiplied by the distance: $$V = Ed = \\left(\\frac{Q}{A\\epsilon_0}\\right)d$$\n4.  The capacitance $C$ is then: $$C = \\frac{Q}{V} = \\frac{Q}{\\frac{Qd}{A\\epsilon_0}} = \\frac{A\\epsilon_0}{d}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the capacitance of a parallel plate capacitor change when a dielectric material with dielectric constant $\\kappa$ completely fills the space between the plates?",
+      "back": "When a dielectric material with dielectric constant $\\kappa$ fills the space between the plates, the electric field between the plates is reduced by a factor of $\\kappa$ (i.e., $E' = E/\\kappa$). Consequently, the potential difference $V$ across the capacitor is also reduced by a factor of $\\kappa$. Since capacitance $C = Q/V$, a reduction in $V$ for the same $Q$ means the capacitance increases by a factor of $\\kappa$. The new capacitance $C'$ is: $$C' = \\kappa C_0 = \\frac{\\kappa A\\epsilon_0}{d}$$ where $C_0$ is the capacitance in vacuum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the capacitance of a cylindrical capacitor consisting of two coaxial cylinders of length $L$, with inner radius $a$ and outer radius $b$, assuming a vacuum between them.",
+      "back": "1.  Assume charge $+Q$ on the inner cylinder and $-Q$ on the outer cylinder. The linear charge density on the inner cylinder is $\\lambda = Q/L$.\n2.  Using Gauss's Law for a cylindrical Gaussian surface of radius $r$ ($a < r < b$) and length $L$: $$E(2\\pi r L) = \\frac{Q}{\\epsilon_0} \\implies E = \\frac{Q}{2\\pi \\epsilon_0 L r}$$\n3.  The potential difference $V$ between the cylinders is found by integrating $\\vec{E}$ from $r=a$ to $r=b$: $$V = -\\int_b^a \\vec{E} \\cdot d\\vec{r} = \\int_a^b E dr = \\int_a^b \\frac{Q}{2\\pi \\epsilon_0 L r} dr = \\frac{Q}{2\\pi \\epsilon_0 L} [\\ln r]_a^b = \\frac{Q}{2\\pi \\epsilon_0 L} \\ln\\left(\\frac{b}{a}\\right)$$\n4.  The capacitance $C$ is then: $$C = \\frac{Q}{V} = \\frac{Q}{\\frac{Q}{2\\pi \\epsilon_0 L} \\ln\\left(\\frac{b}{a}\\right)} = \\frac{2\\pi \\epsilon_0 L}{\\ln\\left(\\frac{b}{a}\\right)}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the capacitance of a spherical capacitor consisting of two concentric conducting spheres with inner radius $a$ and outer radius $b$, assuming a vacuum between them.",
+      "back": "1.  Assume charge $+Q$ on the inner sphere and $-Q$ on the outer sphere.\n2.  Using Gauss's Law for a spherical Gaussian surface of radius $r$ ($a < r < b$): $$E(4\\pi r^2) = \\frac{Q}{\\epsilon_0} \\implies E = \\frac{Q}{4\\pi \\epsilon_0 r^2}$$\n3.  The potential difference $V$ between the spheres is found by integrating $\\vec{E}$ from $r=a$ to $r=b$: $$V = -\\int_b^a \\vec{E} \\cdot d\\vec{r} = \\int_a^b E dr = \\int_a^b \\frac{Q}{4\\pi \\epsilon_0 r^2} dr = \\frac{Q}{4\\pi \\epsilon_0} \\left[ -\\frac{1}{r} \\right]_a^b = \\frac{Q}{4\\pi \\epsilon_0} \\left( -\\frac{1}{b} - \\left(-\\frac{1}{a}\\right) \\right) = \\frac{Q}{4\\pi \\epsilon_0} \\left(\\frac{1}{a} - \\frac{1}{b}\\right)$$\n4.  The capacitance $C$ is then: $$C = \\frac{Q}{V} = \\frac{Q}{\\frac{Q}{4\\pi \\epsilon_0} \\left(\\frac{1}{a} - \\frac{1}{b}\\right)} = \\frac{4\\pi \\epsilon_0}{\\frac{1}{a} - \\frac{1}{b}} = \\frac{4\\pi \\epsilon_0 ab}{b-a}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the capacitance of an isolated conducting sphere of radius $R$?",
+      "back": "An isolated conducting sphere can be considered a spherical capacitor where the outer conductor has an infinitely large radius ($b \\to \\infty$). Using the formula for a spherical capacitor $C = \\frac{4\\pi \\epsilon_0 ab}{b-a}$, substitute $a=R$ and let $b \\to \\infty$: $$C = \\lim_{b \\to \\infty} \\frac{4\\pi \\epsilon_0 R b}{b-R} = \\lim_{b \\to \\infty} \\frac{4\\pi \\epsilon_0 R}{1 - R/b}$$ As $b \\to \\infty$, $R/b \\to 0$, so: $$C = 4\\pi \\epsilon_0 R$$ This means the capacitance of an isolated sphere is directly proportional to its radius.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-3-sum-of-infinite-gp-when-it-converges-proof",
+  "subtopicTitle": "Sum of infinite GP — when it converges, proof",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:52.158Z",
+  "cards": [
+    {
+      "front": "Define an infinite geometric progression (GP).",
+      "back": "An infinite geometric progression is a sequence of numbers where each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio. It extends indefinitely: $a, ar, ar^2, ar^3, \\dots, ar^{n-1}, \\dots$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the sum of the first $n$ terms of a geometric progression, $S_n$.",
+      "back": "The sum of the first $n$ terms of a GP with first term $a$ and common ratio $r$ is given by: $$S_n = \\frac{a(1-r^n)}{1-r}, \\quad \\text{for } r \\neq 1$$ If $r=1$, then $S_n = na$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the necessary and sufficient condition for an infinite geometric series to converge?",
+      "back": "An infinite geometric series converges if and only if the absolute value of its common ratio $r$ is strictly less than 1, i.e., $|r| < 1$ or $-1 < r < 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the sum of an infinite geometric series, $S_\\infty$, given that it converges.",
+      "back": "Given an infinite GP with first term $a$ and common ratio $r$ where $|r|<1$. The sum of the first $n$ terms is $S_n = \\frac{a(1-r^n)}{1-r}$. The sum of the infinite series is $S_\\infty = \\lim_{n \\to \\infty} S_n$. $$S_\\infty = \\lim_{n \\to \\infty} \\frac{a(1-r^n)}{1-r}$$ Since $|r|<1$, we know that $\\lim_{n \\to \\infty} r^n = 0$. Therefore, $$S_\\infty = \\frac{a(1-0)}{1-r} = \\frac{a}{1-r}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for the sum of a convergent infinite geometric series.",
+      "back": "For an infinite geometric series with first term $a$ and common ratio $r$ such that $|r|<1$, the sum $S_\\infty$ is given by: $$S_\\infty = \\frac{a}{1-r}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Intuitively explain why an infinite geometric series only converges when $|r|<1$.",
+      "back": "When $|r|<1$, each successive term $ar^n$ becomes progressively smaller in magnitude, approaching zero as $n \\to \\infty$. This means the terms contribute less and less to the total sum, allowing the sum to approach a finite value. If $|r| \\ge 1$, the terms either stay the same size (for $r=1$ or $r=-1$) or grow in magnitude, preventing the sum from settling on a finite value (it diverges).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the sum of the infinite geometric series: $3 + 1 + \\frac{1}{3} + \\frac{1}{9} + \\dots$",
+      "back": "The first term is $a=3$. The common ratio is $r = \\frac{1}{3}$. Since $|r| = |\\frac{1}{3}| < 1$, the series converges. Using the formula $S_\\infty = \\frac{a}{1-r}$: $$S_\\infty = \\frac{3}{1 - \\frac{1}{3}} = \\frac{3}{\\frac{2}{3}} = 3 \\times \\frac{3}{2} = \\frac{9}{2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to the sum of an infinite geometric series if $|r| \\ge 1$?",
+      "back": "If $|r| \\ge 1$, the infinite geometric series diverges, meaning its sum does not approach a finite value. If $r=1$, the terms are $a, a, a, \\dots$, and $S_n = na$, which tends to $\\pm \\infty$. If $r=-1$, the terms are $a, -a, a, -a, \\dots$, and $S_n$ oscillates between $a$ and $0$. If $|r|>1$, the terms $ar^n$ grow in magnitude, so $S_n$ tends to $\\pm \\infty$.",
+      "difficulty": "medium"
+    }
+  ]
+}

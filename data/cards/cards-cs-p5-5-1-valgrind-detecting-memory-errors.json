@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-valgrind-detecting-memory-errors",
+  "subtopicTitle": "Valgrind — detecting memory errors",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:46.596Z",
+  "cards": [
+    {
+      "front": "What is Valgrind's primary purpose in C/C++ programming?",
+      "back": "Valgrind is a framework for dynamic analysis tools, primarily used to detect memory management and threading errors in programs. It instruments executables at runtime to observe their behavior.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the most commonly used Valgrind tool for detecting memory errors, and how do you invoke it for an executable `my_program`?",
+      "back": "The `memcheck` tool is the most commonly used. You can invoke it as `valgrind --tool=memcheck ./my_program` or simply `valgrind ./my_program` (since `memcheck` is the default tool).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Valgrind's `memcheck` tool can detect \"Use of uninitialised value\" errors. What does this error signify? Provide a simple C code example that would trigger it.",
+      "back": "This error, often abbreviated UMR (Uninitialised Memory Read), means the program attempted to read from memory that was allocated but never explicitly written to (initialized). Example:\n```c\n#include <stdio.h>\n#include <stdlib.h>\nint main() {\n    int *x = malloc(sizeof(int));\n    // *x is uninitialized here\n    int y = *x; // UMR: Use of uninitialised value\n    printf(\"%d\\n\", y);\n    free(x);\n    return 0;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"Invalid read of size X\" or \"Invalid write of size X\" errors reported by Valgrind. What common C programming mistake causes them?",
+      "back": "These errors indicate an attempt to access memory outside the bounds of an allocated block. \"Invalid read\" means reading out of bounds, while \"Invalid write\" means writing out of bounds. A common cause is off-by-one errors in array indexing or pointer arithmetic, leading to accessing memory just before or after the intended block.\nExample of invalid write:\n```c\n#include <stdlib.h>\nint main() {\n    int *arr = malloc(5 * sizeof(int));\n    arr[5] = 10; // Invalid write (index 5 is out of bounds for 0-4)\n    free(arr);\n    return 0;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the \"Use after free\" error detected by Valgrind. Why is this error particularly dangerous, even if it doesn't immediately crash the program?",
+      "back": "\"Use after free\" occurs when a program attempts to access memory (read or write) that has already been `free()`d. It's dangerous because the freed memory might be reallocated to another part of the program or even a different thread. Using it after `free()` can lead to:\n1.  **Data corruption:** Overwriting data belonging to another, active part of the program.\n2.  **Crashes:** If the memory has been reallocated and its contents changed in an unexpected way, subsequent access might dereference an invalid pointer.\n3.  **Security vulnerabilities:** In some cases, an attacker could exploit this by controlling the contents of the reallocated memory.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does Valgrind help identify memory leaks? What specific flag is often used to get a detailed leak report, and what do \"definitely lost\" vs. \"indirectly lost\" leaks mean?",
+      "back": "Valgrind's `memcheck` tool tracks all allocated memory. At program exit, it reports any blocks that were allocated but not freed. To get a detailed leak report, use `--leak-check=full`.\n*   **Definitely lost:** Memory that was allocated, is no longer reachable by any pointers in the program, and has not been freed. This is a clear, unrecoverable memory leak.\n*   **Indirectly lost:** Memory that is pointed to by \"definitely lost\" memory. If the root `definitely lost` block were freed, this `indirectly lost` block would also become reachable for freeing. It's a leak that would be resolved if its parent leak was fixed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You're using a third-party library that Valgrind reports numerous \"still reachable\" blocks for. You've verified these aren't critical leaks from *your* code. How can you instruct Valgrind to ignore these specific reports?",
+      "back": "You can use Valgrind suppression files. First, run Valgrind with `--gen-suppressions=all` (e.g., `valgrind --leak-check=full --gen-suppressions=all ./my_program 2> my_suppressions.supp`). This generates a template file with all detected issues. Then, you edit `my_suppressions.supp` to keep only the suppressions for the library's \"still reachable\" blocks (or other specific errors you wish to ignore). Finally, include this file in subsequent Valgrind runs using `--suppressions=my_suppressions.supp`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical performance overhead when running a program with Valgrind's `memcheck` tool? Why is this significant for debugging?",
+      "back": "Valgrind typically slows down program execution by 5-10x, and for memory-intensive applications, it can be 20-50x or even more. This overhead is significant because it means Valgrind is generally not suitable for production environments or performance profiling. It's a debugging tool meant for development, where the thoroughness of error detection outweighs the performance cost, allowing developers to catch subtle memory issues that might otherwise be missed.",
+      "difficulty": "medium"
+    }
+  ]
+}

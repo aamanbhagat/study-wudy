@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-std-atomic-lock-free-operations",
+  "subtopicTitle": "std::atomic — lock-free operations",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:17.930Z",
+  "cards": [
+    {
+      "front": "In C++ concurrent programming, what fundamental problem does `std::atomic` primarily address, and how does it achieve this?",
+      "back": "`std::atomic` primarily addresses **data races** on shared variables. It provides atomic operations (indivisible and uninterruptible) that guarantee that read-modify-write sequences on a single variable appear to happen instantaneously, preventing other threads from observing an inconsistent intermediate state or corrupting data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Distinguish between the C++ `volatile` keyword and `std::atomic<T>` regarding their purpose in concurrent programming.",
+      "back": "`volatile` prevents the compiler from optimizing away reads/writes to a variable, ensuring they occur as specified in the code. It's primarily for interacting with memory-mapped hardware. It does not provide atomicity or memory ordering guarantees for thread synchronization. `std::atomic<T>` guarantees atomicity of operations on a variable across threads, preventing data races and ensuring correct visibility of changes between threads through defined memory orderings. They solve different problems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does `std::atomic<T>::is_lock_free()` indicate, and why might it return `false` for certain types `T` or platforms?",
+      "back": "`is_lock_free()` indicates whether operations on the `std::atomic` object are implemented using CPU-level atomic instructions (e.g., CAS, fetch-and-add) rather than internal mutexes. It might return `false` if: 1. The type `T` is too large (e.g., a complex `struct` or `class`) to be atomically manipulated by the hardware in a single instruction. 2. The target architecture lacks native atomic instructions for `T` or for the specific operation. In such cases, `std::atomic` falls back to using a mutex internally, which is generally slower.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the guarantees provided by `memory_order_seq_cst` for atomic operations. What is its primary performance implication?",
+      "back": "`memory_order_seq_cst` (sequentially consistent) provides the strongest memory ordering. It guarantees: 1. **Atomicity:** The operation itself is atomic. 2. **Total Order:** All sequentially consistent operations across *all* threads appear to execute in a single, global, total order. 3. **Synchronization:** It acts as both an acquire and release operation. Its primary performance implication is that it often involves **memory fences/barriers** that are expensive, potentially flushing CPU caches and stalling pipelines, making it the slowest memory order. It ensures that program order is preserved *globally* for all sequentially consistent operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how `memory_order_acquire` and `memory_order_release` synchronize memory access between two threads.",
+      "back": "When Thread A performs a `store` with `memory_order_release` on an atomic variable `X`, all memory writes performed by Thread A *before* this store become visible to any other thread that subsequently performs a `load` with `memory_order_acquire` on `X`. `memory_order_release` ensures all prior writes in the current thread are visible to other threads acquiring the same atomic. `memory_order_acquire` ensures all writes made visible by a release operation on the same atomic (from another thread) are visible in the current thread *after* the acquire load. This creates a happens-before relationship, establishing a one-way synchronization point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why might `std::atomic::compare_exchange_weak` spuriously fail even if the value matches, and why is `compare_exchange_strong` generally preferred in loops?",
+      "back": "`compare_exchange_weak` can spuriously fail (return `false` even if `expected` equals the current value of the atomic) due to factors like CPU cache coherence issues or system interrupts on some architectures. It's often implemented with a single, potentially failing, CPU instruction. `compare_exchange_strong` guarantees that it will only fail if the actual value does not match `expected`. It might internally loop `compare_exchange_weak` until it succeeds or truly fails. For most general-purpose CAS loops, `_strong` is preferred for its simpler logic and robustness against spurious failures, reducing the chance of unexpected behavior.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the ABA problem in the context of `std::atomic::compare_exchange` and suggest a common mitigation strategy.",
+      "back": "The ABA problem occurs when a thread reads a value `A`, another thread modifies it to `B` and then back to `A` *before* the first thread attempts its `compare_exchange` operation. The `compare_exchange` will succeed because the value is `A` again, but the underlying state might have changed in an unexpected way, leading to logical errors. A common mitigation is to use a **version counter** (or tag) alongside the value. Instead of comparing just `A`, you compare `(A, version_X)`. If the value changes from `A` to `B` and back to `A`, the version counter will have incremented (e.g., `(A, version_X) -> (B, version_Y) -> (A, version_Z)`), causing the `compare_exchange` to fail as `version_X != version_Z`.",
+      "difficulty": "hard"
+    }
+  ]
+}

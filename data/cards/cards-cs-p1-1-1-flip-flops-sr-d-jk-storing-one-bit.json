@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-flip-flops-sr-d-jk-storing-one-bit",
+  "subtopicTitle": "Flip-flops — SR, D, JK — storing one bit",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:32.583Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a flip-flop in digital electronics?",
+      "back": "The primary function of a flip-flop is to store a single bit of binary information (0 or 1). It acts as a fundamental memory element in sequential logic circuits, registers, and counters, allowing digital systems to remember past states.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"forbidden state\" in an SR NOR latch and its consequence.",
+      "back": "The \"forbidden state\" in an SR NOR latch occurs when both S (Set) and R (Reset) inputs are simultaneously active (S=1, R=1). This forces both outputs Q and $\\bar{Q}$ to 0, violating the fundamental property that Q and $\\bar{Q}$ should always be complements. When S and R return to inactive (0,0), the next state of Q is unpredictable, leading to a race condition where the final state depends on which gate is slower.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a D flip-flop fundamentally prevent the \"forbidden state\" issue found in an SR latch?",
+      "back": "A D flip-flop prevents the forbidden state by using an inverter to ensure that the S and R inputs of its internal SR latch are always complementary. If the Data (D) input is 1, then S becomes 1 and R becomes 0. If D is 0, then S becomes 0 and R becomes 1. This design guarantees that S and R are never simultaneously active (1,1) or inactive (0,0), thus eliminating the problematic state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the output Q of a positive edge-triggered D flip-flop when the clock (CLK) transitions from 0 to 1, given that D=0?",
+      "back": "When the CLK transitions from 0 to 1 (positive edge), the D flip-flop samples its D input. Since D=0, the output Q will become 0 and remain 0. The output Q will hold this value until the next active clock edge, regardless of any changes in the D input while the clock is high or low.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Complete the truth table for a JK flip-flop's next state ($Q_{next}$) for the condition where J=1 and K=1.",
+      "back": "When J=1 and K=1, the JK flip-flop enters its \"toggle\" state. This means its next output ($Q_{next}$) will be the complement of its current output (Q). If Q was 0, $Q_{next}$ becomes 1. If Q was 1, $Q_{next}$ becomes 0.\n\n| J | K | Current Q | $Q_{next}$ |\n|---|---|-----------|------------|\n| 1 | 1 | 0         | 1          |\n| 1 | 1 | 1         | 0          |",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What unique functionality does a JK flip-flop offer that a D flip-flop does not, making it more versatile in certain applications?",
+      "back": "The JK flip-flop offers a \"toggle\" state (when J=1 and K=1), where its output flips to the opposite of its current state on the active clock edge. A D flip-flop can only load the value present at its D input, meaning it can only directly \"set\" (D=1) or \"reset\" (D=0) its state. It cannot directly toggle its state based on its current value without external logic, which the JK flip-flop can do inherently.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can a D flip-flop be configured to act as a T (Toggle) flip-flop?",
+      "back": "A D flip-flop can be configured as a T (Toggle) flip-flop by connecting its $\\bar{Q}$ output back to its D input. When the clock pulses, the D input will always be the complement of the current Q output, causing the flip-flop to toggle its state with each active clock edge.\n\n```\n      +----+\nCLK --| CLK|  Q --\n      |    |\n      | D  |  Q' --+ \n      +----+\n           ^       |\n           |       |\n           +-------+\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Distinguish between a \"latch\" and a \"flip-flop\" primarily in terms of their clocking behavior.",
+      "back": "A **latch** is level-sensitive, meaning its output can change and respond to inputs as long as its enable or clock input is at a particular logic level (e.g., high). Its output is transparent to the input while enabled. A **flip-flop** is edge-triggered, meaning its output changes only at a specific transition of the clock signal (e.g., positive edge or negative edge) and remains stable at all other times. Flip-flops are generally preferred in synchronous digital systems for more predictable and reliable operation.",
+      "difficulty": "easy"
+    }
+  ]
+}

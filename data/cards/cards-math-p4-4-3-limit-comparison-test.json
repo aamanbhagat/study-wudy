@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-3-limit-comparison-test",
+  "subtopicTitle": "Limit comparison test",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:04.672Z",
+  "cards": [
+    {
+      "front": "State the Limit Comparison Test (LCT) for two series $\\sum a_n$ and $\\sum b_n$.",
+      "back": "Let $\\sum a_n$ and $\\sum b_n$ be series with positive terms. If $\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = L$ where $L$ is a finite, positive number ($0 < L < \\infty$), then either both series converge or both series diverge.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the necessary conditions for applying the Limit Comparison Test to $\\sum a_n$ and $\\sum b_n$?",
+      "back": "The terms of both series must be positive for all $n$ (or at least eventually positive beyond some $N$). That is, $a_n > 0$ and $b_n > 0$ for all $n \\ge 1$ (or for all $n \\ge N$ for some integer $N$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = 0$, what conclusion can be drawn about $\\sum a_n$ if $\\sum b_n$ converges?",
+      "back": "If $\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = 0$ and $\\sum b_n$ converges, then $\\sum a_n$ also converges. (Intuitively, $a_n$ approaches zero 'faster' than $b_n$, so if $\\sum b_n$ converges, $\\sum a_n$ must as well.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = \\infty$, what conclusion can be drawn about $\\sum a_n$ if $\\sum b_n$ diverges?",
+      "back": "If $\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = \\infty$ and $\\sum b_n$ diverges, then $\\sum a_n$ also diverges. (Intuitively, $a_n$ approaches infinity 'faster' than $b_n$, so if $\\sum b_n$ diverges, $\\sum a_n$ must as well.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the LCT to determine the convergence of $\\sum_{n=1}^{\\infty} \\frac{n^2 + 3n}{2n^4 - n^2 + 1}$.",
+      "back": "Let $a_n = \\frac{n^2 + 3n}{2n^4 - n^2 + 1}$. For comparison, choose $b_n = \\frac{n^2}{2n^4} = \\frac{1}{2n^2}$.\n$\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = \\lim_{n \\to \\infty} \\frac{(n^2 + 3n)/(2n^4 - n^2 + 1)}{1/(2n^2)} = \\lim_{n \\to \\infty} \\frac{2n^2(n^2 + 3n)}{2n^4 - n^2 + 1} = \\lim_{n \\to \\infty} \\frac{2n^4 + 6n^3}{2n^4 - n^2 + 1} = 1$.\nSince $L=1$ ($0 < L < \\infty$) and $\\sum b_n = \\sum \\frac{1}{2n^2} = \\frac{1}{2} \\sum \\frac{1}{n^2}$ converges (p-series with $p=2 > 1$), the given series $\\sum a_n$ also converges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why does the Limit Comparison Test work when $0 < L < \\infty$?",
+      "back": "If $\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = L$ where $L$ is a positive finite number, it means that for sufficiently large $n$, $a_n \\approx L \\cdot b_n$. Since $L$ is a positive constant, $a_n$ and $b_n$ are essentially scalar multiples of each other. Therefore, their long-term behavior (convergence or divergence) must be the same.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is the Limit Comparison Test generally preferred over the Direct Comparison Test?",
+      "back": "LCT is preferred when the terms $a_n$ are complicated or 'messy' but resemble a simpler known series $b_n$, and it's difficult or inconvenient to establish the necessary inequalities ($a_n \\le b_n$ or $a_n \\ge b_n$) required for the Direct Comparison Test. Calculating a limit is often simpler than proving an inequality for all $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider $\\sum_{n=1}^{\\infty} \\frac{1}{n \\ln n}$. If we try to use LCT with $b_n = \\frac{1}{n}$, what is the limit and what conclusion can be drawn?",
+      "back": "Let $a_n = \\frac{1}{n \\ln n}$ and $b_n = \\frac{1}{n}$.\n$\\lim_{n \\to \\infty} \\frac{a_n}{b_n} = \\lim_{n \\to \\infty} \\frac{1/(n \\ln n)}{1/n} = \\lim_{n \\to \\infty} \\frac{1}{\\ln n} = 0$.\nSince $\\sum b_n = \\sum \\frac{1}{n}$ is the harmonic series (a divergent p-series), and $L=0$, the test is inconclusive. The $L=0$ case only provides a conclusion if $\\sum b_n$ *converges*. (Note: The Integral Test shows that $\\sum \\frac{1}{n \\ln n}$ diverges.)",
+      "difficulty": "hard"
+    }
+  ]
+}

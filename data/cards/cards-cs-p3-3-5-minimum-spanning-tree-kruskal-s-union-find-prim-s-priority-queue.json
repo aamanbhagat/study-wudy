@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-5-minimum-spanning-tree-kruskal-s-union-find-prim-s-priority-queue",
+  "subtopicTitle": "Minimum Spanning Tree — Kruskal's (Union-Find), Prim's (priority queue)",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:18.204Z",
+  "cards": [
+    {
+      "front": "What is a Minimum Spanning Tree (MST)?",
+      "back": "A Minimum Spanning Tree (MST) is a subgraph of an undirected, connected, edge-weighted graph that connects all the vertices with the minimum possible total edge weight, without forming any cycles. If the graph is disconnected, it has a Minimum Spanning Forest (MSF).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core greedy strategy of Kruskal's algorithm for finding an MST.",
+      "back": "Kruskal's algorithm sorts all edges by weight in non-decreasing order. It then iterates through the sorted edges, adding an edge to the MST if it connects two previously disconnected components (i.e., does not form a cycle with already added edges). This cycle detection and component merging is efficiently handled by a Union-Find (Disjoint Set Union) data structure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Analyze the time complexity of Kruskal's algorithm using a Union-Find data structure with path compression and union by rank/size.",
+      "back": "1.  **Sorting edges**: $O(E \\log E)$ where $E$ is the number of edges.\n2.  **Union-Find operations**: There are $V-1$ successful `union` operations and at most $2E$ `find` operations (one for each endpoint of each edge check). With path compression and union by rank/size, these operations take nearly constant amortized time, $O(\\alpha(V))$, where $\\alpha$ is the inverse Ackermann function.\n    Total for Union-Find: $O(E \\alpha(V))$.\nOverall complexity: $O(E \\log E + E \\alpha(V))$. Since $\\alpha(V)$ is extremely small (effectively constant for practical $V$), this is often simplified to $O(E \\log E)$ or $O(E \\log V)$ (as $E \\le V^2 \\implies \\log E \\le 2 \\log V$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the core greedy strategy of Prim's algorithm for finding an MST.",
+      "back": "Prim's algorithm starts from an arbitrary vertex and grows the MST one edge at a time. At each step, it adds the minimum-weight edge that connects a vertex already in the growing MST to a vertex not yet in the MST. This process is repeated until all vertices are included. A min-priority queue is used to efficiently find this minimum-weight edge and manage candidate edges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Analyze the time complexity of Prim's algorithm using a binary min-priority queue.",
+      "back": "1.  **Initialization**: $O(V)$ to set distances to infinity and add all vertices to the PQ.\n2.  **Main loop**: Runs $V$ times (one `extract-min` for each vertex to add it to the MST).\n3.  `extract-min`: $O(\\log V)$ for a binary heap. Total: $O(V \\log V)$.\n4.  **Edge relaxation/`decrease-key`**: For each edge $(u, v)$ incident to an extracted vertex $u$, if $v$ is not yet in the MST, its key in the PQ might be updated. In the worst case, all $E$ edges are processed. Each `decrease-key` is $O(\\log V)$ for a binary heap. Total: $O(E \\log V)$.\nOverall complexity: $O(V \\log V + E \\log V) = O(E \\log V)$.\n(Note: Using a Fibonacci heap, `extract-min` is $O(\\log V)$ and `decrease-key` is $O(1)$ amortized, leading to $O(V \\log V + E)$.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which data structure is crucial for efficiently implementing Kruskal's algorithm?",
+      "back": "A Union-Find (also known as Disjoint Set Union) data structure. It is used to keep track of connected components and efficiently determine if adding an edge would form a cycle (by checking if its endpoints are already in the same component) and to merge components.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which data structure is crucial for efficiently implementing Prim's algorithm?",
+      "back": "A min-priority queue. It is used to store vertices not yet in the MST, prioritized by the weight of the minimum-weight edge connecting them to a vertex already in the MST. This allows for efficient retrieval of the next vertex/edge to add.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When might Kruskal's algorithm be preferred over Prim's, and vice-versa?",
+      "back": "<ul><li><b>Kruskal's</b> is generally preferred for <b>sparse graphs</b> (fewer edges, $E \\ll V^2$) because its $O(E \\log E)$ complexity depends more on $E$. It's also often easier to implement and parallelize.</li><li><b>Prim's</b> is generally preferred for <b>dense graphs</b> (many edges, $E \\approx V^2$) where $O(E \\log V)$ might be better than $O(E \\log E)$ if $E$ is large. Prim's also naturally extends to finding shortest paths from a single source (Dijkstra's algorithm).</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental property of MSTs guarantees that both Kruskal's and Prim's greedy approaches find an optimal solution?",
+      "back": "The **Cut Property** (or Cut Lemma). It states: For any cut (a partition of vertices into two non-empty sets $S$ and $V \\setminus S$) that does not cross any edges of the current MST, if there is an edge $(u, v)$ with $u \\in S$ and $v \\in V \\setminus S$ that has strictly minimum weight among all edges crossing the cut, then this edge must be part of *every* MST. If there are multiple minimum-weight edges, at least one of them must be in an MST. Both algorithms implicitly or explicitly rely on this property to make locally optimal (greedy) choices that lead to a globally optimal solution.",
+      "difficulty": "medium"
+    }
+  ]
+}

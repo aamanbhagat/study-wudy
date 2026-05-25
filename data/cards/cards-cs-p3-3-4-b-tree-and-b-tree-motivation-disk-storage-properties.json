@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-b-tree-and-b-tree-motivation-disk-storage-properties",
+  "subtopicTitle": "B-tree and B+ tree — motivation (disk storage), properties",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:01.902Z",
+  "cards": [
+    {
+      "front": "What is the primary reason traditional balanced binary search trees (like AVL or Red-Black trees) are inefficient when data is stored on disk?",
+      "back": "Traditional balanced BSTs are designed for in-memory operations where node access is fast. When data is on disk, accessing a single node requires a disk I/O operation (reading a disk block), which is orders of magnitude slower than memory access. Their low branching factor means many disk I/Os are needed to traverse from root to leaf.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental design goal of a B-tree in the context of disk storage and I/O operations?",
+      "back": "The fundamental design goal is to minimize the number of disk I/O operations required to find a record. B-trees achieve this by maximizing the branching factor (number of children per node), which reduces the height of the tree, and by ensuring that each node fits precisely into a single disk block, thus fetching more data per I/O.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a B-tree of order $m$, what are the minimum and maximum number of keys and children an internal node (non-root, non-leaf) can have?",
+      "back": "An internal node (non-root, non-leaf) in a B-tree of order $m$ must have:\n- **Keys:** Minimum $\\lceil m/2 \\rceil - 1$ keys, Maximum $m-1$ keys.\n- **Children:** Minimum $\\lceil m/2 \\rceil$ children, Maximum $m$ children.\n(Note: $m$ is the maximum number of children a node can have.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the specific properties of the root node and all leaf nodes in a B-tree.",
+      "back": "- **Root Node:** If the tree has more than one node, the root must have at least 2 children (and thus at least 1 key). It can have up to $m$ children (and $m-1$ keys).\n- **Leaf Nodes:** All leaf nodes must be at the same level. They store between $\\lceil m/2 \\rceil - 1$ and $m-1$ keys, and have no children (as they are leaves).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference in how data records (or pointers to them) are stored in a B-tree versus a B+ tree?",
+      "back": "- **B-tree:** Data records (or pointers to them) can be stored in *both* internal nodes and leaf nodes, alongside the keys.\n- **B+ tree:** All data records (or pointers to them) are stored *only* in the leaf nodes. Internal nodes contain only keys, which serve purely for navigation to the correct leaf node.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the structure of a B+ tree, particularly its leaf nodes, provide a significant advantage for range queries (e.g., \"find all records where key is between X and Y\")?",
+      "back": "In a B+ tree, all leaf nodes are typically linked together in a sequential manner (e.g., a doubly linked list). This allows for efficient range queries: once the first record in the range is found by traversing the tree, subsequent records in the range can be retrieved by simply traversing the linked list of leaf nodes, without needing to repeatedly go back up to internal nodes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a B-tree of order $m$ with $N$ keys, what is the approximate maximum height $h$? Explain the intuition behind this formula.",
+      "back": "The approximate maximum height $h$ of a B-tree with $N$ keys and order $m$ is $h \\approx \\log_{\\lceil m/2 \\rceil}(N)$.\n\n**Intuition:** Each internal node (except the root) must have at least $\\lceil m/2 \\rceil$ children. This means the minimum branching factor of the tree is $\\lceil m/2 \\rceil$. A higher branching factor leads to a much shorter tree (logarithmic height), which directly translates to fewer disk I/O operations required to reach any leaf node, thus improving performance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a disk block size is 4KB and each key takes 8 bytes, and each child pointer takes 8 bytes, what is the maximum order $m$ for a B-tree node to fit within a single disk block?",
+      "back": "A B-tree node stores $m-1$ keys and $m$ child pointers. \nGiven:\n- Disk block size = 4KB = 4096 bytes\n- Key size = 8 bytes\n- Pointer size = 8 bytes\n\nThe total size of a node is $(m-1) \\times \\text{key_size} + m \\times \\text{pointer_size}$.\nSo, $(m-1) \\times 8 + m \\times 8 \\le 4096$\n$8m - 8 + 8m \\le 4096$\n$16m - 8 \\le 4096$\n$16m \\le 4104$\n$m \\le 256.5$\n\nSince $m$ must be an integer, the maximum order $m$ is $\\mathbf{256}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

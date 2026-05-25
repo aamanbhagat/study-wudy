@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-parametric-surfaces-tangent-planes-surface-area",
+  "subtopicTitle": "Parametric surfaces — tangent planes, surface area",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:40.306Z",
+  "cards": [
+    {
+      "front": "Define a parametric surface and state its typical vector representation.",
+      "back": "A parametric surface is a surface in 3D space defined by a vector function $\\mathbf{r}(u,v)$ of two parameters $u$ and $v$. Its typical vector representation is: $$\\mathbf{r}(u,v) = \\langle x(u,v), y(u,v), z(u,v) \\rangle$$ where $(u,v)$ vary over a domain $D$ in the $uv$-plane.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a parametric surface $\\mathbf{r}(u,v)$, how do you find the tangent vectors along the $u$-grid curve and $v$-grid curve at a point?",
+      "back": "The tangent vector along the $u$-grid curve (where $v$ is held constant) is $\\mathbf{r}_u = \\frac{\\partial \\mathbf{r}}{\\partial u}$. The tangent vector along the $v$-grid curve (where $u$ is held constant) is $\\mathbf{r}_v = \\frac{\\partial \\mathbf{r}}{\\partial v}$. These vectors lie in the tangent plane at that point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the normal vector to a parametric surface $\\mathbf{r}(u,v)$ at a point $(u_0, v_0)$ typically found, assuming it's not zero?",
+      "back": "The normal vector $\\mathbf{n}$ to the surface at the point $\\mathbf{r}(u_0,v_0)$ is given by the cross product of the tangent vectors $\\mathbf{r}_u$ and $\\mathbf{r}_v$: $$\\mathbf{n} = \\mathbf{r}_u(u_0,v_0) \\times \\mathbf{r}_v(u_0,v_0)$$ This vector is orthogonal to both $\\mathbf{r}_u$ and $\\mathbf{r}_v$, and thus orthogonal to the tangent plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the equation of the tangent plane to a parametric surface $\\mathbf{r}(u,v)$ at the point $P_0 = \\mathbf{r}(u_0, v_0)$.",
+      "back": "Let $\\mathbf{r}_0 = \\mathbf{r}(u_0, v_0) = \\langle x_0, y_0, z_0 \\rangle$. The normal vector to the surface at $P_0$ is $\\mathbf{n} = \\mathbf{r}_u(u_0,v_0) \\times \\mathbf{r}_v(u_0,v_0)$. If $\\mathbf{n} = \\langle A,B,C \\rangle$, then for any point $P(x,y,z)$ on the tangent plane, the vector $\\vec{P_0P} = \\langle x-x_0, y-y_0, z-z_0 \\rangle$ must be orthogonal to $\\mathbf{n}$. Thus, the equation of the tangent plane is: $$\\mathbf{n} \\cdot (\\mathbf{r} - \\mathbf{r}_0) = 0 \\quad \\text{or} \\quad A(x-x_0) + B(y-y_0) + C(z-z_0) = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the geometric intuition and derive the differential surface area element $dS$ for a parametric surface $\\mathbf{r}(u,v)$.",
+      "back": "Consider an infinitesimal rectangular patch in the $uv$-plane with sides $du$ and $dv$. This patch maps to an infinitesimal curvilinear parallelogram on the surface. The sides of this parallelogram can be approximated by the vectors $\\mathbf{r}_u \\,du$ and $\\mathbf{r}_v \\,dv$. The area of this parallelogram is given by the magnitude of their cross product: $$dS = ||(\\mathbf{r}_u \\,du) \\times (\\mathbf{r}_v \\,dv)|| = ||\\mathbf{r}_u \\times \\mathbf{r}_v|| \\,du\\,dv$$ Thus, the differential surface area element is $dS = ||\\mathbf{r}_u \\times \\mathbf{r}_v|| \\,dA$, where $dA = du\\,dv$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the general formula for the surface area of a parametric surface $\\mathbf{r}(u,v)$ over a parameter domain $D$.",
+      "back": "The surface area $A(S)$ of a parametric surface $S$ defined by $\\mathbf{r}(u,v)$ over a domain $D$ in the $uv$-plane is given by the double integral: $$A(S) = \\iint_D ||\\mathbf{r}_u \\times \\mathbf{r}_v|| \\,dA$$ where $||\\mathbf{r}_u \\times \\mathbf{r}_v||$ is the magnitude of the normal vector, and $dA = du\\,dv$ or $dv\\,du$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the surface area formula simplify when the surface is given explicitly as $z=f(x,y)$ over a domain $D$ in the $xy$-plane?",
+      "back": "We can parametrize the surface as $\\mathbf{r}(x,y) = \\langle x, y, f(x,y) \\rangle$. Then: \\begin{itemize} \\item $\\mathbf{r}_x = \\langle 1, 0, f_x \\rangle$ \\item $\\mathbf{r}_y = \\langle 0, 1, f_y \\rangle$ \\item $\\mathbf{r}_x \\times \\mathbf{r}_y = \\langle -f_x, -f_y, 1 \\rangle$ \\item $||\\mathbf{r}_x \\times \\mathbf{r}_y|| = \\sqrt{(-f_x)^2 + (-f_y)^2 + 1^2} = \\sqrt{1 + (\\frac{\\partial z}{\\partial x})^2 + (\\frac{\\partial z}{\\partial y})^2}$ \\end{itemize} So, the surface area formula becomes: $$A(S) = \\iint_D \\sqrt{1 + (\\frac{\\partial z}{\\partial x})^2 + (\\frac{\\partial z}{\\partial y})^2} \\,dA$$",
+      "difficulty": "medium"
+    }
+  ]
+}

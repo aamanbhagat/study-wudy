@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-4-reciprocal-identities-cosec-sec-cot-in-terms-of-sin-cos-tan",
+  "subtopicTitle": "Reciprocal identities — cosec, sec, cot in terms of sin, cos, tan",
+  "topicId": "math-p2-2-4-trigonometry-foundation",
+  "topicTitle": "Trigonometry — Foundation",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:51.372Z",
+  "cards": [
+    {
+      "front": "Define the cosecant function, $\\csc(\\theta)$.",
+      "back": "The cosecant function, $\\csc(\\theta)$, is defined as the reciprocal of the sine function:\n$$\\csc(\\theta) = \\frac{1}{\\sin(\\theta)}$$\nIn a right-angled triangle, it's the ratio of the hypotenuse to the opposite side.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the secant function, $\\sec(\\theta)$.",
+      "back": "The secant function, $\\sec(\\theta)$, is defined as the reciprocal of the cosine function:\n$$\\sec(\\theta) = \\frac{1}{\\cos(\\theta)}$$\nIn a right-angled triangle, it's the ratio of the hypotenuse to the adjacent side.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the cotangent function, $\\cot(\\theta)$.",
+      "back": "The cotangent function, $\\cot(\\theta)$, is defined as the reciprocal of the tangent function:\n$$\\cot(\\theta) = \\frac{1}{\\tan(\\theta)}$$\nIt can also be expressed as $\\frac{\\cos(\\theta)}{\\sin(\\theta)}$. In a right-angled triangle, it's the ratio of the adjacent side to the opposite side.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express $\\cot(x)$ in terms of $\\tan(x)$.",
+      "back": "The cotangent function is the reciprocal of the tangent function:\n$$\\cot(x) = \\frac{1}{\\tan(x)}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $\\cos(\\theta) = \\frac{4}{5}$, what is the value of $\\sec(\\theta)$?",
+      "back": "Given $\\cos(\\theta) = \\frac{4}{5}$, the secant is its reciprocal:\n$$\\sec(\\theta) = \\frac{1}{\\cos(\\theta)} = \\frac{1}{4/5} = \\frac{5}{4}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Simplify the expression: $\\sin(A) \\cdot \\sec(A)$.",
+      "back": "We know that $\\sec(A) = \\frac{1}{\\cos(A)}$. Substitute this into the expression:\n$$\\sin(A) \\cdot \\sec(A) = \\sin(A) \\cdot \\frac{1}{\\cos(A)} = \\frac{\\sin(A)}{\\cos(A)}$$\nThis simplifies to $\\tan(A)$.\nSo, $\\sin(A) \\cdot \\sec(A) = \\tan(A)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why $\\csc(\\theta)$ is undefined when $\\theta = n\\pi$ for any integer $n$.",
+      "back": "The cosecant function is defined as $\\csc(\\theta) = \\frac{1}{\\sin(\\theta)}$.\nFor $\\csc(\\theta)$ to be defined, its denominator $\\sin(\\theta)$ cannot be zero.\nThe sine function is zero at $\\theta = 0, \\pm\\pi, \\pm2\\pi, \\dots$.\nThese values can be generalized as $\\theta = n\\pi$, where $n$ is any integer.\nAt these points, $\\sin(\\theta) = 0$, making $\\csc(\\theta)$ undefined due to division by zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove that $\\frac{\\csc(x)}{\\sec(x)} = \\cot(x)$, stating any necessary conditions for $x$.",
+      "back": "We start with the left-hand side (LHS):\n$$\\text{LHS} = \\frac{\\csc(x)}{\\sec(x)}$$\nSubstitute the reciprocal identities $\\csc(x) = \\frac{1}{\\sin(x)}$ and $\\sec(x) = \\frac{1}{\\cos(x)}$:\n$$\\text{LHS} = \\frac{1/\\sin(x)}{1/\\cos(x)} = \\frac{1}{\\sin(x)} \\cdot \\frac{\\cos(x)}{1} = \\frac{\\cos(x)}{\\sin(x)}$$\nWe know that $\\frac{\\cos(x)}{\\sin(x)} = \\cot(x)$.\nThus, $\\frac{\\csc(x)}{\\sec(x)} = \\cot(x)$.\n\nConditions: For the expression to be defined, $\\sin(x) \\neq 0$ (so $\\csc(x)$ and $\\cot(x)$ are defined) and $\\cos(x) \\neq 0$ (so $\\sec(x)$ is defined). This means $x \\neq n\\pi$ and $x \\neq \\frac{\\pi}{2} + n\\pi$ for any integer $n$.",
+      "difficulty": "hard"
+    }
+  ]
+}

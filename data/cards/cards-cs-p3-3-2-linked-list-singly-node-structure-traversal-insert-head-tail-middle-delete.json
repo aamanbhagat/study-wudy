@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-2-linked-list-singly-node-structure-traversal-insert-head-tail-middle-delete",
+  "subtopicTitle": "Linked list — singly: node structure, traversal, insert head/tail/middle, delete",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:45.453Z",
+  "cards": [
+    {
+      "front": "Describe the fundamental structure of a node in a singly linked list.",
+      "back": "A node in a singly linked list typically consists of two parts:\n1.  `data` (or `value`): Stores the actual information.\n2.  `next`: A pointer (or reference) to the subsequent node in the sequence. The `next` pointer of the last node is `NULL` (or `None`).\n\n```python\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a singly linked list, and what is its primary characteristic regarding navigation?",
+      "back": "A singly linked list is a linear data structure where elements are stored in individual nodes, and each node contains a reference (or pointer) to the *next* node in the sequence. Its primary characteristic is that traversal is strictly unidirectional; you can only move forward from the head towards the tail, and cannot easily move backward.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the algorithm to traverse a singly linked list from head to tail, printing each node's data.",
+      "back": "To traverse a singly linked list:\n1. Initialize a `current` pointer to the `head` of the list.\n2. While `current` is not `NULL` (or `None`):\n   a. Process `current.data` (e.g., print it).\n   b. Move `current` to `current.next`.\n\n```python\ndef traverse_list(head):\n    current = head\n    while current:\n        print(current.data)\n        current = current.next\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the steps to insert a new node with `value` at the head of a singly linked list.",
+      "back": "To insert a new node at the head:\n1. Create a `newNode` with the given `value`.\n2. Set `newNode.next` to point to the current `head` of the list.\n3. Update the `head` of the list to be `newNode`.\n\n```python\n# Assume 'head' is the current head of the list\n# and Node class is defined\ndef insert_at_head(head, value):\n    newNode = Node(value)\n    newNode.next = head\n    return newNode # The new head\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the algorithm to insert a new node with `value` at the tail of a singly linked list. Consider an empty list.",
+      "back": "To insert a new node at the tail:\n1. Create a `newNode` with the given `value`.\n2. If the list is empty (`head` is `NULL`/`None`), set `head` to `newNode` and return.\n3. Otherwise, initialize a `current` pointer to `head`.\n4. Traverse the list by moving `current = current.next` until `current.next` is `NULL` (meaning `current` is the last node).\n5. Set `current.next` to `newNode`.\n\n```python\ndef insert_at_tail(head, value):\n    newNode = Node(value)\n    if not head:\n        return newNode # New head\n    current = head\n    while current.next:\n        current = current.next\n    current.next = newNode\n    return head # Original head\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you insert a `newNode` with `value` *after* a given `prevNode` in a singly linked list?",
+      "back": "To insert a `newNode` after a given `prevNode`:\n1. First, ensure `prevNode` is not `NULL`/`None`, as you cannot insert after a non-existent node. If it is, handle as an error.\n2. Create `newNode` with the given `value`.\n3. Set `newNode.next` to `prevNode.next` (linking the new node to the rest of the list).\n4. Set `prevNode.next` to `newNode` (linking the previous node to the new node).\n\n```python\n# Assume prevNode is an existing node in the list\ndef insert_after_node(prevNode, value):\n    if not prevNode:\n        print(\"Previous node cannot be None.\")\n        return\n    newNode = Node(value)\n    newNode.next = prevNode.next\n    prevNode.next = newNode\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the algorithm to delete a node with a specific `key` (value) from a singly linked list. Address edge cases.",
+      "back": "To delete a node with a specific `key`:\n1.  **Case 1: Delete Head Node**\n    If `head` exists and `head.data == key`:\n    Set `head = head.next`.\n    Return the new `head`.\n2.  **Case 2: Traverse to Find Node**\n    Initialize `current` to `head` and `prev` to `NULL`/`None`.\n    Traverse the list: while `current` is not `NULL` and `current.data != key`:\n        Set `prev = current`.\n        Set `current = current.next`.\n3.  **Case 3: Key Not Found**\n    If `current` is `NULL` (reached end, key not found), the list remains unchanged. Return original `head`.\n4.  **Case 4: Delete Middle or Tail Node**\n    If `current` is not `NULL` (node found):\n    Set `prev.next = current.next` (bypassing `current`).\n    Return original `head`.\n\n```python\ndef delete_node(head, key):\n    if head and head.data == key:\n        return head.next # New head\n    \n    current = head\n    prev = None\n    while current and current.data != key:\n        prev = current\n        current = current.next\n    \n    if current: # Node found\n        prev.next = current.next\n    # else: Node not found, list remains unchanged\n    return head # Original head or new head if head was deleted\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the average and worst-case time complexities for insertion at head, insertion at tail, and deletion by value in a singly linked list of $N$ nodes?",
+      "back": "Here are the time complexities:\n*   **Insertion at Head**: $O(1)$ (constant time), as it only involves re-pointing the head and the new node.\n*   **Insertion at Tail**: $O(N)$ (linear time), as it requires traversing the entire list to find the last node.\n*   **Deletion by Value**: $O(N)$ (linear time), as it may require traversing the entire list to find the node to be deleted and its predecessor.\n*   **Traversal**: $O(N)$ (linear time).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-link-state-routing-ospf-dijkstra",
+  "subtopicTitle": "Link state routing — OSPF, Dijkstra",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:33.691Z",
+  "cards": [
+    {
+      "front": "What is the fundamental difference in network knowledge between link-state and distance-vector routing protocols?",
+      "back": "Link-state protocols (e.g., OSPF) maintain a complete 'map' of the entire network topology, as each router shares its directly connected links and their costs with all other routers. Distance-vector protocols (e.g., RIP) only know their neighbors' distances to destinations and rely on neighbors to update their routing tables, leading to a 'router's-eye view' rather than a global view.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the process by which routers in a link-state network populate their Link-State Database (LSDB).",
+      "back": "Each router periodically generates a Link-State Advertisement (LSA) containing information about its directly connected links (interface, neighbor, cost). These LSAs are flooded throughout the network to all other routers. Upon receiving an LSA, a router adds it to its LSDB and then re-floods it to its other interfaces (except the one it arrived on), ensuring all routers eventually have an identical, complete LSDB.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which algorithm is central to link-state routing for calculating shortest paths, and what is its objective?",
+      "back": "Dijkstra's Shortest Path First (SPF) algorithm. Its objective is, for a given source router, to find the shortest (lowest cost) path to all other routers in the network, thereby constructing a Shortest Path Tree (SPT) with the source router as the root. This SPT then dictates the entries in the router's forwarding table.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the high-level steps of Dijkstra's algorithm as used by a router to compute its Shortest Path Tree.",
+      "back": "1. Initialize: Set distance to source as 0, others as $\\infty$. Mark all nodes unvisited. 2. Iterate: While unvisited nodes exist: a. Select the unvisited node with the smallest current distance. b. Mark it visited. c. For each unvisited neighbor $v$ of the current node $u$, update its distance if a shorter path is found through $u$: $D[v] = \\min(D[v], D[u] + \\text{cost}(u,v))$. 3. Result: The final distances represent the shortest paths from the source to all other nodes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does OSPF stand for, and what is its primary role in IP networks?",
+      "back": "OSPF stands for Open Shortest Path First. It is a link-state interior gateway protocol (IGP) used to distribute routing information within a single autonomous system (AS). Its primary role is to enable routers to build a consistent view of the network topology and calculate the most efficient (shortest) paths to all destinations within that AS.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does OSPF's use of 'areas' enhance scalability, and what is the implication for Dijkstra's algorithm?",
+      "back": "OSPF areas divide a large AS into smaller, more manageable segments. Each router within an area runs Dijkstra's algorithm *only* for its own area, building an SPT for intra-area routes. Area Border Routers (ABRs) summarize routes between areas, reducing the size of the LSDB and the computational load of Dijkstra's algorithm in larger networks. This hierarchical approach limits the scope of SPF calculations, improving scalability and stability.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the 'count-to-infinity' problem and why link-state routing protocols avoid it.",
+      "back": "The 'count-to-infinity' problem occurs in distance-vector protocols when a link fails, and routers incorrectly propagate outdated routes, leading to routing loops and paths that never converge. Link-state protocols avoid this because each router has a complete and synchronized view of the network topology (LSDB). When a link fails, an LSA is flooded, and all routers immediately update their LSDBs and re-run Dijkstra, quickly converging on new loop-free paths.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What data structure optimizes Dijkstra's algorithm, and how does it impact its time complexity?",
+      "back": "A priority queue (e.g., a min-heap) is used to efficiently select the unvisited node with the smallest current distance. If $V$ is the number of vertices (routers) and $E$ is the number of edges (links), using a binary heap, Dijkstra's time complexity is typically $O(E \\log V)$ or $O(E + V \\log V)$. Without a priority queue (simple array scan), it would be $O(V^2)$, which is less efficient for sparse graphs.",
+      "difficulty": "medium"
+    }
+  ]
+}

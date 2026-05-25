@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-3-midpoint-formula",
+  "subtopicTitle": "Midpoint formula",
+  "topicId": "math-p2-2-3-coordinate-geometry",
+  "topicTitle": "Coordinate Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:36.488Z",
+  "cards": [
+    {
+      "front": "State the midpoint formula for a line segment connecting two points $(x_1, y_1)$ and $(x_2, y_2)$.",
+      "back": "The midpoint $M$ of a line segment with endpoints $(x_1, y_1)$ and $(x_2, y_2)$ is given by:\n$$M = \\left(\\frac{x_1+x_2}{2}, \\frac{y_1+y_2}{2}\\right)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuitive reason why the midpoint formula involves averaging the coordinates.",
+      "back": "The midpoint is the point that is exactly halfway between the two endpoints. To find a value that is exactly halfway between two numbers, you average them. Thus, the x-coordinate of the midpoint is the average of the x-coordinates of the endpoints, and similarly for the y-coordinate. This ensures the midpoint is equidistant from both original points along both axes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the midpoint of the line segment connecting points $P(-5, 12)$ and $Q(3, -4)$.",
+      "back": "Using the midpoint formula:\n$M = \\left(\\frac{-5+3}{2}, \\frac{12+(-4)}{2}\\right)$\n$M = \\left(\\frac{-2}{2}, \\frac{8}{2}\\right)$\n$M = (-1, 4)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $M(4, -2)$ is the midpoint of segment $AB$, and point $A$ is at $(-1, 5)$, find the coordinates of point $B$.",
+      "back": "Let $A = (x_1, y_1) = (-1, 5)$ and $B = (x_2, y_2)$. The midpoint $M = (4, -2)$.\nUsing the midpoint formula:\nFor the x-coordinate: $4 = \\frac{-1+x_2}{2} \\Rightarrow 8 = -1+x_2 \\Rightarrow x_2 = 9$.\nFor the y-coordinate: $-2 = \\frac{5+y_2}{2} \\Rightarrow -4 = 5+y_2 \\Rightarrow y_2 = -9$.\nSo, the coordinates of point $B$ are $(9, -9)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary geometric property that defines a midpoint on a line segment?",
+      "back": "A midpoint divides a line segment into two smaller segments of equal length. It is the unique point on the segment that is equidistant from both endpoints.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the midpoint formula for points $(x_1, y_1)$ and $(x_2, y_2)$ using the concept of displacement and averaging.",
+      "back": "Consider the x-coordinates. The distance from $x_1$ to $x_2$ is $x_2 - x_1$. The midpoint's x-coordinate, $x_M$, must be $x_1$ plus half of this distance:\n$x_M = x_1 + \\frac{1}{2}(x_2 - x_1)$\n$x_M = x_1 + \\frac{x_2}{2} - \\frac{x_1}{2}$\n$x_M = \\frac{2x_1 - x_1 + x_2}{2}$\n$x_M = \\frac{x_1+x_2}{2}$\nSimilarly for the y-coordinate:\n$y_M = y_1 + \\frac{1}{2}(y_2 - y_1) = \\frac{y_1+y_2}{2}$\nThus, the midpoint $M = \\left(\\frac{x_1+x_2}{2}, \\frac{y_1+y_2}{2}\\right)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the midpoint of the segment connecting $A(6, 0)$ and $B(-2, 8)$. What does the y-coordinate of the midpoint tell you about its position relative to the axes?",
+      "back": "Using the midpoint formula:\n$M = \\left(\\frac{6+(-2)}{2}, \\frac{0+8}{2}\\right)$\n$M = \\left(\\frac{4}{2}, \\frac{8}{2}\\right)$\n$M = (2, 4)$\nThe y-coordinate of the midpoint is $4$. Since it is not $0$, the midpoint does not lie on the x-axis. Since it is not $0$, and the x-coordinate is also not $0$, it does not lie on either axis, but rather in the first quadrant.",
+      "difficulty": "medium"
+    }
+  ]
+}

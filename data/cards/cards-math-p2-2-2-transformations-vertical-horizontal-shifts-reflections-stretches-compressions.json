@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-2-transformations-vertical-horizontal-shifts-reflections-stretches-compressions",
+  "subtopicTitle": "Transformations — vertical/horizontal shifts, reflections, stretches/compressions",
+  "topicId": "math-p2-2-2-functions",
+  "topicTitle": "Functions",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:32.652Z",
+  "cards": [
+    {
+      "front": "How does the graph of $y = f(x) + c$ (where $c > 0$) relate to the graph of $y = f(x)$?",
+      "back": "The graph of $y = f(x) + c$ is the graph of $y = f(x)$ shifted vertically upwards by $c$ units. Each $y$-coordinate is increased by $c$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the transformation from $f(x)$ to $f(x - h)$ (where $h > 0$).",
+      "back": "The graph of $y = f(x - h)$ is the graph of $y = f(x)$ shifted horizontally to the right by $h$ units. To achieve the same output as $f(x_0)$, the new input $x$ must be $x_0 + h$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the algebraic expression for a function $f(x)$ that is first reflected across the $x$-axis and then across the $y$-axis.",
+      "back": "1. Reflection across $x$-axis: $-f(x)$\n2. Then reflect $-f(x)$ across $y$-axis: $-f(-x)$\nSo the expression is $g(x) = -f(-x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the graph of $y = A f(x)$ (where $A > 0$) relate to $y = f(x)$? Specify for $A > 1$ and $0 < A < 1$.",
+      "back": "If $A > 1$, the graph of $y = A f(x)$ is a vertical stretch of $y = f(x)$ by a factor of $A$. Each $y$-coordinate is multiplied by $A$.\nIf $0 < A < 1$, the graph of $y = A f(x)$ is a vertical compression of $y = f(x)$ by a factor of $A$. Each $y$-coordinate is multiplied by $A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the transformation from $f(x)$ to $f(Bx)$ (where $B > 0$). Specify for $B > 1$ and $0 < B < 1$.",
+      "back": "If $B > 1$, the graph of $y = f(Bx)$ is a horizontal compression of $y = f(x)$ by a factor of $1/B$. Each $x$-coordinate is divided by $B$.\nIf $0 < B < 1$, the graph of $y = f(Bx)$ is a horizontal stretch of $y = f(x)$ by a factor of $1/B$. Each $x$-coordinate is divided by $B$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $f(x)$, describe the sequence of transformations to obtain $g(x) = -2f(3x - 6) + 1$.",
+      "back": "First, rewrite $g(x)$ by factoring out the coefficient of $x$: $g(x) = -2f(3(x - 2)) + 1$.\nStarting from $y = f(x)$:\n1.  **Horizontal Compression**: $f(3x)$ (by a factor of $1/3$)\n2.  **Horizontal Shift**: $f(3(x - 2))$ (right by 2 units)\n3.  **Vertical Stretch**: $2f(3(x - 2))$ (by a factor of 2)\n4.  **Vertical Reflection**: $-2f(3(x - 2))$ (across the x-axis)\n5.  **Vertical Shift**: $-2f(3(x - 2)) + 1$ (up by 1 unit)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why $f(x+c)$ (for $c > 0$) shifts the graph of $f(x)$ to the *left*, even though adding $c$ usually means \"more\" or \"right\".",
+      "back": "To obtain the same output value $y_0 = f(x_0)$ from the original function $f(x)$, the new function $f(x+c)$ requires an input $x'$ such that $x'+c = x_0$. Solving for $x'$, we get $x' = x_0 - c$.\nThis means that to get the same $y$-value that $f(x)$ produced at $x_0$, $f(x+c)$ needs an $x$-input that is $c$ units *smaller*. Therefore, the entire graph is shifted to the left by $c$ units. The \"action\" (producing a certain $y$-value) happens earlier (at a smaller $x$-value).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-gradient-as-direction-of-steepest-ascent",
+  "subtopicTitle": "Gradient as direction of steepest ascent",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:11.273Z",
+  "cards": [
+    {
+      "front": "Define the gradient vector $\\nabla f$ for a scalar function $f(x, y, z)$.",
+      "back": "The gradient vector $\\nabla f(x, y, z)$ is a vector of its partial derivatives:\n$$ \\nabla f(x, y, z) = \\left\\langle \\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y}, \\frac{\\partial f}{\\partial z} \\right\\rangle $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary geometric interpretation of the gradient vector $\\nabla f(P)$ for a scalar function $f$ at point $P$?",
+      "back": "The gradient vector $\\nabla f(P)$ points in the direction in which the function $f$ increases most rapidly (the direction of steepest ascent) at point $P$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express the directional derivative $D_{\\mathbf{u}}f(P)$ of a scalar function $f$ at point $P$ in the direction of a unit vector $\\mathbf{u}$ using the gradient.",
+      "back": "The directional derivative is the dot product of the gradient and the unit direction vector:\n$$ D_{\\mathbf{u}}f(P) = \\nabla f(P) \\cdot \\mathbf{u} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that the gradient vector $\\nabla f$ points in the direction of the greatest rate of increase of a scalar function $f$ at a point $P$.",
+      "back": "The directional derivative is $D_{\\mathbf{u}}f = \\nabla f \\cdot \\mathbf{u}$. Using the definition of the dot product, $D_{\\mathbf{u}}f = |\\nabla f| |\\mathbf{u}| \\cos \\theta$, where $\\theta$ is the angle between $\\nabla f$ and $\\mathbf{u}$. Since $\\mathbf{u}$ is a unit vector, $|\\mathbf{u}|=1$. Thus, $D_{\\mathbf{u}}f = |\\nabla f| \\cos \\theta$. To maximize $D_{\\mathbf{u}}f$ (the rate of increase), $\\cos \\theta$ must be maximized. The maximum value of $\\cos \\theta$ is $1$, which occurs when $\\theta = 0$. This means $\\mathbf{u}$ points in the exact same direction as $\\nabla f$. Therefore, $\\nabla f$ points in the direction of steepest ascent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the magnitude of the gradient vector, $|\\nabla f(P)|$, represent at a point $P$?",
+      "back": "The magnitude $|\\nabla f(P)|$ represents the maximum rate of increase of the function $f$ at point $P$. This maximum rate occurs precisely in the direction of $\\nabla f(P)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a scalar function $f$, what is the direction of steepest *descent* at a point $P$?",
+      "back": "The direction of steepest descent for a scalar function $f$ at a point $P$ is given by the negative of the gradient vector, $-\\nabla f(P)$. The maximum rate of decrease is $|\\nabla f(P)|$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $f(x,y) = x^2 + y^2$, find the unit vector in the direction of steepest ascent at $(1,2)$ and the maximum rate of increase.",
+      "back": "1.  Calculate the gradient: $\\nabla f = \\left\\langle \\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y} \\right\\rangle = \\langle 2x, 2y \\rangle$.\n2.  Evaluate at $(1,2)$: $\\nabla f(1,2) = \\langle 2(1), 2(2) \\rangle = \\langle 2, 4 \\rangle$.\n3.  Direction of steepest ascent (unit vector): $\\mathbf{u} = \\frac{\\langle 2, 4 \\rangle}{|\\langle 2, 4 \\rangle|} = \\frac{\\langle 2, 4 \\rangle}{\\sqrt{2^2+4^2}} = \\frac{\\langle 2, 4 \\rangle}{\\sqrt{20}} = \\frac{\\langle 2, 4 \\rangle}{2\\sqrt{5}} = \\left\\langle \\frac{1}{\\sqrt{5}}, \\frac{2}{\\sqrt{5}} \\right\\rangle$.\n4.  Maximum rate of increase: $|\\nabla f(1,2)| = \\sqrt{20} = 2\\sqrt{5}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

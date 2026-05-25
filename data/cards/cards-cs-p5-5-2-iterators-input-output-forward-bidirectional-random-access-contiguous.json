@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-iterators-input-output-forward-bidirectional-random-access-contiguous",
+  "subtopicTitle": "Iterators — input, output, forward, bidirectional, random access, contiguous",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:11.280Z",
+  "cards": [
+    {
+      "front": "In C++, what is the fundamental purpose of an iterator?",
+      "back": "An iterator is an object that points to an element within a range of elements (like a container) and provides a generalized way to traverse through the elements of that range. It abstracts over different data structures, allowing algorithms to work uniformly.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary functional difference between an `InputIterator` and an `OutputIterator` in C++?",
+      "back": "An `InputIterator` is primarily for **reading** elements from a range, allowing single-pass traversal. It supports `operator*` returning a const reference. An `OutputIterator` is primarily for **writing** elements to a range, also allowing single-pass traversal. It supports `operator*` returning a non-const reference.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What crucial capability does a `ForwardIterator` possess that `InputIterator`s and `OutputIterator`s lack?",
+      "back": "A `ForwardIterator` guarantees **multi-pass** traversal. This means it can be safely copied, and each copy can then be incremented independently to traverse the same range multiple times. `InputIterator`s and `OutputIterator`s are generally single-pass and may become invalid after being incremented or copied.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which C++ iterator categories support both incrementing (`++`) and decrementing (`--`) operations?",
+      "back": "Only `BidirectionalIterator`s, `RandomAccessIterator`s, and `ContiguousIterator`s support both incrementing (`++`) and decrementing (`--`) operations. `InputIterator`s, `OutputIterator`s, and `ForwardIterator`s only support incrementing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which iterator category is the minimum requirement for `std::sort` and why is this specific category necessary?",
+      "back": "`std::sort` requires a **RandomAccessIterator**. This is because `std::sort` algorithms (e.g., Introsort) need to efficiently jump to arbitrary positions within the range, access elements by index (e.g., `it[n]`), and perform arithmetic operations on iterators (e.g., `it + n`, `it - n`), all of which require constant-time operations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a `ContiguousIterator` (C++17) and provide an example of a standard library container whose iterators are contiguous.",
+      "back": "A `ContiguousIterator` is a `RandomAccessIterator` for which the elements addressed by the iterator are guaranteed to be stored contiguously in memory, just like a raw C-style array. This means that for any iterator `it` and integer `n`, `*(it + n)` is equivalent to `*(&*it + n)`. `std::vector` and `std::array` provide contiguous iterators.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the iterator categories of `std::list::iterator` and `std::vector::iterator`. Explain the implications for performance.",
+      "back": "`std::list::iterator` is a **BidirectionalIterator**. It supports incrementing and decrementing, but not random access (e.g., `it + n` or `it[n]`). Traversal of $N$ elements takes $O(N)$ time. \n`std::vector::iterator` is a **RandomAccessIterator** (and a `ContiguousIterator` since C++17). It supports all iterator operations, including random access and arithmetic, in $O(1)$ time. This means algorithms requiring random access (like `std::sort`) work efficiently with `std::vector` but not with `std::list`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond `operator++`, list three distinct operations or guarantees provided by a `RandomAccessIterator` that are not necessarily available for a `BidirectionalIterator`.",
+      "back": "A `RandomAccessIterator` provides:\n1.  **Arbitrary offset arithmetic**: `it + n`, `it - n`, `it += n`, `it -= n`.\n2.  **Subscript access**: `it[n]` (equivalent to `*(it + n)`).\n3.  **Relational comparisons**: `it < other`, `it > other`, `it <= other`, `it >= other`.\nThese operations allow constant-time jumps and comparisons between iterators, which are not guaranteed for `BidirectionalIterator`s.",
+      "difficulty": "medium"
+    }
+  ]
+}

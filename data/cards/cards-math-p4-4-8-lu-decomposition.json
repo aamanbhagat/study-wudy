@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-lu-decomposition",
+  "subtopicTitle": "LU decomposition",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:39.770Z",
+  "cards": [
+    {
+      "front": "Define LU decomposition for a square matrix $A$.",
+      "back": "LU decomposition is the factorization of a square matrix $A$ into the product of a lower triangular matrix $L$ and an upper triangular matrix $U$, such that $A = LU$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary advantage of using LU decomposition for solving $Ax=b$ when multiple $b$ vectors are involved?",
+      "back": "The primary advantage is efficiency. Once $A$ is decomposed into $L$ and $U$ (an $O(n^3)$ operation), solving $Ly=b$ and $Ux=y$ for each new $b$ vector only requires $O(n^2)$ operations, significantly faster than re-doing Gaussian elimination ($O(n^3)$) each time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $A=LU$, outline the two main steps to solve the linear system $Ax=b$.",
+      "back": "1.  **Forward Substitution:** Solve the lower triangular system $Ly=b$ for the intermediate vector $y$.\n2.  **Backward Substitution:** Solve the upper triangular system $Ux=y$ for the solution vector $x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how the matrices $L$ and $U$ are formed during the process of Gaussian elimination on $A$ (assuming Doolittle's method, $l_{ii}=1$).",
+      "back": "$U$ is the upper triangular matrix obtained by applying Gaussian elimination to $A$. $L$ is a lower triangular matrix where $l_{ii}=1$ for all $i$, and for $i>j$, $l_{ij}$ is the multiplier used to eliminate the element $a_{ij}$ during the Gaussian elimination process.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the necessity of pivoting in LU decomposition and how it modifies the factorization to $PA=LU$.",
+      "back": "Pivoting (row exchanges) is essential to:\n1.  **Avoid division by zero:** If a pivot element is zero, row exchange is mandatory.\n2.  **Improve numerical stability:** Choosing the largest possible pivot element (partial pivoting) minimizes the accumulation of round-off errors.\nWhen pivoting is used, a permutation matrix $P$ is introduced to record the row swaps, leading to the factorization $PA=LU$, where $P$ reorders the rows of $A$ before decomposition.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition does a unique $LU$ decomposition (where $L$ has ones on its main diagonal) exist for a square matrix $A$?",
+      "back": "A unique $LU$ decomposition (with $l_{ii}=1$) exists if and only if all leading principal minors (determinants of the top-left square submatrices) of $A$ are non-zero. If any leading principal minor is zero, pivoting is required, leading to $PA=LU$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the determinant of $A$ be efficiently calculated from its $LU$ decomposition? What special case of LU decomposition exists for symmetric positive definite matrices?",
+      "back": "If $A=LU$ (with $l_{ii}=1$), then $\\det(A) = \\det(L)\\det(U)$. Since $\\det(L)=1$, $\\det(A) = \\det(U) = \\prod_{i=1}^n u_{ii}$. If $PA=LU$, then $\\det(A) = (-1)^s \\prod_{i=1}^n u_{ii}$, where $s$ is the number of row swaps in $P$.\nFor a symmetric positive definite matrix $A$, a special form called **Cholesky decomposition** exists: $A = LL^T$ (or $A = R^TR$), where $L$ is a lower triangular matrix with positive diagonal entries.",
+      "difficulty": "hard"
+    }
+  ]
+}

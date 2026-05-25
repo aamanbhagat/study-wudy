@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-switching-circuit-packet-virtual-circuit",
+  "subtopicTitle": "Switching — circuit, packet, virtual circuit",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:23.370Z",
+  "cards": [
+    {
+      "front": "What is the fundamental principle of circuit switching?",
+      "back": "In circuit switching, a dedicated communication path (circuit) with guaranteed bandwidth is established between two endpoints *before* any data transfer begins. This circuit remains exclusively allocated for the duration of the communication, even if no data is being sent.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does packet switching differ from circuit switching in its approach to resource allocation and data transmission?",
+      "back": "Packet switching breaks data into small, independent units called packets. Network resources (bandwidth, buffers) are allocated *on demand* for each packet as it travels through the network, rather than reserving a dedicated path beforehand. Packets from the same source may take different paths.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify two key advantages of packet switching over circuit switching, especially for bursty data traffic.",
+      "back": "1. **Efficiency/Resource Utilization**: Multiple users can share the same network resources, as bandwidth is only used when packets are actively being sent. This is ideal for bursty traffic where users are not always transmitting.\n2. **Robustness/Flexibility**: If a path or node fails, packets can be dynamically rerouted through alternative paths, making the network more resilient to failures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two potential disadvantages of packet switching compared to circuit switching, particularly concerning real-time applications?",
+      "back": "1. **Variable Delay/Jitter**: Packets might experience different delays and arrive out of order, requiring reordering at the destination. This can be problematic for real-time applications (e.g., voice, video) that require consistent timing.\n2. **Overhead**: Each packet requires a header containing addressing and control information, adding overhead compared to raw data transfer over a dedicated circuit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of 'virtual circuit switching' and how it combines aspects of both circuit and packet switching.",
+      "back": "Virtual circuit switching is a form of packet switching where a logical connection (virtual circuit) is established *before* data transfer. All packets belonging to this connection follow the same pre-determined path and arrive in order.\nIt's 'packet-switched' because resources are still shared (not dedicated) and packets carry identifiers (VCI), but 'circuit-like' due to the connection setup, ordered delivery, and fixed path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between 'datagram packet switching' and 'virtual circuit packet switching' in terms of connection setup and packet routing.",
+      "back": "1. **Datagram Packet Switching**: Connectionless. Each packet is an independent datagram, routed individually based on its full destination address. Packets from the same source might take different paths and arrive out of order. No setup or teardown phase.\n2. **Virtual Circuit Packet Switching**: Connection-oriented. A logical connection (VC) is established first. All packets for that VC follow the same path, identified by a Virtual Circuit Identifier (VCI) in their header (not a full destination address). Packets arrive in order.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For what type of communication traffic is circuit switching most suitable, and why?",
+      "back": "Circuit switching is most suitable for **constant bit rate (CBR)** or **real-time applications** that require a guaranteed, consistent bandwidth and low, predictable delay, such as traditional telephone calls or dedicated video conferencing links. This is because the dedicated circuit ensures no contention or variable delays, providing a predictable quality of service.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a network link with capacity $C$ bps. If a user requires $R$ bps and is active for a fraction $p$ of the time, how many users can be supported by circuit switching vs. packet switching (assuming perfect statistical multiplexing for packet switching)?",
+      "back": "1. **Circuit Switching**: Each user requires a dedicated $R$ bps for the entire duration of their potential activity. So, the number of users $N_{circuit} = \\lfloor C / R \\rfloor$.\n2. **Packet Switching**: With perfect statistical multiplexing, users share the link. The average bandwidth needed per user is $p \\times R$. The network can support $N_{packet} = \\lfloor C / (p \\times R) \\rfloor$ users. Since $p < 1$, $N_{packet}$ is significantly higher than $N_{circuit}$, demonstrating the efficiency gain for bursty traffic.",
+      "difficulty": "hard"
+    }
+  ]
+}

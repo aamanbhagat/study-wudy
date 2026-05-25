@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-4-triple-integrals-in-cartesian-cylindrical-spherical-coordinates",
+  "subtopicTitle": "Triple integrals in Cartesian, cylindrical, spherical coordinates",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:51.113Z",
+  "cards": [
+    {
+      "front": "Define the triple integral of a function $f(x,y,z)$ over a region $E$ in Cartesian coordinates.",
+      "back": "The triple integral is defined as $\\iiint_E f(x,y,z) \\,dV = \\lim_{||\\Delta V|| \\to 0} \\sum_{k} f(x_k^*, y_k^*, z_k^*) \\Delta V_k$. In Cartesian coordinates, the infinitesimal volume element is $dV = dx\\,dy\\,dz$ (or any permutation of $dx, dy, dz$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Set up the limits for $\\iiint_E f(x,y,z) \\,dV$ where $E$ is bounded by $z=0$, $z=x+y$, $x=0$, $y=0$, $x=1$, and $y=1$.",
+      "back": "The integral can be set up as: $\\int_0^1 \\int_0^1 \\int_0^{x+y} f(x,y,z) \\,dz\\,dy\\,dx$. Other orders of integration are also valid, provided the limits are adjusted accordingly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the coordinate transformations from Cartesian to cylindrical coordinates and express the volume element $dV$ in cylindrical coordinates.",
+      "back": "The transformations are: $x = r\\cos\\theta$, $y = r\\sin\\theta$, $z = z$. The volume element is $dV = r\\,dr\\,d\\theta\\,dz$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the coordinate transformations from Cartesian to spherical coordinates and express the volume element $dV$ in spherical coordinates.",
+      "back": "The transformations are: $x = \\rho\\sin\\phi\\cos\\theta$, $y = \\rho\\sin\\phi\\sin\\theta$, $z = \\rho\\cos\\phi$. The volume element is $dV = \\rho^2\\sin\\phi\\,d\\rho\\,d\\phi\\,d\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the role of the Jacobian determinant when changing variables in a triple integral.",
+      "back": "The Jacobian determinant $J = \\det\\left(\\frac{\\partial(x,y,z)}{\\partial(u,v,w)}\\right)$ acts as a scaling factor for the infinitesimal volume element. It accounts for how the transformation stretches or shrinks the volume, ensuring that the integral correctly sums the function values over the transformed region. Geometrically, it represents the ratio of the volume of an infinitesimal parallelepiped in the new coordinate system to that in the old system.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When are cylindrical coordinates typically preferred for triple integrals?",
+      "back": "Cylindrical coordinates are preferred when the region of integration or the integrand exhibits symmetry around an axis (e.g., the z-axis). This includes regions like cylinders, cones, paraboloids, or integrands containing terms like $x^2+y^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When are spherical coordinates typically preferred for triple integrals?",
+      "back": "Spherical coordinates are preferred when the region of integration or the integrand exhibits spherical symmetry. This includes regions like spheres, spherical shells, cones with vertices at the origin, or integrands containing terms like $x^2+y^2+z^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Set up the triple integral in spherical coordinates to find the volume of the region above the cone $z = \\sqrt{x^2+y^2}$ and below the sphere $x^2+y^2+z^2 = 4$.",
+      "back": "The cone $z = \\sqrt{x^2+y^2}$ corresponds to $\\phi = \\pi/4$. The sphere $x^2+y^2+z^2 = 4$ corresponds to $\\rho=2$. The region is described by $0 \\le \\rho \\le 2$, $0 \\le \\phi \\le \\pi/4$, and $0 \\le \\theta \\le 2\\pi$. The volume integral is: $$V = \\int_0^{2\\pi} \\int_0^{\\pi/4} \\int_0^2 \\rho^2\\sin\\phi \\,d\\rho\\,d\\phi\\,d\\theta$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the triple integral $\\iiint_E 1 \\,dV$ represent geometrically?",
+      "back": "It represents the volume of the three-dimensional region $E$.",
+      "difficulty": "easy"
+    }
+  ]
+}

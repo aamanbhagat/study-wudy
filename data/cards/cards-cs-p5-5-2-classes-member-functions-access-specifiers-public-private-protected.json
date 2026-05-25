@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-classes-member-functions-access-specifiers-public-private-protected",
+  "subtopicTitle": "Classes — member functions, access specifiers (public, private, protected)",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:58.201Z",
+  "cards": [
+    {
+      "front": "In C++, what is a 'member function' of a class?",
+      "back": "A member function (or method) is a function that belongs to a class and operates on objects of that class. It has access to all members (data and functions) of its class, regardless of their access specifiers, and defines the behaviors and operations an object of the class can perform.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Declare a `public` member function `getInfo()` that returns `std::string` within a C++ class `Book`.",
+      "back": "```cpp\nclass Book {\npublic:\n    std::string getInfo(); // Declaration inside the class\nprivate:\n    // ... private members ...\n};\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of the `private` access specifier in C++ classes?",
+      "back": "`private` members are accessible only from within the same class (i.e., by its own member functions or `friend`s). Its primary purpose is to enforce encapsulation and data hiding, preventing direct external manipulation of internal state and ensuring data integrity through controlled access via `public` member functions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference in accessibility between `private` and `protected` class members when considering derived classes.",
+      "back": "`private` members are *not* accessible to derived classes. `protected` members, however, *are* accessible to derived classes (as well as to the base class itself), but still *not* accessible from outside the class hierarchy (i.e., by non-member functions or objects of the class directly).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a `public` setter function `setAge` for a `private` `int age` member in a `Person` class, ensuring `age` is always non-negative.",
+      "back": "```cpp\nclass Person {\nprivate:\n    int age;\npublic:\n    void setAge(int newAge) {\n        if (newAge >= 0) {\n            age = newAge;\n        } else {\n            // Optionally handle error, e.g., throw exception or log warning\n            // std::cerr << \"Error: Age cannot be negative.\" << std::endl;\n        }\n    }\n    // ... other members ...\n};\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the default access specifier for members declared in a C++ `class` versus a `struct`? Illustrate with a minimal example.",
+      "back": "For a `class`, the default access specifier is `private`. For a `struct`, the default access specifier is `public`.\n```cpp\nclass MyClass { // 'value' is private by default\n    int value;\npublic:\n    MyClass() : value(0) {}\n};\n\nstruct MyStruct { // 'value' is public by default\n    int value;\n    MyStruct() : value(0) {}\n};\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do C++ access specifiers (`public`, `private`, `protected`) and member functions collectively achieve 'encapsulation'?",
+      "back": "Encapsulation bundles data (member variables) and the methods (member functions) that operate on the data into a single unit (the class). Access specifiers hide the internal implementation details (`private` and `protected` members) from the outside world, exposing only a controlled interface (`public` member functions). This ensures data integrity by preventing direct, uncontrolled access and manipulation, allowing changes to internal implementation without affecting external code that uses the class.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-subqueries-correlated-vs-uncorrelated",
+  "subtopicTitle": "Subqueries — correlated vs uncorrelated",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:42.185Z",
+  "cards": [
+    {
+      "front": "What is a **subquery** in SQL?",
+      "back": "A subquery (or inner query) is a query nested inside another SQL query (e.g., SELECT, INSERT, UPDATE, DELETE, or another subquery). It executes first and its result is used by the outer query.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an **uncorrelated subquery** and state its key characteristic.",
+      "back": "An uncorrelated subquery is a subquery that can be executed independently of the outer query. It does not reference any columns from the outer query and runs only once, returning its result to the outer query.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a **correlated subquery** and state its key characteristic.",
+      "back": "A correlated subquery is a subquery that depends on the outer query for its values. It references one or more columns from the outer query and, therefore, must execute once for *each row* processed by the outer query.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write an **uncorrelated subquery** to find all products with a price higher than the overall average product price.",
+      "back": "```sql\nSELECT product_name, price\nFROM Products\nWHERE price > (SELECT AVG(price) FROM Products);\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a **correlated subquery** to find employees who earn more than the average salary in their *respective departments*.",
+      "back": "```sql\nSELECT e.employee_name, e.salary, e.department_id\nFROM Employees e\nWHERE e.salary > (SELECT AVG(salary)\n                  FROM Employees\n                  WHERE department_id = e.department_id);\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the typical execution flow and performance implications of a **correlated subquery** compared to an uncorrelated one.",
+      "back": "An uncorrelated subquery executes once before the outer query. A correlated subquery executes *once for each row* processed by the outer query. This row-by-row execution makes correlated subqueries generally less efficient for large datasets, potentially leading to $N \\times M$ operations (where $N$ is the number of rows in the outer query and $M$ is the cost of the inner query per execution).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When might a **correlated subquery** be a more natural or even necessary choice, despite potential performance concerns?",
+      "back": "Correlated subqueries are often more natural or necessary when checking for existence (e.g., using `EXISTS` or `NOT EXISTS`) where the inner query needs to reference a column from the outer query for each row. They are also useful for complex row-by-row comparisons or calculations that are difficult to express with standard joins or window functions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Rewrite the following correlated subquery using a `JOIN` or `CTE` for potential optimization:\n```sql\nSELECT e.name, e.salary, e.dept_id\nFROM Employees e\nWHERE e.salary > (SELECT AVG(salary)\n                  FROM Employees\n                  WHERE dept_id = e.dept_id);\n```",
+      "back": "```sql\n-- Using a JOIN (often more performant)\nSELECT e.name, e.salary, e.dept_id\nFROM Employees e\nJOIN (\n    SELECT dept_id, AVG(salary) AS avg_dept_salary\n    FROM Employees\n    GROUP BY dept_id\n) AS dept_avg\nON e.dept_id = dept_avg.dept_id\nWHERE e.salary > dept_avg.avg_dept_salary;\n\n-- Using a CTE (Common Table Expression)\nWITH DepartmentAverages AS (\n    SELECT dept_id, AVG(salary) AS avg_dept_salary\n    FROM Employees\n    GROUP BY dept_id\n)\nSELECT e.name, e.salary, e.dept_id\nFROM Employees e\nJOIN DepartmentAverages da\nON e.dept_id = da.dept_id\nWHERE e.salary > da.avg_dept_salary;\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

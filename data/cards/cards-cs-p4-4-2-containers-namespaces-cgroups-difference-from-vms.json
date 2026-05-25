@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-containers-namespaces-cgroups-difference-from-vms",
+  "subtopicTitle": "Containers — namespaces, cgroups, difference from VMs",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:19.387Z",
+  "cards": [
+    {
+      "front": "What is a container in the context of operating systems?",
+      "back": "A lightweight, standalone, executable package of software that bundles an application and all its dependencies (code, runtime, system tools, libraries, settings). It shares the host OS kernel but isolates processes and resources, providing a consistent environment.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What two fundamental Linux kernel features enable containerization?",
+      "back": "Linux **namespaces** for process isolation and **cgroups (control groups)** for resource management and limiting.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the primary purpose of Linux namespaces in containerization, and name three types.",
+      "back": "Namespaces provide **process isolation** by giving processes within a namespace their own isolated view of a global system resource. This prevents processes in one container from seeing or affecting resources in another.\nExamples: `pid` (Process ID), `net` (Network), `mnt` (Mount points), `uts` (Hostname), `ipc` (Interprocess Communication), `user` (User/Group IDs).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary function of Linux cgroups (control groups) in containerization, and name three resources they can limit?",
+      "back": "Cgroups provide **resource management and limiting** for groups of processes. They ensure fair resource allocation and prevent one container from monopolizing host resources.\nResources: CPU time, Memory usage, Block I/O (disk access), Network bandwidth (often via external tools but cgroups can manage network interfaces).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental architectural difference between containers and Virtual Machines (VMs) regarding the OS kernel?",
+      "back": "- **VMs** run a full, isolated **guest OS kernel** on top of a hypervisor, virtualizing hardware.\n- **Containers** **share the host OS kernel**, running as isolated user-space processes. They leverage kernel features like namespaces and cgroups for isolation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three significant advantages of using containers over traditional Virtual Machines for application deployment.",
+      "back": "1.  **Lightweight & Fast Startup**: Share host kernel, no guest OS overhead.\n2.  **Higher Resource Utilization**: More applications per host due to less overhead.\n3.  **Portability & Consistency**: Package app and dependencies, run consistently across environments.\n4.  **Faster Development Cycles**: Streamlined build, ship, and deploy processes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In what specific scenarios would a Virtual Machine (VM) be a more appropriate choice than a container?",
+      "back": "1.  **Stronger Isolation/Security**: When absolute kernel-level isolation is critical (e.g., untrusted multi-tenant workloads).\n2.  **Different OS Kernels**: When an application requires a different OS kernel than the host (e.g., Windows app on Linux host).\n3.  **Legacy Applications**: Apps tightly coupled to specific OS versions or hardware configurations.\n4.  **Full System Control**: When complete control over the entire OS stack, including the kernel, is required.",
+      "difficulty": "hard"
+    }
+  ]
+}

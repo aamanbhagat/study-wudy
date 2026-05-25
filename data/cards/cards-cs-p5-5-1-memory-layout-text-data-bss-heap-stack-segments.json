@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-memory-layout-text-data-bss-heap-stack-segments",
+  "subtopicTitle": "Memory layout — text, data, BSS, heap, stack segments",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:37.406Z",
+  "cards": [
+    {
+      "front": "What are the five primary memory segments of a typical C program's virtual address space?",
+      "back": "The five primary memory segments are:\n1.  **Text (Code) Segment**\n2.  **Data Segment**\n3.  **BSS Segment (Block Started by Symbol)**\n4.  **Heap Segment**\n5.  **Stack Segment**",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which memory segment stores compiled machine code instructions and is typically read-only to prevent accidental modification?",
+      "back": "The **Text (or Code) Segment**. It contains the executable instructions of the program.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between the Data segment and the BSS segment in terms of variable initialization and content.",
+      "back": "The **Data segment** stores *initialized* global and static variables. Its contents are part of the executable file.\n\nThe **BSS segment** stores *uninitialized* global and static variables. These variables are guaranteed to be zero-initialized by the operating system before the program starts execution, but the segment itself doesn't occupy space in the executable file.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the following C code. In which memory segment would `global_var`, `static_uninit_var`, and `local_var` be stored?",
+      "back": "```c\nint global_var = 10;\nstatic int static_uninit_var;\nvoid func() {\n    int local_var = 20;\n}\n```\n- `global_var`: **Data Segment** (global, initialized)\n- `static_uninit_var`: **BSS Segment** (static, uninitialized)\n- `local_var`: **Stack Segment** (local variable within a function)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What memory segment is primarily used by `malloc()`, `calloc()`, and `realloc()` for dynamic memory allocation, and in which general direction does it typically grow?",
+      "back": "The **Heap Segment**. It is used for dynamic memory allocation at runtime. The Heap typically grows upwards, towards higher memory addresses.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the typical growth directions of the Heap and Stack segments and explain the primary benefit of this arrangement.",
+      "back": "The **Heap** typically grows upwards (towards higher memory addresses), while the **Stack** typically grows downwards (towards lower memory addresses). This arrangement allows them to grow towards each other, maximizing the available virtual address space for both until they potentially collide, which would lead to a stack overflow or heap exhaustion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A C program attempts to modify a string literal: `char *s = \"hello\"; s[0] = 'H';`. This often results in a \"segmentation fault\". Which memory segment is involved, and why does this error occur?",
+      "back": "The **Text (or Code) Segment**. String literals like `\"hello\"` are typically stored in the read-only Text segment. Attempting to modify data in a read-only memory segment triggers a segmentation fault, as it's an illegal memory access. If `s` were declared as `char s[] = \"hello\";`, it would be stored on the stack and be modifiable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is understanding the memory layout of a C program crucial for a developer, beyond just knowing definitions?",
+      "back": "Understanding memory layout is crucial for:\n1.  **Debugging:** Identifying issues like stack overflows, heap corruption, or attempts to write to read-only memory.\n2.  **Performance Optimization:** Making informed decisions about static vs. dynamic allocation and understanding cache behavior.\n3.  **Resource Management:** Efficiently managing memory to prevent leaks, excessive usage, or fragmentation.\n4.  **Security:** Recognizing vulnerabilities related to buffer overflows or improper memory access that could be exploited.",
+      "difficulty": "medium"
+    }
+  ]
+}

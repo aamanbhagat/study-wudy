@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-error-analysis-of-finite-differences",
+  "subtopicTitle": "Error analysis of finite differences",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:29.184Z",
+  "cards": [
+    {
+      "front": "What is the primary source of *truncation error* in finite difference approximations?",
+      "back": "Truncation error arises from approximating an infinite process (like a derivative defined by a limit) with a finite one (a finite difference formula). It's the error introduced by \"truncating\" the Taylor series expansion after a finite number of terms, omitting higher-order terms.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary source of *round-off error* in finite difference approximations?",
+      "back": "Round-off error arises from the finite precision of computer arithmetic. When numbers are stored and manipulated in a computer, they are typically rounded or truncated to a fixed number of significant digits, leading to small inaccuracies that accumulate during calculations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the leading term of the truncation error for the forward difference approximation of $f'(x)$: $f'(x) \\approx \\frac{f(x+h) - f(x)}{h}$.",
+      "back": "Using Taylor series expansion around $x$:$$f(x+h) = f(x) + hf'(x) + \\frac{h^2}{2!}f''(x) + \\frac{h^3}{3!}f'''(x) + O(h^4)$$Rearranging for $f'(x)$ and isolating the approximation term:$$hf'(x) = f(x+h) - f(x) - \\frac{h^2}{2!}f''(x) - \\frac{h^3}{3!}f'''(x) - O(h^4)$$Dividing by $h$:$$f'(x) = \\frac{f(x+h) - f(x)}{h} - \\frac{h}{2!}f''(x) - \\frac{h^2}{3!}f'''(x) - O(h^3)$$The truncation error $E_T$ is the difference between the true derivative and the approximation:$$E_T = f'(x) - \\frac{f(x+h) - f(x)}{h} = -\\frac{h}{2}f''(x) - O(h^2)$$The leading term is $-\\frac{h}{2}f''(x)$, so the forward difference is $O(h)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the leading term of the truncation error for the central difference approximation of $f'(x)$: $f'(x) \\approx \\frac{f(x+h) - f(x-h)}{2h}$.",
+      "back": "Taylor series expansions around $x$:$$f(x+h) = f(x) + hf'(x) + \\frac{h^2}{2!}f''(x) + \\frac{h^3}{3!}f'''(x) + \\frac{h^4}{4!}f^{(4)}(x) + O(h^5)$$$$f(x-h) = f(x) - hf'(x) + \\frac{h^2}{2!}f''(x) - \\frac{h^3}{3!}f'''(x) + \\frac{h^4}{4!}f^{(4)}(x) - O(h^5)$$Subtracting the second from the first:$$f(x+h) - f(x-h) = 2hf'(x) + 2\\frac{h^3}{3!}f'''(x) + O(h^5)$$Rearranging for $f'(x)$:$$f'(x) = \\frac{f(x+h) - f(x-h)}{2h} - \\frac{h^2}{3!}f'''(x) - O(h^4)$$The truncation error $E_T$ is:$$E_T = f'(x) - \\frac{f(x+h) - f(x-h)}{2h} = -\\frac{h^2}{6}f'''(x) - O(h^4)$$The leading term is $-\\frac{h^2}{6}f'''(x)$, so the central difference is $O(h^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does decreasing the step size $h$ affect the *truncation error* in finite difference approximations?",
+      "back": "Decreasing the step size $h$ generally *decreases* the truncation error. For an $O(h^p)$ method, the truncation error is proportional to $h^p$. So, a smaller $h$ leads to a smaller truncation error, as the approximation becomes closer to the true derivative defined by a limit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does decreasing the step size $h$ affect the *round-off error* in finite difference approximations?",
+      "back": "Decreasing the step size $h$ generally *increases* the round-off error. This is because smaller $h$ values often lead to subtractions of nearly equal numbers (e.g., $f(x+h) - f(x)$), which can result in a loss of significant digits (catastrophic cancellation). Also, division by a very small $h$ can magnify existing small errors.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of an \"optimal step size\" $h_{opt}$ in numerical differentiation, considering both truncation and round-off errors.",
+      "back": "The total error in numerical differentiation is the sum of truncation error ($E_T$) and round-off error ($E_R$). As $h$ decreases, $E_T$ decreases (e.g., $O(h^p)$), but $E_R$ increases (due to catastrophic cancellation and division by small $h$). The optimal step size $h_{opt}$ is the value of $h$ where the sum of these two opposing errors is minimized, leading to the best possible accuracy for a given machine precision and method.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean for a finite difference approximation to be \"order $p$\" or $O(h^p)$?",
+      "back": "An approximation is \"order $p$\" or $O(h^p)$ if its leading term of the truncation error is proportional to $h^p$. This means that if you halve the step size $h$, the truncation error will decrease by a factor of $2^p$. A higher order $p$ generally indicates a more accurate method for sufficiently small $h$, before round-off errors dominate.",
+      "difficulty": "easy"
+    }
+  ]
+}

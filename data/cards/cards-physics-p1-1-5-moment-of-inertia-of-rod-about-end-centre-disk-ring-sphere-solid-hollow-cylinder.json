@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-5-moment-of-inertia-of-rod-about-end-centre-disk-ring-sphere-solid-hollow-cylinder",
+  "subtopicTitle": "Moment of inertia of: rod (about end, centre), disk, ring, sphere (solid, hollow), cylinder",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:23.180Z",
+  "cards": [
+    {
+      "front": "What is the moment of inertia of a thin rod of mass $M$ and length $L$ about an axis perpendicular to the rod and passing through its center?",
+      "back": "$I = \\frac{1}{12}ML^2$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the moment of inertia of a thin rod of mass $M$ and length $L$ about an axis perpendicular to the rod and passing through one of its ends?",
+      "back": "$I = \\frac{1}{3}ML^2$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the moment of inertia of a thin rod of mass $M$ and length $L$ about an axis perpendicular to the rod and passing through its center.",
+      "back": "Consider a differential mass element $dm$ at a distance $x$ from the center. The linear mass density is $\\lambda = M/L$. So, $dm = \\lambda dx = (M/L)dx$. The moment of inertia $I = \\int r^2 dm$. For this rod, $r=x$. The integration limits are from $-L/2$ to $L/2$. \n$$I = \\int_{-L/2}^{L/2} x^2 \\left(\\frac{M}{L}\\right) dx$$\n$$I = \\frac{M}{L} \\int_{-L/2}^{L/2} x^2 dx$$\n$$I = \\frac{M}{L} \\left[ \\frac{x^3}{3} \\right]_{-L/2}^{L/2}$$\n$$I = \\frac{M}{L} \\left[ \\frac{(L/2)^3}{3} - \\frac{(-L/2)^3}{3} \\right]$$\n$$I = \\frac{M}{L} \\left[ \\frac{L^3}{24} - \\left(-\\frac{L^3}{24}\\right) \\right]$$\n$$I = \\frac{M}{L} \\left[ \\frac{2L^3}{24} \\right]$$\n$$I = \\frac{M}{L} \\left[ \\frac{L^3}{12} \\right]$$\n$$I = \\frac{1}{12}ML^2$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the moment of inertia of a uniform disk of mass $M$ and radius $R$ about an axis passing through its center and perpendicular to its plane.",
+      "back": "$I = \\frac{1}{2}MR^2$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the moment of inertia of a thin uniform ring of mass $M$ and radius $R$ about an axis passing through its center and perpendicular to its plane.",
+      "back": "$I = MR^2$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the moment of inertia of a solid sphere of mass $M$ and radius $R$ about an axis passing through its center (i.e., its diameter)?",
+      "back": "$I = \\frac{2}{5}MR^2$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the moment of inertia of a thin-walled hollow sphere of mass $M$ and radius $R$ about an axis passing through its center (i.e., its diameter)?",
+      "back": "$I = \\frac{2}{3}MR^2$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why a hollow sphere has a greater moment of inertia than a solid sphere of the same mass and radius about an axis through their centers.",
+      "back": "The moment of inertia depends on how mass is distributed relative to the axis of rotation ($I = \\sum m_i r_i^2$). For a hollow sphere, all its mass is concentrated at the maximum possible radius $R$ from the center. For a solid sphere, much of its mass is closer to the center ($r < R$). Since mass further from the axis contributes more to $I$, the hollow sphere has a larger moment of inertia ($2/3 MR^2 > 2/5 MR^2$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the moment of inertia of a solid cylinder of mass $M$ and radius $R$ about its central longitudinal axis?",
+      "back": "$I = \\frac{1}{2}MR^2$ (This is the same as a disk, as a cylinder can be thought of as stacked disks).",
+      "difficulty": "easy"
+    }
+  ]
+}

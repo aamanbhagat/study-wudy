@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-list-comprehensions-expr-for-x-in-iterable-if-condition",
+  "subtopicTitle": "List comprehensions — [expr for x in iterable if condition]",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:09.598Z",
+  "cards": [
+    {
+      "front": "What is a Python list comprehension, and what is its basic syntax?",
+      "back": "A list comprehension provides a concise way to create lists. It consists of an expression followed by a `for` clause, then zero or more `for` or `if` clauses. The result is a new list. Basic syntax: `[expression for item in iterable if condition]`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Rewrite the following `for` loop using a list comprehension to create `squares`:\n```python\nsquares = []\nfor i in range(5):\n    squares.append(i * i)\n```",
+      "back": "```python\nsquares = [i * i for i in range(5)]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using a list comprehension, create a list of all odd numbers between 10 and 20 (inclusive).",
+      "back": "```python\nodd_numbers = [x for x in range(10, 21) if x % 2 != 0]\n# Result: [11, 13, 15, 17, 19]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the role of the `expression` part in `[expression for item in iterable if condition]` and provide an example where it's not simply `item`.",
+      "back": "The `expression` defines what value will be included in the new list for each `item` that satisfies the condition. It can be any valid Python expression, not just the `item` itself. Example: `[x * 2 for x in range(5)]` (doubles each number), or `[f'Num: {x}' for x in range(3)]` (formats each number).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you use a list comprehension to flatten a list of lists (a 2D list) into a single 1D list?",
+      "back": "You use nested `for` clauses. The order of the `for` clauses in the comprehension matches the order of nesting you would use in traditional `for` loops.\n```python\nmatrix = [[1, 2], [3, 4], [5, 6]]\nflat_list = [num for row in matrix for num in row]\n# Result: [1, 2, 3, 4, 5, 6]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When should you generally prefer a list comprehension over a traditional `for` loop for creating a new list, and what are two key advantages?",
+      "back": "Prefer list comprehensions when the goal is to create a new list by transforming or filtering an existing iterable.\nReasons:\n1.  **Conciseness:** Often requires fewer lines of code.\n2.  **Readability:** Can be easier to understand the intent of list creation at a glance.\n3.  **Performance:** Often faster than equivalent `for` loops because they are optimized at the C level.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the key difference in memory usage and return type between a list comprehension `[expr for x in iterable]` and a generator expression `(expr for x in iterable)`?",
+      "back": "A **list comprehension** immediately constructs and returns an entirely new `list` in memory, storing all elements. A **generator expression** returns a `generator` object (an iterator) which yields elements one by one *on demand* when iterated over. This makes generator expressions more memory-efficient for large datasets, as they don't store all elements simultaneously.",
+      "difficulty": "hard"
+    }
+  ]
+}

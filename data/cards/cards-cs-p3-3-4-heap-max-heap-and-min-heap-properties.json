@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-4-heap-max-heap-and-min-heap-properties",
+  "subtopicTitle": "Heap — max-heap and min-heap properties",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:02.209Z",
+  "cards": [
+    {
+      "front": "What is the fundamental structural requirement for any binary tree to be considered a heap?",
+      "back": "A heap must always be a **complete binary tree**. This means all levels are fully filled, except possibly the last level, which is filled from left to right.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Max-Heap property.",
+      "back": "For any given node $N$ in a max-heap, the value of $N$ must be greater than or equal to the values of its children. Mathematically, $N \\ge \\text{child}_1$ and $N \\ge \\text{child}_2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Min-Heap property.",
+      "back": "For any given node $N$ in a min-heap, the value of $N$ must be less than or equal to the values of its children. Mathematically, $N \\le \\text{child}_1$ and $N \\le \\text{child}_2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a max-heap, where is the largest element always located?",
+      "back": "The largest element in a max-heap is always located at the **root** of the heap. This is a direct consequence of the max-heap property, as every parent is greater than or equal to its children, propagating the largest value upwards.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a heap is stored in an array (0-indexed), how do you calculate the indices of the left child, right child, and parent of a node at index $i$?",
+      "back": "<ul><li>Left Child: $2i + 1$</li><li>Right Child: $2i + 2$</li><li>Parent: $\\lfloor (i - 1) / 2 \\rfloor$ (for $i > 0$)</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is the array `[10, 5, 9, 8, 7, 6]` a valid max-heap? Explain why or why not.",
+      "back": "No, it is not a valid max-heap.\nConsider the node at index 1, which has value 5. Its children are at indices $2(1)+1=3$ (value 8) and $2(1)+2=4$ (value 7).\nAccording to the max-heap property, the parent (5) must be greater than or equal to its children (8 and 7).\nHowever, $5 < 8$, which violates the max-heap property.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the \"complete binary tree\" structure important for a heap, beyond just the heap property itself?",
+      "back": "The complete binary tree structure ensures two key benefits:\n1.  **Efficient Array Representation:** It allows for a compact, contiguous array storage without gaps, enabling $O(1)$ access to parent/child nodes using simple arithmetic.\n2.  **Guaranteed Logarithmic Height:** For $N$ elements, the height is always $O(\\log N)$. This is crucial for maintaining the $O(\\log N)$ time complexity of heap operations like insertion and deletion, as operations typically involve traversing a path from root to leaf or vice-versa. Without completeness, the tree could degenerate into a linked list, leading to $O(N)$ operations.",
+      "difficulty": "hard"
+    }
+  ]
+}

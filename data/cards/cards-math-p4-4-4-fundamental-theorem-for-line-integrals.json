@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-4-fundamental-theorem-for-line-integrals",
+  "subtopicTitle": "Fundamental theorem for line integrals",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:01:50.667Z",
+  "cards": [
+    {
+      "front": "State the Fundamental Theorem for Line Integrals.",
+      "back": "If $\\mathbf{F}$ is a conservative vector field, meaning $\\mathbf{F} = \\nabla f$ for some scalar potential function $f$, and $C$ is a smooth curve parameterized by $\\mathbf{r}(t)$ from point $A$ (where $t=a$) to point $B$ (where $t=b$), then the line integral of $\\mathbf{F}$ along $C$ is given by: $$\\int_C \\mathbf{F} \\cdot d\\mathbf{r} = f(B) - f(A)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a crucial condition for the Fundamental Theorem for Line Integrals to apply?",
+      "back": "The vector field $\\mathbf{F}$ must be conservative. This means it must be the gradient of some scalar function $f$, i.e., $\\mathbf{F} = \\nabla f$. If $\\mathbf{F}$ is not conservative, the theorem does not apply, and the line integral generally depends on the path taken.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"potential function\" for a vector field $\\mathbf{F}$.",
+      "back": "A scalar function $f(x,y,z)$ is a potential function for a vector field $\\mathbf{F}(x,y,z)$ if $\\mathbf{F} = \\nabla f$. This means that the partial derivatives of $f$ correspond to the components of $\\mathbf{F}$: $$\\mathbf{F}(x,y,z) = \\left\\langle \\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y}, \\frac{\\partial f}{\\partial z} \\right\\rangle$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you check if a 2D vector field $\\mathbf{F}(x,y) = P(x,y)\\mathbf{i} + Q(x,y)\\mathbf{j}$ is conservative?",
+      "back": "If $P(x,y)$ and $Q(x,y)$ have continuous first-order partial derivatives on a simply connected domain, then $\\mathbf{F}$ is conservative if and only if: $$\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$$ This is often called the \"cross-partial derivative test\" or \"curl test\" in 2D.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the intuition behind the Fundamental Theorem for Line Integrals, relating it to the Chain Rule.",
+      "back": "If $\\mathbf{F} = \\nabla f$ and a curve $C$ is parameterized by $\\mathbf{r}(t)$, then $\\mathbf{F} \\cdot d\\mathbf{r} = \\nabla f \\cdot \\mathbf{r}'(t) dt$. By the Chain Rule, the derivative of $f$ along the curve is $\\frac{d}{dt} f(\\mathbf{r}(t)) = \\nabla f(\\mathbf{r}(t)) \\cdot \\mathbf{r}'(t)$. Thus, the line integral becomes $\\int_a^b \\frac{d}{dt} f(\\mathbf{r}(t)) dt$. By the single-variable Fundamental Theorem of Calculus, this evaluates to $f(\\mathbf{r}(b)) - f(\\mathbf{r}(a))$, which is $f(B) - f(A)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate $\\int_C \\mathbf{F} \\cdot d\\mathbf{r}$ for $\\mathbf{F}(x,y) = \\langle 2xy, x^2 \\rangle$ and $C$ is any smooth curve from $(0,0)$ to $(1,2)$.",
+      "back": "First, check if $\\mathbf{F}$ is conservative: $\\frac{\\partial}{\\partial y}(2xy) = 2x$ and $\\frac{\\partial}{\\partial x}(x^2) = 2x$. Since these are equal, $\\mathbf{F}$ is conservative. Now find the potential function $f$: From $\\frac{\\partial f}{\\partial x} = 2xy$, we integrate with respect to $x$: $f(x,y) = x^2y + g(y)$. Differentiate with respect to $y$: $\\frac{\\partial f}{\\partial y} = x^2 + g'(y)$. Comparing with $Q=x^2$, we get $g'(y) = 0$, so $g(y)=K$. Thus, $f(x,y) = x^2y$ (we can set $K=0$). By FTLI: $\\int_C \\mathbf{F} \\cdot d\\mathbf{r} = f(1,2) - f(0,0) = (1^2 \\cdot 2) - (0^2 \\cdot 0) = 2 - 0 = 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Fundamental Theorem for Line Integrals imply path independence for conservative vector fields?",
+      "back": "The theorem states that if $\\mathbf{F} = \\nabla f$, then $\\int_C \\mathbf{F} \\cdot d\\mathbf{r} = f(B) - f(A)$, where $A$ is the starting point and $B$ is the endpoint of $C$. The value of the integral depends solely on the values of the potential function $f$ at the initial and final points, $A$ and $B$, respectively. It does not depend on the specific path $C$ taken between these two points. Therefore, for a conservative vector field, the line integral is path-independent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the single-variable calculus analogue of the Fundamental Theorem for Line Integrals?",
+      "back": "The single-variable analogue is the Fundamental Theorem of Calculus (Part 2), which states: $\\int_a^b F'(x) dx = F(b) - F(a)$. Here, $F'(x)$ is analogous to the conservative vector field $\\mathbf{F}$ (which is $\\nabla f$), and $F(x)$ is analogous to the potential function $f$. The integral over an interval $[a,b]$ is analogous to the line integral over a curve $C$ from point $A$ to point $B$.",
+      "difficulty": "medium"
+    }
+  ]
+}

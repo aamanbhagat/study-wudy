@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-modified-rodrigues-parameters-singularity-free-compact",
+  "subtopicTitle": "Modified Rodrigues parameters — singularity-free, compact",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:15.127Z",
+  "cards": [
+    {
+      "front": "What are Modified Rodrigues Parameters (MRPs) primarily used for in GNC, and what are their key advantages?",
+      "back": "MRPs are a set of three parameters used to represent the 3D attitude (orientation) of a rigid body. Their key advantages are being singularity-free for rotations up to $\\pm 360^\\circ$ (when used with the shadow set) and offering a compact, minimal representation compared to rotation matrices.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an axis-angle representation $(\\mathbf{e}, \\theta)$, how are the Modified Rodrigues Parameters (MRPs) $\\mathbf{p}$ defined?",
+      "back": "MRPs $\\mathbf{p}$ are defined as $\\mathbf{p} = \\mathbf{e} \\tan(\\theta/4)$, where $\\mathbf{e}$ is the unit vector along the principal rotation axis and $\\theta$ is the principal rotation angle. This definition ensures that $\\mathbf{p}$ is well-behaved for rotations up to $\\pm 360^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of the 'shadow set' for Modified Rodrigues Parameters (MRPs) and its primary benefit.",
+      "back": "For any given MRP set $\\mathbf{p}$, its 'shadow set' is $\\mathbf{p}^* = -\\frac{1}{|\\mathbf{p}|^2} \\mathbf{p}$. Both $\\mathbf{p}$ and $\\mathbf{p}^*$ represent the *same* physical orientation. The primary benefit is to avoid the singularity at $\\theta = 360^\\circ$ (where $|\\mathbf{p}| \\to \\infty$) by switching to the shadow set when $|\\mathbf{p}|$ becomes large (e.g., $|\\mathbf{p}| > 1$). This effectively maps the rotation to an equivalent one with $\\theta' = \\theta - 360^\\circ$, keeping $|\\mathbf{p}|$ bounded.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the kinematic differential equation for the Modified Rodrigues Parameters $\\dot{\\mathbf{p}}$ in terms of the angular velocity $\\boldsymbol{\\omega}$ (expressed in the body frame).",
+      "back": "The kinematic differential equation for MRPs is:\n$$\\dot{\\mathbf{p}} = \\frac{1}{4} \\left[ (1-|\\mathbf{p}|^2)[I] + 2[\\mathbf{p}^\\times] + 2\\mathbf{p}\\mathbf{p}^T \\right] \\boldsymbol{\\omega}$$\nwhere $[I]$ is the identity matrix and $[\\mathbf{p}^\\times]$ is the skew-symmetric matrix of $\\mathbf{p}$. This equation describes how the MRPs evolve with time given the body's angular velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Express the rotation matrix $[R]$ (from body to inertial frame) in terms of the Modified Rodrigues Parameters $\\mathbf{p} = [p_1, p_2, p_3]^T$.",
+      "back": "Let $p = |\\mathbf{p}|^2$. The rotation matrix $[R]$ is given by:\n$$[R] = \\frac{1}{(1+p)^2} \\left[ (1-p^2)[I] + 2\\mathbf{p}\\mathbf{p}^T + 2(1-p)[\\mathbf{p}^\\times] \\right]$$\nwhere $[I]$ is the identity matrix and $[\\mathbf{p}^\\times]$ is the skew-symmetric matrix of $\\mathbf{p}$:\n$$[\\mathbf{p}^\\times] = \\begin{bmatrix} 0 & -p_3 & p_2 \\\\ p_3 & 0 & -p_1 \\\\ -p_2 & p_1 & 0 \\end{bmatrix}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do MRPs relate to unit quaternions? Given a unit quaternion $q = [q_0, q_1, q_2, q_3]^T$, how are the MRPs $\\mathbf{p}$ derived?",
+      "back": "For a unit quaternion $q = [q_0, \\mathbf{q}_v^T]^T$ (where $q_0$ is the scalar part and $\\mathbf{q}_v$ is the vector part), the MRPs $\\mathbf{p}$ are given by:\n$$\\mathbf{p} = \\frac{\\mathbf{q}_v}{1+q_0}$$\nThis relationship highlights the connection between these two common singularity-free attitude representations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary reason Modified Rodrigues Parameters (MRPs) are considered 'singularity-free' for practical applications, unlike Euler angles or standard Rodrigues Parameters?",
+      "back": "Standard Rodrigues Parameters $\\mathbf{r} = \\mathbf{e} \\tan(\\theta/2)$ become singular at $\\theta = \\pm 180^\\circ$. MRPs $\\mathbf{p} = \\mathbf{e} \\tan(\\theta/4)$ shift this singularity to $\\theta = \\pm 360^\\circ$. For practical applications, the 'shadow set' transformation allows switching between $\\mathbf{p}$ and $\\mathbf{p}^*$ when $|\\mathbf{p}|$ approaches infinity (i.e., $\\theta \\to 360^\\circ$), effectively keeping $|\\mathbf{p}| \\le 1$ and thus avoiding the singularity point.",
+      "difficulty": "hard"
+    }
+  ]
+}

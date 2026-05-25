@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-1-out-of-order-execution-tomasulo-algorithm-conceptual",
+  "subtopicTitle": "Out-of-order execution — Tomasulo algorithm (conceptual)",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:09.424Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of out-of-order execution in a CPU?",
+      "back": "The primary goal is to improve CPU performance (throughput) by allowing instructions to execute as soon as their operands are ready, rather than strictly in program order. This helps to hide memory latency and overcome certain data hazards, thereby increasing instruction-level parallelism (ILP).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Tomasulo's algorithm primarily addresses which type of hazard that limits instruction-level parallelism (ILP)?",
+      "back": "Tomasulo's algorithm primarily addresses data hazards, specifically Read-After-Write (RAW), Write-After-Read (WAR), and Write-After-Write (WAW) hazards, through dynamic scheduling and register renaming.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the three main conceptual components introduced by Tomasulo's algorithm for dynamic scheduling.",
+      "back": "1.  **Reservation Stations (RS):** Buffers that hold instructions and their operands, waiting for execution by a functional unit.\n2.  **Common Data Bus (CDB):** A broadcast bus that distributes computed results to all functional units and reservation stations.\n3.  **Load/Store Buffers:** Special reservation stations for memory operations, managing memory access order and dependencies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Conceptually, how does Tomasulo's algorithm achieve \"register renaming\" to eliminate WAR and WAW hazards?",
+      "back": "Instead of writing results directly to architectural registers, functional units write to unique \"tags\" (often the ID of the Reservation Station that will produce the result). When an instruction issues, it stores these tags for its source operands if the value isn't yet available. When a result is broadcast on the CDB, all waiting instructions check if the broadcast tag matches their source operand tag, effectively bypassing the register file and eliminating false dependencies caused by limited physical registers.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the \"Issue\" stage for an instruction in Tomasulo's algorithm.",
+      "back": "In the Issue stage, an instruction is fetched from the instruction queue. If a suitable Reservation Station (RS) for its functional unit type is available, the instruction is dispatched to that RS. Source operand values are read from the register file if available; otherwise, the RS records the tag of the RS that will produce the value. The destination register is also marked with the current RS's tag, indicating that this RS will produce its value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens during the \"Execute\" stage and how does the Common Data Bus (CDB) facilitate result propagation in Tomasulo's?",
+      "back": "During the Execute stage, once all source operands for an instruction in a Reservation Station are ready (either fetched from registers or received via the CDB), the instruction begins execution by its functional unit. Upon completion, the functional unit places its result and its associated Reservation Station tag onto the Common Data Bus (CDB). The CDB then broadcasts this result to all waiting Reservation Stations (allowing dependent instructions to update their source operands) and the Register File (to update the actual register value and clear its status bit).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Common Data Bus (CDB) effectively \"bypass\" the register file to reduce Read-After-Write (RAW) hazards?",
+      "back": "When a functional unit completes an operation, it broadcasts its result and the tag of the producing Reservation Station on the CDB. Any other Reservation Station or functional unit waiting for this specific result (identified by matching the tag) can immediately capture the value directly from the CDB. This direct data forwarding allows dependent instructions to receive their operands without waiting for the result to be written back to the architectural register file and then read out again, significantly reducing RAW stalls.",
+      "difficulty": "medium"
+    }
+  ]
+}

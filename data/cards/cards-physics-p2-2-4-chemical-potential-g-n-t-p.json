@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-4-chemical-potential-g-n-t-p",
+  "subtopicTitle": "Chemical potential μ = (∂G/∂N)_{T,P}",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:32.508Z",
+  "cards": [
+    {
+      "front": "What is the fundamental definition of chemical potential $\\mu$ in terms of Gibbs free energy $G$?",
+      "back": "The chemical potential $\\mu$ of a species is defined as the partial derivative of the Gibbs free energy $G$ with respect to the number of particles $N$ of that species, holding temperature $T$ and pressure $P$ constant:\n$$ \\mu = \\left( \\frac{\\partial G}{\\partial N} \\right)_{T,P} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide an intuitive understanding of chemical potential $\\mu$, analogous to how temperature drives heat flow.",
+      "back": "Chemical potential $\\mu$ represents the change in the system's Gibbs free energy when one particle of a specific species is added, while keeping temperature $T$ and pressure $P$ constant. It is the \"potential\" that drives the spontaneous flow of particles from regions of higher chemical potential to regions of lower chemical potential, similar to how temperature drives heat flow or pressure drives volume change.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the standard SI units for chemical potential $\\mu$?",
+      "back": "The standard SI units for chemical potential $\\mu$ are Joules per mole ($\\text{J/mol}$) if $N$ represents the number of moles, or Joules per particle ($\\text{J/particle}$) if $N$ represents the number of particles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the expression $\\mu = (\\partial G/\\partial N)_{T,P}$ starting from the fundamental thermodynamic relation for Gibbs free energy, $dG$.",
+      "back": "The fundamental thermodynamic relation for Gibbs free energy for a multi-component system is:\n$$ dG = \\left( \\frac{\\partial G}{\\partial T} \\right)_{P,N_i} dT + \\left( \\frac{\\partial G}{\\partial P} \\right)_{T,N_i} dP + \\sum_i \\left( \\frac{\\partial G}{\\partial N_i} \\right)_{T,P,N_{j \\neq i}} dN_i $$\nWe also know that for a system with varying particle numbers, the differential of Gibbs free energy is:\n$$ dG = -SdT + VdP + \\sum_i \\mu_i dN_i $$\nComparing the coefficients of $dN_i$ in both expressions, we identify the chemical potential of species $i$ as:\n$$ \\mu_i = \\left( \\frac{\\partial G}{\\partial N_i} \\right)_{T,P,N_{j \\neq i}} $$\nFor a single-component system, this simplifies to $\\mu = (\\partial G/\\partial N)_{T,P}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What condition must the chemical potential $\\mu$ satisfy for a specific chemical species at equilibrium between two phases (e.g., liquid and gas) at constant $T$ and $P$?",
+      "back": "For a system to be in thermodynamic equilibrium at constant temperature and pressure, the chemical potential of each species must be uniform throughout the system. Therefore, for a given species 'X' distributed between two phases (e.g., phase 1 and phase 2), the equilibrium condition is:\n$$ \\mu_{X, \\text{phase 1}} = \\mu_{X, \\text{phase 2}} $$\nIf this condition is not met, particles of species X will spontaneously move from the phase with higher $\\mu_X$ to the phase with lower $\\mu_X$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why Gibbs free energy $G$ is considered the \"natural\" thermodynamic potential for defining chemical potential as $(\\partial G/\\partial N)_{T,P}$.",
+      "back": "Gibbs free energy $G$ is the natural potential for processes occurring at constant temperature ($T$) and pressure ($P$), which are common experimental conditions. Under these conditions, a system spontaneously evolves towards a state of minimum $G$. When we consider adding or removing particles (changing $N$), we are interested in how the system's energy changes under these constant $T,P$ conditions. The derivative $(\\partial G/\\partial N)_{T,P}$ directly quantifies this change, making $G$ the most convenient potential for understanding particle exchange and chemical equilibrium.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides $(\\partial G/\\partial N)_{T,P}$, provide at least two other expressions for chemical potential $\\mu$ involving different thermodynamic potentials (e.g., $U$, $A$, or $H$) and their respective constant variables.",
+      "back": "Chemical potential $\\mu$ can also be expressed in terms of other thermodynamic potentials:\n1.  **Internal Energy ($U$):**\n    $$ \\mu = \\left( \\frac{\\partial U}{\\partial N} \\right)_{S,V} $$\n    (Constant entropy $S$ and volume $V$)\n2.  **Helmholtz Free Energy ($A$):**\n    $$ \\mu = \\left( \\frac{\\partial A}{\\partial N} \\right)_{T,V} $$\n    (Constant temperature $T$ and volume $V$)\n3.  **Enthalpy ($H$):**\n    $$ \\mu = \\left( \\frac{\\partial H}{\\partial N} \\right)_{S,P} $$\n    (Constant entropy $S$ and pressure $P$)",
+      "difficulty": "medium"
+    }
+  ]
+}

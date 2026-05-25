@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-prandtl-meyer-function-m",
+  "subtopicTitle": "Prandtl-Meyer function ν(M)",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:27.396Z",
+  "cards": [
+    {
+      "front": "What physical phenomenon does the Prandtl-Meyer function $\\nu(M)$ describe, and what does it quantify in compressible flow?",
+      "back": "It describes isentropic, supersonic flow turning around a convex corner. It quantifies the angle through which a supersonic flow must turn to reach a specific Mach number $M$ from the sonic condition ($M=1$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the full mathematical formula for the Prandtl-Meyer function $\\nu(M)$ for a perfect gas with specific heat ratio $\\gamma$.",
+      "back": "$$ \\nu(M) = \\sqrt{\\frac{\\gamma+1}{\\gamma-1}} \\arctan\\left(\\sqrt{\\frac{\\gamma-1}{\\gamma+1}(M^2-1)}\\right) - \\arctan\\left(\\sqrt{M^2-1}\\right) $$ This formula gives $\\nu(M)$ in radians. To convert to degrees, multiply by $180/\\pi$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the fundamental differential relation that, when integrated, yields the Prandtl-Meyer function $\\nu(M)$.",
+      "back": "The derivation starts by considering a differential turning angle $d\\theta$ in an expansion fan. This angle is related to the local Mach number $M$ and Mach angle $\\mu = \\arcsin(1/M)$ by:\n$$ d\\theta = \\frac{\\sqrt{M^2-1}}{1 + \\frac{\\gamma-1}{2}M^2} \\frac{dM}{M} $$\nIntegrating this expression from $M=1$ (where $\\theta=0$) to $M$ gives $\\nu(M)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A supersonic flow with $M_1 = 2.5$ ($\\gamma=1.4$) expands around a convex corner by $15^\\circ$. If $\\nu(2.5) = 39.12^\\circ$, calculate the Prandtl-Meyer function value for the flow after the turn.",
+      "back": "For an expansion turn, the change in flow angle equals the change in the Prandtl-Meyer function: $\\Delta\\theta = \\nu(M_2) - \\nu(M_1)$.\nGiven $\\Delta\\theta = 15^\\circ$ and $\\nu(M_1) = 39.12^\\circ$.\nSo, $\\nu(M_2) = \\nu(M_1) + \\Delta\\theta = 39.12^\\circ + 15^\\circ = 54.12^\\circ$. (To find $M_2$, one would typically use tables or numerical solvers).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the value of the Prandtl-Meyer function $\\nu(M)$ at the sonic condition, $M=1$?",
+      "back": "$\\nu(1) = 0^\\circ$ (or 0 radians). This serves as the reference point for the function, as expansion waves only occur in supersonic flow, starting from $M=1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why the Prandtl-Meyer function $\\nu(M)$ is always non-negative and increases monotonically with Mach number $M$.",
+      "back": "$\\nu(M)$ is defined as the turning angle *from* $M=1$. Since expansion waves only accelerate flow to higher Mach numbers (M>1), the function must be non-negative. It increases monotonically because a larger turning angle is required to achieve a greater increase in Mach number through an expansion fan.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the theoretical maximum value of the Prandtl-Meyer function, $\\nu_{max}$, and at what Mach number is it achieved? Provide the formula for $\\nu_{max}$.",
+      "back": "The maximum value $\\nu_{max}$ is achieved as $M \\to \\infty$. This represents the greatest possible turning angle for an expansion wave.\n$$ \\nu_{max} = \\frac{\\pi}{2} \\left( \\sqrt{\\frac{\\gamma+1}{\\gamma-1}} - 1 \\right) $$\nFor air ($\\gamma=1.4$), $\\nu_{max} \\approx 130.45^\\circ$ (or $2.277$ radians).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the primary assumptions made in the derivation and application of the Prandtl-Meyer function.",
+      "back": "The key assumptions are:\n1.  **Steady flow:** Flow properties do not change with time.\n2.  **Inviscid flow:** Negligible friction (no viscous effects).\n3.  **Isentropic flow:** No entropy change (no shocks, no heat transfer, no friction).\n4.  **Perfect gas:** Ideal gas behavior with constant specific heats.\n5.  **Supersonic flow:** Applicable only when $M > 1$.\n6.  **Two-dimensional flow:** The analysis is for 2D expansion fans.",
+      "difficulty": "medium"
+    }
+  ]
+}

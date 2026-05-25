@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-3-direct-comparison-test",
+  "subtopicTitle": "Direct comparison test",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:38.606Z",
+  "cards": [
+    {
+      "front": "State the conditions under which the Direct Comparison Test can prove that $\\sum a_n$ converges.",
+      "back": "Given two series $\\sum a_n$ and $\\sum b_n$ with $0 \\le a_n \\le b_n$ for all $n$ sufficiently large. If $\\sum b_n$ converges, then $\\sum a_n$ also converges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the conditions under which the Direct Comparison Test can prove that $\\sum a_n$ diverges.",
+      "back": "Given two series $\\sum a_n$ and $\\sum b_n$ with $0 \\le b_n \\le a_n$ for all $n$ sufficiently large. If $\\sum b_n$ diverges, then $\\sum a_n$ also diverges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the condition $a_n \\ge 0$ crucial for the Direct Comparison Test?",
+      "back": "The DCT relies on the fact that partial sums of series with non-negative terms are monotonically increasing. If terms could be negative, the series could converge due to cancellation (like alternating series), even if its terms are larger in magnitude than a divergent series, or smaller than a convergent one. The test compares 'sizes' of positive contributions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does $\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + 1}$ converge or diverge by the Direct Comparison Test?",
+      "back": "For $n \\ge 1$, we have $n^2 + 1 > n^2$, so $\\frac{1}{n^2 + 1} < \\frac{1}{n^2}$. Since $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$ is a convergent p-series ($p=2 > 1$), by the Direct Comparison Test, $\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + 1}$ also converges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does $\\sum_{n=2}^{\\infty} \\frac{1}{\\sqrt{n} - 1}$ converge or diverge by the Direct Comparison Test?",
+      "back": "For $n \\ge 2$, $\\sqrt{n} - 1 < \\sqrt{n}$. Thus, $\\frac{1}{\\sqrt{n} - 1} > \\frac{1}{\\sqrt{n}}$. Since $\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt{n}}$ is a divergent p-series ($p=1/2 \\le 1$), by the Direct Comparison Test, $\\sum_{n=2}^{\\infty} \\frac{1}{\\sqrt{n} - 1}$ also diverges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The Direct Comparison Test fails for $\\sum_{n=2}^{\\infty} \\frac{1}{n^2 - 1}$. Why, and what alternative test might be better?",
+      "back": "For $n \\ge 2$, $n^2 - 1 < n^2$, which implies $\\frac{1}{n^2 - 1} > \\frac{1}{n^2}$. Since $\\sum \\frac{1}{n^2}$ converges, this inequality direction does not allow the DCT to prove convergence. To prove divergence, we would need $a_n \\ge b_n$ where $\\sum b_n$ diverges, but here $b_n = 1/n^2$ converges. The Limit Comparison Test (LCT) is often more effective in such cases, as $\\lim_{n \\to \\infty} \\frac{1/(n^2-1)}{1/n^2} = 1$, indicating both series behave similarly.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Determine the convergence or divergence of $\\sum_{n=1}^{\\infty} \\frac{\\sin^2(n)}{n^3}$ using the Direct Comparison Test.",
+      "back": "We know that $0 \\le \\sin^2(n) \\le 1$ for all $n$. Therefore, $0 \\le \\frac{\\sin^2(n)}{n^3} \\le \\frac{1}{n^3}$. The series $\\sum_{n=1}^{\\infty} \\frac{1}{n^3}$ is a convergent p-series ($p=3 > 1$). Since $0 \\le a_n \\le b_n$ and $\\sum b_n$ converges, by the Direct Comparison Test, $\\sum_{n=1}^{\\infty} \\frac{\\sin^2(n)}{n^3}$ also converges.",
+      "difficulty": "hard"
+    }
+  ]
+}

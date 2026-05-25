@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-3-virtual-environments-venv-pip-requirements-txt",
+  "subtopicTitle": "Virtual environments — venv, pip, requirements.txt",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:17.256Z",
+  "cards": [
+    {
+      "front": "What is the primary problem that Python virtual environments (like those created with `venv`) solve?",
+      "back": "Python virtual environments solve the problem of dependency conflicts between different projects. Each project can have its own isolated set of Python packages and their specific versions, preventing one project's requirements from breaking another's.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the command to create a new virtual environment named `.venv` in the current directory using the `venv` module.",
+      "back": "```bash\npython3 -m venv .venv\n```\nThis command uses the `venv` module to create a new virtual environment directory named `.venv` (a common convention) in the current working directory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After creating a virtual environment named `.venv` on a Unix-like system, what commands activate and then deactivate it?",
+      "back": "To activate:\n```bash\nsource .venv/bin/activate\n```\nTo deactivate:\n```bash\ndeactivate\n```\n(On Windows PowerShell: `.\\.venv\\Scripts\\Activate.ps1`; On Windows Cmd: `.\\.venv\\Scripts\\activate.bat`)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is `pip`, and how do you install the `requests` library into your *active* virtual environment using it?",
+      "back": "`pip` is the standard package installer for Python. It allows you to install and manage third-party libraries.\nTo install `requests`:\n```bash\npip install requests\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After installing `requests` and `beautifulsoup4` in your virtual environment, what command generates a `requirements.txt` file listing these dependencies?",
+      "back": "```bash\npip freeze > requirements.txt\n```\nThis command outputs all installed packages and their exact versions to standard output, which is then redirected into `requirements.txt`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A new team member clones your project and finds a `requirements.txt` file. What command should they use to install all project dependencies into their *active* virtual environment?",
+      "back": "```bash\npip install -r requirements.txt\n```\nThe `-r` flag tells `pip` to install packages listed in the specified requirements file.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why `pip freeze > requirements.txt` is generally preferred over manually listing packages in `requirements.txt` for production-ready projects.",
+      "back": "`pip freeze` captures the *exact* versions of all currently installed packages and their transitive dependencies. Manually listing can miss dependencies or specify broad version ranges, leading to 'works on my machine' issues, non-reproducible builds, or security vulnerabilities if a new version introduces breaking changes or exploits. `pip freeze` ensures consistent environments across development, testing, and production.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you completely remove a virtual environment named `.venv` from your system?",
+      "back": "First, ensure you have deactivated the virtual environment (`deactivate`). Then, simply delete the `.venv` directory:\n```bash\nrm -rf .venv\n```\n(On Windows, use `rd /s /q .venv` or delete via file explorer.)",
+      "difficulty": "medium"
+    }
+  ]
+}

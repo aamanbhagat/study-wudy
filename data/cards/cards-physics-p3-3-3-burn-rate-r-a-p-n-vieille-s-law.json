@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-burn-rate-r-a-p-n-vieille-s-law",
+  "subtopicTitle": "Burn rate r = a·P^n — Vieille's law",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:06.111Z",
+  "cards": [
+    {
+      "front": "What fundamental relationship does Vieille's Law describe in solid rocket propulsion?",
+      "back": "Vieille's Law describes the empirical relationship between the linear burn rate ($r$) of a solid propellant and the chamber pressure ($P$) it experiences, stating that $r$ is proportional to $P$ raised to some exponent.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Vieille's Law mathematically and identify each variable.",
+      "back": "Vieille's Law is given by: $$r = a \\cdot P^n$$ Where:\n*   $r$: Linear burn rate (e.g., mm/s, in/s)\n*   $a$: Burn rate coefficient (units depend on $r$, $P$, and $n$)\n*   $P$: Chamber pressure (e.g., MPa, psi)\n*   $n$: Pressure exponent (dimensionless)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Vieille's Law, what does the burn rate coefficient '$a$' represent, and what factors primarily influence its value?",
+      "back": "The burn rate coefficient '$a$' is an empirical constant specific to a given propellant formulation. It reflects the intrinsic reactivity and burning characteristics of the propellant. Its value is significantly influenced by the propellant's chemical composition, manufacturing process, and initial temperature (higher initial temperature typically leads to a higher '$a$').",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the pressure exponent '$n$' in Vieille's Law. What does a higher '$n$' imply for propellant behavior?",
+      "back": "The pressure exponent '$n$' is a dimensionless empirical constant that quantifies the sensitivity of the burn rate to changes in chamber pressure.\n*   A higher '$n$' means the burn rate is more sensitive to pressure changes. This can lead to instability if $n \\ge 1$.\n*   Propellants with $n \\approx 0$ are considered 'plateau burning' or pressure-insensitive.\nIt is primarily influenced by propellant composition and additives.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If burn rate $r$ is in mm/s and pressure $P$ is in MPa, what are the units of the burn rate coefficient $a$ in Vieille's Law?",
+      "back": "From $r = a \\cdot P^n$, we can derive the units for $a$ as $a = r / P^n$.\nIf $r$ is in mm/s and $P$ is in MPa, then the units of $a$ are $\\text{mm} \\cdot \\text{s}^{-1} \\cdot \\text{MPa}^{-n}$.\nFor example, if $n=0.5$, $a$ would be in $\\text{mm} \\cdot \\text{s}^{-1} \\cdot \\text{MPa}^{-0.5}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A solid propellant has $a = 4.5 \\text{ mm} \\cdot \\text{s}^{-1} \\cdot \\text{MPa}^{-0.35}$ and $n = 0.35$. Calculate its burn rate if the chamber pressure is $8 \\text{ MPa}$.",
+      "back": "Using Vieille's Law: $r = a \\cdot P^n$\nGiven: $a = 4.5 \\text{ mm} \\cdot \\text{s}^{-1} \\cdot \\text{MPa}^{-0.35}$, $n = 0.35$, $P = 8 \\text{ MPa}$\n$r = (4.5) \\cdot (8)^{0.35} \\text{ mm/s}$\n$r \\approx 4.5 \\cdot 1.996 \\text{ mm/s}$\n$r \\approx 8.98 \\text{ mm/s}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "From a combustion physics perspective, why does increasing chamber pressure generally lead to a higher burn rate in solid propellants?",
+      "back": "Increasing chamber pressure enhances the burn rate primarily by:\n1.  **Increased heat transfer:** Higher pressure increases the density of combustion gases, improving convective and radiative heat transfer from the flame zone back to the propellant surface, which accelerates the pyrolysis (decomposition) of the solid material.\n2.  **Increased reaction rates:** Higher pressure leads to higher partial pressures of reactants in the gas phase flame zone, increasing collision frequency and thus the chemical reaction rates. This, in turn, generates more heat that is transferred back to the surface.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions or for what types of propellants might Vieille's Law ($r = a \\cdot P^n$) deviate significantly from actual burn rate behavior?",
+      "back": "Vieille's Law is an empirical approximation and may deviate under certain conditions:\n1.  **Extreme pressure ranges:** The constants $a$ and $n$ are typically valid over a specific pressure range and may change at very low or very high pressures.\n2.  **Temperature sensitivity:** The law doesn't explicitly account for initial propellant temperature, which significantly affects $a$.\n3.  **Erosive burning:** High gas velocities parallel to the burning surface can increase burn rate beyond what Vieille's Law predicts (convective heat transfer from gas flow).\n4.  **Transient conditions:** During ignition, extinction, or rapid pressure changes, the burn rate might not instantly follow the steady-state Vieille's Law.",
+      "difficulty": "medium"
+    }
+  ]
+}

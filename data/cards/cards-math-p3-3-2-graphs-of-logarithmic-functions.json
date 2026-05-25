@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-2-graphs-of-logarithmic-functions",
+  "subtopicTitle": "Graphs of logarithmic functions",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:48.388Z",
+  "cards": [
+    {
+      "front": "Describe the general shape and direction of the graph of $y = \\log_b x$ when $b > 1$.",
+      "back": "The graph is an increasing curve that passes through $(1,0)$, has a vertical asymptote at $x=0$ (the y-axis), and extends infinitely to the right and upwards.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the domain and range for the function $f(x) = \\log_b x$.",
+      "back": "Domain: $(0, \\infty)$ or $x > 0$. Range: $(-\\infty, \\infty)$ or all real numbers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What type of asymptote does the graph of $y = \\log_b x$ have, and what is its equation?",
+      "back": "It has a vertical asymptote with the equation $x=0$ (the y-axis). This is because $\\log_b x$ is undefined for $x \\le 0$, and as $x \\to 0^+$, $y \\to -\\infty$ (for $b>1$) or $y \\to +\\infty$ (for $0<b<1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the graph of $y = \\log_b x$ differ when $0 < b < 1$ compared to $b > 1$?",
+      "back": "When $0 < b < 1$, the graph is a decreasing curve. It still passes through $(1,0)$ and has a vertical asymptote at $x=0$, but as $x \\to 0^+$, $y \\to +\\infty$, and as $x \\to \\infty$, $y \\to -\\infty$. It's a reflection of $y=\\log_{1/b} x$ across the x-axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What unique point does the graph of $y = \\log_b x$ always pass through, regardless of the base $b > 0, b \\ne 1$? Explain why.",
+      "back": "It always passes through the point $(1,0)$. This is because for any valid base $b$, $\\log_b 1 = 0$. This is equivalent to stating that $b^0 = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the domain, asymptote, and key point of the graph of $y = \\log_b (x-c)$ for $c > 0$.",
+      "back": "The graph of $y = \\log_b (x-c)$ is a horizontal shift of $y = \\log_b x$ by $c$ units to the right.\n*   Domain: $(c, \\infty)$ or $x > c$.\n*   Asymptote: Vertical asymptote at $x=c$.\n*   Key point: $(c+1, 0)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the graph of $y = \\log_b x$ related to the graph of $y = b^x$?",
+      "back": "The graphs of $y = \\log_b x$ and $y = b^x$ are inverses of each other. This means they are reflections of each other across the line $y=x$. If a point $(a,c)$ is on $y=b^x$, then the point $(c,a)$ is on $y=\\log_b x$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $x > 1$, how do the graphs of $y = \\log_2 x$, $y = \\log_e x$, and $y = \\log_{10} x$ compare in terms of their \"steepness\"?",
+      "back": "For $x > 1$, the graph of $y = \\log_2 x$ is \"above\" $y = \\log_e x$, which is \"above\" $y = \\log_{10} x$. This means $y = \\log_2 x$ is the \"steepest\" (grows fastest) and $y = \\log_{10} x$ is the \"flattest\". This is because $\\log_b x = \\frac{\\ln x}{\\ln b}$, and since $\\ln 2 < \\ln e < \\ln 10$, we have $\\frac{1}{\\ln 2} > \\frac{1}{\\ln e} > \\frac{1}{\\ln 10}$. A smaller base results in a larger value for $x>1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-4-bst-worst-case-o-n-motivation-for-balancing",
+  "subtopicTitle": "BST — worst case O(n) — motivation for balancing",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:56.589Z",
+  "cards": [
+    {
+      "front": "What structure does a Binary Search Tree (BST) degenerate into in its worst-case scenario?",
+      "back": "A \"skewed tree\" or \"degenerate tree,\" which effectively functions like a linked list.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe an insertion sequence that causes a BST to degenerate into its worst-case structure.",
+      "back": "Inserting elements in strictly ascending order (e.g., $1, 2, 3, 4, 5$) or strictly descending order (e.g., $5, 4, 3, 2, 1$). Each new node becomes a child of the deepest existing node along a single path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity for search, insertion, and deletion operations in a BST that has degenerated to its worst-case structure?",
+      "back": "$O(n)$, where $n$ is the number of nodes in the tree.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why operations in a worst-case BST have a time complexity of $O(n)$.",
+      "back": "In a skewed BST, the tree's height becomes $n$. Any operation (search, insert, delete) might require traversing the entire height of the tree, from the root to the deepest leaf, examining up to $n$ nodes along a single path. This is analogous to iterating through a linked list.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the search performance of a worst-case BST compare to a sorted array and a standard linked list?",
+      "back": "A worst-case BST performs search in $O(n)$, identical to a standard linked list. A sorted array, using binary search, can achieve $O(\\log n)$ for search, but its insertions/deletions are $O(n)$. The BST loses its typical $O(\\log n)$ advantage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental problem that the $O(n)$ worst-case performance of a BST introduces, and how does it motivate balanced BSTs?",
+      "back": "The $O(n)$ worst-case performance negates the primary advantage of BSTs, which is their average-case $O(\\log n)$ efficiency for search, insert, and delete. This makes them no better than a linked list. Balanced BSTs (e.g., AVL, Red-Black) are motivated to *guarantee* $O(\\log n)$ performance by actively maintaining a logarithmic height, preventing degeneration.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Illustrate a worst-case BST insertion sequence for elements 1, 2, 3, 4 using a conceptual representation.",
+      "back": "```\nInsert 1:\n  1\n\nInsert 2:\n  1\n   \\\n    2\n\nInsert 3:\n  1\n   \\\n    2\n     \\\n      3\n\nInsert 4:\n  1\n   \\\n    2\n     \\\n      3\n       \\\n        4\n```\nThis shows a right-skewed tree, where each new node is inserted as the right child of its parent, leading to a height of $n$.",
+      "difficulty": "hard"
+    }
+  ]
+}

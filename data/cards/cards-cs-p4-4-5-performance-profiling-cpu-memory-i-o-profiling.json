@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-performance-profiling-cpu-memory-i-o-profiling",
+  "subtopicTitle": "Performance profiling — CPU, memory, I/O profiling",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:10.377Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of performance profiling in software engineering?",
+      "back": "The primary goal of performance profiling is to identify and analyze performance bottlenecks within a software application. This involves measuring various aspects like execution time, memory usage, and I/O operations to pinpoint sections of code that consume excessive resources or introduce latency, guiding optimization efforts.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the three main categories of performance profiling discussed in software engineering.",
+      "back": "The three main categories are:\n1.  **CPU Profiling:** Measures execution time, function calls, and CPU utilization.\n2.  **Memory Profiling:** Tracks memory allocations, deallocations, heap usage, and identifies leaks.\n3.  **I/O Profiling:** Monitors disk reads/writes, network operations, and file system calls.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fundamental difference between 'sampling' and 'instrumentation' as techniques for CPU profiling.",
+      "back": "**Sampling Profiling:** Periodically interrupts the program to record the program counter (PC) and call stack. It's low overhead but statistical, providing an approximate view of where time is spent.\n**Instrumentation Profiling:** Modifies the program's source code or bytecode to add explicit hooks (e.g., timers) at function entries/exits or specific code blocks. It's more precise but introduces higher overhead and can alter program behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A memory profiler consistently reports a growing 'heap usage' over time, even when the application appears idle and its main tasks are complete. What common issue does this pattern strongly suggest?",
+      "back": "This pattern strongly suggests a **memory leak**. A memory leak occurs when an application allocates memory but fails to deallocate it when it's no longer needed, leading to a gradual increase in memory consumption and potential eventual application crashes or system slowdowns.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Your application frequently interacts with a database and feels slow. You suspect it's I/O-bound. Name two specific metrics you'd look for in an I/O profile and explain what high values for each would indicate.",
+      "back": "1.  **Disk I/O Latency:** High latency (e.g., hundreds of milliseconds) indicates that the application is spending a significant amount of time waiting for disk operations (reads/writes) to complete. This suggests slow storage or inefficient access patterns.\n2.  **Disk Throughput (Bytes/sec):** Low throughput relative to the potential of the storage system, especially when combined with high latency, indicates that the application is not efficiently utilizing the available disk bandwidth, or the disk itself is a bottleneck.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In CPU profiling, what does a 'flame graph' visually represent, and what makes it exceptionally useful for identifying performance bottlenecks?",
+      "back": "A flame graph is a visualization of sampled CPU call stacks. Each 'frame' (rectangle) represents a function in the call stack, with its width proportional to the total time it was on-CPU. The y-axis shows stack depth. It's useful because:\n*   **Hot Paths:** Wide frames at the top indicate 'hot functions' consuming significant CPU.\n*   **Call Stacks:** The stack structure below a wide frame shows *why* that function is being called.\n*   **Aggregation:** It aggregates identical stack traces, making common paths immediately visible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it crucial to profile an application in a production-like environment, and what is the main trade-off involved when enabling profiling tools?",
+      "back": "**Production-like Environment:** Ensures realistic workloads, data volumes, network conditions, and system configurations (e.g., OS, hardware, other running services). Performance characteristics often differ significantly between development and production.\n**Main Trade-off:** The primary trade-off is **profiling overhead**. Profiling tools consume system resources (CPU, memory, I/O) themselves, which can alter the application's performance, sometimes masking or introducing new bottlenecks, and impacting response times.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-internal-energy-of-ideal-gas-u-f-2-nrt",
+  "subtopicTitle": "Internal energy of ideal gas U = (f/2)nRT",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:14.958Z",
+  "cards": [
+    {
+      "front": "For an ideal gas, what physical quantity does internal energy ($U$) primarily represent, and on what single state variable does it exclusively depend?",
+      "back": "Internal energy ($U$) represents the total kinetic energy of all its constituent particles. For an ideal gas, it depends exclusively on its absolute temperature ($T$). It is independent of pressure or volume.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general formula for the internal energy ($U$) of $n$ moles of an ideal gas, defining all variables.",
+      "back": "$U = \\frac{f}{2}nRT$, where $U$ is internal energy, $f$ is the number of degrees of freedom, $n$ is the number of moles, $R$ is the ideal gas constant, and $T$ is the absolute temperature.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical concept does '$f$' denote in the ideal gas internal energy formula, and which fundamental theorem links it to energy?",
+      "back": "'$f$' denotes the number of degrees of freedom. It is linked to energy by the Equipartition Theorem, which states that each degree of freedom contributes $\\frac{1}{2}k_BT$ (or $\\frac{1}{2}RT$ per mole) to the internal energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the number of degrees of freedom ($f$) for a monatomic ideal gas (e.g., Helium) at typical temperatures, and why?",
+      "back": "$f=3$. A monatomic gas particle can only undergo translational motion along the x, y, and z axes. Rotational and vibrational modes are negligible due to their point-like nature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "At moderate temperatures, what is the number of degrees of freedom ($f$) for a diatomic ideal gas (e.g., Oxygen), and what types of motion contribute?",
+      "back": "$f=5$. A diatomic gas has 3 translational degrees of freedom (x, y, z) and 2 rotational degrees of freedom (rotation about two perpendicular axes passing through the center of mass). Vibrational modes are generally 'frozen out' at moderate temperatures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the internal energy formula $U = \\frac{f}{2}nRT$ for an ideal gas, starting from the Equipartition Theorem and the definition of internal energy per particle.",
+      "back": "The Equipartition Theorem states that each degree of freedom contributes $\\frac{1}{2}k_BT$ to the average energy of a single particle.\nSo, the average energy per particle is $\\langle E \\rangle = f \\times \\frac{1}{2}k_BT$.\nFor $N$ particles, the total internal energy $U$ is the sum of their average energies:\n$U = N \\langle E \\rangle = N \\times f \\times \\frac{1}{2}k_BT$.\nUsing the relation $N k_B = n R$ (where $k_B$ is Boltzmann constant, $R$ is ideal gas constant, $N$ is number of particles, $n$ is number of moles), we substitute:\n$U = n R f \\frac{1}{2}T = \\frac{f}{2}nRT$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how the internal energy of a diatomic gas changes at very high temperatures, and what would be the new effective number of degrees of freedom ($f$).",
+      "back": "At very high temperatures, vibrational modes of the diatomic molecule become active. Each vibrational mode contributes 2 degrees of freedom (one for kinetic energy of vibration, one for potential energy of vibration). For a diatomic molecule, there is one vibrational mode, so $f$ increases from $5$ (translational + rotational) to $5+2=7$. The internal energy would then be $U = \\frac{7}{2}nRT$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Calculate the internal energy of $2.5$ moles of an ideal monatomic gas at $350 \\text{ K}$. Use $R = 8.314 \\text{ J/(mol}\\cdot\\text{K)}$. Show your steps.",
+      "back": "For a monatomic ideal gas, the number of degrees of freedom $f=3$.\nGiven: $n = 2.5 \\text{ mol}$, $T = 350 \\text{ K}$, $R = 8.314 \\text{ J/(mol}\\cdot\\text{K)}$.\nThe formula for internal energy is $U = \\frac{f}{2}nRT$.\nSubstitute the values:\n$U = \\frac{3}{2} \\times 2.5 \\text{ mol} \\times 8.314 \\text{ J/(mol}\\cdot\\text{K)} \\times 350 \\text{ K}$\n$U = 1.5 \\times 2.5 \\times 8.314 \\times 350 \\text{ J}$\n$U = 10935.375 \\text{ J}$\n$U \\approx 10.94 \\text{ kJ}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

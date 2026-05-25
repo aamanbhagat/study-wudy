@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-1-transformations-of-trig-graphs-a-sin-bx-c-d-amplitude-period-phase-vertical-shift",
+  "subtopicTitle": "Transformations of trig graphs — A·sin(Bx + C) + D (amplitude, period, phase, vertical shift)",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:58.792Z",
+  "cards": [
+    {
+      "front": "What does the parameter $A$ represent in $y = A \\sin(Bx + C) + D$, and how does it affect the graph?",
+      "back": "$A$ represents the **amplitude** of the sinusoidal wave. The amplitude is $|A|$, which is the maximum displacement from the midline. If $A < 0$, the graph is also reflected vertically across the midline (the line $y=D$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the parameter $D$ represent in $y = A \\sin(Bx + C) + D$, and how does it affect the graph?",
+      "back": "$D$ represents the **vertical shift** of the sinusoidal wave. The entire graph is shifted $D$ units vertically. The horizontal line $y=D$ is the **midline** of the graph, about which the wave oscillates.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the period of $y = A \\sin(Bx + C) + D$ calculated, and what does $B$ represent?",
+      "back": "The period $T$ is calculated as $T = \\frac{2\\pi}{|B|}$ for sine and cosine functions (for tangent/cotangent, it's $\\frac{\\pi}{|B|}$). The parameter $B$ determines the **horizontal stretch or compression** of the graph. A larger $|B|$ results in a shorter period (more cycles in a given interval).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $y = A \\sin(Bx + C) + D$, what is the phase shift and how is it determined from the equation?",
+      "back": "The phase shift is the horizontal translation of the graph. To determine it, first factor $B$ out of the argument: $y = A \\sin(B(x + \\frac{C}{B})) + D$. The phase shift is $-\\frac{C}{B}$. A positive phase shift value means the graph shifts to the right, and a negative value means it shifts to the left.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the amplitude, period, phase shift, and vertical shift for $y = -4 \\cos(3x - \\frac{\\pi}{2}) + 5$.",
+      "back": "1.  **Amplitude:** $|A| = |-4| = 4$. (There is also a vertical reflection due to $A<0$).\n2.  **Period:** $T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{3}$.\n3.  **Phase Shift:** Rewrite as $y = -4 \\cos(3(x - \\frac{\\pi}{6})) + 5$. The phase shift is $\\frac{\\pi}{6}$ units to the right.\n4.  **Vertical Shift:** $D = 5$. The midline is $y=5$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the period of $y = \\sin(Bx)$, starting from the basic period of $y = \\sin(x)$.",
+      "back": "The basic sine function $y = \\sin(x)$ completes one full cycle when its argument $x$ goes from $0$ to $2\\pi$. \nFor $y = \\sin(Bx)$, one cycle is completed when the argument $Bx$ goes from $0$ to $2\\pi$. \nSo, we set $0 \\le Bx \\le 2\\pi$. \nIf $B > 0$, then $0 \\le x \\le \\frac{2\\pi}{B}$. The length of this interval is $\\frac{2\\pi}{B} - 0 = \\frac{2\\pi}{B}$. \nIf $B < 0$, then $0 \\ge Bx \\ge 2\\pi$, which implies $\\frac{2\\pi}{B} \\le x \\le 0$. The length of this interval is $0 - \\frac{2\\pi}{B} = -\\frac{2\\pi}{B} = \\frac{2\\pi}{|B|}$. \nThus, the period $T = \\frac{2\\pi}{|B|}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A sinusoidal graph has a maximum point at $( \\frac{\\pi}{6}, 7 )$ and the next minimum point at $( \\frac{5\\pi}{6}, 3 )$. Find an equation of the form $y = A \\sin(Bx + C) + D$.",
+      "back": "1.  **Midline ($D$):** $D = \\frac{\\text{Max} + \\text{Min}}{2} = \\frac{7+3}{2} = 5$.\n2.  **Amplitude ($A$):** $|A| = \\text{Max} - D = 7 - 5 = 2$. Let's assume $A=2$ for a standard sine wave (starts at midline, going up).\n3.  **Period ($T$):** The horizontal distance from a max to the next min is half a period. So, $\\frac{T}{2} = \\frac{5\\pi}{6} - \\frac{\\pi}{6} = \\frac{4\\pi}{6} = \\frac{2\\pi}{3}$. Thus, $T = 2 \\times \\frac{2\\pi}{3} = \\frac{4\\pi}{3}$.\n4.  **Parameter $B$:** $T = \\frac{2\\pi}{B} \\implies \\frac{4\\pi}{3} = \\frac{2\\pi}{B} \\implies B = \\frac{2\\pi}{4\\pi/3} = \\frac{2\\pi \\cdot 3}{4\\pi} = \\frac{3}{2}$.\n5.  **Phase Shift ($C$):** A standard sine function $y = A\\sin(B(x-x_0))+D$ starts at its midline and increases at $x=x_0$. The maximum is at $x=\\frac{\\pi}{6}$. The point where it crosses the midline and increases is $\\frac{T}{4}$ before the maximum. So, $x_0 = \\frac{\\pi}{6} - \\frac{T}{4} = \\frac{\\pi}{6} - \\frac{4\\pi/3}{4} = \\frac{\\pi}{6} - \\frac{\\pi}{3} = -\\frac{\\pi}{6}$.\n6.  **Equation:** Using $x_0 = -\\frac{\\pi}{6}$, we have $y = 2 \\sin(\\frac{3}{2}(x - (-\\frac{\\pi}{6}))) + 5 = 2 \\sin(\\frac{3}{2}x + \\frac{\\pi}{4}) + 5$.",
+      "difficulty": "hard"
+    }
+  ]
+}

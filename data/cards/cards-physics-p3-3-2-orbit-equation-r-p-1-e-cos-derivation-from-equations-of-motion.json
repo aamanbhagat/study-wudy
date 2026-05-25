@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-2-orbit-equation-r-p-1-e-cos-derivation-from-equations-of-motion",
+  "subtopicTitle": "Orbit equation r = p/(1 + e·cosθ) — derivation from equations of motion",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:44.438Z",
+  "cards": [
+    {
+      "front": "State the general form of the orbit equation for two-body motion under a central gravitational force.",
+      "back": "The general form of the orbit equation is: $$r = \\frac{p}{1 + e \\cos\\theta}$$ where $r$ is the radial distance from the central body, $p$ is the semi-latus rectum, $e$ is the eccentricity, and $\\theta$ is the true anomaly (angle from periapsis).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the radial ($a_r$) and transverse ($a_\\theta$) components of acceleration in polar coordinates.",
+      "back": "Radial acceleration: $a_r = \\ddot{r} - r\\dot{\\theta}^2$\nTransverse acceleration: $a_\\theta = r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a central gravitational force, demonstrate that specific angular momentum $h$ is conserved and express it in polar coordinates.",
+      "back": "A central force has no transverse component, so $F_\\theta = ma_\\theta = 0$. Thus, $m(r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}) = 0$. Multiplying by $r$, we get $mr^2\\ddot{\\theta} + 2mr\\dot{r}\\dot{\\theta} = 0$. This expression is the time derivative of $mr^2\\dot{\\theta}$: $\\frac{d}{dt}(mr^2\\dot{\\theta}) = 0$. Therefore, $mr^2\\dot{\\theta}$ is a constant. Dividing by mass $m$, the specific angular momentum $h = r^2\\dot{\\theta}$ is a constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the radial equation of motion $\\ddot{r} - r\\dot{\\theta}^2 = -\\frac{\\mu}{r^2}$ and the conservation of specific angular momentum $h = r^2\\dot{\\theta}$, derive the differential equation for $u = 1/r$ with respect to $\\theta$.",
+      "back": "From $h = r^2\\dot{\\theta}$, we have $\\dot{\\theta} = h/r^2 = hu^2$. \nNow, express $\\dot{r}$ and $\\ddot{r}$ in terms of $u$ and $\\theta$: \n$\\dot{r} = \\frac{d}{dt}(1/u) = \\frac{d}{d\\theta}(1/u) \\frac{d\\theta}{dt} = -\\frac{1}{u^2}\\frac{du}{d\\theta} (hu^2) = -h\\frac{du}{d\\theta}$. \n$\\ddot{r} = \\frac{d}{dt}(-h\\frac{du}{d\\theta}) = \\frac{d}{d\\theta}(-h\\frac{du}{d\\theta}) \\frac{d\\theta}{dt} = -h\\frac{d^2u}{d\\theta^2} (hu^2) = -h^2u^2\\frac{d^2u}{d\\theta^2}$. \nSubstitute these into the radial equation $a_r = -\\frac{\\mu}{r^2}$: \n$-h^2u^2\\frac{d^2u}{d\\theta^2} - (1/u)(hu^2)^2 = -\\mu u^2$. \n$-h^2u^2\\frac{d^2u}{d\\theta^2} - h^2u^3 = -\\mu u^2$. \nDivide by $-h^2u^2$ (assuming $u \\neq 0$): \n$$\\frac{d^2u}{d\\theta^2} + u = \\frac{\\mu}{h^2}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Solve the differential equation $\\frac{d^2u}{d\\theta^2} + u = \\frac{\\mu}{h^2}$ and express the solution in terms of $r$, identifying the semi-latus rectum $p$ and eccentricity $e$.",
+      "back": "The general solution to the differential equation is $u(\\theta) = A\\cos\\theta + B\\sin\\theta + \\frac{\\mu}{h^2}$. This can be rewritten using a phase angle as $u(\\theta) = C\\cos(\\theta - \\theta_0) + \\frac{\\mu}{h^2}$. \nBy convention, we align the periapsis with $\\theta=0$, so $\\theta_0=0$. Thus, $u(\\theta) = \\frac{\\mu}{h^2} + C\\cos\\theta$. \nSince $u = 1/r$, we have $r = \\frac{1}{\\frac{\\mu}{h^2} + C\\cos\\theta}$. \nTo match the standard form $r = \\frac{p}{1 + e\\cos\\theta}$, we divide the numerator and denominator by $\\frac{\\mu}{h^2}$: \n$$r = \\frac{1/(\\mu/h^2)}{1 + C/(\\mu/h^2)\\cos\\theta} = \\frac{h^2/\\mu}{1 + C(h^2/\\mu)\\cos\\theta}$$ \nComparing this to $r = \\frac{p}{1 + e\\cos\\theta}$, we identify: \n$p = \\frac{h^2}{\\mu}$ \n$e = C\\frac{h^2}{\\mu}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the orbit equation $r = p/(1 + e \\cos\\theta)$, what physical quantities do $p$ and $e$ represent, and how are they related to specific angular momentum $h$ and gravitational parameter $\\mu$?",
+      "back": "$p$: The semi-latus rectum. It is a measure of the 'size' of the orbit, specifically the distance from the focus to the orbit along a line perpendicular to the major axis. It is defined as $p = \\frac{h^2}{\\mu}$.\n$e$: The eccentricity. It describes the 'shape' of the orbit ($e=0$ for a circle, $0 < e < 1$ for an ellipse, $e=1$ for a parabola, $e>1$ for a hyperbola). It is related to the constant of integration $C$ from the derivation by $e = C\\frac{h^2}{\\mu}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the specific angular momentum $h$ in the context of orbital mechanics and its role in the orbit equation derivation.",
+      "back": "Specific angular momentum $h = r^2\\dot{\\theta}$ is a conserved quantity for any two-body system under a central force. It represents the angular momentum per unit mass of the orbiting body. Its conservation implies that the orbiting body sweeps out equal areas in equal times (Kepler's Second Law).\n\nIn the derivation, $h$ is critical because:\n1.  It allows us to substitute $\\dot{\\theta} = h/r^2$ into the radial equation of motion, transforming it from a time-dependent equation to one dependent on $\\theta$.\n2.  It directly determines the semi-latus rectum $p = h^2/\\mu$, which scales the size of the orbit. A higher $h$ (for a given $\\mu$) corresponds to a 'wider' orbit.",
+      "difficulty": "medium"
+    }
+  ]
+}

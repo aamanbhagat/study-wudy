@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-one-sided-limits-left-hand-right-hand",
+  "subtopicTitle": "One-sided limits — left-hand, right-hand",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:42.599Z",
+  "cards": [
+    {
+      "front": "What is the definition and notation for the left-hand limit of $f(x)$ as $x$ approaches $a$?",
+      "back": "The left-hand limit, denoted $\\lim_{x \\to a^-} f(x) = L$, means that as $x$ gets arbitrarily close to $a$ from values *less than* $a$ (i.e., $x < a$), the function values $f(x)$ approach $L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the definition and notation for the right-hand limit of $f(x)$ as $x$ approaches $a$?",
+      "back": "The right-hand limit, denoted $\\lim_{x \\to a^+} f(x) = L$, means that as $x$ gets arbitrarily close to $a$ from values *greater than* $a$ (i.e., $x > a$), the function values $f(x)$ approach $L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do one-sided limits relate to the existence of a two-sided limit $\\lim_{x \\to a} f(x)$?",
+      "back": "The two-sided limit $\\lim_{x \\to a} f(x)$ exists and equals $L$ if and only if both the left-hand limit and the right-hand limit exist and are equal to $L$. Mathematically: $$\\lim_{x \\to a} f(x) = L \\iff \\lim_{x \\to a^-} f(x) = L \\text{ and } \\lim_{x \\to a^+} f(x) = L$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a graph of $f(x)$ with a jump discontinuity at $x=2$, where $f(x)$ approaches $3$ from the left and $1$ from the right, what are $\\lim_{x \\to 2^-} f(x)$ and $\\lim_{x \\to 2^+} f(x)$?",
+      "back": "$\\lim_{x \\to 2^-} f(x) = 3$ (approaching from the left).\n$\\lim_{x \\to 2^+} f(x) = 1$ (approaching from the right).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $f(x) = \\begin{cases} 2x+1 & \\text{if } x < 3 \\\\ x^2-2 & \\text{if } x \\ge 3 \\end{cases}$, evaluate $\\lim_{x \\to 3^-} f(x)$ and $\\lim_{x \\to 3^+} f(x)$.",
+      "back": "To evaluate $\\lim_{x \\to 3^-} f(x)$, use $f(x) = 2x+1$: $\\lim_{x \\to 3^-} (2x+1) = 2(3)+1 = 7$.\nTo evaluate $\\lim_{x \\to 3^+} f(x)$, use $f(x) = x^2-2$: $\\lim_{x \\to 3^+} (x^2-2) = (3)^2-2 = 9-2 = 7$.\nBoth one-sided limits are equal to $7$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\lim_{x \\to 0^-} \\frac{|x|}{x}$.",
+      "back": "For $x < 0$, the absolute value $|x|$ is defined as $-x$. Therefore, we substitute this into the limit expression:\n$$\\lim_{x \\to 0^-} \\frac{|x|}{x} = \\lim_{x \\to 0^-} \\frac{-x}{x} = \\lim_{x \\to 0^-} (-1) = -1$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate $\\lim_{x \\to 2^+} \\frac{x-3}{x-2}$.",
+      "back": "As $x \\to 2^+$, the numerator $x-3$ approaches $2-3 = -1$. The denominator $x-2$ approaches $0$. Since $x > 2$, $x-2$ is a very small *positive* number (e.g., if $x=2.001$, then $x-2=0.001$). Therefore, we have a negative number divided by a very small positive number, which tends to negative infinity:\n$$\\lim_{x \\to 2^+} \\frac{x-3}{x-2} = -\\infty$$",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-6-buckling-euler-column-buckling-load-derivation",
+  "subtopicTitle": "Buckling — Euler column buckling load derivation",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:12.200Z",
+  "cards": [
+    {
+      "front": "Define \"buckling\" in the context of structural engineering, particularly for columns.",
+      "back": "Buckling is a form of structural instability characterized by a sudden, large, and often catastrophic lateral deflection of a slender structural member subjected to axial compression. It occurs when the compressive load reaches a critical value, causing the member to suddenly bend or deform perpendicular to the load axis, even if the applied stress is below the material's yield strength.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the primary assumptions made when deriving the Euler column buckling load.",
+      "back": "The key assumptions for Euler buckling are:\n1.  The column is perfectly straight before loading.\n2.  The load is applied axially through the centroid of the cross-section.\n3.  The material is homogeneous, isotropic, and obeys Hooke's Law (linearly elastic).\n4.  Deflections are small, allowing linear elastic beam theory (Euler-Bernoulli) to be used.\n5.  The column is slender (long relative to its cross-sectional dimensions).\n6.  The column's ends are idealized (e.g., pinned, fixed, free).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a simply supported column of length $L$ under an axial compressive load $P$, if it deflects by $v(x)$ at a distance $x$ from one end, what is the bending moment $M(x)$ caused by this deflection?",
+      "back": "The bending moment $M(x)$ at any point $x$ along the column is given by $M(x) = -P v(x)$. The negative sign indicates that the moment caused by the axial load $P$ tends to restore the column to its straight position if $v(x)$ is positive (upward deflection), effectively opposing the deflection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the Euler-Bernoulli beam theory relation ($M = EI \\frac{d^2v}{dx^2}$), derive the governing second-order differential equation for a simply supported column undergoing buckling under axial load $P$.",
+      "back": "From Euler-Bernoulli beam theory, we have $M = EI \\frac{d^2v}{dx^2}$.\nFrom the previous card, the bending moment due to the axial load $P$ and deflection $v(x)$ is $M = -P v(x)$.\nEquating these two expressions for $M$ gives:\n$$EI \\frac{d^2v}{dx^2} = -P v$$\nRearranging the terms, we get the governing differential equation:\n$$EI \\frac{d^2v}{dx^2} + P v = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the general solution to the second-order linear homogeneous differential equation $EI \\frac{d^2v}{dx^2} + P v = 0$?",
+      "back": "Let's rewrite the equation as $\\frac{d^2v}{dx^2} + \\frac{P}{EI} v = 0$.\nDefine $\\lambda^2 = \\frac{P}{EI}$. Then the equation becomes $\\frac{d^2v}{dx^2} + \\lambda^2 v = 0$.\nThe characteristic equation is $r^2 + \\lambda^2 = 0$, which has roots $r = \\pm i\\lambda$.\nThe general solution for $v(x)$ is therefore:\n$$v(x) = A \\sin(\\lambda x) + B \\cos(\\lambda x)$$\nwhere $A$ and $B$ are constants determined by the boundary conditions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Apply the boundary conditions for a simply supported column ($v(0)=0$ and $v(L)=0$) to the general solution $v(x) = A \\sin(\\lambda x) + B \\cos(\\lambda x)$ to derive the critical Euler buckling load $P_{cr}$.",
+      "back": "1.  **Apply $v(0)=0$**: \n    $A \\sin(\\lambda \\cdot 0) + B \\cos(\\lambda \\cdot 0) = 0$\n    $A \\cdot 0 + B \\cdot 1 = 0 \\implies B = 0$.\n    So, the solution simplifies to $v(x) = A \\sin(\\lambda x)$.\n2.  **Apply $v(L)=0$**: \n    $A \\sin(\\lambda L) = 0$.\n    For a non-trivial solution (i.e., for buckling to occur, $A \\neq 0$), we must have $\\sin(\\lambda L) = 0$.\n    This implies $\\lambda L = n\\pi$, where $n = 1, 2, 3, \\dots$.\n    The smallest non-zero load (the critical buckling load) corresponds to $n=1$.\n    So, $\\lambda L = \\pi \\implies \\lambda = \\frac{\\pi}{L}$.\n3.  **Substitute $\\lambda$ back**: \n    Recall $\\lambda^2 = \\frac{P_{cr}}{EI}$.\n    Substituting $\\lambda = \\frac{\\pi}{L}$:\n    $\\frac{P_{cr}}{EI} = \\left(\\frac{\\pi}{L}\\right)^2$\n    Thus, the Euler critical buckling load for a simply supported column is:\n    $$P_{cr} = \\frac{\\pi^2 EI}{L^2}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the generalized Euler buckling formula $P_{cr} = \\frac{\\pi^2 EI}{(KL)^2}$, what do the terms $E$, $I$, and $K$ represent?",
+      "back": "1.  $E$: **Modulus of Elasticity** (Young's Modulus) of the column's material. It represents the material's stiffness or resistance to elastic deformation.\n2.  $I$: **Area Moment of Inertia** (or Second Moment of Area) of the column's cross-section. It quantifies the distribution of the cross-sectional area relative to an axis, indicating the column's resistance to bending. Buckling will occur about the axis with the minimum $I$.\n3.  $K$: **Effective Length Factor**. This dimensionless factor accounts for the column's end support conditions. It modifies the actual length $L$ to an \"effective length\" $KL$, which represents the length of an equivalent pinned-pinned column that would buckle under the same load.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the approximate $K$ values for the following idealized column end conditions: (a) Pinned-Pinned, (b) Fixed-Free, (c) Fixed-Pinned, (d) Fixed-Fixed?",
+      "back": "The approximate $K$ values are:\n(a) **Pinned-Pinned**: $K=1.0$\n(b) **Fixed-Free**: $K=2.0$\n(c) **Fixed-Pinned**: $K=0.7$ (more precisely, $0.699$)\n(d) **Fixed-Fixed**: $K=0.5$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what conditions or for what types of columns is the Euler buckling formula NOT applicable, and what alternative theory might be used?",
+      "back": "The Euler buckling formula is only applicable to **long, slender columns** where buckling occurs elastically, meaning the critical stress ($P_{cr}/A$) is below the material's proportional limit or yield strength. It is not applicable for:\n1.  **Short or intermediate columns**: These columns will yield or crush due to compressive stress before elastic buckling occurs. In such cases, inelastic buckling theories or empirical formulas like the **Johnson Parabolic formula** (or other tangent modulus theories) are used to predict failure.",
+      "difficulty": "medium"
+    }
+  ]
+}

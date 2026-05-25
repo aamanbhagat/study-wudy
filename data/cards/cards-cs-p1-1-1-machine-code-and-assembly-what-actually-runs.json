@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-machine-code-and-assembly-what-actually-runs",
+  "subtopicTitle": "Machine code and assembly — what actually runs",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:44.440Z",
+  "cards": [
+    {
+      "front": "What is machine code, and what is its fundamental characteristic?",
+      "back": "Machine code is the lowest-level programming language directly executable by a computer's central processing unit (CPU). Its fundamental characteristic is that it consists entirely of binary digits (bits), typically represented as sequences of 0s and 1s, which the CPU interprets as instructions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define assembly language and explain how it improves upon raw machine code for human readability.",
+      "back": "Assembly language is a low-level programming language that uses symbolic representations (mnemonics) for machine code instructions and memory addresses. For example, instead of a binary sequence like `00000011`, an assembly language might use `ADD` for an addition operation, making it significantly more human-readable and writable than raw machine code.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does assembly language maintain a direct and predictable relationship with machine code?",
+      "back": "Assembly language maintains a direct, one-to-one relationship with machine code through a process called *direct translation*. Each assembly language instruction (mnemonic) typically corresponds to exactly one machine code instruction. This means there's a very predictable mapping, unlike high-level languages which translate to many machine code instructions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the specific tool used to convert assembly language programs into executable machine code?",
+      "back": "The specific tool used to convert assembly language programs into executable machine code is called an **assembler**. It reads the assembly language source code and translates each mnemonic and operand into its corresponding binary machine code instruction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the two main components that every machine code instruction typically consists of.",
+      "back": "Every machine code instruction typically consists of two main components:\n1.  **Opcode (Operation Code):** This specifies the operation to be performed (e.g., add, subtract, move data, jump). It's a binary code representing the instruction type.\n2.  **Operands:** These specify the data or memory locations that the operation will act upon (e.g., registers, memory addresses, immediate values).\nFor example, an `ADD` instruction might have an opcode for addition and operands specifying which registers to add and where to store the result.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the assembly instruction `ADD R1, R2, R3` (add contents of R2 and R3, store in R1). How would this conceptually translate into a machine code instruction's binary format?",
+      "back": "Conceptually, this assembly instruction would translate into a binary machine code instruction with:\n*   An **opcode** for \"ADD\" (e.g., `00000010`).\n*   **Operand fields** representing the registers `R1`, `R2`, and `R3` (e.g., `R1` might be `001`, `R2` `010`, `R3` `011`).\nConcatenating these, the instruction might conceptually look like this in binary:\n```\n00000010 001 010 011\n```\n(This is a simplified example; actual formats vary by ISA and can include addressing modes, etc., making them more complex.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why can't machine code compiled for an x86 processor run directly on an ARM processor without modification or emulation?",
+      "back": "Machine code is specific to a particular **Instruction Set Architecture (ISA)**. x86 and ARM are different ISAs, meaning they have different sets of instructions, different instruction formats, and different ways of organizing registers and memory. An x86 machine code instruction would be meaningless to an ARM processor, as its internal logic is designed to decode and execute ARM-specific binary patterns.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides low-level programming, what are two critical reasons a computer scientist benefits from understanding machine code and assembly language?",
+      "back": "Two critical reasons are:\n1.  **Performance Optimization:** Understanding the underlying instructions allows for writing more efficient code in high-level languages, identifying bottlenecks, and sometimes even hand-optimizing critical sections directly in assembly.\n2.  **Debugging and Security Analysis:** It enables deeper debugging by examining core dumps or reverse-engineering malware. It's crucial for understanding how programs interact with hardware and for identifying vulnerabilities that might not be apparent at a higher level.",
+      "difficulty": "hard"
+    }
+  ]
+}

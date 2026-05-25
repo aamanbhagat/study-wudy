@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-aspect-ratio-effect-on-induced-drag",
+  "subtopicTitle": "Aspect ratio — effect on induced drag",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:56.441Z",
+  "cards": [
+    {
+      "front": "Define the aspect ratio ($AR$) of a wing and provide its two common formulas.",
+      "back": "The aspect ratio ($AR$) is a measure of how long and slender a wing is compared to its chord.\n<ul>\n<li>$AR = \\frac{b^2}{S}$</li>\n<li>$AR = \\frac{b}{\\bar{c}}$</li>\n</ul>\nWhere $b$ is the wingspan, $S$ is the wing area, and $\\bar{c}$ is the standard mean chord.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is induced drag, and what fundamental aerodynamic phenomenon causes it?",
+      "back": "Induced drag ($D_i$) is the component of drag that arises from the production of lift. It is fundamentally caused by wingtip vortices. As a wing generates lift, it creates a pressure differential between its upper and lower surfaces. At the wingtips, air flows from the high-pressure underside to the low-pressure upper side, forming swirling vortices. These vortices effectively reduce the local angle of attack over the wing, tilting the lift vector slightly backward, which creates a drag component.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the standard formula for induced drag ($D_i$) for a finite wing.",
+      "back": "The formula for induced drag ($D_i$) is:\n$$D_i = \\frac{L^2}{\\frac{1}{2}\\rho V^2 \\pi b^2 e} = \\frac{C_L^2}{\\pi AR e} \\frac{1}{2}\\rho V^2 S$$\nOr, in terms of the induced drag coefficient $C_{D,i}$:\n$$C_{D,i} = \\frac{C_L^2}{\\pi AR e}$$\nWhere $L$ is lift, $\\rho$ is air density, $V$ is true airspeed, $b$ is wingspan, $e$ is the Oswald efficiency factor, $C_L$ is the lift coefficient, $AR$ is the aspect ratio, and $S$ is the wing area.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why increasing a wing's aspect ratio reduces its induced drag.",
+      "back": "Increasing a wing's aspect ratio means the wing is longer and narrower for a given wing area. This spreads the lift generation over a greater span. The wingtip vortices, which are the primary cause of induced drag, are effectively \"diluted\" or weakened over a longer span. This reduces the downward component of velocity (downwash) induced by the vortices across the wing, leading to a smaller backward tilt of the lift vector and thus less induced drag. Essentially, a higher AR wing behaves more like an ideal 2D airfoil, minimizing the 3D effects of finite span.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the typical aspect ratios and induced drag characteristics of a high-performance glider versus a supersonic fighter jet.",
+      "back": "<ul>\n<li><b>Glider:</b> Typically has a very high aspect ratio (e.g., 20-40). This design minimizes induced drag, which is crucial for maximizing glide ratio and endurance, especially at lower speeds where induced drag is a significant portion of total drag.</li>\n<li><b>Supersonic Fighter Jet:</b> Typically has a low aspect ratio (e.g., 2-6). While this results in high induced drag, it offers advantages like increased maneuverability (higher roll rates), structural strength for high-g turns, and reduced wave drag at supersonic speeds due to smaller chord-wise dimensions. Induced drag is less dominant at high speeds where parasitic drag becomes more significant.</li>\n</ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the Oswald efficiency factor ($e$) in the induced drag formula, and why is its value typically less than 1?",
+      "back": "The Oswald efficiency factor ($e$), also known as the span efficiency factor, accounts for the non-elliptical lift distribution along the wing's span. The induced drag formula assumes an ideal elliptical lift distribution, which produces the minimum possible induced drag for a given span and total lift. Real wings, however, rarely have a perfect elliptical lift distribution due to practical design constraints (e.g., rectangular wings, wing taper, fuselage interference). A non-elliptical lift distribution generates stronger or more complex wingtip vortices, leading to more induced drag than the ideal case. Therefore, $e$ is typically less than 1 (ranging from about 0.7 to 0.95), acting as a correction factor to increase the calculated induced drag for real-world wings.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the concept of \"effective span\" relate to the reduction of induced drag in higher aspect ratio wings?",
+      "back": "The effective span refers to the portion of the wing that effectively contributes to lift production without being significantly affected by wingtip vortices. In reality, wingtip vortices \"spill over\" and reduce the lift-generating capability near the wingtips. For a given total wing area, a higher aspect ratio wing has a longer physical span ($b$) and a narrower chord. This means the relative proportion of the wing affected by the wingtip vortices (the \"end effects\") becomes smaller compared to the overall span. Consequently, a larger fraction of the wing's physical span acts as an \"effective span,\" generating lift more efficiently with less induced downwash, leading to a lower induced drag. Essentially, the \"finite wing\" effects are minimized.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-memory-protection-units-mpu-preventing-stack-overflow-access-faults",
+  "subtopicTitle": "Memory protection units (MPU) — preventing stack overflow, access faults",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:02.989Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a Memory Protection Unit (MPU) in an embedded system?",
+      "back": "The primary function of an MPU is to define and enforce memory access rules for different regions of memory. It prevents unauthorized access (reads, writes, or execution) by software components, thereby enhancing system stability and security.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does an MPU typically divide memory, and what key attributes can be assigned to these divisions?",
+      "back": "An MPU divides the memory map into a number of configurable *regions* (e.g., 8, 16, or more). Each region can be assigned attributes such as:\n-   **Access Permissions:** Read-only, read/write, no access (for user/privileged modes).\n-   **Cacheability:** Whether the region's data should be cached.\n-   **Bufferability:** Whether writes to the region can be buffered.\n-   **Shareability:** For multi-processor systems.\n-   **Execute Never (XN):** Prevents code execution from that region.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how an MPU can specifically prevent a stack overflow in a real-time embedded system.",
+      "back": "To prevent stack overflow, an MPU can be configured to define a small, non-writable \"guard region\" immediately adjacent to (typically below) the allocated stack memory block. If the stack pointer attempts to write into this guard region (indicating the stack has grown beyond its allocated space), the MPU detects the unauthorized write access and triggers a memory access fault (e.g., a HardFault on ARM Cortex-M), allowing the system to detect and handle the overflow before critical data or return addresses are corrupted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A task attempts to write to a memory address within a region configured by the MPU as read-only. What happens, and what is the typical CPU response?",
+      "back": "When a task attempts to write to a read-only MPU-protected region, the MPU detects this violation. It immediately triggers a *memory access fault* (often a HardFault or MemManage fault on ARM Cortex-M processors). The CPU then suspends normal execution and jumps to the corresponding exception handler, allowing the system to log the error, attempt recovery, or perform a controlled shutdown, preventing data corruption.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key distinction between an MPU (Memory Protection Unit) and an MMU (Memory Management Unit) in terms of their primary function?",
+      "back": "An **MPU** primarily enforces *access permissions* on physical memory regions, preventing unauthorized reads, writes, or execution based on physical addresses. It's simpler and common in microcontrollers. An **MMU** provides *virtual memory translation*, mapping virtual addresses used by software to physical addresses in RAM. This enables advanced features like paging, process isolation, and larger virtual address spaces, typically found in microprocessors running complex operating systems like Linux.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To configure an MPU region for a peripheral at address `0x40000000` with a size of 4KB, read/write access, and non-cacheable behavior, what conceptual MPU registers or parameters would you typically set?",
+      "back": "You would typically configure:\n1.  **Region Base Address Register (e.g., `MPU_RBAR`):** Set to `0x40000000`.\n2.  **Region Number Register (e.g., `MPU_RNR`):** Select an available region number (e.g., 0-7).\n3.  **Region Attribute and Size Register (e.g., `MPU_RASR`):**\n    *   **SIZE:** Set to represent 4KB (e.g., `0b10101` for $2^{12}$ bytes).\n    *   **AP (Access Permission):** Set for full read/write access (e.g., `0b011` for user R/W, privileged R/W).\n    *   **TEX/C/B (Type Extension/Cacheable/Bufferable):** Set to `000` for strongly-ordered, non-cacheable, non-bufferable memory, typical for peripherals.\n    *   **XN (Execute Never):** Set to `1` to prevent code execution from this peripheral region.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a multi-tasking OS where Task A is allocated memory `0x20000000-0x20000FFF` and Task B `0x20001000-0x20001FFF`. If Task A tries to write to `0x20001004`, how would an MPU configured for these tasks respond?",
+      "back": "An MPU would be configured with separate regions for Task A's memory (allowing Task A R/W access) and Task B's memory (disallowing Task A access, or allowing only privileged access). When Task A attempts to write to `0x20001004`, the MPU detects that this address falls outside Task A's permitted region and into Task B's protected region. The MPU would then trigger a memory access fault (e.g., a HardFault), preventing Task A from corrupting Task B's data and ensuring task isolation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond preventing faults, what is another significant benefit of using an MPU in a safety-critical embedded system?",
+      "back": "Another significant benefit is enhanced system reliability and robustness through *software component isolation*. By using the MPU to separate memory spaces for different tasks, the OS kernel, and drivers, a bug or malfunction in one component (e.g., an errant pointer in an application task) is prevented from corrupting the memory or execution of another critical component. This makes systems more resilient, easier to debug, and simpler to certify for safety standards.",
+      "difficulty": "easy"
+    }
+  ]
+}

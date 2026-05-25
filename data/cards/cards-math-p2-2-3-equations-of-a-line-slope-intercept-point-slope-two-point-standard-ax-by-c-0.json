@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-3-equations-of-a-line-slope-intercept-point-slope-two-point-standard-ax-by-c-0",
+  "subtopicTitle": "Equations of a line — slope-intercept, point-slope, two-point, standard (ax+by+c=0)",
+  "topicId": "math-p2-2-3-coordinate-geometry",
+  "topicTitle": "Coordinate Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:33.731Z",
+  "cards": [
+    {
+      "front": "What does the slope $m$ of a line represent geometrically?",
+      "back": "The slope $m$ represents the steepness and direction of the line. It is the ratio of the vertical change ($\\Delta y$, rise) to the horizontal change ($\\Delta x$, run) between any two distinct points $(x_1, y_1)$ and $(x_2, y_2)$ on the line: $$m = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$$ A positive slope indicates an upward trend from left to right, a negative slope indicates a downward trend, a zero slope is a horizontal line, and an undefined slope is a vertical line.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the slope-intercept form of a linear equation and identify $m$ and $c$.",
+      "back": "The slope-intercept form of a linear equation is $y = mx + c$. Here, $m$ is the slope of the line, and $c$ is the y-intercept (the y-coordinate where the line crosses the y-axis, i.e., when $x=0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the point-slope form of a linear equation starting from the definition of slope.",
+      "back": "Given a line passing through a fixed point $(x_1, y_1)$ with slope $m$. Let $(x, y)$ be any other arbitrary point on the line. By the definition of slope, the slope between $(x_1, y_1)$ and $(x, y)$ must be $m$: $$m = \\frac{y - y_1}{x - x_1}$$ Multiplying both sides by $(x - x_1)$ (assuming $x \\ne x_1$), we get the point-slope form: $$y - y_1 = m(x - x_1)$$ This form is useful when a point and the slope are known.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the equation of a line passing through $(3, -2)$ with a slope of $\\frac{1}{2}$ in slope-intercept form.",
+      "back": "Using the point-slope form $y - y_1 = m(x - x_1)$: \nSubstitute $(x_1, y_1) = (3, -2)$ and $m = \\frac{1}{2}$: \n$y - (-2) = \\frac{1}{2}(x - 3)$ \n$y + 2 = \\frac{1}{2}x - \\frac{3}{2}$ \nTo get to slope-intercept form ($y=mx+c$), isolate $y$: \n$y = \\frac{1}{2}x - \\frac{3}{2} - 2$ \n$y = \\frac{1}{2}x - \\frac{3}{2} - \\frac{4}{2}$ \n$y = \\frac{1}{2}x - \\frac{7}{2}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the two-point form of a linear equation and explain how it relates to the point-slope form.",
+      "back": "The two-point form of a linear equation is $y - y_1 = \\frac{y_2 - y_1}{x_2 - x_1}(x - x_1)$. It is derived directly from the point-slope form $y - y_1 = m(x - x_1)$ by substituting the formula for the slope $m$ when two points $(x_1, y_1)$ and $(x_2, y_2)$ are known: $m = \\frac{y_2 - y_1}{x_2 - x_1}$. This form is used when two distinct points on the line are given.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is a vertical line (e.g., passing through $(k, 0)$) represented in standard form $Ax+By+C=0$? Why can't it be written in slope-intercept form?",
+      "back": "A vertical line passing through $(k, 0)$ (or any point $(k, y)$) has the equation $x = k$. In standard form $Ax+By+C=0$, this is $1x + 0y - k = 0$ (where $A=1, B=0, C=-k$).\n\nIt cannot be written in slope-intercept form ($y=mx+c$) because its slope is undefined. For any two distinct points on a vertical line, say $(k, y_1)$ and $(k, y_2)$ where $y_1 \\ne y_2$, the slope $m = \\frac{y_2 - y_1}{k - k} = \\frac{y_2 - y_1}{0}$, which involves division by zero and is therefore undefined.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Convert the equation $y = -\\frac{3}{4}x + 2$ into the standard form $Ax + By + C = 0$, where $A, B, C$ are integers and $A > 0$.",
+      "back": "Given the equation $y = -\\frac{3}{4}x + 2$.\n1. Multiply the entire equation by 4 to eliminate the fraction:\n   $4y = 4(-\\frac{3}{4}x) + 4(2)$\n   $4y = -3x + 8$\n2. Rearrange the terms to the standard form $Ax + By + C = 0$:\n   $3x + 4y - 8 = 0$\nHere, $A=3, B=4, C=-8$, satisfying the conditions that $A, B, C$ are integers and $A > 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the equation of the line passing through $(2, 5)$ and $(2, -3)$. Express it in standard form.",
+      "back": "First, calculate the slope $m = \\frac{y_2 - y_1}{x_2 - x_1}$. Using $(x_1, y_1) = (2, 5)$ and $(x_2, y_2) = (2, -3)$: \n$m = \\frac{-3 - 5}{2 - 2} = \\frac{-8}{0}$.\n\nSince the denominator is zero, the slope is undefined. This indicates a vertical line. A vertical line passing through $(2, 5)$ and $(2, -3)$ means all points on the line have an x-coordinate of 2.\n\nTherefore, the equation of the line is $x = 2$.\n\nIn standard form $Ax + By + C = 0$, this is $x - 2 = 0$ (or $1x + 0y - 2 = 0$).",
+      "difficulty": "hard"
+    }
+  ]
+}

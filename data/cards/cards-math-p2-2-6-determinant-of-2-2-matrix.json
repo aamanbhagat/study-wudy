@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-6-determinant-of-2-2-matrix",
+  "subtopicTitle": "Determinant of 2×2 matrix",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:06.119Z",
+  "cards": [
+    {
+      "front": "Define the determinant of a matrix and state its standard notations for a $2 \\times 2$ matrix $A$.",
+      "back": "The determinant is a scalar value that can be computed from the elements of a square matrix. It provides important information about the matrix. For a $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, its determinant is denoted as $\\det(A)$, $|A|$, or by writing the matrix elements between vertical bars: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, what is the formula for its determinant?",
+      "back": "The determinant of $A$ is given by the formula: $\\det(A) = ad - bc$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the determinant of the matrix $M = \\begin{pmatrix} 3 & -2 \\\\ 4 & 5 \\end{pmatrix}$.",
+      "back": "Using the formula $\\det(M) = ad - bc$:\n$\\det(M) = (3)(5) - (-2)(4)$\n$\\det(M) = 15 - (-8)$\n$\\det(M) = 15 + 8$\n$\\det(M) = 23$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the determinant of the matrix $B = \\begin{pmatrix} x & y \\\\ 2x & 3y \\end{pmatrix}$.",
+      "back": "Using the formula $\\det(B) = ad - bc$:\n$\\det(B) = (x)(3y) - (y)(2x)$\n$\\det(B) = 3xy - 2xy$\n$\\det(B) = xy$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does the absolute value of the determinant of a $2 \\times 2$ matrix represent when its columns (or rows) are considered as 2D vectors?",
+      "back": "If the columns of a $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ are considered as two vectors $\\mathbf{v_1} = \\begin{pmatrix} a \\\\ c \\end{pmatrix}$ and $\\mathbf{v_2} = \\begin{pmatrix} b \\\\ d \\end{pmatrix}$, then the absolute value of the determinant, $|\\det(A)|$, represents the area of the parallelogram formed by these two vectors. The sign of the determinant indicates the orientation (clockwise or counter-clockwise) of the transformation from the standard basis vectors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $\\det(A) = 0$ for a $2 \\times 2$ matrix $A$, what does this imply about the matrix and the vectors forming it?",
+      "back": "If $\\det(A) = 0$, it implies that:\n1. The matrix $A$ is singular (non-invertible).\n2. The columns (and rows) of $A$ are linearly dependent. This means one column (or row) can be expressed as a scalar multiple of the other.\n3. Geometrically, the parallelogram formed by the column vectors has zero area, meaning the vectors are collinear.\n4. The linear transformation represented by $A$ maps the plane onto a line or a point, effectively \"squashing\" it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, what is its inverse $A^{-1}$ in terms of its elements and determinant?",
+      "back": "The inverse of a $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is given by:\n$A^{-1} = \\frac{1}{\\det(A)} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$\nThis formula is valid only if $\\det(A) \\neq 0$. If $\\det(A) = 0$, the matrix is singular and does not have an inverse.",
+      "difficulty": "hard"
+    }
+  ]
+}

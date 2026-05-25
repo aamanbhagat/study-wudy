@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-system-identification-learning-dynamics-from-data",
+  "subtopicTitle": "System identification — learning dynamics from data",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:25.207Z",
+  "cards": [
+    {
+      "front": "Define \"system identification\" in the context of aerospace engineering.",
+      "back": "System identification is the process of building mathematical models of dynamic systems from observed input-output data. In aerospace, this typically involves using flight test data (e.g., control surface deflections, sensor readings) to derive models for aircraft dynamics, engine performance, or sensor behavior, crucial for control system design, simulation, and fault detection.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are two common mathematical model structures used in aerospace system identification?",
+      "back": "1.  **State-space models:** Represent system dynamics as a set of first-order differential equations, describing the evolution of internal states, inputs, and outputs. E.g., $\\dot{\\mathbf{x}} = A\\mathbf{x} + B\\mathbf{u}$, $\\mathbf{y} = C\\mathbf{x} + D\\mathbf{u}$.\n2.  **Transfer function models:** Relate the Laplace transforms of the output to the input, often used for linear time-invariant (LTI) systems. E.g., $G(s) = \\frac{Y(s)}{U(s)}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the four primary steps in a typical system identification process for an aerospace system.",
+      "back": "1.  **Data Collection:** Design and execute experiments (e.g., flight tests) to gather input-output data, ensuring sufficient excitation.\n2.  **Model Structure Selection:** Choose an appropriate mathematical model form (e.g., state-space, transfer function, non-linear) based on system knowledge and data.\n3.  **Parameter Estimation:** Use algorithms (e.g., Least Squares, Prediction Error Method) to estimate the unknown parameters of the chosen model structure from the collected data.\n4.  **Model Validation:** Evaluate the identified model's accuracy and reliability using unseen data or statistical tests to ensure it adequately represents the system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the objective function minimized by the Least Squares method for identifying parameters $\\theta$ in a linear regression model $y_k = \\phi_k^T \\theta + e_k$.",
+      "back": "The Least Squares method minimizes the sum of squared errors (residuals) between the observed output $y_k$ and the model's predicted output $\\hat{y}_k$.\nObjective function:\n$$ J(\\theta) = \\sum_{k=1}^N (y_k - \\hat{y}_k)^2 = \\sum_{k=1}^N (y_k - \\phi_k^T \\theta)^2 $$\nWhere:\n*   $y_k$ is the observed output at time $k$.\n*   $\\hat{y}_k = \\phi_k^T \\theta$ is the model's predicted output.\n*   $\\phi_k$ is the regressor vector containing known inputs/outputs.\n*   $\\theta$ is the vector of unknown parameters to be estimated.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are \"persistently exciting\" input signals crucial for effective system identification in aerospace?",
+      "back": "Persistently exciting (PE) input signals ensure that all relevant modes and dynamics of the system are sufficiently stimulated. Without PE signals (e.g., constant input or simple step), certain parameters or dynamic behaviors might not be observable in the output data, leading to:\n*   **Poor parameter identifiability:** Multiple parameter sets could explain the observed data.\n*   **High parameter variance:** Large uncertainty in estimated parameter values.\n*   **Inaccurate models:** Models that fail to generalize to new operating conditions.\nCommon PE signals include multi-sine, swept-sine, or pseudo-random binary sequences (PRBS).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two common methods for validating an identified dynamic model and what a successful validation indicates.",
+      "back": "1.  **Residual Analysis:** Examine the prediction errors (residuals) $e_k = y_k - \\hat{y}_k$. For a good model, residuals should be white noise (uncorrelated with past inputs and outputs) and have zero mean. This indicates that the model has captured all systematic dynamics.\n2.  **Cross-Validation (or Simulation Test):** Test the identified model's ability to predict or simulate the output for a *new, unseen* dataset (not used for estimation). A good model will accurately predict the new data, demonstrating its generalization capability.\nA successful validation indicates that the model is statistically sound, accurately represents the system's dynamics, and can generalize well to new operating conditions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the fundamental difference between the Prediction Error Method (PEM) and the Least Squares method when identifying dynamic systems?",
+      "back": "While Least Squares (LS) minimizes the sum of squared errors for a static or ARX-type model, the Prediction Error Method (PEM) is a more general framework designed for dynamic systems, particularly those with colored noise.\n*   **LS (basic):** Assumes the error is independent and identically distributed (white noise) and directly minimizes $J(\\theta) = \\sum (y_k - \\phi_k^T \\theta)^2$. It's optimal for linear regression with white noise.\n*   **PEM:** Minimizes the variance of the *one-step-ahead prediction error* from a chosen model structure (e.g., ARMAX, Box-Jenkins, Output-Error). It explicitly accounts for the system's dynamics and noise characteristics, often by filtering the prediction error. This typically leads to asymptotically unbiased and efficient estimates for a broader class of dynamic systems, especially when noise is correlated.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify two distinct challenges specific to applying system identification in aerospace applications.",
+      "back": "1.  **Non-linearity:** Aircraft dynamics are highly non-linear, especially across a wide flight envelope (e.g., high angles of attack, transonic speeds). Linear models are often only valid for small perturbations around an operating point, requiring multiple local models or complex non-linear identification techniques.\n2.  **Limited/Expensive Data:** Flight test data collection is extremely costly, time-consuming, and often subject to safety constraints. This limits the amount and variety of data available, making it challenging to excite all relevant modes or cover the full operating envelope.\n3.  **Noise and Disturbances:** Aerospace systems operate in noisy environments (e.g., sensor noise, atmospheric turbulence), which can corrupt data and complicate parameter estimation.",
+      "difficulty": "medium"
+    }
+  ]
+}

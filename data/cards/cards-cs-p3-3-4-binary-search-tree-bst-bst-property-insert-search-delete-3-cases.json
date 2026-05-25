@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-binary-search-tree-bst-bst-property-insert-search-delete-3-cases",
+  "subtopicTitle": "Binary Search Tree (BST) — BST property, insert, search, delete (3 cases)",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:16.030Z",
+  "cards": [
+    {
+      "front": "What is the fundamental defining property of a Binary Search Tree (BST)?",
+      "back": "For any node $N$ in a BST:\n1. All values in $N$'s left subtree are less than $N$'s value.\n2. All values in $N$'s right subtree are greater than $N$'s value.\n3. Both the left and right subtrees are themselves BSTs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the recursive algorithm to search for a value $X$ in a BST, starting from the root.",
+      "back": "1. If the tree is empty or the current node's value is $X$, return the current node.\n2. If $X < \\text{current node's value}$, search in the left subtree.\n3. If $X > \\text{current node's value}$, search in the right subtree.\n\n```python\ndef search(node, key):\n    if node is None or node.val == key:\n        return node\n    if key < node.val:\n        return search(node.left, key)\n    else:\n        return search(node.right, key)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you insert a new value $V$ into a Binary Search Tree (BST)?",
+      "back": "Traverse the tree starting from the root, similar to a search operation:\n- If $V < \\text{current node's value}$, go left.\n- If $V > \\text{current node's value}$, go right.\nContinue this traversal until you reach a `None` pointer. At this empty spot, create a new node with value $V$ and link it to the parent node.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When deleting a node from a BST, what is the procedure if the node is a leaf (has no children)?",
+      "back": "Simply remove the node. If the node is the root, the tree becomes empty. Otherwise, update its parent's pointer (left or right child pointer) to `None`, effectively disconnecting the leaf node.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When deleting a node from a BST, what is the procedure if the node has exactly one child?",
+      "back": "Replace the node with its sole child. The parent of the deleted node will now point directly to the child of the deleted node. If the deleted node is the root, its child becomes the new root of the entire tree.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When deleting a node $N$ with two children from a BST, which two specific replacement nodes can be used to maintain the BST property?",
+      "back": "You can replace $N$ with either:\n1. Its **in-order predecessor**: The node with the largest value in $N$'s left subtree.\n2. Its **in-order successor**: The node with the smallest value in $N$'s right subtree.\nBoth choices guarantee that the BST property is maintained after replacement.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Elaborate on the full procedure to delete a node $N$ with two children from a BST, using the in-order successor strategy.",
+      "back": "1. Find the in-order successor ($S$) of node $N$. This is the smallest node in $N$'s right subtree.\n2. Copy the value of $S$ into node $N$. This effectively replaces $N$'s value while keeping its position.\n3. Recursively delete node $S$ from the right subtree. Note that $S$ will have at most one child (it cannot have a left child, otherwise that would be the smallest), reducing this sub-problem to a Case 1 or Case 2 deletion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the average and worst-case time complexities for search, insert, and delete operations in a BST?",
+      "back": "| Operation | Average Case | Worst Case |\n| :-------- | :----------- | :--------- |\n| Search    | $O(\\log n)$  | $O(n)$     |\n| Insert    | $O(\\log n)$  | $O(n)$     |\n| Delete    | $O(\\log n)$  | $O(n)$     |\n\nThe worst-case $O(n)$ occurs when the tree is skewed (e.g., all insertions are in ascending or descending order), effectively degenerating into a linked list.",
+      "difficulty": "hard"
+    }
+  ]
+}

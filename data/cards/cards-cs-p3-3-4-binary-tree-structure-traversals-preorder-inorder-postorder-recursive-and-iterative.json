@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-4-binary-tree-structure-traversals-preorder-inorder-postorder-recursive-and-iterative",
+  "subtopicTitle": "Binary tree — structure, traversals: preorder, inorder, postorder (recursive and iterative)",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:17.940Z",
+  "cards": [
+    {
+      "front": "What defines a *binary tree*? List its two most fundamental structural properties.",
+      "back": "A binary tree is a tree data structure where each node has at most two children, referred to as the left child and the right child. The fundamental properties are:\n1. Each node has at most two children.\n2. There is a single designated root node (unless the tree is empty).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How would you define a basic `TreeNode` class for a binary tree in Python?",
+      "back": "```python\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the *preorder traversal* of a binary tree. Provide its recursive algorithm.",
+      "back": "Preorder traversal visits the nodes in the order: **Root $\\to$ Left Subtree $\\to$ Right Subtree**.\n\nRecursive Algorithm:\n1. Visit the root.\n2. Recursively traverse the left subtree.\n3. Recursively traverse the right subtree.\n```\nfunction preorder(node):\n    if node is not null:\n        visit node.val\n        preorder(node.left)\n        preorder(node.right)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the *inorder traversal* of a binary tree. Provide its recursive algorithm.",
+      "back": "Inorder traversal visits the nodes in the order: **Left Subtree $\\to$ Root $\\to$ Right Subtree**. For a Binary Search Tree (BST), this yields elements in sorted order.\n\nRecursive Algorithm:\n1. Recursively traverse the left subtree.\n2. Visit the root.\n3. Recursively traverse the right subtree.\n```\nfunction inorder(node):\n    if node is not null:\n        inorder(node.left)\n        visit node.val\n        inorder(node.right)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the *postorder traversal* of a binary tree. Provide its recursive algorithm.",
+      "back": "Postorder traversal visits the nodes in the order: **Left Subtree $\\to$ Right Subtree $\\to$ Root**.\n\nRecursive Algorithm:\n1. Recursively traverse the left subtree.\n2. Recursively traverse the right subtree.\n3. Visit the root.\n```\nfunction postorder(node):\n    if node is not null:\n        postorder(node.left)\n        postorder(node.right)\n        visit node.val\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement an *iterative preorder traversal* for a binary tree using a stack.",
+      "back": "```python\ndef preorder_iterative(root):\n    if not root:\n        return []\n    \n    result = []\n    stack = [root] # Initialize stack with the root\n    \n    while stack:\n        node = stack.pop() # Pop the current node\n        result.append(node.val) # Visit it\n        \n        # Push right child first, then left child,\n        # so left is processed before right (LIFO)\n        if node.right:\n            stack.append(node.right)\n        if node.left:\n            stack.append(node.left)\n            \n    return result\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Implement an *iterative inorder traversal* for a binary tree using a stack.",
+      "back": "```python\ndef inorder_iterative(root):\n    result = []\n    stack = []\n    current = root # Start from root\n    \n    while current or stack:\n        # Go as far left as possible, pushing nodes onto stack\n        while current:\n            stack.append(current)\n            current = current.left\n        \n        # Pop a node, process it, then move to its right child\n        current = stack.pop()\n        result.append(current.val)\n        current = current.right\n        \n    return result\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Implement an *iterative postorder traversal* for a binary tree using two stacks.",
+      "back": "```python\ndef postorder_iterative(root):\n    if not root:\n        return []\n    \n    result = []\n    stack1 = [root] # First stack for traversal\n    stack2 = []     # Second stack to store result in reverse postorder\n    \n    while stack1:\n        node = stack1.pop()\n        stack2.append(node.val) # Push to stack2 (Root -> Right -> Left)\n        \n        # Push left child first, then right child,\n        # so right is popped from stack1 before left (LIFO)\n        if node.left:\n            stack1.append(node.left)\n        if node.right:\n            stack1.append(node.right)\n            \n    # Pop from stack2 to get correct postorder (Left -> Right -> Root)\n    while stack2:\n        result.append(stack2.pop())\n        \n    return result\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the primary use cases for preorder, inorder, and postorder traversals, respectively?",
+      "back": "*   **Preorder**: Used for creating a copy of the tree or for expressing prefix notation (e.g., `* + A B C`).\n*   **Inorder**: Primarily used for obtaining sorted elements from a Binary Search Tree (BST) or for expressing infix notation (e.g., `A + B * C`).\n*   **Postorder**: Used for deleting a tree (deleting children before parent) or for expressing postfix notation (e.g., `A B + C *`).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-refrigerators-and-heat-pumps-cop",
+  "subtopicTitle": "Refrigerators and heat pumps — COP",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:19.807Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a refrigerator, in terms of heat transfer and work?",
+      "back": "A refrigerator's primary function is to extract heat ($Q_C$) from a low-temperature reservoir (e.g., inside the fridge) and reject it to a high-temperature reservoir (e.g., the kitchen), requiring work input ($W$) to do so. It operates against the natural direction of heat flow.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary function of a heat pump, in terms of heat transfer and work?",
+      "back": "A heat pump's primary function is to transfer heat ($Q_H$) into a high-temperature reservoir (e.g., a heated room) from a low-temperature reservoir (e.g., outside air), requiring work input ($W$) to do so. It effectively \"pumps\" heat uphill.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Coefficient of Performance ($COP_R$) for a refrigerator.",
+      "back": "The Coefficient of Performance ($COP_R$) for a refrigerator is the ratio of the desired heat removed from the cold reservoir ($Q_C$) to the work input ($W$) required to do so:\n$$COP_R = \\frac{Q_C}{W}$$\nBy the first law of thermodynamics for a cyclic device, $W = Q_H - Q_C$, so it can also be written as:\n$$COP_R = \\frac{Q_C}{Q_H - Q_C}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Coefficient of Performance ($COP_{HP}$) for a heat pump.",
+      "back": "The Coefficient of Performance ($COP_{HP}$) for a heat pump is the ratio of the desired heat delivered to the hot reservoir ($Q_H$) to the work input ($W$) required to do so:\n$$COP_{HP} = \\frac{Q_H}{W}$$\nBy the first law of thermodynamics for a cyclic device, $W = Q_H - Q_C$, so it can also be written as:\n$$COP_{HP} = \\frac{Q_H}{Q_H - Q_C}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the relationship between the Coefficient of Performance of a refrigerator ($COP_R$) and a heat pump ($COP_{HP}$) operating between the same two reservoirs?",
+      "back": "The relationship is:\n$$COP_{HP} = COP_R + 1$$\nThis is derived from $COP_{HP} = \\frac{Q_H}{W}$ and $COP_R = \\frac{Q_C}{W}$. Since $Q_H = Q_C + W$ (from the first law for a cyclic device), substituting $Q_H$ into the $COP_{HP}$ equation yields:\n$$COP_{HP} = \\frac{Q_C + W}{W} = \\frac{Q_C}{W} + \\frac{W}{W} = COP_R + 1$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the maximum possible Coefficient of Performance for an ideal (Carnot) refrigerator operating between temperatures $T_C$ and $T_H$.",
+      "back": "For an ideal (Carnot) refrigerator, the maximum Coefficient of Performance is given by:\n$$COP_{R,Carnot} = \\frac{T_C}{T_H - T_C}$$\nwhere $T_C$ is the absolute temperature of the cold reservoir and $T_H$ is the absolute temperature of the hot reservoir. All temperatures must be in Kelvin. This is derived from the fact that for a Carnot cycle, $\\frac{Q_C}{Q_H} = \\frac{T_C}{T_H}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the maximum possible Coefficient of Performance for an ideal (Carnot) heat pump operating between temperatures $T_C$ and $T_H$.",
+      "back": "For an ideal (Carnot) heat pump, the maximum Coefficient of Performance is given by:\n$$COP_{HP,Carnot} = \\frac{T_H}{T_H - T_C}$$\nwhere $T_C$ is the absolute temperature of the cold reservoir and $T_H$ is the absolute temperature of the hot reservoir. All temperatures must be in Kelvin. This can also be derived from $COP_{HP,Carnot} = COP_{R,Carnot} + 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why can the Coefficient of Performance (COP) of refrigerators and heat pumps be greater than 1, unlike the thermal efficiency of heat engines?",
+      "back": "COP can be greater than 1 because it is a ratio of desired heat transfer to work input, not a ratio of work output to heat input (like efficiency). For refrigerators, the desired output ($Q_C$) is often much larger than the work input ($W$). For heat pumps, the desired output ($Q_H$) is also often much larger than $W$, as $Q_H = Q_C + W$. Since $Q_C$ can be significantly larger than $W$, $Q_H$ can also be significantly larger than $W$, allowing COP to exceed 1.",
+      "difficulty": "medium"
+    }
+  ]
+}

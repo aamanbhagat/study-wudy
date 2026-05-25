@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-speed-of-light-c-1",
+  "subtopicTitle": "Speed of light c = 1/√(ε₀μ₀)",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:56.046Z",
+  "cards": [
+    {
+      "front": "State the fundamental formula relating the speed of light $c$ to the vacuum permittivity $\\varepsilon_0$ and vacuum permeability $\\mu_0$.",
+      "back": "The speed of light in a vacuum is given by: $$c = \\frac{1}{\\sqrt{\\varepsilon_0 \\mu_0}}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the formula $c = 1/\\sqrt{\\varepsilon_0 \\mu_0}$, what physical quantities do $\\varepsilon_0$ and $\\mu_0$ represent?",
+      "back": "$\\varepsilon_0$ represents the **vacuum permittivity**, a measure of how an electric field propagates through a vacuum. $\\mu_0$ represents the **vacuum permeability**, a measure of how a magnetic field propagates through a vacuum.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the approximate values and SI units for the vacuum permittivity $\\varepsilon_0$ and vacuum permeability $\\mu_0$.",
+      "back": "$\\varepsilon_0 \\approx 8.854 \\times 10^{-12} \\text{ F/m (Farads per meter)}$ or $\\text{C}^2\\text{/(N}\\cdot\\text{m}^2\\text{)}$.\n$\\mu_0 = 4\\pi \\times 10^{-7} \\text{ N/A}^2 \\text{ (Newtons per Ampere squared)}$ or $\\text{H/m (Henrys per meter)}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the key steps to derive the speed of light $c = 1/\\sqrt{\\varepsilon_0 \\mu_0}$ from Maxwell's equations in a vacuum.",
+      "back": "1.  Start with Maxwell's equations in vacuum (no charges/currents):\n    $\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}$ (Faraday's Law)\n    $\\nabla \\times \\mathbf{B} = \\mu_0 \\varepsilon_0 \\frac{\\partial \\mathbf{E}}{\\partial t}$ (Ampere-Maxwell Law)\n2.  Take the curl of Faraday's Law: $\\nabla \\times (\\nabla \\times \\mathbf{E}) = -\\frac{\\partial}{\\partial t}(\\nabla \\times \\mathbf{B})$.\n3.  Use the vector identity $\\nabla \\times (\\nabla \\times \\mathbf{A}) = \\nabla(\\nabla \\cdot \\mathbf{A}) - \\nabla^2 \\mathbf{A}$. Also, in vacuum, $\\nabla \\cdot \\mathbf{E} = 0$.\n    This simplifies to $-\\nabla^2 \\mathbf{E} = -\\frac{\\partial}{\\partial t}(\\nabla \\times \\mathbf{B})$.\n4.  Substitute the Ampere-Maxwell Law for $\\nabla \\times \\mathbf{B}$:\n    $-\\nabla^2 \\mathbf{E} = -\\frac{\\partial}{\\partial t}\\left(\\mu_0 \\varepsilon_0 \\frac{\\partial \\mathbf{E}}{\\partial t}\\right)$\n    $\\nabla^2 \\mathbf{E} = \\mu_0 \\varepsilon_0 \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2}$\n5.  This is a wave equation of the form $\\nabla^2 f = \\frac{1}{v^2} \\frac{\\partial^2 f}{\\partial t^2}$, where $v$ is the wave speed. Comparing, we find $v^2 = \\frac{1}{\\mu_0 \\varepsilon_0}$, thus $c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$. A similar derivation can be done for $\\mathbf{B}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What profound implication did Maxwell's derivation of $c = 1/\\sqrt{\\varepsilon_0 \\mu_0}$ have for the nature of light?",
+      "back": "Maxwell's derivation showed that oscillating electric and magnetic fields could propagate as a wave at a speed precisely equal to the experimentally measured speed of light. This was the first theoretical proof that **light is an electromagnetic wave**, unifying the fields of optics and electromagnetism.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the speed of an electromagnetic wave change when it propagates through a material medium instead of a vacuum, and what parameters replace $\\varepsilon_0$ and $\\mu_0$?",
+      "back": "When an electromagnetic wave propagates through a material medium, its speed $v$ is generally slower than $c$. The formula becomes $v = 1/\\sqrt{\\varepsilon \\mu}$, where $\\varepsilon$ is the **permittivity** of the medium and $\\mu$ is the **permeability** of the medium. These are related to the vacuum values by $\\varepsilon = \\kappa_e \\varepsilon_0$ and $\\mu = \\kappa_m \\mu_0$, where $\\kappa_e$ and $\\kappa_m$ are the relative permittivity and relative permeability, respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Relate the speed of light in a vacuum ($c$), the speed of light in a material medium ($v$), and the refractive index ($n$) of that medium.",
+      "back": "The refractive index $n$ of a material is defined as the ratio of the speed of light in a vacuum to the speed of light in the medium: $$n = \\frac{c}{v}$$ Substituting the formulas for $c$ and $v$ in terms of permittivity and permeability, we get:\n$$n = \\frac{1/\\sqrt{\\varepsilon_0 \\mu_0}}{1/\\sqrt{\\varepsilon \\mu}} = \\sqrt{\\frac{\\varepsilon \\mu}{\\varepsilon_0 \\mu_0}} = \\sqrt{\\kappa_e \\kappa_m}$$ For most non-magnetic materials, $\\kappa_m \\approx 1$, so $n \\approx \\sqrt{\\kappa_e}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

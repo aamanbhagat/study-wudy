@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-6-np-complete-problems-3-sat-vertex-cover-clique-hamiltonian-path-tsp-subset-sum",
+  "subtopicTitle": "NP-complete problems — 3-SAT, Vertex Cover, Clique, Hamiltonian Path, TSP, Subset Sum",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:29.116Z",
+  "cards": [
+    {
+      "front": "A decision problem $L$ is NP-complete if it satisfies two conditions: 1) $L \\in NP$, and 2) _______.",
+      "back": "2) For every problem $L' \\in NP$, $L'$ is polynomial-time reducible to $L$ (denoted $L' \\le_P L$). This means $L$ is 'at least as hard as' any other problem in NP, and finding an efficient solution for $L$ would imply efficient solutions for all problems in NP.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define 3-SAT. Why is it a foundational NP-complete problem?",
+      "back": "3-SAT (3-Satisfiability) is a decision problem where, given a Boolean formula in Conjunctive Normal Form (CNF) where each clause has exactly three literals, we ask if there exists an assignment of truth values to variables that makes the formula true. It's foundational because the Cook-Levin theorem proves SAT (and thus 3-SAT) is NP-complete, making it the first known NP-complete problem and a common starting point for reductions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Briefly explain the core idea behind reducing 3-SAT to Vertex Cover. What do variables and clauses map to?",
+      "back": "The reduction constructs a graph from a 3-SAT instance. For each variable $x_i$, create two vertices $x_i$ and $\\neg x_i$ connected by an edge. For each clause $(l_1 \\lor l_2 \\lor l_3)$, create a 'clause gadget' (e.g., a triangle of 3 vertices, one for each literal in the clause). Connect each literal vertex in a clause gadget to its corresponding variable vertex (e.g., $l_1$ to $x_i$ if $l_1=x_i$). A vertex cover of a specific size in the constructed graph then corresponds to a satisfying assignment in 3-SAT, ensuring that at least one literal in each clause is true.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the polynomial-time reduction from Vertex Cover to Clique for a graph $G=(V, E)$.",
+      "back": "Given a graph $G=(V, E)$ and an integer $k$, the Vertex Cover problem asks if there's a subset $V' \\subseteq V$ of size at most $k$ such that every edge in $E$ has at least one endpoint in $V'$. The reduction to Clique creates a new graph $G'=(V, E')$ where $E'$ contains an edge $(u, v)$ if and only if $(u, v) \\notin E$ (i.e., $G'$ is the complement of $G$). Then, $G$ has a vertex cover of size $k$ if and only if $G'$ has a clique of size $|V|-k$. The vertices not in a vertex cover form an independent set, and an independent set in $G$ is a clique in $G'$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a Hamiltonian Path? What is a Hamiltonian Cycle? Are they related to Euler paths/cycles?",
+      "back": "A **Hamiltonian Path** in a graph is a path that visits each vertex exactly once. A **Hamiltonian Cycle** is a Hamiltonian Path that starts and ends at the same vertex. They are distinct from Euler paths/cycles, which visit every *edge* exactly once. Hamiltonian problems are NP-complete, while Euler problems can be solved in polynomial time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can the Hamiltonian Cycle problem be reduced to the Traveling Salesperson Problem (TSP)?",
+      "back": "Given a graph $G=(V, E)$ for Hamiltonian Cycle, construct a complete graph $G'=(V, E')$ for TSP with edge weights. Assign weight 1 to edges $(u, v) \\in E$ (original edges) and weight $M$ (a large number, e.g., $|V|+1$) to edges $(u, v) \\notin E$ (non-original edges). Then, $G$ has a Hamiltonian Cycle if and only if $G'$ has a TSP tour with total weight $|V|$. A tour with weight $|V|$ must use only edges of weight 1, thus forming a cycle that visits every vertex exactly once using only original edges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Subset Sum problem. Provide a small example.",
+      "back": "Given a set of integers $S = \\{s_1, s_2, \\dots, s_n\\}$ and a target integer $T$, the Subset Sum problem asks if there exists a non-empty subset of $S$ whose elements sum up to $T$.\nExample: $S = \\{3, 7, 8, 15\\}$, $T = 18$. Solution: Yes, because $3 + 7 + 8 = 18$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the P vs NP problem considered one of the most important open problems in computer science and mathematics?",
+      "back": "The P vs NP problem asks if every problem whose solution can be *verified* in polynomial time (NP) can also be *solved* in polynomial time (P). If P=NP, it would mean that for any problem where a given solution can be quickly checked, we could also quickly find a solution. This would have profound implications, allowing efficient solutions for currently intractable problems like cryptography, drug discovery, AI, and optimization, potentially revolutionizing many fields. If P $\\neq$ NP, it implies that certain problems are inherently hard to solve, even if solutions are easy to check.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean for a problem to be 'polynomial-time verifiable' (a characteristic of NP problems)? Provide an example.",
+      "back": "A decision problem is polynomial-time verifiable if, given a 'certificate' (or 'witness') for a 'yes' instance, we can check if the certificate is valid and indeed proves the instance is a 'yes' instance, in time polynomial with respect to the input size.\nExample: For the SAT problem, if we are given a Boolean formula and a proposed truth assignment (the certificate), we can substitute the values and evaluate the formula in polynomial time to verify if it makes the formula true.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-git-internals-objects-blob-tree-commit-tag-dag-structure",
+  "subtopicTitle": "Git internals — objects (blob, tree, commit, tag), DAG structure",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:56.830Z",
+  "cards": [
+    {
+      "front": "What are the four fundamental object types that Git uses to store all repository data?",
+      "back": "Git stores all repository data as one of four fundamental object types: `blob`, `tree`, `commit`, and `tag` (specifically, annotated tags are objects; lightweight tags are just references).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Git, what is a `blob` object, and what specific information does it store?",
+      "back": "A `blob` (Binary Large OBject) stores the exact content of a file. It is uniquely identified by its SHA-1 hash, which is calculated based on its type, size, and raw content. Git only stores the *content*, not the filename or file metadata (like permissions).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a `tree` object represent a directory in Git, and what information does each entry within a `tree` contain?",
+      "back": "A `tree` object represents a directory. It contains a list of entries, each pointing to a `blob` (for files) or another `tree` (for subdirectories). Each entry includes the mode (permissions), type (`blob` or `tree`), the SHA-1 hash of the referenced object, and the name of the file/directory. Its own SHA-1 hash is calculated from this formatted list of entries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What essential information does a `commit` object store, and how does it link the repository's history?",
+      "back": "A `commit` object represents a snapshot of the repository at a specific point in time. It stores:\n*   A pointer to the root `tree` object (the snapshot of the working directory).\n*   One or more `parent` commit SHA-1s (linking to previous commits).\n*   Author and committer information (name, email, timestamp).\n*   A commit message.\nIts SHA-1 hash is calculated from all this information, making it the anchor for the repository's history.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of an annotated `tag` object in Git and what it points to. How does it differ from a lightweight tag?",
+      "back": "An annotated `tag` object is a permanent pointer to a specific `commit` (or any other Git object, though typically a commit). It stores additional metadata like the tagger's name, email, date, and a tagging message. Its SHA-1 hash is calculated from this data.\nA lightweight tag, in contrast, is just a reference (like a branch) that directly points to a commit's SHA-1, without creating a separate object or storing extra metadata.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how `commit` objects form a Directed Acyclic Graph (DAG) in Git. Why is it specifically \"directed\" and \"acyclic\"?",
+      "back": "Git's history is a DAG formed by `commit` objects.\n*   **Directed**: Each `commit` object contains pointers to its `parent` commit(s). These pointers define the direction of the graph, always pointing backward in time from a child commit to its parent(s).\n*   **Acyclic**: It's impossible to follow parent pointers and eventually return to the starting commit. This ensures a linear progression of history (even with merges) without circular dependencies, preventing infinite loops and ensuring a clear historical order.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does Git's use of SHA-1 hashes for all objects inherently ensure content integrity and immutability within the repository?",
+      "back": "Git ensures integrity and immutability through cryptographic hashing:\n1.  **Content-addressable**: Every object (blob, tree, commit, tag) is identified by the SHA-1 hash of its *entire content*.\n2.  **Immutability**: Once an object is created, its content and thus its hash are fixed. Changing even one byte would produce a different hash, effectively creating a new object.\n3.  **Integrity**: `commit` objects point to `tree` objects, which in turn point to `blob` and other `tree` objects. If any underlying object's content were tampered with, its hash would change, breaking the chain of pointers from the commit and immediately indicating corruption. This makes Git incredibly robust against accidental or malicious data alteration.",
+      "difficulty": "hard"
+    }
+  ]
+}

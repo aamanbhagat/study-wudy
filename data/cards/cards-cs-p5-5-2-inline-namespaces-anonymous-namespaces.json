@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-inline-namespaces-anonymous-namespaces",
+  "subtopicTitle": "Inline namespaces, anonymous namespaces",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:13.701Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of an `inline namespace` in C++?",
+      "back": "The primary purpose of an `inline namespace` is to allow its members to be treated as if they are direct members of its enclosing namespace. This enables easier access without explicit qualification, often used for library versioning to provide a default or current version of an API.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `namespace Outer { inline namespace V1 { void func(); } }`, how would you call `func()` directly from `main()` without a `using` directive for `V1`?",
+      "back": "You can call `func()` as `Outer::func()`. The `inline` keyword makes `V1`'s members accessible directly through `Outer` as if they were declared directly in `Outer`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A library provides `namespace MyLib { inline namespace V2 { class Widget {}; } }`. If a user writes `MyLib::Widget w;`, which `Widget` version are they using and why is this beneficial?",
+      "back": "They are using `MyLib::V2::Widget`. This is beneficial for library evolution because `V2` is the currently \"active\" version, allowing users to access the latest features without changing their code from `MyLib::Widget` to `MyLib::V2::Widget`. Older versions (e.g., `V1`) can still exist in `MyLib` but require explicit `MyLib::V1::Widget` qualification.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is an \"anonymous namespace\" in C++ and what is its primary effect on the entities declared within it?",
+      "back": "An anonymous namespace is a namespace declared without a name (e.g., `namespace { ... }`). Its primary effect is to give all entities declared within it *internal linkage*, meaning they are only visible and accessible within the current translation unit (source file) where they are defined.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In C++, how does `namespace { int x; void foo() {} }` relate to `static int x; static void foo() {}` at global scope within a single translation unit?",
+      "back": "They are functionally equivalent. Both constructs give `x` and `foo` *internal linkage*, restricting their visibility and accessibility to the current translation unit only. The anonymous namespace is the modern C++ preferred way to achieve this.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain two advantages of using an anonymous namespace over the `static` keyword for achieving internal linkage for multiple declarations in a C++ translation unit.",
+      "back": "1.  **Encapsulation & Grouping**: An anonymous namespace clearly groups related entities (variables, functions, classes) that are intended for internal use, improving readability and maintainability. The `static` keyword applies individually.\n2.  **Scope for Types**: The `static` keyword cannot be applied to types (classes, structs, enums) to give them internal linkage. An anonymous namespace, however, can contain type definitions, ensuring these types are also restricted to the current translation unit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given `namespace A { inline namespace B { int x; } namespace C { int y; } }`, what happens if you add `using namespace A;` in `main()`? Which variables are directly accessible?",
+      "back": "Both `x` and `y` become directly accessible. `x` is accessible because `B` is an `inline` namespace within `A`, effectively \"lifting\" `x` to `A`. `y` is accessible because `using namespace A;` brings all members of `A` (including `C` and its members) into the current scope.",
+      "difficulty": "medium"
+    }
+  ]
+}

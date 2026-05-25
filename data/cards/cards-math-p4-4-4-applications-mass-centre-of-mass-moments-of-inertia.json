@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-applications-mass-centre-of-mass-moments-of-inertia",
+  "subtopicTitle": "Applications — mass, centre of mass, moments of inertia",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:27.397Z",
+  "cards": [
+    {
+      "front": "How is the total mass $m$ of a 2D lamina with density function $\\rho(x,y)$ over a region $R$ defined?",
+      "back": "The total mass $m$ is given by the double integral of the density function over the region:\n$$m = \\iint_R \\rho(x,y) \\,dA$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the moment $M_x$ about the x-axis for a 2D lamina with density $\\rho(x,y)$ over region $R$. How is it used for $\\bar{y}$?",
+      "back": "The moment $M_x$ about the x-axis is defined as:\n$$M_x = \\iint_R y \\rho(x,y) \\,dA$$\nIt represents the tendency of the lamina to rotate about the x-axis. The y-coordinate of the center of mass is found by $\\bar{y} = M_x / m$, where $m$ is the total mass.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the general formulas for the coordinates $(\\bar{x}, \\bar{y}, \\bar{z})$ of the center of mass of a 3D solid with density $\\rho(x,y,z)$ over a region $E$.",
+      "back": "First, calculate the total mass $m = \\iiint_E \\rho(x,y,z) \\,dV$. Then, calculate the moments about the coordinate planes:\n$$M_{yz} = \\iiint_E x \\rho(x,y,z) \\,dV \\implies \\bar{x} = M_{yz}/m$$\n$$M_{xz} = \\iiint_E y \\rho(x,y,z) \\,dV \\implies \\bar{y} = M_{xz}/m$$\n$$M_{xy} = \\iiint_E z \\rho(x,y,z) \\,dV \\implies \\bar{z} = M_{xy}/m$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the moment of inertia $I_0$ (or $I_z$) for a 2D lamina with density $\\rho(x,y)$ over region $R$ about the origin (z-axis).",
+      "back": "The moment of inertia about the origin (z-axis) is defined as:\n$$I_0 = I_z = \\iint_R (x^2 + y^2) \\rho(x,y) \\,dA$$\nThis represents the resistance of the lamina to angular acceleration about the z-axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Physically, what does the moment of inertia represent? How does it relate to Newton's second law for rotation?",
+      "back": "The moment of inertia quantifies an object's resistance to changes in its rotational motion (angular acceleration). It is the rotational analogue of mass. For a point mass $m$ at distance $r$ from the axis, $I = mr^2$. For a continuous body, it's an integral sum of $dm \\cdot r^2$. Newton's second law for rotation is $\\tau = I \\alpha$, where $\\tau$ is the net torque and $\\alpha$ is the angular acceleration.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Parallel Axis Theorem for moments of inertia. When is it useful?",
+      "back": "The Parallel Axis Theorem states that $I = I_{CM} + Md^2$, where $I$ is the moment of inertia about an axis, $I_{CM}$ is the moment of inertia about a parallel axis passing through the object's center of mass, $M$ is the total mass, and $d$ is the perpendicular distance between the two parallel axes. It is useful for calculating the moment of inertia about any axis when the moment of inertia about a parallel axis through the center of mass is known, avoiding a new integral.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you calculate the moment of inertia $I_L$ of a 3D solid with density $\\rho(x,y,z)$ over region $E$ about an arbitrary line $L$?",
+      "back": "To calculate $I_L$, first determine the perpendicular distance $r(x,y,z)$ from an arbitrary point $(x,y,z)$ in the solid to the line $L$. Then, the moment of inertia is given by the triple integral:\n$$I_L = \\iiint_E r^2(x,y,z) \\rho(x,y,z) \\,dV$$\nFor example, for the x-axis, $r^2 = y^2+z^2$, so $I_x = \\iiint_E (y^2+z^2) \\rho(x,y,z) \\,dV$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the radius of gyration $k$ for an object with mass $M$ and moment of inertia $I$ about a given axis.",
+      "back": "The radius of gyration $k$ is defined by the relationship $I = Mk^2$, which implies $k = \\sqrt{I/M}$. It represents the distance from the axis at which the entire mass of the object could be concentrated as a point mass to yield the same moment of inertia.",
+      "difficulty": "easy"
+    }
+  ]
+}

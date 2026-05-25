@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-rigid-body-dynamics-euler-angles-euler-s-equations-of-motion",
+  "subtopicTitle": "Rigid body dynamics — Euler angles, Euler's equations of motion",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:43.269Z",
+  "cards": [
+    {
+      "front": "Define Euler angles and list the three standard rotations they typically represent in a Z-X-Z sequence.",
+      "back": "Euler angles $(\\phi, \\theta, \\psi)$ are a set of three angles used to describe the orientation of a rigid body in 3D space relative to a fixed coordinate system. In the Z-X-Z convention, they represent sequential rotations:\n1.  **Precession ($\\phi$):** Rotation about the original Z-axis.\n2.  **Nutation ($\\theta$):** Rotation about the *new* X-axis (nodal line).\n3.  **Spin ($\\psi$):** Rotation about the *newest* Z-axis (body's symmetry axis).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the *order* of rotations crucial when defining Euler angles, and how does it affect the final orientation?",
+      "back": "The order of rotations is crucial because 3D rotations are non-commutative. Applying rotations in a different sequence (e.g., X-Y-Z vs. Z-Y-X) will generally result in a different final orientation of the rigid body. Each convention (e.g., Z-X-Z, Z-Y-X) defines a specific set of intermediate axes about which successive rotations occur, leading to a unique mapping between the angle values and the final orientation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the components of the angular velocity vector $\\vec{\\omega}$ in the body-fixed frame $(x', y', z')$ in terms of Euler angles $(\\phi, \\theta, \\psi)$ and their time derivatives for the Z-X-Z convention.",
+      "back": "The components of the angular velocity vector $\\vec{\\omega}$ in the body-fixed frame are:\n$$ \\omega_{x'} = \\dot{\\phi} \\sin\\theta \\sin\\psi + \\dot{\\theta} \\cos\\psi $$\n$$ \\omega_{y'} = \\dot{\\phi} \\sin\\theta \\cos\\psi - \\dot{\\theta} \\sin\\psi $$\n$$ \\omega_{z'} = \\dot{\\phi} \\cos\\theta + \\dot{\\psi} $$\nThese equations are fundamental for relating the kinematic description (Euler angles) to the dynamic description (Euler's equations).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the fundamental principle behind Euler's equations of motion for a rigid body, and why are they typically expressed in a body-fixed frame?",
+      "back": "Euler's equations are derived from Newton's second law for rotation, $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$. They are typically expressed in a body-fixed frame (a coordinate system rotating with the body) because the body's moments of inertia (components of the inertia tensor $\\mathbf{I}$) are constant in this frame. This simplifies the calculation of the angular momentum $\\vec{L} = \\mathbf{I}\\vec{\\omega}$, avoiding the time-dependence of $\\mathbf{I}$ that would occur in a fixed (space) frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Euler's equations of motion for a rigid body rotating about a fixed point or its center of mass, assuming the body-fixed axes are the principal axes of inertia.",
+      "back": "Assuming the body-fixed axes are the principal axes of inertia ($I_1, I_2, I_3$ are the principal moments of inertia) and $\\omega_1, \\omega_2, \\omega_3$ are the components of angular velocity along these axes, Euler's equations are:\n$$ I_1 \\dot{\\omega}_1 - (I_2 - I_3) \\omega_2 \\omega_3 = \\tau_1 $$\n$$ I_2 \\dot{\\omega}_2 - (I_3 - I_1) \\omega_3 \\omega_1 = \\tau_2 $$\n$$ I_3 \\dot{\\omega}_3 - (I_1 - I_2) \\omega_1 \\omega_2 = \\tau_3 $$\nwhere $\\tau_1, \\tau_2, \\tau_3$ are the components of the external torque.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Euler's equations, what do the terms like $(I_2 - I_3) \\omega_2 \\omega_3$ physically represent, and why are they present?",
+      "back": "These terms, often called 'gyroscopic' or 'Coriolis-like' terms, represent the components of torque required to change the direction of the angular momentum vector as observed from the *rotating* body-fixed frame. They arise because the time derivative of a vector in a rotating frame includes an extra term: $(\\frac{d\\vec{A}}{dt})_{space} = (\\frac{d\\vec{A}}{dt})_{body} + \\vec{\\omega} \\times \\vec{A}$. These terms account for the apparent torques due to the rotation of the coordinate system itself, even if the angular velocity components in the body frame are constant.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the phenomenon of 'free precession' for a *symmetric* rigid body (e.g., a top, $I_1=I_2 \\neq I_3$) under no external torques, using insights from Euler's equations.",
+      "back": "For a symmetric rigid body ($I_1=I_2 \\neq I_3$) with no external torques ($\\vec{\\tau}=0$), Euler's equations simplify. This leads to **free precession**, where the angular velocity vector $\\vec{\\omega}$ precesses around the body's symmetry axis (the $z'$-axis) with a constant angular speed $\\Omega_p = \\frac{I_3 - I_1}{I_1} \\omega_3$. Simultaneously, the symmetry axis itself precesses in space. This motion can be visualized as the 'body cone' (traced by $\\vec{\\omega}$ in the body frame) rolling around the 'space cone' (traced by the symmetry axis in the space frame).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using Euler's equations, explain the stability of rotation about the principal axes of inertia.",
+      "back": "Euler's equations show that rotation about the principal axes corresponding to the *largest* ($I_3$) and *smallest* ($I_1$) moments of inertia is **stable**. Small perturbations in angular velocity components about these axes lead to oscillatory motion, meaning the body tends to return to rotation about that axis. However, rotation about the *intermediate* principal axis ($I_2$) is **unstable**. Small perturbations grow exponentially, causing the body to tumble away from rotation about that axis. This is due to the signs of the terms $(I_1-I_2)(I_3-I_2)$ in the linearized equations for perturbations.",
+      "difficulty": "hard"
+    }
+  ]
+}

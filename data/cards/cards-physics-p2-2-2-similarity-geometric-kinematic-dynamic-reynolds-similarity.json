@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-similarity-geometric-kinematic-dynamic-reynolds-similarity",
+  "subtopicTitle": "Similarity — geometric, kinematic, dynamic; Reynolds similarity",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:16.353Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of 'similarity' in fluid mechanics, particularly for model testing?",
+      "back": "The fundamental purpose of similarity is to allow experimental results obtained from a scaled model to be accurately extrapolated and applied to a full-scale prototype. It ensures that the model and prototype exhibit identical flow phenomena and force ratios, enabling prediction of prototype behavior without full-scale testing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define geometric similarity between a model and a prototype.",
+      "back": "Geometric similarity exists if the ratio of all corresponding linear dimensions (lengths, widths, heights) in the model ($L_m$) and prototype ($L_p$) is constant. This constant ratio is known as the length scale ratio, $L_r = L_m / L_p$. Additionally, all corresponding angles must be identical.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the conditions for kinematic similarity, and how does it relate to geometric similarity?",
+      "back": "Kinematic similarity requires geometric similarity plus the condition that the ratio of corresponding velocities ($V_r = V_m / V_p$) at corresponding points, and the ratio of corresponding accelerations ($a_r = a_m / a_p$) in the flow field, are both constant. This implies that streamlines, paths of fluid particles, and velocity vector patterns are geometrically similar.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define dynamic similarity. What primary condition must be met for it to exist?",
+      "back": "Dynamic similarity exists if, in addition to geometric and kinematic similarity, the ratio of all corresponding forces (e.g., inertial, viscous, pressure, gravitational) acting on corresponding fluid elements in the model and prototype is the same. The primary condition is that all relevant dimensionless parameters (such as Reynolds, Froude, or Mach numbers) must be equal between the model and prototype.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the Reynolds number and explain its physical significance.",
+      "back": "The Reynolds number is given by $Re = \\frac{\\rho V L}{\\mu} = \\frac{V L}{\\nu}$, where $\\rho$ is fluid density, $V$ is characteristic velocity, $L$ is characteristic length, $\\mu$ is dynamic viscosity, and $\\nu$ is kinematic viscosity. Physically, it represents the ratio of inertial forces to viscous forces within a fluid flow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a flow dominated by viscous and inertial forces, what is the primary condition for dynamic similarity, and what does it imply for the velocity scale ratio?",
+      "back": "The primary condition is that the Reynolds number must be the same for the model and prototype ($Re_m = Re_p$). This implies: $$\\frac{\\rho_m V_m L_m}{\\mu_m} = \\frac{\\rho_p V_p L_p}{\\mu_p}$$ The velocity scale ratio $V_r = V_m / V_p$ is then: $$V_r = \\frac{\\rho_p}{\\rho_m} \\frac{L_p}{L_m} \\frac{\\mu_m}{\\mu_p}$$ If the same fluid is used ($\\rho_m = \\rho_p, \\mu_m = \\mu_p$), then $V_r = L_p / L_m = 1/L_r$. This means a smaller model must be tested at a proportionally higher velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it often difficult to achieve complete dynamic similarity when testing models, especially for flows involving multiple dominant forces (e.g., ships)?",
+      "back": "Complete dynamic similarity requires all relevant dimensionless parameters (e.g., Reynolds, Froude, Mach numbers) to be simultaneously equal between the model and prototype. For flows where multiple forces are significant (like ships, where both viscous and gravitational forces are important), satisfying $Re_r = 1$ and $Fr_r = 1$ often leads to contradictory velocity scale ratios ($V_r = \\nu_r / L_r$ vs. $V_r = \\sqrt{L_r}$). This usually means complete similarity is impossible without impractical changes to fluid properties or scale, necessitating separate testing or complex scaling laws.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a 1:10 scale model of an airplane is tested in a wind tunnel using air at the same conditions as the prototype, what must be the ratio of model velocity to prototype velocity for Reynolds similarity?",
+      "back": "For Reynolds similarity, $Re_m = Re_p$. Since the fluid (air) and its conditions ($\\rho, \\mu$) are the same for both model and prototype, $\\rho_m = \\rho_p$ and $\\mu_m = \\mu_p$. Thus, we need $V_m L_m = V_p L_p$. Given a 1:10 scale model, $L_m / L_p = 1/10$. Therefore, the ratio of model velocity to prototype velocity is $V_m / V_p = L_p / L_m = 10$. The model must be tested at 10 times the prototype's velocity.",
+      "difficulty": "medium"
+    }
+  ]
+}

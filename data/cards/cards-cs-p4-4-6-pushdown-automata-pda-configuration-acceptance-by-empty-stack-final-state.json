@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-pushdown-automata-pda-configuration-acceptance-by-empty-stack-final-state",
+  "subtopicTitle": "Pushdown automata (PDA) — configuration, acceptance by empty stack / final state",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:15.735Z",
+  "cards": [
+    {
+      "front": "A Pushdown Automaton (PDA) is formally defined by a 7-tuple. List these components.",
+      "back": "$M = (Q, \\Sigma, \\Gamma, \\delta, q_0, Z_0, F)$, where $Q$ is the finite set of states, $\\Sigma$ is the input alphabet, $\\Gamma$ is the stack alphabet, $\\delta$ is the transition function, $q_0 \\in Q$ is the initial state, $Z_0 \\in \\Gamma$ is the initial stack symbol, and $F \\subseteq Q$ is the set of final states.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What constitutes an \"instantaneous description (ID)\" or \"configuration\" of a Pushdown Automaton?",
+      "back": "An ID is a triple $(q, w, \\gamma)$, where $q \\in Q$ is the current state, $w \\in \\Sigma^*$ is the remaining input string to be read, and $\\gamma \\in \\Gamma^*$ is the current content of the stack (with the top of the stack being the leftmost symbol in $\\gamma$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the components of a PDA's transition function $\\delta$, specifically what $\\delta(q, a, X)$ returns.",
+      "back": "The transition function is $\\delta: Q \\times (\\Sigma \\cup \\{\\epsilon\\}) \\times \\Gamma \\to \\mathcal{P}(Q \\times \\Gamma^*)$. For $\\delta(q, a, X) = \\{(p_1, \\gamma_1), (p_2, \\gamma_2), \\dots\\}$, it means that from state $q$, if input $a$ (or $\\epsilon$) is read and $X$ is on top of the stack, the PDA can non-deterministically transition to state $p_i$ and replace $X$ with the string $\\gamma_i$ on the stack. If $\\gamma_i = \\epsilon$, $X$ is popped.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"acceptance by final state\" for a Pushdown Automaton $M$.",
+      "back": "A PDA $M$ accepts an input string $w$ by final state if, starting from the initial configuration $(q_0, w, Z_0)$, it can reach *any* configuration $(q_f, \\epsilon, \\gamma)$ where $q_f \\in F$ (a final state) and the entire input string $w$ has been consumed (indicated by $\\epsilon$). The content of the stack $\\gamma$ can be anything.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"acceptance by empty stack\" for a Pushdown Automaton $M$.",
+      "back": "A PDA $M$ accepts an input string $w$ by empty stack if, starting from the initial configuration $(q_0, w, Z_0)$, it can reach *any* configuration $(q, \\epsilon, \\epsilon)$ where the entire input string $w$ has been consumed (indicated by $\\epsilon$) and the stack is empty (indicated by $\\epsilon$). The final state $q$ does not matter in this mode of acceptance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the theoretical relationship between acceptance by final state and acceptance by empty stack for PDAs?",
+      "back": "The two modes of acceptance are equivalent in power. For every language $L$ accepted by a PDA $M_F$ by final state, there exists a PDA $M_E$ that accepts $L$ by empty stack, and vice-versa. This means that PDAs can recognize the same class of languages (Context-Free Languages) regardless of which acceptance criterion is used.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a PDA transition $\\delta(q_1, a, X) = \\{(q_2, YZ)\\}$ and current ID $(q_1, aw, X\\gamma)$, what is the next possible ID?",
+      "back": "The next possible ID is $(q_2, w, YZ\\gamma)$. The PDA transitions from state $q_1$ to $q_2$, consumes the input symbol $a$, and replaces the top stack symbol $X$ with the string $YZ$ (where $Y$ is pushed first, then $Z$, so $Z$ is now on top of the stack).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What class of languages do PDAs recognize, and how does the stack enable them to recognize languages that Finite Automata (FAs) cannot?",
+      "back": "PDAs recognize Context-Free Languages (CFLs). The stack provides arbitrary, unbounded memory in a LIFO (Last-In, First-Out) manner. This allows PDAs to 'remember' and match an arbitrary number of symbols (e.g., counting opening/closing parentheses, matching $a$'s with $b$'s in $a^nb^n$), a capability that FAs lack due to their finite memory (limited to the number of states).",
+      "difficulty": "medium"
+    }
+  ]
+}

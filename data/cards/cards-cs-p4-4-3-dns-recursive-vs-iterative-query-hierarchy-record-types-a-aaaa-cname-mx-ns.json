@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-dns-recursive-vs-iterative-query-hierarchy-record-types-a-aaaa-cname-mx-ns",
+  "subtopicTitle": "DNS — recursive vs iterative query, hierarchy, record types (A, AAAA, CNAME, MX, NS)",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:35.884Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the Domain Name System (DNS)?",
+      "back": "DNS translates human-readable domain names (e.g., `google.com`) into machine-readable IP addresses (e.g., `172.217.160.142` for IPv4 or `2607:f8b0:4004:80c::200e` for IPv6), allowing internet services to locate servers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the hierarchical structure of the DNS, mentioning its key levels.",
+      "back": "The DNS hierarchy is an inverted tree structure, organized into zones. It consists of:\n1.  **Root Zone**: The top level, represented by a '.' (dot).\n2.  **Top-Level Domains (TLDs)**: E.g., `.com`, `.org`, `.net`, country codes like `.uk`, `.de`.\n3.  **Second-Level Domains**: E.g., `google.com`, `wikipedia.org`.\n4.  **Subdomains**: E.g., `mail.google.com`, `en.wikipedia.org`.\nEach level delegates authority to the next.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What information does a DNS 'A' record store?",
+      "back": "An 'A' record (Address record) maps a domain name to an IPv4 address.\nExample: `example.com IN A 192.0.2.1`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What information does a DNS 'AAAA' record store?",
+      "back": "An 'AAAA' record (IPv6 Address record) maps a domain name to an IPv6 address.\nExample: `example.com IN AAAA 2001:0db8:85a3:0000:0000:8a2e:0370:7334`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When would you use a DNS 'CNAME' record, and what does it point to?",
+      "back": "A 'CNAME' record (Canonical Name record) is used to create an alias for a domain name. It points one domain or subdomain to another domain name (the 'canonical' name), rather than directly to an IP address.\n\nThis is useful for:\n*   Pointing `www.example.com` to `example.com`.\n*   Pointing `ftp.example.com` to a specific FTP server's domain.\n\nCrucially, a CNAME record cannot coexist with other records for the same hostname (except NS and SOA records).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of a DNS 'MX' record?",
+      "back": "An 'MX' record (Mail Exchanger record) specifies the mail servers responsible for accepting email messages on behalf of a domain name. It includes a preference value (a number), indicating the order in which mail servers should be tried if multiple MX records exist.\nExample: `example.com IN MX 10 mail.example.com` (10 is the preference value).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does a DNS 'NS' record specify, and why is it crucial for the DNS hierarchy?",
+      "back": "An 'NS' record (Name Server record) specifies the authoritative name servers for a domain or subdomain. These are the servers that hold the definitive DNS records for that particular zone.\n\nNS records are crucial for the DNS hierarchy because they delegate authority for a zone to specific name servers, enabling the distributed and decentralized nature of DNS to function efficiently. Without them, all DNS queries would have to go through a single, central server.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Trace the complete DNS resolution process for `www.example.com` starting from a client's recursive resolver, identifying recursive vs. iterative parts.",
+      "back": "1.  **Client to Recursive Resolver (Recursive Query)**: The client asks its configured local DNS resolver (e.g., ISP's DNS) for the IP of `www.example.com`. The client expects a definitive answer.\n2.  **Recursive Resolver to Root Server (Iterative Query)**: The resolver asks a Root DNS server for `www.example.com`. The Root server responds with a referral to the TLD (`.com`) name servers.\n3.  **Recursive Resolver to TLD Server (Iterative Query)**: The resolver asks a `.com` TLD name server for `www.example.com`. The TLD server responds with a referral to `example.com`'s authoritative name servers.\n4.  **Recursive Resolver to Authoritative Server (Iterative Query)**: The resolver asks `example.com`'s authoritative name server for `www.example.com`. The authoritative server returns the IP address (e.g., via an A record) for `www.example.com`.\n5.  **Recursive Resolver to Client (Recursive Response)**: The resolver sends the IP address back to the client.\n\nIn summary, the client initiates a **recursive query** to its local resolver, which then performs a series of **iterative queries** on behalf of the client to find the answer.",
+      "difficulty": "hard"
+    }
+  ]
+}

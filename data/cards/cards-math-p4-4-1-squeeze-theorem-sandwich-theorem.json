@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-squeeze-theorem-sandwich-theorem",
+  "subtopicTitle": "Squeeze theorem (sandwich theorem)",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:06.428Z",
+  "cards": [
+    {
+      "front": "State the Squeeze Theorem (also known as the Sandwich Theorem).",
+      "back": "If $g(x) \\le f(x) \\le h(x)$ for all $x$ in an open interval containing $c$ (except possibly at $c$ itself), and if $\\lim_{x \\to c} g(x) = L$ and $\\lim_{x \\to c} h(x) = L$, then $\\lim_{x \\to c} f(x) = L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the three essential conditions that must be met for the Squeeze Theorem to be applicable to find $\\lim_{x \\to c} f(x)$?",
+      "back": "1. The function $f(x)$ must be 'squeezed' between two other functions, $g(x)$ and $h(x)$, such that $g(x) \\le f(x) \\le h(x)$.\n2. This inequality must hold for all $x$ in some open interval containing $c$, except possibly at $c$ itself.\n3. The limits of the two outer functions must exist and be equal: $\\lim_{x \\to c} g(x) = L$ and $\\lim_{x \\to c} h(x) = L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuitive idea behind the Squeeze Theorem.",
+      "back": "The intuitive idea is that if a function $f(x)$ is always trapped between two other functions, $g(x)$ and $h(x)$, as $x$ approaches a certain point $c$, and if both $g(x)$ and $h(x)$ are forced to approach the *same* specific value $L$ at $c$, then $f(x)$ has no choice but to also be 'squeezed' or 'sandwiched' towards that very same value $L$. It cannot escape the converging bounds.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Squeeze Theorem to evaluate $\\lim_{x \\to 0} x^2 \\sin\\left(\\frac{1}{x}\\right)$.",
+      "back": "We know that for any real number $y$, $-1 \\le \\sin(y) \\le 1$. Therefore, for $x \\ne 0$, we have:\n$$-1 \\le \\sin\\left(\\frac{1}{x}\\right) \\le 1$$\nMultiply all parts by $x^2$. Since $x^2 \\ge 0$, the inequalities do not flip:\n$$-x^2 \\le x^2 \\sin\\left(\\frac{1}{x}\\right) \\le x^2$$\nNow, we evaluate the limits of the outer functions as $x \\to 0$:\n$$\\lim_{x \\to 0} (-x^2) = -(0)^2 = 0$$\n$$\\lim_{x \\to 0} (x^2) = (0)^2 = 0$$\nSince both outer limits are equal to $0$, by the Squeeze Theorem, we conclude:\n$$\\lim_{x \\to 0} x^2 \\sin\\left(\\frac{1}{x}\\right) = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given that $3x-1 \\le f(x) \\le x^2+1$ for all $x$, find $\\lim_{x \\to 2} f(x)$.",
+      "back": "First, evaluate the limits of the lower and upper bounding functions as $x \\to 2$:\nFor the lower bound:\n$$\\lim_{x \\to 2} (3x-1) = 3(2)-1 = 6-1 = 5$$\nFor the upper bound:\n$$\\lim_{x \\to 2} (x^2+1) = (2)^2+1 = 4+1 = 5$$\nSince $3x-1 \\le f(x) \\le x^2+1$ and both $\\lim_{x \\to 2} (3x-1)$ and $\\lim_{x \\to 2} (x^2+1)$ are equal to $5$, by the Squeeze Theorem, we conclude:\n$$\\lim_{x \\to 2} f(x) = 5$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $g(x) \\le f(x) \\le h(x)$ for $x$ near $c$, and $\\lim_{x \\to c} g(x) = L_1$ and $\\lim_{x \\to c} h(x) = L_2$, what can be concluded about $\\lim_{x \\to c} f(x)$ if $L_1 \\ne L_2$?",
+      "back": "If $L_1 \\ne L_2$, the Squeeze Theorem cannot be used to determine $\\lim_{x \\to c} f(x)$. The theorem explicitly requires that the limits of the 'squeezing' functions must be *equal* ($L_1 = L_2$) for it to apply. In this scenario, $f(x)$ is simply bounded between $L_1$ and $L_2$, but its limit is not uniquely determined by the Squeeze Theorem alone. It might not even have a limit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe common situations or function types where the Squeeze Theorem is a useful technique for evaluating limits.",
+      "back": "The Squeeze Theorem is particularly useful when:\n1.  The function $f(x)$ involves terms that are known to be bounded (like $\\sin(x)$, $\\cos(x)$, or other oscillating functions) multiplied by terms that approach zero. For example, $x \\sin(1/x)$.\n2.  The function $f(x)$ itself is difficult to simplify or evaluate directly, but it can be easily bounded by simpler functions whose limits are straightforward to find.\n3.  Proving fundamental limits, such as $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$, where geometric arguments are used to establish the bounding functions.",
+      "difficulty": "medium"
+    }
+  ]
+}

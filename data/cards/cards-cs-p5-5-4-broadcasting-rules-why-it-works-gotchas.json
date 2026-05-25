@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-4-broadcasting-rules-why-it-works-gotchas",
+  "subtopicTitle": "Broadcasting — rules, why it works, gotchas",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:32.964Z",
+  "cards": [
+    {
+      "front": "What is NumPy broadcasting, and what problem does it solve in scientific computing?",
+      "back": "NumPy broadcasting is a mechanism that allows arithmetic operations on arrays of different shapes. It provides a way to perform operations element-wise without explicitly creating multiple copies of the smaller array, solving the problem of memory inefficiency and verbose code when combining arrays of varying dimensions (e.g., adding a scalar to a vector, or a vector to a matrix).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the first rule for two NumPy arrays to be \"broadcastable\" regarding their dimensions.",
+      "back": "When comparing two arrays' shapes, starting from the *trailing* (rightmost) dimensions:\n1. The dimensions must be equal, OR\n2. One of the dimensions must be 1.\nIf neither condition is met for any dimension, the arrays are incompatible for broadcasting.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What happens if two arrays have a different number of dimensions when applying broadcasting rules?",
+      "back": "If arrays have different numbers of dimensions, the shape of the smaller array is *padded* with ones on its *left* side until both shapes have the same length. Then, the broadcasting rules (equal or one is 1) are applied dimension by dimension, starting from the trailing (rightmost) dimension.\nExample: A shape `(5,)` array compared with a `(3,5)` array effectively becomes `(1,5)` vs `(3,5)` for broadcasting.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine the output shape when broadcasting array `A` with shape `(3,1)` and array `B` with shape `(1,4)`.",
+      "back": "1. Compare shapes from right to left:\n   * `A`: `(3, 1)`\n   * `B`: `(1, 4)`\n2. Trailing dimension: $1$ vs $4$. Rule: One is 1. Resulting dimension is $4$.\n3. Next dimension: $3$ vs $1$. Rule: One is 1. Resulting dimension is $3$.\nTherefore, the resulting shape is `(3,4)`. Each element of `A` is effectively expanded across 4 columns, and each element of `B` is expanded down 3 rows.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does NumPy conceptually \"expand\" a smaller array during broadcasting without actually copying data?",
+      "back": "NumPy's broadcasting mechanism works by creating a *view* of the smaller array that \"repeats\" its elements along the dimensions where its size was 1. It doesn't allocate new memory for the expanded array. Instead, it uses internal strides and indexing logic to make it appear as if the array has been expanded, allowing element-wise operations to proceed efficiently on the \"virtual\" expanded array.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why `np.arange(5) + np.arange(5).reshape(-1, 1)` results in a `(5,5)` array and not a `(5,)` array.",
+      "back": "Let `a = np.arange(5)` (shape `(5,)`) and `b = np.arange(5).reshape(-1, 1)` (shape `(5,1)`).\n1. Pad `a`'s shape: `(1,5)`\n2. Compare `(1,5)` and `(5,1)`:\n   * Trailing dim: $5$ vs $1 \\rightarrow 5$\n   * Next dim: $1$ vs $5 \\rightarrow 5$\nThe resulting shape is `(5,5)`. `a` is broadcast across rows, and `b` is broadcast across columns, creating an outer product-like addition where `result[i,j] = a[j] + b[i]`. The common mistake is to think `(5,)` and `(5,1)` are interchangeable for element-wise ops, but they are not due to broadcasting rules.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a 2D array `matrix` (shape `(M,N)`) and a 1D array `row_vector` (shape `(N,)`), how would you subtract `row_vector` from each row of `matrix` using broadcasting?",
+      "back": "You can directly subtract them: `matrix - row_vector`.\nNumPy will implicitly broadcast `row_vector` (shape `(N,)`) to `(1,N)` by padding a `1` on the left. Then, it compares `(M,N)` and `(1,N)`:\n* Trailing dim: $N$ vs $N \\rightarrow N$\n* Next dim: $M$ vs $1 \\rightarrow M$\nThe `row_vector` is effectively expanded to `(M,N)` by repeating its elements down each row, allowing element-wise subtraction from each row of `matrix`.\n```python\nimport numpy as np\nmatrix = np.array([[1, 2, 3], [4, 5, 6]]) # shape (2,3)\nrow_vector = np.array([10, 20, 30])      # shape (3,)\nresult = matrix - row_vector\n# result will be:\n# [[-9, -18, -27],\n#  [-6, -15, -24]]\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

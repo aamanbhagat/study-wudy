@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p1-1-2-non-inertial-reference-frames-pseudo-forces",
+  "subtopicTitle": "Non-inertial reference frames — pseudo forces",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:19.799Z",
+  "cards": [
+    {
+      "front": "Differentiate between an inertial and a non-inertial reference frame.",
+      "back": "An **inertial reference frame** is one in which Newton's first law (and thus second law, $\\vec{F} = m\\vec{a}$) holds true without the need for additional 'fictitious' or 'pseudo' forces. It is either at rest or moving with constant velocity relative to a distant, fixed star field.\n\nA **non-inertial reference frame** is any frame that is accelerating (linearly or rotationally) relative to an inertial frame. In a non-inertial frame, pseudo forces must be introduced to make Newton's second law, $\\vec{F}_{real} + \\vec{F}_{pseudo} = m\\vec{a}_{rel}$, valid.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are pseudo forces introduced in non-inertial reference frames?",
+      "back": "Pseudo forces (also known as fictitious forces or inertial forces) are introduced in non-inertial reference frames to allow observers in these frames to apply Newton's second law, $\\vec{F} = m\\vec{a}$, in its standard form. They are not interaction forces arising from actual physical interactions (like gravity or electromagnetism) but rather apparent forces that arise solely due to the acceleration of the reference frame itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the pseudo force for an object of mass $m$ observed in a reference frame accelerating linearly with $\\vec{a}_{frame}$ relative to an inertial frame.",
+      "back": "Let $\\vec{r}_{abs}$ be the position in the inertial frame and $\\vec{r}_{rel}$ be the position in the accelerating frame. Let $\\vec{R}_{frame}$ be the position of the origin of the accelerating frame relative to the inertial frame.\nThen, $\\vec{r}_{abs} = \\vec{r}_{rel} + \\vec{R}_{frame}$.\nDifferentiating twice with respect to time:\n$\\vec{a}_{abs} = \\vec{a}_{rel} + \\vec{a}_{frame}$.\nNewton's 2nd Law in the inertial frame: $\\vec{F}_{real} = m\\vec{a}_{abs}$.\nSubstitute for $\\vec{a}_{abs}$: $\\vec{F}_{real} = m(\\vec{a}_{rel} + \\vec{a}_{frame})$.\nRearranging to express Newton's 2nd Law for the non-inertial observer:\n$\\vec{F}_{real} - m\\vec{a}_{frame} = m\\vec{a}_{rel}$.\nThe term $\\vec{F}_{pseudo} = -m\\vec{a}_{frame}$ is the pseudo force. It acts in the direction opposite to the frame's acceleration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the centrifugal force experienced by an object at rest within a uniformly rotating reference frame.",
+      "back": "In a reference frame rotating with a constant angular velocity $\\vec{\\omega}$ relative to an inertial frame, an object at rest (relative to the rotating frame) at a distance $r$ from the axis of rotation experiences a **centrifugal force**. This force is given by $F_{centrifugal} = m\\omega^2 r$, where $m$ is the mass of the object. Its direction is always radially outwards from the axis of rotation. It is a pseudo force that appears to balance the centripetal force required to keep the object moving in a circle from an inertial perspective.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the Coriolis force and explain its direction for an object moving with velocity $\\vec{v}_{rel}$ in a rotating frame with angular velocity $\\vec{\\omega}$.",
+      "back": "The Coriolis force is given by the formula:\n$$\\vec{F}_{Coriolis} = -2m(\\vec{\\omega} \\times \\vec{v}_{rel})$$\nwhere:\n*   $m$ is the mass of the object.\n*   $\\vec{\\omega}$ is the angular velocity vector of the rotating reference frame.\n*   $\\vec{v}_{rel}$ is the velocity of the object relative to the rotating frame.\n\n**Direction:** The Coriolis force is perpendicular to both the angular velocity vector $\\vec{\\omega}$ and the relative velocity vector $\\vec{v}_{rel}$. Its direction is determined by the right-hand rule for the cross product $\\vec{\\omega} \\times \\vec{v}_{rel}$, and then reversed due to the negative sign. For example, on Earth's Northern Hemisphere (where $\\vec{\\omega}$ points generally upwards), objects moving horizontally are deflected to their *right*.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An astronaut of mass $m$ is inside a rocket accelerating upwards with constant acceleration $a$. What is the astronaut's apparent weight as measured by a scale inside the rocket?",
+      "back": "From the perspective of the astronaut (in the non-inertial rocket frame), there are two forces acting downwards:\n1.  Real gravitational force: $F_g = mg$\n2.  Pseudo force due to the rocket's upward acceleration: $F_{pseudo} = ma$ (acting opposite to the frame's acceleration, so downwards).\n\nIf the astronaut is standing on a scale, the normal force $N$ exerted by the scale is their apparent weight. Since the astronaut is at rest relative to the rocket, the net force in the rocket's frame is zero:\n$N - F_g - F_{pseudo} = 0$\n$N - mg - ma = 0$\n$N = m(g+a)$\n\nThe astronaut's apparent weight is $m(g+a)$, which is greater than their actual weight $mg$. If the rocket were accelerating downwards, the apparent weight would be $m(g-a)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Coriolis effect influence the direction of ocean currents and large-scale wind patterns (like trade winds) on Earth?",
+      "back": "The Coriolis effect significantly influences the direction of large-scale fluid movements like ocean currents and wind patterns on Earth. Due to Earth's rotation:\n*   In the **Northern Hemisphere**, the Coriolis force deflects moving fluids (air and water) to the **right** of their direction of motion.\n*   In the **Southern Hemisphere**, it deflects them to the **left**.\n\nThis deflection is crucial for:\n*   **Ocean Currents:** It creates the large circulating gyres in the oceans.\n*   **Wind Patterns:** It causes the trade winds to blow from east to west in the tropics and influences the formation and rotation direction of cyclones (low-pressure systems rotate counter-clockwise in the Northern Hemisphere and clockwise in the Southern Hemisphere) and anticyclones.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Conceptually, what is the link between pseudo forces in an accelerating frame and gravity, as suggested by Einstein's Equivalence Principle?",
+      "back": "Einstein's Equivalence Principle states that, locally, the physical effects of a uniform gravitational field are indistinguishable from those of a uniformly accelerating reference frame. For example, a person in a closed elevator cannot tell if they are at rest in a gravitational field or accelerating upwards in gravity-free space.\n\nThis principle suggests that gravity itself can be viewed as an 'apparent' or 'pseudo' force arising from the curvature of spacetime caused by mass and energy, rather than a fundamental interaction force in the Newtonian sense. In an accelerating frame, pseudo forces arise because the frame itself is accelerating; similarly, in General Relativity, objects 'fall' in a gravitational field because they are following the straightest possible path (geodesic) in a curved spacetime, and we perceive this as a force (gravity).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-thermodynamic-potentials-u-h-f-g-preview",
+  "subtopicTitle": "Thermodynamic potentials — U, H, F, G (preview)",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:40.419Z",
+  "cards": [
+    {
+      "front": "Define Internal Energy $U$ and state its natural variables.",
+      "back": "Internal Energy $U$ is the total energy contained within a thermodynamic system, excluding the kinetic energy of motion of the system as a whole and the potential energy of the system as a whole due to external force fields. It is a state function. Its natural variables are entropy ($S$) and volume ($V$), so $U = U(S, V)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define Enthalpy $H$ and explain its physical significance, including its natural variables.",
+      "back": "Enthalpy $H$ is defined as $H = U + PV$. It is particularly useful for processes occurring at constant pressure, where the change in enthalpy, $\\Delta H$, represents the heat absorbed or released by the system. Its natural variables are entropy ($S$) and pressure ($P$), so $H = H(S, P)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define Helmholtz Free Energy $F$ and describe what it represents physically, along with its natural variables.",
+      "back": "Helmholtz Free Energy $F$ is defined as $F = U - TS$. It represents the maximum amount of work that a closed thermodynamic system can perform at constant temperature and constant volume. Its natural variables are temperature ($T$) and volume ($V$), so $F = F(T, V)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define Gibbs Free Energy $G$ and explain its physical significance regarding spontaneity, including its natural variables.",
+      "back": "Gibbs Free Energy $G$ is defined as $G = H - TS = U + PV - TS$. It represents the maximum amount of non-PV work (e.g., electrical work) that can be extracted from a closed system at constant temperature and pressure. For a process occurring at constant temperature and pressure, a decrease in $G$ ($dG < 0$) indicates a spontaneous process. Its natural variables are temperature ($T$) and pressure ($P$), so $G = G(T, P)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the fundamental thermodynamic relation for the differential of Internal Energy $dU$ in terms of its natural variables.",
+      "back": "The fundamental thermodynamic relation for $dU$ is given by: $$dU = TdS - PdV$$ where $T$ is temperature, $S$ is entropy, $P$ is pressure, and $V$ is volume.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Starting from $dU = TdS - PdV$ and the definition of Enthalpy $H$, derive the fundamental thermodynamic relation for $dH$.",
+      "back": "Given the definition $H = U + PV$. Taking the differential of both sides: $$dH = d(U + PV)$$ Using the product rule for $d(PV)$: $$dH = dU + PdV + VdP$$ Substitute the fundamental relation for $dU = TdS - PdV$: $$dH = (TdS - PdV) + PdV + VdP$$ The $-PdV$ and $+PdV$ terms cancel, leaving: $$dH = TdS + VdP$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what specific conditions does a process occur spontaneously if the Helmholtz Free Energy $F$ decreases ($dF < 0$)?",
+      "back": "A process will occur spontaneously if the Helmholtz Free Energy $F$ decreases ($dF < 0$) when the process occurs at **constant temperature ($T$) and constant volume ($V$)**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific conditions does a process occur spontaneously if the Gibbs Free Energy $G$ decreases ($dG < 0$)?",
+      "back": "A process will occur spontaneously if the Gibbs Free Energy $G$ decreases ($dG < 0$) when the process occurs at **constant temperature ($T$) and constant pressure ($P$)**.",
+      "difficulty": "medium"
+    }
+  ]
+}

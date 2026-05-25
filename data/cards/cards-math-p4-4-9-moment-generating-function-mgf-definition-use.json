@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-9-moment-generating-function-mgf-definition-use",
+  "subtopicTitle": "Moment generating function (MGF) — definition, use",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:36.669Z",
+  "cards": [
+    {
+      "front": "Define the Moment Generating Function (MGF) $M_X(t)$ for a discrete random variable $X$.",
+      "back": "The MGF for a discrete random variable $X$ with Probability Mass Function $P(X=x)$ is defined as:\n$$ M_X(t) = E[e^{tX}] = \\sum_x e^{tx} P(X=x) $$\nprovided the sum converges for all $t$ in some open interval $(-h, h)$ for some $h > 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Moment Generating Function (MGF) $M_X(t)$ for a continuous random variable $X$.",
+      "back": "The MGF for a continuous random variable $X$ with Probability Density Function $f_X(x)$ is defined as:\n$$ M_X(t) = E[e^{tX}] = \\int_{-\\infty}^{\\infty} e^{tx} f_X(x) dx $$\nprovided the integral converges for all $t$ in some open interval $(-h, h)$ for some $h > 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can the $k$-th moment, $E[X^k]$, be found using the MGF $M_X(t)$?",
+      "back": "The $k$-th moment $E[X^k]$ is given by the $k$-th derivative of $M_X(t)$ evaluated at $t=0$:\n$$ E[X^k] = M_X^{(k)}(0) = \\left. \\frac{d^k}{dt^k} M_X(t) \\right|_{t=0} $$\nThis property arises from the Taylor series expansion of $M_X(t)$ around $t=0$: $M_X(t) = \\sum_{k=0}^\\infty \\frac{E[X^k]}{k!} t^k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $X_1, X_2, \\dots, X_n$ are independent random variables, what is the MGF of their sum $S = X_1 + X_2 + \\dots + X_n$?",
+      "back": "For independent random variables $X_1, \\dots, X_n$, the MGF of their sum $S = \\sum_{i=1}^n X_i$ is the product of their individual MGFs:\n$$ M_S(t) = E[e^{tS}] = E[e^{t(X_1 + \\dots + X_n)}] = E[e^{tX_1} \\dots e^{tX_n}] $$\nDue to independence, the expectation of the product is the product of the expectations:\n$$ M_S(t) = E[e^{tX_1}] \\dots E[e^{tX_n}] = M_{X_1}(t) \\dots M_{X_n}(t) = \\prod_{i=1}^n M_{X_i}(t) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the \"uniqueness property\" of the MGF, and why is it important?",
+      "back": "The uniqueness property states that if two random variables have the same Moment Generating Function, then they must have the same probability distribution.\n\nThis property is profoundly important because it allows us to identify the distribution of a random variable (e.g., a sum of other random variables) by simply computing its MGF and matching it to a known MGF of a standard distribution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the MGF for a Bernoulli random variable $X \\sim \\text{Bernoulli}(p)$.",
+      "back": "A Bernoulli random variable $X$ takes the value 1 with probability $p$ and 0 with probability $1-p$.\nUsing the definition for discrete RVs:\n$$ M_X(t) = E[e^{tX}] = \\sum_x e^{tx} P(X=x) $$\n$$ M_X(t) = e^{t \\cdot 0} P(X=0) + e^{t \\cdot 1} P(X=1) $$\n$$ M_X(t) = e^0 (1-p) + e^t (p) $$\n$$ M_X(t) = (1-p) + pe^t $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the MGF for an Exponential random variable $X \\sim \\text{Exp}(\\lambda)$.",
+      "back": "The PDF of an Exponential RV is $f_X(x) = \\lambda e^{-\\lambda x}$ for $x \\ge 0$, and $0$ otherwise.\nUsing the definition for continuous RVs:\n$$ M_X(t) = E[e^{tX}] = \\int_0^{\\infty} e^{tx} \\lambda e^{-\\lambda x} dx $$\n$$ M_X(t) = \\lambda \\int_0^{\\infty} e^{(t-\\lambda)x} dx $$\nThis integral converges if $t-\\lambda < 0$, i.e., $t < \\lambda$.\n$$ M_X(t) = \\lambda \\left[ \\frac{e^{(t-\\lambda)x}}{t-\\lambda} \\right]_0^{\\infty} $$\n$$ M_X(t) = \\lambda \\left( 0 - \\frac{e^0}{t-\\lambda} \\right) = \\lambda \\left( \\frac{-1}{t-\\lambda} \\right) = \\frac{\\lambda}{\\lambda-t} $$\n(for $t < \\lambda$)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the MGF $M_X(t)$, how would you find the variance $Var(X)$?",
+      "back": "The variance $Var(X)$ is defined as $E[X^2] - (E[X])^2$.\n\nWe can find the first and second moments using the MGF's derivatives evaluated at $t=0$:\n1.  The first moment (mean): $E[X] = M_X'(0)$\n2.  The second moment: $E[X^2] = M_X''(0)$\n\nTherefore, the variance can be calculated as:\n$$ Var(X) = M_X''(0) - (M_X'(0))^2 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what condition does the Moment Generating Function $M_X(t)$ exist?",
+      "back": "The MGF $M_X(t) = E[e^{tX}]$ exists if the expectation (either the sum for discrete RVs or the integral for continuous RVs) converges for all $t$ in some open interval $(-h, h)$ for some $h > 0$.\n\nIf this condition is not met (e.g., for the Cauchy distribution, where the integral diverges for any $t \\ne 0$), the MGF does not exist. In such cases, the Characteristic Function (CF) $\\phi_X(t) = E[e^{itX}]$ is often used instead, as it always exists.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-classification-order-degree-linear-vs-nonlinear-autonomous-vs-non-autonomous",
+  "subtopicTitle": "Classification — order, degree, linear vs nonlinear, autonomous vs non-autonomous",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:39.072Z",
+  "cards": [
+    {
+      "front": "Define the \"order\" of an Ordinary Differential Equation (ODE).",
+      "back": "The **order** of an Ordinary Differential Equation (ODE) is the order of the highest derivative of the dependent variable with respect to the independent variable present in the equation.\n\nExample: $\\frac{d^3y}{dx^3} + x\\frac{dy}{dx} + y = 0$ is a third-order ODE.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the \"degree\" of an Ordinary Differential Equation (ODE).",
+      "back": "The **degree** of an ODE is the power of the highest order derivative, provided the ODE can be expressed as a polynomial in terms of its derivatives. If the ODE cannot be written as a polynomial in its derivatives (e.g., if a derivative is inside a transcendental function), its degree is undefined.\n\nExample: $(\\frac{d^2y}{dx^2})^3 + (\\frac{dy}{dx})^2 + y = 0$ is a second-order, third-degree ODE.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What makes an ODE \"linear\"? Provide the general form for an $n$-th order linear ODE.",
+      "back": "An ODE is **linear** if:\n1. The dependent variable $y$ and all its derivatives appear only to the first power.\n2. No products of $y$ or its derivatives exist.\n3. The coefficients of $y$ and its derivatives depend only on the independent variable $x$.\n\nGeneral form of an $n$-th order linear ODE:\n$$a_n(x) \\frac{d^n y}{dx^n} + a_{n-1}(x) \\frac{d^{n-1} y}{dx^{n-1}} + \\dots + a_1(x) \\frac{dy}{dx} + a_0(x) y = f(x)$$\nwhere $a_i(x)$ and $f(x)$ are functions of $x$ only.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between an \"autonomous\" and a \"non-autonomous\" ODE.",
+      "back": "An ODE is **autonomous** if the independent variable (e.g., $t$ or $x$) does not appear explicitly in the equation. The equation depends only on the dependent variable and its derivatives.\n\nAn ODE is **non-autonomous** if the independent variable appears explicitly in the equation.\n\nExample:\n*   Autonomous: $\\frac{dy}{dt} = y^2 - y$\n*   Non-autonomous: $\\frac{dy}{dt} = y^2 - t$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Completely classify the following ODE: $x^2 \\frac{d^3y}{dx^3} + (\\frac{dy}{dx})^4 - 7y = \\sin(x)$.",
+      "back": "*   **Order**: 3 (highest derivative is $\\frac{d^3y}{dx^3}$)\n*   **Degree**: 1 (the highest order derivative $\\frac{d^3y}{dx^3}$ has power 1, and the equation is a polynomial in its derivatives)\n*   **Linearity**: Nonlinear (due to the term $(\\frac{dy}{dx})^4$, which is a derivative raised to a power other than 1)\n*   **Autonomy**: Non-autonomous (due to the explicit presence of the independent variable $x$ in $x^2$ and $\\sin(x)$)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Completely classify the following ODE: $\\frac{d^2y}{dx^2} + e^{dy/dx} + y = 0$.",
+      "back": "*   **Order**: 2 (highest derivative is $\\frac{d^2y}{dx^2}$)\n*   **Degree**: Undefined (due to the term $e^{dy/dx}$, which means the equation cannot be expressed as a polynomial in terms of its derivatives)\n*   **Linearity**: Nonlinear (due to the term $e^{dy/dx}$, which is a nonlinear function of a derivative)\n*   **Autonomy**: Autonomous (no explicit presence of the independent variable $x$)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When is the degree of an ODE considered \"undefined\"? Provide an example.",
+      "back": "The degree of an ODE is considered **undefined** if the equation cannot be written as a polynomial in terms of its highest order derivative (or any derivative). This typically occurs when a derivative (especially the highest order one) is an argument of a transcendental function (e.g., exponential, trigonometric, logarithmic functions).\n\nExample: $\\frac{d^2y}{dx^2} + \\cos(\\frac{dy}{dx}) = x$. Here, the highest order derivative is $\\frac{d^2y}{dx^2}$ (order 2), but the presence of $\\cos(\\frac{dy}{dx})$ makes it impossible to express this equation as a polynomial in its derivatives, hence the degree is undefined.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the classification of an ODE as \"linear\" or \"nonlinear\" particularly important for solving them?",
+      "back": "The classification of an ODE as linear or nonlinear is crucial because **linear ODEs have a well-developed and powerful general theory for their solutions**, including:\n1.  **Superposition Principle**: Solutions to homogeneous linear ODEs can be added together to form new solutions.\n2.  **Existence and Uniqueness Theorems**: These are generally simpler and apply more broadly for linear ODEs.\n3.  **Standard Solution Methods**: Many systematic methods exist (e.g., integrating factors, undetermined coefficients, variation of parameters, Laplace transforms).\n\n**Nonlinear ODEs**, in contrast, generally **lack such a comprehensive theory**. They are often much harder to solve analytically, may not have general solution methods, and can exhibit complex behaviors (e.g., chaos, bifurcations) that linear ODEs do not.",
+      "difficulty": "medium"
+    }
+  ]
+}

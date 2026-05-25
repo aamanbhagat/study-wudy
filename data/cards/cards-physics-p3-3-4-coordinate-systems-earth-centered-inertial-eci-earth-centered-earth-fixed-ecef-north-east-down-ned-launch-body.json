@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-4-coordinate-systems-earth-centered-inertial-eci-earth-centered-earth-fixed-ecef-north-east-down-ned-launch-body",
+  "subtopicTitle": "Coordinate systems — Earth-Centered Inertial (ECI), Earth-Centered Earth-Fixed (ECEF), North-East-Down (NED), launch, body",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:40.549Z",
+  "cards": [
+    {
+      "front": "Define the Earth-Centered Inertial (ECI) coordinate system, including its origin and axes. Is it truly inertial?",
+      "back": "Origin at Earth's center of mass. X-axis points towards the Vernal Equinox (or a fixed direction in space). Z-axis points along Earth's rotation axis (North Pole). Y-axis completes a right-handed system. It is considered *approximately* inertial for typical orbital mechanics, neglecting galactic rotation and other minor perturbations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the Earth-Centered Earth-Fixed (ECEF) coordinate system. How does it differ from ECI, and what is its primary use?",
+      "back": "Origin at Earth's center of mass. Z-axis along Earth's rotation axis (North Pole). X-axis points through the intersection of the Prime Meridian and the Equator. Y-axis completes a right-handed system. It rotates with Earth, making it non-inertial. Primarily used for terrestrial positioning (GPS) and fixed ground-based observations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary transformation required to convert a position vector from ECI to ECEF coordinates, and what physical phenomenon does it account for?",
+      "back": "The transformation involves a rotation around the Z-axis by the Earth's sidereal angle (or Greenwich Mean Sidereal Time, GMST). This accounts for Earth's rotation.\n$$ \\mathbf{r}_{ECEF} = R_z(\\theta_{GMST}) \\mathbf{r}_{ECI} $$\nwhere $R_z(\\theta)$ is a rotation matrix about the Z-axis by angle $\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the North-East-Down (NED) coordinate system, including its origin and axes. What is its common application?",
+      "back": "Origin is typically fixed to the vehicle's current position on the Earth's surface. X-axis points North. Y-axis points East. Z-axis points Down (perpendicular to the local geodetic tangent plane, towards the geocentric center). Used for local navigation, control, and attitude determination of aircraft and rockets during atmospheric flight.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the \"launch\" coordinate system. How is it typically defined, and what is its relationship to NED?",
+      "back": "The launch coordinate system is a local, Earth-fixed frame whose origin is at the launch pad. Its axes are often aligned with NED at the launch site (X-North, Y-East, Z-Down), or sometimes with a specific range reference (e.g., X-axis along the initial launch azimuth). It's essentially a specialized NED frame fixed at the launch site, used for initial trajectory planning and tracking.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"body\" coordinate system for a rocket. Where is its origin, and how are its axes typically aligned?",
+      "back": "Origin is usually at the rocket's center of mass. X-axis (or $x_b$) points along the longitudinal axis of the rocket, typically forward through the nose. Y-axis (or $y_b$) points out the right wing (or side). Z-axis (or $z_b$) points down (or out the bottom), completing a right-handed system. Used for defining vehicle attitude, control surface deflections, and aerodynamic forces/moments.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What two primary geometric transformations are needed to convert a position vector from ECEF to NED coordinates at a specific latitude and longitude?",
+      "back": "1.  **Translation**: Shift the origin from Earth's center to the local point on the surface (the NED origin).\n2.  **Rotation**: Rotate the ECEF axes to align with North, East, and Down at that local point. This involves rotations based on the local geodetic latitude ($\\phi$) and longitude ($\\lambda$). The transformation matrix $R_{NED}^{ECEF}$ typically involves a rotation about the Z-axis by longitude and then a rotation about the Y-axis by (90° - latitude).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What set of common Euler angles is used to describe the orientation of the body frame relative to the NED frame, and what do they represent?",
+      "back": "The Z-Y-X (3-2-1) Euler angle sequence is commonly used:\n1.  **Yaw ($\\psi$)**: Rotation about the NED Z-axis (Down) from North to the body X-axis projection on the horizontal plane.\n2.  **Pitch ($\\theta$)**: Rotation about the intermediate Y-axis (East) from the horizontal plane to the body X-axis.\n3.  **Roll ($\\phi$)**: Rotation about the body X-axis (forward) to align the body Y and Z axes.\nThese angles describe the rocket's attitude (heading, elevation, bank).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it necessary to use multiple coordinate systems (ECI, ECEF, NED, Body) in rocket flight mechanics instead of just one?",
+      "back": "Each system is optimized for different aspects of the problem:\n*   **ECI**: Ideal for orbital mechanics (Newton's laws are simplest).\n*   **ECEF**: Convenient for ground-based tracking and fixed geographical locations.\n*   **NED**: Useful for local navigation, atmospheric flight, and intuitive understanding of local motion.\n*   **Body**: Essential for defining vehicle attitude, aerodynamic forces, control inputs, and structural analysis relative to the vehicle itself.\nUsing the appropriate frame simplifies calculations and provides relevant physical insights.",
+      "difficulty": "medium"
+    }
+  ]
+}

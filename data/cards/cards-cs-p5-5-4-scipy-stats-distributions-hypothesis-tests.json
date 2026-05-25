@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-4-scipy-stats-distributions-hypothesis-tests",
+  "subtopicTitle": "scipy.stats — distributions, hypothesis tests",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:04.012Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `scipy.stats` module in Python?",
+      "back": "To provide a wide range of statistical functions, including probability distributions (both continuous and discrete), statistical tests, and descriptive statistics. It's a fundamental tool for scientific computing and data analysis in Python.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a continuous distribution object (e.g., `scipy.stats.norm`), what do the methods `pdf`, `cdf`, and `ppf` represent, respectively?",
+      "back": "<ul><li>`pdf(x)`: Probability Density Function, returns the probability density at point $x$.</li><li>`cdf(x)`: Cumulative Distribution Function, returns $P(X \\le x)$.</li><li>`ppf(q)`: Percent Point Function (or quantile function), which is the inverse of the CDF. It returns the value $x$ such that $P(X \\le x) = q$.</li></ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How would you use `scipy.stats.norm` to calculate the probability that a normally distributed variable with mean 10 and standard deviation 2 takes a value less than or equal to 12?",
+      "back": "```python\nfrom scipy.stats import norm\n\n# loc is the mean, scale is the standard deviation\nprobability = norm.cdf(12, loc=10, scale=2)\n# probability will be approximately 0.8413\n```\nThis calculates $P(X \\le 12)$ for $X \\sim N(10, 2^2)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a hypothesis test, what is the p-value, and how is it typically used to make a decision regarding the null hypothesis?",
+      "back": "The p-value is the probability of observing a test statistic as extreme as, or more extreme than, the one calculated from the sample data, *assuming the null hypothesis is true*. If the p-value is less than or equal to the chosen significance level ($\\alpha$), we reject the null hypothesis; otherwise, we fail to reject it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You perform a two-sample independent t-test using `scipy.stats.ttest_ind` and get a p-value of 0.03. If your significance level ($\\alpha$) is 0.05, what is your conclusion? What if $\\alpha$ was 0.01?",
+      "back": "<ul><li>If $\\alpha = 0.05$: Since $p = 0.03 \\le 0.05$, you reject the null hypothesis. This suggests there is a statistically significant difference between the means of the two samples.</li><li>If $\\alpha = 0.01$: Since $p = 0.03 > 0.01$, you fail to reject the null hypothesis. There is not enough evidence to conclude a statistically significant difference at this stricter significance level.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the difference between `scipy.stats.norm.pdf(x)` and `scipy.stats.norm.sf(x)`. When would you use `sf`?",
+      "back": "<ul><li>`norm.pdf(x)`: Probability Density Function. It gives the *density* at a specific point $x$. For continuous distributions, $P(X=x) = 0$.</li><li>`norm.sf(x)`: Survival Function (or Complementary CDF). It calculates $P(X > x) = 1 - P(X \\le x) = 1 - \\text{norm.cdf(x)}$.</li></ul>\nYou would use `sf` when you need the probability of a value being *greater than* a certain point, especially in one-tailed hypothesis tests or when dealing with very small tail probabilities where $1 - \\text{cdf(x)}$ might suffer from floating-point precision issues.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a discrete distribution like `scipy.stats.binom`, what is the equivalent of `pdf` for continuous distributions, and what does it represent?",
+      "back": "For discrete distributions, the equivalent of `pdf` is `pmf` (Probability Mass Function). For `scipy.stats.binom`, `binom.pmf(k, n, p)` returns the probability of observing exactly $k$ successes in $n$ independent Bernoulli trials, where each trial has a success probability $p$. This is $P(X=k)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two key assumptions for using `scipy.stats.ttest_ind` (independent two-sample t-test), and what might happen if these assumptions are violated?",
+      "back": "Two key assumptions are:\n1.  **Independence:** Observations within each sample and between samples must be independent.\n2.  **Normality:** Data in both populations should be approximately normally distributed (less critical for large sample sizes due to CLT).\n3.  **Homoscedasticity (Equal Variances):** The variances of the two populations should be equal (can be addressed with `equal_var=False` for Welch's t-test).\n\nViolation of these assumptions can lead to inaccurate p-values, incorrect conclusions, and an increased risk of Type I or Type II errors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When working with `scipy.stats` distributions, what do the `loc` and `scale` parameters generally represent for a generic continuous distribution?",
+      "back": "<ul><li>`loc`: Represents the location parameter, which typically shifts the distribution along the x-axis. For many distributions (e.g., `norm`), it corresponds to the mean.</li><li>`scale`: Represents the scale parameter, which determines the spread or width of the distribution. For many distributions (e.g., `norm`), it corresponds to the standard deviation.</li></ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

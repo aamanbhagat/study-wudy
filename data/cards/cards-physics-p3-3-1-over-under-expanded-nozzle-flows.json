@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-over-under-expanded-nozzle-flows",
+  "subtopicTitle": "Over/under expanded nozzle flows",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:27.396Z",
+  "cards": [
+    {
+      "front": "Define an 'ideally expanded nozzle flow'.",
+      "back": "An ideally expanded nozzle flow occurs when the static pressure at the nozzle exit ($P_e$) perfectly matches the ambient static pressure ($P_a$). This condition maximizes thrust efficiency for the given design.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What defines an 'over-expanded nozzle flow'?",
+      "back": "An over-expanded nozzle flow is characterized by the static pressure at the nozzle exit ($P_e$) being *less than* the ambient static pressure ($P_a$). The flow has expanded too much internally relative to the external pressure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What defines an 'under-expanded nozzle flow'?",
+      "back": "An under-expanded nozzle flow is characterized by the static pressure at the nozzle exit ($P_e$) being *greater than* the ambient static pressure ($P_a$). The flow has not expanded enough internally relative to the external pressure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the primary flow phenomenon in an over-expanded nozzle and its impact on thrust.",
+      "back": "In an over-expanded nozzle, oblique shock waves form either inside the nozzle or at its exit. These shocks cause a sudden pressure rise, potentially leading to flow separation from the nozzle walls and a significant reduction in thrust efficiency due to momentum loss and increased drag.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary flow phenomenon in an under-expanded nozzle and its impact on thrust.",
+      "back": "In an under-expanded nozzle, expansion waves (Prandtl-Meyer expansion fans) form *outside* the nozzle exit. The flow continues to expand into the lower ambient pressure, creating a characteristic 'flame feather' pattern. This results in thrust loss as the expansion work is not fully converted into directed momentum within the nozzle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is flow separation a concern in over-expanded nozzles, and what causes it?",
+      "back": "Flow separation in over-expanded nozzles is caused by the adverse pressure gradient across the oblique shock waves. The sudden pressure rise from $P_e < P_a$ to $P_a$ can be strong enough to overcome the boundary layer's momentum, detaching the flow from the nozzle wall. This reduces the effective nozzle area and thus thrust.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For isentropic flow, what key dimensionless parameter connects the nozzle area ratio $A_e/A^*$ to the exit pressure ratio $P_e/P_0$?",
+      "back": "The key dimensionless parameter is the exit Mach number ($M_e$). The area ratio is related to $M_e$ by:\n$$ \\frac{A_e}{A^*} = \\frac{1}{M_e} \\left[ \\frac{2}{\\gamma+1} \\left( 1 + \\frac{\\gamma-1}{2} M_e^2 \\right) \\right]^{\\frac{\\gamma+1}{2(\\gamma-1)}} $$\nAnd the exit pressure ratio $P_e/P_0$ is related to $M_e$ by:\n$$ \\frac{P_e}{P_0} = \\left( 1 + \\frac{\\gamma-1}{2} M_e^2 \\right)^{-\\frac{\\gamma}{\\gamma-1}} $$\nThus, $M_e$ serves as the link between $A_e/A^*$ and $P_e/P_0$ for ideal expansion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A rocket is optimized for sea level. How does its expansion state and thrust change at high altitude?",
+      "back": "At high altitude, the ambient pressure ($P_a$) significantly decreases. If the nozzle was optimally expanded at sea level ($P_e = P_{a,sea-level}$), then at high altitude, $P_e > P_{a,high-altitude}$. This means the nozzle becomes *under-expanded*. The flow continues to expand outside the nozzle, leading to expansion waves and a loss of thrust efficiency as the expansion work is not fully converted into directed momentum within the nozzle.",
+      "difficulty": "hard"
+    }
+  ]
+}

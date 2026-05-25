@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-significant-figures-rules-for-operations",
+  "subtopicTitle": "Significant figures — rules for operations",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:51.723Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of using significant figures in scientific measurements and calculations?",
+      "back": "The primary purpose is to reflect the precision of a measurement or calculated value, ensuring that the result does not imply greater accuracy or certainty than the original data justifies.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the rule for determining the number of significant figures in the result of an addition or subtraction operation.",
+      "back": "The result of an addition or subtraction operation should be rounded to the same number of decimal places as the measurement with the *fewest* decimal places. The number of significant figures in the final answer is then determined by this decimal place restriction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate $12.34 \\text{ cm} + 5.6 \\text{ cm} + 0.879 \\text{ cm}$ and report the answer with the correct number of significant figures.",
+      "back": "1. Identify decimal places:\n   $12.34 \\text{ cm}$ (2 decimal places)\n   $5.6 \\text{ cm}$ (1 decimal place)\n   $0.879 \\text{ cm}$ (3 decimal places)\n2. The limiting measurement is $5.6 \\text{ cm}$ with 1 decimal place.\n3. Perform the sum: $12.34 + 5.6 + 0.879 = 18.819 \\text{ cm}$.\n4. Round the sum to 1 decimal place:\n   $18.8 \\text{ cm}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the rule for determining the number of significant figures in the result of a multiplication or division operation.",
+      "back": "The result of a multiplication or division operation should be rounded to the same number of significant figures as the measurement with the *fewest* significant figures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the area of a rectangle with length $12.5 \\text{ m}$ and width $3.2 \\text{ m}$. Report the answer with the correct number of significant figures.",
+      "back": "1. Identify significant figures:\n   Length: $12.5 \\text{ m}$ (3 significant figures)\n   Width: $3.2 \\text{ m}$ (2 significant figures)\n2. The limiting measurement is $3.2 \\text{ m}$ with 2 significant figures.\n3. Perform the multiplication: $12.5 \\text{ m} \\times 3.2 \\text{ m} = 40.0 \\text{ m}^2$.\n4. Round the product to 2 significant figures:\n   $40. \\text{ m}^2$ (The decimal point is crucial to indicate that the zero is significant).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $(15.3 + 2.15) \\times 0.045$ and report the answer with the correct number of significant figures.",
+      "back": "1. **Perform addition (inside parentheses) first:**\n   $15.3$ (1 decimal place)\n   $2.15$ (2 decimal places)\n   Sum: $15.3 + 2.15 = 17.45$. For addition, the result is limited by the term with the fewest decimal places (1 decimal place from $15.3$). So, the sum's precision is limited to 1 decimal place (i.e., $17.5$). *Carry extra digits for subsequent calculations to avoid rounding errors, but remember its precision limit.*\n\n2. **Perform multiplication:**\n   $17.45$ (from the sum, limited to 1 decimal place, effectively 3 sig figs if rounded to $17.5$)\n   $0.045$ (2 significant figures)\n   Multiply: $17.45 \\times 0.045 = 0.78525$.\n\n3. **Apply multiplication/division rule:** The result is limited by the number with the fewest significant figures, which is 2 (from $0.045$).\n\n4. **Round to 2 significant figures:** $0.79$.\n\n**Final Answer:** $0.79$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do exact numbers (e.g., counting numbers, defined constants, or conversion factors like $1 \\text{ m} = 100 \\text{ cm}$) affect the number of significant figures in a calculation?",
+      "back": "Exact numbers are considered to have an infinite number of significant figures. They do not limit the number of significant figures in the final result of a calculation. The precision of the final answer will still be determined solely by the measured values involved in the calculation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When rounding a number to a specific number of significant figures, what is the rule for the digit immediately following the last significant digit if it is exactly 5?",
+      "back": "If the digit to be dropped is exactly 5, and it is followed by no other digits (or only zeros), the preceding digit is rounded up if it is odd, and left unchanged if it is even. This is often called \"round half to even\" or \"banker's rounding.\"\n\nExamples (rounding to two significant figures):\n- $2.35 \\rightarrow 2.4$ (3 is odd, round up)\n- $2.45 \\rightarrow 2.4$ (4 is even, leave unchanged)\n\nIf the 5 is followed by any non-zero digit, always round up (e.g., $2.351 \\rightarrow 2.4$).",
+      "difficulty": "medium"
+    }
+  ]
+}

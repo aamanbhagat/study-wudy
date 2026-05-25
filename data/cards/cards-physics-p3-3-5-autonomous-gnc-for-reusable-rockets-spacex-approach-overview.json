@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-autonomous-gnc-for-reusable-rockets-spacex-approach-overview",
+  "subtopicTitle": "Autonomous GNC for reusable rockets — SpaceX approach overview",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:40.441Z",
+  "cards": [
+    {
+      "front": "What is the primary reason autonomous GNC is essential for reusable rocket landings, as exemplified by SpaceX?",
+      "back": "Autonomous GNC is critical because the landing sequence involves extremely high speeds, rapid environmental changes, and millisecond-level decision-making requirements. The dynamic nature of re-entry and propulsive landing makes human intervention impossible, necessitating real-time, self-correcting systems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the primary sensor types used by SpaceX for state estimation (position, velocity, attitude) during autonomous rocket landing.",
+      "back": "SpaceX primarily uses: 1. **GPS** (Global Positioning System) for precise position and velocity data. 2. **IMU** (Inertial Measurement Unit), comprising accelerometers for linear acceleration and gyroscopes for angular rates and attitude changes. 3. Potentially **Radar Altimeters** for highly accurate altitude and vertical velocity measurements close to the ground during the final landing phase.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do SpaceX's grid fins contribute to GNC during atmospheric re-entry and descent of the Falcon 9 booster?",
+      "back": "Grid fins provide aerodynamic control authority during atmospheric flight phases, particularly at hypersonic and supersonic speeds. By adjusting their deflection, they generate lift and drag forces to steer the rocket's trajectory, control its pitch, yaw, and roll, and precisely orient it for the subsequent burns and landing, especially when engine gimbals are less effective or inactive.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the role of trajectory optimization in SpaceX's autonomous GNC for landing, and name a common class of algorithms used.",
+      "back": "Trajectory optimization is a core component of the guidance system. Its role is to calculate the optimal path for the rocket to follow from its current state to the landing pad, considering various constraints such as fuel consumption, time, landing accuracy, and structural limits. This often involves solving a complex optimal control problem. A common class of algorithms used for such problems includes **Model Predictive Control (MPC)** or other direct/indirect optimal control methods.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name the three critical propulsive burns performed by a SpaceX Falcon 9 booster during its autonomous return and landing sequence.",
+      "back": "The three critical propulsive burns are: 1. **Boostback Burn**: Redirects the booster's trajectory back towards the launch site. 2. **Entry Burn**: Slows the rocket down significantly and protects it from extreme re-entry heating. 3. **Landing Burn**: Provides the final deceleration for a soft, controlled touchdown on the landing pad or drone ship.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the fundamental GNC feedback loop for a reusable rocket's landing, identifying its main components and the primary state vector elements.",
+      "back": "The GNC loop continuously drives the rocket towards its target. **Navigation** estimates the current state (e.g., position $\\mathbf{p}$, velocity $\\mathbf{v}$, attitude $\\mathbf{q}$, angular rates $\\boldsymbol{\\omega}$) using sensor fusion (e.g., Kalman filter) to form the state vector $\\mathbf{x} = [\\mathbf{p}^T, \\mathbf{v}^T, \\mathbf{q}^T, \\boldsymbol{\\omega}^T]^T$. **Guidance** calculates the desired trajectory or target state based on mission objectives. **Control** then computes actuator commands (e.g., engine gimbal angles, grid fin deflections) to minimize the error between the estimated current state and the desired state.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is redundancy in GNC hardware and software critical for autonomous reusable rocket landings?",
+      "back": "Redundancy is critical for ensuring fault tolerance and mission success. In the event of a failure in a sensor, flight computer, or actuator, redundant systems (e.g., multiple IMUs, redundant flight computers, backup communication links) can take over seamlessly. This prevents catastrophic failure, maintains control, and allows for a safe and successful landing, which is paramount for expensive reusable assets.",
+      "difficulty": "easy"
+    }
+  ]
+}

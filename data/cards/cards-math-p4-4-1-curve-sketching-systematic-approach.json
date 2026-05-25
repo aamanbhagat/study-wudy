@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-curve-sketching-systematic-approach",
+  "subtopicTitle": "Curve sketching — systematic approach",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:11.922Z",
+  "cards": [
+    {
+      "front": "Before using derivatives, what four key features should be identified for a systematic curve sketch?",
+      "back": "1.  **Domain:** Where the function is defined.\n2.  **Intercepts:** $x$-intercepts (where $f(x)=0$) and $y$-intercepts (where $x=0$).\n3.  **Symmetry:** Even ($f(-x)=f(x)$), odd ($f(-x)=-f(x)$), or periodic.\n4.  **Asymptotes:** Vertical, Horizontal, and Slant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are vertical asymptotes identified for a rational function $f(x) = \\frac{P(x)}{Q(x)}$?",
+      "back": "Vertical asymptotes occur at $x=c$ where $Q(c)=0$ AND $P(c) \\neq 0$. This implies that as $x \\to c^\\pm$, $f(x) \\to \\pm\\infty$. If both $P(c)=0$ and $Q(c)=0$, there might be a hole in the graph or a removable discontinuity, not necessarily a vertical asymptote.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the sign of the first derivative, $f'(x)$, inform us about the function's behavior?",
+      "back": "If $f'(x) > 0$ on an interval, $f(x)$ is **increasing** on that interval.\nIf $f'(x) < 0$ on an interval, $f(x)$ is **decreasing** on that interval.\nIf $f'(x) = 0$ at a point, it indicates a horizontal tangent, which could be a local extremum or an inflection point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a critical point of a function $f(x)$ and explain its significance in curve sketching.",
+      "back": "A critical point of $f(x)$ is a point $c$ in the domain of $f$ where either $f'(c) = 0$ or $f'(c)$ is undefined. These points are crucial because they are candidates for local maxima, local minima, or horizontal inflection points, marking potential changes in the function's increasing/decreasing behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What conditions indicate a slant (oblique) asymptote, and how is its equation found?",
+      "back": "A slant asymptote exists for a rational function $f(x) = \\frac{P(x)}{Q(x)}$ if the degree of the numerator $P(x)$ is exactly one greater than the degree of the denominator $Q(x)$. Its equation $y=mx+b$ is found by performing polynomial long division of $P(x)$ by $Q(x)$, where $y=mx+b$ is the quotient and the remainder approaches zero as $x \\to \\pm\\infty$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the sign of the second derivative, $f''(x)$, describe the concavity of $f(x)$?",
+      "back": "If $f''(x) > 0$ on an interval, $f(x)$ is **concave up** (shaped like a cup) on that interval.\nIf $f''(x) < 0$ on an interval, $f(x)$ is **concave down** (shaped like a frown) on that interval.\nIf $f''(x) = 0$ at a point, it's a candidate for an inflection point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the two necessary conditions for a point $(c, f(c))$ to be an inflection point?",
+      "back": "For $(c, f(c))$ to be an inflection point:\n1.  $f''(c) = 0$ or $f''(c)$ is undefined at $x=c$.\n2.  The concavity of $f(x)$ must **change** (from concave up to concave down, or vice-versa) at $x=c$. This means $f''(x)$ must change sign across $x=c$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Summarize the final step in curve sketching after analyzing derivatives and asymptotes.",
+      "back": "After identifying the domain, intercepts, symmetry, asymptotes, critical points, local extrema, intervals of increase/decrease, inflection points, and intervals of concavity, plot all these key points and features on a coordinate plane. Then, connect the points smoothly, ensuring the curve adheres to the determined behavior (increasing/decreasing, concavity) in each interval.",
+      "difficulty": "easy"
+    }
+  ]
+}

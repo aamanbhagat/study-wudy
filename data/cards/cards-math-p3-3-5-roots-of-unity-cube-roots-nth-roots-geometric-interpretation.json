@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p3-3-5-roots-of-unity-cube-roots-nth-roots-geometric-interpretation",
+  "subtopicTitle": "Roots of unity — cube roots, nth roots, geometric interpretation",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:50.173Z",
+  "cards": [
+    {
+      "front": "Define an \"$n$-th root of unity\".",
+      "back": "A complex number $z$ is an $n$-th root of unity if it satisfies the equation $z^n = 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive all three cube roots of unity algebraically.",
+      "back": "We need to solve $z^3 = 1$. This can be rewritten as $z^3 - 1 = 0$. Factoring the difference of cubes, we get $(z-1)(z^2+z+1) = 0$.\n\nFrom $z-1=0$, we get $z_0 = 1$.\n\nFrom $z^2+z+1=0$, we use the quadratic formula $z = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$:\n$z = \\frac{-1 \\pm \\sqrt{1^2 - 4(1)(1)}}{2(1)} = \\frac{-1 \\pm \\sqrt{-3}}{2} = \\frac{-1 \\pm i\\sqrt{3}}{2}$.\n\nSo, the three cube roots of unity are $1$, $\\omega = -\\frac{1}{2} + i\\frac{\\sqrt{3}}{2}$, and $\\omega^2 = -\\frac{1}{2} - i\\frac{\\sqrt{3}}{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the geometric interpretation of the cube roots of unity on the Argand plane.",
+      "back": "The cube roots of unity are $1$, $e^{i2\\pi/3}$, and $e^{i4\\pi/3}$. Geometrically, these are three points equally spaced on the unit circle in the Argand plane. They form the vertices of an equilateral triangle inscribed in the unit circle, with one vertex always at $(1,0)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the general formula for the $n$-th roots of unity using De Moivre's Theorem.",
+      "back": "The $n$-th roots of unity are given by $z_k = e^{i \\frac{2\\pi k}{n}}$ for $k = 0, 1, 2, \\dots, n-1$.\n\nIn rectangular form, this is $z_k = \\cos\\left(\\frac{2\\pi k}{n}\\right) + i\\sin\\left(\\frac{2\\pi k}{n}\\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the geometric interpretation of the $n$-th roots of unity on the Argand plane.",
+      "back": "The $n$-th roots of unity are $n$ distinct points equally spaced on the unit circle in the Argand plane. They form the vertices of a regular $n$-gon (a polygon with $n$ equal sides and angles) inscribed in the unit circle, with one vertex always at $(1,0)$. The angle between consecutive roots is $2\\pi/n$ radians.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the sum of all $n$-th roots of unity for $n > 1$? Prove it.",
+      "back": "The sum of all $n$-th roots of unity is $0$ for $n > 1$.\n\nProof: Let the $n$-th roots of unity be $z_k = e^{i \\frac{2\\pi k}{n}}$ for $k = 0, 1, \\dots, n-1$. Let $\\omega = e^{i \\frac{2\\pi}{n}}$. The roots are $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$.\n\nThis is a geometric series with first term $a=1$, common ratio $r=\\omega$, and $n$ terms. The sum $S_n = \\frac{a(r^n - 1)}{r-1}$.\n\n$S_n = \\frac{1(\\omega^n - 1)}{\\omega - 1}$.\n\nSince $\\omega^n = (e^{i \\frac{2\\pi}{n}})^n = e^{i2\\pi} = 1$, the numerator becomes $1-1=0$.\n\nFor $n > 1$, $\\omega = e^{i \\frac{2\\pi}{n}} \\neq 1$, so the denominator is non-zero. Therefore, the sum is $0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the product of all $n$-th roots of unity?",
+      "back": "The product of all $n$-th roots of unity is $(-1)^{n-1}$.\n\nConsider the polynomial $P(z) = z^n - 1$. Its roots are the $n$-th roots of unity. From Vieta's formulas, the product of the roots of a monic polynomial $a_n z^n + \\dots + a_1 z + a_0 = 0$ is $(-1)^n \\frac{a_0}{a_n}$.\n\nFor $z^n - 1 = 0$, $a_n=1$ and $a_0=-1$. Thus, the product of the roots is $(-1)^n \\frac{-1}{1} = (-1)^{n+1}$.\n\nSince $(-1)^{n+1} = (-1)^{n-1} \\cdot (-1)^2 = (-1)^{n-1} \\cdot 1 = (-1)^{n-1}$, the product is $(-1)^{n-1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define a \"primitive $n$-th root of unity\" and give an example of a primitive 4th root of unity.",
+      "back": "A primitive $n$-th root of unity is an $n$-th root of unity $\\omega$ such that $\\omega^k \\neq 1$ for any integer $k$ where $1 \\le k < n$. In other words, its multiplicative order is exactly $n$.\n\nExample for $n=4$: The 4th roots of unity are $1, i, -1, -i$.\n\n*   $1$: $1^1=1$, not primitive.\n*   $i$: $i^1=i \\neq 1$, $i^2=-1 \\neq 1$, $i^3=-i \\neq 1$, $i^4=1$. So, $i$ is a primitive 4th root of unity.\n*   $-1$: $(-1)^1=-1 \\neq 1$, $(-1)^2=1$. Not primitive.\n*   $-i$: $(-i)^1=-i \\neq 1$, $(-i)^2=-1 \\neq 1$, $(-i)^3=i \\neq 1$, $(-i)^4=1$. So, $-i$ is also a primitive 4th root of unity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a complex number $w = re^{i\\phi}$, how do you find the $n$-th roots of $w$, i.e., the solutions to $z^n = w$?",
+      "back": "To find the $n$-th roots of $w = re^{i\\phi}$, we first express $w$ in its general polar form: $w = re^{i(\\phi + 2\\pi k)}$, where $k$ is an integer.\n\nThen, $z = (re^{i(\\phi + 2\\pi k)})^{1/n}$.\n\nApplying De Moivre's Theorem for roots, we get:\n$z_k = r^{1/n} e^{i \\frac{\\phi + 2\\pi k}{n}}$\n\nThe $n$ distinct roots are obtained by letting $k = 0, 1, 2, \\dots, n-1$:\n$z_k = r^{1/n} \\left(\\cos\\left(\\frac{\\phi + 2\\pi k}{n}\\right) + i\\sin\\left(\\frac{\\phi + 2\\pi k}{n}\\right)\\right)$.\n\nThese roots lie on a circle of radius $r^{1/n}$ centered at the origin, equally spaced with an angular separation of $2\\pi/n$ radians.",
+      "difficulty": "medium"
+    }
+  ]
+}

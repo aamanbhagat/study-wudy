@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-2-basic-integration-rules-power-trig-exponential-log",
+  "subtopicTitle": "Basic integration rules — power, trig, exponential, log",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:18.652Z",
+  "cards": [
+    {
+      "front": "State the power rule for integration: $\\int x^n \\,dx = ?$ (for $n \\neq -1$).",
+      "back": "$$\\int x^n \\,dx = \\frac{x^{n+1}}{n+1} + C$$ for any real number $n \\neq -1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate $\\int (x^3 - \\sqrt{x} + \\frac{1}{x^2}) \\,dx$.",
+      "back": "$$\\int (x^3 - x^{1/2} + x^{-2}) \\,dx$$ $$= \\frac{x^{3+1}}{3+1} - \\frac{x^{1/2+1}}{1/2+1} + \\frac{x^{-2+1}}{-2+1} + C$$ $$= \\frac{x^4}{4} - \\frac{x^{3/2}}{3/2} + \\frac{x^{-1}}{-1} + C$$ $$= \\frac{x^4}{4} - \\frac{2}{3}x^{3/2} - \\frac{1}{x} + C$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\int \\frac{1}{x} \\,dx$. Why is the absolute value necessary in the result?",
+      "back": "$$\\int \\frac{1}{x} \\,dx = \\ln|x| + C$$ The absolute value is necessary because the domain of the integrand $\\frac{1}{x}$ includes all $x \\neq 0$, while the domain of $\\ln(x)$ is restricted to $x > 0$. Using $\\ln|x|$ extends the domain of the antiderivative to all $x \\neq 0$, matching the domain of the original function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the basic integrals for $\\sin(x)$ and $\\cos(x)$.",
+      "back": "$$\\int \\sin(x) \\,dx = -\\cos(x) + C$$ $$\\int \\cos(x) \\,dx = \\sin(x) + C$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate $\\int (\\sec^2(x) - \\csc(x)\\cot(x)) \\,dx$.",
+      "back": "$$\\int (\\sec^2(x) - \\csc(x)\\cot(x)) \\,dx$$ $$= \\int \\sec^2(x) \\,dx - \\int \\csc(x)\\cot(x) \\,dx$$ $$= \\tan(x) - (-\\csc(x)) + C$$ $$= \\tan(x) + \\csc(x) + C$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the integral of $e^x$.",
+      "back": "$$\\int e^x \\,dx = e^x + C$$ This is because the derivative of $e^x$ with respect to $x$ is $e^x$ itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate $\\int a^x \\,dx$ for $a > 0, a \\neq 1$. Provide a brief justification.",
+      "back": "$$\\int a^x \\,dx = \\frac{a^x}{\\ln(a)} + C$$ Justification: We know that $a^x = e^{x \\ln(a)}$. To check the antiderivative, differentiate $\\frac{a^x}{\\ln(a)}$: $$\\frac{d}{dx}\\left(\\frac{a^x}{\\ln(a)}\\right) = \\frac{1}{\\ln(a)} \\frac{d}{dx}(e^{x \\ln(a)})$$ $$= \\frac{1}{\\ln(a)} \\cdot e^{x \\ln(a)} \\cdot \\ln(a) = e^{x \\ln(a)} = a^x$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the constant of integration, $+C$, always added when finding an indefinite integral?",
+      "back": "The indefinite integral represents the *family* of all antiderivatives of a function. Since the derivative of any constant is zero, if $F(x)$ is an antiderivative of $f(x)$, then $F(x) + C$ (for any arbitrary constant $C$) is also an antiderivative. This is because $\\frac{d}{dx}(F(x) + C) = F'(x) + 0 = f(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the linearity property of indefinite integrals and apply it to $\\int (3f(x) - 2g(x)) \\,dx$.",
+      "back": "The linearity property states that for any constants $k_1, k_2$ and integrable functions $f(x), g(x)$: $$\\int (k_1 f(x) + k_2 g(x)) \\,dx = k_1 \\int f(x) \\,dx + k_2 \\int g(x) \\,dx$$ Applying it to the given expression: $$\\int (3f(x) - 2g(x)) \\,dx = 3 \\int f(x) \\,dx - 2 \\int g(x) \\,dx$$",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-4-circle-as-degenerate-conic-e-0",
+  "subtopicTitle": "Circle as degenerate conic (e = 0)",
+  "topicId": "math-p3-3-4-conic-sections",
+  "topicTitle": "Conic Sections",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:06.086Z",
+  "cards": [
+    {
+      "front": "Define the eccentricity $e$ of a conic section.",
+      "back": "The eccentricity $e$ is the ratio of the distance from any point $P$ on the conic to a fixed point (the focus $F$) to its distance to a fixed line (the directrix $D$). Mathematically, $e = \\frac{PF}{PD}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the specific value of eccentricity $e$ for a circle?",
+      "back": "For a circle, the eccentricity $e = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, what does an eccentricity of $e=0$ imply about the focus and directrix of a circle?",
+      "back": "For $e=0$, the definition $PF = e \\cdot PD$ implies $PF=0$. This means every point $P$ on the circle is equidistant from the focus, which *is* the center of the circle. The directrix is considered to be infinitely far away or non-existent in this context, as its distance $PD$ would need to be infinite for $PF$ to be non-zero while $e=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the standard equation of a circle with center $(h, k)$ and radius $r$.",
+      "back": "$$(x-h)^2 + (y-k)^2 = r^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the standard equation of a circle centered at the origin, $x^2+y^2=r^2$, by considering a circle as a special case of an ellipse with eccentricity $e=0$.",
+      "back": "The standard equation for an ellipse centered at the origin is $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, where $a$ is the semi-major axis and $b$ is the semi-minor axis.\nThe relationship between $a$, $b$, and eccentricity $e$ for an ellipse is $b^2 = a^2(1-e^2)$.\nFor a circle, the eccentricity is $e=0$.\nSubstitute $e=0$ into the relationship: $b^2 = a^2(1-0^2) \\implies b^2 = a^2 \\implies b=a$ (since $a,b>0$). This means the semi-major and semi-minor axes are equal.\nSubstitute $b=a$ back into the ellipse equation: $\\frac{x^2}{a^2} + \\frac{y^2}{a^2} = 1$.\nMultiply the entire equation by $a^2$: $x^2 + y^2 = a^2$.\nSince $a$ is the radius of the circle in this case, let $r=a$.\nThus, the equation of a circle centered at the origin is $x^2 + y^2 = r^2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is a circle formed when a double cone is intersected by a plane?",
+      "back": "A circle is formed when a plane intersects one nappe (half) of the double cone *perpendicular* to the axis of the cone, and it does not pass through the vertex.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is a circle considered a \"degenerate conic\" in the same sense as a point, a line, or a pair of lines? Explain.",
+      "back": "No. A circle is a *non-degenerate* conic section. It is a special case of an ellipse where the eccentricity $e=0$ (meaning the two foci coincide and the semi-major and semi-minor axes are equal). \"Degenerate conics\" typically refer to the cases where the intersecting plane passes through the vertex of the cone, resulting in a point, a single line, or a pair of intersecting lines.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "As the eccentricity $e$ of an ellipse approaches $0$, the ellipse becomes more ________, eventually becoming a ________.",
+      "back": "As the eccentricity $e$ of an ellipse approaches $0$, the ellipse becomes more **circular**, eventually becoming a **circle**.",
+      "difficulty": "medium"
+    }
+  ]
+}

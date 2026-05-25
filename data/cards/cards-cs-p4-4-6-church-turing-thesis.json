@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-6-church-turing-thesis",
+  "subtopicTitle": "Church-Turing thesis",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:19.679Z",
+  "cards": [
+    {
+      "front": "State the core assertion of the Church-Turing thesis regarding \"effective methods.\"",
+      "back": "The Church-Turing thesis states that any function computable by an \"effective method\" (an algorithm) can be computed by a Turing machine. It formalizes the intuitive notion of computability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What specific formal model of computation does the Church-Turing thesis equate with the intuitive concept of an \"algorithm\"?",
+      "back": "The Church-Turing thesis equates the intuitive concept of an \"algorithm\" (or \"effective method\") with the formal model of a **Turing machine**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the Church-Turing thesis considered a \"thesis\" or \"conjecture\" rather than a mathematically provable theorem?",
+      "back": "It's a thesis because it links an informal, intuitive concept (\"effective method\" or \"algorithm\") to a formal mathematical model (Turing machine). One cannot mathematically prove an equivalence between an informal concept and a formal one; it's an assertion about the nature of computation itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name at least three distinct formal models of computation that have been shown to be equivalent in power to a Turing machine, lending strong support to the Church-Turing thesis.",
+      "back": "1. **Lambda calculus** (developed by Alonzo Church)\n2. **Recursive functions** (developed by Kurt Gödel and Stephen Kleene)\n3. **Register machines**\n4. **Post canonical systems**\n5. Any modern general-purpose programming language (e.g., Python, C++)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a problem is proven to be \"undecidable\" by a Turing machine, what does the Church-Turing thesis imply about its solvability on *any* future classical computer?",
+      "back": "The Church-Turing thesis implies that if a problem is undecidable by a Turing machine, it cannot be solved by *any* algorithm on *any* classical computer, regardless of its design or speed. This is because all known classical computational models are believed to be no more powerful than a Turing machine.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe two primary reasons for the widespread acceptance of the Church-Turing thesis, despite its non-provable nature.",
+      "back": "1.  **Robustness of Models:** Many diverse and independently developed formal models of computation (Turing machines, lambda calculus, recursive functions, etc.) have been proven to be equivalent in computational power. This convergence suggests they've accurately captured the essence of \"computability.\"\n2.  **Lack of Counterexample:** No one has ever proposed an \"effective method\" or algorithm that is intuitively computable but cannot be simulated by a Turing machine.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does the Church-Turing thesis claim that quantum computers cannot solve problems that classical Turing machines cannot? Explain.",
+      "back": "The classical Church-Turing thesis does *not* claim that quantum computers cannot solve problems that classical Turing machines cannot. It primarily concerns *classical* computability. While quantum computers can solve certain problems (e.g., factoring) *much faster* than classical computers, they are generally believed to *not* be able to compute functions that are fundamentally *uncomputable* by a classical Turing machine (e.g., the Halting Problem). They change the *efficiency* of computation, not the fundamental *computability* itself.",
+      "difficulty": "hard"
+    }
+  ]
+}

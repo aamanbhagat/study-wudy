@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-3-bgp-path-vector-as-policy-routing",
+  "subtopicTitle": "BGP — path vector, AS, policy routing",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:31.165Z",
+  "cards": [
+    {
+      "front": "What is BGP, and what is its primary role in the internet?",
+      "back": "BGP (Border Gateway Protocol) is the de facto inter-domain routing protocol for the internet. Its primary role is to exchange routing and reachability information among autonomous systems (ASes) to determine the best paths across the internet. It's often called the \"routing protocol of the internet.\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an Autonomous System (AS) in the context of internet routing.",
+      "back": "An Autonomous System (AS) is a collection of IP networks and routers under the control of one or more network operators that presents a common, clearly defined routing policy to the internet. Each AS is assigned a unique AS number (ASN).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does BGP's \"path vector\" nature prevent routing loops and inform path selection?",
+      "back": "As a path vector protocol, BGP includes the entire AS path (a sequence of ASNs) in its routing updates. When an AS receives an update, it checks if its own ASN is already in the path. If so, it discards the update to prevent loops. This path information also allows routers to make informed decisions based on the *sequence* of ASes, not just hop count, which is crucial for policy routing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is \"policy routing\" fundamental to BGP, unlike interior gateway protocols (IGPs)?",
+      "back": "BGP operates between different administrative domains (ASes), each with its own business relationships (e.g., customer, provider, peer) and operational goals. Policy routing allows ASes to implement these relationships and goals (e.g., traffic engineering, cost optimization, security) by influencing path selection, rather than solely relying on shortest path metrics. IGPs within a single AS typically prioritize technical metrics like lowest cost or shortest path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name three key BGP attributes that an AS can manipulate to implement routing policies.",
+      "back": "Three key BGP attributes used for policy routing are:\n1.  **LOCAL_PREF**: Used internally within an AS to prefer an exit path for outbound traffic. Higher LOCAL_PREF is preferred.\n2.  **AS_PATH**: The sequence of ASNs traversed. A shorter AS_PATH is generally preferred, but ASes can prepend their own ASNs to make a path appear longer (less preferred).\n3.  **MED (Multi-Exit Discriminator)**: Used to influence how other ASes route traffic *into* the local AS when there are multiple entry points. Lower MED is preferred.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "AS65001 is a customer of AS65002 and a peer of AS65003. Describe a BGP policy AS65001 might implement for outbound traffic to prioritize its customer relationship.",
+      "back": "AS65001 would typically prefer to send outbound traffic via its provider (AS65002) rather than its peer (AS65003) to fulfill its paid service agreement. To implement this, AS65001 could set a higher `LOCAL_PREF` for routes learned from AS65002 compared to routes learned from its peer AS65003. For example, `LOCAL_PREF` 200 for AS65002 routes and `LOCAL_PREF` 100 for AS65003 routes. This ensures its own traffic exits through its provider, maximizing service quality or adhering to its contractual obligations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly list the first three criteria in the BGP best path selection algorithm, assuming all paths are valid.",
+      "back": "The BGP best path selection algorithm is complex, but the first three criteria (assuming a valid path) are:\n1.  **Weight**: (Cisco proprietary) Highest weight is preferred.\n2.  **LOCAL_PREF**: Highest `LOCAL_PREF` is preferred.\n3.  **Originate**: Prefer the path that the router originated itself (e.g., via `network` command or redistribution).\n(Note: The full algorithm has over a dozen steps, but these are crucial early steps for policy influence.)",
+      "difficulty": "hard"
+    }
+  ]
+}

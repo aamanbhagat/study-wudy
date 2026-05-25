@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-7-dp-problems-longest-common-subsequence-lcs",
+  "subtopicTitle": "DP problems — Longest Common Subsequence (LCS)",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:39.411Z",
+  "cards": [
+    {
+      "front": "Define \"subsequence,\" \"common subsequence,\" and \"Longest Common Subsequence (LCS)\" in the context of strings.",
+      "back": "A **subsequence** is a sequence that can be derived from another sequence by deleting zero or more elements without changing the order of the remaining elements. A **common subsequence** of two strings is a subsequence that is common to both strings. The **Longest Common Subsequence (LCS)** is the longest possible common subsequence among all common subsequences of the two strings.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When finding the LCS of two strings, $S_1$ of length $m$ and $S_2$ of length $n$, what are the two main cases to consider when comparing their last characters, $S_1[m-1]$ and $S_2[n-1]$?",
+      "back": "The two main cases are:\n1.  **If $S_1[m-1] == S_2[n-1]$**: The last characters match. This character must be part of the LCS. The problem reduces to finding the LCS of the prefixes $S_1[0...m-2]$ and $S_2[0...n-2]$, and adding 1 to its length.\n2.  **If $S_1[m-1] \\neq S_2[n-1]$**: The last characters do not match. The LCS cannot include both $S_1[m-1]$ and $S_2[n-1]$. The problem reduces to taking the maximum of two subproblems: LCS of $S_1[0...m-2]$ and $S_2[0...n-1]$, OR LCS of $S_1[0...m-1]$ and $S_2[0...n-2]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the recurrence relation for the length of the Longest Common Subsequence, $LCS(S_1[0...m-1], S_2[0...n-1])$.",
+      "back": "Let $LCS(i, j)$ denote the length of the LCS of prefixes $S_1[0...i-1]$ and $S_2[0...j-1]$.\n\n$$ LCS(i, j) = \\begin{cases}\n0 & \\text{if } i=0 \\text{ or } j=0 \\\\\n1 + LCS(i-1, j-1) & \\text{if } S_1[i-1] == S_2[j-1] \\\\\n\\max(LCS(i-1, j), LCS(i, j-1)) & \\text{if } S_1[i-1] \\neq S_2[j-1]\n\\end{cases} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the base cases for the LCS recurrence relation, $LCS(S_1[0...m-1], S_2[0...n-1])$?",
+      "back": "The base cases occur when one or both of the input strings (or their prefixes) are empty. Specifically:\n*   If $m=0$ (the first string is empty), $LCS(0, n) = 0$.\n*   If $n=0$ (the second string is empty), $LCS(m, 0) = 0$.\n\nThis means if either $i$ or $j$ is 0 in $LCS(i, j)$, the length of the common subsequence is 0.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the standard dynamic programming approach for LCS, what does $dp[i][j]$ represent, and in what order is the $dp$ table typically filled?",
+      "back": "The cell $dp[i][j]$ typically represents the length of the Longest Common Subsequence of the first $i$ characters of string $S_1$ ($S_1[0...i-1]$) and the first $j$ characters of string $S_2$ ($S_2[0...j-1]$).\n\nThe $dp$ table is typically filled in a bottom-up manner, iterating through rows and columns. This means cells are computed from top-left to bottom-right, ensuring that all required subproblem solutions ($dp[i-1][j-1]$, $dp[i-1][j]$, $dp[i][j-1]$) are available before computing $dp[i][j]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the time and space complexities of the standard dynamic programming algorithm for finding the length of the LCS of two strings of lengths $m$ and $n$.",
+      "back": "The standard DP algorithm for LCS has:\n*   **Time Complexity:** $O(mn)$. This is because a 2D $m \\times n$ DP table is constructed, and each cell takes constant time to compute based on previously computed cells.\n*   **Space Complexity:** $O(mn)$. This is due to storing the $m \\times n$ DP table. (Note: Space can be optimized to $O(\\min(m, n))$ by only storing the current and previous rows/columns, but $O(mn)$ is standard for reconstruction).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the general approach to reconstruct one of the actual LCS strings from the filled $dp$ table, after computing its length.",
+      "back": "To reconstruct an LCS, start from the bottom-right cell $dp[m][n]$ and backtrack:\n1.  If $S_1[i-1] == S_2[j-1]$: The characters match. This character is part of the LCS. Append $S_1[i-1]$ (or $S_2[j-1]$) to the result and move diagonally up-left to $dp[i-1][j-1]$.\n2.  If $S_1[i-1] \\neq S_2[j-1]$: The characters don't match. Move to the cell (either $dp[i-1][j]$ or $dp[i][j-1]$) that has the larger value. If they are equal, either path works. This indicates we're moving away from a character that wasn't part of the LCS. Continue until $i=0$ or $j=0$. The reconstructed string will be in reverse order, so it needs to be reversed.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $S_1 = \\text{\"ABCBDAB\"}$ and $S_2 = \\text{\"BDCABA\"}$, what is the length of their Longest Common Subsequence?",
+      "back": "The length of the Longest Common Subsequence for $S_1 = \\text{\"ABCBDAB\"}$ and $S_2 = \\text{\"BDCABA\"}$ is $\\mathbf{4}$.\n\nExamples of LCS include \"BCBA\", \"BDAB\", \"BCAB\".",
+      "difficulty": "medium"
+    }
+  ]
+}

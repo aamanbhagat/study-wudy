@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-structural-design-process-load-cases-fos-factor-of-safety",
+  "subtopicTitle": "Structural design process — load cases, FOS (factor of safety)",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:05.319Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of the structural design process for a spacecraft?",
+      "back": "The primary objective is to ensure the spacecraft can withstand all anticipated operational and environmental loads throughout its mission life without failure, while minimizing mass to maximize performance and minimize launch costs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define 'load case' in the context of spacecraft structural design.",
+      "back": "A 'load case' is a specific, defined set of external forces, moments, pressures, and accelerations that a spacecraft structure might experience during a particular phase of its mission (e.g., launch, on-orbit operations, re-entry).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three distinct types of load cases commonly considered during spacecraft structural design.",
+      "back": "1.  **Launch Loads:** Thrust, acoustic noise, random vibration, shock, aerodynamic pressure.\n2.  **On-Orbit Loads:** Thermal expansion/contraction, micro-gravity, docking/berthing forces, re-orientation maneuvers.\n3.  **Deployment Loads:** Actuator forces, shock from release mechanisms, spring forces.\n4.  **Ground Handling Loads:** Gravity, transportation vibrations, lifting forces.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is identifying the 'critical load case' essential in spacecraft structural design?",
+      "back": "The critical load case represents the combination of loads that produces the maximum stress, strain, or deformation in a specific structural component or the overall structure. Designing for this most severe case ensures the structure can survive all other less severe load conditions, providing a robust and reliable design.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define Factor of Safety (FOS) and provide its general formula with respect to ultimate strength.",
+      "back": "The Factor of Safety (FOS) is a dimensionless ratio that quantifies the strength reserve of a structure beyond the expected maximum load. It accounts for uncertainties and ensures reliability.\n$$FOS = \\frac{\\text{Ultimate Strength}}{\\text{Maximum Expected Stress}}$$ \nAlternatively, for yield-based design: $$FOS = \\frac{\\text{Yield Strength}}{\\text{Maximum Expected Stress}}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the primary reasons why a Factor of Safety (FOS) is applied in spacecraft structural design, rather than just designing to exact expected loads.",
+      "back": "FOS is applied to account for:\n1.  **Uncertainties:** Variations in material properties, manufacturing tolerances, and inaccuracies in load prediction models.\n2.  **Degradation:** Potential material degradation over time due to environmental factors (e.g., radiation, thermal cycling).\n3.  **Unforeseen Events:** Unexpected operational conditions or minor damage.\n4.  **Analysis Simplifications:** Approximations made in structural analysis.\nIt provides a necessary margin against failure, ensuring mission reliability and safety.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A spacecraft component has an ultimate tensile strength of $450 \\text{ MPa}$. If the maximum predicted operational stress is $150 \\text{ MPa}$, what is the Factor of Safety (FOS)?",
+      "back": "To calculate the Factor of Safety (FOS):\n$$FOS = \\frac{\\text{Ultimate Strength}}{\\text{Maximum Expected Stress}}$$ \n$$FOS = \\frac{450 \\text{ MPa}}{150 \\text{ MPa}}$$ \n$$FOS = 3.0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the chosen Factor of Safety (FOS) directly influence a spacecraft's mass and, consequently, its mission cost?",
+      "back": "A higher FOS requires a stronger, and thus typically heavier, structure to withstand the increased design loads. This additional mass directly translates to higher launch costs due to the cost per kilogram to orbit. Conversely, a lower FOS reduces mass, saving launch costs, but increases the risk of structural failure, which could lead to mission loss and catastrophic financial and reputational consequences. The selection of FOS is a critical trade-off between reliability, mass, and cost.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-sfinae-substitution-failure-is-not-an-error",
+  "subtopicTitle": "SFINAE — substitution failure is not an error",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:11.280Z",
+  "cards": [
+    {
+      "front": "What does SFINAE stand for, and what is its core principle in C++ template metaprogramming?",
+      "back": "SFINAE stands for \"Substitution Failure Is Not An Error.\" Its core principle is that if substituting template parameters into a declaration results in an invalid type or expression, that particular overload or specialization is simply removed from the set of candidates during overload resolution, rather than causing a compilation error.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "During which specific phase of compilation does SFINAE operate, and what is the outcome of a successful SFINAE application?",
+      "back": "SFINAE operates during the **template argument deduction and substitution phase** of overload resolution. If substitution fails, the candidate function/template is removed from the overload set. If substitution succeeds, the candidate remains and participates in further overload resolution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how `std::enable_if` leverages SFINAE to conditionally enable or disable template instantiations.",
+      "back": "`std::enable_if<Condition, Type>::type` is a type trait. If `Condition` is true, it provides a nested `type` alias to `Type` (defaulting to `void`). If `Condition` is false, it has no `type` member. When used in a function signature's return type or a template parameter's default argument, `std::enable_if<false, ...>::type` causes a substitution failure, effectively removing that overload from consideration due to SFINAE.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using `std::enable_if`, write two overloaded `print` functions: one that accepts only integral types and another for all other types.",
+      "back": "```cpp\n#include <iostream>\n#include <type_traits>\n\ntemplate <typename T>\ntypename std::enable_if<std::is_integral<T>::value, void>::type\nprint(T val) {\n    std::cout << \"Integral: \" << val << std::endl;\n}\n\ntemplate <typename T>\ntypename std::enable_if<!std::is_integral<T>::value, void>::type\nprint(T val) {\n    std::cout << \"Non-integral: \" << val << std::endl;\n}\n\n// Example usage:\n// print(5);       // Calls integral version\n// print(3.14);    // Calls non-integral version\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can SFINAE be used to detect the existence of a specific member function or nested type within a class template, often involving `decltype` and `void_t`?",
+      "back": "This is typically done by attempting to form an expression involving the member within a `decltype` context. If the expression is ill-formed for a given type `T`, it leads to a substitution failure. A common pattern uses `void_t` (C++17) or a similar technique to create a dependent type:\n```cpp\ntemplate <typename T, typename = void>\nstruct HasMemberFoo : std::false_type {};\n\ntemplate <typename T>\nstruct HasMemberFoo<T, std::void_t<decltype(std::declval<T>().foo())>> : std::true_type {};\n```\nIf `T::foo()` exists and is callable, `decltype(...)` succeeds, and `void_t` makes the second template specialization valid, leading to its selection. Otherwise, substitution fails, and the primary template (`std::false_type`) is chosen.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the key distinction between a \"substitution failure\" that triggers SFINAE and a \"hard error\" that stops compilation? Provide an example of each.",
+      "back": "A **substitution failure** occurs when a template parameter, when replaced by a concrete type, makes a *declaration* ill-formed (e.g., `T::non_existent_type`, `int* + int`). This causes the candidate to be removed. A **hard error** occurs when the code is ill-formed *after* successful substitution and overload resolution (e.g., calling a private member function, undefined function call, syntax error in the function body). Hard errors stop compilation.\n*   SFINAE example: `template <typename T> void foo(typename T::type*);` // Fails for `T=int`\n*   Hard error example: `void bar() { undeclared_function(); }` // Fails after `bar` is chosen",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does SFINAE directly influence the process of overload resolution in C++?",
+      "back": "SFINAE acts as a **filter** during the initial phase of overload resolution. Before the compiler ranks candidates by best match, it first attempts to substitute template arguments into each candidate function's signature. Any candidate whose substitution results in an ill-formed type or expression is immediately **removed from the set of viable candidates**. Only the candidates that successfully pass the substitution phase proceed to be ranked for the best match.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare and contrast SFINAE with C++20 Concepts (Constraints) as mechanisms for restricting template parameters. What are the advantages of Concepts?",
+      "back": "SFINAE is an implicit, compile-time mechanism based on substitution failures. It's powerful but can lead to verbose, hard-to-read code (e.g., complex `enable_if` expressions, `decltype` tricks) and poor error messages.\n\nConcepts (C++20) are an explicit, language-level feature for defining semantic requirements on template parameters.\n\n**Advantages of Concepts:**\n1.  **Readability:** Constraints are part of the template signature, making requirements clear.\n2.  **Better Error Messages:** Concepts provide direct, human-readable diagnostics when requirements are not met.\n3.  **Expressiveness:** Can define complex logical combinations of requirements easily.\n4.  **Symmetry:** Used for both constraining templates and overloading based on constraints.\n\nWhile SFINAE is still valid, Concepts are the preferred modern approach for expressing template constraints due to their superior clarity and diagnostics.",
+      "difficulty": "hard"
+    }
+  ]
+}

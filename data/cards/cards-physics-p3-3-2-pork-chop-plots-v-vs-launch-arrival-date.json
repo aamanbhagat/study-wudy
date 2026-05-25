@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-pork-chop-plots-v-vs-launch-arrival-date",
+  "subtopicTitle": "Pork chop plots — Δv vs launch/arrival date",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:08.239Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a 'pork chop plot' in astrodynamics?",
+      "back": "A pork chop plot is a graphical tool used in interplanetary mission planning to visualize the $\\Delta v$ (change in velocity) requirements for a transfer trajectory as a function of launch date and arrival date. Its main purpose is to identify optimal launch windows that minimize propellant consumption.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the typical axes and the meaning of the contour lines on a standard pork chop plot.",
+      "back": "The x-axis typically represents the **Launch Date**, and the y-axis represents the **Arrival Date**. The contour lines represent constant values of a specific performance metric, most commonly the **total $\\Delta v$** required for the mission (or sometimes departure $C_3$, arrival $\\Delta v$, or flight time).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "On a pork chop plot, what do the 'valleys' or 'bullseyes' indicate, and why are they crucial for mission planners?",
+      "back": "The 'valleys' or 'bullseyes' (regions enclosed by the lowest contour values) indicate combinations of launch and arrival dates that require the minimum $\\Delta v$ for the interplanetary transfer. These points are crucial because they represent the most fuel-efficient trajectories, directly impacting mission cost, payload mass, and launch vehicle selection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental astrodynamics problem is solved repeatedly for various launch/arrival date pairs to generate a pork chop plot?",
+      "back": "The **Lambert's Problem** (or Lambert's Theorem) is solved repeatedly. Given two position vectors (representing the departure and arrival planets at specific dates) and a transfer time (arrival date - launch date), Lambert's problem determines the unique conic section (and thus the required velocities) connecting them.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an interplanetary transfer from Earth parking orbit to target parking orbit, derive the total $\\Delta v$ components.",
+      "back": "The total $\\Delta v$ for an interplanetary transfer is the sum of the $\\Delta v$ required for Earth departure and the $\\Delta v$ for target planet arrival:\n1.  **Departure $\\Delta v$ ($\\\\Delta v_{dep}$)**: The $\\Delta v$ needed to escape Earth's gravity well from a parking orbit and achieve the required hyperbolic excess velocity ($V_{\\infty,dep}$) for the transfer trajectory.\n    $\\Delta v_{dep} = \\sqrt{V_{\\infty,dep}^2 + V_{circ,Earth}^2} - V_{circ,Earth}$\n    where $V_{circ,Earth}$ is the velocity in the initial circular parking orbit around Earth.\n2.  **Arrival $\\Delta v$ ($\\\\Delta v_{arr}$)**: The $\\Delta v$ needed to slow down from the approach hyperbolic trajectory and insert into a parking orbit around the target planet.\n    $\\Delta v_{arr} = V_{circ,target} - \\sqrt{V_{\\infty,arr}^2 + V_{circ,target}^2}$\n    where $V_{circ,target}$ is the velocity in the final circular parking orbit around the target planet.\n3.  **Total $\\Delta v$**: $\\Delta v_{total} = \\Delta v_{dep} + |\\Delta v_{arr}|$. The $V_{\\infty}$ values are determined by the transfer trajectory calculated via Lambert's problem.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why do pork chop plots often exhibit an elongated, oval, or 'pork chop' shape, rather than a simple circular minimum?",
+      "back": "The 'pork chop' shape arises because the optimal launch and arrival dates are not independent; they are strongly coupled by the relative orbital mechanics of the planets. The 'valleys' are elongated because a slight shift in launch date can often be compensated by a corresponding shift in arrival date (or vice-versa) without drastically increasing the $\\Delta v$ requirement. This creates a 'ridge' or 'valley' of low $\\Delta v$ that stretches across the plot, reflecting the limited windows when planetary alignments are favorable for low-energy transfers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A mission planner must select a launch window from a pork chop plot. Beyond minimum $\\Delta v$, what other critical factors must be considered?",
+      "back": "Besides minimum $\\Delta v$, critical factors include:\n1.  **Flight Time (TOF):** Shorter TOF might be preferred despite slightly higher $\\Delta v$ for human missions or time-sensitive science. Longer TOF might be acceptable for lower $\\Delta v$ (e.g., cargo).\n2.  **Launch Period Availability:** Constraints from launch vehicle schedules, ground station visibility, or weather.\n3.  **Arrival Conditions:** Specific requirements for atmospheric entry, orbital insertion (e.g., sun angle for power, specific orbital plane), or planetary protection.\n4.  **Cost & Risk:** Higher $\\Delta v$ often implies a more powerful, expensive launch vehicle or more propellant, impacting overall mission budget and risk.\n5.  **Contingency:** A wider 'pork chop' valley offers more flexibility for launch delays, even if not the absolute minimum $\\Delta v$ point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides $\\Delta v$, what other key performance parameters are often visualized using plots similar to pork chop plots for interplanetary mission planning?",
+      "back": "Other parameters commonly plotted include:\n1.  **$C_3$ (Characteristic Energy):** This is the square of the hyperbolic excess velocity ($V_{\\infty}^2$) required at departure. It directly relates to the launch vehicle's capability and payload mass.\n2.  **Flight Time (TOF):** The duration of the transfer trajectory, crucial for mission operations and crew health.\n3.  **Arrival $V_{\\infty}$ (or $C_3$ at arrival):** Important for sizing the propulsion system for orbital insertion, or for atmospheric entry considerations (e.g., heat shield design).\n4.  **Declination of the Launch Asymptote (DLA):** Critical for launch site selection and steering requirements to achieve the desired departure trajectory.",
+      "difficulty": "medium"
+    }
+  ]
+}

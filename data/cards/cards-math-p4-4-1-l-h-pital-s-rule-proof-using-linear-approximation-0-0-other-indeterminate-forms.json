@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-l-h-pital-s-rule-proof-using-linear-approximation-0-0-other-indeterminate-forms",
+  "subtopicTitle": "L'Hôpital's rule — proof using linear approximation, 0/0, ∞/∞, other indeterminate forms",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:59.185Z",
+  "cards": [
+    {
+      "front": "What specific problem in evaluating limits does L'Hôpital's Rule address?",
+      "back": "L'Hôpital's Rule provides a method to evaluate limits of indeterminate forms, specifically $\\frac{0}{0}$ and $\\frac{\\pm\\infty}{\\pm\\infty}$, which cannot be resolved by direct substitution or simple algebraic manipulation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State L'Hôpital's Rule for a limit $\\lim_{x \\to c} \\frac{f(x)}{g(x)}$ that yields an indeterminate form.",
+      "back": "If $\\lim_{x \\to c} f(x) = 0$ and $\\lim_{x \\to c} g(x) = 0$ (or both approach $\\pm\\infty$), and if $f$ and $g$ are differentiable near $c$ (except possibly at $c$) with $g'(x) \\neq 0$ near $c$, then:\n$$ \\lim_{x \\to c} \\frac{f(x)}{g(x)} = \\lim_{x \\to c} \\frac{f'(x)}{g'(x)} $$\nprovided the latter limit exists or is $\\pm\\infty$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using linear approximation, derive L'Hôpital's Rule for the $\\frac{0}{0}$ form at $x=c$, assuming $f(c)=g(c)=0$.",
+      "back": "Given $f(c)=g(c)=0$, for $x$ near $c$, we can use linear approximations:\n$f(x) \\approx f(c) + f'(c)(x-c) = f'(c)(x-c)$\n$g(x) \\approx g(c) + g'(c)(x-c) = g'(c)(x-c)$\nThen, for $x \\neq c$:\n$$ \\lim_{x \\to c} \\frac{f(x)}{g(x)} = \\lim_{x \\to c} \\frac{f'(c)(x-c)}{g'(c)(x-c)} = \\lim_{x \\to c} \\frac{f'(c)}{g'(c)} = \\frac{f'(c)}{g'(c)} $$\nIf $f'$ and $g'$ are continuous at $c$ and $g'(c) \\neq 0$, then $\\frac{f'(c)}{g'(c)} = \\lim_{x \\to c} \\frac{f'(x)}{g'(x)}$, thus proving the rule.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate the limit using L'Hôpital's Rule: $\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}$.",
+      "back": "This is an indeterminate form $\\frac{0}{0}$ because $\\lim_{x \\to 0} (e^x - 1 - x) = e^0 - 1 - 0 = 0$ and $\\lim_{x \\to 0} x^2 = 0$.\nApplying L'Hôpital's Rule once:\n$\\lim_{x \\to 0} \\frac{e^x - 1}{2x}$\nThis is still $\\frac{0}{0}$. Applying L'Hôpital's Rule again:\n$\\lim_{x \\to 0} \\frac{e^x}{2} = \\frac{e^0}{2} = \\frac{1}{2}$.\nSo, $\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2} = \\frac{1}{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the limit using L'Hôpital's Rule: $\\lim_{x \\to \\infty} \\frac{x^2}{e^x}$.",
+      "back": "This is an indeterminate form $\\frac{\\infty}{\\infty}$ because $\\lim_{x \\to \\infty} x^2 = \\infty$ and $\\lim_{x \\to \\infty} e^x = \\infty$.\nApplying L'Hôpital's Rule once:\n$\\lim_{x \\to \\infty} \\frac{2x}{e^x}$\nThis is still $\\frac{\\infty}{\\infty}$. Applying L'Hôpital's Rule again:\n$\\lim_{x \\to \\infty} \\frac{2}{e^x} = 0$.\nSo, $\\lim_{x \\to \\infty} \\frac{x^2}{e^x} = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the indeterminate form $0 \\cdot \\infty$ be prepared for L'Hôpital's Rule? Provide an example.",
+      "back": "The form $0 \\cdot \\infty$ can be rewritten as a quotient: either $\\frac{f(x)}{1/g(x)}$ (if $f(x) \\to 0$ and $g(x) \\to \\infty$) or $\\frac{g(x)}{1/f(x)}$ (if $f(x) \\to 0$ and $g(x) \\to \\infty$). This converts it to either $\\frac{0}{0}$ or $\\frac{\\infty}{\\infty}$.\nExample: $\\lim_{x \\to 0^+} x \\ln(x)$. This is $0 \\cdot (-\\infty)$.\nRewrite as $\\lim_{x \\to 0^+} \\frac{\\ln(x)}{1/x}$, which is $\\frac{-\\infty}{\\infty}$.\nApply L'Hôpital's Rule: $\\lim_{x \\to 0^+} \\frac{1/x}{-1/x^2} = \\lim_{x \\to 0^+} (-x) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the general strategy for evaluating indeterminate forms like $1^\\infty$, $0^0$, or $\\infty^0$ using L'Hôpital's Rule.",
+      "back": "These exponential indeterminate forms are evaluated by first taking the natural logarithm of the expression. If $L = \\lim_{x \\to c} [f(x)]^{g(x)}$, then $\\ln(L) = \\lim_{x \\to c} \\ln([f(x)]^{g(x)}) = \\lim_{x \\to c} g(x) \\ln(f(x))$.\nThis transformed limit will typically be of the $0 \\cdot \\infty$ form (e.g., for $1^\\infty$, $g(x) \\to \\infty$ and $\\ln(f(x)) \\to \\ln(1) = 0$), which can then be converted to $\\frac{0}{0}$ or $\\frac{\\infty}{\\infty}$ and evaluated using L'Hôpital's Rule. Finally, the original limit $L$ is $e^{\\lim_{x \\to c} g(x) \\ln(f(x))}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When is it inappropriate or incorrect to apply L'Hôpital's Rule?",
+      "back": "L'Hôpital's Rule is only applicable when the limit of the ratio $\\frac{f(x)}{g(x)}$ results in one of the indeterminate forms: $\\frac{0}{0}$ or $\\frac{\\pm\\infty}{\\pm\\infty}$. Applying it to limits that are not of these forms (e.g., $\\frac{1}{0}$, $\\frac{0}{1}$, $\\frac{\\infty}{1}$, or any definite non-zero value over zero) will lead to an incorrect result. Always verify the indeterminate form first.",
+      "difficulty": "easy"
+    }
+  ]
+}

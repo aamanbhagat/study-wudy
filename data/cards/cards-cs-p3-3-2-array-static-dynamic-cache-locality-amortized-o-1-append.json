@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-2-array-static-dynamic-cache-locality-amortized-o-1-append",
+  "subtopicTitle": "Array — static, dynamic; cache locality; amortized O(1) append",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:58.635Z",
+  "cards": [
+    {
+      "front": "Define a static array and state its primary characteristic regarding size.",
+      "back": "A static array is a fixed-size data structure where memory is allocated at compile-time or on the stack. Its size is immutable after creation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a dynamic array fundamentally differ from a static array in terms of size management?",
+      "back": "A dynamic array (e.g., `std::vector` in C++, `ArrayList` in Java) can grow or shrink in size during runtime. It manages an underlying static array, resizing it as needed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the common strategy a dynamic array uses when it runs out of space for new elements.",
+      "back": "When full, a dynamic array allocates a new, larger underlying static array (typically 2x current capacity), copies all existing elements to it, then deallocates the old array. The new element is then appended.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why appending an element to a dynamic array is often described as 'amortized O(1)' despite occasional O(N) operations.",
+      "back": "While an append operation can be O(N) when a resize occurs (copying N elements), these expensive operations are infrequent. Most appends are O(1). Over a sequence of M appends, the total cost is proportional to M, making the average cost per operation O(1) with a geometric growth strategy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the amortized time complexity for $M$ appends to a dynamic array that doubles its capacity when full.",
+      "back": "Let capacities be $1, 2, 4, \\dots, 2^k$. Resizes (copies) occur when the array reaches $2^0, 2^1, \\dots, 2^{k-1}$ elements. The total cost of copying elements for $M$ appends is $1 + 2 + 4 + \\dots + 2^{k-1} = 2^k - 1$. For $M$ appends, $2^k \\approx M$. Thus, the total cost for $M$ appends is approximately $M$ (for actual appends) $+ M$ (for copies) $= 2M$. The amortized cost per operation is $\\frac{2M}{M} = O(1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define 'cache locality' and explain how arrays typically exhibit good spatial locality.",
+      "back": "Cache locality refers to the tendency of a processor to access data items that are near to each other in memory. Arrays store elements contiguously in memory, meaning that when one element is accessed, its neighbors are likely already loaded into the CPU cache (spatial locality).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is cache locality a significant performance advantage for array traversals compared to, for example, linked list traversals?",
+      "back": "When traversing an array, accessing `arr[i]` often brings `arr[i+1]`, `arr[i+2]`, etc., into the CPU cache due to spatial locality, leading to faster subsequent accesses (cache hits). In contrast, linked list nodes can be scattered in memory, often resulting in cache misses for each node, which significantly slows down traversal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you prefer a static array over a dynamic array, and vice-versa?",
+      "back": "Prefer a **static array** when the exact number of elements is known at compile-time and won't change, or when memory usage needs to be extremely predictable and minimal (e.g., embedded systems). Prefer a **dynamic array** when the number of elements is unknown or varies during runtime, as it provides flexibility without requiring manual memory management for resizing.",
+      "difficulty": "medium"
+    }
+  ]
+}

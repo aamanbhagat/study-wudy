@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-orbit-shape-from-eccentricity-circle-e-0-ellipse-0-e-1-parabola-e-1-hyperbola-e-1",
+  "subtopicTitle": "Orbit shape from eccentricity — circle (e=0), ellipse (0<e<1), parabola (e=1), hyperbola (e>1)",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:43.752Z",
+  "cards": [
+    {
+      "front": "What is orbital eccentricity ($e$), and what primary characteristic of an orbit does it define?",
+      "back": "Orbital eccentricity ($e$) is a dimensionless parameter that quantifies how much an orbit deviates from a perfect circle. It primarily defines the *shape* of the orbit.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the shape and key properties of an orbit with an eccentricity of $e=0$.",
+      "back": "An orbit with $e=0$ is a perfect circle. Key properties include a constant distance from the central body (radius) and constant orbital speed. It is a special case of an ellipse.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What defines an elliptical orbit in terms of eccentricity, and what are its key geometric features?",
+      "back": "An elliptical orbit has an eccentricity $0 < e < 1$. It is a closed, periodic orbit where the central body is located at one focus. Key features include a semi-major axis ($a$), semi-minor axis ($b$), apoapsis ($r_a$), and periapsis ($r_p$). The distance from the center to each focus is $ea$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of trajectory is described by an eccentricity of $e=1$, and what is its significance for a spacecraft?",
+      "back": "A trajectory with $e=1$ is a parabola. This represents an \"escape trajectory\" where the spacecraft has exactly enough kinetic energy to escape the central body's gravitational pull and will never return. It is an open, non-periodic trajectory with zero total orbital energy ($E=0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the shape and energy state of a trajectory with an eccentricity $e > 1$.",
+      "back": "A trajectory with $e > 1$ is a hyperbola. This is an open, non-periodic escape trajectory where the spacecraft possesses more than enough kinetic energy to escape. It approaches the central body, makes a single pass, and then departs, never returning. The total orbital energy is positive ($E>0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the total orbital energy ($E$) relate to eccentricity ($e$) for bound and unbound orbits?",
+      "back": "For bound orbits (circle, ellipse), $E < 0$:\n- Circle ($e=0$): $E = -\\frac{\\mu m}{2a}$\n- Ellipse ($0 < e < 1$): $E = -\\frac{\\mu m}{2a}$\nFor unbound orbits (parabola, hyperbola):\n- Parabola ($e=1$): $E = 0$. This is the minimum energy for escape.\n- Hyperbola ($e > 1$): $E > 0$. The object has excess energy for escape.\n($\\mu$ is the standard gravitational parameter, $m$ is the orbiting body's mass, $a$ is semi-major axis).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "As eccentricity increases from $e=0$ to $e \\gg 1$, how does the shape of the orbit intuitively transform?",
+      "back": "Starting from a perfect circle ($e=0$), as $e$ increases, the orbit elongates into an ellipse. As $e$ approaches 1, the ellipse becomes increasingly stretched. At $e=1$, it \"opens up\" into a parabola, an open curve. For $e > 1$, it becomes a hyperbola, also an open curve, but with a sharper turn around the central body and a faster departure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the general formula for eccentricity ($e$) in terms of apoapsis ($r_a$) and periapsis ($r_p$) distances?",
+      "back": "The eccentricity $e$ can be calculated as:\n$$e = \\frac{r_a - r_p}{r_a + r_p}$$\nwhere $r_a$ is the apoapsis distance (farthest point from the central body) and $r_p$ is the periapsis distance (closest point from the central body). This formula is primarily used for elliptical orbits.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p3-3-3-geometric-progression-gp-nth-term-sum-of-n-terms-derivations",
+  "subtopicTitle": "Geometric progression (GP) — nth term, sum of n terms — derivations",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:15.964Z",
+  "cards": [
+    {
+      "front": "Define a Geometric Progression (GP).",
+      "back": "A sequence of non-zero numbers where each term after the first is found by multiplying the previous one by a fixed, non-zero number called the common ratio.\n\nExample: $2, 6, 18, 54, \\dots$ (common ratio $r=3$)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a GP, how is the common ratio $r$ calculated?",
+      "back": "The common ratio $r$ is found by dividing any term by its preceding term.\n\nIf the GP is $a_1, a_2, a_3, \\dots$, then $r = \\frac{a_2}{a_1} = \\frac{a_3}{a_2} = \\dots = \\frac{a_n}{a_{n-1}}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the $n$-th term ($a_n$) of a Geometric Progression with first term $a$ and common ratio $r$.",
+      "back": "The $n$-th term of a GP is given by:\n$$a_n = ar^{n-1}$$\nwhere $a$ is the first term, $r$ is the common ratio, and $n$ is the term number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the $n$-th term of a Geometric Progression ($a_n$).",
+      "back": "Let the first term be $a$.\nThe second term $a_2 = a \\cdot r = ar^1$.\nThe third term $a_3 = a_2 \\cdot r = (ar) \\cdot r = ar^2$.\nThe fourth term $a_4 = a_3 \\cdot r = (ar^2) \\cdot r = ar^3$.\n\nObserving the pattern, the exponent of $r$ is always one less than the term number.\nThus, the $n$-th term $a_n$ is:\n$$a_n = ar^{n-1}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the two common formulas for the sum of the first $n$ terms ($S_n$) of a GP.",
+      "back": "The sum of the first $n$ terms of a GP is given by:\n1. If $r \\neq 1$: $$S_n = \\frac{a(r^n - 1)}{r - 1}$$\n2. If $r \\neq 1$ (alternative, often used when $|r| < 1$): $$S_n = \\frac{a(1 - r^n)}{1 - r}$$\n3. If $r = 1$: $$S_n = na$$\nwhere $a$ is the first term, $r$ is the common ratio, and $n$ is the number of terms.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the sum of the first $n$ terms ($S_n$) of a GP, assuming $r \\neq 1$.",
+      "back": "Let $S_n = a + ar + ar^2 + \\dots + ar^{n-2} + ar^{n-1}$ (Equation 1)\nMultiply Equation 1 by $r$:\n$rS_n = ar + ar^2 + ar^3 + \\dots + ar^{n-1} + ar^n$ (Equation 2)\n\nSubtract Equation 1 from Equation 2:\n$rS_n - S_n = (ar + ar^2 + \\dots + ar^{n-1} + ar^n) - (a + ar + \\dots + ar^{n-1})$\n$S_n(r - 1) = ar^n - a$\n$S_n(r - 1) = a(r^n - 1)$\n$$S_n = \\frac{a(r^n - 1)}{r - 1}$$\n(If $r=1$, $S_n = a+a+\\dots+a$ ($n$ times) $= na$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for the sum to infinity ($S_\\infty$) of a Geometric Progression.",
+      "back": "The sum to infinity of a GP is given by:\n$$S_\\infty = \\frac{a}{1 - r}$$\nwhere $a$ is the first term and $r$ is the common ratio.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the necessary condition for the sum to infinity ($S_\\infty$) of a GP to exist?",
+      "back": "The sum to infinity of a GP exists if and only if the absolute value of the common ratio $r$ is strictly less than 1.\nThis can be written as:\n$$|r| < 1 \\quad \\text{or} \\quad -1 < r < 1$$\nIf $|r| \\ge 1$, the terms do not approach zero, and the sum diverges (does not have a finite value).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A GP has a first term of $3$ and a common ratio of $2$. If the $n$-th term is $96$, find $n$.",
+      "back": "Given: $a = 3$, $r = 2$, $a_n = 96$.\nThe formula for the $n$-th term is $a_n = ar^{n-1}$.\n\nSubstitute the given values:\n$96 = 3 \\cdot 2^{n-1}$\nDivide by $3$:\n$32 = 2^{n-1}$\n\nWe know that $32 = 2^5$.\nSo, $2^5 = 2^{n-1}$\nEquating the exponents:\n$5 = n - 1$\n$n = 5 + 1$\n$n = 6$\n\nThe $6$-th term is $96$.",
+      "difficulty": "hard"
+    }
+  ]
+}

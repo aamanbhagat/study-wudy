@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-hydrostatics-pressure-gh-derivation",
+  "subtopicTitle": "Hydrostatics — pressure = ρgh, derivation",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:54.174Z",
+  "cards": [
+    {
+      "front": "Define hydrostatics.",
+      "back": "Hydrostatics is the branch of fluid mechanics that studies fluids at rest, focusing on the forces exerted by or on static fluids, particularly the variation of pressure with depth.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the hydrostatic pressure formula $P = \\rho gh$, identify what each variable represents and its SI unit.",
+      "back": "<ul><li>$P$: Hydrostatic pressure (Pascals, Pa or N/m$^2$)</li><li>$\\rho$: Fluid density (kilograms per cubic meter, kg/m$^3$)</li><li>$g$: Acceleration due to gravity (meters per second squared, m/s$^2$)</li><li>$h$: Depth or height of the fluid column (meters, m)</li></ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental principle is applied to derive the relationship between pressure and depth in a static fluid?",
+      "back": "Newton's Second Law of Motion, specifically the condition for equilibrium (net force is zero), applied to a small fluid element.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the absolute pressure $P_h$ at a depth $h$ in a static, incompressible fluid, given surface pressure $P_0$.",
+      "back": "Consider a cylindrical fluid element of cross-sectional area $A$ and infinitesimal height $dh$ at a depth $h$.\n1.  **Forces:**\n    *   Downward pressure force on top: $F_{top} = P \\cdot A$\n    *   Upward pressure force on bottom: $F_{bottom} = (P+dP) \\cdot A$\n    *   Downward weight of element: $dW = (\\rho \\cdot A \\cdot dh)g$\n2.  **Equilibrium ($\\Sigma F_y = 0$):**\n    $(P+dP)A - PA - \\rho A g dh = 0$\n    $dP \\cdot A = \\rho A g dh$\n    $dP = \\rho g dh$\n3.  **Integration:** Integrate from surface ($h=0, P=P_0$) to depth $h$ ($P=P_h$):\n    $$\\int_{P_0}^{P_h} dP = \\int_0^h \\rho g dh$$\n    Assuming $\\rho$ and $g$ are constant:\n    $$P_h - P_0 = \\rho g h$$\n4.  **Result:** The absolute pressure at depth $h$ is $P_h = P_0 + \\rho g h$. The gauge pressure is $P_{gauge} = \\rho g h$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why pressure increases with depth in a static fluid.",
+      "back": "Pressure increases with depth because the fluid at any given depth must support the weight of all the fluid column directly above it. The deeper you go, the greater the volume and thus the greater the weight of the fluid pressing down, leading to higher pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the key assumptions required for the formula $P = \\rho gh$ to be strictly valid for gauge pressure.",
+      "back": "<ul><li>**Fluid is incompressible:** Its density ($\\rho$) is constant and does not change with depth or pressure.</li><li>**Fluid is static:** The fluid is at rest with no macroscopic motion or flow.</li><li>**Gravity is constant:** The acceleration due to gravity ($g$) is uniform throughout the fluid column.</li><li>**Fluid is continuous:** There are no voids or gaps within the fluid.</li><li>**Pressure is gauge pressure:** $P$ represents the pressure relative to the pressure at the surface ($P_0$), which is often atmospheric pressure. For absolute pressure, the formula is $P_{abs} = P_0 + \\rho gh$.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A cylindrical tank of oil (density $\\rho_{oil}$) is open to the atmosphere ($P_{atm}$). What is the absolute pressure at a depth $h$ below the surface?",
+      "back": "The absolute pressure at a depth $h$ is the sum of the atmospheric pressure acting on the surface and the hydrostatic pressure due to the oil column:\n$$P_{absolute} = P_{atm} + \\rho_{oil} g h$$",
+      "difficulty": "medium"
+    }
+  ]
+}

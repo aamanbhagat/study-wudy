@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-hohmann-transfer-derivation-minimum-energy-transfer",
+  "subtopicTitle": "Hohmann transfer — derivation, minimum energy transfer",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:50.341Z",
+  "cards": [
+    {
+      "front": "Define a Hohmann transfer orbit.",
+      "back": "A Hohmann transfer is an elliptical orbit used to transfer a spacecraft between two circular, coplanar orbits. It is tangent to the initial circular orbit at its periapsis (or apoapsis) and tangent to the final circular orbit at its apoapsis (or periapsis). It represents a minimum-energy transfer.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the Hohmann transfer considered a \"minimum energy\" transfer between two circular coplanar orbits?",
+      "back": "It is minimum energy because it uses the smallest possible elliptical transfer orbit that is tangent to both the initial and final circular orbits. This tangency ensures that the propulsive $\\Delta V$ maneuvers are applied parallel to the velocity vector at the apsides, which is the most efficient direction for changing orbital energy. Any other transfer ellipse would require a larger semimajor axis or non-tangential burns, thus demanding a higher total $\\Delta V$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the key simplifying assumptions for a classical Hohmann transfer calculation?",
+      "back": "1.  **Two-body problem**: Only the central body's gravity and the spacecraft's mass are considered.\n2.  **Impulsive burns**: $\\Delta V$ maneuvers are instantaneous.\n3.  **Circular initial and final orbits**: Both orbits are perfectly circular.\n4.  **Coplanar orbits**: Initial and final orbits lie in the same plane.\n5.  **Concentric orbits**: Both orbits share the same central body.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the $\\Delta V_1$ required for the first burn of a Hohmann transfer from an initial circular orbit of radius $r_1$ to initiate the transfer ellipse.",
+      "back": "The velocity in the initial circular orbit is $v_{c1} = \\sqrt{\\frac{\\mu}{r_1}}$.\nThe semimajor axis of the transfer ellipse is $a_{trans} = \\frac{r_1 + r_2}{2}$.\nThe velocity at periapsis of the transfer ellipse (at $r_1$) is given by the vis-viva equation:\n$v_{p,trans} = \\sqrt{\\mu \\left(\\frac{2}{r_1} - \\frac{1}{a_{trans}}\\right)} = \\sqrt{\\mu \\left(\\frac{2}{r_1} - \\frac{2}{r_1+r_2}\\right)}$.\nThe required $\\Delta V_1$ is the difference between the transfer orbit periapsis velocity and the initial circular orbit velocity:\n$\\Delta V_1 = v_{p,trans} - v_{c1} = \\sqrt{\\mu \\left(\\frac{2}{r_1} - \\frac{2}{r_1+r_2}\\right)} - \\sqrt{\\frac{\\mu}{r_1}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the $\\Delta V_2$ required for the second burn of a Hohmann transfer to circularize into the final orbit of radius $r_2$.",
+      "back": "The velocity in the final circular orbit is $v_{c2} = \\sqrt{\\frac{\\mu}{r_2}}$.\nThe semimajor axis of the transfer ellipse is $a_{trans} = \\frac{r_1 + r_2}{2}$.\nThe velocity at apoapsis of the transfer ellipse (at $r_2$) is given by the vis-viva equation:\n$v_{a,trans} = \\sqrt{\\mu \\left(\\frac{2}{r_2} - \\frac{1}{a_{trans}}\\right)} = \\sqrt{\\mu \\left(\\frac{2}{r_2} - \\frac{2}{r_1+r_2}\\right)}$.\nThe required $\\Delta V_2$ is the difference between the final circular orbit velocity and the transfer orbit apoapsis velocity:\n$\\Delta V_2 = v_{c2} - v_{a,trans} = \\sqrt{\\frac{\\mu}{r_2}} - \\sqrt{\\mu \\left(\\frac{2}{r_2} - \\frac{2}{r_1+r_2}\\right)}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide the combined formula for the total $\\Delta V$ required for a Hohmann transfer from $r_1$ to $r_2$, where $\\mu$ is the gravitational parameter.",
+      "back": "The total $\\Delta V$ is $\\Delta V_{total} = \\Delta V_1 + \\Delta V_2$.\n$\\Delta V_{total} = \\left[ \\sqrt{\\mu \\left(\\frac{2}{r_1} - \\frac{2}{r_1+r_2}\\right)} - \\sqrt{\\frac{\\mu}{r_1}} \\right] + \\left[ \\sqrt{\\frac{\\mu}{r_2}} - \\sqrt{\\mu \\left(\\frac{2}{r_2} - \\frac{2}{r_1+r_2}\\right)} \\right]$.\nThis can be simplified to:\n$\\Delta V_{total} = \\sqrt{\\frac{\\mu}{r_1}} \\left( \\sqrt{\\frac{2r_2}{r_1+r_2}} - 1 \\right) + \\sqrt{\\frac{\\mu}{r_2}} \\left( 1 - \\sqrt{\\frac{2r_1}{r_1+r_2}} \\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the time of flight ($t_{transfer}$) for a Hohmann transfer calculated?",
+      "back": "The Hohmann transfer orbit is an ellipse, and the transfer time is half the orbital period of this ellipse.\nThe semimajor axis of the transfer ellipse is $a_{trans} = \\frac{r_1 + r_2}{2}$.\nAccording to Kepler's Third Law, the period $P$ of an elliptical orbit is $P = 2\\pi \\sqrt{\\frac{a_{trans}^3}{\\mu}}$.\nTherefore, the time of flight for the Hohmann transfer is:\n$t_{transfer} = \\frac{P}{2} = \\pi \\sqrt{\\frac{a_{trans}^3}{\\mu}} = \\pi \\sqrt{\\frac{((r_1 + r_2)/2)^3}{\\mu}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond the simplifying assumptions, what are some practical limitations or scenarios where a Hohmann transfer might not be the optimal or even feasible transfer method?",
+      "back": "1.  **Non-coplanar orbits**: Requires additional, very expensive plane change maneuvers.\n2.  **Non-circular orbits**: If initial/final orbits are eccentric, the tangency condition is harder to meet or less efficient.\n3.  **Time constraints**: Hohmann transfers can be very slow, especially for large transfers. Faster (but more $\\Delta V$-intensive) transfers might be preferred.\n4.  **Gravity assists**: For interplanetary transfers, gravity assists from other celestial bodies can significantly reduce $\\Delta V$ compared to a direct Hohmann.\n5.  **Low-thrust propulsion**: Hohmann assumes impulsive burns. Low-thrust engines require continuous thrusting over long periods, invalidating the impulsive burn assumption and necessitating different optimization strategies (e.g., spiral transfers).\n6.  **Perturbations**: Third-body gravity (e.g., Moon/Sun for Earth orbits), atmospheric drag, and solar radiation pressure can perturb the transfer orbit, requiring trajectory corrections.",
+      "difficulty": "hard"
+    }
+  ]
+}

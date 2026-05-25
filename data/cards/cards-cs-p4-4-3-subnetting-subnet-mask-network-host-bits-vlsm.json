@@ -1,0 +1,46 @@
+{
+  "subtopicId": "cs-p4-4-3-subnetting-subnet-mask-network-host-bits-vlsm",
+  "subtopicTitle": "Subnetting — subnet mask, network/host bits, VLSM",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:09.904Z",
+  "cards": [
+    {
+      "front": "What is the primary function of an IPv4 subnet mask?",
+      "back": "The primary function of an IPv4 subnet mask is to logically divide an IP address into its network portion and its host portion. This distinction is crucial for routers to determine if a destination IP address is on the local network or a remote network, enabling efficient routing and network organization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In CIDR notation, what does the `/24` in $192.168.1.0/24$ signify?",
+      "back": "The `/24` signifies that the first 24 bits of the IP address represent the network portion (also known as the network prefix or network ID). The remaining $32 - 24 = 8$ bits are reserved for the host portion, which identifies specific devices within that network.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Convert the CIDR prefix `/27` into its dotted-decimal subnet mask equivalent.",
+      "back": "A `/27` prefix means that the first 27 bits of the subnet mask are set to '1', and the remaining $32 - 27 = 5$ bits are '0'.\n\n$11111111.11111111.11111111.11100000_2$\n\nConverting each octet to decimal:\n$255.255.255.224$\n\nSo, the dotted-decimal subnet mask for `/27` is $255.255.255.224$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many usable host IP addresses are available in a subnet with a `/28` CIDR prefix?",
+      "back": "A `/28` CIDR prefix means that $32 - 28 = 4$ bits are available for the host portion. The total number of possible addresses in this subnet is $2^4 = 16$.\n\nHowever, two addresses are reserved:\n1. The **network address** (all host bits are '0').\n2. The **broadcast address** (all host bits are '1').\n\nTherefore, the number of usable host IP addresses is $16 - 2 = 14$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the IP address $172.16.50.10$ with a subnet mask of $255.255.240.0$, what is its network address?",
+      "back": "To find the network address, perform a bitwise AND operation between the IP address and the subnet mask.\n\nIP Address ($172.16.50.10$):\n$10101100.00010000.00110010.00001010_2$\n\nSubnet Mask ($255.255.240.0$):\n$11111111.11111111.11110000.00000000_2$\n\nBitwise AND Result:\n$10101100.00010000.00110000.00000000_2$\n\nConverting the result back to dotted-decimal:\n$172.16.48.0$\n\nSo, the network address is $172.16.48.0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is Variable Length Subnet Masking (VLSM), and what key problem does it solve in IP address allocation?",
+      "back": "Variable Length Subnet Masking (VLSM) is a technique that allows network administrators to use different subnet masks for different subnets within the same larger network. This means subnets can have varying sizes, unlike traditional fixed-length subnetting where all subnets must be the same size.\n\nVLSM primarily solves the problem of **IP address waste**. In fixed-length subnetting, if a subnet is designed to accommodate a large number of hosts but only a few are needed, many IP addresses go unused. VLSM optimizes address utilization by allocating subnet sizes that precisely match (or are just slightly larger than) the actual number of hosts required for each segment, thereby conserving precious IP address space.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a network $192.168.1.0/24$, explain the *first step* in applying VLSM to create subnets for groups needing 60 hosts, 25 hosts, and 10 hosts.",
+      "back": "The first step in applying VLSM is to identify the largest subnet requirement and allocate the smallest possible subnet mask that can accommodate it. This ensures that the largest subnets are allocated first, leaving contiguous blocks for smaller subnets.\n\nFor 60 hosts, we need to find the smallest power of 2, minus 2, that is $\\ge 60$. \n$2^H - 2 \\ge 60$\n$2^6 = 64$, so $H=6$ host bits are needed ($64-2=62$ usable hosts).\n\nThis means $32 - 6 = 26$ network bits, resulting in a `/26` subnet mask. The first subnet would be carved out as $192.168.1.0/26$, covering addresses $192.168.1.0$ (network address) to $192.168.1.63$ (broadcast address). The remaining address space ($192.168.1.64/26$ onwards) is then available for the next largest requirements.",
+      "difficulty": "hard"
+    }
+  ]
+}

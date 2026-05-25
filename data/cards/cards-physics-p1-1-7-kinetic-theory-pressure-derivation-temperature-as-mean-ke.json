@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-7-kinetic-theory-pressure-derivation-temperature-as-mean-ke",
+  "subtopicTitle": "Kinetic theory — pressure derivation, temperature as mean KE",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:02.367Z",
+  "cards": [
+    {
+      "front": "What is the fundamental postulate of the Kinetic Theory of Gases regarding particle motion?",
+      "back": "Gas particles are in constant, random motion, colliding elastically with each other and the container walls.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three key assumptions made in the Kinetic Theory of Gases for an ideal gas.",
+      "back": "1. The gas consists of a large number of identical particles.\n2. The volume occupied by the particles themselves is negligible compared to the total volume of the container.\n3. There are no intermolecular forces between particles, except during brief, elastic collisions.\n4. Particles move in random, constant motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When a single gas particle of mass $m$ and velocity $v_x$ collides elastically with a container wall perpendicular to the x-axis, what is the change in its momentum?",
+      "back": "For an elastic collision, the particle's x-velocity reverses direction, changing from $v_x$ to $-v_x$. The change in momentum is $\\Delta p_x = m(-v_x) - m(v_x) = -2mv_x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the pressure exerted by an ideal gas on a container wall, starting from the momentum change of a single particle. Assume $N$ particles in a cube of side $L$. (Final form should be in terms of $N, m, V, \\langle v^2 \\rangle$)",
+      "back": "1. Momentum change for one particle: $\\Delta p_x = -2mv_x$.\n2. Time between collisions with one wall: $\\Delta t = 2L/v_x$.\n3. Force from one particle: $F_{1x} = \\frac{|\\Delta p_x|}{\\Delta t} = \\frac{2mv_x}{2L/v_x} = \\frac{mv_x^2}{L}$.\n4. Total force from $N$ particles: $F_x = \\sum_{i=1}^N \\frac{mv_{xi}^2}{L} = \\frac{Nm \\langle v_x^2 \\rangle}{L}$.\n5. Pressure $P_x = \\frac{F_x}{A} = \\frac{Nm \\langle v_x^2 \\rangle}{L^3} = \\frac{Nm \\langle v_x^2 \\rangle}{V}$.\n6. For random motion, $\\langle v_x^2 \\rangle = \\langle v_y^2 \\rangle = \\langle v_z^2 \\rangle$. Also, $\\langle v^2 \\rangle = \\langle v_x^2 \\rangle + \\langle v_y^2 \\rangle + \\langle v_z^2 \\rangle = 3 \\langle v_x^2 \\rangle$. Thus, $\\langle v_x^2 \\rangle = \\frac{1}{3} \\langle v^2 \\rangle$.\n7. Substitute: $P = \\frac{Nm \\frac{1}{3} \\langle v^2 \\rangle}{V} = \\frac{1}{3} \\frac{N m \\langle v^2 \\rangle}{V}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the final formula for pressure $P$ in terms of the number of particles $N$, mass $m$, volume $V$, and mean square speed $\\langle v^2 \\rangle$.",
+      "back": "$$P = \\frac{1}{3} \\frac{N m \\langle v^2 \\rangle}{V}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the ideal gas law $PV = NkT$ and the kinetic theory pressure formula, derive the expression for the average translational kinetic energy of a single gas particle.",
+      "back": "1. From kinetic theory: $P = \\frac{1}{3} \\frac{N m \\langle v^2 \\rangle}{V} \\implies PV = \\frac{1}{3} N m \\langle v^2 \\rangle$.\n2. From ideal gas law: $PV = NkT$.\n3. Equating the two: $NkT = \\frac{1}{3} N m \\langle v^2 \\rangle$.\n4. Cancel $N$: $kT = \\frac{1}{3} m \\langle v^2 \\rangle$.\n5. Multiply by $\\frac{3}{2}$: $\\frac{3}{2} kT = \\frac{1}{2} m \\langle v^2 \\rangle$.\n6. The average translational kinetic energy of a single particle is $\\langle KE \\rangle = \\frac{1}{2} m \\langle v^2 \\rangle$.\n7. Therefore, $\\langle KE \\rangle = \\frac{3}{2} kT$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the absolute temperature $T$ of an ideal gas related to the average translational kinetic energy of its constituent particles?",
+      "back": "The absolute temperature $T$ is directly proportional to the average translational kinetic energy of the gas particles. Specifically, $\\langle KE \\rangle = \\frac{3}{2} kT$, where $k$ is the Boltzmann constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the Boltzmann constant $k$ represent in the context of kinetic theory and temperature?",
+      "back": "The Boltzmann constant $k$ is the proportionality constant that relates the average translational kinetic energy of particles in a gas to the gas's absolute temperature. It effectively converts temperature into energy units, or vice versa, and is defined as the gas constant $R$ divided by Avogadro's number $N_A$ ($k = R/N_A$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the absolute temperature of an ideal gas is doubled, what happens to the root-mean-square (RMS) speed of its particles?",
+      "back": "We know that $\\frac{1}{2} m \\langle v^2 \\rangle = \\frac{3}{2} kT$, which implies $\\langle v^2 \\rangle \\propto T$. The RMS speed is $v_{rms} = \\sqrt{\\langle v^2 \\rangle}$. If $T \\to 2T$, then $\\langle v^2 \\rangle \\to 2 \\langle v^2 \\rangle$. Therefore, $v_{rms} \\to \\sqrt{2} v_{rms}$. The RMS speed increases by a factor of $\\sqrt{2}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

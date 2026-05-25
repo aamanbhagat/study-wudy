@@ -1,0 +1,51 @@
+{
+  "subtopicId": "cs-p5-5-2-templates-function-templates-class-templates",
+  "subtopicTitle": "Templates — function templates, class templates",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:18.856Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of C++ templates, and what programming paradigm do they enable?",
+      "back": "C++ templates enable **generic programming**, allowing functions and classes to operate with arbitrary types without rewriting the code for each type. Their primary purpose is **code reusability** and creating type-safe generic components.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a C++ function template `max_val` that returns the greater of two arguments of any comparable type `T`.",
+      "back": "```cpp\ntemplate <typename T>\nT max_val(T a, T b) {\n    return (a > b) ? a : b;\n}\n```\nThis template allows `max_val` to be used with `int`, `double`, `std::string`, or any other type that supports the `>` operator, without writing separate overloads.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a C++ class template `Pair` that holds two values of potentially different types, `T1` and `T2`. Show how to instantiate it.",
+      "back": "```cpp\ntemplate <typename T1, typename T2>\nclass Pair {\npublic:\n    T1 first;\n    T2 second;\n    Pair(T1 f, T2 s) : first(f), second(s) {}\n};\n\n// Instantiation example:\nPair<int, double> myPair(10, 3.14);\nPair<std::string, char> anotherPair(\"hello\", 'W');\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how **template argument deduction** works for function templates and when it might fail.",
+      "back": "For function templates, the compiler can often deduce the template arguments (types) based on the types of the arguments passed to the function call. For example, `max_val(5, 10)` deduces `T` as `int`.\nIt fails if:\n1. Arguments have different types and no implicit conversion path exists (e.g., `max_val(5, 10.5)` might fail without explicit casting or a common type).\n2. The template parameter doesn't appear in the function parameter list (e.g., `template <typename T> T create_T();`). In such cases, explicit template arguments are required: `create_T<MyClass>()`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you provide a **full explicit specialization** for a C++ function template `void print(T val)` specifically for `const char*` types?",
+      "back": "```cpp\ntemplate <typename T>\nvoid print(T val) {\n    // Generic implementation\n    std::cout << val << std::endl;\n}\n\n// Explicit specialization for const char*\ntemplate <>\nvoid print<const char*>(const char* val) {\n    std::cout << \"C-string: \" << val << std::endl;\n}\n```\nThe `template <>` syntax indicates a full specialization, and `print<const char*>` specifies the type for which it's specialized.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between `typename` and `class` in a template parameter list. When is `typename` *required* for **dependent names**?",
+      "back": "In a template parameter list (`template <typename T>` or `template <class T>`), `typename` and `class` are largely interchangeable and both indicate that `T` is a type parameter.\n`typename` is *required* when referring to a **dependent name** that is a type. A dependent name is a name that depends on a template parameter. For example, `typename T::iterator` tells the compiler that `iterator` is a nested type within `T`, not a static member variable. Without `typename`, the compiler would assume `T::iterator` refers to a non-type member.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Implement a C++ class template `Counter<T>` that has a `static` member variable `count` to track the number of `Counter<T>` objects created for *each specific type `T`*.",
+      "back": "```cpp\ntemplate <typename T>\nclass Counter {\npublic:\n    static int count; // Declaration\n    Counter() { count++; }\n    ~Counter() { count--; }\n};\n\n// Definition/Initialization of the static member for each T\ntemplate <typename T>\nint Counter<T>::count = 0;\n\n// Example usage:\n// Counter<int> int_c1; // Counter<int>::count is 1\n// Counter<double> double_c1; // Counter<double>::count is 1\n// Counter<int> int_c2; // Counter<int>::count is 2\n```\nEach specialization of the class template (`Counter<int>`, `Counter<double>`) gets its *own distinct* `static` member `count`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are **non-type template parameters** in C++? Provide an example of a class template `FixedArray` that uses one to specify its size.",
+      "back": "Non-type template parameters allow values (like integers, pointers, or lvalue references) instead of types to be passed as template arguments. They must be compile-time constants.\n```cpp\ntemplate <typename T, int N> // N is a non-type template parameter\nclass FixedArray {\npublic:\n    T arr[N]; // Array of size N\n    T& operator[](int i) { return arr[i]; }\n    const T& operator[](int i) const { return arr[i]; }\n    int size() const { return N; }\n};\n\n// Instantiation example:\nFixedArray<int, 10> intArray; // An array of 10 ints\nFixedArray<double, 5> doubleArray; // An array of 5 doubles\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

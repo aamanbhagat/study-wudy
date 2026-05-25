@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-tcp-congestion-control-slow-start-congestion-avoidance-fast-retransmit-cubic",
+  "subtopicTitle": "TCP congestion control — slow start, congestion avoidance, fast retransmit, CUBIC",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:39.864Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of TCP congestion control?",
+      "back": "The primary goal of TCP congestion control is to prevent network collapse by regulating the rate at which a sender injects data into the network, thereby avoiding router buffer overflows and packet loss. It aims to maximize network utilization while maintaining fairness among competing flows.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the initial behavior of TCP's `slow start` phase, including the initial congestion window (`cwnd`) and its growth rate.",
+      "back": "In `slow start`, `cwnd` typically starts at a small value (e.g., 1-10 MSS, Maximum Segment Size). For every ACK received that acknowledges new data, `cwnd` is increased by 1 MSS. This results in an exponential growth of `cwnd` per Round Trip Time (RTT), effectively doubling `cwnd` each RTT if all segments are acknowledged.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the role of `ssthresh` in TCP congestion control, and how is it typically updated upon congestion detection?",
+      "back": "`ssthresh` (slow start threshold) determines when TCP transitions from `slow start` to `congestion avoidance`. Initially, it's often set to a large value (e.g., receiver's advertised window). Upon congestion detection (e.g., a timeout or 3 duplicate ACKs), `ssthresh` is typically set to $cwnd/2$ (with a minimum of 2 MSS) of the `cwnd` at the time of the congestion event.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how TCP's `congestion avoidance` phase adjusts the `congestion window (cwnd)` in response to received ACKs.",
+      "back": "Once `cwnd` reaches `ssthresh`, TCP enters `congestion avoidance`. In this phase, `cwnd` is increased by $MSS^2 / cwnd$ for each ACK received. This fractional increase per ACK cumulatively results in an additive increase of approximately 1 MSS per Round Trip Time (RTT). This probes for additional bandwidth more cautiously than `slow start`'s exponential growth.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What specific event triggers TCP's `fast retransmit` mechanism, and how does it differ from a retransmission due to a timeout?",
+      "back": "`Fast retransmit` is triggered when the sender receives **three duplicate ACKs** for the same segment. This indicates that a segment was likely lost, but subsequent segments are still arriving, suggesting moderate congestion. It differs from a timeout retransmission because it avoids waiting for the retransmission timer to expire, allowing for quicker recovery and preventing the severe `cwnd` reduction (to 1 MSS) associated with a timeout.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After `fast retransmit` is triggered, TCP typically enters `fast recovery`. Describe the key actions taken by the sender during `fast recovery` concerning `ssthresh` and `cwnd`.",
+      "back": "In `fast recovery` (e.g., TCP Reno):\n1. `ssthresh` is set to $cwnd/2$ (of the `cwnd` at the time of the 3rd duplicate ACK).\n2. `cwnd` is set to `ssthresh` + 3 MSS (to \"inflate\" the window, accounting for the 3 segments that have left the network).\n3. For each additional duplicate ACK received, `cwnd` is increased by 1 MSS.\n4. When a new ACK (acknowledging the retransmitted segment) arrives, `cwnd` is set to `ssthresh`, and TCP enters `congestion avoidance`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A TCP sender's `cwnd` is 20 MSS and `ssthresh` is 15 MSS. If it receives a single ACK, what phase is it in, and what will its `cwnd` become?",
+      "back": "The sender is in the `congestion avoidance` phase because `cwnd` (20 MSS) is greater than `ssthresh` (15 MSS).\nIn `congestion avoidance`, for each ACK received, `cwnd` is increased by $MSS^2 / cwnd$.\nSo, $cwnd_{new} = cwnd_{old} + MSS^2 / cwnd_{old} = 20 \\text{ MSS} + MSS^2 / (20 \\text{ MSS})$.\nAssuming MSS is a unit, $cwnd_{new} = 20 + 1/20 = 20.05 \\text{ MSS}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does CUBIC, a modern TCP congestion control algorithm, modify the window growth behavior compared to traditional TCP (e.g., Reno) during the `congestion avoidance` phase?",
+      "back": "CUBIC uses a cubic function to grow its window, $W(t) = C(t-K)^3 + W_{max}$, where $W_{max}$ is the window size before the last congestion event, and $K$ is the time it would take to reach $W_{max}$ if the window decreased by a factor $\\beta$. This allows CUBIC to:\n1. Grow slowly near $W_{max}$ (fairness with Reno).\n2. Grow aggressively far from $W_{max}$ (quickly utilize available bandwidth).\n3. Maintain a larger window for longer periods after congestion, leading to better utilization in high-bandwidth, high-latency (long-fat) networks compared to Reno's linear increase.",
+      "difficulty": "hard"
+    }
+  ]
+}

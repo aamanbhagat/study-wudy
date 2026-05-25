@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-4-coefficient-of-restitution-e-v-v-u-u",
+  "subtopicTitle": "Coefficient of restitution e = (v₂-v₁)/(u₁-u₂)",
+  "topicId": "physics-p1-1-4-momentum-collisions",
+  "topicTitle": "Momentum & Collisions",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:13.219Z",
+  "cards": [
+    {
+      "front": "Define the coefficient of restitution, $e$, and provide its general formula for a one-dimensional collision between two objects.",
+      "back": "The coefficient of restitution, $e$, is a dimensionless parameter that quantifies the 'bounciness' of a collision. It is the ratio of the relative speed of separation after impact to the relative speed of approach before impact.\n$$e = \\frac{\\text{relative speed of separation}}{\\text{relative speed of approach}} = \\frac{v_2 - v_1}{u_1 - u_2}$$\nWhere $u_1, u_2$ are initial velocities and $v_1, v_2$ are final velocities of objects 1 and 2, respectively. Velocities are vector quantities, so signs are crucial.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the coefficient of restitution, $e$, physically represent, and what is its typical range for most real-world collisions?",
+      "back": "Physically, $e$ represents the fraction of the relative kinetic energy that is recovered after a collision, or more precisely, how much of the relative velocity is preserved. It's a measure of the elasticity of the collision.\nFor most real-world collisions, its typical range is $0 \\le e \\le 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a perfectly elastic collision, what is the value of the coefficient of restitution, $e$, and what does it imply about kinetic energy?",
+      "back": "For a perfectly elastic collision, $e=1$. This implies that the relative speed of separation is equal to the relative speed of approach. Crucially, in a perfectly elastic collision, the total kinetic energy of the system is conserved ($KE_{final} = KE_{initial}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the value of the coefficient of restitution, $e$, for a perfectly inelastic collision, and what happens to the colliding objects?",
+      "back": "For a perfectly inelastic collision, $e=0$. This means the relative speed of separation is zero ($v_2 - v_1 = 0$), implying that the two objects stick together and move as a single combined mass after the collision ($v_1 = v_2$). In this type of collision, the maximum possible amount of kinetic energy is lost (converted to heat, sound, deformation), while momentum is still conserved.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A collision has a coefficient of restitution $0 < e < 1$. What does this value signify about the collision's elasticity and kinetic energy exchange?",
+      "back": "A coefficient of restitution $0 < e < 1$ signifies a partially inelastic collision. In such a collision, some kinetic energy is lost (converted into other forms like heat, sound, or deformation), but the objects do not stick together. The relative speed of separation is less than the relative speed of approach, but not zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A ball with an initial velocity of $u_1 = 10 \\text{ m/s}$ collides head-on with a stationary wall ($u_2 = 0$). If the ball rebounds with a velocity of $v_1 = -6 \\text{ m/s}$, calculate the coefficient of restitution $e$. (Assume the wall is object 2 and remains stationary).",
+      "back": "Given:\n$u_1 = 10 \\text{ m/s}$\n$u_2 = 0 \\text{ m/s}$ (wall)\n$v_1 = -6 \\text{ m/s}$\n$v_2 = 0 \\text{ m/s}$ (wall)\n\nUsing the formula $e = \\frac{v_2 - v_1}{u_1 - u_2}$:\n$$e = \\frac{0 - (-6 \\text{ m/s})}{10 \\text{ m/s} - 0 \\text{ m/s}} = \\frac{6 \\text{ m/s}}{10 \\text{ m/s}} = 0.6$$\nThe coefficient of restitution is $0.6$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is it possible for the coefficient of restitution, $e$, to be greater than 1 ($e > 1$)? If so, what would this signify about the collision?",
+      "back": "Yes, it is possible for $e > 1$ in what are sometimes called 'superelastic' or 'explosive' collisions. This signifies that kinetic energy is *gained* during the collision. This gain comes from the conversion of internal potential energy (e.g., from an explosion, a compressed spring, or chemical reaction) into kinetic energy, increasing the relative speed of separation beyond the relative speed of approach.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the coefficient of restitution, $e$, relate to the kinetic energy lost during a collision, particularly for a general two-body collision?",
+      "back": "The coefficient of restitution directly quantifies the *loss* or *gain* of kinetic energy in a collision. For a general two-body collision, the kinetic energy lost, $\\Delta KE = KE_{initial} - KE_{final}$, is related to $e$. Specifically, the fraction of the maximum possible kinetic energy loss that *doesn't* occur is proportional to $e^2$. \n\nMore simply:\n*   If $e=1$ (perfectly elastic), $\\Delta KE = 0$ (no kinetic energy loss).\n*   If $e=0$ (perfectly inelastic), $\\Delta KE$ is maximal.\n*   If $0 < e < 1$ (partially inelastic), $0 < \\Delta KE < \\Delta KE_{max}$.\n\nThe actual relationship for the energy loss is complex for a general collision, but it's fundamentally tied to the fact that $e < 1$ means some of the initial relative kinetic energy is converted into other forms.",
+      "difficulty": "hard"
+    }
+  ]
+}

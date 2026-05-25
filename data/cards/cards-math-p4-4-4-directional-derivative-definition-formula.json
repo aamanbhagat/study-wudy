@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-directional-derivative-definition-formula",
+  "subtopicTitle": "Directional derivative — definition, formula",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:28.737Z",
+  "cards": [
+    {
+      "front": "Intuitively, what does the directional derivative $D_{\\mathbf{u}}f(x,y)$ represent?",
+      "back": "The directional derivative $D_{\\mathbf{u}}f(x,y)$ represents the instantaneous rate of change of the function $f$ at the point $(x,y)$ as one moves in the direction specified by the vector $\\mathbf{u}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the most common formula for the directional derivative of a differentiable function $f(\\mathbf{x})$ in the direction of a unit vector $\\mathbf{u}$.",
+      "back": "The formula for the directional derivative is: $$D_{\\mathbf{u}}f(\\mathbf{x}) = \\nabla f(\\mathbf{x}) \\cdot \\mathbf{u}$$ where $\\nabla f(\\mathbf{x})$ is the gradient of $f$ at $\\mathbf{x}$, and $\\mathbf{u}$ is a unit vector in the desired direction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula $D_{\\mathbf{u}}f(\\mathbf{x}_0) = \\nabla f(\\mathbf{x}_0) \\cdot \\mathbf{u}$ using the chain rule, assuming $\\mathbf{u}$ is a unit vector.",
+      "back": "Let $g(t) = f(\\mathbf{x}_0 + t\\mathbf{u})$. The directional derivative is $D_{\\mathbf{u}}f(\\mathbf{x}_0) = g'(0)$. By the chain rule for multivariable functions, if $\\mathbf{x}(t) = \\mathbf{x}_0 + t\\mathbf{u}$, then $g'(t) = \\nabla f(\\mathbf{x}(t)) \\cdot \\mathbf{x}'(t)$. Since $\\mathbf{x}'(t) = \\mathbf{u}$, we have $g'(t) = \\nabla f(\\mathbf{x}(t)) \\cdot \\mathbf{u}$. Evaluating at $t=0$ gives $D_{\\mathbf{u}}f(\\mathbf{x}_0) = g'(0) = \\nabla f(\\mathbf{x}_0) \\cdot \\mathbf{u}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are partial derivatives related to the directional derivative?",
+      "back": "Partial derivatives are special cases of directional derivatives. For example, $\\frac{\\partial f}{\\partial x}$ is the directional derivative of $f$ in the direction of the unit vector $\\mathbf{i} = \\langle 1, 0, \\ldots, 0 \\rangle$. Similarly, $\\frac{\\partial f}{\\partial y}$ is the directional derivative in the direction of $\\mathbf{j} = \\langle 0, 1, \\ldots, 0 \\rangle$, and so on for other variables.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the directional derivative of $f(x,y) = x^2y + e^{xy}$ at $(1, 0)$ in the direction of $\\mathbf{v} = \\langle 1, -1 \\rangle$.",
+      "back": "First, find the gradient: $\\nabla f = \\langle 2xy + ye^{xy}, x^2 + xe^{xy} \\rangle$. At $(1,0)$, $\\nabla f(1,0) = \\langle 2(1)(0) + 0e^0, 1^2 + 1e^0 \\rangle = \\langle 0, 2 \\rangle$. Next, normalize $\\mathbf{v}$: $\\mathbf{u} = \\frac{\\mathbf{v}}{|\\mathbf{v}|} = \\frac{\\langle 1, -1 \\rangle}{\\sqrt{1^2 + (-1)^2}} = \\langle \\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}} \\rangle$. Finally, $D_{\\mathbf{u}}f(1,0) = \\nabla f(1,0) \\cdot \\mathbf{u} = \\langle 0, 2 \\rangle \\cdot \\langle \\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}} \\rangle = 0 \\cdot \\frac{1}{\\sqrt{2}} + 2 \\cdot (-\\frac{1}{\\sqrt{2}}) = -\\frac{2}{\\sqrt{2}} = -\\sqrt{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what direction does the directional derivative of $f(\\mathbf{x})$ have its maximum value, and what is that maximum value?",
+      "back": "The directional derivative $D_{\\mathbf{u}}f(\\mathbf{x})$ has its maximum value in the direction of the gradient vector $\\nabla f(\\mathbf{x})$. The maximum value itself is the magnitude of the gradient vector, i.e., $|\\nabla f(\\mathbf{x})|$. This is because $D_{\\mathbf{u}}f = |\\nabla f| |\\mathbf{u}| \\cos\\theta = |\\nabla f| \\cos\\theta$, which is maximized when $\\cos\\theta = 1$ (i.e., $\\theta=0$, so $\\mathbf{u}$ is in the same direction as $\\nabla f$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the formal limit definition of the directional derivative of $f(\\mathbf{x})$ at $\\mathbf{x}_0$ in the direction of a unit vector $\\mathbf{u}$.",
+      "back": "The limit definition of the directional derivative is: $$D_{\\mathbf{u}}f(\\mathbf{x}_0) = \\lim_{h \\to 0} \\frac{f(\\mathbf{x}_0 + h\\mathbf{u}) - f(\\mathbf{x}_0)}{h}$$ where $\\mathbf{u}$ is a unit vector.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it crucial that the direction vector $\\mathbf{u}$ in the formula $D_{\\mathbf{u}}f = \\nabla f \\cdot \\mathbf{u}$ be a unit vector?",
+      "back": "The directional derivative measures the rate of change *per unit distance* in a given direction. If $\\mathbf{u}$ is not a unit vector, say $|\\mathbf{u}| = k \\ne 1$, then $h\\mathbf{u}$ represents a displacement of magnitude $h k$. To get the rate of change per unit distance, we must divide by $k$. Using a unit vector $\\mathbf{u}$ directly incorporates this normalization, ensuring the result is the rate of change along a path parameterized by arc length. If a non-unit vector $\\mathbf{v}$ is given, one must normalize it first: $D_{\\mathbf{v}}f = \\nabla f \\cdot \\frac{\\mathbf{v}}{|\\mathbf{v}|}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

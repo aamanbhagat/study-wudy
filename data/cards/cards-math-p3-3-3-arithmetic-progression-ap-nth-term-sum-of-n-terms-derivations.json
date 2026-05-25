@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p3-3-3-arithmetic-progression-ap-nth-term-sum-of-n-terms-derivations",
+  "subtopicTitle": "Arithmetic progression (AP) — nth term, sum of n terms — derivations",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:50.523Z",
+  "cards": [
+    {
+      "front": "Define an Arithmetic Progression (AP).",
+      "back": "An Arithmetic Progression (AP) is a sequence of numbers such that the difference between consecutive terms is constant. This constant difference is called the common difference, denoted by $d$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the common difference ($d$) of an AP defined and calculated?",
+      "back": "The common difference ($d$) is the constant value obtained by subtracting any term from its succeeding term. For an AP $a_1, a_2, a_3, \\dots, a_n, \\dots$, the common difference is $d = a_k - a_{k-1}$ for any $k > 1$. For example, $d = a_2 - a_1 = a_3 - a_2$, etc.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the $n$-th term of an AP and identify its components.",
+      "back": "The formula for the $n$-th term of an AP is: $$a_n = a_1 + (n-1)d$$\nWhere:\n- $a_n$ is the $n$-th term of the sequence.\n- $a_1$ is the first term of the sequence.\n- $n$ is the term number (position in the sequence).\n- $d$ is the common difference.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the $n$-th term of an AP, $a_n = a_1 + (n-1)d$.",
+      "back": "Let the AP be $a_1, a_2, a_3, \\dots, a_n, \\dots$ with common difference $d$.\nBy definition of an AP:\n$a_2 = a_1 + d$\n$a_3 = a_2 + d = (a_1 + d) + d = a_1 + 2d$\n$a_4 = a_3 + d = (a_1 + 2d) + d = a_1 + 3d$\nObserving the pattern, the coefficient of $d$ is always one less than the term number. Thus, for the $n$-th term:\n$$a_n = a_1 + (n-1)d$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the two primary formulas for the sum of the first $n$ terms of an AP, $S_n$.",
+      "back": "The two primary formulas for the sum of the first $n$ terms ($S_n$) of an AP are:\n1.  When the first term ($a_1$) and the $n$-th term ($a_n$) are known: $$S_n = \\frac{n}{2}(a_1 + a_n)$$\n2.  When the first term ($a_1$) and the common difference ($d$) are known: $$S_n = \\frac{n}{2}(2a_1 + (n-1)d)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula $S_n = \\frac{n}{2}(a_1 + a_n)$ for the sum of the first $n$ terms of an AP.",
+      "back": "Let $S_n$ be the sum of the first $n$ terms of an AP: $a_1, a_2, \\dots, a_n$.\n$S_n = a_1 + (a_1+d) + (a_1+2d) + \\dots + (a_n-d) + a_n \\quad (1)$\nWrite the sum in reverse order:\n$S_n = a_n + (a_n-d) + (a_n-2d) + \\dots + (a_1+d) + a_1 \\quad (2)$\nAdd equations (1) and (2) term by term:\n$2S_n = (a_1+a_n) + ((a_1+d)+(a_n-d)) + ((a_1+2d)+(a_n-2d)) + \\dots + ((a_n-d)+(a_1+d)) + (a_n+a_1)$\n$2S_n = (a_1+a_n) + (a_1+a_n) + (a_1+a_n) + \\dots + (a_1+a_n) + (a_1+a_n)$\nThere are $n$ such terms of $(a_1+a_n)$.\n$2S_n = n(a_1+a_n)$\n$$S_n = \\frac{n}{2}(a_1 + a_n)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula $S_n = \\frac{n}{2}(2a_1 + (n-1)d)$ for the sum of the first $n$ terms of an AP, starting from $S_n = \\frac{n}{2}(a_1 + a_n)$.",
+      "back": "We know the formula for the sum of the first $n$ terms is $S_n = \\frac{n}{2}(a_1 + a_n)$.\nWe also know the formula for the $n$-th term of an AP is $a_n = a_1 + (n-1)d$.\nSubstitute the expression for $a_n$ into the sum formula:\n$S_n = \\frac{n}{2}(a_1 + [a_1 + (n-1)d])$\n$S_n = \\frac{n}{2}(a_1 + a_1 + (n-1)d)$\n$$S_n = \\frac{n}{2}(2a_1 + (n-1)d)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An AP has $a_1 = 3$ and $d = 4$. Find the 10th term and the sum of the first 10 terms.",
+      "back": "Given $a_1 = 3$, $d = 4$, $n = 10$.\n\n**10th term ($a_{10}$):**\nUsing the formula $a_n = a_1 + (n-1)d$:\n$a_{10} = 3 + (10-1)4$\n$a_{10} = 3 + (9)4$\n$a_{10} = 3 + 36$\n$a_{10} = 39$\n\n**Sum of the first 10 terms ($S_{10}$):**\nUsing the formula $S_n = \\frac{n}{2}(a_1 + a_n)$:\n$S_{10} = \\frac{10}{2}(3 + 39)$\n$S_{10} = 5(42)$\n$S_{10} = 210$\n\nAlternatively, using $S_n = \\frac{n}{2}(2a_1 + (n-1)d)$:\n$S_{10} = \\frac{10}{2}(2(3) + (10-1)4)$\n$S_{10} = 5(6 + (9)4)$\n$S_{10} = 5(6 + 36)$\n$S_{10} = 5(42)$\n$S_{10} = 210$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What kind of sequence is formed if the common difference $d$ of an AP is zero?",
+      "back": "If the common difference $d$ of an AP is zero, then $a_n = a_1 + (n-1)0 = a_1$. This means every term in the sequence is the same as the first term. Such a sequence is called a **constant sequence**.",
+      "difficulty": "medium"
+    }
+  ]
+}

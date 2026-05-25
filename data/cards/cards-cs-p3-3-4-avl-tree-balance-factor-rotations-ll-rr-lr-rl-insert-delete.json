@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-4-avl-tree-balance-factor-rotations-ll-rr-lr-rl-insert-delete",
+  "subtopicTitle": "AVL tree — balance factor, rotations (LL, RR, LR, RL), insert, delete",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:00.420Z",
+  "cards": [
+    {
+      "front": "What is an AVL tree?",
+      "back": "An AVL tree is a self-balancing binary search tree (BST) where for every node, the heights of its left and right subtrees differ by at most 1. This property guarantees a logarithmic height ($O(\\log n)$), ensuring efficient $O(\\log n)$ time complexity for search, insertion, and deletion operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the balance factor of a node in an AVL tree and state its valid range.",
+      "back": "The balance factor of a node is the height of its right subtree minus the height of its left subtree. For a node to be considered balanced (and thus valid in an AVL tree), its balance factor must be $-1$, $0$, or $1$.\n\nFormula: $BF(node) = height(right\\_subtree) - height(left\\_subtree)$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After an insertion or deletion, what balance factor values at a node indicate that rebalancing (rotations) is required?",
+      "back": "Rebalancing is required at a node if its balance factor becomes $-2$ or $2$. A balance factor of $2$ means the right subtree is too tall, and $-2$ means the left subtree is too tall. Any other value ($-1, 0, 1$) indicates the node is balanced.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the scenario requiring an LL rotation in an AVL tree and illustrate its effect.",
+      "back": "An LL (Left-Left) rotation is needed when a node $A$ has a balance factor of $-2$ (left subtree too tall), and the new node was inserted into the *left subtree of $A$'s left child* ($B$). It's a single right rotation.\n\n```\n    A(-2)         B(0)\n   / \\           / \\\n  B(-1) C  ->   D   A(0)\n / \\               / \\\nD   E             E   C\n```\n(Heights shown in parentheses, assume D, E, C are null or balanced subtrees)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the scenario requiring an RR rotation in an AVL tree and illustrate its effect.",
+      "back": "An RR (Right-Right) rotation is needed when a node $A$ has a balance factor of $2$ (right subtree too tall), and the new node was inserted into the *right subtree of $A$'s right child* ($B$). It's a single left rotation.\n\n```\n  A(2)             B(0)\n / \\              / \\\nC   B(1)   ->    A(0)  D\n   / \\          / \\\n  E   D        C   E\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the scenario requiring an LR rotation in an AVL tree and illustrate its effect.",
+      "back": "An LR (Left-Right) rotation is needed when a node $A$ has a balance factor of $-2$, and the new node was inserted into the *right subtree of $A$'s left child* ($B$). This is a double rotation: first a left rotation on $B$, then a right rotation on $A$.\n\n```\n    A(-2)           A(-2)         C(0)\n   / \\             / \\           / \\\n  B(1) C  ->      C(-1) C  ->  B(0) A(0)\n / \\             / \\           / \\ / \\\nD   E           B(0) F        D  E F G\n   / \\         / \\\n  F   G       D   E\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the scenario requiring an RL rotation in an AVL tree and illustrate its effect.",
+      "back": "An RL (Right-Left) rotation is needed when a node $A$ has a balance factor of $2$, and the new node was inserted into the *left subtree of $A$'s right child* ($B$). This is a double rotation: first a right rotation on $B$, then a left rotation on $A$.\n\n```\n  A(2)             A(2)           C(0)\n / \\              / \\            / \\\nC   B(-1)  ->    C   C(1)  ->   A(0) B(0)\n   / \\              / \\        / \\ / \\\n  D   E            F   B(0)   C  D F E\n / \\                  / \\\nF   G                D   E\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the high-level steps for inserting a new node into an AVL tree.",
+      "back": "1.  Perform standard Binary Search Tree (BST) insertion to add the new node as a leaf.\n2.  Traverse back up from the inserted node to the root, updating the heights of all visited ancestor nodes.\n3.  For each ancestor, check its balance factor. If a node's balance factor becomes $-2$ or $2$, perform the appropriate rotation(s) (LL, RR, LR, or RL) to rebalance the subtree rooted at that node.\n4.  Crucially, after the *first* rebalancing operation on the path to the root, the entire tree becomes balanced, and no further rotations are needed higher up.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key difference in rebalancing logic between AVL insertion and deletion?",
+      "back": "For AVL insertion, only one rebalancing operation (a single or double rotation) is ever needed along the path from the inserted node to the root. Once a node is rebalanced, the height of its subtree returns to its previous valid state, and no further ancestors will become unbalanced due to this insertion.\n\nFor AVL deletion, a rebalancing operation at a node might reduce the height of its subtree, which could cause an ancestor node higher up the tree to become unbalanced. Therefore, after a deletion, you may need to perform *multiple* rebalancing operations as you traverse all the way up to the root.",
+      "difficulty": "hard"
+    }
+  ]
+}

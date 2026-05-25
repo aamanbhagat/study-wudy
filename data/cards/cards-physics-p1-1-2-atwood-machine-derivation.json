@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-2-atwood-machine-derivation",
+  "subtopicTitle": "Atwood machine — derivation",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:44.907Z",
+  "cards": [
+    {
+      "front": "What is an Atwood machine primarily used to demonstrate or study?",
+      "back": "An Atwood machine is a simple device consisting of two masses connected by an inextensible string over a pulley. It's primarily used to demonstrate Newton's Second Law of Motion and to study constant acceleration with small forces, often in a laboratory setting.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three key ideal assumptions made when deriving the standard equations for an Atwood machine.",
+      "back": "The three key ideal assumptions are:\n1. The string is massless and inextensible.\n2. The pulley is massless and frictionless.\n3. There is no air resistance acting on the masses.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an Atwood machine with masses $m_1$ and $m_2$ (assume $m_1 > m_2$), what are the forces acting on each mass, and in which direction?",
+      "back": "For $m_1$:\n*   Gravitational force: $m_1 g$ (downwards)\n*   Tension force: $T$ (upwards)\nFor $m_2$:\n*   Gravitational force: $m_2 g$ (downwards)\n*   Tension force: $T$ (upwards)\nNote: The tension $T$ is the same throughout the string due to the massless pulley assumption.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Assuming $m_1 > m_2$ and the system accelerates, write down the Newton's Second Law equations for both masses, defining the positive direction for each.",
+      "back": "Let's define the positive direction for $m_1$ as downwards and for $m_2$ as upwards (consistent with $m_1$ moving down and $m_2$ moving up). Let $a$ be the magnitude of acceleration.\n*   For $m_1$: $m_1 g - T = m_1 a$\n*   For $m_2$: $T - m_2 g = m_2 a$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the acceleration ($a$) of an Atwood machine in terms of $m_1$, $m_2$, and $g$.",
+      "back": "From Newton's Second Law:\n1.  $m_1 g - T = m_1 a$\n2.  $T - m_2 g = m_2 a$\n\nAdd equation (1) and (2) to eliminate $T$:\n$(m_1 g - T) + (T - m_2 g) = m_1 a + m_2 a$\n$m_1 g - m_2 g = (m_1 + m_2) a$\n$g(m_1 - m_2) = (m_1 + m_2) a$\n\nTherefore, the acceleration is:\n$$a = \\frac{(m_1 - m_2)}{(m_1 + m_2)} g$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for the tension ($T$) in the string of an Atwood machine in terms of $m_1$, $m_2$, and $g$.",
+      "back": "From Newton's Second Law:\n1.  $m_1 g - T = m_1 a \\implies T = m_1 g - m_1 a$\n2.  $T - m_2 g = m_2 a \\implies T = m_2 g + m_2 a$\n\nSubstitute the derived acceleration $a = \\frac{(m_1 - m_2)}{(m_1 + m_2)} g$ into equation (2):\n$T = m_2 g + m_2 \\left( \\frac{m_1 - m_2}{m_1 + m_2} \\right) g$\n$T = m_2 g \\left( 1 + \\frac{m_1 - m_2}{m_1 + m_2} \\right)$\n$T = m_2 g \\left( \\frac{m_1 + m_2 + m_1 - m_2}{m_1 + m_2} \\right)$\n$T = m_2 g \\left( \\frac{2m_1}{m_1 + m_2} \\right)$\n\nTherefore, the tension is:\n$$T = \\frac{2m_1 m_2}{(m_1 + m_2)} g$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the acceleration of an Atwood machine if $m_1 = m_2$? Explain why this makes sense intuitively.",
+      "back": "If $m_1 = m_2$, then $a = \\frac{(m_1 - m_2)}{(m_1 + m_2)} g = \\frac{(m_1 - m_1)}{(m_1 + m_1)} g = \\frac{0}{2m_1} g = 0$.\nIntuitively, if the masses are equal, there is no net force causing motion, so the system remains at rest or moves at a constant velocity if already in motion. The acceleration is zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the approximate acceleration of an Atwood machine if $m_1 \\gg m_2$? How does this relate to free fall?",
+      "back": "If $m_1 \\gg m_2$, then $m_1 - m_2 \\approx m_1$ and $m_1 + m_2 \\approx m_1$.\nSo, $a = \\frac{(m_1 - m_2)}{(m_1 + m_2)} g \\approx \\frac{m_1}{m_1} g = g$.\nThis means the acceleration approaches $g$. Intuitively, if $m_1$ is much heavier than $m_2$, $m_2$ offers very little resistance, and $m_1$ essentially falls freely, pulling the nearly massless $m_2$ along with it.",
+      "difficulty": "medium"
+    }
+  ]
+}

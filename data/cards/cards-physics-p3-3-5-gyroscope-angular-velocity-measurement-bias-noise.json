@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-5-gyroscope-angular-velocity-measurement-bias-noise",
+  "subtopicTitle": "Gyroscope — angular velocity measurement, bias, noise",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:37.820Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a gyroscope in a rocket's Guidance, Navigation, and Control (GNC) system?",
+      "back": "To measure the angular velocity (rate of rotation) of the rocket body. This information is critical for determining attitude (orientation) and controlling its rotational motion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fundamental physical principle a modern MEMS or Fiber Optic Gyroscope (FOG) uses to sense angular velocity.",
+      "back": "MEMS gyroscopes utilize the Coriolis effect on vibrating masses. FOGs employ the Sagnac effect, where counter-propagating light beams in a coiled fiber experience a phase shift proportional to the rotation rate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"gyroscope bias\" (or \"drift rate\") and show its mathematical representation in a simplified gyro output model.",
+      "back": "Gyroscope bias ($b$) is a constant offset in the measured angular velocity output when the true angular velocity is zero. The simplified model is $ \\omega_{measured} = \\omega_{true} + b + \\eta $, where $\\eta$ represents noise.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can gyroscope bias typically be estimated and compensated for in a GNC system, especially during pre-flight or stationary periods?",
+      "back": "By performing a static calibration: the gyroscope is held perfectly still, and the average non-zero output measured over a period directly indicates the bias. This bias value can then be subtracted from subsequent measurements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a gyroscope has a constant bias $b$ (in rad/s) and its output is integrated to estimate angular position, what is the resulting error in estimated angle $\\Delta \\theta$ after time $T$?",
+      "back": "The error in estimated angle due to a constant bias $b$ is $ \\Delta \\theta = \\int_0^T b \\, dt = bT $. This demonstrates that a constant bias leads to a linear growth of angular error over time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between \"Angular Random Walk\" (ARW) and \"Rate Random Walk\" (RRW) in terms of their effect on integrated angular position.",
+      "back": "ARW is white noise on the angular velocity measurement, causing the integrated angle to drift as $ \\theta \\propto \\sqrt{t} $. RRW is white noise on the *rate of change of bias*, leading to a more severe drift in integrated angle as $ \\theta \\propto t^{3/2} $.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary purpose of Allan Variance analysis for gyroscopes, and what specific noise characteristics can it quantify?",
+      "back": "Allan Variance analysis characterizes various noise sources by plotting the variance of averaged data versus averaging time on a log-log plot. It quantifies Angular Random Walk (ARW), Bias Instability, and Rate Random Walk (RRW) from the slopes of the plot.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is zero-mean gyroscope noise still problematic for long-duration attitude estimation, even if it averages out to zero over infinite time?",
+      "back": "When integrated over time to estimate attitude, zero-mean noise accumulates as a random walk, leading to an unbounded drift in the estimated angular position. This necessitates frequent external updates (e.g., from star trackers) to maintain accuracy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Besides bias, what is a common non-ideal characteristic of gyroscopes that causes their sensitivity (scale factor) to vary with environmental conditions?",
+      "back": "Scale factor error. The ratio between the true angular velocity and the measured output can change with temperature, vibration, or other environmental factors. This often requires temperature compensation or calibration over a range of conditions.",
+      "difficulty": "medium"
+    }
+  ]
+}

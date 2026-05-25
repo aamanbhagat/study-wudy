@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-2-launch-window-phasing-with-target-orbit",
+  "subtopicTitle": "Launch window — phasing with target orbit",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:22.163Z",
+  "cards": [
+    {
+      "front": "In orbital mechanics, what is a \"launch window\"?",
+      "back": "A specific time interval during which a rocket must be launched to achieve a desired orbital trajectory or rendezvous with a target. Launch windows are constrained by factors like orbital mechanics, celestial body positions, and safety requirements.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When aiming to inject a spacecraft into an existing orbital plane, which specific orbital element is the primary driver for defining the \"phasing launch window\"?",
+      "back": "The Right Ascension of the Ascending Node (RAAN), $\\Omega$. The launch must occur when the launch site is instantaneously aligned with the target orbital plane's ascending node (or descending node) to minimize out-of-plane maneuvers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why a launch window for a specific target orbital plane typically reoccurs approximately once every sidereal day.",
+      "back": "The target orbital plane maintains a relatively fixed orientation in inertial space (ignoring perturbations). As the Earth rotates beneath this fixed plane, the launch site passes through the plane's projection onto the Earth's surface once per sidereal day, creating a daily launch opportunity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a direct ascent launch into a target orbital plane with a specific Right Ascension of the Ascending Node ($\\Omega_{target}$), what is the primary geometric condition that must be met by the launch site's position at the moment of launch?",
+      "back": "The launch site must be directly under the target orbital plane's ascending or descending node. Specifically, the launch occurs when the Greenwich Sidereal Time (GST) plus the longitude of the launch site ($\\lambda_L$) equals the target RAAN ($\\Omega_{target}$), i.e., $\\Omega_{target} = \\text{GST} + \\lambda_L$. This ensures the launch vehicle's initial velocity vector can be entirely contained within the target plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond matching the orbital plane, what additional factor must be precisely controlled during a launch window for a rendezvous mission with an active target satellite?",
+      "back": "The *relative phasing* or *true anomaly* (angular position) of the target satellite at the moment of launch. This ensures the launched spacecraft can intercept the target at a specific point in its orbit, often requiring a \"phasing orbit\" after initial injection to fine-tune the relative position.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To adjust the relative phasing of a newly launched spacecraft with a target in orbit, a \"phasing orbit\" is often used. If the target orbit has period $P_T$ and the phasing orbit has period $P_P$, what is the angular drift rate of the new spacecraft relative to the target per orbit of the target?",
+      "back": "The angular drift rate, $\\Delta \\theta$, per target orbit is given by:\n$$ \\Delta \\theta = 2\\pi \\left( \\frac{P_T}{P_P} - 1 \\right) \\text{ radians/target orbit} $$\nA slightly faster phasing orbit ($P_P < P_T$) will cause the new spacecraft to \"gain\" on the target, while a slower one ($P_P > P_T$) will cause it to \"lag\". This drift is used to achieve the desired relative spacing for rendezvous.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the required target orbital inclination ($i_{target}$) constrain the available launch window and the choice of launch azimuth from a given launch site latitude ($\\phi_L$)?",
+      "back": "For a direct ascent, the launch site latitude $\\phi_L$ must be less than or equal to the target inclination $i_{target}$ (i.e., $\\phi_L \\le i_{target}$). If $\\phi_L = i_{target}$, the launch azimuth must be due East (90°) or West (270°). If $\\phi_L < i_{target}$, there are two possible launch azimuths (North-of-East and South-of-East for prograde orbits) that can achieve the target inclination, broadening the launch window for plane alignment slightly, but the RAAN still needs to be matched.",
+      "difficulty": "hard"
+    }
+  ]
+}

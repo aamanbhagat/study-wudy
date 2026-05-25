@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-finite-wing-theory-induced-drag-prandtl-s-lifting-line",
+  "subtopicTitle": "Finite wing theory — induced drag, Prandtl's lifting line",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:46.460Z",
+  "cards": [
+    {
+      "front": "What is the primary conceptual difference between an infinite wing and a finite wing in terms of airflow and lift generation?",
+      "back": "An infinite wing is a 2D airfoil section, assumed to have no wingtips, thus no spanwise flow or wingtip vortices. A finite wing is a 3D structure with finite span, leading to wingtip vortices, downwash, and consequently, induced drag.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the formation of wingtip vortices and how they lead to \"downwash\" over the wing.",
+      "back": "Due to the pressure differential between the high-pressure underside and low-pressure topside of a finite wing, air flows from the bottom around the wingtips to the top. This creates swirling masses of air, known as wingtip vortices, which trail behind the wing. These vortices induce a downward component of velocity, called downwash, over the wing's span.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"induced drag\" and state its fundamental cause.",
+      "back": "Induced drag is the component of drag that arises from the production of lift by a finite wing. It is fundamentally caused by the downwash induced by wingtip vortices, which effectively tilts the local relative wind vector backward, resulting in a rearward component of the aerodynamic force.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of Prandtl's Lifting Line Theory, and what is its most fundamental simplifying assumption regarding the wing's geometry?",
+      "back": "Prandtl's Lifting Line Theory aims to predict the lift distribution and induced drag for a finite wing. Its most fundamental assumption is that the wing can be replaced by a \"lifting line\" along its span, where the lift is generated, and the downwash is induced by a continuous distribution of trailing vortices along this line. It assumes the wing has a high aspect ratio and small camber/thickness.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does downwash affect the \"effective angle of attack\" experienced by a finite wing, and what is the consequence for the lift vector?",
+      "back": "Downwash, denoted by $w$, effectively rotates the local relative wind vector downwards. This reduces the effective angle of attack, $\\alpha_{eff} = \\alpha - \\alpha_i$, where $\\alpha_i = \\arctan(w/V_\\infty)$ is the induced angle of attack. Consequently, the local lift vector, which is perpendicular to the effective relative wind, is tilted backward, generating a component in the direction of drag.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the formula for induced drag coefficient ($C_{D_i}$) for an elliptically loaded wing and explain why an elliptical lift distribution is considered optimal.",
+      "back": "For an elliptically loaded wing, the induced drag coefficient is given by: $$C_{D_i} = \\frac{C_L^2}{\\pi AR}$$ where $C_L$ is the lift coefficient and $AR$ is the aspect ratio. An elliptical lift distribution is considered optimal because it produces constant downwash across the span, which minimizes induced drag for a given total lift and span. This results in the most efficient lift generation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"aspect ratio\" ($AR$) and \"span efficiency factor\" ($e$), explaining how each influences induced drag.",
+      "back": "**Aspect Ratio ($AR$)** is defined as $AR = \\frac{b^2}{S}$, where $b$ is the wingspan and $S$ is the wing area. Higher $AR$ reduces induced drag because it spreads the lift over a greater span, weakening the wingtip vortices and thus the downwash.\n**Span Efficiency Factor ($e$)** (or Oswald efficiency factor) accounts for non-elliptical lift distributions. It modifies the induced drag formula to $C_{D_i} = \\frac{C_L^2}{\\pi AR e}$. For an elliptical lift distribution, $e=1$. For non-elliptical wings, $e < 1$, meaning they produce more induced drag than an ideal elliptical wing for the same $C_L$ and $AR$.",
+      "difficulty": "medium"
+    }
+  ]
+}

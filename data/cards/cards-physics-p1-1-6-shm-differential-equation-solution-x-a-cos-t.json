@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-6-shm-differential-equation-solution-x-a-cos-t",
+  "subtopicTitle": "SHM differential equation — solution: x = A cos(ωt + φ)",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:01.976Z",
+  "cards": [
+    {
+      "front": "What is the defining differential equation for Simple Harmonic Motion (SHM)?",
+      "back": "The defining differential equation for SHM is $ \\frac{d^2x}{dt^2} + \\omega^2 x = 0 $. For a mass-spring system, this is often written as $ m \\frac{d^2x}{dt^2} + kx = 0 $, where $ \\omega^2 = k/m $.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Show that $x(t) = A \\cos(\\omega t + \\phi)$ is a solution to the SHM differential equation $ \\frac{d^2x}{dt^2} + \\omega^2 x = 0 $.",
+      "back": "Given $x(t) = A \\cos(\\omega t + \\phi)$.\n1. First derivative: $ \\frac{dx}{dt} = -A\\omega \\sin(\\omega t + \\phi) $.\n2. Second derivative: $ \\frac{d^2x}{dt^2} = -A\\omega^2 \\cos(\\omega t + \\phi) $.\nSubstitute into the SHM differential equation:\n$ (-A\\omega^2 \\cos(\\omega t + \\phi)) + \\omega^2 (A \\cos(\\omega t + \\phi)) = 0 $\n$ -A\\omega^2 \\cos(\\omega t + \\phi) + A\\omega^2 \\cos(\\omega t + \\phi) = 0 $\n$ 0 = 0 $.\nThus, $x(t) = A \\cos(\\omega t + \\phi)$ is a valid solution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the SHM solution $x(t) = A \\cos(\\omega t + \\phi)$, what do $A$, $\\omega$, and $\\phi$ represent physically?",
+      "back": "$A$: Amplitude, the maximum displacement from the equilibrium position.\n$\\omega$: Angular frequency (in radians per second), which determines how fast the oscillation occurs. It is related to the period $T$ by $ \\omega = 2\\pi/T $.\n$\\phi$: Phase constant (or initial phase angle), which determines the initial state of the oscillation at $t=0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a mass $m$ attached to a spring with spring constant $k$ undergoing SHM, what is the expression for the angular frequency $\\omega$?",
+      "back": "For a mass-spring system, the angular frequency is given by $ \\omega = \\sqrt{\\frac{k}{m}} $. This is derived by comparing the force equation $ F = -kx $ with Newton's second law $ F = m\\frac{d^2x}{dt^2} $, leading to $ m\\frac{d^2x}{dt^2} + kx = 0 $, which is the SHM DE with $ \\omega^2 = k/m $.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given initial position $x_0$ and initial velocity $v_0$ at $t=0$, how do you find the amplitude $A$ and phase constant $\\phi$ for $x(t) = A \\cos(\\omega t + \\phi)$?",
+      "back": "At $t=0$, we have:\n1. $x_0 = A \\cos(\\phi)$ (from $x(t)$)\n2. $v(t) = \\frac{dx}{dt} = -A\\omega \\sin(\\omega t + \\phi)$, so $v_0 = -A\\omega \\sin(\\phi)$\n\nFrom these two equations:\nTo find $\\phi$: Divide (2) by (1): $ \\frac{v_0}{x_0} = \\frac{-A\\omega \\sin(\\phi)}{A \\cos(\\phi)} = -\\omega \\tan(\\phi) \\implies \\tan(\\phi) = \\frac{-v_0}{\\omega x_0} $. (Careful with quadrant for $\\phi$)\nTo find $A$: Square (1) and (2) and add them: $ x_0^2 + \\left(\\frac{v_0}{\\omega}\\right)^2 = A^2\\cos^2(\\phi) + A^2\\sin^2(\\phi) = A^2(\\cos^2(\\phi) + \\sin^2(\\phi)) = A^2 $. So, $ A = \\sqrt{x_0^2 + \\left(\\frac{v_0}{\\omega}\\right)^2} $.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the physical significance of the phase constant $\\phi$ in $x(t) = A \\cos(\\omega t + \\phi)$.",
+      "back": "The phase constant $\\phi$ determines the initial 'state' of the oscillation at time $t=0$. It shifts the entire cosine waveform horizontally along the time axis. For instance, if $\\phi = 0$, the object starts at its maximum positive displacement ($x=A$). If $\\phi = \\pi/2$, it starts at the equilibrium position ($x=0$) moving in the negative direction. It essentially tells us where in its cycle the oscillation begins.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expressions for velocity $v(t)$ and acceleration $a(t)$ for an object undergoing SHM described by $x(t) = A \\cos(\\omega t + \\phi)$.",
+      "back": "Given the position function: $x(t) = A \\cos(\\omega t + \\phi)$.\n\n1.  **Velocity $v(t)$:** Velocity is the first derivative of position with respect to time.\n    $ v(t) = \\frac{dx}{dt} = \\frac{d}{dt} [A \\cos(\\omega t + \\phi)] = -A\\omega \\sin(\\omega t + \\phi) $.\n\n2.  **Acceleration $a(t)$:** Acceleration is the first derivative of velocity (or second derivative of position) with respect to time.\n    $ a(t) = \\frac{dv}{dt} = \\frac{d}{dt} [-A\\omega \\sin(\\omega t + \\phi)] = -A\\omega^2 \\cos(\\omega t + \\phi) $.\n    Note that $a(t) = -\\omega^2 x(t)$, which is the defining characteristic of SHM.",
+      "difficulty": "medium"
+    }
+  ]
+}

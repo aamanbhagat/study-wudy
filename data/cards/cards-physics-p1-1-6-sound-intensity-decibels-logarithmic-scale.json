@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p1-1-6-sound-intensity-decibels-logarithmic-scale",
+  "subtopicTitle": "Sound intensity — decibels (logarithmic scale)",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:33.951Z",
+  "cards": [
+    {
+      "front": "What is sound intensity, and what are its SI units?",
+      "back": "Sound intensity ($I$) is defined as the average rate at which sound energy is transmitted through a unit area perpendicular to the direction of sound propagation. Its SI units are watts per square meter ($W/m^2$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the decibel (dB) scale used for sound intensity level instead of directly using intensity in $W/m^2$?",
+      "back": "The decibel scale is used because human hearing perceives sound intensity logarithmically, not linearly. Additionally, the range of sound intensities our ears can detect is enormous (from $10^{-12} W/m^2$ to over $1 W/m^2$), making a linear scale cumbersome.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for sound intensity level $\\beta$ in decibels, including the standard reference intensity $I_0$.",
+      "back": "The formula for sound intensity level $\\beta$ in decibels is:\n$$\\beta = 10 \\log_{10}\\left(\\frac{I}{I_0}\\right)$$\nwhere $I$ is the sound intensity in $W/m^2$, and $I_0$ is the standard reference intensity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the standard reference intensity $I_0$ used in the decibel scale, and what does it physically represent?",
+      "back": "The standard reference intensity $I_0$ is $1.0 \\times 10^{-12} \\, W/m^2$. Physically, it represents the approximate threshold of human hearing at 1 kHz, the quietest sound a young, healthy ear can typically detect.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive how much the sound intensity level $\\beta$ (in dB) increases if the sound intensity $I$ increases by a factor of 10.",
+      "back": "Let the initial intensity be $I_1$ and the new intensity be $I_2 = 10 I_1$. The initial intensity level is $\\beta_1 = 10 \\log_{10}(I_1/I_0)$. The new intensity level is $\\beta_2 = 10 \\log_{10}(I_2/I_0) = 10 \\log_{10}(10 I_1/I_0)$.\n$\\Delta\\beta = \\beta_2 - \\beta_1 = 10 \\log_{10}(10 I_1/I_0) - 10 \\log_{10}(I_1/I_0)$\nUsing the logarithm property $\\log(AB) = \\log A + \\log B$:\n$\\Delta\\beta = 10 [\\log_{10}(10) + \\log_{10}(I_1/I_0)] - 10 \\log_{10}(I_1/I_0)$\nSince $\\log_{10}(10) = 1$:\n$\\Delta\\beta = 10 [1 + \\log_{10}(I_1/I_0)] - 10 \\log_{10}(I_1/I_0)$\n$\\Delta\\beta = 10 + 10 \\log_{10}(I_1/I_0) - 10 \\log_{10}(I_1/I_0)$\n$\\Delta\\beta = 10 \\, dB$.\nThus, a tenfold increase in intensity corresponds to a 10 dB increase in sound intensity level.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a point source, how does sound intensity $I$ change with distance $r$? How does this affect the sound intensity level $\\beta$ in dB if the distance is doubled?",
+      "back": "For a point source, sound intensity $I$ follows the inverse square law: $I \\propto 1/r^2$. If the distance $r$ is doubled to $2r$, the intensity becomes $I' = I/(2^2) = I/4$. \n\nTo find the change in dB:\n$\\Delta\\beta = 10 \\log_{10}(I'/I) = 10 \\log_{10}( (I/4) / I ) = 10 \\log_{10}(1/4)$\n$\\Delta\\beta = 10 \\log_{10}(2^{-2}) = 10 \\times (-2) \\log_{10}(2)$\n$\\Delta\\beta \\approx -20 \\times 0.301 \\approx -6.02 \\, dB$.\nSo, doubling the distance from a point source decreases the sound intensity level by approximately 6 dB.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A sound has an intensity level of 80 dB. What is its actual sound intensity $I$ in $W/m^2$?",
+      "back": "We use the formula $\\beta = 10 \\log_{10}(I/I_0)$ and solve for $I$.\n$80 = 10 \\log_{10}(I/10^{-12})$\n$8 = \\log_{10}(I/10^{-12})$\nTo remove the logarithm, we take $10$ to the power of both sides:\n$10^8 = I/10^{-12}$\n$I = 10^8 \\times 10^{-12}$\n$I = 10^{-4} \\, W/m^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does a sound intensity level of 0 dB signify? Can the decibel level be negative?",
+      "back": "A sound intensity level of 0 dB signifies that the sound's intensity $I$ is exactly equal to the reference intensity $I_0$ ($I = I_0$), which is the threshold of human hearing ($10^{-12} W/m^2$).\nYes, the decibel level can be negative. If the sound's intensity $I$ is less than the reference intensity $I_0$, then $I/I_0 < 1$, and $\\log_{10}(I/I_0)$ will be negative, resulting in a negative decibel value.",
+      "difficulty": "medium"
+    }
+  ]
+}

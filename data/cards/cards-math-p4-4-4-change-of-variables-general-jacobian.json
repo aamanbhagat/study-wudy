@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-change-of-variables-general-jacobian",
+  "subtopicTitle": "Change of variables — general Jacobian",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:15.028Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the change of variables formula in multivariable integration?",
+      "back": "The primary purpose is to simplify multivariable integrals by transforming the region of integration or the integrand itself into a more manageable form, often by switching to a more suitable coordinate system (e.g., polar, cylindrical, spherical, or custom transformations).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general change of variables formula for a double integral over a region $R$ in the $xy$-plane to a region $S$ in the $uv$-plane.",
+      "back": "For a transformation $x=x(u,v)$ and $y=y(u,v)$, the formula is:\n$$\\iint_R f(x,y) \\,dx\\,dy = \\iint_S f(x(u,v), y(u,v)) \\left| \\frac{\\partial(x,y)}{\\partial(u,v)} \\right| \\,du\\,dv$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Jacobian determinant $\\frac{\\partial(x,y)}{\\partial(u,v)}$ for a transformation $x=x(u,v), y=y(u,v)$.",
+      "back": "The Jacobian determinant is the determinant of the Jacobian matrix, composed of the partial derivatives of the transformation functions:\n$$\\frac{\\partial(x,y)}{\\partial(u,v)} = \\det \\begin{pmatrix} \\frac{\\partial x}{\\partial u} & \\frac{\\partial x}{\\partial v} \\\\ \\frac{\\partial y}{\\partial u} & \\frac{\\partial y}{\\partial v} \\end{pmatrix} = \\frac{\\partial x}{\\partial u} \\frac{\\partial y}{\\partial v} - \\frac{\\partial x}{\\partial v} \\frac{\\partial y}{\\partial u}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the geometric interpretation of the absolute value of the Jacobian determinant, $\\left| \\frac{\\partial(x,y)}{\\partial(u,v)} \\right|$?",
+      "back": "It represents the local scaling factor by which an infinitesimal area element $dA_{uv} = du\\,dv$ in the $uv$-plane is stretched or shrunk to become an infinitesimal area element $dA_{xy} = dx\\,dy$ in the $xy$-plane. Specifically, $dA_{xy} = \\left| \\frac{\\partial(x,y)}{\\partial(u,v)} \\right| dA_{uv}$. It ensures the area/volume element remains positive.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the Jacobian determinant for the polar coordinate transformation $x=r\\cos\\theta, y=r\\sin\\theta$.",
+      "back": "The partial derivatives are:\n$\\frac{\\partial x}{\\partial r} = \\cos\\theta$, $\\frac{\\partial x}{\\partial \\theta} = -r\\sin\\theta$\n$\\frac{\\partial y}{\\partial r} = \\sin\\theta$, $\\frac{\\partial y}{\\partial \\theta} = r\\cos\\theta$\nSo, the Jacobian determinant is:\n$$\\frac{\\partial(x,y)}{\\partial(r,\\theta)} = \\det \\begin{pmatrix} \\cos\\theta & -r\\sin\\theta \\\\ \\sin\\theta & r\\cos\\theta \\end{pmatrix} = (\\cos\\theta)(r\\cos\\theta) - (-r\\sin\\theta)(\\sin\\theta) = r\\cos^2\\theta + r\\sin^2\\theta = r(\\cos^2\\theta + \\sin^2\\theta) = r$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the general change of variables formula for a triple integral over a region $R$ in $\\mathbb{R}^3$ to a region $S$ in $uvw$-space.",
+      "back": "For a transformation $x=x(u,v,w), y=y(u,v,w), z=z(u,v,w)$, the formula is:\n$$\\iiint_R f(x,y,z) \\,dx\\,dy\\,dz = \\iiint_S f(x(u,v,w), y(u,v,w), z(u,v,w)) \\left| \\frac{\\partial(x,y,z)}{\\partial(u,v,w)} \\right| \\,du\\,dv\\,dw$$\nwhere $\\frac{\\partial(x,y,z)}{\\partial(u,v,w)}$ is the $3 \\times 3$ Jacobian determinant.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What conditions must a transformation $T: S \\to R$ satisfy for the change of variables formula to be valid?",
+      "back": "The transformation $T$ must be one-to-one (injective) on the interior of the region $S$, and its partial derivatives must be continuous. Crucially, the Jacobian determinant $\\frac{\\partial(x,y)}{\\partial(u,v)}$ must be non-zero on the interior of $S$. If the Jacobian is zero, the transformation is locally degenerate, meaning it collapses an area/volume to a lower dimension (e.g., a line or point), and the formula may not apply.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $J_1 = \\frac{\\partial(x,y)}{\\partial(u,v)}$ and $J_2 = \\frac{\\partial(u,v)}{\\partial(x,y)}$, what is the relationship between $J_1$ and $J_2$?",
+      "back": "They are reciprocals of each other: $J_2 = \\frac{1}{J_1}$, provided $J_1 \\neq 0$. This relationship stems from the chain rule for Jacobians, which states that $\\frac{\\partial(x,y)}{\\partial(x,y)} = \\frac{\\partial(x,y)}{\\partial(u,v)} \\frac{\\partial(u,v)}{\\partial(x,y)} = 1$.",
+      "difficulty": "medium"
+    }
+  ]
+}

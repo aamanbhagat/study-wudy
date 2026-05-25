@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-2-escape-velocity-derivation",
+  "subtopicTitle": "Escape velocity — derivation",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:53.298Z",
+  "cards": [
+    {
+      "front": "Define escape velocity.",
+      "back": "Escape velocity is the minimum speed an object needs to acquire to break free from the gravitational pull of a massive body, never falling back without further propulsion. It's the speed at which an object's kinetic energy plus its gravitational potential energy equals zero, allowing it to reach an infinite distance with zero kinetic energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which fundamental conservation law is central to deriving the escape velocity formula?",
+      "back": "The principle of **conservation of mechanical energy**. For an object to escape, its total mechanical energy (kinetic + potential) must be non-negative at infinity. We typically assume it just reaches infinity with zero kinetic energy, making the total energy zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for gravitational potential energy $U_g$ of mass $m$ at distance $r$ from mass $M$.",
+      "back": "$U_g = -\\frac{GMm}{r}$, where $G$ is the gravitational constant. The negative sign indicates that it is a bound state, and potential energy increases (becomes less negative) as $r$ increases, approaching zero at infinite distance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an object of mass $m$ launched from radius $R$ with escape velocity $v_e$ from a body of mass $M$, set up the energy conservation equation assuming it just reaches infinity with zero kinetic energy.",
+      "back": "Initial total energy $E_i = KE_i + U_{g,i} = \\frac{1}{2}mv_e^2 - \\frac{GMm}{R}$.\nFinal total energy $E_f = KE_f + U_{g,f} = 0 + 0 = 0$ (at infinity, $r \\to \\infty$, so $U_g \\to 0$, and for minimum escape speed, $KE_f = 0$).\nBy conservation of energy, $E_i = E_f \\Rightarrow \\frac{1}{2}mv_e^2 - \\frac{GMm}{R} = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for escape velocity $v_e$ from the energy conservation equation $\\frac{1}{2}mv_e^2 - \\frac{GMm}{R} = 0$.",
+      "back": "Starting with $\\frac{1}{2}mv_e^2 - \\frac{GMm}{R} = 0$:\n1.  Move the potential energy term to the right: $\\frac{1}{2}mv_e^2 = \\frac{GMm}{R}$\n2.  Cancel the mass $m$ of the escaping object from both sides: $\\frac{1}{2}v_e^2 = \\frac{GM}{R}$\n3.  Multiply by 2: $v_e^2 = \\frac{2GM}{R}$\n4.  Take the square root: $v_e = \\sqrt{\\frac{2GM}{R}}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the formula for escape velocity $v_e$ from a body of mass $M$ at radius $R$?",
+      "back": "$v_e = \\sqrt{\\frac{2GM}{R}}$, where $G$ is the gravitational constant (approximately $6.674 \\times 10^{-11} \\text{ N} \\cdot \\text{m}^2/\\text{kg}^2$), $M$ is the mass of the central body (e.g., Earth), and $R$ is the distance from the center of the central body (typically its surface radius).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Does the escape velocity depend on the mass of the object trying to escape? Justify your answer.",
+      "back": "No, it does not. As shown in the derivation, the mass $m$ of the escaping object cancels out from the energy conservation equation ($\\frac{1}{2}mv_e^2 = \\frac{GMm}{R}$). This means that, neglecting air resistance, a tiny pebble and a massive rocket require the exact same escape velocity from Earth's surface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the physical parameters that determine the escape velocity from a celestial body.",
+      "back": "Escape velocity ($v_e = \\sqrt{\\frac{2GM}{R}}$) depends on:\n1.  **Mass of the central body ($M$):** Higher mass means stronger gravity, thus higher escape velocity.\n2.  **Radius/Distance from the center ($R$):** Smaller radius (closer to the center) means stronger gravity, thus higher escape velocity.\n3.  **Gravitational constant ($G$):** A fundamental constant.\nIt does NOT depend on the mass or direction of the escaping object (ignoring atmospheric drag).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If Earth's mass doubled ($M \\to 2M$) but its radius remained constant, how would its escape velocity change?",
+      "back": "The escape velocity formula is $v_e = \\sqrt{\\frac{2GM}{R}}$.\nIf Earth's mass $M$ doubles to $2M$, the new escape velocity $v_e'$ would be:\n$v_e' = \\sqrt{\\frac{2G(2M)}{R}} = \\sqrt{2 \\cdot \\frac{2GM}{R}} = \\sqrt{2} \\cdot \\sqrt{\\frac{2GM}{R}} = \\sqrt{2} \\cdot v_e$.\nThe escape velocity would increase by a factor of $\\sqrt{2}$ (approximately 1.414 times the original escape velocity).",
+      "difficulty": "hard"
+    }
+  ]
+}

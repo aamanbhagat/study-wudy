@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-blasius-solution-exact-laminar-boundary-layer-solution",
+  "subtopicTitle": "Blasius solution — exact laminar boundary layer solution",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:41.410Z",
+  "cards": [
+    {
+      "front": "What fundamental fluid dynamics problem does the Blasius solution address?",
+      "back": "The Blasius solution provides an exact analytical solution for the steady, incompressible, two-dimensional laminar boundary layer flow over a flat plate with zero pressure gradient. It determines the velocity profiles within this boundary layer.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the primary assumptions required for the Blasius solution to be applicable.",
+      "back": "The primary assumptions are:\n1.  Steady flow.\n2.  Incompressible fluid.\n3.  Two-dimensional flow.\n4.  Constant fluid properties (density, viscosity).\n5.  Flow over a flat plate.\n6.  Zero pressure gradient ($\\frac{\\partial p}{\\partial x} = 0$).\n7.  Laminar flow.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the Blasius solution, what is the similarity variable $\\eta$, and what physical insight does it provide?",
+      "back": "The similarity variable is $\\eta = y \\sqrt{\\frac{U_\\infty}{\\nu x}}$. It collapses the partial differential equations into an ordinary differential equation by showing that the velocity profiles $u/U_\\infty$ at different $x$ locations are geometrically similar when plotted against $\\eta$. Physically, it represents a non-dimensional distance from the wall, scaled by the local boundary layer thickness.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Blasius ordinary differential equation (ODE) and its boundary conditions.",
+      "back": "The Blasius ODE is $2f''' + f f'' = 0$.\nThe boundary conditions are:\n1.  At the wall ($y=0 \\Rightarrow \\eta=0$): $u=0, v=0 \\Rightarrow f(0)=0, f'(0)=0$.\n2.  Far from the wall ($y \\to \\infty \\Rightarrow \\eta \\to \\infty$): $u \\to U_\\infty \\Rightarrow f'(\\infty)=1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to the Blasius solution, how does the laminar boundary layer thickness $\\delta(x)$ scale with $x$ and the local Reynolds number $Re_x$?",
+      "back": "The boundary layer thickness $\\delta(x)$ is typically defined as the distance where $u \\approx 0.99 U_\\infty$. From the Blasius solution, $\\delta(x) \\approx 5.0 \\sqrt{\\frac{\\nu x}{U_\\infty}}$. This can also be expressed in terms of the local Reynolds number $Re_x = \\frac{U_\\infty x}{\\nu}$ as $\\delta(x) \\approx \\frac{5.0 x}{\\sqrt{Re_x}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the local skin friction coefficient $C_f$ for a flat plate using the Blasius solution's result for wall shear stress.",
+      "back": "The wall shear stress is $\\tau_w = \\mu \\left(\\frac{\\partial u}{\\partial y}\\right)_{y=0}$.\nFrom the Blasius solution, $u = U_\\infty f'(\\eta)$ and $\\eta = y \\sqrt{\\frac{U_\\infty}{\\nu x}}$.\nSo, $\\frac{\\partial u}{\\partial y} = U_\\infty \\frac{d f'}{d \\eta} \\frac{\\partial \\eta}{\\partial y} = U_\\infty f''(\\eta) \\sqrt{\\frac{U_\\infty}{\\nu x}}$.\nAt the wall ($y=0, \\eta=0$), $\\left(\\frac{\\partial u}{\\partial y}\\right)_{y=0} = U_\\infty f''(0) \\sqrt{\\frac{U_\\infty}{\\nu x}}$.\nNumerically, $f''(0) \\approx 0.332$.\nThus, $\\tau_w = \\mu U_\\infty (0.332) \\sqrt{\\frac{U_\\infty}{\\nu x}}$.\nThe local skin friction coefficient is $C_f = \\frac{\\tau_w}{\\frac{1}{2}\\rho U_\\infty^2}$.\n$C_f = \\frac{\\mu U_\\infty (0.332) \\sqrt{\\frac{U_\\infty}{\\nu x}}}{\\frac{1}{2}\\rho U_\\infty^2} = \\frac{0.664 \\mu}{\\rho U_\\infty} \\sqrt{\\frac{U_\\infty}{\\nu x}} = \\frac{0.664}{\\sqrt{\\frac{\\rho U_\\infty x}{\\mu}}} = \\frac{0.664}{\\sqrt{Re_x}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the Blasius solution considered an 'exact' solution, even though its governing ODE usually requires numerical methods for solution?",
+      "back": "The Blasius solution is 'exact' because it does not involve any further approximations beyond the original Prandtl boundary layer equations themselves (which are already simplifications of Navier-Stokes under specific assumptions). The transformation to the similarity variable $\\eta$ and the resulting ODE are mathematically rigorous. The numerical solution of the ODE is merely a computational step to find the specific values of the function $f(\\eta)$, not an approximation of the underlying equations or assumptions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the general shape of the dimensionless velocity profile $u/U_\\infty$ as a function of $\\eta$ obtained from the Blasius solution.",
+      "back": "The dimensionless velocity profile $u/U_\\infty = f'(\\eta)$ starts at $0$ at the wall ($\\eta=0$) due to the no-slip condition. It then smoothly and monotonically increases, resembling an 'S'-shape or a cubic polynomial, before asymptotically approaching $1$ as $\\eta \\to \\infty$ (typically reaching $0.99$ around $\\eta \\approx 5$). The velocity gradient $f''(\\eta)$ is highest at the wall and decreases as $\\eta$ increases.",
+      "difficulty": "medium"
+    }
+  ]
+}

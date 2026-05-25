@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-2-doubly-linked-list-bidirectional-traversal",
+  "subtopicTitle": "Doubly linked list — bidirectional traversal",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:37.439Z",
+  "cards": [
+    {
+      "front": "What is the fundamental structural difference between a singly linked list (SLL) and a doubly linked list (DLL) that enables bidirectional traversal?",
+      "back": "A singly linked list node contains a `data` field and a `next` pointer. A doubly linked list node, in addition to `data` and `next`, also includes a `prev` pointer that points to the previous node in the sequence. This `prev` pointer is what enables traversal in both forward and backward directions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the `Node` structure for a doubly linked list, including all necessary pointers.",
+      "back": "A typical `Node` structure for a doubly linked list includes:\n1. `data`: Stores the actual value or payload of the node.\n2. `next`: A pointer (or reference) to the subsequent node in the list.\n3. `prev`: A pointer (or reference) to the preceding node in the list.\n\nExample in Python-like pseudocode:\n```python\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n        self.prev = None\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a pseudocode snippet to traverse a doubly linked list from `head` to `tail` (forward traversal).",
+      "back": "To traverse a DLL from `head` to `tail`, you start at the `head` and follow the `next` pointers until you reach `None`.\n\n```python\ndef traverse_forward(head):\n    current = head\n    while current is not None:\n        print(current.data) # Or perform other operations\n        current = current.next\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a pseudocode snippet to traverse a doubly linked list from `tail` to `head` (backward traversal).",
+      "back": "To traverse a DLL from `tail` to `head`, you start at the `tail` and follow the `prev` pointers until you reach `None`.\n\n```python\ndef traverse_backward(tail):\n    current = tail\n    while current is not None:\n        print(current.data) # Or perform other operations\n        current = current.prev\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two primary advantages of bidirectional traversal in a doubly linked list compared to a singly linked list?",
+      "back": "1.  **Efficient Backward Traversal:** Allows direct traversal from `tail` to `head` or from any node to its predecessor in $O(1)$ time, which is impossible or requires $O(N)$ time (starting from head) in an SLL.\n2.  **Simplified Deletion:** When deleting a node, knowing both its `prev` and `next` nodes makes it easy to relink the list in $O(1)$ time, without needing a reference to the node's predecessor (which is required for SLL deletion).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If you are given an arbitrary `node` within a doubly linked list, how can you efficiently find both the `head` and the `tail` of the list using bidirectional traversal?",
+      "back": "1.  **Finding the `head`**: Start at the given `node` and repeatedly follow the `prev` pointers until `current.prev` is `None`. The `current` node at that point is the `head`.\n    ```python\n    def find_head(node):\n        current = node\n        while current.prev is not None:\n            current = current.prev\n        return current\n    ```\n2.  **Finding the `tail`**: Start at the given `node` and repeatedly follow the `next` pointers until `current.next` is `None`. The `current` node at that point is the `tail`.\n    ```python\n    def find_tail(node):\n        current = node\n        while current.next is not None:\n            current = current.next\n        return current\n    ```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Quantify the memory overhead of a doubly linked list node compared to a singly linked list node, assuming pointers are $P$ bytes and data is $D$ bytes.",
+      "back": "For a singly linked list node, the memory usage is $D$ (for data) + $P$ (for `next` pointer), totaling $D+P$ bytes.\n\nFor a doubly linked list node, the memory usage is $D$ (for data) + $P$ (for `next` pointer) + $P$ (for `prev` pointer), totaling $D+2P$ bytes.\n\nTherefore, a doubly linked list node incurs an additional $P$ bytes of memory overhead per node compared to a singly linked list node, which is a $P/(D+P)$ increase in relative memory cost per node.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "subtopicId": "physics-p3-3-1-area-velocity-relation-da-a-m-1-dv-v-derivation-explains-de-laval-nozzle",
+  "subtopicTitle": "Area-velocity relation — dA/A = (M²-1)(dV/V) — derivation (explains de Laval nozzle)",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:11.248Z",
+  "cards": [
+    {
+      "front": "What fundamental conservation law, expressed in differential form, is the starting point for deriving the area-velocity relation for steady, one-dimensional flow?",
+      "back": "The Continuity Equation (conservation of mass).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the differential form of the continuity equation for steady, one-dimensional flow through a varying area $A$, in terms of density $\\rho$, velocity $V$, and area $A$.",
+      "back": "$$d(\\rho A V) = 0 \\Rightarrow \\frac{d\\rho}{\\rho} + \\frac{dA}{A} + \\frac{dV}{V} = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Euler's equation for steady, one-dimensional, inviscid flow along a streamline in differential form, relating pressure $P$, density $\\rho$, and velocity $V$.",
+      "back": "$$\\rho V dV + dP = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an isentropic process, how is the change in pressure $dP$ related to the change in density $d\\rho$ and the speed of sound $a$?",
+      "back": "For an isentropic process, $dP = a^2 d\\rho$, where $a = \\sqrt{(\\partial P / \\partial \\rho)_s}$ is the speed of sound.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the area-velocity relation $dA/A = (M^2-1)(dV/V)$ for steady, one-dimensional, isentropic flow, starting from the differential continuity equation, Euler's equation, and the isentropic pressure-density relation.",
+      "back": "1. Continuity Equation: $\\frac{d\\rho}{\\rho} + \\frac{dA}{A} + \\frac{dV}{V} = 0 \\quad (1)$\n2. Euler's Equation: $\\rho V dV + dP = 0 \\quad (2)$\n3. Isentropic Relation: $dP = a^2 d\\rho \\quad (3)$\n\nSubstitute (3) into (2):\n$\\rho V dV + a^2 d\\rho = 0 \\Rightarrow d\\rho = -\\frac{\\rho V dV}{a^2} \\quad (4)$\n\nSubstitute (4) into (1):\n$-\\frac{\\rho V dV}{\\rho a^2} + \\frac{dA}{A} + \\frac{dV}{V} = 0$\n$-\\frac{V dV}{a^2} + \\frac{dA}{A} + \\frac{dV}{V} = 0$\n\nRearrange to solve for $dA/A$:\n$\\frac{dA}{A} = \\frac{V dV}{a^2} - \\frac{dV}{V}$\n$\\frac{dA}{A} = \\frac{dV}{V} \\left( \\frac{V^2}{a^2} - 1 \\right)$\n\nSince Mach number $M = V/a$, then $M^2 = V^2/a^2$.\n$$\\frac{dA}{A} = \\frac{dV}{V} (M^2 - 1)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "According to the area-velocity relation, $dA/A = (M^2-1)(dV/V)$, what happens to the flow velocity in a converging duct ($dA < 0$) when the flow is subsonic ($M < 1$)?",
+      "back": "For $M < 1$, $(M^2-1)$ is negative. If $dA < 0$ (converging), then $(M^2-1)(dV/V)$ must be negative. This requires $dV/V$ to be positive. Therefore, the velocity *increases* ($dV > 0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to the area-velocity relation, $dA/A = (M^2-1)(dV/V)$, what happens to the flow velocity in a converging duct ($dA < 0$) when the flow is supersonic ($M > 1$)?",
+      "back": "For $M > 1$, $(M^2-1)$ is positive. If $dA < 0$ (converging), then $(M^2-1)(dV/V)$ must be negative. This requires $dV/V$ to be negative. Therefore, the velocity *decreases* ($dV < 0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What crucial condition must be met at the throat (minimum area) of a de Laval nozzle for the flow to accelerate from subsonic to supersonic speeds, according to the area-velocity relation?",
+      "back": "At the throat, $dA = 0$. The area-velocity relation $dA/A = (M^2-1)(dV/V)$ implies that either $dV=0$ (no change in velocity) or $M^2-1=0 \\Rightarrow M=1$. For the flow to accelerate through the throat to supersonic speeds, the flow *must* reach sonic velocity ($M=1$) at the throat.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the area-velocity relation explain the characteristic converging-diverging shape of a de Laval nozzle?",
+      "back": "To accelerate flow from subsonic to supersonic, the nozzle must first converge to accelerate subsonic flow ($M<1$, $dA<0 \\Rightarrow dV>0$), then reach $M=1$ at the throat ($dA=0$), and finally diverge to accelerate supersonic flow ($M>1$, $dA>0 \\Rightarrow dV>0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the main assumptions made in the derivation of the area-velocity relation $dA/A = (M^2-1)(dV/V)$.",
+      "back": "1.  **Steady flow**: No change with time.\n2.  **One-dimensional flow**: Properties vary only along the flow direction (average across cross-section).\n3.  **Inviscid flow**: No friction (Euler's equation).\n4.  **Isentropic flow**: Adiabatic and reversible (no heat transfer, no entropy generation).\n5.  **No external work or heat addition**.",
+      "difficulty": "medium"
+    }
+  ]
+}

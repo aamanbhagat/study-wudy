@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-init-constructor-initializing-attributes",
+  "subtopicTitle": "__init__ constructor — initializing attributes",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:19.380Z",
+  "cards": [
+    {
+      "front": "In Python OOP, what is the primary purpose of the `__init__` method?",
+      "back": "The `__init__` method is a special \"constructor\" method used to initialize the *state* (attributes) of a newly created object. It's automatically called when a new instance of a class is created, allowing you to set up initial values for its properties.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When is the `__init__` method automatically invoked in Python?",
+      "back": "It is automatically invoked immediately after a new instance of a class has been created. For example, when you write `my_object = MyClass(arg1, arg2)`, Python first creates the object and then calls `my_object.__init__(arg1, arg2)` implicitly. You do not call it directly.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the significance of the `self` parameter in the `__init__` method signature, and what does it represent?",
+      "back": "The `self` parameter is a convention (though not a keyword) that refers to the *instance of the class itself*. It allows you to access and set attributes specific to that particular object, ensuring that each object maintains its own unique state, distinct from other instances or class-level attributes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a code snippet demonstrating how to initialize an instance attribute named `name` with a value passed during object creation within a class's `__init__` method.",
+      "back": "```python\nclass Person:\n    def __init__(self, initial_name):\n        self.name = initial_name # Initializes the instance attribute 'name'\n\n# Usage:\nperson1 = Person(\"Alice\")\nprint(person1.name) # Output: Alice\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between `my_variable = value` and `self.my_variable = value` inside an `__init__` method.",
+      "back": "`my_variable = value`: This creates a *local variable* within the `__init__` method. It exists only for the duration of the `__init__` call and is not accessible outside the method or as an attribute of the instance.\n\n`self.my_variable = value`: This creates an *instance attribute* named `my_variable` for the specific object (`self`). It becomes part of the object's state and can be accessed via `object_instance.my_variable` after `__init__` completes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if a class definition in Python omits the `__init__` method entirely, or if it defines an empty `__init__` method (e.g., `def __init__(self): pass`)?",
+      "back": "1.  **Omitted `__init__`**: Python automatically provides a default `__init__` method that takes no arguments other than `self`. This allows object creation without passing arguments, but no custom initialization occurs.\n2.  **Empty `__init__`**: The explicitly defined empty `__init__` overrides the default. It will be called, but since it does nothing, no instance attributes will be set during creation. Both scenarios result in objects without custom-initialized attributes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can the `__init__` method explicitly return a value? If so, what type? If not, why?",
+      "back": "No, the `__init__` method cannot explicitly return a value. If it attempts to return anything other than `None`, Python will raise a `TypeError: __init__() should return None, not '...'`. Its purpose is solely to initialize the object; the object itself is implicitly returned by the class constructor call (e.g., `MyClass()`).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you make an attribute optional during object creation using the `__init__` method, providing a default value if not supplied?",
+      "back": "You can make attributes optional by using default arguments in the `__init__` method's signature. If a value for that parameter is not provided during object creation, its default value will be used.\n```python\nclass Car:\n    def __init__(self, make, model, year=2023, color=\"Unknown\"):\n        self.make = make\n        self.model = model\n        self.year = year\n        self.color = color\n\n# Usage:\ncar1 = Car(\"Toyota\", \"Camry\") # year and color use defaults\ncar2 = Car(\"Honda\", \"Civic\", year=2024, color=\"Red\")\nprint(f\"{car1.make} {car1.year}\") # Output: Toyota 2023\nprint(f\"{car2.make} {car2.year}\") # Output: Honda 2024\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

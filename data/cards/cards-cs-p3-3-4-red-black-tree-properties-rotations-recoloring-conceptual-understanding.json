@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-red-black-tree-properties-rotations-recoloring-conceptual-understanding",
+  "subtopicTitle": "Red-Black tree — properties, rotations + recoloring (conceptual understanding)",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:02.619Z",
+  "cards": [
+    {
+      "front": "List the five properties that define a Red-Black Tree.",
+      "back": "1. Every node is either red or black.\n2. The root is black.\n3. Every leaf (NIL node) is black.\n4. If a node is red, then both its children are black (no two consecutive red nodes).\n5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes (black-height property).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do Red-Black Tree properties ensure that its height is always logarithmic, i.e., $O(\\log n)$?",
+      "back": "Properties 4 (no two consecutive red nodes) and 5 (same black-height for all paths) are key. Property 4 implies that the longest path from the root to a leaf can be at most twice as long as the shortest path (alternating red/black vs. all black). Property 5 ensures that the number of black nodes from any node to its descendant leaves is constant, preventing paths from becoming excessively long. This combination guarantees that the tree remains relatively balanced, with height $h \\le 2 \\log_2(n+1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of tree rotations (left and right) in self-balancing binary search trees like Red-Black Trees?",
+      "back": "Tree rotations are local operations used to change the structure of a binary search tree while preserving the binary search tree property (in-order traversal order). Their primary purpose in self-balancing trees is to rebalance the tree and fix violations of balance properties (e.g., Red-Black Tree properties) by moving nodes up or down the tree without violating the BST property.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Illustrate a left rotation operation on a subtree rooted at node `x` with its right child `y`.",
+      "back": "A left rotation transforms a subtree such that `y` becomes the new root and `x` becomes its left child.\nBefore:\n```\n    x\n     \\\n      y\n     / \\\n    T2  T3\n```\nAfter:\n```\n      y\n     / \\\n    x   T3\n     \\\n      T2\n```\nSteps:\n1. `y`'s left child (`T2`) becomes `x`'s right child.\n2. `x` becomes `y`'s left child.\n3. `y` takes `x`'s original position.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When inserting a new node into a Red-Black Tree, what color is the new node initially assigned, and which Red-Black Tree property is most likely to be violated?",
+      "back": "The new node is initially assigned **red**. This is because assigning it black would increase the black-height of paths through it, potentially violating Property 5 (all paths from a node to descendant leaves have the same number of black nodes). Assigning it red preserves black-height.\nThe property most likely to be violated is **Property 4**: \"If a node is red, then both its children are black.\" This occurs if the new red node's parent is also red.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the Red-Black Tree insertion fix-up case where the newly inserted red node's parent `P` is red, and its uncle `U` (the sibling of `P`) is also red.",
+      "back": "This is Case 1 (Recoloring).\n1. Recolor `P` to black.\n2. Recolor `U` to black.\n3. Recolor `G` (the grandparent of the new node) to red.\n4. Set `G` as the new current node (`N`) and repeat the fix-up process (as `G` might now have a red parent).\nThis action pushes the red violation up the tree.\nExample:\n```\n    G (B)\n   /   \\\n  P(R)  U(R)\n /\\    /\\\nN(R) T1 T2 T3\n```\nbecomes\n```\n    G (R)\n   /   \\\n  P(B)  U(B)\n /\\    /\\\nN(R) T1 T2 T3 (N is now G for next iteration)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the Red-Black Tree insertion fix-up cases where the newly inserted red node `N` has a red parent `P`, and its uncle `U` is black. Focus on the two sub-cases based on `N`'s position relative to `P` and `G` (grandparent).",
+      "back": "This covers Case 2 (Zig-Zag) and Case 3 (Zig-Zig).\n*   **Case 2 (Zig-Zag): `N` is the right child of `P`, and `P` is the left child of `G` (or vice-versa symmetrically).**\n    1.  Perform a **left rotation** on `P`. This makes `N` the new parent of `P` and `P` its left child. The tree structure changes to resemble Case 3.\n    2.  Then proceed to Case 3 logic.\n*   **Case 3 (Zig-Zig): `N` is the left child of `P`, and `P` is the left child of `G` (or vice-versa symmetrically).**\n    1.  Recolor `P` to black.\n    2.  Recolor `G` to red.\n    3.  Perform a **right rotation** on `G`. This makes `P` the new root of the subtree, and `G` its right child.\nThese cases resolve the violation locally and terminate the fix-up.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is Red-Black Tree deletion generally considered more complex than insertion, even though both use rotations and recoloring?",
+      "back": "Deletion is more complex primarily because the node actually removed from the tree (the successor/predecessor or the leaf node) might be black.\nIf a **black node** is removed, it reduces the black-height of all paths passing through its parent, violating Property 5. This \"black-height deficit\" needs to be propagated and fixed, potentially requiring more complex sequences of rotations and recoloring across multiple levels of the tree and involving more sub-cases than insertion. In contrast, insertion always starts with a red node, which only violates Property 4 (two consecutive red nodes), a violation that is typically easier to fix by pushing it up or resolving it locally.",
+      "difficulty": "medium"
+    }
+  ]
+}

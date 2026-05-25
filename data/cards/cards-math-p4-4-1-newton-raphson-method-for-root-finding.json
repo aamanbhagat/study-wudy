@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-newton-raphson-method-for-root-finding",
+  "subtopicTitle": "Newton-Raphson method for root finding",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:16.495Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Newton-Raphson method?",
+      "back": "The Newton-Raphson method is an iterative numerical technique used to find successively better approximations to the roots (or zeroes) of a real-valued function $f(x)$. That is, it finds $x$ such that $f(x)=0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, how is the next approximation $x_{n+1}$ in the Newton-Raphson method derived from $x_n$?",
+      "back": "Starting from an initial guess $x_n$, we find the tangent line to the function $y=f(x)$ at the point $(x_n, f(x_n))$. The next approximation $x_{n+1}$ is the x-intercept of this tangent line.\nThe equation of the tangent line is $y - f(x_n) = f'(x_n)(x - x_n)$.\nSetting $y=0$ to find the x-intercept:\n$0 - f(x_n) = f'(x_n)(x_{n+1} - x_n)$\n$-f(x_n) = f'(x_n)(x_{n+1} - x_n)$\n$\\frac{-f(x_n)}{f'(x_n)} = x_{n+1} - x_n$\n$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the iterative formula for the Newton-Raphson method.",
+      "back": "The iterative formula for the Newton-Raphson method is:\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\nwhere $x_n$ is the current approximation, $f(x_n)$ is the function value at $x_n$, and $f'(x_n)$ is the derivative of the function at $x_n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use Newton-Raphson to find the first approximation $x_1$ for the root of $f(x) = x^2 - 2$, starting with $x_0 = 1$.",
+      "back": "Given $f(x) = x^2 - 2$, we first find its derivative: $f'(x) = 2x$.\nThe Newton-Raphson formula is $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$.\nFor $n=0$, with $x_0 = 1$:\n$f(x_0) = f(1) = 1^2 - 2 = -1$\n$f'(x_0) = f'(1) = 2(1) = 2$\n$x_1 = x_0 - \\frac{f(x_0)}{f'(x_0)} = 1 - \\frac{-1}{2} = 1 + \\frac{1}{2} = 1.5$\nSo, the first approximation $x_1$ is $1.5$. (Note: The true root is $\\sqrt{2} \\approx 1.414$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the key conditions that generally ensure the Newton-Raphson method converges to a root?",
+      "back": "The Newton-Raphson method generally converges if:\n1.  The initial guess $x_0$ is sufficiently close to the actual root.\n2.  The function $f(x)$ is differentiable in an interval containing the root and $x_0$.\n3.  The derivative $f'(x)$ is not zero (or very close to zero) at the root or at any point in the iteration path.\n4.  The function $f(x)$ and its derivative $f'(x)$ are continuous in the interval of interest.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two scenarios where the Newton-Raphson method might fail to converge or converge to an unexpected root.",
+      "back": "The Newton-Raphson method can fail or perform poorly if:\n1.  **Poor Initial Guess:** If $x_0$ is far from the root, the method might diverge, oscillate, or converge to a different, unintended root.\n2.  **Zero Derivative:** If $f'(x_n) = 0$ at any iteration, the method fails due to division by zero. This often happens near local maxima or minima.\n3.  **Oscillation/Cycling:** The iterations might jump back and forth between two values without converging, especially if the derivative is small but not zero.\n4.  **Root at a Local Extremum:** If the root coincides with a local extremum, $f'(x)=0$ at the root, leading to slow convergence or failure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically explain why the Newton-Raphson method might fail if $f'(x_n)$ is close to zero.",
+      "back": "If $f'(x_n)$ is close to zero, the tangent line to $f(x)$ at $(x_n, f(x_n))$ is nearly horizontal. This means its x-intercept ($x_{n+1}$) will be very far away from $x_n$, potentially jumping to a completely different region or even diverging to infinity. If $f'(x_n)$ is exactly zero, the tangent line is perfectly horizontal and never intersects the x-axis (unless $f(x_n)$ is also zero, in which case $x_n$ is already a root), causing division by zero in the formula.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical order of convergence for the Newton-Raphson method, assuming it converges? What does this mean?",
+      "back": "The Newton-Raphson method typically exhibits **quadratic convergence** (order 2).\nThis means that, as the iterations approach the root, the number of correct significant digits approximately doubles with each successive iteration.\nMore formally, if $e_n = |x_n - r|$ is the error at iteration $n$ (where $r$ is the true root), then for quadratic convergence, there exists a constant $M$ such that $e_{n+1} \\approx M e_n^2$.",
+      "difficulty": "medium"
+    }
+  ]
+}

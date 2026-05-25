@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-4-parametric-forms-of-all-conics",
+  "subtopicTitle": "Parametric forms of all conics",
+  "topicId": "math-p3-3-4-conic-sections",
+  "topicTitle": "Conic Sections",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:14.552Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of expressing a curve in parametric form?",
+      "back": "To define the coordinates $(x,y)$ of points on the curve as functions of a single independent parameter, say $t$ or $\theta$. This allows describing complex paths, direction of motion, and curves that are not functions of $x$ or $y$ alone.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the parametric form for a circle centered at the origin with radius $r$.",
+      "back": "$$x = r \\cos \\theta$$ $$y = r \\sin \\theta$$ where $\\theta \\in [0, 2\\pi)$ is the parameter, often representing the angle from the positive x-axis. This works because $\\cos^2 \\theta + \\sin^2 \\theta = 1$, so $x^2 + y^2 = (r \\cos \\theta)^2 + (r \\sin \\theta)^2 = r^2 (\\cos^2 \\theta + \\sin^2 \\theta) = r^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the parametric form for an ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ centered at the origin.",
+      "back": "Starting with $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$. We want to find functions $x(\\theta)$ and $y(\\theta)$ that satisfy this. Recall the identity $\\cos^2 \\theta + \\sin^2 \\theta = 1$. If we let $\\frac{x}{a} = \\cos \\theta$ and $\\frac{y}{b} = \\sin \\theta$, then substituting these into the ellipse equation gives: $(\\cos \\theta)^2 + (\\sin \\theta)^2 = 1$, which is true. Therefore, the parametric form is: $$x = a \\cos \\theta$$ $$y = b \\sin \\theta$$ where $\\theta \\in [0, 2\\pi)$ is the parameter, often called the eccentric anomaly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the parametric form for a parabola $y^2 = 4ax$.",
+      "back": "For $y^2 = 4ax$: Let $y = 2at$. Then $(2at)^2 = 4ax \\Rightarrow 4a^2t^2 = 4ax \\Rightarrow x = at^2$. So, the parametric form is: $$x = at^2$$ $$y = 2at$$ where $t \\in (-\\infty, \\infty)$ is the parameter. For a parabola $x^2 = 4ay$, the form would be $x = 2at, y = at^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the standard parametric form for a hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$.",
+      "back": "Recall the hyperbolic identity $\\cosh^2 t - \\sinh^2 t = 1$. If we let $\\frac{x}{a} = \\cosh t$ and $\\frac{y}{b} = \\sinh t$, then substituting these into the hyperbola equation gives: $(\\cosh t)^2 - (\\sinh t)^2 = 1$, which is true. Therefore, the parametric form is: $$x = a \\cosh t$$ $$y = b \\sinh t$$ where $t \\in (-\\infty, \\infty)$ is the parameter. This covers the right branch ($x \\ge a$). For the left branch ($x \\le -a$), we can use $x = -a \\cosh t, y = b \\sinh t$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do the parametric forms of conics change when the center/vertex is shifted from the origin to $(h,k)$?",
+      "back": "If a conic is centered at $(h,k)$ (for ellipse/hyperbola/circle) or has its vertex at $(h,k)$ (for parabola), the parametric equations are simply translated: If the original form was $x = f(t)$ and $y = g(t)$, the new form becomes: $$x = h + f(t)$$ $$y = k + g(t)$$ For example, a circle $(x-h)^2 + (y-k)^2 = r^2$ has parametric form: $x = h + r \\cos \\theta$, $y = k + r \\sin \\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why trigonometric functions (sine/cosine) are used for ellipses/circles, while hyperbolic functions (sinh/cosh) are used for hyperbolas in parametric forms.",
+      "back": "The choice of functions directly relates to the fundamental identities that define these curves. For circles and ellipses, the standard equation is a sum of squares equal to a constant (e.g., $X^2 + Y^2 = 1$). The trigonometric identity $\\cos^2 \\theta + \\sin^2 \\theta = 1$ perfectly matches this structure. For hyperbolas, the standard equation is a difference of squares equal to a constant (e.g., $X^2 - Y^2 = 1$). The hyperbolic identity $\\cosh^2 t - \\sinh^2 t = 1$ perfectly matches this structure. These identities are the mathematical 'glue' that make these parametric representations work.",
+      "difficulty": "hard"
+    }
+  ]
+}

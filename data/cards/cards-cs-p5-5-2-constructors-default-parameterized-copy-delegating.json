@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-constructors-default-parameterized-copy-delegating",
+  "subtopicTitle": "Constructors — default, parameterized, copy, delegating",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:59.605Z",
+  "cards": [
+    {
+      "front": "What is a default constructor in C++? When does the compiler implicitly generate one for a class?",
+      "back": "A default constructor is a constructor that can be called without any arguments. The compiler implicitly generates a public default constructor for a class if and only if no other constructors (user-declared or implicitly declared) are declared for that class.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a C++ class `Point` with a parameterized constructor that initializes `x` and `y` coordinates using a member initializer list.",
+      "back": "```cpp\nclass Point {\npublic:\n    int x, y;\n    Point(int initialX, int initialY) : x(initialX), y(initialY) {}\n};\n```\nA parameterized constructor takes one or more arguments. Member initializer lists (e.g., `: x(initialX), y(initialY)`) are preferred for initialization over assignment inside the constructor body, especially for `const` members, references, or members of classes with no default constructor.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the canonical signature for a copy constructor. List three distinct scenarios where a C++ copy constructor is invoked implicitly.",
+      "back": "Canonical signature: `ClassName(const ClassName& other);`\nA copy constructor is invoked implicitly when:\n1. An object is initialized from another object of the same type (e.g., `ClassName obj2 = obj1;` or `ClassName obj2(obj1);`).\n2. An object is passed by value to a function (e.g., `void func(ClassName obj) { ... }`).\n3. An object is returned by value from a function (e.g., `ClassName func() { ClassName obj; return obj; }`).\n(Note: Return Value Optimization (RVO) or Named RVO (NRVO) might elide the copy operation in some return-by-value cases, but conceptually, a copy *would* occur.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the purpose of a delegating constructor in C++ and provide a minimal code snippet demonstrating its syntax.",
+      "back": "A delegating constructor allows one constructor to call another constructor of the *same class* to perform initializations. This helps avoid code duplication and improves maintainability by centralizing common initialization logic.\n```cpp\nclass MyClass {\npublic:\n    int value;\n    MyClass(int v) : value(v) {} // Target constructor\n    MyClass() : MyClass(0) {}    // Delegating constructor\n};\n```\nHere, `MyClass()` delegates to `MyClass(int)` with `0` as the argument.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `explicit` keyword when applied to a C++ constructor?",
+      "back": "The `explicit` keyword prevents implicit conversions from a single argument to an object of the class type. It ensures that the constructor can only be used for direct initialization (e.g., `MyClass obj(arg);`) and not for implicit conversions (e.g., `MyClass obj = arg;` or passing `arg` to a function expecting `MyClass`). This helps prevent unintended type conversions and potential bugs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what specific condition will the C++ compiler *not* implicitly generate a default constructor for a class?",
+      "back": "The compiler will *not* implicitly generate a default constructor if the class has any user-declared constructors (parameterized, copy, move, or even an explicitly defaulted/deleted default constructor). If you declare any constructor, you must explicitly declare a default constructor if you still want one.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a class `String` with a `char* data` member. Explain the difference between a shallow copy and a deep copy when its copy constructor is invoked, and why deep copy is generally preferred for resource-owning classes.",
+      "back": "A **shallow copy** merely copies the *value* of the `data` pointer. Both the original and copied `String` objects would then point to the *same* underlying character array. This leads to issues like double-free errors when destructors are called or one object modifying the other's data.\nA **deep copy** allocates new memory for the `data` member in the copied object and then copies the *contents* of the character array from the original object into this new memory. This ensures each `String` object owns its distinct resource. Deep copy is preferred for resource-owning classes to maintain proper ownership semantics and prevent memory corruption.",
+      "difficulty": "hard"
+    }
+  ]
+}

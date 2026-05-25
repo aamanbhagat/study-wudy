@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-electric-potential-definition-v-e-dl",
+  "subtopicTitle": "Electric potential — definition V = -∫E·dl",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:25.340Z",
+  "cards": [
+    {
+      "front": "Define electric potential ($V$) conceptually, relating it to work and potential energy.",
+      "back": "Electric potential ($V$) at a point is the amount of work done *per unit positive test charge* by an external agent to bring the charge from a reference point to that point without acceleration. It is also defined as the electric potential energy ($U$) per unit charge ($q$): $$V = \\frac{U}{q}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental definition of electric potential difference, $\\Delta V$, between two points $A$ and $B$ using the electric field $\\vec{E}$.",
+      "back": "The electric potential difference between point $B$ and point $A$ is given by the line integral of the electric field: $$\\Delta V = V_B - V_A = -\\int_A^B \\vec{E} \\cdot d\\vec{l}$$ where $d\\vec{l}$ is an infinitesimal displacement vector along the path from $A$ to $B$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the physical significance of the negative sign in the definition of electric potential difference, $\\Delta V = -\\int \\vec{E} \\cdot d\\vec{l}$.",
+      "back": "The negative sign signifies that if the electric field does positive work on a charge (i.e., $\\vec{E} \\cdot d\\vec{l} > 0$), the potential *decreases*. Conversely, to move a positive test charge against the electric field (doing positive external work), the potential *increases*. It reflects that the electric field points in the direction of decreasing potential.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is electric potential a scalar quantity, while the electric field is a vector quantity?",
+      "back": "Electric potential is defined as potential energy per unit charge ($U/q$). Since both potential energy and charge are scalar quantities, their ratio, electric potential, is also a scalar. It represents a 'potential energy landscape' rather than a directional force.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the most common reference point for electric potential, and under what conditions is it typically chosen?",
+      "back": "The most common reference point for electric potential is *infinity*, where $V=0$. This choice is typically made for localized charge distributions (e.g., point charges, finite spheres) where the electric field diminishes to zero at large distances. For circuits, 'ground' is often chosen as the zero potential reference.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the electric potential $V$ at a distance $r$ from a point charge $Q$, assuming $V=0$ at infinity.",
+      "back": "Starting from $V_r - V_\\infty = -\\int_\\infty^r \\vec{E} \\cdot d\\vec{l}$. For a point charge $Q$, $\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r'^2} \\hat{r'}$. Let $d\\vec{l} = d\\vec{r'}$.\n$$V_r - 0 = -\\int_\\infty^r \\left(\\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r'^2} \\hat{r'}\\right) \\cdot (d\\vec{r'} \\hat{r'})$$\n$$V_r = -\\frac{Q}{4\\pi\\epsilon_0} \\int_\\infty^r \\frac{1}{r'^2} dr'$$\n$$V_r = -\\frac{Q}{4\\pi\\epsilon_0} \\left[ -\\frac{1}{r'} \\right]_\\infty^r$$\n$$V_r = -\\frac{Q}{4\\pi\\epsilon_0} \\left( -\\frac{1}{r} - (-\\frac{1}{\\infty}) \\right)$$\n$$V_r = -\\frac{Q}{4\\pi\\epsilon_0} \\left( -\\frac{1}{r} - 0 \\right)$$\n$$V_r = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can the electric field $\\vec{E}$ be obtained from the electric potential $V$? Provide the general mathematical expression.",
+      "back": "The electric field $\\vec{E}$ is the negative gradient of the electric potential $V$.\n$$\\vec{E} = -\\nabla V$$\nIn Cartesian coordinates, this expands to:\n$$\\vec{E} = -\\left( \\frac{\\partial V}{\\partial x} \\hat{i} + \\frac{\\partial V}{\\partial y} \\hat{j} + \\frac{\\partial V}{\\partial z} \\hat{k} \\right)$$\nThis means the electric field points in the direction of the steepest decrease in electric potential.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the SI units of electric potential, and how are they expressed in terms of fundamental SI units?",
+      "back": "The SI unit of electric potential is the *Volt (V)*.\nOne Volt is defined as one Joule of energy per Coulomb of charge.\n$$1 \\text{ V} = 1 \\text{ J/C}$$\nIn terms of fundamental SI units (kg, m, s, A):\n$$1 \\text{ J} = 1 \\text{ kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-2}$$\n$$1 \\text{ C} = 1 \\text{ A} \\cdot \\text{s}$$\nTherefore,\n$$1 \\text{ V} = \\frac{\\text{kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-2}}{\\text{A} \\cdot \\text{s}} = \\text{kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-3} \\cdot \\text{A}^{-1}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

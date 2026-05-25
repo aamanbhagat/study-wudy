@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-lists-creation-indexing-slicing-mutability",
+  "subtopicTitle": "Lists — creation, indexing, slicing, mutability",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:00.868Z",
+  "cards": [
+    {
+      "front": "How do you create an empty list in Python, and a list containing the integers 1, 2, and 3?",
+      "back": "To create an empty list:\n```python\nempty_list = []\n# or empty_list = list()\n```\nTo create a list with initial elements:\n```python\nmy_list = [1, 2, 3]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a list `my_list` of length $N$, what are the valid positive and negative integer indices?",
+      "back": "Valid positive indices range from $0$ to $N-1$.\nValid negative indices range from $-1$ to $-N$.\nAttempting to access an index outside this range will result in an `IndexError`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `fruits = ['apple', 'banana', 'cherry']`, how do you access 'banana' using positive and negative indexing?",
+      "back": "Using positive indexing:\n```python\nfruits = ['apple', 'banana', 'cherry']\nbanana = fruits[1] # 'banana'\n```\nUsing negative indexing:\n```python\nfruits = ['apple', 'banana', 'cherry']\nbanana = fruits[-2] # 'banana'\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain `my_list[start:end]` in Python list slicing. What does `end` represent?",
+      "back": "`my_list[start:end]` creates a *new* list containing elements from the index `start` up to, but *not including*, the element at index `end`.\n\nFor example:\n```python\nnumbers = [0, 1, 2, 3, 4]\nslice_obj = numbers[1:3] # [1, 2]\n```\nHere, `end=3` means elements at index 1 and 2 are included, but the element at index 3 is excluded.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What do `my_list[::2]` and `my_list[::-1]` accomplish in Python list slicing?",
+      "back": "`my_list[::2]` creates a new list containing every second element from `my_list`, starting from the beginning (index 0).\n`my_list[::-1]` creates a new list that is the reverse of `my_list`.\n\nExample:\n```python\ndata = [10, 20, 30, 40, 50]\neven_indices = data[::2]  # [10, 30, 50]\nreversed_data = data[::-1] # [50, 40, 30, 20, 10]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean for Python lists to be \"mutable\"? Provide a simple code example.",
+      "back": "\"Mutable\" means that the contents or state of a list can be changed *after* it has been created, without creating a new list object. The list object itself retains its identity while its internal state is modified.\n\nExample:\n```python\nmy_list = [1, 2, 3]\nprint(my_list) # Output: [1, 2, 3]\n\nmy_list[0] = 100 # Modifying an element in place\nprint(my_list) # Output: [100, 2, 3]\n\nmy_list.append(4) # Adding an element\nprint(my_list) # Output: [100, 2, 3, 4]\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If you execute `list_a = [1, 2, 3]` then `list_b = list_a`, and subsequently modify `list_b[0] = 100`, what will be the value of `list_a`? Why?",
+      "back": "`list_a` will also become `[100, 2, 3]`.\n\nThis happens because `list_b = list_a` does *not* create a new list. Instead, `list_b` becomes another reference (or alias) to the *same* list object in memory that `list_a` refers to. When you modify `list_b[0]`, you are modifying the shared list object, which is then reflected through `list_a` as well.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you create a *true independent copy* of a list in Python, preventing modifications to the copy from affecting the original?",
+      "back": "To create a true independent copy (a \"shallow copy\") of a list, you can use one of these methods:\n1.  **Slicing the entire list:**\n    ```python\n    original = [1, 2, 3]\n    copy = original[:]\n    ```\n2.  **Using the `list()` constructor:**\n    ```python\n    original = [1, 2, 3]\n    copy = list(original)\n    ```\n3.  **Using the `copy()` method (Python 3+):**\n    ```python\n    original = [1, 2, 3]\n    copy = original.copy()\n    ```\nAfter any of these, `copy` is a new list object. Modifying `copy` will not affect `original`. (Note: For lists containing other mutable objects, these are shallow copies. A `copy.deepcopy()` is needed for a truly independent copy of nested mutable structures.)",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-6-pspace-quantified-boolean-formula",
+  "subtopicTitle": "PSPACE — Quantified Boolean Formula",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:28.675Z",
+  "cards": [
+    {
+      "front": "Define the complexity class PSPACE.",
+      "back": "PSPACE is the class of decision problems solvable by a deterministic Turing machine using a polynomial amount of space (memory) with respect to the input size. It is known that $\text{P} \\subseteq \text{NP} \\subseteq \text{PSPACE} \\subseteq \text{EXPTIME}$, and due to Savitch's Theorem, $\text{PSPACE} = \text{NPSPACE}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a Quantified Boolean Formula (QBF)?",
+      "back": "A QBF is a Boolean formula where variables can be bound by existential ($\\exists$) or universal ($\forall$) quantifiers, in addition to standard logical connectives ($\\land, \\lor, \neg$). The quantifiers typically appear at the beginning of the formula. Example: $\forall x \\exists y (x \\lor \neg y)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the significance of QBF being PSPACE-complete?",
+      "back": "QBF is the canonical PSPACE-complete problem. This means two things: 1) QBF itself is in PSPACE, and 2) Every problem in PSPACE can be reduced to QBF in polynomial time. Therefore, if we could solve QBF efficiently (e.g., in polynomial time), then all problems in PSPACE could be solved efficiently.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the intuitive connection between alternating quantifiers in QBF and PSPACE.",
+      "back": "Alternating quantifiers (e.g., $\forall x_1 \\exists y_1 \forall x_2 \\exists y_2 \\dots$) can be thought of as a two-player game. One player (representing $\\exists$) tries to make the formula true, while the other (representing $\forall$) tries to make it false. Deciding the winner of such a game, or the truth value of the QBF, corresponds to exploring a game tree whose depth is linear in the number of variables but whose width can be exponential. This exploration can be done using polynomial space by iteratively evaluating subproblems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the truth value of the QBF: $\\exists x \forall y (x \\land y)$.",
+      "back": "FALSE.\nTo be true, there must exist an $x$ (either $T$ or $F$) such that for all $y$ (both $T$ and $F$), $(x \\land y)$ is true.\n1. If $x=T$: The formula becomes $\forall y (T \\land y)$, which simplifies to $\forall y (y)$. This is false because if $y=F$, then $y$ is false.\n2. If $x=F$: The formula becomes $\forall y (F \\land y)$, which simplifies to $\forall y (F)$. This is false.\nSince neither choice for $x$ makes the inner formula universally true, the entire QBF is false.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do QBF and SAT (Boolean Satisfiability Problem) differ, and what's the complexity implication?",
+      "back": "SAT involves finding if there exists *an* assignment of truth values to variables that makes a Boolean formula true (implicit existential quantification). QBF explicitly uses both existential ($\\exists$) and universal ($\forall$) quantifiers, allowing for much more complex logical statements. SAT is NP-complete, while QBF is PSPACE-complete, meaning QBF is generally considered significantly harder to solve than SAT.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State Savitch's Theorem and its implication for PSPACE.",
+      "back": "Savitch's Theorem states that for any function $s(n) \\ge \\log n$, $\text{NSPACE}(s(n)) \\subseteq \text{DSPACE}((s(n))^2)$.\nIts implication for PSPACE is profound: $\text{NPSPACE} = \text{PSPACE}$. This shows that non-determinism does not add computational power when considering space complexity classes (unlike for time complexity classes, where P vs NP is a major open problem).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-surface-integrals-scalar-and-vector-flux",
+  "subtopicTitle": "Surface integrals — scalar and vector (flux)",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:05.743Z",
+  "cards": [
+    {
+      "front": "What does the scalar surface integral $\\iint_S f(x,y,z) dS$ represent conceptually?",
+      "back": "It represents the \"sum\" or \"accumulation\" of the scalar function $f$ over the surface $S$. For example, if $f(x,y,z)$ is the mass density at a point $(x,y,z)$ on the surface, the integral gives the total mass of the surface. If $f=1$, it gives the total surface area of $S$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a surface $S$ parametrized by $\\mathbf{r}(u,v)$, what is the formula for the differential surface area element $dS$?",
+      "back": "The differential surface area element $dS$ is given by:\n$$dS = ||\\mathbf{r}_u \\times \\mathbf{r}_v|| \\, dA = ||\\frac{\\partial \\mathbf{r}}{\\partial u} \\times \\frac{\\partial \\mathbf{r}}{\\partial v}|| \\, du \\, dv$$\nwhere $\\mathbf{r}_u = \\frac{\\partial \\mathbf{r}}{\\partial u}$ and $\\mathbf{r}_v = \\frac{\\partial \\mathbf{r}}{\\partial v}$. The scalar surface integral then becomes $\\iint_D f(\\mathbf{r}(u,v)) ||\\mathbf{r}_u \\times \\mathbf{r}_v|| \\, du \\, dv$, where $D$ is the parameter domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a surface $S$ given by $z=g(x,y)$ over a region $D$ in the $xy$-plane, what is the formula for $dS$?",
+      "back": "The differential surface area element $dS$ is given by:\n$$dS = \\sqrt{1 + \\left(\\frac{\\partial z}{\\partial x}\\right)^2 + \\left(\\frac{\\partial z}{\\partial y}\\right)^2} \\, dA = \\sqrt{1 + g_x^2 + g_y^2} \\, dx \\, dy$$\nThe scalar surface integral becomes $\\iint_D f(x,y,g(x,y)) \\sqrt{1 + g_x^2 + g_y^2} \\, dx \\, dy$. Similar formulas exist if the surface is projected onto the $xz$-plane or $yz$-plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the vector surface integral (flux) $\\iint_S \\mathbf{F} \\cdot d\\mathbf{S}$ represent conceptually?",
+      "back": "It represents the net flow of a vector field $\\mathbf{F}$ *through* an oriented surface $S$. For example, if $\\mathbf{F}$ is the velocity field of a fluid, the flux represents the volume of fluid passing through the surface per unit time. If $\\mathbf{F}$ is an electric field, it represents the electric flux.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a surface $S$ parametrized by $\\mathbf{r}(u,v)$, write the formula for the vector differential surface element $d\\mathbf{S}$ and the flux integral.",
+      "back": "The vector differential surface element $d\\mathbf{S}$ is given by:\n$$d\\mathbf{S} = (\\mathbf{r}_u \\times \\mathbf{r}_v) \\, du \\, dv$$\nThe flux integral is then:\n$$\\iint_S \\mathbf{F} \\cdot d\\mathbf{S} = \\iint_D \\mathbf{F}(\\mathbf{r}(u,v)) \\cdot (\\mathbf{r}_u \\times \\mathbf{r}_v) \\, du \\, dv$$\nThe choice of $\\mathbf{r}_u \\times \\mathbf{r}_v$ or $\\mathbf{r}_v \\times \\mathbf{r}_u$ determines the orientation of the surface (direction of the normal vector).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a surface $S$ given by $z=g(x,y)$ with an upward normal, what is the formula for $d\\mathbf{S}$ and the flux integral?",
+      "back": "For an upward normal, the vector differential surface element $d\\mathbf{S}$ is given by:\n$$d\\mathbf{S} = \\langle -g_x, -g_y, 1 \\rangle \\, dx \\, dy$$\nThe flux integral is then:\n$$\\iint_S \\mathbf{F} \\cdot d\\mathbf{S} = \\iint_D \\mathbf{F}(x,y,g(x,y)) \\cdot \\langle -g_x, -g_y, 1 \\rangle \\, dx \\, dy$$\nIf a downward normal is required, use $d\\mathbf{S} = \\langle g_x, g_y, -1 \\rangle \\, dx \\, dy$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Divergence Theorem (Gauss's Theorem) for a vector field $\\mathbf{F}$ and a solid region $E$, and explain its significance.",
+      "back": "The Divergence Theorem states that if $E$ is a simple solid region and $S$ is its boundary surface, oriented outwardly, then:\n$$\\iint_S \\mathbf{F} \\cdot d\\mathbf{S} = \\iiint_E \\nabla \\cdot \\mathbf{F} \\, dV$$\nwhere $\\nabla \\cdot \\mathbf{F}$ is the divergence of $\\mathbf{F}$.\n**Significance:** It relates the flux of a vector field across a closed surface to the integral of the divergence of the field over the volume enclosed by the surface. It often simplifies calculations for closed surfaces by converting a surface integral into a volume integral.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the orientation of a surface crucial when calculating a vector surface integral (flux), and how is it determined?",
+      "back": "Surface orientation determines the direction of the unit normal vector $\\mathbf{n}$, which is essential for defining $d\\mathbf{S} = \\mathbf{n} \\, dS$. A change in orientation (e.g., from outward to inward normal) reverses the sign of the flux integral, as $\\mathbf{F} \\cdot (-\\mathbf{n}) = -(\\mathbf{F} \\cdot \\mathbf{n})$.\nFor a parametrized surface $\\mathbf{r}(u,v)$, the orientation is determined by the choice of the normal vector $\\mathbf{r}_u \\times \\mathbf{r}_v$ or $\\mathbf{r}_v \\times \\mathbf{r}_u$. For a surface $z=g(x,y)$, an upward normal is $\\langle -g_x, -g_y, 1 \\rangle$ and a downward normal is $\\langle g_x, g_y, -1 \\rangle$. For closed surfaces, \"outward\" orientation is standard.",
+      "difficulty": "hard"
+    }
+  ]
+}

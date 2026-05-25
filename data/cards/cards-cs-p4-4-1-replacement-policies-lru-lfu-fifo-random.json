@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-replacement-policies-lru-lfu-fifo-random",
+  "subtopicTitle": "Replacement policies — LRU, LFU, FIFO, Random",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:35.213Z",
+  "cards": [
+    {
+      "front": "In cache memory, what is the primary purpose of a \"replacement policy\"?",
+      "back": "When a cache is full and a new block needs to be brought in, a replacement policy determines which existing block to evict to make space. Its goal is to minimize cache misses by selecting a block least likely to be needed soon.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"First-In, First-Out (FIFO)\" cache replacement policy.",
+      "back": "FIFO evicts the block that has been in the cache for the longest duration, regardless of how recently or frequently it has been accessed. It conceptually maintains a queue of blocks, adding new ones to the tail and evicting from the head.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is \"Belady's Anomaly,\" and which common cache replacement policy is known to exhibit it?",
+      "back": "Belady's Anomaly is a phenomenon where increasing the number of available cache frames (cache size) can lead to an *increase* in the number of cache misses. The **FIFO** replacement policy is known to exhibit this anomaly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"Least Recently Used (LRU)\" cache replacement policy.",
+      "back": "LRU evicts the block that has not been accessed for the longest period of time. It operates on the principle of temporal locality, assuming that blocks accessed recently are more likely to be accessed again in the near future.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary practical challenge or overhead associated with implementing a true \"Least Recently Used (LRU)\" cache replacement policy?",
+      "back": "Implementing a true LRU policy requires tracking the access time or order for every block in the cache. This typically involves maintaining a timestamp or a complex linked list structure that must be updated on every cache access, incurring significant hardware complexity, memory, and processing overhead.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the \"Least Frequently Used (LFU)\" cache replacement policy.",
+      "back": "LFU evicts the block that has been accessed the fewest number of times since it was brought into the cache. It maintains an access counter for each block, incrementing it on every access, and evicts the block with the lowest count.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant drawback of the \"Least Frequently Used (LFU)\" policy concerning blocks that were very popular in the past but are no longer being accessed?",
+      "back": "LFU struggles with \"aging\" blocks. A block that was frequently accessed early on might accumulate a very high access count. Even if it's no longer being used, its high count can prevent it from being evicted, occupying valuable cache space while newer, more relevant blocks are evicted instead.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the \"Random\" cache replacement policy, and what is its main advantage?",
+      "back": "The Random policy simply chooses any block in the cache to evict at random when a replacement is needed. Its main advantage is its extreme simplicity of implementation, requiring minimal hardware and computational overhead, making it very fast.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a system where hardware simplicity and low overhead are paramount, and workload patterns are highly unpredictable, which cache replacement policy might be preferred despite its potentially suboptimal hit rate?",
+      "back": "The **Random** replacement policy would likely be preferred. Its simplicity makes it easy to implement in hardware with minimal overhead, which can be crucial in resource-constrained or high-performance systems where the cost of complex policies might outweigh their benefits, especially with unpredictable access patterns.",
+      "difficulty": "hard"
+    }
+  ]
+}

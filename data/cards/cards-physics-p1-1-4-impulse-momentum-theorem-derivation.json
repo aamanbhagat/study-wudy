@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-4-impulse-momentum-theorem-derivation",
+  "subtopicTitle": "Impulse-momentum theorem — derivation",
+  "topicId": "physics-p1-1-4-momentum-collisions",
+  "topicTitle": "Momentum & Collisions",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:06.480Z",
+  "cards": [
+    {
+      "front": "Define impulse ($\\vec{J}$) in terms of force and time.",
+      "back": "Impulse ($\\vec{J}$) is the integral of a force over the time interval during which it acts. For a constant force, it's $\\vec{J} = \\vec{F} \\Delta t$. More generally, it's $\\vec{J} = \\int_{t_1}^{t_2} \\vec{F}(t) dt$. It's a vector quantity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define linear momentum ($\\vec{p}$) for an object of mass $m$ and velocity $\\vec{v}$.",
+      "back": "Linear momentum ($\\vec{p}$) is the product of an object's mass ($m$) and its velocity ($\\vec{v}$). Mathematically, $\\vec{p} = m\\vec{v}$. It is a vector quantity, having the same direction as the velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Impulse-Momentum Theorem.",
+      "back": "The Impulse-Momentum Theorem states that the impulse applied to an object is equal to the change in its linear momentum. Mathematically, $\\vec{J} = \\Delta \\vec{p} = \\vec{p}_f - \\vec{p}_i = m\\vec{v}_f - m\\vec{v}_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "From which fundamental law of physics does the Impulse-Momentum Theorem primarily derive?",
+      "back": "The Impulse-Momentum Theorem primarily derives from Newton's Second Law of Motion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the Impulse-Momentum Theorem starting from Newton's Second Law, $\\vec{F}_{\\text{net}} = \\frac{d\\vec{p}}{dt}$.",
+      "back": "Start with Newton's Second Law:\n$$ \\vec{F}_{\\text{net}} = \\frac{d\\vec{p}}{dt} $$\nRearrange to isolate $d\\vec{p}$:\n$$ d\\vec{p} = \\vec{F}_{\\text{net}} dt $$\nIntegrate both sides over the time interval from $t_i$ to $t_f$:\n$$ \\int_{p_i}^{p_f} d\\vec{p} = \\int_{t_i}^{t_f} \\vec{F}_{\\text{net}} dt $$\nThe left side integrates to the change in momentum:\n$$ [\\vec{p}]_{p_i}^{p_f} = \\vec{p}_f - \\vec{p}_i = \\Delta \\vec{p} $$\nThe right side is the definition of impulse:\n$$ \\int_{t_i}^{t_f} \\vec{F}_{\\text{net}} dt = \\vec{J} $$\nTherefore, substituting these back into the integrated equation yields the Impulse-Momentum Theorem:\n$$ \\vec{J} = \\Delta \\vec{p} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Impulse-Momentum Theorem relate to the area under a Force vs. Time graph?",
+      "back": "The Impulse-Momentum Theorem states $\\vec{J} = \\int_{t_i}^{t_f} \\vec{F}_{\\text{net}} dt = \\Delta \\vec{p}$. Graphically, the definite integral $\\int_{t_i}^{t_f} \\vec{F}_{\\text{net}} dt$ represents the area under the curve of the net force versus time graph. Thus, the area under the Force vs. Time graph gives the impulse, which is equal to the change in momentum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the SI units for impulse and momentum, and how do they relate?",
+      "back": "The SI unit for momentum ($\\vec{p} = m\\vec{v}$) is kg·m/s.\nThe SI unit for impulse ($\\vec{J} = \\vec{F} \\Delta t$) is N·s.\nSince 1 N = 1 kg·m/s², then 1 N·s = (1 kg·m/s²)·s = 1 kg·m/s.\nThe units are identical, confirming the dimensional consistency of the Impulse-Momentum Theorem ($\\vec{J} = \\Delta \\vec{p}$).",
+      "difficulty": "medium"
+    }
+  ]
+}

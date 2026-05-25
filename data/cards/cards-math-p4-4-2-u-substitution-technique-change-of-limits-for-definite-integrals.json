@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-u-substitution-technique-change-of-limits-for-definite-integrals",
+  "subtopicTitle": "U-substitution — technique, change of limits for definite integrals",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:22.714Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of u-substitution in integration?",
+      "back": "The primary purpose of u-substitution is to simplify an integral by transforming it into a simpler form, often resembling a basic integral formula, by introducing a new variable $u$. It is essentially the reverse process of the chain rule for differentiation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the general steps for performing u-substitution on an indefinite integral $\\int f(g(x))g'(x) dx$.",
+      "back": "1.  **Choose $u$**: Select a suitable expression for $u$, typically an \"inner function\" like $g(x)$.\n2.  **Compute $du$**: Differentiate $u$ with respect to $x$ to find $\\frac{du}{dx}$, then express $dx$ in terms of $du$ (or $du$ in terms of $dx$). So, $du = g'(x) dx$.\n3.  **Substitute**: Replace $g(x)$ with $u$ and $g'(x) dx$ with $du$ in the integral to get $\\int f(u) du$.\n4.  **Integrate**: Evaluate the transformed integral with respect to $u$.\n5.  **Substitute back**: Replace $u$ with $g(x)$ to express the final answer in terms of the original variable $x$. Don't forget the constant of integration, $C$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the u-substitution formula for indefinite integrals, $\\int f(g(x))g'(x) dx$, from the chain rule.",
+      "back": "Let $F(u)$ be an antiderivative of $f(u)$, so $F'(u) = f(u)$.\nBy the chain rule, if we consider $F(g(x))$:\n$$\\frac{d}{dx}[F(g(x))] = F'(g(x)) \\cdot g'(x)$$\nSince $F'(u) = f(u)$, we can substitute $u=g(x)$ into $F'(u)$:\n$$\\frac{d}{dx}[F(g(x))] = f(g(x)) \\cdot g'(x)$$\nIntegrating both sides with respect to $x$:\n$$\\int \\frac{d}{dx}[F(g(x))] dx = \\int f(g(x))g'(x) dx$$\nThis simplifies to:\n$$F(g(x)) = \\int f(g(x))g'(x) dx$$\nSince $F(u) = \\int f(u) du$, substituting $u=g(x)$ into $F(u)$ gives $F(g(x)) = \\int f(u) du$.\nTherefore, we conclude:\n$$\\int f(g(x))g'(x) dx = \\int f(u) du$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate the indefinite integral $\\int x \\sqrt{x^2+5} dx$ using u-substitution.",
+      "back": "Let $u = x^2+5$. Then, differentiate $u$ with respect to $x$: $\\frac{du}{dx} = 2x$, which means $du = 2x dx$. We have $x dx$ in the integral, so we can write $x dx = \\frac{1}{2} du$.\nSubstitute $u$ and $du$ into the integral:\n$$\\int \\sqrt{u} \\left(\\frac{1}{2} du\\right) = \\frac{1}{2} \\int u^{1/2} du$$\nIntegrate with respect to $u$:\n$$\\frac{1}{2} \\left(\\frac{u^{3/2}}{3/2}\\right) + C = \\frac{1}{2} \\cdot \\frac{2}{3} u^{3/2} + C = \\frac{1}{3} u^{3/2} + C$$\nSubstitute back $u = x^2+5$:\n$$\\frac{1}{3} (x^2+5)^{3/2} + C$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When performing u-substitution for a definite integral $\\int_a^b f(g(x))g'(x) dx$, what *must* be done with the limits of integration?",
+      "back": "The original limits $a$ and $b$ are values for the variable $x$. When transforming the integral to be in terms of $u$, the limits *must* also be transformed to be in terms of $u$. If $u=g(x)$, the new lower limit becomes $g(a)$ and the new upper limit becomes $g(b)$. The definite integral then becomes $\\int_{g(a)}^{g(b)} f(u) du$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate the definite integral $\\int_0^2 x^2 (x^3+1)^2 dx$ using u-substitution and changing the limits.",
+      "back": "Let $u = x^3+1$. Then $du = 3x^2 dx$, so $x^2 dx = \\frac{1}{3} du$.\nNow, change the limits of integration:\n- When $x=0$, $u = (0)^3+1 = 1$.\n- When $x=2$, $u = (2)^3+1 = 8+1 = 9$.\nThe integral becomes:\n$$\\int_1^9 u^2 \\left(\\frac{1}{3} du\\right) = \\frac{1}{3} \\int_1^9 u^2 du$$\nIntegrate with respect to $u$ and evaluate at the new limits:\n$$\\frac{1}{3} \\left[\\frac{u^3}{3}\\right]_1^9 = \\frac{1}{9} [u^3]_1^9 = \\frac{1}{9} (9^3 - 1^3) = \\frac{1}{9} (729 - 1) = \\frac{728}{9}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the two valid approaches for evaluating a definite integral using u-substitution, and when one might be preferred.",
+      "back": "1.  **Change Limits**: Transform the integral entirely into the $u$-variable, including the limits of integration. Evaluate the new definite integral with the new $u$-limits. This approach is generally preferred because it's more direct; you don't need to substitute back to $x$ at the end, which reduces potential for error and often simplifies the final evaluation.\n2.  **Substitute Back**: First, perform u-substitution to find the indefinite integral (antiderivative) in terms of $x$. Then, evaluate this antiderivative using the original $x$-limits. This approach is valid but adds an extra step of substituting $u$ back with $g(x)$ before applying the limits. It might be preferred if you also need the indefinite integral for other purposes, or if the transformation of limits is unusually complex.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When choosing $u$ for u-substitution, what is a common heuristic or \"rule of thumb\" to identify a good candidate for $u$?",
+      "back": "A common heuristic is to choose $u$ as the \"inner function\" of a composite function, especially if its derivative (or a constant multiple of its derivative) is also present in the integrand. For example, if you see $f(g(x))$, try $u=g(x)$. Other good candidates include expressions under a root, in the exponent of $e$, in the argument of a trigonometric function, or in the denominator of a fraction.",
+      "difficulty": "medium"
+    }
+  ]
+}

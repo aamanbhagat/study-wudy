@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-5-topological-sort-dfs-based-kahn-s-algorithm-bfs-based",
+  "subtopicTitle": "Topological sort — DFS-based, Kahn's algorithm (BFS-based)",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:15.728Z",
+  "cards": [
+    {
+      "front": "A topological sort is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge $u \\to v$, vertex $u$ comes _________ vertex $v$ in the ordering.",
+      "back": "A topological sort is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge $u \\to v$, vertex $u$ comes **before** vertex $v$ in the ordering. It is only possible for DAGs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a DFS-based topological sort, when is a vertex added to the sorted list, and why is this correct?",
+      "back": "A vertex is added to the *front* of the sorted list (or pushed onto a stack) *after* all its dependent vertices (those reachable from it) have been visited and processed. This ensures that when we add $u$, all $v$ such that $u \\to v$ have already been placed, satisfying the topological order.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the main idea and initial steps of Kahn's algorithm (BFS-based) for topological sort. What is the key property it exploits?",
+      "back": "Kahn's algorithm exploits the property that any DAG must have at least one vertex with an in-degree of 0.\n1. Compute the in-degree for every vertex.\n2. Initialize a queue with all vertices that have an in-degree of 0.\n3. These vertices can be the first in the topological sort.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the core pseudocode for the recursive DFS function used in a DFS-based topological sort.",
+      "back": "```\nfunction topologicalSortDFS(graph):\n    visited = set()\n    result_stack = stack() // or list to prepend\n    \n    function dfs(u):\n        visited.add(u)\n        for v in graph.adj[u]:\n            if v not in visited:\n                dfs(v)\n        result_stack.push(u) // Add to stack AFTER all descendants visited\n    \n    for u in graph.vertices:\n        if u not in visited:\n            dfs(u)\n    \n    return result_stack.pop_all_in_order() // or reverse the list\n```\nThe final topological order is obtained by popping elements from `result_stack` or reversing the list if appending.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide the core pseudocode for Kahn's algorithm (BFS-based) for topological sort.",
+      "back": "```\nfunction kahnTopologicalSort(graph):\n    in_degree = {v: 0 for v in graph.vertices}\n    for u in graph.vertices:\n        for v in graph.adj[u]:\n            in_degree[v] += 1\n    \n    queue = Queue()\n    for u in graph.vertices:\n        if in_degree[u] == 0:\n            queue.put(u)\n    \n    result = []\n    count_visited_nodes = 0\n    \n    while not queue.empty():\n        u = queue.get()\n        result.append(u)\n        count_visited_nodes += 1\n        \n        for v in graph.adj[u]:\n            in_degree[v] -= 1\n            if in_degree[v] == 0:\n                queue.put(v)\n    \n    if count_visited_nodes != len(graph.vertices):\n        // Graph has a cycle, topological sort not possible\n        return [] // Or raise error\n    else:\n        return result\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what specific condition is the topological sort of a DAG unique?",
+      "back": "A topological sort of a DAG is unique if and only if there is a directed path between every pair of consecutive vertices in the topological order. More simply, it's unique if the graph has a Hamiltonian path. If there are multiple valid choices for the next vertex (e.g., multiple nodes with in-degree 0 in Kahn's, or multiple unvisited neighbors in DFS), then multiple valid topological sorts exist.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can both DFS-based topological sort and Kahn's algorithm be adapted to detect cycles in a graph?",
+      "back": "During **DFS-based** topological sort, a cycle is detected if we encounter a node that is currently in the recursion stack (i.e., marked as `visiting` or `exploring`, not just `visited`). This indicates a back edge.\n\nIn **Kahn's algorithm**, if, at the end of the algorithm, the number of vertices added to the topological sort list is less than the total number of vertices in the graph, it implies that the remaining vertices form a cycle (they all have non-zero in-degrees, preventing them from being added to the queue).",
+      "difficulty": "medium"
+    }
+  ]
+}

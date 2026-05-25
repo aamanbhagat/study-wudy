@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-4-indexing-b-tree-index-hash-index-full-text",
+  "subtopicTitle": "Indexing — B-tree index, hash index, full-text",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:14.073Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a database index?",
+      "back": "The primary purpose of a database index is to significantly speed up data retrieval operations (SELECT queries) by providing quick lookup paths to data, similar to how a book's index helps locate information quickly. It reduces the amount of data that needs to be scanned.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core data structure behind a B-tree index and its key characteristic for database performance.",
+      "back": "A B-tree index is built upon a self-balancing tree data structure. Its key characteristic for performance is its high fan-out (many children per node) and shallow depth, which minimizes the number of disk I/O operations required to find data. It keeps data sorted, allowing efficient searches, range queries, and ordered retrieval in logarithmic time, typically $O(\\log N)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For which types of SQL queries is a B-tree index particularly effective, and why?",
+      "back": "B-tree indexes are particularly effective for:\n1.  **Equality searches:** `WHERE column = 'value'`\n2.  **Range queries:** `WHERE column BETWEEN 'A' AND 'Z'` or `WHERE column > 'value'`\n3.  **`ORDER BY` clauses:** `ORDER BY column ASC/DESC`\nThis is because B-trees store data in sorted order, enabling efficient traversal for ranges and ordered retrieval without full table scans.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would a hash index be preferred over a B-tree index, and what is its primary advantage?",
+      "back": "A hash index is preferred for **exact equality lookups** (`WHERE column = 'value'`) when no range queries or ordered retrieval are needed. Its primary advantage is its extremely fast average-case lookup time, often $O(1)$, as it maps keys directly to data locations using a hash function, bypassing tree traversals.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a hash index is generally unsuitable for range queries or `ORDER BY` clauses.",
+      "back": "Hash functions distribute data randomly across the index structure based on the hash value of the key. There is no inherent order between hashed values. Therefore, to find data within a range (e.g., `WHERE column BETWEEN X AND Y`), the entire index would likely need to be scanned, negating any performance benefits. Similarly, `ORDER BY` clauses cannot leverage a hash index because the data is not physically or logically sorted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a full-text index fundamentally differ from B-tree or hash indexes, and what data structure does it typically employ?",
+      "back": "Full-text indexes are designed for keyword-based searches within large text blocks, supporting natural language queries (e.g., \"find documents containing 'database' AND 'performance'\"). Unlike B-trees/hash indexes that operate on exact column values, full-text indexes process and index individual words. They typically employ an **inverted index**, which maps words to the documents (or specific locations within documents) where they appear.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name and briefly describe two techniques used by full-text indexes to improve search relevance or efficiency.",
+      "back": "1.  **Stemming:** Reduces words to their root or base form (e.g., \"running\", \"ran\", \"runs\" all map to \"run\") to match variations of a word and broaden search results.\n2.  **Stop Words:** Ignores common, less meaningful words (e.g., \"the\", \"a\", \"is\", \"of\") during indexing and searching to reduce index size, improve performance, and enhance search relevance by focusing on significant terms.\n3.  **Tokenization:** Breaking text into individual words or phrases (tokens) for indexing.\n4.  **Weighting/Ranking:** Assigning scores to documents based on factors like term frequency and inverse document frequency to rank results by relevance.",
+      "difficulty": "hard"
+    }
+  ]
+}

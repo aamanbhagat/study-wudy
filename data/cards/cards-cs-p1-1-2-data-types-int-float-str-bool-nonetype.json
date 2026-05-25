@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-data-types-int-float-str-bool-nonetype",
+  "subtopicTitle": "Data types — int, float, str, bool, NoneType",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:48.436Z",
+  "cards": [
+    {
+      "front": "Differentiate between Python's `int` and `float` data types regarding the kind of numbers they represent.",
+      "back": "`int` (integers) represents whole numbers without a fractional component (e.g., $5, -100, 0$). `float` (floating-point numbers) represents real numbers that can have decimal points (e.g., $3.14, -0.5, 2.0$). Floats are stored with limited precision.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are string literals typically defined in Python code? Provide an example.",
+      "back": "String literals are sequences of characters enclosed in either single quotes (`'...'`), double quotes (`\"...\"`), or triple quotes (`'''...'''` or `\"\"\"...\"\"\"`) for multi-line strings. \n```python\nname = 'Alice'\nmessage = \"Hello, World!\"\nmulti_line_text = \"\"\"This is a\nmulti-line string.\"\"\"\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two possible values for Python's `bool` data type, and what do they fundamentally represent in logic?",
+      "back": "The two possible values are `True` and `False`. They represent truth values in Boolean logic: `True` for a true condition and `False` for a false condition. These values are often the result of comparison or logical operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the purpose and typical use cases for Python's `None` value and its `NoneType` data type.",
+      "back": "`None` is a special constant representing the absence of a value or a null value. It is the sole instance of the `NoneType` data type. Typical use cases include:\n*   Initializing a variable that will later hold a meaningful value.\n*   Indicating that a function does not return anything explicitly (functions without a `return` statement implicitly return `None`).\n*   Serving as a default value for optional function arguments.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a variable `x`, how can you determine its data type in Python, and how would you attempt to convert it to an integer?",
+      "back": "To determine its type, use the built-in `type()` function:\n```python\nx = 3.14\nprint(type(x)) # Output: <class 'float'>\n```\nTo convert it to an integer, use the `int()` constructor:\n```python\ns = \"123\"\ni = int(s) # i is 123 (int)\nf = 4.7\nj = int(f) # j is 4 (int, truncates decimal)\n```\nNote: `int()` can convert compatible `str` (whole number string) or `float` (truncates decimal) values, but will raise a `ValueError` for non-numeric strings.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the result and data type when an `int` is divided by an `int` using the `/` operator, and when an `int` is added to a `float`? Explain Python's behavior.",
+      "back": "*   **`int / int`**: The result is always a `float`, even if the division is exact. This is Python 3's \"true division\" behavior.\n    ```python\n    result = 10 / 2 # result is 5.0 (float)\n    ```\n*   **`int + float`**: The `int` is implicitly converted (coerced) to a `float`, and the result of the operation is a `float`. Python promotes the less precise type (`int`) to the more precise type (`float`) to avoid loss of information.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the outcome and potential error when attempting to convert the string `\"3.14\"` directly to an `int` using `int()`. How would you achieve an integer from this string?",
+      "back": "Attempting `int(\"3.14\")` will raise a `ValueError` because the string contains a decimal point, making it not a valid literal for a pure integer. The `int()` constructor expects a string representing a whole number.\n\nTo achieve an integer from this string, you must first convert it to a `float`, and then convert that `float` to an `int`. This process will truncate the decimal part:\n```python\ns = \"3.14\"\nf_val = float(s) # f_val is 3.14 (float)\ni_val = int(f_val) # i_val is 3 (int)\nprint(i_val) # Output: 3\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In Python, what are \"truthy\" and \"falsy\" values, and how do they relate to the `bool()` constructor? Give examples for `int`, `float`, `str`, and `NoneType`.",
+      "back": "In Python, \"truthy\" values are those that evaluate to `True` when converted to a boolean using `bool()`, while \"falsy\" values evaluate to `False`.\n\n**Falsy examples:**\n*   `int`: `0`\n*   `float`: `0.0`\n*   `str`: `\"\"` (empty string)\n*   `NoneType`: `None`\n\n**Truthy examples:**\n*   `int`: Any non-zero integer (e.g., `1`, `-5`)\n*   `float`: Any non-zero float (e.g., `0.1`, `-3.5`)\n*   `str`: Any non-empty string (e.g., `\"hello\"`, `\" \"`)\n\nThe `bool()` constructor explicitly converts a value to its boolean equivalent based on these rules.",
+      "difficulty": "medium"
+    }
+  ]
+}

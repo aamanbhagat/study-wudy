@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-quotient-rule-proof",
+  "subtopicTitle": "Quotient rule — proof",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:36.135Z",
+  "cards": [
+    {
+      "front": "State the Quotient Rule for the derivative of a function $h(x) = \\frac{f(x)}{g(x)}$.",
+      "back": "The Quotient Rule states that $h'(x) = \\frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$, provided $g(x) \\neq 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To begin the proof of the Quotient Rule using the limit definition of the derivative, write out the first step for $h(x) = \\frac{f(x)}{g(x)}$.",
+      "back": "The first step is to apply the limit definition:\n$$ h'(x) = \\lim_{h \\to 0} \\frac{h(x+h) - h(x)}{h} = \\lim_{h \\to 0} \\frac{\\frac{f(x+h)}{g(x+h)} - \\frac{f(x)}{g(x)}}{h} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After setting up the limit definition for the Quotient Rule, what is the next algebraic step to simplify the numerator?",
+      "back": "Combine the fractions in the numerator by finding a common denominator:\n$$ \\lim_{h \\to 0} \\frac{\\frac{f(x+h)g(x) - f(x)g(x+h)}{g(x+h)g(x)}}{h} = \\lim_{h \\to 0} \\frac{f(x+h)g(x) - f(x)g(x+h)}{h \\cdot g(x+h)g(x)} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the proof of the Quotient Rule, after combining fractions, what crucial term is typically added and subtracted in the numerator to allow for factoring and revealing derivative forms?",
+      "back": "We add and subtract $f(x)g(x)$ in the numerator:\n$$ f(x+h)g(x) - f(x)g(x+h) = f(x+h)g(x) - f(x)g(x) + f(x)g(x) - f(x)g(x+h) $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After adding and subtracting $f(x)g(x)$ in the numerator, rearrange and factor the terms to group expressions that resemble the definition of a derivative.",
+      "back": "The numerator becomes:\n$$ g(x)[f(x+h) - f(x)] - f(x)[g(x+h) - g(x)] $$ \nSo the full expression is:\n$$ \\frac{g(x)[f(x+h) - f(x)] - f(x)[g(x+h) - g(x)]}{h \\cdot g(x+h)g(x)} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Split the fraction and apply the limit as $h \\to 0$ to each part, identifying the derivative definitions for $f'(x)$ and $g'(x)$.",
+      "back": "We can rewrite and apply the limit:\n$$ \\lim_{h \\to 0} \\frac{g(x)\\left(\\frac{f(x+h) - f(x)}{h}\\right) - f(x)\\left(\\frac{g(x+h) - g(x)}{h}\\right)}{g(x+h)g(x)} $$ \nAs $h \\to 0$, we get:\n$$ \\frac{g(x) \\cdot f'(x) - f(x) \\cdot g'(x)}{g(x)g(x)} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the final simplified form of the derivative after applying the limits in the Quotient Rule proof?",
+      "back": "The final simplified form is:\n$$ \\frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline how the Quotient Rule can be derived using the Product Rule and Chain Rule, starting with $h(x) = f(x)[g(x)]^{-1}$.",
+      "back": "1.  Rewrite $h(x) = f(x) \\cdot [g(x)]^{-1}$.\n2.  Apply the Product Rule: $h'(x) = f'(x)[g(x)]^{-1} + f(x) \\cdot \\frac{d}{dx}([g(x)]^{-1})$.\n3.  Apply the Chain Rule to $\\frac{d}{dx}([g(x)]^{-1})$: Let $u = g(x)$, then $\\frac{d}{dx}(u^{-1}) = -1 \\cdot u^{-2} \\cdot \\frac{du}{dx} = -[g(x)]^{-2}g'(x)$.\n4.  Substitute back: $h'(x) = f'(x)[g(x)]^{-1} + f(x) \\cdot (-[g(x)]^{-2}g'(x))$.\n5.  Rewrite with positive exponents: $h'(x) = \\frac{f'(x)}{g(x)} - \\frac{f(x)g'(x)}{[g(x)]^2}$.\n6.  Combine fractions: $h'(x) = \\frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

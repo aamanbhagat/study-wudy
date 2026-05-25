@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-4-scipy-signal-filtering-convolution-fft-based-analysis",
+  "subtopicTitle": "scipy.signal — filtering, convolution, FFT-based analysis",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:30.233Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `scipy.signal` module?",
+      "back": "The `scipy.signal` module provides functions for signal processing, including filtering, convolution, spectral analysis, and windowing. It's used for analyzing, generating, and modifying signals in various domains.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When applying a digital filter, what is the key advantage of `scipy.signal.filtfilt` over `scipy.signal.lfilter`?",
+      "back": "`scipy.signal.filtfilt` applies a linear filter forward and then backward, effectively canceling phase distortion (zero-phase filtering). This comes at the cost of doubling the filter's order and potential amplitude distortion near the signal boundaries. `lfilter`, on the other hand, introduces phase distortion but is computationally less expensive and suitable for real-time applications.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What mathematical operation is fundamental to many filtering operations in signal processing?",
+      "back": "Convolution. The output of a linear time-invariant (LTI) filter is the convolution of its input signal with the filter's impulse response.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How would you perform a 1D convolution of two arrays, `a` and `v`, using `scipy.signal`, ensuring the output size matches the input `a`?",
+      "back": "You would use `scipy.signal.convolve(a, v, mode='same')`.\n```python\nimport numpy as np\nfrom scipy import signal\na = np.array([1, 2, 3, 4])\nv = np.array([0.5, 1, 0.5])\nresult = signal.convolve(a, v, mode='same')\n# result will have the same length as 'a'\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between convolution in the time domain and multiplication in the frequency domain, and how this is exploited by FFT-based convolution.",
+      "back": "The Convolution Theorem states that convolution in the time domain corresponds to multiplication in the frequency domain (after applying the Fourier Transform), and vice-versa:\n$$ (f * g)(t) \\quad \\longleftrightarrow \\quad F(\\omega) \\cdot G(\\omega) $$\nFFT-based convolution (e.g., `scipy.signal.fftconvolve`) leverages this by:\n1. Taking the FFT of both signals.\n2. Multiplying their FFTs element-wise.\n3. Taking the inverse FFT of the product to get the convolution result in the time domain.\nThis is often computationally faster for large signals than direct time-domain convolution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "To design a Butterworth low-pass filter using `scipy.signal.butter`, what are the two essential parameters you must provide, besides the filter type?",
+      "back": "1.  `N`: The order of the filter. Higher order generally means a sharper rolloff but also more computational cost and potential for instability.\n2.  `Wn`: The critical frequency (cutoff frequency). For digital filters, this is normalized to Nyquist frequency (half the sampling rate), so $0 < W_n < 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When using `scipy.signal.fftconvolve` for very short signals, why might it be slower than `scipy.signal.convolve` (direct method)?",
+      "back": "`fftconvolve` involves several steps: padding, two FFTs, one element-wise multiplication, and one inverse FFT. For very short signals, the overhead of these FFT operations (even optimized ones) can outweigh the computational benefits of frequency-domain multiplication, making the direct time-domain convolution (which is $O(N \\cdot M)$ for signals of length $N$ and $M$) faster. The crossover point depends on the specific FFT implementation and hardware.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary purpose of windowing a signal (e.g., using `scipy.signal.windows`) before performing a Discrete Fourier Transform (DFT)?",
+      "back": "Windowing is used to mitigate spectral leakage. When a non-periodic signal or a non-integer number of cycles of a periodic signal is analyzed with DFT, the abrupt start and end of the sampled data create artificial high-frequency components (leakage) in the spectrum. Applying a window function (e.g., Hanning, Hamming) tapers the signal smoothly to zero at its ends, reducing these artifacts by spreading the energy of a frequency component over a wider range of frequencies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which `scipy` module is typically used to compute the Discrete Fourier Transform (DFT) of a signal, and what is its relationship to `scipy.signal`?",
+      "back": "The `numpy.fft` module is typically used to compute the DFT (via `numpy.fft.fft`). While `scipy.signal` doesn't directly provide its own `fft` function, it relies on `numpy.fft` internally for functions like `scipy.signal.fftconvolve` to perform frequency-domain operations efficiently.",
+      "difficulty": "easy"
+    }
+  ]
+}

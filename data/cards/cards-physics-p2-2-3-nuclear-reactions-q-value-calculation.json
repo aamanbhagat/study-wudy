@@ -1,0 +1,40 @@
+{
+  "subtopicId": "physics-p2-2-3-nuclear-reactions-q-value-calculation",
+  "subtopicTitle": "Nuclear reactions — Q-value calculation",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:13.681Z",
+  "cards": [
+    {
+      "front": "What is the Q-value of a nuclear reaction, and what does its sign indicate?",
+      "back": "The Q-value of a nuclear reaction is the net energy released or absorbed during the reaction. It represents the difference between the total mass-energy of the reactants and the total mass-energy of the products.\n\n*   A **positive Q-value** ($Q > 0$) indicates an **exothermic** reaction, where energy is released.\n*   A **negative Q-value** ($Q < 0$) indicates an **endothermic** reaction, where energy is absorbed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the Q-value of a nuclear reaction $A + B \\to C + D$ in terms of the masses of the reactants and products.",
+      "back": "The Q-value ($Q$) of a nuclear reaction $A + B \\to C + D$ can be calculated using the masses of the particles involved:\n$$Q = (m_A + m_B - m_C - m_D)c^2$$\nWhere:\n*   $m_A, m_B$ are the masses of the reactant nuclei.\n*   $m_C, m_D$ are the masses of the product nuclei.\n*   $c$ is the speed of light.\n\nThis formula directly reflects the mass defect converted into energy (or vice versa) according to Einstein's mass-energy equivalence principle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the Q-value of a nuclear reaction $A + B \\to C + D$ related to the kinetic energies of the particles before and after the reaction?",
+      "back": "The Q-value ($Q$) of a nuclear reaction $A + B \\to C + D$ can also be expressed in terms of the initial and final kinetic energies ($K$) of the particles:\n$$Q = (K_C + K_D) - (K_A + K_B)$$\nThis formula arises from the conservation of total energy, where the Q-value accounts for any change in the total kinetic energy of the system. If $Q > 0$, kinetic energy is gained; if $Q < 0$, kinetic energy is lost (converted to mass or internal energy).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an endothermic nuclear reaction ($Q < 0$), what is the minimum kinetic energy (threshold energy) the incident particle must have for the reaction to occur, assuming the target is at rest?",
+      "back": "For an endothermic reaction ($Q < 0$) with an incident particle $A$ striking a stationary target $B$ to produce products $C$ and $D$, the minimum kinetic energy ($K_{th}$) required for the incident particle is the threshold energy:\n$$K_{th} = -Q \\left(1 + \\frac{m_A}{m_B}\\right)$$\nThis energy is required to conserve both total energy and total momentum. Part of the incident particle's kinetic energy is used to supply the energy deficit ($-Q$), and the rest is distributed as kinetic energy among the products to ensure momentum conservation, meaning not all of $K_{th}$ is available for the reaction itself.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Express the Q-value of a nuclear reaction $A + B \\to C + D$ in terms of the binding energies ($BE$) of the nuclei involved.",
+      "back": "The Q-value ($Q$) of a nuclear reaction $A + B \\to C + D$ can be expressed using the binding energies ($BE$) of the nuclei:\n$$Q = (BE_C + BE_D) - (BE_A + BE_B)$$\nThis is because a nucleus's mass is related to its binding energy ($m = Zm_p + Nm_n - BE/c^2$). Substituting these into the mass-defect Q-value formula and noting that the masses of individual protons and neutrons cancel out, we are left with the difference in binding energies. A positive Q-value means the products are more tightly bound (have higher total binding energy) than the reactants.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the Q-value for the reaction $^1_1H + ^7_3Li \\to ^4_2He + ^4_2He$, given atomic masses: $m(^1_1H) = 1.007825 \\text{ u}$, $m(^7_3Li) = 7.016003 \\text{ u}$, $m(^4_2He) = 4.002603 \\text{ u}$. (Use $1 \\text{ u} = 931.5 \\text{ MeV}/c^2$)",
+      "back": "Given the reaction $^1_1H + ^7_3Li \\to ^4_2He + ^4_2He$:\nReactant masses: $m_A = m(^1_1H) = 1.007825 \\text{ u}$, $m_B = m(^7_3Li) = 7.016003 \\text{ u}$\nProduct masses: $m_C = m(^4_2He) = 4.002603 \\text{ u}$, $m_D = m(^4_2He) = 4.002603 \\text{ u}$\n\nTotal mass of reactants: $M_{reactants} = 1.007825 + 7.016003 = 8.023828 \\text{ u}$\nTotal mass of products: $M_{products} = 4.002603 + 4.002603 = 8.005206 \\text{ u}$\n\nMass defect $\\Delta m = M_{reactants} - M_{products} = 8.023828 \\text{ u} - 8.005206 \\text{ u} = 0.018622 \\text{ u}$\n\nUsing the conversion $1 \\text{ u} = 931.5 \\text{ MeV}/c^2$:\n$Q = \\Delta m \\cdot c^2 = (0.018622 \\text{ u}) \\times (931.5 \\text{ MeV}/c^2) \\times c^2 \\approx 17.34 \\text{ MeV}$\n\nThe reaction is exothermic, releasing approximately $17.34 \\text{ MeV}$ of energy.",
+      "difficulty": "medium"
+    }
+  ]
+}

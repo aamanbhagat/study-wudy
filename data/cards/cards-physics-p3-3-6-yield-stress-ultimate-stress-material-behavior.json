@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-6-yield-stress-ultimate-stress-material-behavior",
+  "subtopicTitle": "Yield stress, ultimate stress — material behavior",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:43.208Z",
+  "cards": [
+    {
+      "front": "Define \"yield stress\" for a material.",
+      "back": "The yield stress ($\\sigma_y$) is the stress level at which a material begins to undergo permanent plastic deformation. Beyond this point, the material will not fully return to its original shape once the applied load is removed, even if it does not fracture.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the \"ultimate tensile strength (UTS)\" of a material?",
+      "back": "The ultimate tensile strength (UTS), also known as ultimate stress ($\\sigma_u$), is the maximum engineering stress a material can withstand while being stretched or pulled before necking occurs. On an engineering stress-strain curve, it represents the highest point reached before the material begins to localize deformation and eventually fracture.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the key difference in material behavior *before* and *after* reaching the yield stress.",
+      "back": "Before reaching the yield stress (in the elastic region), material deformation is temporary and reversible; the material returns to its original shape upon unloading. After exceeding the yield stress (in the plastic region), deformation becomes permanent and irreversible; the material retains some deformation even after the load is removed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the \"offset yield strength\" determined for materials that do not exhibit a distinct yield point?",
+      "back": "For materials without a clear yield point, the offset yield strength is determined by drawing a line parallel to the elastic portion of the stress-strain curve, offset by a specified strain (commonly 0.002 or 0.2%). The stress value at the intersection of this offset line and the stress-strain curve is defined as the offset yield strength.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the phenomenon of \"necking\" in a ductile material under tensile stress.",
+      "back": "Necking is the localized reduction in the cross-sectional area that occurs in a ductile material under tensile stress *after* the ultimate tensile strength has been reached. This instability causes the stress to concentrate in the necked region, accelerating the local deformation and leading to eventual fracture, even as the overall engineering stress appears to decrease.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between \"engineering stress\" and \"true stress,\" particularly in the plastic deformation region.",
+      "back": "Engineering stress ($\\sigma_e = F/A_0$) is calculated using the original cross-sectional area ($A_0$), which remains constant throughout the test. True stress ($\\sigma_t = F/A_i$) uses the instantaneous cross-sectional area ($A_i$) at any given load. In the plastic region, especially after necking, $A_i$ decreases significantly. Thus, while engineering stress may appear to drop after UTS, true stress continues to increase until fracture because the actual load-bearing area is shrinking.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For spacecraft structural design, why is the yield stress often a more critical design parameter than the ultimate tensile strength?",
+      "back": "Spacecraft components require precise dimensions and functionality. Exceeding the yield stress causes permanent deformation, which can lead to structural failure, misalignment of critical systems (e.g., optical instruments, antennas), or loss of function, even if the material hasn't fractured. While UTS indicates the point of catastrophic fracture, yield stress defines the limit for maintaining operational integrity and shape.",
+      "difficulty": "hard"
+    }
+  ]
+}

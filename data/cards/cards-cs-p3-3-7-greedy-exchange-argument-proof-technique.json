@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-7-greedy-exchange-argument-proof-technique",
+  "subtopicTitle": "Greedy — exchange argument proof technique",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:06.261Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of a __________ algorithm?",
+      "back": "A greedy algorithm makes the choice that seems best at the moment, hoping that this locally optimal choice will lead to a globally optimal solution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The 'exchange argument' is a proof technique used to establish the correctness of what type of algorithm?",
+      "back": "Greedy algorithms. It demonstrates that a greedy solution is optimal by showing any arbitrary optimal solution can be transformed into the greedy one without loss of optimality.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the core steps involved in constructing an exchange argument proof for a greedy algorithm.",
+      "back": "1. Assume an optimal solution $O$ exists. 2. Compare $O$ with the greedy solution $G$. 3. If $O \\neq G$, identify the first element where they differ. 4. 'Exchange' or modify $O$ at this differing element to match $G$, proving the new $O'$ is still optimal and 'closer' to $G$. 5. Repeat until $O=G$ (often by induction on the number of differing elements).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When performing an exchange argument, how do you typically ensure that the modified optimal solution $O'$ remains optimal after an exchange operation?",
+      "back": "By demonstrating that the objective function value of $O'$ is no worse than the original optimal solution $O$. For minimization, $cost(O') \\le cost(O)$; for maximization, $value(O') \\ge value(O)$. This often involves a careful analysis of the change in cost/value due to the exchange.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the Activity Selection Problem. If a greedy algorithm selects activities by earliest finish time, how would you begin an exchange argument to prove its optimality?",
+      "back": "Assume an optimal solution $O$ exists that does *not* pick the activity $a_1$ with the earliest finish time. Let $o_1$ be the first activity in $O$. If $o_1 \\neq a_1$, we construct a new solution $O'$ by replacing $o_1$ with $a_1$ and keeping the remaining compatible activities from $O$. We then show $O'$ is a valid solution and $|O'| \\ge |O|$. Since $a_1$ finishes earliest, it frees up more time for subsequent activities than $o_1$ would have, making it a 'better' first choice.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What two key properties of a problem structure are generally required for a greedy algorithm to be provably optimal, often validated by an exchange argument?",
+      "back": "1. **Greedy Choice Property:** A globally optimal solution can be reached by making a locally optimal (greedy) choice. 2. **Optimal Substructure:** An optimal solution to the problem contains optimal solutions to its subproblems. The exchange argument primarily focuses on proving the greedy choice property.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a critical consideration when performing an exchange in an exchange argument to ensure the newly constructed solution $O'$ is still *valid* (not just optimal in value)?",
+      "back": "The exchange must maintain all problem constraints. For example, if replacing an element $x$ with $x'$ in a set, ensure $x'$ is compatible with other elements in the set that were compatible with $x$. The new element must not introduce violations (e.g., overlaps in scheduling, exceeding capacity in knapsack) that were not present before.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the exchange argument a particularly effective and common technique for proving the correctness of greedy algorithms, compared to other methods like direct induction?",
+      "back": "It provides a clear, constructive way to compare any optimal solution with the greedy one. By iteratively transforming an arbitrary optimal solution into the greedy one without decreasing optimality, it directly shows that the greedy solution must be optimal. Direct induction can be harder as it requires proving optimality for *all* subproblems after a greedy choice.",
+      "difficulty": "hard"
+    }
+  ]
+}

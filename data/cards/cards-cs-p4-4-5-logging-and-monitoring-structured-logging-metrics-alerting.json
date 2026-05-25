@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-logging-and-monitoring-structured-logging-metrics-alerting",
+  "subtopicTitle": "Logging and monitoring — structured logging, metrics, alerting",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:31.030Z",
+  "cards": [
+    {
+      "front": "Define structured logging and state its primary advantage over unstructured logging.",
+      "back": "Structured logging involves emitting log data in a consistent, machine-readable format (e.g., JSON) with key-value pairs. Its primary advantage is enabling efficient automated parsing, querying, and analysis of logs, unlike unstructured text logs which require complex regex or manual inspection.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the core purpose of system monitoring in software engineering?",
+      "back": "The core purpose of system monitoring is to observe the health, performance, and behavior of a system over time, providing visibility into its operational state. This enables early detection of issues, performance bottlenecks, and informs capacity planning and system improvements.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In logging, explain when to use `WARN` vs. `ERROR` log levels with examples.",
+      "back": "`WARN` (Warning) indicates a potentially problematic situation that might not be an error but warrants attention, e.g., 'Deprecated API usage detected.' `ERROR` indicates a serious problem where the application might still run but a specific operation failed, e.g., 'Failed to connect to database: Connection refused.' `FATAL` is for unrecoverable errors that cause application termination.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two common types of metrics: 'Counter' and 'Gauge', and provide an example for each.",
+      "back": "A **Counter** is a cumulative metric that only ever increases or is reset to zero. It's used for counting occurrences of events, e.g., `http_requests_total` (total number of HTTP requests). A **Gauge** represents a single numerical value that can arbitrarily go up and down. It's used for measuring current values, e.g., `active_users` (number of currently active users) or `cpu_utilization_percent`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert this unstructured log into a structured (JSON) log, adding relevant context: `User 'alice' failed login from IP 192.168.1.100.`",
+      "back": "```json\n{\n  \"timestamp\": \"2023-10-27T10:30:00Z\",\n  \"level\": \"INFO\",\n  \"message\": \"User login failed\",\n  \"user_id\": \"alice\",\n  \"ip_address\": \"192.168.1.100\",\n  \"event_type\": \"authentication_failure\"\n}\n```\nThis structured log includes key-value pairs for easier parsing and querying, explicitly defining the `level`, `user_id`, `ip_address`, and `event_type`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between static threshold-based alerting and baseline-based alerting. When is each more appropriate?",
+      "back": "Static threshold alerting uses fixed values (e.g., 'alert if CPU > 90%'). It's simple and effective for well-understood, stable systems. Baseline-based alerting compares current metrics against historical patterns (e.g., 'alert if CPU is 3 standard deviations above the last 7-day average for this time'). It's more appropriate for systems with dynamic or cyclical behavior, reducing false positives by adapting to normal fluctuations. However, it requires more data and can be complex to configure.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond their basic definitions, how do logging, metrics, and distributed tracing fundamentally complement each other for observability?",
+      "back": "Logging provides granular, event-specific details for debugging individual occurrences ('What happened?'). Metrics offer aggregate, time-series data for system health and trends ('How is the system performing overall?'). Distributed tracing connects requests across service boundaries, showing the full execution path and latency contributions ('Why is this request slow across services?'). Together, they form a comprehensive observability strategy, allowing engineers to move from high-level trends to specific problematic requests and their root causes.",
+      "difficulty": "hard"
+    }
+  ]
+}

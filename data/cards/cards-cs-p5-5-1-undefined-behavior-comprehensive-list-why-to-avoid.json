@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-1-undefined-behavior-comprehensive-list-why-to-avoid",
+  "subtopicTitle": "Undefined behavior — comprehensive list, why to avoid",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:55.330Z",
+  "cards": [
+    {
+      "front": "In C programming, what does \"Undefined Behavior\" (UB) mean for the compiler and runtime?",
+      "back": "Undefined Behavior means the C standard imposes no requirements. The compiler might generate code that crashes, produces incorrect results, or even appears to work correctly. The behavior can vary across compilers, optimization levels, and execution environments.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three critical reasons why C programmers must diligently avoid Undefined Behavior.",
+      "back": "1. **Unpredictability:** Code may crash, produce wrong answers, or behave differently across systems/compilers.\n2. **Security Vulnerabilities:** UB can be exploited to gain control of a program or system.\n3. **Compiler Optimizations:** Compilers assume UB will not occur, leading to aggressive optimizations that remove \"dead\" code paths or checks, causing unexpected behavior if UB *does* happen.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the Undefined Behavior in the following C snippet:\n```c\nint *p = NULL;\n*p = 10;\n```",
+      "back": "Dereferencing a `NULL` pointer (`*p = 10;`) results in Undefined Behavior. The program attempts to write to an invalid memory address, which typically causes a segmentation fault or crash.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why signed integer overflow is Undefined Behavior in C, contrasting it with unsigned integer overflow.",
+      "back": "Signed integer overflow (e.g., `INT_MAX + 1`) is Undefined Behavior because the C standard does not specify how the system should handle values exceeding the signed integer range. It might wrap around, trap, or yield any other result. Unsigned integer overflow, however, is well-defined; it wraps around modulo $2^N$ (where $N$ is the number of bits).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What Undefined Behavior occurs in `int i = 0; i = i++ + i++;` due to sequence points?",
+      "back": "This code exhibits Undefined Behavior because the variable `i` is modified multiple times (`i++` twice) between two sequence points (the end of the full expression). The order of evaluation for `i++` and the assignment is not specified, leading to unpredictable results.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the Undefined Behavior when attempting to modify a string literal in C.",
+      "back": "String literals (e.g., `\"hello\"`) are typically stored in read-only memory. Attempting to modify them, as in `char *s = \"hello\"; s[0] = 'H';`, results in Undefined Behavior. This often leads to a segmentation fault or bus error, as the program tries to write to a protected memory segment.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can a C compiler's assumption that Undefined Behavior won't occur lead to surprising optimizations, even for seemingly safe code?",
+      "back": "Compilers assume valid C code. If a path *could* lead to UB, the compiler might assume that path is unreachable. For instance, if `p` is dereferenced, the compiler might assume `p` is non-NULL. Subsequent `if (p == NULL)` checks could then be optimized away, as the compiler \"knows\" `p` cannot be `NULL` if it was just safely dereferenced. This can hide bugs or make debugging harder.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the Undefined Behavior when performing integer division by zero in C?",
+      "back": "Integer division by zero (e.g., `10 / 0`) is Undefined Behavior. The C standard does not specify the outcome. On many systems, this will cause a hardware exception (like a \"division by zero\" trap), leading to program termination.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the Undefined Behavior in the following C code snippet:\n```c\nint arr[5];\narr[5] = 100;\n```",
+      "back": "This code exhibits Undefined Behavior due to out-of-bounds array access. An array declared as `int arr[5]` has valid indices from `0` to `4`. Accessing `arr[5]` attempts to write to memory beyond the allocated array, which can corrupt adjacent data or cause a crash.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two distinct scenarios involving `free()` that lead to Undefined Behavior in C.",
+      "back": "1. **Double-free:** Calling `free()` on the same memory block more than once (e.g., `free(ptr); free(ptr);`).\n2. **Freeing non-heap memory:** Calling `free()` on a pointer that was not returned by `malloc`, `calloc`, or `realloc` (e.g., `int x; free(&x);`).\nBoth can corrupt the heap, lead to crashes, or introduce security vulnerabilities.",
+      "difficulty": "medium"
+    }
+  ]
+}

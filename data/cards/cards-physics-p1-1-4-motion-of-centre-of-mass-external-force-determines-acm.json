@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-4-motion-of-centre-of-mass-external-force-determines-acm",
+  "subtopicTitle": "Motion of centre of mass — external force determines aCM",
+  "topicId": "physics-p1-1-4-momentum-collisions",
+  "topicTitle": "Momentum & Collisions",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:38.108Z",
+  "cards": [
+    {
+      "front": "Define the position vector of the center of mass ($\\vec{R}_{CM}$) for a system of $N$ particles.",
+      "back": "The position vector of the center of mass for a system of $N$ particles is given by:\n$$\\vec{R}_{CM} = \\frac{\\sum_{i=1}^{N} m_i \\vec{r}_i}{\\sum_{i=1}^{N} m_i} = \\frac{1}{M} \\sum_{i=1}^{N} m_i \\vec{r}_i$$\nwhere $m_i$ is the mass of the $i$-th particle, $\\vec{r}_i$ is its position vector, and $M = \\sum_{i=1}^{N} m_i$ is the total mass of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the velocity of the center of mass ($\\vec{V}_{CM}$) for a system of $N$ particles?",
+      "back": "The velocity of the center of mass for a system of $N$ particles is:\n$$\\vec{V}_{CM} = \\frac{d\\vec{R}_{CM}}{dt} = \\frac{1}{M} \\sum_{i=1}^{N} m_i \\vec{v}_i$$\nwhere $\\vec{v}_i$ is the velocity of the $i$-th particle. Importantly, $M\\vec{V}_{CM} = \\sum_{i=1}^{N} m_i \\vec{v}_i = \\vec{P}_{total}$, which is the total linear momentum of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State and explain Newton's Second Law for a system of particles, relating the net external force to the center of mass.",
+      "back": "Newton's Second Law for a system of particles states that the net external force acting on the system is equal to the product of the total mass of the system and the acceleration of its center of mass:\n$$\\sum \\vec{F}_{ext} = M \\vec{a}_{CM}$$\nThis means that the center of mass of a system of particles moves as if all the mass of the system were concentrated at that point and all external forces were acting directly on it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why do internal forces within a system not affect the motion of its center of mass?",
+      "back": "According to Newton's Third Law, internal forces always occur in equal and opposite pairs between particles within the system. When summing all forces acting on the system to find the net force, these internal force pairs cancel each other out ($\\sum \\vec{F}_{int} = \\vec{0}$). Therefore, only external forces contribute to the net force and thus to the acceleration of the center of mass.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship $\\sum \\vec{F}_{ext} = M \\vec{a}_{CM}$ starting from the definition of the center of mass and Newton's Second Law for individual particles.",
+      "back": "1. Start with the position of the center of mass:\n$$\\vec{R}_{CM} = \\frac{1}{M} \\sum_{i=1}^{N} m_i \\vec{r}_i$$\n2. Differentiate with respect to time to find the velocity:\n$$\\vec{V}_{CM} = \\frac{d\\vec{R}_{CM}}{dt} = \\frac{1}{M} \\sum_{i=1}^{N} m_i \\frac{d\\vec{r}_i}{dt} = \\frac{1}{M} \\sum_{i=1}^{N} m_i \\vec{v}_i$$\n3. Differentiate again to find the acceleration:\n$$\\vec{a}_{CM} = \\frac{d\\vec{V}_{CM}}{dt} = \\frac{1}{M} \\sum_{i=1}^{N} m_i \\frac{d\\vec{v}_i}{dt} = \\frac{1}{M} \\sum_{i=1}^{N} m_i \\vec{a}_i$$\n4. From Newton's Second Law for each particle, $\\vec{F}_i = m_i \\vec{a}_i$. Summing over all particles:\n$$\\sum_{i=1}^{N} m_i \\vec{a}_i = \\sum_{i=1}^{N} \\vec{F}_i$$\n5. The total force $\\sum \\vec{F}_i$ includes both internal ($\\vec{F}_{int}$) and external ($\\vec{F}_{ext}$) forces:\n$$\\sum_{i=1}^{N} \\vec{F}_i = \\sum \\vec{F}_{ext} + \\sum \\vec{F}_{int}$$\n6. By Newton's Third Law, the sum of all internal forces is zero ($\\sum \\vec{F}_{int} = \\vec{0}$). Therefore:\n$$\\sum_{i=1}^{N} m_i \\vec{a}_i = \\sum \\vec{F}_{ext}$$\n7. Substitute this back into the acceleration equation from step 3:\n$$M \\vec{a}_{CM} = \\sum \\vec{F}_{ext}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A fireworks rocket explodes into many fragments high in the air. If air resistance is negligible, what path does the center of mass of the fragments follow after the explosion?",
+      "back": "Before the explosion, the rocket's center of mass follows a parabolic trajectory due to the constant external force of gravity. The explosion itself involves only internal forces between the fragments. Since internal forces do not affect the motion of the center of mass, and gravity remains the only external force acting on the system, the center of mass of all the fragments *combined* will continue to follow the exact same parabolic trajectory it would have if the rocket had not exploded.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a rocket launch, if we consider the rocket and its ejected exhaust gases as a single system, and ignore external forces like gravity and air resistance, what can be said about the velocity of the center of mass of this system?",
+      "back": "If external forces (gravity, air resistance) are ignored, the net external force on the system (rocket + exhaust) is zero. According to Newton's Second Law for a system of particles ($\\sum \\vec{F}_{ext} = M \\vec{a}_{CM}$), this implies that the acceleration of the center of mass ($\\vec{a}_{CM}$) is zero. Therefore, the velocity of the center of mass ($\\vec{V}_{CM}$) of the entire rocket-exhaust system remains constant.",
+      "difficulty": "medium"
+    }
+  ]
+}

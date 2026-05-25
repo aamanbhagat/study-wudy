@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-4-scipy-overview-of-submodules",
+  "subtopicTitle": "SciPy — overview of submodules",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:33.087Z",
+  "cards": [
+    {
+      "front": "SciPy builds upon NumPy to provide a collection of algorithms and mathematical tools for scientific computing. What is its primary relationship with NumPy?",
+      "back": "SciPy uses NumPy arrays as its fundamental data structure and provides more specialized, high-level scientific computing capabilities (e.g., optimization, integration, signal processing) that are not available in NumPy itself, which focuses on array manipulation and basic mathematical operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which SciPy submodule is used for finding roots of equations, minimizing/maximizing functions, and curve fitting? Name a function for unconstrained minimization.",
+      "back": "`scipy.optimize`. For unconstrained minimization, common functions include `scipy.optimize.minimize` (a general-purpose interface) or `scipy.optimize.fmin_bfgs` (using the BFGS algorithm).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To perform numerical integration (quadrature) or solve ordinary differential equations (ODEs) in SciPy, which submodule would you use? Name a function for solving initial value problems for ODEs.",
+      "back": "`scipy.integrate`. For solving initial value problems (IVPs) for ODEs, `scipy.integrate.solve_ivp` is the recommended function. For definite integrals, `scipy.integrate.quad` is commonly used.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key distinction between `scipy.linalg` and `numpy.linalg`, and when one might prefer `scipy.linalg`.",
+      "back": "`numpy.linalg` provides a basic set of linear algebra routines. `scipy.linalg` offers a more comprehensive and advanced collection of linear algebra functions, often leveraging highly optimized, compiled libraries like BLAS and LAPACK directly. One prefers `scipy.linalg` for performance-critical applications, complex matrix decompositions (e.g., Schur, generalized SVD), or when specific advanced routines are not available in NumPy.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What types of functionalities does the `scipy.stats` submodule offer, and how can you calculate the probability density function (PDF) for a normal distribution?",
+      "back": "`scipy.stats` provides functions for probability distributions (PDFs, CDFs, random variates), statistical tests (e.g., t-tests, ANOVA), and descriptive statistics. To calculate the PDF for a normal distribution:\n```python\nfrom scipy.stats import norm\npdf_value = norm.pdf(x=0.0, loc=0, scale=1) # PDF at x=0 for standard normal\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which SciPy submodule is dedicated to signal processing, including filtering, convolution, and spectral analysis? Give an example of a common operation it performs.",
+      "back": "`scipy.signal`. It performs operations like designing digital filters (e.g., Butterworth, Chebyshev), convolution, correlation, and windowing. A common operation is applying a filter:\n```python\nfrom scipy import signal\n# Example: Apply a low-pass filter\nb, a = signal.butter(N=4, Wn=0.1, btype='low', fs=100) # 4th order, cutoff 10Hz for 100Hz sampling\nfiltered_signal = signal.filtfilt(b, a, original_signal)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For tasks involving spatial data structures, algorithms, and computations like nearest-neighbor searches, convex hulls, and Voronoi diagrams, which SciPy submodule would you use?",
+      "back": "`scipy.spatial`. It provides functions for k-d trees (`scipy.spatial.KDTree`), Delaunay triangulations (`scipy.spatial.Delaunay`), convex hulls (`scipy.spatial.ConvexHull`), and Voronoi diagrams (`scipy.spatial.Voronoi`), enabling efficient geometric computations.",
+      "difficulty": "medium"
+    }
+  ]
+}

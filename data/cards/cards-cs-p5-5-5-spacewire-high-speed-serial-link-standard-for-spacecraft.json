@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-spacewire-high-speed-serial-link-standard-for-spacecraft",
+  "subtopicTitle": "SpaceWire — high-speed serial link standard for spacecraft",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:05.829Z",
+  "cards": [
+    {
+      "front": "What is SpaceWire, and what is its primary application domain?",
+      "back": "SpaceWire is a high-speed, full-duplex, serial data link and network standard (ECSS-E-ST-50-12C) designed specifically for spacecraft. Its primary application is on-board data handling, connecting instruments, processors, and mass memory units within satellites and other space vehicles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three key advantages or features that make SpaceWire suitable for spacecraft environments.",
+      "back": "1.  **High-speed data transfer:** Supports link speeds up to 400 Mbit/s.\n2.  **Low power consumption:** Achieved through efficient data encoding and Low-Voltage Differential Signaling (LVDS).\n3.  **Fault tolerance:** Includes built-in error detection (parity, time-outs) and robust routing mechanisms.\n4.  **Network capabilities:** Supports routing and networking of multiple nodes.\n5.  **Full-duplex communication:** Allows simultaneous transmission and reception of data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the Data-Strobe (DS) encoding used in SpaceWire's physical layer.",
+      "back": "DS encoding utilizes two differential signal pairs: one for Data (D) and one for Strobe (S). For each bit, the Data line toggles if the current bit is different from the previous bit. The Strobe line toggles if the current bit is the same as the previous bit. This ensures at least one line transitions per bit period, providing a self-clocking mechanism and maintaining DC balance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the flow control mechanism employed by SpaceWire links to prevent buffer overflows.",
+      "back": "SpaceWire uses a credit-based flow control mechanism. A receiving node sends \"Flow Control Tokens\" (FCTs) back to the transmitting node. Each FCT signifies that the receiver has buffer space available for a certain number of data characters (typically 16 bytes). The transmitter maintains a credit counter and can only send data characters as long as its FCT credit counter is positive, thus preventing the receiver's buffers from overflowing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does SpaceWire implement wormhole routing for efficient packet delivery across its network?",
+      "back": "In wormhole routing, a packet is transmitted as a sequence of small units called \"flits\" (flow control units). The header flits, containing routing information, are sent first to establish a path through the network. Subsequent data flits follow directly behind, \"worming\" their way through the network without waiting for the entire packet to be buffered at each intermediate router. This significantly reduces latency and minimizes the buffer requirements at intermediate nodes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two error detection mechanisms at the SpaceWire data link layer and one at the network layer.",
+      "back": "At the **Data Link Layer**:\n1.  **Parity checking:** Each 8-bit data character includes a 9th parity bit for single-bit error detection.\n2.  **Time-outs:** Link time-outs detect stalled links or missing handshake signals.\n3.  **Escape Sequence Error (ESE):** Detects invalid sequences of control codes.\n\nAt the **Network Layer**:\n1.  **Cyclic Redundancy Check (CRC):** A 16-bit CRC is typically appended to the packet payload for end-to-end data integrity verification.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between \"Path Routing\" and \"Logical Addressing\" in SpaceWire network addressing.",
+      "back": "In **Path Routing**, the packet header contains a sequence of \"route characters.\" Each route character specifies the output port at the next intermediate router. The router consumes one route character and forwards the packet out the specified port.\n\nIn **Logical Addressing**, the packet header contains a single \"logical address\" byte. Each router maintains a routing table that maps logical addresses to specific output ports, offering greater flexibility for network topologies and easier reconfiguration without modifying endpoint software.",
+      "difficulty": "hard"
+    }
+  ]
+}

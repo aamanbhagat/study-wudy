@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-transfer-function-laplace-domain-poles-and-zeros",
+  "subtopicTitle": "Transfer function — Laplace domain, poles and zeros",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:08.165Z",
+  "cards": [
+    {
+      "front": "What is the definition of a system's transfer function $H(s)$ in the Laplace domain?",
+      "back": "The transfer function $H(s)$ is the ratio of the Laplace transform of the output $Y(s)$ to the Laplace transform of the input $U(s)$, assuming all initial conditions are zero. $$H(s) = \\frac{Y(s)}{U(s)}$$ It characterizes the dynamic behavior of a linear time-invariant (LTI) system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary advantage of using the Laplace domain and transfer functions for analyzing LTI systems compared to time-domain differential equations?",
+      "back": "The Laplace transform converts linear ordinary differential equations (ODEs) into algebraic equations, simplifying analysis, especially for complex systems. Multiplication in the Laplace domain corresponds to convolution in the time domain, and differentiation/integration become simple multiplications/divisions by $s$. This makes finding system responses and analyzing stability much easier.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the transfer function for a system described by $\\frac{d^2y}{dt^2} + 3\\frac{dy}{dt} + 2y = 4u(t)$, where $y(t)$ is output and $u(t)$ is input.",
+      "back": "1. Take the Laplace transform of both sides, assuming zero initial conditions:\n$$s^2Y(s) + 3sY(s) + 2Y(s) = 4U(s)$$\n2. Factor out $Y(s)$:\n$$Y(s)(s^2 + 3s + 2) = 4U(s)$$\n3. Form the ratio $Y(s)/U(s)$:\n$$H(s) = \\frac{Y(s)}{U(s)} = \\frac{4}{s^2 + 3s + 2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a transfer function $H(s) = \\frac{N(s)}{D(s)}$, what are poles, and how do they relate to the system's natural response?",
+      "back": "Poles are the roots of the denominator polynomial $D(s)$ (the characteristic equation) when $H(s)$ is expressed in its simplest form. They are the values of $s$ for which $H(s)$ approaches infinity. Poles dictate the modes of the system's natural (unforced) response and are crucial for determining system stability and transient behavior (e.g., exponential decay rates, oscillation frequencies).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a transfer function $H(s) = \\frac{N(s)}{D(s)}$, what are zeros, and what is their primary effect on the system's output?",
+      "back": "Zeros are the roots of the numerator polynomial $N(s)$ when $H(s)$ is expressed in its simplest form. They are the values of $s$ for which $H(s)$ equals zero. Zeros affect the *amplitude* and *phase* of the system's forced response and can influence overshoot, undershoot, and the shape of the transient response, but they do not directly affect system stability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A system has poles at $s = -1 \\pm j2$ and $s = 0$. Is the system stable? Explain using the s-plane.",
+      "back": "No, the system is not stable.\n*   Poles at $s = -1 \\pm j2$ are in the left half of the s-plane (LHP), contributing a decaying oscillatory response ($e^{-t}\\cos(2t)$).\n*   The pole at $s = 0$ is on the imaginary axis. This indicates marginal stability; a bounded input can produce an unbounded output (e.g., a constant input leads to a ramp output). For strict BIBO (Bounded Input, Bounded Output) stability, all poles must be in the LHP. A pole at $s=0$ means the system is not asymptotically stable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does adding a zero close to the origin (e.g., $s = -0.1$) to a stable second-order system typically affect its step response?",
+      "back": "Adding a zero close to the origin (i.e., a \"left-half plane zero\" near $s=0$) tends to increase overshoot and decrease the rise time of the step response. It makes the system respond faster but often with more oscillation. If the zero is in the right-half plane (RHP), it can cause an \"undershoot\" or \"inverse response,\" where the output initially moves in the opposite direction of the final steady-state value.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What determines the \"order\" of a system from its transfer function, and what does it physically represent?",
+      "back": "The order of a system is determined by the highest power of $s$ in the denominator polynomial $D(s)$ of its transfer function, after cancellation of common pole-zero factors. It physically represents the number of independent energy storage elements (e.g., capacitors, inductors, masses, springs) in the system, or equivalently, the order of the differential equation describing the system.",
+      "difficulty": "easy"
+    }
+  ]
+}

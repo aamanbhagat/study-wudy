@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-policy-gradient-reinforce",
+  "subtopicTitle": "Policy gradient — REINFORCE",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:20.788Z",
+  "cards": [
+    {
+      "front": "What does REINFORCE stand for, and what is its primary goal in Reinforcement Learning?",
+      "back": "REINFORCE stands for \"REward Increment Non-negative Factor pOsitive REnforcement\". It is a Monte Carlo policy gradient algorithm whose primary goal is to learn an optimal policy directly by adjusting policy parameters to maximize the expected total reward (return) over an episode.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental concept do policy gradient methods, including REINFORCE, optimize, and how does this differ from value-based methods?",
+      "back": "Policy gradient methods directly optimize the policy $\\pi(a|s, \\theta)$ parameterized by $\\theta$. This differs from value-based methods (e.g., Q-learning) which optimize an action-value function $Q(s,a)$ and then derive a policy from it (e.g., $\\epsilon$-greedy). Policy gradient methods can learn stochastic policies and handle continuous action spaces more naturally.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Policy Gradient Theorem for the expected return $J(\\theta)$ that REINFORCE uses.",
+      "back": "The Policy Gradient Theorem states that the gradient of the expected return with respect to the policy parameters $\\theta$ is:\n$$ \\nabla J(\\theta) = E_{\\pi_\\theta} \\left[ \\sum_{t=0}^{T-1} G_t \\frac{\\nabla \\pi_\\theta(A_t|S_t)}{\\pi_\\theta(A_t|S_t)} \\right] $$\nwhere $G_t$ is the return (total discounted reward) from time step $t$, and $\\frac{\\nabla \\pi_\\theta(A_t|S_t)}{\\pi_\\theta(A_t|S_t)}$ is the log-derivative trick $\\nabla \\log \\pi_\\theta(A_t|S_t)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does REINFORCE practically estimate the policy gradient using Monte Carlo sampling?",
+      "back": "REINFORCE estimates the policy gradient by sampling full episodes. For each episode, it computes the return $G_t$ for each time step $t$. The gradient estimate for a single episode is:\n$$ \\hat{\\nabla} J(\\theta) \\approx \\sum_{t=0}^{T-1} G_t \\nabla \\log \\pi_\\theta(A_t|S_t) $$\nThis is an unbiased estimate of the true gradient.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the policy parameter update rule for REINFORCE using a learning rate $\\alpha$.",
+      "back": "The policy parameters $\\theta$ are updated iteratively using stochastic gradient ascent:\n$$ \\theta_{new} = \\theta_{old} + \\alpha \\nabla J(\\theta) $$\nUsing the Monte Carlo estimate from a single episode:\n$$ \\theta_{new} = \\theta_{old} + \\alpha \\sum_{t=0}^{T-1} G_t \\nabla \\log \\pi_\\theta(A_t|S_t) $$\nwhere $\\alpha$ is the learning rate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why the REINFORCE update rule $G_t \\nabla \\log \\pi_\\theta(A_t|S_t)$ encourages good actions and discourages bad ones.",
+      "back": "The term $\\nabla \\log \\pi_\\theta(A_t|S_t)$ indicates how to change $\\theta$ to increase the probability of action $A_t$ in state $S_t$.\n*   If $G_t$ (the return following $A_t$) is *positive*, the update shifts $\\theta$ in the direction that *increases* the probability of taking $A_t$ in $S_t$.\n*   If $G_t$ is *negative*, the update shifts $\\theta$ in the direction that *decreases* the probability of taking $A_t$ in $S_t$.\nThis directly reinforces actions that lead to high returns and punishes actions that lead to low returns.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How could REINFORCE be applied to optimize the control policy for a satellite's attitude (orientation) in space?",
+      "back": "1.  **State:** Satellite's current attitude (e.g., Euler angles, quaternions) and angular velocity.\n2.  **Action:** Thrust commands for reaction wheels or thrusters (e.g., magnitude and direction).\n3.  **Reward:** A negative reward for deviation from target attitude, positive for reaching/maintaining target, and negative for fuel consumption.\n4.  **Episode:** A mission segment or a fixed time horizon.\nREINFORCE would learn a policy $\\pi(action|state)$ that maps current attitude/velocity to optimal thrust commands, maximizing the total reward (minimizing attitude error and fuel use) over an episode.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant drawback of vanilla REINFORCE regarding variance, and how does this impact learning stability?",
+      "back": "A major drawback of vanilla REINFORCE is its *high variance* in gradient estimates. Because it uses the full episodic return $G_t$ (which can be very noisy) as a \"credit assignment\" for each action, the gradient estimates can fluctuate wildly. This high variance often leads to:\n1.  **Slow convergence:** The policy parameters jump around, making it difficult to find the optimal policy.\n2.  **Instability:** Learning can be unstable, potentially diverging.\nA common improvement is to subtract a *baseline* (e.g., the state-value function $V(S_t)$) from $G_t$ to reduce variance without changing the expected gradient.",
+      "difficulty": "hard"
+    }
+  ]
+}

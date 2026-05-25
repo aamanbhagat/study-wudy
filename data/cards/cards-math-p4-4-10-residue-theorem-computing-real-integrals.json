@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-10-residue-theorem-computing-real-integrals",
+  "subtopicTitle": "Residue theorem — computing real integrals",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:02:53.062Z",
+  "cards": [
+    {
+      "front": "What is the fundamental idea behind using the Residue Theorem to evaluate real definite integrals?",
+      "back": "The core idea is to transform a real definite integral into a complex contour integral over a closed path $C$. By the Residue Theorem, this complex integral equals $2\\pi i$ times the sum of residues of the integrand inside $C$. The contour $C$ is chosen such that parts of it (e.g., a large semicircular arc) vanish as its radius tends to infinity, leaving only the desired real integral.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For $\\int_{-\\infty}^{\\infty} f(x) dx$, describe the standard contour and conditions for the integral over the arc to vanish.",
+      "back": "The standard contour is a large semicircle $C_R$ in the upper half-plane, combined with the segment $[-R, R]$ on the real axis. The integral over the semicircular arc $C_R$ vanishes as $R \\to \\infty$ if $f(z)$ tends to zero uniformly as $|z| \\to \\infty$ at least as fast as $O(1/|z|^2)$ (i.e., $|z^2 f(z)| \\to 0$ as $|z| \\to \\infty$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is a real integral of the form $\\int_0^{2\\pi} R(\\cos\\theta, \\sin\\theta) d\\theta$ transformed into a contour integral?",
+      "back": "Let $z = e^{i\\theta}$. Then $d\\theta = dz/(iz)$. Also, $\\cos\\theta = (e^{i\\theta} + e^{-i\\theta})/2 = (z + 1/z)/2$ and $\\sin\\theta = (e^{i\\theta} - e^{-i\\theta})/(2i) = (z - 1/z)/(2i)$. The contour of integration becomes the unit circle $|z|=1$ in the complex plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Jordan's Lemma and explain its significance for integrals involving $e^{iax}$.",
+      "back": "Jordan's Lemma: If $f(z)$ is analytic except for a finite number of poles, and $f(z) \\to 0$ uniformly as $|z| \\to \\infty$ for $Im(z) \\ge 0$, then for $a>0$, $\\lim_{R \\to \\infty} \\int_{C_R} f(z)e^{iaz} dz = 0$, where $C_R$ is a semicircular arc of radius $R$ in the upper half-plane. This allows us to evaluate integrals like $\\int_{-\\infty}^{\\infty} f(x) \\cos(ax) dx$ or $\\int_{-\\infty}^{\\infty} f(x) \\sin(ax) dx$ by considering $\\text{Re}(\\int_C f(z)e^{iaz} dz)$ or $\\text{Im}(\\int_C f(z)e^{iaz} dz)$ respectively.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are simple poles on the real axis handled when evaluating $\\int_{-\\infty}^{\\infty} f(x) dx$ using the Residue Theorem?",
+      "back": "When a simple pole $x_0$ lies on the real axis, the contour must be indented. A small semicircular arc $C_\\epsilon$ of radius $\\epsilon$ is used to bypass the pole. If the indentation is into the upper half-plane (clockwise orientation), the integral over $C_\\epsilon$ approaches $-i\\pi \\cdot \\text{Res}(f, x_0)$ as $\\epsilon \\to 0$. The overall integral then yields the Cauchy Principal Value.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the formula for the residue of a function $f(z)$ at a simple pole $z_0$?",
+      "back": "For a simple pole at $z_0$, the residue is given by $\\text{Res}(f, z_0) = \\lim_{z \\to z_0} (z-z_0)f(z)$. If $f(z)$ can be written as $p(z)/q(z)$ where $p(z_0) \\ne 0$, $q(z_0)=0$, and $q'(z_0) \\ne 0$, then an alternative formula is $\\text{Res}(f, z_0) = p(z_0)/q'(z_0)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To evaluate $\\int_{-\\infty}^{\\infty} \\frac{\\cos(ax)}{x^2+b^2} dx$ ($a>0, b>0$), what complex integral should be considered and which poles are relevant?",
+      "back": "We consider the complex integral $\\oint_C \\frac{e^{iaz}}{z^2+b^2} dz$. The poles of the integrand are where $z^2+b^2=0$, so $z = \\pm ib$. For the standard semicircular contour in the upper half-plane, only the pole $z=ib$ is enclosed. Jordan's Lemma applies to the $e^{iaz}$ term, ensuring the integral over the arc vanishes. The desired real integral is then $\\text{Re}\\left(2\\pi i \\cdot \\text{Res}\\left(\\frac{e^{iaz}}{z^2+b^2}, ib\\right)\\right)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

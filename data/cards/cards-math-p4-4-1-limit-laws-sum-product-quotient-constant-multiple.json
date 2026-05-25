@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-limit-laws-sum-product-quotient-constant-multiple",
+  "subtopicTitle": "Limit laws — sum, product, quotient, constant multiple",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:39.172Z",
+  "cards": [
+    {
+      "front": "State the Limit Sum Law for two functions $f(x)$ and $g(x)$ as $x$ approaches $c$. What is the prerequisite?",
+      "back": "The Limit Sum Law states: $$\\lim_{x \\to c} (f(x) + g(x)) = \\lim_{x \\to c} f(x) + \\lim_{x \\to c} g(x)$$ The prerequisite is that both individual limits, $\\lim_{x \\to c} f(x)$ and $\\lim_{x \\to c} g(x)$, must exist as finite numbers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Limit Constant Multiple Law for a function $f(x)$ and a constant $k$ as $x$ approaches $c$. What is the prerequisite?",
+      "back": "The Limit Constant Multiple Law states: $$\\lim_{x \\to c} (k \\cdot f(x)) = k \\cdot \\lim_{x \\to c} f(x)$$ The prerequisite is that the limit $\\lim_{x \\to c} f(x)$ must exist as a finite number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Limit Product Law for two functions $f(x)$ and $g(x)$ as $x$ approaches $c$. What is the prerequisite?",
+      "back": "The Limit Product Law states: $$\\lim_{x \\to c} (f(x) \\cdot g(x)) = \\lim_{x \\to c} f(x) \\cdot \\lim_{x \\to c} g(x)$$ The prerequisite is that both individual limits, $\\lim_{x \\to c} f(x)$ and $\\lim_{x \\to c} g(x)$, must exist as finite numbers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Limit Quotient Law for two functions $f(x)$ and $g(x)$ as $x$ approaches $c$. Include all critical prerequisites.",
+      "back": "The Limit Quotient Law states: $$\\lim_{x \\to c} \\frac{f(x)}{g(x)} = \\frac{\\lim_{x \\to c} f(x)}{\\lim_{x \\to c} g(x)}$$ The critical prerequisites are that both individual limits, $\\lim_{x \\to c} f(x)$ and $\\lim_{x \\to c} g(x)$, must exist as finite numbers, AND the limit of the denominator $\\lim_{x \\to c} g(x)$ must NOT be equal to zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\lim_{x \\to 1} (4x^3 - 2x + 5)$ using the limit laws.",
+      "back": "Applying the Sum/Difference and Constant Multiple Laws:\n$$\\lim_{x \\to 1} (4x^3 - 2x + 5) = \\lim_{x \\to 1} (4x^3) - \\lim_{x \\to 1} (2x) + \\lim_{x \\to 1} (5)$$\n$$= 4 \\lim_{x \\to 1} (x^3) - 2 \\lim_{x \\to 1} (x) + \\lim_{x \\to 1} (5)$$\nSince $x^3$, $x$, and $5$ are continuous functions, we can substitute $x=1$:\n$$= 4(1^3) - 2(1) + 5$$\n$$= 4(1) - 2 + 5 = 4 - 2 + 5 = 7$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if you try to apply the Limit Quotient Law when $\\lim_{x \\to c} f(x) = L$ (where $L \\neq 0$) and $\\lim_{x \\to c} g(x) = 0$?",
+      "back": "If $\\lim_{x \\to c} f(x) = L \\neq 0$ and $\\lim_{x \\to c} g(x) = 0$, the Limit Quotient Law *cannot* be directly applied because its critical condition (denominator limit not equal to zero) is violated. In such cases, the limit $\\lim_{x \\to c} \\frac{f(x)}{g(x)}$ will either be $\\infty$, $-\\infty$, or DNE (Does Not Exist), depending on the specific behavior of $g(x)$ as $x$ approaches $c$ (e.g., if $g(x)$ approaches 0 from positive or negative values). It will not result in a finite number.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the intuitive meaning behind the Limit Product Law. If $f(x)$ gets close to $L$ and $g(x)$ gets close to $M$, what does their product approach?",
+      "back": "Intuitively, if a function $f(x)$ approaches a value $L$ and another function $g(x)$ approaches a value $M$ as $x$ gets closer to $c$, then their product $f(x) \\cdot g(x)$ will naturally approach the product of their limits, $L \\cdot M$. For example, if $f(x)$ is almost 2 and $g(x)$ is almost 3, then $f(x)g(x)$ will be almost $2 \\cdot 3 = 6$. The Limit Product Law formalizes this straightforward idea.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $\\lim_{x \\to c} f(x)$ does not exist, can you apply the Limit Sum Law to evaluate $\\lim_{x \\to c} (f(x) + g(x))$?",
+      "back": "No, you cannot directly apply the Limit Sum Law. A fundamental prerequisite for the Limit Sum Law (and all other basic limit laws) is that *all individual limits involved must exist as finite numbers*. If $\\lim_{x \\to c} f(x)$ does not exist, the sum law's condition is not met, and you cannot conclude anything about the sum's limit using the law.",
+      "difficulty": "hard"
+    }
+  ]
+}

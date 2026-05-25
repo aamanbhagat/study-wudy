@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-cache-coherence-mesi-protocol-in-multicore",
+  "subtopicTitle": "Cache coherence — MESI protocol in multicore",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:41.473Z",
+  "cards": [
+    {
+      "front": "The MESI protocol is a solution to the ________ problem in multicore systems.",
+      "back": "cache coherence",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the four states of the MESI protocol and their meaning for a cache line.",
+      "back": "- **Modified (M):** The cache line is dirty (different from main memory) and is the only copy in any cache.\n- **Exclusive (E):** The cache line is clean (matches main memory) and is the only copy in any cache.\n- **Shared (S):** The cache line is clean (matches main memory) and may exist in multiple caches.\n- **Invalid (I):** The cache line does not contain valid data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the performance benefit of a cache line being in the 'Exclusive' (E) state before a CPU write operation.",
+      "back": "When a cache line is in the 'Exclusive' (E) state, it means this cache is the *only* one holding a copy, and it's clean (matches main memory). If the CPU then writes to this line, no bus transaction (like an invalidate message) is needed to inform other caches, as there are none. The line simply transitions from E to M (Modified), improving write performance by avoiding bus contention and latency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the MESI state transition and bus activity when a CPU writes to a cache line currently in the 'Shared' (S) state.",
+      "back": "When a CPU writes to a cache line in the 'Shared' (S) state, it must first gain exclusive ownership. The cache controller broadcasts an 'Invalidate' message (or 'Read-for-Ownership' which implies invalidate) on the bus. Other caches with a copy of this line will transition their state to 'Invalid' (I). Once all other copies are invalidated, the writing cache transitions its line to 'Modified' (M) and performs the write. This ensures write serialization and coherence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a snooping-based MESI protocol, how do cache controllers monitor and react to relevant bus transactions?",
+      "back": "Each cache controller continuously 'snoops' or monitors all transactions on the shared bus. When a transaction (e.g., a read request, an invalidate message, or a write-back) specifies an address that matches a line in its own cache, the controller intercepts it and updates the state of its corresponding cache line according to the MESI protocol rules. This decentralized approach ensures all caches maintain a consistent view of memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is MESI a write-back or write-through cache coherence protocol? Justify your answer with respect to the 'M' state.",
+      "back": "MESI is primarily a **write-back** protocol. This is evident from the 'Modified' (M) state. When a cache line is in the M state, it means the data in the cache is 'dirty' (modified) and differs from main memory. The write to main memory is deferred until the line is evicted or requested by another processor (at which point it's written back to memory before being shared or invalidated). A write-through protocol, in contrast, would immediately write data to both the cache and main memory on every write, thus not requiring a 'Modified' state to track dirty lines.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Trace MESI states for a cache line: CPU A writes to $X$, which is 'M' in CPU B's cache. Assume CPU A's cache has $X$ as 'I'.",
+      "back": "1.  **Initial State:** CPU A (I), CPU B (M).\n2.  **CPU A Write Miss:** CPU A attempts to write to address $X$. It's a write miss for CPU A. CPU A broadcasts a 'Read-for-Ownership' (RFO) request for $X$ on the bus.\n3.  **CPU B's Reaction:** CPU B snoops the RFO. Since its copy of $X$ is 'Modified' (M), it must first write back the dirty data to main memory. CPU B then transitions its state for $X$ to 'Invalid' (I).\n4.  **CPU A's Reaction:** CPU A receives the data (either directly from CPU B or from main memory after B's write-back). CPU A then transitions its state for $X$ to 'Modified' (M) and completes its write operation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define 'false sharing' and explain why it can be particularly detrimental to performance under the MESI protocol.",
+      "back": "False sharing occurs when two or more independent variables, accessed by different CPUs, happen to reside within the *same cache line*. Even though the variables themselves are independent, any write to one variable by one CPU will cause the entire cache line to be invalidated in other caches that hold a copy. Under MESI, if CPU A writes to its variable in a shared cache line (S state), it sends an Invalidate. CPU B, needing its variable in the same line, will then suffer a cache miss and have to fetch the line again, only for CPU A to potentially invalidate it shortly after. This ping-ponging of cache line ownership (S $\\rightarrow$ M $\\rightarrow$ I $\\rightarrow$ S $\\rightarrow$ M $\\rightarrow$ I) leads to excessive bus traffic and significantly degrades performance, even though the CPUs are not truly sharing data.",
+      "difficulty": "hard"
+    }
+  ]
+}

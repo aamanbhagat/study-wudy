@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-lenz-s-law-opposing-induced-current",
+  "subtopicTitle": "Lenz's law — opposing induced current",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:47.141Z",
+  "cards": [
+    {
+      "front": "State Lenz's Law.",
+      "back": "The direction of an induced electromotive force (EMF) and induced current is such that it opposes the change in magnetic flux that produced it.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is Lenz's Law mathematically incorporated into Faraday's Law of Induction?",
+      "back": "It is represented by the negative sign in Faraday's Law: $\\mathcal{E} = -N \\frac{d\\Phi_B}{dt}$, where $\\mathcal{E}$ is the induced EMF, $N$ is the number of turns, and $\\frac{d\\Phi_B}{dt}$ is the rate of change of magnetic flux. The negative sign explicitly indicates opposition.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental principle does Lenz's Law uphold, and how?",
+      "back": "Lenz's Law upholds the principle of **conservation of energy**. If the induced current *aided* the change in flux, it would create a perpetual motion machine, generating energy without external work, which is impossible. Thus, it must oppose the change, requiring external work to sustain the change.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A North pole of a magnet approaches a coil. Describe the direction of the induced current in the coil as viewed from the magnet.",
+      "back": "As the North pole approaches, the magnetic flux through the coil *increases* in the direction of the approaching North pole. By Lenz's Law, the induced current will create a magnetic field that *opposes* this increase. Therefore, the coil will act as a North pole to repel the approaching magnet. Using the right-hand rule for coils, the induced current will flow **counter-clockwise** as viewed from the magnet.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A North pole of a magnet recedes from a coil. Describe the direction of the induced current in the coil as viewed from the magnet.",
+      "back": "As the North pole recedes, the magnetic flux through the coil *decreases*. By Lenz's Law, the induced current will create a magnetic field that *opposes* this decrease. Therefore, the coil will act as a South pole to attract the receding magnet. Using the right-hand rule for coils, the induced current will flow **clockwise** as viewed from the magnet.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a strong magnet falls slower through a non-magnetic copper tube than through an identical plastic tube.",
+      "back": "As the magnet falls through the copper tube (an electrical conductor), its changing magnetic field induces eddy currents in the copper. By Lenz's Law, these eddy currents create magnetic fields that oppose the motion of the magnet (e.g., a North pole approaching induces a North pole below it, repelling it). This opposition acts as a braking force, slowing the magnet's descent. Plastic is an insulator, so no eddy currents are induced.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a conducting loop had zero electrical resistance, what would be the consequence for the induced current if the magnetic flux through it changed?",
+      "back": "According to Faraday's Law, $\\mathcal{E} = - \\frac{d\\Phi_B}{dt}$. If resistance $R=0$, then by Ohm's Law, $I = \\mathcal{E}/R$ would imply an infinite current for any non-zero $\\mathcal{E}$. However, Lenz's Law dictates that the induced current's magnetic field *opposes* the change in flux. With zero resistance, the induced current would grow to exactly the magnitude required to perfectly cancel the change in external flux, maintaining a constant *total* flux through the loop. This is a characteristic of superconductors (perfect diamagnetism).",
+      "difficulty": "hard"
+    }
+  ]
+}

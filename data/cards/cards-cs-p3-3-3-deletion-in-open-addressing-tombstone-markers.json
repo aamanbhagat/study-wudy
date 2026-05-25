@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-3-deletion-in-open-addressing-tombstone-markers",
+  "subtopicTitle": "Deletion in open addressing — tombstone markers",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:46.647Z",
+  "cards": [
+    {
+      "front": "In open addressing, what is a tombstone marker, and what state does it represent?",
+      "back": "A tombstone marker is a special value (e.g., `DELETED` or `TOMBSTONE`) placed in a hash table slot that *previously* held a key but is now empty due to deletion. It represents a state distinct from a truly `EMPTY` slot, which has never held a key.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are tombstone markers necessary for correct search operations in an open addressing hash table after a deletion?",
+      "back": "If a deleted slot were simply marked `EMPTY`, a search for a key that was originally placed *after* the deleted key (due to a collision) would incorrectly terminate early upon encountering the `EMPTY` slot, assuming the key does not exist. A tombstone marker signals the search algorithm to continue probing, as the target key might be further down the probe sequence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When inserting a new key into an open addressing hash table, how does the presence of a tombstone marker affect the insertion process?",
+      "back": "During insertion, if the probe sequence encounters a tombstone marker, the insertion algorithm can choose to place the new key into that tombstone slot. This is often preferred over continuing to search for a truly `EMPTY` slot, as it reuses a previously occupied slot and helps to 'fill in' the gaps left by deletions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the steps to delete a key `K` from an open addressing hash table using tombstone markers.",
+      "back": "1. Compute the hash index $h(K)$.\n2. Probe the table starting from $h(K)$ until the key `K` is found, or a truly `EMPTY` slot is encountered.\n3. If `K` is found, replace its value with a `TOMBSTONE` marker.\n4. If an `EMPTY` slot is encountered before `K` is found, `K` was not in the table.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant performance drawback of using tombstone markers in open addressing, especially after many deletions and insertions?",
+      "back": "Tombstone markers do not reduce the effective length of probe sequences for search operations. As more items are deleted and replaced with tombstones, the probe sequences for subsequent searches (and even insertions) can become longer, degrading performance (increased average probe length) even if the actual number of *active* elements is low. This effectively increases the 'logical' load factor for probes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can the negative performance impact of tombstone markers be mitigated over time?",
+      "back": "The primary mitigation strategy is **rehashing** (or **compaction**). When the number of tombstone markers reaches a certain threshold, or the effective load factor (considering active elements + tombstones) becomes too high, the entire hash table is rebuilt. All *active* elements are re-inserted into a new, typically larger, hash table, effectively removing all tombstone markers and restoring optimal probe lengths.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a simplified conceptual code snippet illustrating how a search operation would handle tombstone markers in an open addressing hash table.",
+      "back": "```python\nDELETED = object() # Sentinel for tombstone\nEMPTY = None       # Sentinel for truly empty\n\ndef search(key, table, M, H):\n    idx = H(key) % M\n    start_idx = idx\n    while table[idx] is not EMPTY:\n        if table[idx] == key:\n            return idx # Found\n        if table[idx] is DELETED:\n            # Continue probing; treat as occupied for search purposes\n            pass\n        idx = (idx + 1) % M # Example: linear probing\n        if idx == start_idx: # Wrapped around, key not found\n            break\n    return -1 # Not found\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

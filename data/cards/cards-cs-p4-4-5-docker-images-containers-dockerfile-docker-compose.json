@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-docker-images-containers-dockerfile-docker-compose",
+  "subtopicTitle": "Docker — images, containers, Dockerfile, docker-compose",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:02.375Z",
+  "cards": [
+    {
+      "front": "What is a Docker Image, and what is its primary characteristic regarding mutability?",
+      "back": "A Docker Image is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files. It is **read-only** and serves as a template for creating containers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain what a Docker Container is and how it relates to a Docker Image.",
+      "back": "A Docker Container is a runnable instance of a Docker Image. It's a lightweight, isolated, and portable runtime environment where an application can run. Unlike images, containers are **writable** layers on top of the image and can be started, stopped, moved, or deleted.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of a `Dockerfile` in the Docker ecosystem?",
+      "back": "A `Dockerfile` is a text document that contains all the commands a user could call on the command line to assemble an image. It provides a standardized and automated way to define the environment and steps for building a Docker Image.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a simple `Dockerfile` to create an image for a Python application that needs `numpy` and runs `app.py`.",
+      "back": "```dockerfile\nFROM python:3.9-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\nCOPY . .\nCMD [\"python\", \"app.py\"]\n```\n(Assuming `requirements.txt` contains `numpy` and `app.py` is the entry point.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between the `RUN` and `CMD` instructions in a `Dockerfile` regarding their execution timing and purpose.",
+      "back": "<ul><li>`RUN`: Executes commands during the **image build process**. Each `RUN` instruction creates a new layer in the image. Used for installing packages, compiling code, etc.</li><li>`CMD`: Provides default commands or arguments for an **executing container**. Only the last `CMD` instruction in a `Dockerfile` will take effect. It can be overridden when running the container.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you use `docker-compose` instead of just `docker run` commands?",
+      "back": "`docker-compose` is used for defining and running multi-container Docker applications. It allows you to configure all your application's services (e.g., a web app, a database, a cache) in a single YAML file (`docker-compose.yml`), then start them all with a single command (`docker-compose up`). This simplifies development, testing, and deployment of complex applications.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a basic `docker-compose.yml` structure for a web application service that depends on a PostgreSQL database service.",
+      "back": "```yaml\nversion: '3.8'\nservices:\n  web:\n    build: .\n    ports:\n      - \"8000:8000\"\n    depends_on:\n      - db\n    environment:\n      DATABASE_URL: postgres://user:password@db:5432/mydatabase\n  db:\n    image: postgres:13\n    environment:\n      POSTGRES_DB: mydatabase\n      POSTGRES_USER: user\n      POSTGRES_PASSWORD: password\n    volumes:\n      - db_data:/var/lib/postgresql/data\nvolumes:\n  db_data:\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does Docker promote the concept of \"Immutable Infrastructure\"?",
+      "back": "Docker promotes immutable infrastructure by treating containers as disposable, interchangeable units. Once a Docker Image is built, it's considered immutable. When an update or change is needed, a *new* image is built, and *new* containers are deployed from this new image, replacing the old ones, rather than modifying existing running containers. This ensures consistency, reduces configuration drift, and simplifies rollbacks.",
+      "difficulty": "hard"
+    }
+  ]
+}

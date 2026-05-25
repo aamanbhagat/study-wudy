@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-7-solving-pdes-with-fourier-transforms-heat-equation-on-infinite-domain",
+  "subtopicTitle": "Solving PDEs with Fourier transforms (heat equation on infinite domain)",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:02:44.303Z",
+  "cards": [
+    {
+      "front": "State the 1D heat equation on an infinite domain and its initial condition.",
+      "back": "The 1D heat equation is $u_t = \\alpha^2 u_{xx}$ for $x \\in (-\\infty, \\infty)$ and $t > 0$. The initial condition is $u(x,0) = f(x)$. Here, $u(x,t)$ is the temperature, and $\\alpha^2$ is the thermal diffusivity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the Fourier transform a suitable tool for solving the heat equation on an infinite domain?",
+      "back": "The Fourier transform is suitable because it converts spatial derivatives into algebraic multiplications in the Fourier domain, simplifying the PDE into an ODE. For infinite domains, it naturally handles the $x \\in (-\\infty, \\infty)$ range without needing specific boundary conditions at finite points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Apply the Fourier transform $\\mathcal{F}[u(x,t)](\\xi) = \\hat{u}(\\xi,t)$ to the 1D heat equation $u_t = \\alpha^2 u_{xx}$.",
+      "back": "Applying the Fourier transform:\n$$\\mathcal{F}[u_t] = \\mathcal{F}[\\alpha^2 u_{xx}]$$\n$$\\frac{\\partial}{\\partial t} \\mathcal{F}[u] = \\alpha^2 \\mathcal{F}[u_{xx}]$$\n$$\\frac{\\partial \\hat{u}}{\\partial t} = \\alpha^2 (i\\xi)^2 \\hat{u}$$\n$$\\frac{\\partial \\hat{u}}{\\partial t} = -\\alpha^2 \\xi^2 \\hat{u}$$\nThis is a first-order ordinary differential equation (ODE) in $t$ for $\\hat{u}(\\xi,t)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve the ODE $\\frac{\\partial \\hat{u}}{\\partial t} = -\\alpha^2 \\xi^2 \\hat{u}$ with the initial condition $\\hat{u}(\\xi,0) = \\mathcal{F}[f(x)](\\xi)$.",
+      "back": "The ODE is $\\frac{d\\hat{u}}{dt} = (-\\alpha^2 \\xi^2) \\hat{u}$. Its general solution is $\\hat{u}(\\xi,t) = C(\\xi) e^{-\\alpha^2 \\xi^2 t}$.\nApplying the initial condition:\n$\\hat{u}(\\xi,0) = C(\\xi) e^0 = C(\\xi)$.\nSince $\\hat{u}(\\xi,0) = \\mathcal{F}[f(x)](\\xi) = \\hat{f}(\\xi)$, we have $C(\\xi) = \\hat{f}(\\xi)$.\nThus, the solution in the Fourier domain is $\\hat{u}(\\xi,t) = \\hat{f}(\\xi) e^{-\\alpha^2 \\xi^2 t}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the fundamental solution (heat kernel) $G(x,t)$ such that $u(x,t) = (f * G)(x,t)$ from $\\hat{u}(\\xi,t) = \\hat{f}(\\xi) e^{-\\alpha^2 \\xi^2 t}$.",
+      "back": "By the convolution theorem, $\\mathcal{F}[f*g] = \\mathcal{F}[f] \\mathcal{F}[g]$. Here, $\\hat{u}(\\xi,t) = \\hat{f}(\\xi) \\cdot e^{-\\alpha^2 \\xi^2 t}$.\nSo, $u(x,t) = \\mathcal{F}^{-1}[\\hat{f}(\\xi) e^{-\\alpha^2 \\xi^2 t}](x) = (f * \\mathcal{F}^{-1}[e^{-\\alpha^2 \\xi^2 t}])(x,t)$.\nThe heat kernel $G(x,t)$ is $\\mathcal{F}^{-1}[e^{-\\alpha^2 \\xi^2 t}](x)$.\nUsing the known Fourier transform pair $\\mathcal{F}[e^{-ax^2}] = \\sqrt{\\frac{\\pi}{a}} e^{-\\xi^2/(4a)}$, we can find the inverse transform of a Gaussian in the frequency domain.\nSpecifically, $\\mathcal{F}^{-1}[e^{-b\\xi^2}] = \\frac{1}{\\sqrt{4\\pi b}} e^{-x^2/(4b)}$.\nSetting $b = \\alpha^2 t$, we get:\n$$G(x,t) = \\frac{1}{\\sqrt{4\\pi \\alpha^2 t}} e^{-x^2/(4\\alpha^2 t)} = \\frac{1}{2\\alpha\\sqrt{\\pi t}} e^{-x^2/(4\\alpha^2 t)}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the general solution for the 1D heat equation on an infinite domain with initial condition $u(x,0) = f(x)$, using the heat kernel $G(x,t)$.",
+      "back": "The solution is given by the convolution of the initial condition $f(x)$ with the heat kernel $G(x,t)$: \n$$u(x,t) = (f * G)(x,t) = \\int_{-\\infty}^{\\infty} f(y) G(x-y,t) dy$$\nSubstituting the heat kernel:\n$$u(x,t) = \\int_{-\\infty}^{\\infty} f(y) \\frac{1}{2\\alpha\\sqrt{\\pi t}} e^{-(x-y)^2/(4\\alpha^2 t)} dy$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Physically, what does the heat kernel $G(x,t) = \\frac{1}{2\\alpha\\sqrt{\\pi t}} e^{-x^2/(4\\alpha^2 t)}$ represent?",
+      "back": "The heat kernel represents the temperature distribution at time $t$ resulting from an initial point source of heat (a Dirac delta function) at $x=0$ at $t=0$. It is a Gaussian function that spreads out and flattens over time, illustrating how heat diffuses from a concentrated source. Its integral over all space remains constant, reflecting the conservation of heat energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two key properties of the heat kernel $G(x,t)$ for $t>0$.",
+      "back": "1.  **Normalization:** $\\int_{-\\infty}^{\\infty} G(x,t) dx = 1$ for all $t>0$. This signifies the conservation of total heat energy.\n2.  **Limit as $t \\to 0^+$:** $\\lim_{t \\to 0^+} G(x,t) = \\delta(x)$, where $\\delta(x)$ is the Dirac delta function. This means that at $t=0$, all the heat is concentrated at a single point.\n3.  **Maximum at $x=0$:** For any $t>0$, $G(x,t)$ has its maximum value at $x=0$.\n4.  **Spreading:** The variance of the Gaussian, $2\\alpha^2 t$, increases with $t$, indicating that the heat spreads out over time.",
+      "difficulty": "medium"
+    }
+  ]
+}

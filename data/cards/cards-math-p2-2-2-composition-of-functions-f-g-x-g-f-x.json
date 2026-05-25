@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-2-composition-of-functions-f-g-x-g-f-x",
+  "subtopicTitle": "Composition of functions — f(g(x)), g(f(x))",
+  "topicId": "math-p2-2-2-functions",
+  "topicTitle": "Functions",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:35.586Z",
+  "cards": [
+    {
+      "front": "Define function composition and state its standard notation using functions $f$ and $g$.",
+      "back": "Function composition combines two functions by applying one function to the result of another. For functions $f$ and $g$, the composition $f \\circ g$ is defined as $f(g(x))$. This means $g(x)$ is evaluated first, and its output becomes the input for $f$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $f(x) = 2x+1$ and $g(x) = x^2$, evaluate $(f \\circ g)(3)$.",
+      "back": "First, evaluate $g(3) = (3)^2 = 9$. Then, substitute this result into $f$: $f(9) = 2(9)+1 = 18+1 = 19$. So, $(f \\circ g)(3) = 19$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $f(x) = x-3$ and $g(x) = \\sqrt{x}$, find the algebraic expressions for $f(g(x))$ and $g(f(x))$.",
+      "back": "$f(g(x)) = f(\\sqrt{x}) = (\\sqrt{x})-3 = \\sqrt{x}-3$.\n$g(f(x)) = g(x-3) = \\sqrt{(x-3)} = \\sqrt{x-3}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the two essential conditions for determining the domain of a composite function $f(g(x))$?",
+      "back": "1. The input $x$ must be in the domain of the inner function, $g(x)$.\n2. The output of the inner function, $g(x)$, must be in the domain of the outer function, $f(x)$.\nBoth conditions must be satisfied for $x$ to be in the domain of $f(g(x))$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the domain of $(f \\circ g)(x)$ if $f(x) = \\frac{1}{x}$ and $g(x) = x-2$.",
+      "back": "1. Domain of $g(x) = x-2$ is $(-\\infty, \\infty)$.\n2. Domain of $f(x) = \\frac{1}{x}$ is $x \\neq 0$.\nFor $(f \\circ g)(x) = f(g(x))$, the output $g(x)$ must be in the domain of $f$. So, $g(x) \\neq 0$.\n$x-2 \\neq 0 \\implies x \\neq 2$.\nCombining both conditions, the domain of $(f \\circ g)(x)$ is $(-\\infty, 2) \\cup (2, \\infty)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an example to demonstrate that function composition is generally not commutative, i.e., $f(g(x)) \\neq g(f(x))$.",
+      "back": "Let $f(x) = x+1$ and $g(x) = x^2$.\n$f(g(x)) = f(x^2) = x^2+1$.\n$g(f(x)) = g(x+1) = (x+1)^2 = x^2+2x+1$.\nSince $x^2+1 \\neq x^2+2x+1$ (e.g., for $x=1$, $2 \\neq 4$), composition is not generally commutative.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the function $h(x) = \\sqrt{x^2+4}$, identify two functions $f(x)$ and $g(x)$ such that $h(x) = f(g(x))$.",
+      "back": "One possible solution:\nInner function $g(x) = x^2+4$.\nOuter function $f(x) = \\sqrt{x}$.\nCheck: $f(g(x)) = f(x^2+4) = \\sqrt{x^2+4} = h(x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $f(x) = x^2$, $g(x) = x+1$, and $h(x) = \\sqrt{x}$, find the expression for $f(g(h(x)))$.",
+      "back": "1. Start with the innermost function: $h(x) = \\sqrt{x}$.\n2. Substitute into $g$: $g(h(x)) = g(\\sqrt{x}) = \\sqrt{x}+1$.\n3. Substitute into $f$: $f(g(h(x))) = f(\\sqrt{x}+1) = (\\sqrt{x}+1)^2$.\nExpanding this gives: $(\\sqrt{x})^2 + 2(\\sqrt{x})(1) + 1^2 = x + 2\\sqrt{x} + 1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

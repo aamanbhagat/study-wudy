@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-data-types-char-short-int-long-float-double-size-t",
+  "subtopicTitle": "Data types — char, short, int, long, float, double, size_t",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:54.991Z",
+  "cards": [
+    {
+      "front": "In C, what is the primary purpose of the `char` data type, and what is its guaranteed size in bytes?",
+      "back": "The `char` data type is primarily used to store single characters (e.g., 'A', 'b', '5'). It is also used for small integer values. Its size is guaranteed by the C standard to be exactly 1 byte.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the difference in value range between `signed char` and `unsigned char`, providing their typical ranges.",
+      "back": "`signed char` can represent both positive and negative integer values, typically from $-128$ to $127$. `unsigned char` can only represent non-negative integer values, typically from $0$ to $255$. The exact range depends on the number of bits (which is 8 for 1 byte) and the representation (usually two's complement for signed integers).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the most commonly used integer type in C, and what guarantees does the C standard make about its size relative to `short` and `long`?",
+      "back": "The `int` data type is the most commonly used integer type. The C standard guarantees that `sizeof(short) <= sizeof(int) <= sizeof(long)`. Typically, `int` is 4 bytes on modern systems, `short` is 2 bytes, and `long` is 4 or 8 bytes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When should a C programmer consider using `long` or `long long` instead of `int` for an integer variable?",
+      "back": "A programmer should use `long` or `long long` when the range of values an integer variable needs to hold exceeds the maximum value representable by `int`. `long` typically provides at least 32 bits, and `long long` provides at least 64 bits, offering much larger ranges for very large counts, IDs, or calculations that might overflow a standard `int`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary difference between `float` and `double` data types, and what is the default type for floating-point literals in C?",
+      "back": "`float` represents single-precision floating-point numbers (typically 4 bytes, ~6-7 decimal digits of precision), while `double` represents double-precision floating-point numbers (typically 8 bytes, ~15-17 decimal digits of precision). The default type for floating-point literals (e.g., `3.14`, `1.0e-5`) in C is `double`. To specify a `float` literal, you must append `f` or `F` (e.g., `3.14f`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the `size_t` data type in C and why it is preferred over `int` for representing sizes, counts, or array indices.",
+      "back": "`size_t` is an unsigned integer type returned by the `sizeof` operator and used to represent the size of objects in memory, counts, and array indices. It is preferred over `int` because:\n1. It is guaranteed to be large enough to hold the maximum size of any object the system can handle, which `int` might not be on all architectures.\n2. It is unsigned, which correctly reflects that sizes and counts cannot be negative. Using `int` for sizes can lead to subtle bugs with negative values or overflow on systems where `int` is smaller than `size_t`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the following C code snippet. What will be the output, and why?\n```c\nchar c = 200;\nprintf(\"%d\\n\", c);\n```",
+      "back": "The output will likely be `-56`. This is because `char` is typically `signed char` by default on most systems. When `200` is assigned to a `signed char` (which usually has a range of $-128$ to $127$), it overflows. Due to two's complement representation, `200` wraps around to `-56`. When `c` is passed to `printf` with `%d`, it undergoes integer promotion to `int`, preserving its value of `-56`.",
+      "difficulty": "hard"
+    }
+  ]
+}

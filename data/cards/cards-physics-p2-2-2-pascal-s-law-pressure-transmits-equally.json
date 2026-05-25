@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-pascal-s-law-pressure-transmits-equally",
+  "subtopicTitle": "Pascal's law — pressure transmits equally",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:27.993Z",
+  "cards": [
+    {
+      "front": "What does Pascal's law state regarding pressure applied to an enclosed incompressible fluid?",
+      "back": "Pascal's law states that a pressure change at any point in a confined incompressible fluid is transmitted undiminished to every portion of the fluid and to the walls of its container.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If an external pressure $P_{ext}$ is applied to a confined fluid, how does the total pressure $P$ at any point within the fluid relate to the initial pressure $P_0$ at that point?",
+      "back": "The total pressure $P$ at any point within the fluid becomes $P = P_0 + P_{ext}$. This implies that the *change* in pressure, $\\Delta P$, is uniform throughout the fluid: $\\Delta P = P_{ext}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does pressure transmit *undiminished* throughout an incompressible fluid according to Pascal's law?",
+      "back": "In an incompressible fluid, molecules are closely packed. When pressure is applied, this force is transmitted through molecular collisions. Because the fluid cannot be compressed, the force applied to one molecule is immediately passed on to its neighbors, distributing the pressure throughout the entire volume without significant loss or attenuation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how Pascal's law enables force multiplication in a hydraulic system using two pistons of different areas, $A_1$ and $A_2$.",
+      "back": "In a hydraulic system, a small force $F_1$ applied to a small piston of area $A_1$ creates a pressure $P = F_1/A_1$. According to Pascal's law, this pressure $P$ is transmitted undiminished to a larger piston of area $A_2$. The force exerted on the larger piston is then $F_2 = P \\cdot A_2 = (F_1/A_1) \\cdot A_2$. Thus, if $A_2 > A_1$, then $F_2 > F_1$, resulting in force multiplication.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly describe the conceptual argument for Pascal's law by considering a small fluid element in equilibrium.",
+      "back": "Consider a tiny, arbitrary fluid element within the confined fluid. If an external pressure change is applied, the fluid element experiences forces on all its surfaces. For the fluid to remain in equilibrium (or accelerate uniformly without internal shear), the pressure change must be identical on all faces of the element, regardless of orientation. If it were not, the element would accelerate in a specific direction, violating the initial premise of pressure transmission.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the primary assumptions or conditions under which Pascal's law is strictly applicable?",
+      "back": "Pascal's law applies strictly to:\n1.  **Confined Fluids**: The fluid must be enclosed in a container.\n2.  **Incompressible Fluids**: The density of the fluid must remain constant under pressure changes.\n3.  **Static or Slowly Moving Fluids**: While applicable to dynamic systems like hydraulics, the *transmission* of pressure change is instantaneous in an ideal static fluid. For rapidly moving fluids, inertial effects and fluid dynamics become more complex.\n4.  **Negligible Gravity Effects (for pressure *transmission*)**: While gravity creates a pressure gradient in a fluid ($P = \\rho gh$), Pascal's law describes how an *applied pressure change* is transmitted *in addition* to this gradient, undiminished.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A hydraulic jack has an input piston of area $0.01 \\text{ m}^2$ and an output piston of area $0.1 \\text{ m}^2$. If a force of $100 \\text{ N}$ is applied to the input piston, what is the maximum output force?",
+      "back": "1.  Calculate input pressure: $P = F_1 / A_1 = 100 \\text{ N} / 0.01 \\text{ m}^2 = 10000 \\text{ Pa}$.\n2.  According to Pascal's law, this pressure is transmitted undiminished to the output piston.\n3.  Calculate output force: $F_2 = P \\cdot A_2 = 10000 \\text{ Pa} \\cdot 0.1 \\text{ m}^2 = 1000 \\text{ N}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

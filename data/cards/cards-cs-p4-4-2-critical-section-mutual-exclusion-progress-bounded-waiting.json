@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-critical-section-mutual-exclusion-progress-bounded-waiting",
+  "subtopicTitle": "Critical section — mutual exclusion, progress, bounded waiting",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:04.393Z",
+  "cards": [
+    {
+      "front": "In concurrent programming, what is a \"critical section\"?",
+      "back": "A segment of code in which a process accesses shared resources (e.g., shared variables, files, hardware devices). It's crucial that only one process executes in its critical section at any given time to prevent data inconsistency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental problem that critical-section solutions aim to solve?",
+      "back": "The critical-section problem aims to design a protocol that ensures that when one process is executing in its critical section, no other process is allowed to execute in its critical section. This prevents race conditions and maintains data integrity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"mutual exclusion\" as a requirement for any valid critical-section solution.",
+      "back": "If process $P_i$ is executing in its critical section, then no other process can be executing in its critical section. This is the most fundamental property, ensuring that shared resources are accessed by only one process at a time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"progress\" as a requirement for any valid critical-section solution.",
+      "back": "If no process is executing in its critical section and some processes wish to enter their critical sections, then only those processes that are not executing in their remainder sections can participate in deciding which will enter its critical section next. This selection cannot be postponed indefinitely.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"bounded waiting\" as a requirement for any valid critical-section solution.",
+      "back": "There exists a bound, $k$, on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted. This prevents starvation for waiting processes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a critical-section solution where a process $P_i$ sets a flag indicating its desire to enter, but then gets preempted indefinitely before checking other flags. Which requirement is most directly violated for other waiting processes?",
+      "back": "**Progress**. If $P_i$ is preempted in its entry section, it's neither in its critical section nor its remainder section. Other processes might be indefinitely blocked because $P_i$'s flag is set, even though the critical section is empty. The decision of which process enters next is postponed indefinitely.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A critical-section solution allows process $P_0$ to enter its critical section 100 times consecutively while process $P_1$ has been waiting to enter the entire time. Which requirement is violated?",
+      "back": "**Bounded Waiting**. This scenario describes starvation for $P_1$. There is no bound on the number of times other processes ($P_0$ in this case) can enter their critical sections after $P_1$ has requested entry and before $P_1$'s request is granted.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is simply ensuring \"mutual exclusion\" not enough for a practical critical-section solution in an operating system?",
+      "back": "While mutual exclusion prevents data corruption, it doesn't guarantee system responsiveness or fairness. Without **progress**, processes could be indefinitely blocked from entering an empty critical section. Without **bounded waiting**, processes could starve, waiting indefinitely while others repeatedly enter their critical sections, leading to an unresponsive or unfair system.",
+      "difficulty": "medium"
+    }
+  ]
+}

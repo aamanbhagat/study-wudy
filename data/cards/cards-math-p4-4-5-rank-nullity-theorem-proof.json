@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-rank-nullity-theorem-proof",
+  "subtopicTitle": "Rank-nullity theorem — proof",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:09.402Z",
+  "cards": [
+    {
+      "front": "State the Rank-Nullity Theorem for a linear transformation $T: V \\to W$.",
+      "back": "If $T: V \\to W$ is a linear transformation where $V$ is a finite-dimensional vector space, then $\\dim(V) = \\text{nullity}(T) + \\text{rank}(T)$. This can also be written as $\\dim(V) = \\dim(\\text{null}(T)) + \\dim(\\text{im}(T))$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the nullity of a linear transformation $T: V \\to W$.",
+      "back": "The nullity of $T$, denoted $\\text{nullity}(T)$, is the dimension of the null space (or kernel) of $T$. That is, $\\text{nullity}(T) = \\dim(\\text{null}(T))$, where $\\text{null}(T) = \\{v \\in V \\mid T(v) = 0_W\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the rank of a linear transformation $T: V \\to W$.",
+      "back": "The rank of $T$, denoted $\\text{rank}(T)$, is the dimension of the image (or range or column space) of $T$. That is, $\\text{rank}(T) = \\dim(\\text{im}(T))$, where $\\text{im}(T) = \\{T(v) \\mid v \\in V\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a linear transformation $T: V \\to W$ with $\\dim(V) = n$, if $\\{u_1, \\dots, u_k\\}$ is a basis for $\\text{null}(T)$, describe the next step in proving the Rank-Nullity Theorem.",
+      "back": "Extend the basis $\\{u_1, \\dots, u_k\\}$ for $\\text{null}(T)$ to a basis for the entire vector space $V$. Let this extended basis be $\\{u_1, \\dots, u_k, v_1, \\dots, v_{n-k}\\}$. Here, $k = \\text{nullity}(T)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $T: V \\to W$ and a basis for $V$ as $\\{u_1, \\dots, u_k, v_1, \\dots, v_{n-k}\\}$ where $\\{u_1, \\dots, u_k\\}$ is a basis for $\\text{null}(T)$, prove that the set $\\{T(v_1), \\dots, T(v_{n-k})\\}$ spans $\\text{im}(T)$.",
+      "back": "Let $w \\in \\text{im}(T)$. Then there exists $v \\in V$ such that $T(v) = w$. Since $\\{u_1, \\dots, u_k, v_1, \\dots, v_{n-k}\\}$ is a basis for $V$, we can write $v = c_1 u_1 + \\dots + c_k u_k + d_1 v_1 + \\dots + d_{n-k} v_{n-k}$ for some scalars $c_i, d_j$. Applying $T$: $w = T(v) = T(c_1 u_1 + \\dots + c_k u_k + d_1 v_1 + \\dots + d_{n-k} v_{n-k})$. By linearity of $T$: $w = c_1 T(u_1) + \\dots + c_k T(u_k) + d_1 T(v_1) + \\dots + d_{n-k} T(v_{n-k})$. Since $u_i \\in \\text{null}(T)$, $T(u_i) = 0_W$ for all $i$. So, $w = 0_W + \\dots + 0_W + d_1 T(v_1) + \\dots + d_{n-k} T(v_{n-k})$. Thus, $w$ is a linear combination of $\\{T(v_1), \\dots, T(v_{n-k})\\}$, which means this set spans $\\text{im}(T)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the same setup as the previous card, prove that the set $\\{T(v_1), \\dots, T(v_{n-k})\\}$ is linearly independent.",
+      "back": "Assume $d_1 T(v_1) + \\dots + d_{n-k} T(v_{n-k}) = 0_W$ for some scalars $d_j$. By linearity of $T$, this implies $T(d_1 v_1 + \\dots + d_{n-k} v_{n-k}) = 0_W$. This means the vector $d_1 v_1 + \\dots + d_{n-k} v_{n-k}$ is in $\\text{null}(T)$. Since $\\{u_1, \\dots, u_k\\}$ is a basis for $\\text{null}(T)$, we can write $d_1 v_1 + \\dots + d_{n-k} v_{n-k} = c_1 u_1 + \\dots + c_k u_k$ for some scalars $c_i$. Rearranging, we get $c_1 u_1 + \\dots + c_k u_k - d_1 v_1 - \\dots - d_{n-k} v_{n-k} = 0_V$. However, $\\{u_1, \\dots, u_k, v_1, \\dots, v_{n-k}\\}$ is a basis for $V$, and thus it is a linearly independent set. Therefore, all coefficients must be zero: $c_1 = \\dots = c_k = 0$ and $d_1 = \\dots = d_{n-k} = 0$. Since $d_j = 0$ for all $j$, the set $\\{T(v_1), \\dots, T(v_{n-k})\\}$ is linearly independent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Based on the previous proof steps, what is the dimension of $\\text{im}(T)$? How does this lead to the Rank-Nullity Theorem?",
+      "back": "From the previous steps, we showed that $\\{T(v_1), \\dots, T(v_{n-k})\\}$ forms a basis for $\\text{im}(T)$. The number of vectors in this basis is $n-k$. Therefore, $\\dim(\\text{im}(T)) = n-k$. We defined $k = \\dim(\\text{null}(T))$ and $n = \\dim(V)$. Substituting these back: $\\text{rank}(T) = \\dim(V) - \\text{nullity}(T)$. Rearranging gives the Rank-Nullity Theorem: $\\dim(V) = \\text{nullity}(T) + \\text{rank}(T)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

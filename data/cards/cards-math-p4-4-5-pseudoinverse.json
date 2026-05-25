@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-pseudoinverse",
+  "subtopicTitle": "Pseudoinverse",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:36.408Z",
+  "cards": [
+    {
+      "front": "Why is the pseudoinverse, $A^+$, necessary when a matrix $A$ does not have a standard inverse?",
+      "back": "The pseudoinverse generalizes the matrix inverse to non-square matrices and singular square matrices. It provides a unique \"best approximation\" to an inverse, enabling solutions to linear systems that may not have exact solutions (least squares) or have infinitely many solutions (minimum norm).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the four Moore-Penrose conditions that uniquely define the pseudoinverse $A^+$ of a matrix $A$.",
+      "back": "For a matrix $A$, its pseudoinverse $A^+$ must satisfy:\n1. $AA^+A = A$\n2. $A^+AA^+ = A^+$\n3. $(AA^+)^H = AA^+$ (i.e., $AA^+$ is Hermitian)\n4. $(A^+A)^H = A^+A$ (i.e., $A^+A$ is Hermitian)\n(Note: $H$ denotes conjugate transpose. For real matrices, $H$ becomes $T$.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a matrix $A \\in \\mathbb{R}^{m \\times n}$ with $m \\ge n$ and full column rank, what is the formula for its pseudoinverse $A^+$?",
+      "back": "If $A$ has full column rank, then $A^TA$ is invertible. The pseudoinverse is given by:\n$$A^+ = (A^TA)^{-1}A^T$$\nThis is also known as the left inverse, as $A^+A = (A^TA)^{-1}A^TA = I_n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a matrix $A \\in \\mathbb{R}^{m \\times n}$ with $m \\le n$ and full row rank, what is the formula for its pseudoinverse $A^+$?",
+      "back": "If $A$ has full row rank, then $AA^T$ is invertible. The pseudoinverse is given by:\n$$A^+ = A^T(AA^T)^{-1}$$\nThis is also known as the right inverse, as $AA^+ = AA^T(AA^T)^{-1} = I_m$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the Singular Value Decomposition $A = U\\Sigma V^H$ for a matrix $A$, define the pseudoinverse $A^+$ using $\\Sigma^+$.",
+      "back": "If $A = U\\Sigma V^H$ where $\\Sigma$ is an $m \\times n$ diagonal matrix with singular values $\\sigma_1 \\ge \\dots \\ge \\sigma_r > 0$ and $\\sigma_{r+1} = \\dots = \\sigma_{\\min(m,n)} = 0$, then $A^+$ is given by:\n$$A^+ = V\\Sigma^+U^H$$\nwhere $\\Sigma^+$ is an $n \\times m$ diagonal matrix formed by taking the reciprocal of the non-zero singular values and transposing:\n$$(\\Sigma^+)_{ii} = \\begin{cases} 1/\\sigma_i & \\text{if } \\sigma_i > 0 \\\\ 0 & \\text{if } \\sigma_i = 0 \\end{cases}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the pseudoinverse $A^+$ provide the minimum-norm least squares solution to a linear system $Ax=b$?",
+      "back": "For a system $Ax=b$, the least squares solution minimizes $||Ax-b||_2$. If $A$ has full column rank, the unique least squares solution is $x = (A^TA)^{-1}A^Tb = A^+b$.\nIn the general case, where $Ax=b$ might have multiple least squares solutions (if $A$ is rank-deficient), $x = A^+b$ provides the *unique* least squares solution with the *minimum Euclidean norm* $||x||_2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List three fundamental properties of the pseudoinverse $A^+$ that are analogous to properties of the standard matrix inverse.",
+      "back": "1. $(A^+)^+ = A$ (The pseudoinverse of the pseudoinverse is the original matrix)\n2. $(A^H)^+ = (A^+)^H$ (The pseudoinverse of the conjugate transpose is the conjugate transpose of the pseudoinverse)\n3. If $A$ is invertible, then $A^+ = A^{-1}$ (The pseudoinverse reduces to the standard inverse for invertible matrices)",
+      "difficulty": "medium"
+    }
+  ]
+}

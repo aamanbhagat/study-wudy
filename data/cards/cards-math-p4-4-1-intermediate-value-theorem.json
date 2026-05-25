@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-intermediate-value-theorem",
+  "subtopicTitle": "Intermediate Value Theorem",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:45.667Z",
+  "cards": [
+    {
+      "front": "State the Intermediate Value Theorem (IVT).",
+      "back": "If $f$ is a continuous function on the closed interval $[a, b]$, and $N$ is any number between $f(a)$ and $f(b)$ (i.e., $f(a) < N < f(b)$ or $f(b) < N < f(a)$), then there exists a number $c$ in the open interval $(a, b)$ such that $f(c) = N$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two crucial conditions that must be met for the Intermediate Value Theorem to apply?",
+      "back": "1. The function $f$ must be **continuous** on the closed interval $[a, b]$.\n2. The value $N$ must be **between** $f(a)$ and $f(b)$ (exclusive of $f(a)$ and $f(b)$ if we're looking for $c \\in (a,b)$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use the IVT to show that the equation $x^3 - 3x + 1 = 0$ has a root in the interval $[0, 1]$.",
+      "back": "Let $f(x) = x^3 - 3x + 1$. $f(x)$ is a polynomial, so it is continuous everywhere, including on $[0, 1]$.\nCalculate $f(0) = 0^3 - 3(0) + 1 = 1$.\nCalculate $f(1) = 1^3 - 3(1) + 1 = 1 - 3 + 1 = -1$.\nSince $f(0) = 1$ and $f(1) = -1$, and $0$ is between $f(1)$ and $f(0)$ (i.e., $-1 < 0 < 1$), by the IVT, there exists a number $c$ in $(0, 1)$ such that $f(c) = 0$. This $c$ is a root of the equation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the Intermediate Value Theorem intuitively using a graph.",
+      "back": "If you draw a continuous curve from point $(a, f(a))$ to point $(b, f(b))$ without lifting your pen, then for any horizontal line $y=N$ that lies between $y=f(a)$ and $y=f(b)$, your curve must cross that horizontal line at least once. The x-coordinate of this intersection point is the $c$ guaranteed by the IVT.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider $f(x) = \\frac{1}{x}$ on $[-1, 1]$. $f(-1) = -1$ and $f(1) = 1$. Does the IVT guarantee a $c$ such that $f(c) = 0$?",
+      "back": "No, the IVT does not guarantee such a $c$. Although $0$ is between $f(-1)=-1$ and $f(1)=1$, the function $f(x) = \\frac{1}{x}$ is **not continuous** on the interval $[-1, 1]$ because it has a discontinuity at $x=0$. In fact, there is no $c$ such that $f(c)=0$ for $f(x)=1/x$. This demonstrates why the continuity condition is crucial.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A student's height was 1.5m at age 10 and 1.8m at age 18. Assuming height changes continuously, what does the IVT guarantee about their height?",
+      "back": "Let $H(t)$ be the student's height at age $t$. We have $H(10) = 1.5$m and $H(18) = 1.8$m. Since human height changes continuously over time, for any height $N$ between 1.5m and 1.8m (e.g., 1.6m, 1.75m), the IVT guarantees that there was an age $c$ between 10 and 18 when the student's height was exactly $N$ meters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The IVT guarantees 'there exists a number $c$'. Does it guarantee a unique $c$? Illustrate with $f(x) = \\cos(x)$ on $[0, 2\\pi]$ and $N=0$.",
+      "back": "No, the IVT only guarantees **at least one** such number $c$. It does not guarantee uniqueness.\nFor $f(x) = \\cos(x)$ on $[0, 2\\pi]$:\n$f(0) = \\cos(0) = 1$.\n$f(2\\pi) = \\cos(2\\pi) = 1$.\nIf we choose $N=0$, which is between $f(0)=1$ and $f(\\pi)=-1$ (or $f(\\pi)=-1$ and $f(2\\pi)=1$), the IVT applies. We know $\\cos(x)=0$ at $x=\\frac{\\pi}{2}$ and $x=\\frac{3\\pi}{2}$ within $[0, 2\\pi]$. Both are valid $c$ values, showing there can be multiple such $c$'s.",
+      "difficulty": "hard"
+    }
+  ]
+}

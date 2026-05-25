@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-sum-difference-constant-multiple-rules",
+  "subtopicTitle": "Sum, difference, constant multiple rules",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:52.392Z",
+  "cards": [
+    {
+      "front": "State the Sum Rule for Derivatives.",
+      "back": "If $f(x)$ and $g(x)$ are differentiable functions, then the derivative of their sum is the sum of their derivatives:\n$$\\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Constant Multiple Rule for Derivatives.",
+      "back": "If $f(x)$ is a differentiable function and $c$ is a constant, then the derivative of $c$ times $f(x)$ is $c$ times the derivative of $f(x)$:\n$$\\frac{d}{dx}[c \\cdot f(x)] = c \\cdot f'(x)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can the Difference Rule for Derivatives, $\\frac{d}{dx}[f(x) - g(x)] = f'(x) - g'(x)$, be derived from the Sum and Constant Multiple Rules?",
+      "back": "The Difference Rule can be derived by rewriting the difference as a sum involving a constant multiple:\nLet $F(x) = f(x) - g(x) = f(x) + (-1)g(x)$.\nUsing the Sum Rule: $\\frac{d}{dx}[f(x) + (-1)g(x)] = \\frac{d}{dx}[f(x)] + \\frac{d}{dx}[(-1)g(x)]$.\nUsing the Constant Multiple Rule: $\\frac{d}{dx}[(-1)g(x)] = -1 \\cdot \\frac{d}{dx}[g(x)] = -g'(x)$.\nTherefore, $\\frac{d}{dx}[f(x) - g(x)] = f'(x) - g'(x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Sum Rule for Derivatives using the limit definition of the derivative.",
+      "back": "Let $h(x) = f(x) + g(x)$. By the limit definition of the derivative:\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\frac{h(x + \\Delta x) - h(x)}{\\Delta x}$$\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\frac{[f(x + \\Delta x) + g(x + \\Delta x)] - [f(x) + g(x)]}{\\Delta x}$$\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x) + g(x + \\Delta x) - g(x)}{\\Delta x}$$\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\left( \\frac{f(x + \\Delta x) - f(x)}{\\Delta x} + \\frac{g(x + \\Delta x) - g(x)}{\\Delta x} \\right)$$\nSince the limit of a sum is the sum of the limits (if they exist):\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x} + \\lim_{\\Delta x \\to 0} \\frac{g(x + \\Delta x) - g(x)}{\\Delta x}$$\n$$h'(x) = f'(x) + g'(x)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the Constant Multiple Rule for Derivatives using the limit definition of the derivative.",
+      "back": "Let $h(x) = c \\cdot f(x)$. By the limit definition of the derivative:\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\frac{h(x + \\Delta x) - h(x)}{\\Delta x}$$\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\frac{c \\cdot f(x + \\Delta x) - c \\cdot f(x)}{\\Delta x}$$\n$$h'(x) = \\lim_{\\Delta x \\to 0} \\frac{c[f(x + \\Delta x) - f(x)]}{\\Delta x}$$\nSince $c$ is a constant, it can be pulled out of the limit:\n$$h'(x) = c \\cdot \\lim_{\\Delta x \\to 0} \\frac{f(x + \\Delta x) - f(x)}{\\Delta x}$$\n$$h'(x) = c \\cdot f'(x)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the derivative of $y = 5x^3 - 2x^2 + 7x - 10$.",
+      "back": "Using the Sum, Difference, Constant Multiple, and Power Rules:\n$$\\frac{dy}{dx} = \\frac{d}{dx}(5x^3) - \\frac{d}{dx}(2x^2) + \\frac{d}{dx}(7x) - \\frac{d}{dx}(10)$$\n$$= 5 \\cdot \\frac{d}{dx}(x^3) - 2 \\cdot \\frac{d}{dx}(x^2) + 7 \\cdot \\frac{d}{dx}(x) - \\frac{d}{dx}(10)$$\n$$= 5(3x^2) - 2(2x) + 7(1) - 0$$\n$$= 15x^2 - 4x + 7$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate $f(x) = \\frac{4}{x^2} - 3\\sqrt{x} + \\pi$.",
+      "back": "First, rewrite the function using exponent rules:\n$$f(x) = 4x^{-2} - 3x^{1/2} + \\pi$$\nNow, apply the Sum, Difference, Constant Multiple, and Power Rules:\n$$f'(x) = \\frac{d}{dx}(4x^{-2}) - \\frac{d}{dx}(3x^{1/2}) + \\frac{d}{dx}(\\pi)$$\n$$f'(x) = 4 \\cdot (-2x^{-3}) - 3 \\cdot \\left(\\frac{1}{2}x^{-1/2}\\right) + 0$$\n$$f'(x) = -8x^{-3} - \\frac{3}{2}x^{-1/2}$$\nThis can also be written as:\n$$f'(x) = -\\frac{8}{x^3} - \\frac{3}{2\\sqrt{x}}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

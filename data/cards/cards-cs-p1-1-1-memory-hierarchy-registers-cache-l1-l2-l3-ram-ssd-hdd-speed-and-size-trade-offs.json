@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p1-1-1-memory-hierarchy-registers-cache-l1-l2-l3-ram-ssd-hdd-speed-and-size-trade-offs",
+  "subtopicTitle": "Memory hierarchy — registers, cache (L1/L2/L3), RAM, SSD, HDD — speed and size trade-offs",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:37.141Z",
+  "cards": [
+    {
+      "front": "List the main levels of the memory hierarchy from fastest/smallest to slowest/largest.",
+      "back": "The memory hierarchy, from fastest/smallest to slowest/largest, is: Registers, L1 Cache, L2 Cache, L3 Cache, RAM (Main Memory), SSD (Solid State Drive), HDD (Hard Disk Drive).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental trade-off drives the design and existence of the memory hierarchy?",
+      "back": "The fundamental trade-off is between **speed, size, and cost**. Faster memory technologies are generally more expensive per bit and have smaller storage capacities, while slower technologies are cheaper and offer larger capacities.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are CPU registers, what is their primary function, and why are they the fastest memory?",
+      "back": "CPU registers are the smallest, fastest storage locations directly inside the CPU itself. Their primary function is to hold data (operands, instructions, memory addresses) that the CPU is actively processing at any given moment. They are the fastest because they are integrated directly into the CPU's logic gates and require no external bus access, offering single-cycle access times.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of CPU caches (L1, L2, L3) and the principle they exploit.",
+      "back": "CPU caches (L1, L2, L3) serve as small, fast buffer memories between the CPU and main memory (RAM). Their purpose is to speed up data access by storing frequently or recently used data closer to the CPU. They exploit the principle of **locality of reference**, which states that programs tend to access data and instructions that are spatially (near each other in memory) or temporally (accessed recently) close to those they have just accessed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between L1, L2, and L3 caches in terms of typical size, speed, and sharing across CPU cores.",
+      "back": "<ul><li>**L1 Cache:** Smallest (tens to hundreds of KBs), fastest, typically per-core, often split into instruction and data caches.</li><li>**L2 Cache:** Larger (hundreds of KBs to several MBs), slower than L1 but faster than L3/RAM, typically per-core or shared by a few cores.</li><li>**L3 Cache:** Largest (several MBs to tens of MBs), slowest cache level, typically shared across all CPU cores on the same die.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does RAM (main memory) differ from CPU caches in terms of typical size, volatility, and access method?",
+      "back": "RAM is much larger (several GBs to tens of GBs) compared to caches (KBs-MBs). Both RAM and caches are **volatile**, meaning they lose their data when power is removed. RAM is accessed via a memory bus, which is significantly slower than the direct, internal access methods used by CPU caches.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A program frequently accesses data in a highly random pattern, scattering memory accesses across large regions. How would this impact performance regarding the memory hierarchy, and why?",
+      "back": "This access pattern would likely lead to **poor performance** due to a high rate of \"cache misses\" and potentially \"page faults.\" Random access defeats the principle of locality of reference, meaning data is rarely found in the faster cache levels (L1, L2, L3). The CPU would constantly have to fetch data from slower main memory (RAM) or even the much slower disk (SSD/HDD), incurring significant latency penalties for each access.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare SSDs and HDDs based on their underlying technology, typical speeds, and durability.",
+      "back": "<ul><li>**SSDs (Solid State Drives):** Use NAND flash memory (electronic, no moving parts). Much faster (hundreds of MB/s to several GB/s) due to electronic access. More durable and shock-resistant.</li><li>**HDDs (Hard Disk Drives):** Use spinning magnetic platters and read/write heads (mechanical parts). Slower (tens to hundreds of MB/s) due to mechanical seek times and rotational latency. Less durable and susceptible to physical shock.</li></ul>Both are non-volatile storage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why don't we simply use terabytes of L1 cache for all storage, given its superior speed?",
+      "back": "Using terabytes of L1 cache is impractical due to **extreme cost, high power consumption, and physical space constraints**. L1 cache is typically built using SRAM (Static RAM), which is very expensive per bit, consumes significantly more power, and occupies much more physical area than DRAM (used for main RAM) or NAND flash (used for SSDs) for the same storage capacity. The engineering and economic trade-offs make it unfeasible.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which components of the memory hierarchy are typically volatile (lose data when power is off) and which are non-volatile?",
+      "back": "<ul><li>**Volatile:** Registers, L1/L2/L3 Cache, RAM (Main Memory).</li><li>**Non-volatile:** SSD (Solid State Drive), HDD (Hard Disk Drive).</li></ul>",
+      "difficulty": "easy"
+    }
+  ]
+}

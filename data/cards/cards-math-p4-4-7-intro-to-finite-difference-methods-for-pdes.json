@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-intro-to-finite-difference-methods-for-pdes",
+  "subtopicTitle": "Intro to finite difference methods for PDEs",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:08.123Z",
+  "cards": [
+    {
+      "front": "What is the fundamental principle behind the Finite Difference Method (FDM) for solving Partial Differential Equations (PDEs)?",
+      "back": "FDM approximates derivatives in a PDE using differences between function values at discrete points (a grid or mesh). This transforms the continuous PDE into a system of algebraic equations that can be solved numerically.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the Taylor series expansion crucial for deriving finite difference approximations of derivatives?",
+      "back": "The Taylor series allows us to express the value of a function at a neighboring point in terms of its value and derivatives at a reference point. By manipulating these expansions, we can isolate and approximate the derivatives. For example, $f(x+h) = f(x) + hf'(x) + \\frac{h^2}{2!}f''(x) + O(h^3)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the first-order forward difference approximation for the first derivative $f'(x)$ and state its order of accuracy.",
+      "back": "From Taylor series: $f(x+h) = f(x) + hf'(x) + \\frac{h^2}{2!}f''(x) + O(h^3)$.\nRearranging for $f'(x)$: $hf'(x) = f(x+h) - f(x) - \\frac{h^2}{2!}f''(x) - O(h^3)$\n$f'(x) = \\frac{f(x+h) - f(x)}{h} - \\frac{h}{2!}f''(x) - O(h^2)$\nSo, $f'(x) \\approx \\frac{f(x+h) - f(x)}{h}$.\nThe truncation error is $O(h)$, making it a first-order accurate approximation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the central difference approximation for $f'(x)$ is generally preferred over forward or backward differences, and state its order of accuracy.",
+      "back": "The central difference approximation, $f'(x) \\approx \\frac{f(x+h) - f(x-h)}{2h}$, is preferred because it is second-order accurate ($O(h^2)$), which is higher than the first-order accuracy ($O(h)$) of forward and backward differences. This means for a given step size $h$, the central difference approximation has a significantly smaller truncation error, leading to more accurate numerical solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the standard finite difference approximation for the second derivative $f''(x)$ using three points, and state its order of accuracy.",
+      "back": "The standard central difference approximation for the second derivative is:\n$f''(x) \\approx \\frac{f(x+h) - 2f(x) + f(x-h)}{h^2}$.\nThis approximation is derived from combining Taylor series expansions for $f(x+h)$ and $f(x-h)$ and is second-order accurate, $O(h^2)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In FDM, what do we mean by \"discretizing the domain\" and what are the typical notations for space and time steps?",
+      "back": "Discretizing the domain means replacing the continuous spatial and/or temporal domain of the PDE with a finite set of discrete points, forming a grid or mesh.\nTypical notations:\n- Spatial step size: $\\Delta x$ or $h$\n- Temporal step size: $\\Delta t$ or $k$\nFunction values are then evaluated only at these grid points, e.g., $u(x_i, t_j) = u_{i,j}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"truncation error\" in the context of FDM and explain what it means for a finite difference scheme to be \"consistent.\"",
+      "back": "**Truncation Error**: It is the error introduced when a continuous derivative in a PDE is replaced by its finite difference approximation. Mathematically, it's the difference between the exact derivative and its finite difference approximation. It typically vanishes as the grid spacing approaches zero.\n**Consistency**: A finite difference scheme is consistent if its truncation error tends to zero as the grid spacing ($\\Delta x$, $\\Delta t$) approaches zero. In other words, the finite difference approximation converges to the original PDE as the mesh becomes infinitely fine. Consistency is a necessary condition for a numerical scheme to converge to the true solution of the PDE.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Apply the central difference approximation for space and forward difference for time to discretize the 1D heat equation $u_t = \\alpha u_{xx}$.",
+      "back": "The 1D heat equation is $u_t = \\alpha u_{xx}$.\nUsing forward difference for $u_t$: $u_t(x_i, t_j) \\approx \\frac{u_{i,j+1} - u_{i,j}}{\\Delta t}$\nUsing central difference for $u_{xx}$: $u_{xx}(x_i, t_j) \\approx \\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{(\\Delta x)^2}$\nSubstituting these into the PDE gives the explicit finite difference scheme:\n$\\frac{u_{i,j+1} - u_{i,j}}{\\Delta t} = \\alpha \\frac{u_{i+1,j} - 2u_{i,j} + u_{i-1,j}}{(\\Delta x)^2}$\nRearranging to solve for $u_{i,j+1}$:\n$u_{i,j+1} = u_{i,j} + \\frac{\\alpha \\Delta t}{(\\Delta x)^2} (u_{i+1,j} - 2u_{i,j} + u_{i-1,j})$\nLet $r = \\frac{\\alpha \\Delta t}{(\\Delta x)^2}$. Then $u_{i,j+1} = (1 - 2r)u_{i,j} + r(u_{i+1,j} + u_{i-1,j})$. This is the explicit forward-time central-space (FTCS) scheme.",
+      "difficulty": "hard"
+    }
+  ]
+}

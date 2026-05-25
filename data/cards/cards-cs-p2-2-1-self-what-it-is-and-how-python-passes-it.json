@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-1-self-what-it-is-and-how-python-passes-it",
+  "subtopicTitle": "self — what it is and how Python passes it",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:19.501Z",
+  "cards": [
+    {
+      "front": "In Python OOP, what does the `self` parameter conventionally refer to within an instance method?",
+      "back": "The `self` parameter refers to the *instance of the class itself* on which the method was called. It allows the method to access and modify the instance's attributes and call other instance methods.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is `self` explicitly included as the first parameter in Python instance method definitions, even though it's implicitly passed during method calls?",
+      "back": "It's included to make the *instance* explicit to the method, distinguishing instance attributes/methods from local variables or class attributes. It clarifies that the method operates on a specific object, not just a generic function, making the code more readable and explicit about its intent.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider `my_object.my_method(arg1, arg2)`. How does Python internally handle the `self` parameter for `my_method` during this call?",
+      "back": "When you call `my_object.my_method(arg1, arg2)`, Python automatically binds `my_object` to the `self` parameter of `my_method`. Internally, it's equivalent to `MyClass.my_method(my_object, arg1, arg2)`. The instance `my_object` is implicitly passed as the first argument.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific circumstances would you *explicitly* pass an instance as the first argument when calling a method, instead of using the standard `instance.method()` syntax?",
+      "back": "You would explicitly pass an instance when calling a method *directly on the class* (e.g., `ClassName.method_name(instance, args...)`) rather than on an instance. This is sometimes done for advanced scenarios like polymorphism, inheritance, or when you have the method object detached from the instance.\n```python\nclass MyClass:\n    def greet(self):\n        print(f\"Hello from {self}!\")\n\nobj = MyClass()\nMyClass.greet(obj) # Explicitly passing obj as self\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is `self` a Python keyword, or is it merely a convention? What would happen if you named the first parameter of an instance method something else, like `this_instance`?",
+      "back": "`self` is *not* a Python keyword; it is a strong convention. Python only cares that the *first parameter* of an instance method receives the instance. If you named it `this_instance`, your code would still work functionally, but it would be highly unconventional and confusing to other Python developers.\n```python\nclass Example:\n    def my_method(this_instance): # Valid but unconventional\n        print(this_instance)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Inside an instance method, how do you use `self` to access an attribute named `name` or call another instance method named `calculate_total()`?",
+      "back": "You use dot notation with `self` to access instance attributes and methods:\n*   To access an attribute: `self.name`\n*   To call another instance method: `self.calculate_total()`\nThis ensures you're interacting with the specific instance's data and behavior.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Do `staticmethod`s or `classmethod`s receive `self` as their first parameter? If not, what do they receive, if anything?",
+      "back": "*   `staticmethod`s do *not* receive `self` (or `cls`). They don't operate on an instance or a class.\n*   `classmethod`s do *not* receive `self`. Instead, they receive `cls` (conventionally), which refers to the *class itself*, as their first parameter. This allows them to operate on class attributes or create new instances of the class.",
+      "difficulty": "hard"
+    }
+  ]
+}

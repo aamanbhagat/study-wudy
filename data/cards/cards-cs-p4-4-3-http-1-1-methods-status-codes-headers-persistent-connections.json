@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-http-1-1-methods-status-codes-headers-persistent-connections",
+  "subtopicTitle": "HTTP/1.1 — methods, status codes, headers, persistent connections",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:38.094Z",
+  "cards": [
+    {
+      "front": "In HTTP/1.1, what does it mean for a method to be 'safe' and 'idempotent'? Provide an example of each type.",
+      "back": "A method is **safe** if it does not alter the state of the server (e.g., GET, HEAD, OPTIONS). A method is **idempotent** if multiple identical requests have the same effect as a single request (e.g., GET, HEAD, PUT, DELETE). All safe methods are also idempotent.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You need to update an existing resource on a server. Which HTTP/1.1 method is most semantically appropriate, and why might another common method be less ideal?",
+      "back": "The **PUT** method is most semantically appropriate for updating an existing resource, as it replaces the entire resource at a specified URI. While **POST** can also be used for updates, it's generally for creating new resources or submitting data for processing, and its idempotency is not guaranteed without server-side logic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the five classes of HTTP/1.1 status codes and briefly describe what each class generally indicates.",
+      "back": "1. **1xx Informational:** Request received, continuing process.\n2. **2xx Success:** The action was successfully received, understood, and accepted.\n3. **3xx Redirection:** Further action needs to be taken to complete the request.\n4. **4xx Client Error:** The request contains bad syntax or cannot be fulfilled.\n5. **5xx Server Error:** The server failed to fulfill an apparently valid request.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the key difference in client behavior expected after receiving an HTTP/1.1 301 (Moved Permanently) vs. a 302 (Found) status code.",
+      "back": "A **301 (Moved Permanently)** indicates that the resource has been assigned a new permanent URI. The client should update any links/bookmarks and use the new URI for future requests. A **302 (Found)** indicates that the resource is temporarily located at a different URI. The client should continue to use the original URI for future requests, as the location might change back.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the HTTP/1.1 request headers `If-Modified-Since` and `If-None-Match` (related to `ETag`) enable efficient caching?",
+      "back": "`If-Modified-Since` sends the date a client last received the resource. If the server's resource hasn't changed since then, it responds with `304 Not Modified`, saving bandwidth. `If-None-Match` sends one or more `ETag` values (unique identifiers for resource versions). If any match the server's current `ETag`, it also responds with `304 Not Modified`. `ETag` is more robust as it handles changes not reflected in modification dates (e.g., content changes without date change).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is an HTTP/1.1 persistent connection, and which standard header is used by the client to request it?",
+      "back": "An HTTP/1.1 **persistent connection** (also known as 'keep-alive') allows multiple HTTP requests and responses to be sent over the same TCP connection. This reduces the overhead of establishing and tearing down new TCP connections for each request. The client requests it by including the `Connection: keep-alive` header in its request.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List two significant performance advantages of using HTTP/1.1 persistent connections compared to non-persistent connections.",
+      "back": "1. **Reduced Latency:** Eliminates the overhead of TCP connection setup (3-way handshake) and teardown for subsequent requests, especially for fetching multiple embedded objects (images, scripts) on a single page.\n2. **Reduced Server Load:** Fewer TCP connections need to be managed by the server, as a single connection can handle multiple requests from a client.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A client wants to upload a plain text file named `report.txt` to `/documents` on `example.com`. Construct the essential HTTP/1.1 request line and headers for a `POST` request, assuming the file content is 'Hello World!'.",
+      "back": "```\nPOST /documents HTTP/1.1\nHost: example.com\nContent-Type: text/plain\nContent-Length: 12\n\nHello World!\n```\nThe `Host` header is mandatory in HTTP/1.1. `Content-Type` specifies the body's media type, and `Content-Length` specifies its size in bytes.",
+      "difficulty": "hard"
+    }
+  ]
+}

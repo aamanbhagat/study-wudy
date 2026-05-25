@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-cyclic-coordinates-corresponding-conservation-law",
+  "subtopicTitle": "Cyclic coordinates — corresponding conservation law",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:01.070Z",
+  "cards": [
+    {
+      "front": "What is a cyclic coordinate (or ignorable coordinate) in Lagrangian mechanics?",
+      "back": "A generalized coordinate $q_k$ is cyclic if the Lagrangian $L$ does not explicitly depend on $q_k$. That is, $\\frac{\\partial L}{\\partial q_k} = 0$. The Lagrangian *can* depend on $\\dot{q}_k$ and time $t$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a Lagrangian $L(q_1, \\dots, q_N, \\dot{q}_1, \\dots, \\dot{q}_N, t)$, what mathematical condition identifies $q_k$ as a cyclic coordinate?",
+      "back": "A coordinate $q_k$ is cyclic if its partial derivative with respect to the Lagrangian is zero: $\\frac{\\partial L}{\\partial q_k} = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the conservation law associated with a cyclic coordinate $q_k$ using the Euler-Lagrange equations.",
+      "back": "The Euler-Lagrange equation for $q_k$ is given by: $$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_k}\\right) - \\frac{\\partial L}{\\partial q_k} = 0$$ If $q_k$ is a cyclic coordinate, then by definition $\\frac{\\partial L}{\\partial q_k} = 0$. Substituting this into the Euler-Lagrange equation yields: $$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_k}\\right) = 0$$ This equation implies that the quantity $\\frac{\\partial L}{\\partial \\dot{q}_k}$ is constant over time, hence conserved.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the name of the conserved quantity associated with a cyclic coordinate $q_k$?",
+      "back": "The conserved quantity $p_k = \\frac{\\partial L}{\\partial \\dot{q}_k}$ is called the *generalized momentum* (or canonical momentum) conjugate to $q_k$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a free particle of mass $m$ moving in one dimension, $x$, the Lagrangian is $L = \\frac{1}{2}m\\dot{x}^2$. Is $x$ a cyclic coordinate? What conserved quantity does this imply?",
+      "back": "Yes, $x$ is a cyclic coordinate because $\\frac{\\partial L}{\\partial x} = 0$. The corresponding conserved quantity is the generalized momentum conjugate to $x$: $p_x = \\frac{\\partial L}{\\partial \\dot{x}} = m\\dot{x}$. This is the linear momentum, which is conserved for a free particle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a particle of mass $m$ in a central force field, with Lagrangian $L = \\frac{1}{2}m(\\dot{r}^2 + r^2\\dot{\\theta}^2) - V(r)$ in polar coordinates. Identify a cyclic coordinate and state the corresponding conservation law.",
+      "back": "The coordinate $\\theta$ is cyclic because $\\frac{\\partial L}{\\partial \\theta} = 0$. The corresponding conserved quantity is the generalized momentum conjugate to $\\theta$: $p_\\theta = \\frac{\\partial L}{\\partial \\dot{\\theta}} = m r^2 \\dot{\\theta}$. This quantity is the angular momentum about the origin, which is conserved for any central force.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an intuitive explanation for why a cyclic coordinate implies a conserved quantity.",
+      "back": "A cyclic coordinate $q_k$ implies that the system's Lagrangian (and thus its equations of motion) is invariant under a translation of $q_k$. This invariance signifies a continuous symmetry of the system. According to Noether's theorem, every continuous symmetry of a physical system corresponds to a conserved quantity. For a cyclic coordinate, this conserved quantity is its conjugate generalized momentum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a system has multiple cyclic coordinates, say $q_1$ and $q_2$, what can be said about the conserved quantities?",
+      "back": "If a system has multiple cyclic coordinates, each cyclic coordinate corresponds to its own independent conserved generalized momentum. For $q_1$, $p_1 = \\frac{\\partial L}{\\partial \\dot{q}_1}$ is conserved. For $q_2$, $p_2 = \\frac{\\partial L}{\\partial \\dot{q}_2}$ is conserved. These are distinct and simultaneously conserved quantities.",
+      "difficulty": "medium"
+    }
+  ]
+}

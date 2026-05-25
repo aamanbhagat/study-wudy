@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-2-two-body-problem-equations-of-motion-reduction-to-one-body",
+  "subtopicTitle": "Two-body problem — equations of motion, reduction to one-body",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:55.306Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of the two-body problem in classical mechanics?",
+      "back": "The two-body problem describes the motion of two point masses that interact only with each other via a central force (e.g., gravity or electrostatic), with no external forces acting on the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down Newton's second law for two bodies, $m_1$ and $m_2$, interacting via a force $\\mathbf{F}_{12}$ (force on $m_1$ due to $m_2$).",
+      "back": "$$m_1 \\ddot{\\mathbf{r}}_1 = \\mathbf{F}_{12}$$\n$$m_2 \\ddot{\\mathbf{r}}_2 = \\mathbf{F}_{21} = -\\mathbf{F}_{12}$$\nWhere $\\mathbf{r}_1$ and $\\mathbf{r}_2$ are the position vectors of $m_1$ and $m_2$ respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the relative position vector $\\mathbf{r}$ and explain its importance in reducing the two-body problem.",
+      "back": "The relative position vector is defined as $\\mathbf{r} = \\mathbf{r}_1 - \\mathbf{r}_2$. It is crucial because it allows us to transform two coupled equations of motion into a single differential equation describing the motion of one effective particle (with reduced mass) relative to the other, effectively reducing the problem to a one-body problem.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the reduced mass, $\\mu$, which appears in the equivalent one-body problem's equation of motion.",
+      "back": "Starting with $m_1 \\ddot{\\mathbf{r}}_1 = \\mathbf{F}_{12}$ and $m_2 \\ddot{\\mathbf{r}}_2 = -\\mathbf{F}_{12}$.\nDivide the first by $m_1$ and the second by $m_2$: \n$\\ddot{\\mathbf{r}}_1 = \\frac{\\mathbf{F}_{12}}{m_1}$\n$\\ddot{\\mathbf{r}}_2 = -\\frac{\\mathbf{F}_{12}}{m_2}$\nSubtract the second from the first:\n$\\ddot{\\mathbf{r}}_1 - \\ddot{\\mathbf{r}}_2 = \\frac{\\mathbf{F}_{12}}{m_1} - \\left(-\\frac{\\mathbf{F}_{12}}{m_2}\\right)$\n$\\ddot{\\mathbf{r}} = \\left(\\frac{1}{m_1} + \\frac{1}{m_2}\\right) \\mathbf{F}_{12}$\n$\\ddot{\\mathbf{r}} = \\frac{m_1 + m_2}{m_1 m_2} \\mathbf{F}_{12}$\nTo get the form $\\mu \\ddot{\\mathbf{r}} = \\mathbf{F}_{12}$, we define the reduced mass $\\mu$ as:\n$$\\mu = \\frac{m_1 m_2}{m_1 + m_2}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the final equation of motion for the relative position vector $\\mathbf{r}$ in the reduced one-body problem, using the reduced mass $\\mu$ for a central force $\\mathbf{F}(\\mathbf{r})$.",
+      "back": "The equation of motion for the relative position vector $\\mathbf{r}$ is:\n$$\\mu \\ddot{\\mathbf{r}} = \\mathbf{F}(\\mathbf{r})$$\nFor a gravitational force, $\\mathbf{F}(\\mathbf{r}) = -G \\frac{m_1 m_2}{r^3} \\mathbf{r}$, so the equation becomes:\n$$\\mu \\ddot{\\mathbf{r}} = -G \\frac{m_1 m_2}{r^3} \\mathbf{r}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the significance of the center of mass in the context of the two-body problem's solution?",
+      "back": "The center of mass (CM) of the system moves at a constant velocity if no external forces are present. By choosing a coordinate system where the CM is at the origin (or stationary), the problem simplifies: the motion of the two bodies can be described relative to the CM, and the CM's motion itself is trivial.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why the two-body problem is exactly solvable analytically, while the N-body problem for $N \\ge 3$ generally is not.",
+      "back": "The two-body problem can be reduced to an equivalent one-body problem for an effective particle with reduced mass moving in a central force field. This simplified problem conserves angular momentum and energy, which allows for analytical integration and leads to exact solutions (e.g., conic sections for gravitational forces). For $N \\ge 3$, such a reduction is not possible, and the system typically lacks enough conserved quantities to allow for a general analytical solution, leading to chaotic behavior in many cases.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what common condition can the reduced mass $\\mu$ be approximated as the mass of the lighter body, $m_1$?",
+      "back": "The reduced mass $\\mu \\approx m_1$ when one mass is significantly larger than the other, i.e., $m_2 \\gg m_1$. In this case, $\\mu = \\frac{m_1 m_2}{m_1 + m_2} = \\frac{m_1}{1 + m_1/m_2}$. As $m_1/m_2 \\to 0$, $\\mu \\to m_1$. This approximation is valid for satellites orbiting planets or planets orbiting stars.",
+      "difficulty": "medium"
+    }
+  ]
+}

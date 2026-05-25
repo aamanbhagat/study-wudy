@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-5-exponential-form-z-re-i",
+  "subtopicTitle": "Exponential form z = re^(iθ)",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:19.458Z",
+  "cards": [
+    {
+      "front": "State Euler's formula, which connects the exponential and trigonometric forms of a complex number.",
+      "back": "Euler's formula is: $$e^{i\theta} = \\cos\\theta + i\\sin\\theta$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the exponential form of a complex number $z = re^{i\\theta}$, what do $r$ and $\\theta$ represent?",
+      "back": "$r$ represents the **modulus** (or magnitude) of the complex number $z$, denoted $|z|$.\n$\\theta$ represents the **argument** (or angle) of the complex number $z$, denoted $\\arg(z)$, measured in radians counter-clockwise from the positive real axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Convert the complex number $z = -1 - i\\sqrt{3}$ into its exponential form $re^{i\\theta}$.",
+      "back": "First, find the modulus $r$: $r = |z| = \\sqrt{(-1)^2 + (-\\sqrt{3})^2} = \\sqrt{1 + 3} = \\sqrt{4} = 2$.\nNext, find the argument $\\theta$. Since $z$ is in the third quadrant, $\\theta = \\arctan\\left(\\frac{-\\sqrt{3}}{-1}\\right) + \\pi = \\arctan(\\sqrt{3}) + \\pi = \\frac{\\pi}{3} + \\pi = \\frac{4\\pi}{3}$.\nTherefore, $z = 2e^{i4\\pi/3}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given two complex numbers $z_1 = r_1e^{i\\theta_1}$ and $z_2 = r_2e^{i\\theta_2}$, state the rule for their product $z_1z_2$.",
+      "back": "The product is found by multiplying their moduli and adding their arguments:\n$$z_1z_2 = (r_1e^{i\\theta_1})(r_2e^{i\\theta_2}) = r_1r_2e^{i(\\theta_1 + \\theta_2)}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given two complex numbers $z_1 = r_1e^{i\\theta_1}$ and $z_2 = r_2e^{i\\theta_2}$ (where $z_2 \\neq 0$), state the rule for their quotient $z_1/z_2$.",
+      "back": "The quotient is found by dividing their moduli and subtracting their arguments:\n$$\\frac{z_1}{z_2} = \\frac{r_1e^{i\\theta_1}}{r_2e^{i\\theta_2}} = \\frac{r_1}{r_2}e^{i(\\theta_1 - \\theta_2)}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does De Moivre's Theorem apply to a complex number $z = re^{i\\theta}$ raised to the power of $n$?",
+      "back": "If $z = re^{i\\theta}$, then $z^n = (re^{i\\theta})^n$. Using properties of exponents, this simplifies to:\n$$z^n = r^n e^{in\\theta}$$ \nExpanding using Euler's formula, this is $r^n(\\cos(n\\theta) + i\\sin(n\\theta))$, which is the generalized De Moivre's Theorem.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Geometrically, what transformation does multiplying a complex number $z_0$ by $e^{i\\theta}$ represent on the complex plane?",
+      "back": "Multiplying a complex number $z_0$ by $e^{i\\theta}$ (where $|e^{i\\theta}|=1$) corresponds to a **rotation** of $z_0$ counter-clockwise about the origin by an angle of $\\theta$ radians. The modulus of $z_0$ remains unchanged, while its argument increases by $\\theta$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State Euler's Identity and explain its significance.",
+      "back": "Euler's Identity is: $$e^{i\\pi} + 1 = 0$$\nIt is significant because it elegantly connects five fundamental mathematical constants: $e$ (Euler's number), $i$ (the imaginary unit), $\\pi$ (pi), $1$ (the multiplicative identity), and $0$ (the additive identity) in a single equation. It's a special case of Euler's formula when $\\theta = \\pi$, as $e^{i\\pi} = \\cos\\pi + i\\sin\\pi = -1 + i(0) = -1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

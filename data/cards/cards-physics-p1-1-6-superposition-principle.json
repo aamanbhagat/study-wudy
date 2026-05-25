@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-6-superposition-principle",
+  "subtopicTitle": "Superposition principle",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:55.793Z",
+  "cards": [
+    {
+      "front": "State the superposition principle for waves.",
+      "back": "When two or more waves overlap in a medium, the resultant displacement at any point and at any instant is the vector sum of the displacements that each wave would produce individually at that point and instant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental condition required for the superposition principle to apply to wave phenomena?",
+      "back": "The medium must be linear. This means that the wave equation describing the medium's behavior must be linear, implying that the restoring force is directly proportional to the displacement (e.g., Hooke's Law for springs, small amplitude oscillations).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Two waves, $y_1(x,t)$ and $y_2(x,t)$, overlap. Write the general expression for the resultant displacement $Y(x,t)$ using the superposition principle.",
+      "back": "If $y_1(x,t)$ and $y_2(x,t)$ are the displacements due to individual waves, then the resultant displacement $Y(x,t)$ is given by:\n$$Y(x,t) = y_1(x,t) + y_2(x,t)$$\nThis principle extends to any number of waves: $Y(x,t) = \\sum_{i} y_i(x,t)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain constructive and destructive interference using the superposition principle and phase difference.",
+      "back": "**Constructive Interference:** Occurs when waves meet in phase (phase difference $\\Delta\\phi = 2n\\pi$, where $n$ is an integer). Their displacements add up, resulting in a larger amplitude.\n**Destructive Interference:** Occurs when waves meet out of phase (phase difference $\\Delta\\phi = (2n+1)\\pi$, where $n$ is an integer). Their displacements cancel each other out, resulting in a smaller (or zero) amplitude.\nBoth are direct consequences of summing displacements as per the superposition principle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the equation for a standing wave formed by two identical transverse waves of amplitude $A$, angular frequency $\\omega$, and wave number $k$, traveling in opposite directions along the x-axis.",
+      "back": "Let the two waves be:\n$y_1(x,t) = A \\sin(kx - \\omega t)$ (traveling in +x direction)\n$y_2(x,t) = A \\sin(kx + \\omega t)$ (traveling in -x direction)\nBy the superposition principle, the resultant wave is $Y(x,t) = y_1(x,t) + y_2(x,t)$.\n$Y(x,t) = A \\sin(kx - \\omega t) + A \\sin(kx + \\omega t)$\nUsing the trigonometric identity $\\sin A + \\sin B = 2 \\sin\\left(\\frac{A+B}{2}\\right) \\cos\\left(\\frac{A-B}{2}\right)$:\nLet $A' = kx - \\omega t$ and $B' = kx + \\omega t$.\n$\\frac{A'+B'}{2} = \\frac{(kx - \\omega t) + (kx + \\omega t)}{2} = kx$\n$\\frac{A'-B'}{2} = \\frac{(kx - \\omega t) - (kx + \\omega t)}{2} = -\\omega t$\nSo, $Y(x,t) = A \\left[ 2 \\sin(kx) \\cos(-\\omega t) \\right]$\nSince $\\cos(-\\theta) = \\cos(\\theta)$:\n$$Y(x,t) = [2A \\sin(kx)] \\cos(\\omega t)$$\nThis is the equation for a standing wave, where $[2A \\sin(kx)]$ represents the position-dependent amplitude.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the superposition principle explain the phenomenon of 'beats' when two sound waves of slightly different frequencies interfere?",
+      "back": "When two waves with slightly different frequencies, $f_1$ and $f_2$, superpose, their relative phase changes continuously over time. At some moments, they are in phase, leading to constructive interference (loud sound). At other moments, they are out of phase, leading to destructive interference (soft sound). This periodic variation in amplitude, or loudness, is perceived as beats. The beat frequency is $|f_1 - f_2|$, which is a direct result of the summation of the two waves' displacements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give an example of a physical scenario where the superposition principle would *not* apply to wave phenomena.",
+      "back": "The superposition principle fails when the medium exhibits non-linear behavior. Examples include:\n1.  **High-intensity sound waves:** In very loud sounds, the pressure variations become so large that the density changes in the medium are significant, and the restoring forces are no longer proportional to displacement. This leads to phenomena like shock waves.\n2.  **Intense light in non-linear optical materials:** When very powerful laser beams pass through certain materials, the material's refractive index can change with the light intensity, leading to effects like self-focusing or harmonic generation, where the waves interact non-linearly.",
+      "difficulty": "hard"
+    }
+  ]
+}

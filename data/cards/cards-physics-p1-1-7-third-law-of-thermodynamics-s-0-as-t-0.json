@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-7-third-law-of-thermodynamics-s-0-as-t-0",
+  "subtopicTitle": "Third law of thermodynamics — S→0 as T→0",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:27.920Z",
+  "cards": [
+    {
+      "front": "State the Nernst Heat Theorem, also known as the Third Law of Thermodynamics.",
+      "back": "The entropy of a perfect crystal at absolute zero (0 Kelvin) is zero. Mathematically, $S \\to 0$ as $T \\to 0$ for a perfect crystal.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The Third Law states $S \\to 0$ as $T \\to 0$ for a *perfect crystal*. What does 'perfect crystal' signify in this context?",
+      "back": "A perfect crystal implies a substance with a perfectly ordered, unique ground state configuration. At absolute zero, all atoms are in their lowest energy state, and there is only one possible microstate ($W=1$). Since $S = k_B \\ln W$, if $W=1$, then $S = k_B \\ln 1 = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the Third Law implies that absolute zero (0 K) is fundamentally unattainable through any finite number of steps.",
+      "back": "To reach absolute zero, one would need to remove all thermal energy from a system. The Third Law implies that as $T \\to 0$, the heat capacity $C_p$ (and $C_v$) also approaches zero. If $C_p \\to 0$, then $\\Delta S = \\int \\frac{dQ}{T} = \\int \\frac{C_p dT}{T}$. As $T \\to 0$, the amount of energy required to achieve a further temperature drop becomes infinitely large, or alternatively, the efficiency of any cooling process (like adiabatic demagnetization) approaches zero as $T \\to 0$, making it impossible to reach $T=0$ in a finite number of steps or with finite energy.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is 'residual entropy,' and when does it occur, even at absolute zero?",
+      "back": "Residual entropy is the non-zero entropy that some substances retain even at absolute zero (0 K). It occurs when a substance cannot form a perfect crystal and possesses multiple possible microstates ($W > 1$) in its ground state. Examples include glasses, disordered alloys, or molecules (like CO or $H_2O$ ice) that can adopt multiple orientations in the solid state, leading to a configurational disorder even at $T=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Third Law of Thermodynamics enable the calculation of absolute entropy values, unlike internal energy or enthalpy?",
+      "back": "The Third Law provides a natural and absolute reference point for entropy: $S=0$ at $T=0$ for a perfect crystal. This allows us to calculate the absolute entropy of a substance at any temperature $T$ by integrating its heat capacity from absolute zero: $S(T) = \\int_0^T \\frac{C_p(T')}{T'} dT' + \\sum \\frac{\\Delta H_{phase}}{T_{phase}}$, where the sum accounts for phase transitions. Without this absolute reference, only entropy changes ($\\Delta S$) could be determined.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name a common substance that exhibits residual entropy at 0 K and briefly explain why.",
+      "back": "Carbon Monoxide (CO) is a classic example. In solid CO, the molecules can orient themselves in two ways (CO or OC) within the crystal lattice, leading to a disordered arrangement even at 0 K. For $N$ molecules, if each has 2 orientations, $W = 2^N$, leading to a residual entropy of $S = k_B \\ln(2^N) = N k_B \\ln 2$ (or $R \\ln 2$ per mole).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using Boltzmann's entropy formula, $S = k_B \\ln W$, explain the Third Law from a statistical mechanics perspective.",
+      "back": "The Third Law states that $S \\to 0$ as $T \\to 0$ for a perfect crystal. From statistical mechanics, entropy is proportional to the logarithm of the number of accessible microstates ($W$). At absolute zero, a perfect crystal exists in its unique, perfectly ordered ground state. This means there is only one possible microstate ($W=1$) that the system can occupy. Substituting $W=1$ into Boltzmann's formula gives $S = k_B \\ln(1) = 0$, thus aligning the microscopic and macroscopic definitions of entropy at absolute zero.",
+      "difficulty": "hard"
+    }
+  ]
+}

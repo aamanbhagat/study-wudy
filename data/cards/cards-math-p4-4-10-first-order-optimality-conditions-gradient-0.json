@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-first-order-optimality-conditions-gradient-0",
+  "subtopicTitle": "First-order optimality conditions — gradient = 0",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:36.372Z",
+  "cards": [
+    {
+      "front": "State the first-order optimality condition for an unconstrained local extremum $x^*$ of a differentiable function $f: \\mathbb{R}^n \\to \\mathbb{R}$.",
+      "back": "The first-order optimality condition states that the gradient of the function at $x^*$ must be zero: $\\nabla f(x^*) = 0$. Here, $\\nabla f(x) = \\left( \\frac{\\partial f}{\\partial x_1}(x), \\dots, \\frac{\\partial f}{\\partial x_n}(x) \\right)^T$ is the gradient vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Intuitively, why must the gradient be zero at an unconstrained local extremum $x^*$ of a differentiable function $f$?",
+      "back": "If $\\nabla f(x^*) \\neq 0$, then there exists a direction $d = -\\nabla f(x^*)$ (the direction of steepest descent) such that moving a small step in $d$ would decrease the function value. Similarly, moving in the direction $\\nabla f(x^*)$ would increase it. This means $x^*$ cannot be a local minimum or maximum, as we can always find a nearby point with a smaller or larger function value. Thus, for $x^*$ to be an extremum, there must be no such direction, implying $\\nabla f(x^*) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the first-order optimality condition: If $x^*$ is a local extremum of a differentiable function $f: \\mathbb{R}^n \\to \\mathbb{R}$, then $\\nabla f(x^*) = 0$.",
+      "back": "Consider an arbitrary direction vector $d \\in \\mathbb{R}^n$. Define a function $g(t) = f(x^* + td)$ for $t \\in \\mathbb{R}$. Since $x^*$ is a local extremum of $f$, it must also be a local extremum of $g(t)$ at $t=0$. For a single-variable differentiable function $g(t)$, its derivative at a local extremum must be zero: $g'(0) = 0$. Using the chain rule, $g'(t) = \\nabla f(x^* + td)^T d$. Therefore, $g'(0) = \\nabla f(x^*)^T d = 0$. Since this holds for *any* arbitrary direction $d \\in \\mathbb{R}^n$, the only way for $\\nabla f(x^*)^T d = 0$ for all $d$ is if $\\nabla f(x^*) = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What term is used for points $x$ where $\\nabla f(x) = 0$?",
+      "back": "Points where $\\nabla f(x) = 0$ are called **critical points** or **stationary points**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Does satisfying $\\nabla f(x) = 0$ at a point $x$ guarantee that $x$ is a local minimum or maximum? If not, what else could it be?",
+      "back": "No, satisfying $\\nabla f(x) = 0$ only identifies $x$ as a critical point. It could be a local minimum, a local maximum, or a **saddle point**. A saddle point is a critical point that is neither a local maximum nor a local minimum (e.g., $f(x,y) = x^2 - y^2$ at $(0,0)$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a differentiable and convex function $f: \\mathbb{R}^n \\to \\mathbb{R}$, what is the significance of the condition $\\nabla f(x^*) = 0$?",
+      "back": "For a differentiable and convex function $f$, the condition $\\nabla f(x^*) = 0$ is not only a necessary condition for $x^*$ to be a local minimum, but also a **sufficient condition** for $x^*$ to be a **global minimum**. This is a powerful property that simplifies optimization for convex problems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find all critical points for the function $f(x,y) = x^3 - 3xy + y^3$.",
+      "back": "To find critical points, we set the partial derivatives to zero:\n1. $\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0 \\implies y = x^2$\n2. $\\frac{\\partial f}{\\partial y} = -3x + 3y^2 = 0 \\implies x = y^2$\nSubstitute (1) into (2): $x = (x^2)^2 = x^4$. So, $x^4 - x = 0 \\implies x(x^3 - 1) = 0$. This gives $x=0$ or $x=1$. If $x=0$, then $y=0^2=0$. Critical point: $(0,0)$. If $x=1$, then $y=1^2=1$. Critical point: $(1,1)$. The critical points are $(0,0)$ and $(1,1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Does the first-order optimality condition $\\nabla f(x^*) = 0$ apply if the function $f$ is not differentiable at a local extremum $x^*$?",
+      "back": "No, the first-order optimality condition $\\nabla f(x^*) = 0$ is derived under the assumption that $f$ is differentiable at $x^*$. If $f$ is not differentiable at $x^*$, a local extremum can exist where the gradient is undefined (e.g., $f(x) = |x|$ at $x=0$). For non-differentiable convex functions, the concept of **subgradient** is used instead.",
+      "difficulty": "medium"
+    }
+  ]
+}

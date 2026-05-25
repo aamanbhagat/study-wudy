@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-2-domain-codomain-range",
+  "subtopicTitle": "Domain, codomain, range",
+  "topicId": "math-p2-2-2-functions",
+  "topicTitle": "Functions",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:49.163Z",
+  "cards": [
+    {
+      "front": "What is the domain of a function $f$?",
+      "back": "The set of all possible input values (or \"arguments\") for which the function $f(x)$ is defined. It's the set from which the function draws its inputs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the codomain of a function $f: A \\to B$.",
+      "back": "The set $B$ that contains all possible output values (or \"images\") of the function. It's the \"target set\" where the outputs are expected to land. The range is always a subset of the codomain.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the range (or image) of a function $f$?",
+      "back": "The set of all actual output values produced by the function $f(x)$ when $x$ takes values from the domain. It is a subset of the codomain. Formally, $\\text{Range}(f) = \\{f(x) \\mid x \\in \\text{Domain}(f)\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference between a function's codomain and its range.",
+      "back": "The **codomain** is the *declared* set of all possible output values, specified when defining the function $f: A \\to B$. The **range** is the *actual* set of all output values that the function *produces* for inputs in its domain. The range is always a subset of the codomain, but they are not necessarily equal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the domain of the function $f(x) = \\frac{\\sqrt{x-2}}{x-5}$.",
+      "back": "For $f(x)$ to be defined:\n1. The expression under the square root must be non-negative: $x-2 \\ge 0 \\Rightarrow x \\ge 2$.\n2. The denominator cannot be zero: $x-5 \\ne 0 \\Rightarrow x \\ne 5$.\nCombining these, the domain is $[2, 5) \\cup (5, \\infty)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the function $f(x) = x^2 + 3$ with domain $\\mathbb{R}$, find its range.",
+      "back": "Since $x^2 \\ge 0$ for all $x \\in \\mathbb{R}$, it follows that $x^2 + 3 \\ge 3$.\nThus, the smallest output value is $3$, and it can take any value greater than or equal to $3$.\nThe range is $[3, \\infty)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the function $f(x) = 2x - 1$ with domain $D = \\{x \\in \\mathbb{R} \\mid 1 \\le x \\le 5\\}$, what is its range?",
+      "back": "Since $f(x) = 2x - 1$ is an increasing linear function, its minimum value occurs at the minimum of the domain and its maximum value occurs at the maximum of the domain.\nFor $x=1$, $f(1) = 2(1) - 1 = 1$.\nFor $x=5$, $f(5) = 2(5) - 1 = 9$.\nSo, the range is $[1, 9]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $f: A \\to B$ is a function, express its domain, codomain, and range using formal set notation.",
+      "back": "<ul>\n<li><b>Domain:</b> $A$</li>\n<li><b>Codomain:</b> $B$</li>\n<li><b>Range:</b> $\\{y \\in B \\mid \\exists x \\in A \\text{ such that } f(x) = y\\}$\n(Alternatively, $\\text{Range}(f) = \\{f(x) \\mid x \\in A\\}$)\n</li>\n</ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

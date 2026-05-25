@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p1-1-3-mean-median-mode-calculation-for-raw-and-grouped-data",
+  "subtopicTitle": "Mean, median, mode — calculation for raw and grouped data",
+  "topicId": "math-p1-1-3-basic-data-probability",
+  "topicTitle": "Basic Data & Probability",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:55.055Z",
+  "cards": [
+    {
+      "front": "What is the formula for the arithmetic mean ($\bar{x}$) of a set of raw data $x_1, x_2, \\dots, x_n$?",
+      "back": "The arithmetic mean for raw data is calculated as the sum of all observations divided by the number of observations:\n$$\\bar{x} = \\frac{\\sum_{i=1}^{n} x_i}{n}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the median found for a set of raw data, considering both odd and even numbers of observations?",
+      "back": "First, arrange the data in ascending order. If $n$ is the total number of observations:\n1.  If $n$ is odd, the median is the value at the $\\left(\\frac{n+1}{2}\\right)$-th position.\n2.  If $n$ is even, the median is the average of the values at the $\\left(\\frac{n}{2}\\right)$-th and $\\left(\\frac{n}{2}+1\\right)$-th positions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the mode of a set of raw data. What if there are multiple modes or no mode?",
+      "back": "The mode is the value(s) that appear most frequently in the data set. A data set can be:\n*   Unimodal: Has one mode.\n*   Bimodal: Has two modes.\n*   Multimodal: Has more than two modes.\n*   No mode: If all values appear with the same frequency (e.g., all values appear only once).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the estimated mean ($\\bar{x}$) of grouped data, where $f_i$ is the frequency of class $i$ and $m_i$ is its midpoint.",
+      "back": "The estimated mean for grouped data is calculated as:\n$$\\bar{x} = \\frac{\\sum_{i=1}^{k} f_i m_i}{\\sum_{i=1}^{k} f_i}$$where $k$ is the number of classes. The sum of frequencies, $\\sum f_i$, is the total number of observations, $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for calculating the median of grouped data, defining all terms.",
+      "back": "The median for grouped data is calculated using the formula:\n$$\\text{Median} = L + \\left(\\frac{\\frac{n}{2} - CF}{f}\\right) \\times w$$Where:\n*   $L$: Lower boundary of the median class (the class containing the $\\frac{n}{2}$-th observation).\n*   $n$: Total frequency (sum of all frequencies).\n*   $CF$: Cumulative frequency of the class *before* the median class.\n*   $f$: Frequency of the median class.\n*   $w$: Class width of the median class.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for calculating the mode of grouped data, defining all terms.",
+      "back": "The mode for grouped data is calculated using the formula:\n$$\\text{Mode} = L + \\left(\\frac{f_m - f_1}{(f_m - f_1) + (f_m - f_2)}\\right) \\times w$$Where:\n*   $L$: Lower boundary of the modal class (the class with the highest frequency).\n*   $f_m$: Frequency of the modal class.\n*   $f_1$: Frequency of the class *before* the modal class.\n*   $f_2$: Frequency of the class *after* the modal class.\n*   $w$: Class width of the modal class.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In what situations might the median be a more appropriate measure of central tendency than the mean?",
+      "back": "The median is generally preferred over the mean when the data set contains extreme outliers or is heavily skewed. This is because the median is less affected by these extreme values, providing a more representative measure of the 'typical' value in such distributions (e.g., income distribution, housing prices).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the midpoint ($m_i$) of a class interval $[L_i, U_i)$ calculated for grouped data, and why is it used?",
+      "back": "The midpoint $m_i$ of a class interval $[L_i, U_i)$ is calculated as $m_i = \\frac{L_i + U_i}{2}$, where $L_i$ is the lower limit and $U_i$ is the upper limit of the class. It is used as a representative value for all data points within that class when calculating the mean for grouped data, as the exact values are unknown.",
+      "difficulty": "easy"
+    }
+  ]
+}

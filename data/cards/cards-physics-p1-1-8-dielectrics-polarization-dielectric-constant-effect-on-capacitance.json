@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-dielectrics-polarization-dielectric-constant-effect-on-capacitance",
+  "subtopicTitle": "Dielectrics — polarization, dielectric constant, effect on capacitance",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:00.422Z",
+  "cards": [
+    {
+      "front": "Define a dielectric material and give an example.",
+      "back": "A dielectric material is an electrical insulator that can be polarized by an applied electric field. When polarized, it stores electrical energy. Examples include glass, paper, rubber, and pure water.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the microscopic mechanism of polarization in a dielectric when an external electric field is applied.",
+      "back": "In nonpolar molecules, the external electric field distorts the electron cloud, shifting its center relative to the nucleus and inducing a dipole moment. In polar molecules (which already have permanent dipole moments), the field exerts a torque, causing these dipoles to align with the field. Both mechanisms result in an overall induced dipole moment within the material.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does polarization affect the net electric field inside a dielectric, and what are \"bound charges\"?",
+      "back": "Polarization creates an induced electric field $\\vec{E}_{ind}$ within the dielectric that opposes the external field $\\vec{E}_0$. The net electric field inside the dielectric is therefore reduced: $\\vec{E} = \\vec{E}_0 + \\vec{E}_{ind}$. \"Bound charges\" are the charges that appear on the surfaces of the dielectric due to the alignment or distortion of molecular dipoles. They are not free to move through the material, unlike free charges in a conductor.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the dielectric constant ($\\kappa$) and relate it to the material's permittivity ($\\epsilon$).",
+      "back": "The dielectric constant $\\kappa$ (also known as relative permittivity, $\\epsilon_r$) is the ratio of the electric field in vacuum $E_0$ to the net electric field $E$ inside the dielectric when the same free charges are present: $\\kappa = E_0 / E$. It is also defined as the ratio of the material's permittivity $\\epsilon$ to the permittivity of free space $\\epsilon_0$: $\\kappa = \\epsilon / \\epsilon_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the capacitance of a parallel-plate capacitor with a dielectric, $C = \\kappa C_0$, starting from basic definitions.",
+      "back": "For a parallel-plate capacitor in vacuum, $C_0 = Q / V_0$. The electric field is $E_0 = Q / (A\\epsilon_0)$, and the potential difference is $V_0 = E_0 d$. When a dielectric with constant $\\kappa$ is inserted, the electric field becomes $E = E_0 / \\kappa$. The new potential difference across the plates is $V = E d = (E_0 / \\kappa) d = V_0 / \\kappa$. Since the charge $Q$ on the plates remains the same, the new capacitance is $C = Q / V = Q / (V_0 / \\kappa) = \\kappa (Q / V_0) = \\kappa C_0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A charged capacitor is disconnected from the battery. What happens to its voltage, E-field, and stored energy when a dielectric is inserted?",
+      "back": "Since the capacitor is disconnected from the battery, the charge $Q$ on its plates remains constant.\n*   **Voltage ($V$):** Decreases to $V = V_0 / \\kappa$.\n*   **Electric Field ($E$):** Decreases to $E = E_0 / \\kappa$.\n*   **Stored Energy ($U$):** Decreases to $U = U_0 / \\kappa$. (Since $U = Q^2 / (2C)$ and $C$ increases to $\\kappa C_0$, $U = Q^2 / (2 \\kappa C_0) = U_0 / \\kappa$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is electric susceptibility ($\\chi_e$), and how does it relate to the dielectric constant ($\\kappa$) and the polarization vector ($\\vec{P}$)?",
+      "back": "Electric susceptibility $\\chi_e$ is a dimensionless proportionality constant that indicates the degree of polarization of a dielectric material in response to an applied electric field. It relates the polarization vector $\\vec{P}$ (the induced dipole moment per unit volume) to the net electric field $\\vec{E}$ within the material: $\\vec{P} = \\epsilon_0 \\chi_e \\vec{E}$. The dielectric constant $\\kappa$ is related to the electric susceptibility by $\\kappa = 1 + \\chi_e$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is \"dielectric strength,\" and why is it important in capacitor design?",
+      "back": "Dielectric strength is the maximum electric field a dielectric material can withstand without undergoing electrical breakdown (i.e., becoming electrically conductive and allowing current to flow). It is crucial in capacitor design because it determines the maximum voltage a capacitor can safely operate at before the insulating dielectric material fails, leading to a short circuit and potential damage.",
+      "difficulty": "medium"
+    }
+  ]
+}

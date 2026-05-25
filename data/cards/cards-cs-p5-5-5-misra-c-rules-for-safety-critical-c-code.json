@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-misra-c-rules-for-safety-critical-c-code",
+  "subtopicTitle": "MISRA C — rules for safety-critical C code",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:03.546Z",
+  "cards": [
+    {
+      "front": "What organization developed MISRA C, and what is its primary purpose in embedded systems development?",
+      "back": "MISRA (Motor Industry Software Reliability Association) developed MISRA C. Its primary purpose is to provide a set of guidelines for using the C programming language in safety-critical and security-critical embedded systems, aiming to enhance code safety, security, portability, and reliability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name two general categories of C language features or constructs that MISRA C often restricts or prohibits due to their potential for introducing subtle bugs.",
+      "back": "MISRA C often restricts or prohibits features leading to:\n1.  **Undefined Behavior:** Behavior not specified by the C standard (e.g., out-of-bounds array access, dereferencing null pointers).\n2.  **Unspecified Behavior:** Where the standard allows multiple valid behaviors (e.g., order of evaluation of function arguments).\n3.  **Implementation-Defined Behavior:** Behavior left up to the compiler (e.g., size of `int`, byte order).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why MISRA C typically prohibits implicit conversions from larger integer types to smaller ones without an explicit cast. Provide a simple C example.",
+      "back": "Implicit conversions from larger to smaller integer types (e.g., `long` to `int`, `int` to `char`) can lead to **data loss** or **truncation** if the value of the larger type exceeds the range of the smaller type. This can introduce subtle, hard-to-debug errors, especially in systems where data integrity is critical.\n```c\nlong large_val = 100000L;\nint small_val = large_val; // MISRA C violation: implicit conversion, potential truncation\n// If int max is 32767, small_val will be truncated.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is dynamic memory allocation (e.g., `malloc`, `free`) generally forbidden by MISRA C in safety-critical applications?",
+      "back": "Dynamic memory allocation is generally forbidden because it introduces several risks:\n1.  **Non-determinism:** `malloc`/`free` execution times can be unpredictable, violating real-time constraints.\n2.  **Memory Fragmentation:** Can lead to allocation failures over time.\n3.  **Memory Leaks:** Forgetting to `free` can exhaust resources.\n4.  **Dangling Pointers:** Accessing freed memory can lead to crashes.\n5.  **Heap Corruption:** Errors can corrupt heap metadata.\nSafety-critical systems require predictable, robust memory management, often achieved through static allocation or fixed-size memory pools.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the MISRA C rule regarding assignment operators within conditional expressions, such as `if (x = y)`? Why is this rule in place?",
+      "back": "MISRA C typically prohibits using an assignment operator (`=`) within a conditional expression (e.g., `if`, `while`, `for` loop conditions). This rule is in place because `if (x = y)` is a common programming error where the programmer likely intended `if (x == y)` (comparison operator). The assignment `x = y` evaluates to the value assigned to `x`, which is then implicitly converted to a boolean. This can lead to subtle logic bugs that are hard to detect, especially if `y` is zero (false) or non-zero (true) unintentionally.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of \"undefined behavior\" in C. Provide a C code example illustrating how out-of-bounds array access leads to undefined behavior, and how MISRA C addresses such issues.",
+      "back": "**Undefined behavior (UB)** occurs when the C standard imposes no requirements on a program construct. The program might crash, produce incorrect results, or appear to work unpredictably. UB makes code non-portable and unreliable.\nExample of UB (out-of-bounds access):\n```c\nint arr[5];\nint i;\nfor (i = 0; i <= 5; i++) { // Loop goes from 0 to 5, accessing arr[5]\n    arr[i] = i;           // arr[5] is out of bounds, leading to UB\n}\n```\nMISRA C addresses UB by restricting dangerous constructs (e.g., limiting pointer arithmetic to within array bounds) and promoting defensive programming to eliminate common sources of UB.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond preventing specific C language pitfalls, what overarching software engineering principles does strict adherence to MISRA C promote to enhance the safety, security, and maintainability of embedded systems?",
+      "back": "Strict adherence to MISRA C promotes:\n1.  **Determinism & Predictability:** By forbidding dynamic memory, recursion, and complex control flows, it ensures predictable system behavior.\n2.  **Readability & Maintainability:** Rules promoting clear naming, limited function complexity, and structured control flow make code easier to understand and maintain.\n3.  **Robustness & Error Prevention:** Eliminates common sources of undefined/unspecified behavior, reducing bugs and vulnerabilities.\n4.  **Portability:** Restricting implementation-defined behavior ensures consistent code behavior across platforms.\n5.  **Testability:** Simpler, deterministic code is inherently easier to test thoroughly.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "MISRA C rules are categorized to indicate their importance. Name and briefly describe the three primary categories of rules.",
+      "back": "MISRA C rules are typically categorized into three levels:\n1.  **Mandatory:** These rules *must* be complied with. Any deviation requires a formal, documented justification and addresses critical issues.\n2.  **Required:** These rules *must* be complied with, but deviations are permitted with formal justification, often when a rule conflicts with specific project requirements or hardware.\n3.  **Advisory:** These rules are recommendations for good practice. Compliance is encouraged but not strictly enforced, aiming to improve code clarity, maintainability, or efficiency.",
+      "difficulty": "medium"
+    }
+  ]
+}

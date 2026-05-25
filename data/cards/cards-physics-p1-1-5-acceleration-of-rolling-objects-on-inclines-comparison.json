@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-acceleration-of-rolling-objects-on-inclines-comparison",
+  "subtopicTitle": "Acceleration of rolling objects on inclines — comparison",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:24.008Z",
+  "cards": [
+    {
+      "front": "For an object to \"roll without slipping\" on an incline, what is the essential kinematic relationship between its linear acceleration $a$ and its angular acceleration $\\alpha$?",
+      "back": "The condition for rolling without slipping is that the point of contact between the object and the surface has zero instantaneous velocity. Kinematically, this implies $v = R\\omega$ and, by differentiation, $a = R\\alpha$, where $R$ is the radius of the object.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When an object rolls without slipping down an incline, which specific force is responsible for generating the torque that causes its rotation?",
+      "back": "Static friction ($\\vec{f_s}$) is the force responsible for generating the torque that causes the object to rotate. Without static friction, the object would slide down without rolling, or roll and slip.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the general formula for the linear acceleration $a$ of a rigid body of mass $M$, radius $R$, and moment of inertia $I$ rolling without slipping down an incline of angle $\\theta$.",
+      "back": "Applying Newton's second law for translation and rotation:\n1. Translational motion (down the incline): $Mg \\sin\\theta - f_s = Ma$\n2. Rotational motion (about the center of mass): $\\tau = f_s R = I\\alpha$\n3. Rolling without slipping condition: $a = R\\alpha \\Rightarrow \\alpha = a/R$\n\nSubstitute (3) into (2): $f_s R = I(a/R) \\Rightarrow f_s = \\frac{Ia}{R^2}$\nSubstitute this $f_s$ into (1):\n$Mg \\sin\\theta - \\frac{Ia}{R^2} = Ma$\n$Mg \\sin\\theta = Ma + \\frac{Ia}{R^2}$\n$Mg \\sin\\theta = a \\left( M + \\frac{I}{R^2} \\right)$\n$a = \\frac{Mg \\sin\\theta}{M + I/R^2} = \\frac{g \\sin\\theta}{1 + I/(MR^2)}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the derived acceleration formula $a = \\frac{g \\sin\\theta}{1 + I/(MR^2)}$, what is the term $k = I/(MR^2)$ called, and what physical property does it represent?",
+      "back": "The term $k = I/(MR^2)$ is a dimensionless constant often called the \"moment of inertia factor\" or related to the \"radius of gyration\" ($k_{gyr}^2 = I/M$). It represents how mass is distributed relative to the axis of rotation. A smaller $k$ indicates mass is concentrated closer to the axis, resulting in less rotational inertia for a given mass and radius.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Rank the linear accelerations (fastest to slowest) of a solid sphere ($I = \\frac{2}{5}MR^2$), a solid cylinder ($I = \\frac{1}{2}MR^2$), and a hoop ($I = MR^2$) of the same mass and radius, all rolling without slipping down the same incline.",
+      "back": "The general formula is $a = \\frac{g \\sin\\theta}{1 + I/(MR^2)}$.\n1.  **Solid Sphere:** $I/(MR^2) = \\frac{2}{5}$. So, $a_{sphere} = \\frac{g \\sin\\theta}{1 + 2/5} = \\frac{5}{7}g \\sin\\theta$.\n2.  **Solid Cylinder:** $I/(MR^2) = \\frac{1}{2}$. So, $a_{cylinder} = \\frac{g \\sin\\theta}{1 + 1/2} = \\frac{2}{3}g \\sin\\theta$.\n3.  **Hoop:** $I/(MR^2) = 1$. So, $a_{hoop} = \\frac{g \\sin\\theta}{1 + 1} = \\frac{1}{2}g \\sin\\theta$.\n\nComparing the fractions: $\\frac{5}{7} \\approx 0.714$, $\\frac{2}{3} \\approx 0.667$, $\\frac{1}{2} = 0.5$.\nRanking (fastest to slowest): **Solid Sphere > Solid Cylinder > Hoop**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why an object with a smaller moment of inertia factor ($k = I/(MR^2)$) accelerates faster down an incline when rolling without slipping.",
+      "back": "A smaller moment of inertia factor means that for a given mass and radius, more of the mass is concentrated closer to the axis of rotation. This makes it \"easier\" to rotate. When rolling down an incline, the gravitational potential energy is converted into both translational and rotational kinetic energy. An object with less rotational inertia requires less energy to achieve its necessary angular velocity, leaving more energy available to convert into translational kinetic energy, thus achieving a higher linear acceleration.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare the linear acceleration of a block sliding down a *frictionless* incline of angle $\\theta$ with that of any rigid body rolling *without slipping* down the same incline.",
+      "back": "1.  **Block sliding down a frictionless incline:** The only force component acting parallel to the incline is gravity. So, $Mg \\sin\\theta = Ma_{block} \\Rightarrow a_{block} = g \\sin\\theta$.\n2.  **Rigid body rolling without slipping:** The acceleration is $a_{rolling} = \\frac{g \\sin\\theta}{1 + I/(MR^2)}$.\n\nSince $I/(MR^2)$ is always positive for any physically real object (mass is distributed), the denominator $1 + I/(MR^2)$ will always be greater than 1. Therefore, $a_{rolling}$ will always be less than $a_{block}$. The block always accelerates faster because no energy is diverted into rotational kinetic energy, and no friction acts against its translational motion.",
+      "difficulty": "hard"
+    }
+  ]
+}

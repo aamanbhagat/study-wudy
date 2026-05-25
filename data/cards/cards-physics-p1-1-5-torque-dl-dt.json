@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-torque-dl-dt",
+  "subtopicTitle": "Torque = dL/dt",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:33.758Z",
+  "cards": [
+    {
+      "front": "Define torque ($\\vec{\\tau}$) for a point particle due to a force $\\vec{F}$ acting at position $\\vec{r}$ relative to an origin.",
+      "back": "Torque is defined as the vector cross product of the position vector $\\vec{r}$ and the force vector $\\vec{F}$:\n$$ \\vec{\\tau} = \\vec{r} \\times \\vec{F} $$\nIts magnitude is $|\\vec{\\tau}| = rF\\sin\\theta$, where $\\theta$ is the angle between $\\vec{r}$ and $\\vec{F}$. The direction is given by the right-hand rule.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define angular momentum ($\\vec{L}$) for a point particle with momentum $\\vec{p}$ at position $\\vec{r}$ relative to an origin.",
+      "back": "Angular momentum is defined as the vector cross product of the position vector $\\vec{r}$ and the linear momentum vector $\\vec{p}$:\n$$ \\vec{L} = \\vec{r} \\times \\vec{p} $$\nSince $\\vec{p} = m\\vec{v}$, it can also be written as $\\vec{L} = \\vec{r} \\times (m\\vec{v})$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the relationship $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$ for a point particle, starting from the definition of angular momentum $\\vec{L} = \\vec{r} \\times \\vec{p}$.",
+      "back": "Starting with $\\vec{L} = \\vec{r} \\times \\vec{p}$, we differentiate with respect to time:\n$$ \\frac{d\\vec{L}}{dt} = \\frac{d}{dt}(\\vec{r} \\times \\vec{p}) $$\nUsing the product rule for cross products, $(d/dt)(\\vec{A} \\times \\vec{B}) = (d\\vec{A}/dt) \\times \\vec{B} + \\vec{A} \\times (d\\vec{B}/dt)$:\n$$ \\frac{d\\vec{L}}{dt} = \\left(\\frac{d\\vec{r}}{dt}\\right) \\times \\vec{p} + \\vec{r} \\times \\left(\\frac{d\\vec{p}}{dt}\\right) $$\nWe know that $\\frac{d\\vec{r}}{dt} = \\vec{v}$ (velocity) and $\\vec{p} = m\\vec{v}$.\nSo, the first term becomes: $ \\vec{v} \\times (m\\vec{v}) = m(\\vec{v} \\times \\vec{v}) = 0 $ (since the cross product of a vector with itself is zero).\nFor the second term, from Newton's Second Law, $\\frac{d\\vec{p}}{dt} = \\vec{F}_{net}$ (net force).\nTherefore, the second term becomes: $ \\vec{r} \\times \\vec{F}_{net} $.\nBy definition, $ \\vec{r} \\times \\vec{F}_{net} = \\vec{\\tau}_{net} $ (net torque).\nCombining these, we get:\n$$ \\frac{d\\vec{L}}{dt} = 0 + \\vec{\\tau}_{net} \\implies \\vec{\\tau}_{net} = \\frac{d\\vec{L}}{dt} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the rotational analogue of Newton's Second Law ($\\vec{F} = d\\vec{p}/dt$)? Explain its physical meaning.",
+      "back": "The rotational analogue of Newton's Second Law is $\\vec{\\tau}_{net} = \\frac{d\\vec{L}}{dt}$.\nIt states that the net external torque acting on a system is equal to the time rate of change of the system's total angular momentum. Just as an unbalanced force causes a change in linear momentum, an unbalanced torque causes a change in angular momentum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the condition under which the total angular momentum of a system is conserved.",
+      "back": "The total angular momentum ($\\vec{L}$) of a system is conserved if and only if the net external torque ($\\vec{\\tau}_{net}$) acting on the system is zero.\nMathematically, if $\\vec{\\tau}_{net} = 0$, then $\\frac{d\\vec{L}}{dt} = 0$, which implies $\\vec{L} = \\text{constant}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An ice skater spinning on frictionless ice pulls their arms inward. Explain why their angular speed increases, referencing $\\vec{\\tau} = d\\vec{L}/dt$.",
+      "back": "As the ice skater pulls their arms inward, their moment of inertia ($I$) decreases. Since the ice is frictionless, there is negligible external torque acting on the skater-arm system ($\\vec{\\tau}_{net} \\approx 0$). According to $\\vec{\\tau}_{net} = \\frac{d\\vec{L}}{dt}$, if $\\vec{\\tau}_{net} = 0$, then the total angular momentum $\\vec{L}$ of the system must be conserved.\nSince $\\vec{L} = I\\vec{\\omega}$ (for rotation about a fixed axis), and $L$ is constant, a decrease in $I$ must be compensated by an increase in angular speed $\\omega$. Thus, $I_1\\omega_1 = I_2\\omega_2$, and if $I_2 < I_1$, then $\\omega_2 > \\omega_1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the relationship $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$ to be valid, what conditions must be met regarding the choice of origin for calculating $\\vec{\\tau}$ and $\\vec{L}$?",
+      "back": "The relationship $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$ is valid if the origin from which $\\vec{\\tau}$ and $\\vec{L}$ are calculated is:\n1. A fixed point in an inertial reference frame.\n2. The center of mass of the system (even if the center of mass is accelerating).\nIf the origin is an arbitrary accelerating point that is not the center of mass, the equation generally does not hold.",
+      "difficulty": "hard"
+    }
+  ]
+}

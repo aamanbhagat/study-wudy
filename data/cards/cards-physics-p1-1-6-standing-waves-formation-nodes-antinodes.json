@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-6-standing-waves-formation-nodes-antinodes",
+  "subtopicTitle": "Standing waves — formation, nodes, antinodes",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:58.585Z",
+  "cards": [
+    {
+      "front": "How is a standing wave formed?",
+      "back": "A standing wave is formed by the superposition (interference) of two identical progressive (traveling) waves moving in opposite directions, typically resulting from a wave reflecting off a boundary and interfering with the incident wave.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"node\" in a standing wave.",
+      "back": "A node is a point in a standing wave where the displacement (or amplitude) of the medium is always zero at all times. Particles at nodes remain perpetually at their equilibrium position, experiencing no oscillation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an \"antinode\" in a standing wave.",
+      "back": "An antinode is a point in a standing wave where the displacement (or amplitude) of the medium oscillates with maximum amplitude. Particles at antinodes experience the largest possible displacement from equilibrium during each cycle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the general equation for a standing wave formed by two identical traveling waves $y_1(x,t) = A \\sin(kx - \\omega t)$ and $y_2(x,t) = A \\sin(kx + \\omega t)$.",
+      "back": "Using the superposition principle, $y(x,t) = y_1(x,t) + y_2(x,t) = A \\sin(kx - \\omega t) + A \\sin(kx + \\omega t)$. Applying the sum-to-product trigonometric identity $\\sin A + \\sin B = 2 \\sin\\left(\\frac{A+B}{2}\\right) \\cos\\left(\\frac{A-B}{2}\\right)$: $$y(x,t) = 2A \\sin(kx) \\cos(\\omega t)$$ This equation shows that the amplitude $2A \\sin(kx)$ varies with position $x$, unlike a traveling wave.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a standing wave described by $y(x,t) = 2A \\sin(kx) \\cos(\\omega t)$, derive the general positions of its nodes and antinodes.",
+      "back": "<ul><li><b>Nodes:</b> Occur where the amplitude is always zero. So, $2A \\sin(kx) = 0 \\implies \\sin(kx) = 0$. This happens when $kx = n\\pi$, where $n = 0, 1, 2, \\dots$. Since $k = \\frac{2\\pi}{\\lambda}$, we have $\\frac{2\\pi}{\\lambda} x = n\\pi \\implies x = n \\frac{\\lambda}{2}$. Nodes are located at $x = 0, \\frac{\\lambda}{2}, \\lambda, \\frac{3\\lambda}{2}, \\dots$.</li><li><b>Antinodes:</b> Occur where the amplitude is maximum. So, $|2A \\sin(kx)| = 2A \\implies |\\sin(kx)| = 1$. This happens when $kx = (n + \\frac{1}{2})\\pi$, where $n = 0, 1, 2, \\dots$. Since $k = \\frac{2\\pi}{\\lambda}$, we have $\\frac{2\\pi}{\\lambda} x = (n + \\frac{1}{2})\\pi \\implies x = (n + \\frac{1}{2}) \\frac{\\lambda}{2} = (2n+1) \\frac{\\lambda}{4}$. Antinodes are located at $x = \\frac{\\lambda}{4}, \\frac{3\\lambda}{4}, \\frac{5\\lambda}{4}, \\dots$.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a string of length $L$ fixed at both ends, what are the boundary conditions for displacement, and what does this imply about the points at $x=0$ and $x=L$?",
+      "back": "The boundary conditions for a string fixed at both ends are that the displacement must be zero at the fixed points for all times. Thus:\n<ul><li>At $x=0$, $y(0,t) = 0$.</li><li>At $x=L$, $y(L,t) = 0$.</li></ul>This implies that both ends of the string, $x=0$ and $x=L$, must always be nodes of the standing wave.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A string of length $L$ fixed at both ends is vibrating in its third harmonic. How many nodes and antinodes are present, and what is its wavelength in terms of $L$?",
+      "back": "For the $n$-th harmonic on a string fixed at both ends, there are $n+1$ nodes and $n$ antinodes. The wavelength $\\lambda_n$ is given by $\\lambda_n = \\frac{2L}{n}$.\nFor the third harmonic ($n=3$):\n<ul><li>Number of nodes = $3+1 = 4$ nodes.</li><li>Number of antinodes = $3$ antinodes.</li><li>Wavelength $\\lambda_3 = \\frac{2L}{3}$.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the phase relationship between two particles oscillating in a standing wave: (a) on the same side of a node, and (b) on opposite sides of a node.",
+      "back": "<ul><li><b>(a) On the same side of a node:</b> All particles between two consecutive nodes (i.e., within one 'loop' or 'segment') oscillate perfectly in phase with each other. They reach their maximum displacement and pass through equilibrium at the same time.</li><li><b>(b) On opposite sides of a node:</b> Particles on opposite sides of a node oscillate $180^\\circ$ (or $\\pi$ radians) out of phase with each other. When one segment moves upwards, the adjacent segment moves downwards, and vice-versa. The node itself is the point of zero displacement separating these out-of-phase regions.</li></ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-4-phase-equilibrium-clausius-clapeyron-equation",
+  "subtopicTitle": "Phase equilibrium — Clausius-Clapeyron equation",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:34.863Z",
+  "cards": [
+    {
+      "front": "What physical relationship does the Clausius-Clapeyron equation describe, and what does it predict?",
+      "back": "The Clausius-Clapeyron equation describes the relationship between pressure and temperature along a phase coexistence curve. It predicts the slope of the phase boundary in a P-T diagram, specifically how the phase transition temperature changes with pressure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the general form of the Clausius-Clapeyron equation, $\\frac{dP}{dT} = \\frac{L}{T \\Delta v}$, starting from the condition of phase equilibrium and the Gibbs free energy.",
+      "back": "For two phases (1 and 2) in equilibrium, their molar Gibbs free energies are equal: $g_1 = g_2$. Taking differentials along the coexistence curve, $dg_1 = dg_2$. Since $dg = -s dT + v dP$, we have:\n$$ -s_1 dT + v_1 dP = -s_2 dT + v_2 dP $$\nRearranging gives:\n$$ (s_2 - s_1) dT = (v_2 - v_1) dP $$\nThus, the slope of the phase boundary is:\n$$ \\frac{dP}{dT} = \\frac{s_2 - s_1}{v_2 - v_1} = \\frac{\\Delta s}{\\Delta v} $$\nFor a phase transition, the change in molar entropy is related to the molar latent heat $L$ by $\\Delta s = \\frac{L}{T}$. Substituting this yields:\n$$ \\frac{dP}{dT} = \\frac{L}{T \\Delta v} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the simplified form of the Clausius-Clapeyron equation for a liquid-vapor transition, including its key assumptions.",
+      "back": "The general form is $\\frac{dP}{dT} = \\frac{L}{T(V_g - V_l)}$. For a liquid-vapor transition, we assume:\n1.  The molar volume of the liquid ($V_l$) is negligible compared to the molar volume of the vapor ($V_g$), so $V_g - V_l \\approx V_g$.\n2.  The vapor behaves as an ideal gas, so $V_g = \\frac{RT}{P}$ (for one mole).\nSubstituting these assumptions, the equation simplifies to:\n$$ \\frac{dP}{dT} = \\frac{L}{T(RT/P)} = \\frac{LP}{RT^2} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Integrate the simplified Clausius-Clapeyron equation (assuming constant latent heat $L$) to find the relationship between vapor pressure and temperature.",
+      "back": "Starting from the simplified form $\\frac{dP}{dT} = \\frac{LP}{RT^2}$, rearrange to separate variables:\n$$ \\frac{dP}{P} = \\frac{L}{R} \\frac{dT}{T^2} $$\nIntegrate both sides from an initial state $(P_1, T_1)$ to a final state $(P_2, T_2)$:\n$$ \\int_{P_1}^{P_2} \\frac{dP}{P} = \\frac{L}{R} \\int_{T_1}^{T_2} \\frac{dT}{T^2} $$\n$$ [\\ln P]_{P_1}^{P_2} = \\frac{L}{R} \\left[ -\\frac{1}{T} \\right]_{T_1}^{T_2} $$\n$$ \\ln\\left(\\frac{P_2}{P_1}\\right) = -\\frac{L}{R} \\left(\\frac{1}{T_2} - \\frac{1}{T_1}\\right) $$\n$$ \\ln\\left(\\frac{P_2}{P_1}\right) = \\frac{L}{R} \\left(\\frac{1}{T_1} - \\frac{1}{T_2}\\right) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the melting point of ice decreases with increasing pressure, contrasting it with most substances. Use the Clausius-Clapeyron equation.",
+      "back": "The Clausius-Clapeyron equation is $\\frac{dP}{dT} = \\frac{L}{T \\Delta v}$. For most substances, melting involves an increase in volume ($\\Delta v = v_{liquid} - v_{solid} > 0$), so with $L$ and $T$ being positive, $\\frac{dP}{dT} > 0$. This means their melting point increases with pressure.\nHowever, for water, ice is less dense than liquid water, meaning $v_{liquid} < v_{solid}$. Therefore, $\\Delta v = v_{liquid} - v_{solid} < 0$. Since $L$ (latent heat of fusion) and $T$ (melting temperature) are positive, the sign of $\\Delta v$ dictates the sign of the slope. A negative $\\Delta v$ results in $\\frac{dP}{dT} < 0$. This negative slope indicates that increasing pressure *decreases* the melting point of ice.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Clausius-Clapeyron equation relate to the slope of phase boundaries on a P-T diagram?",
+      "back": "The Clausius-Clapeyron equation, $\\frac{dP}{dT} = \\frac{L}{T \\Delta v}$, directly represents the slope of the phase coexistence curve (e.g., solid-liquid, liquid-vapor, solid-vapor) on a pressure-temperature (P-T) diagram. A positive slope indicates that increasing pressure raises the transition temperature, while a negative slope (as seen for water's melting curve) indicates that increasing pressure lowers the transition temperature.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the main limitations of the Clausius-Clapeyron equation, especially its simplified forms?",
+      "back": "The main limitations include:\n1.  **Assumptions for simplified forms:** The simplified liquid-vapor form assumes ideal gas behavior for the vapor and neglects the liquid's volume. These approximations become inaccurate at high pressures or near the critical point.\n2.  **Constant latent heat:** The integrated form assumes the latent heat $L$ is constant over the temperature range, which is often not true. $L$ generally varies with temperature.\n3.  **Near critical point:** The equation breaks down near the critical point, where the distinction between liquid and gas phases vanishes, and $\\Delta v$ approaches zero.\n4.  **Non-ideal behavior:** Deviations from ideal gas behavior for the vapor phase or non-negligible liquid volume reduce the accuracy of the simplified equation.",
+      "difficulty": "medium"
+    }
+  ]
+}

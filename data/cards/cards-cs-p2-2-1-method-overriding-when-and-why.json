@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-method-overriding-when-and-why",
+  "subtopicTitle": "Method overriding — when and why",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:25.345Z",
+  "cards": [
+    {
+      "front": "Define \"method overriding\" in object-oriented programming.",
+      "back": "Method overriding occurs when a subclass provides its own specific implementation for a method that is already defined in its superclass. The method signature (name, parameters, return type) must be identical (or a covariant return type).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary \"why\" behind using method overriding in OOP?",
+      "back": "The primary reason for method overriding is to achieve runtime polymorphism. It allows a subclass to provide a specialized implementation for a method inherited from its superclass. This enables different objects to respond differently to the same method call based on their actual type, promoting flexibility, extensibility, and adhering to the \"one interface, multiple methods\" principle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the key conditions a method must meet to successfully override a superclass method.",
+      "back": "1. The method must be defined in a subclass.\n2. The method must have the exact same name, number and type of parameters (signature), and return type (or a covariant return type) as the superclass method.\n3. The access modifier of the overriding method cannot be more restrictive than the overridden method (e.g., `public` can override `public` or `protected`, but `protected` cannot override `public`).\n4. `final` methods cannot be overridden. `static` methods cannot be overridden (they are hidden). `private` methods are not inherited, so they cannot be overridden.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a `Shape` class with a `calculateArea()` method. How would you use method overriding to implement `calculateArea()` for a `Circle` subclass?",
+      "back": "```java\nclass Shape {\n    public double calculateArea() {\n        return 0.0; // Default or generic implementation\n    }\n}\n\nclass Circle extends Shape {\n    private double radius;\n\n    public Circle(double radius) {\n        this.radius = radius;\n    }\n\n    @Override // Good practice to use @Override annotation\n    public double calculateArea() {\n        return Math.PI * radius * radius; // Specific implementation for Circle\n    }\n}\n```\nHere, `Circle` overrides `calculateArea()` to provide its specific area calculation, demonstrating polymorphism.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the context of method overriding, explain the purpose of the `super` keyword.",
+      "back": "The `super` keyword is used within an overriding method in a subclass to explicitly call the overridden method's implementation from the superclass. This is useful when the subclass wants to extend or augment the superclass's behavior rather than completely replace it, or to reuse common logic from the parent.\nExample:\n```java\nclass Parent { void show() { System.out.println(\"Parent's show()\"); } }\nclass Child extends Parent {\n    @Override\n    void show() {\n        super.show(); // Calls Parent's show()\n        System.out.println(\"Child's show()\");\n    }\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between \"method overriding\" and \"method overloading.\"",
+      "back": "1.  **Method Overriding:** Occurs when a subclass provides a specific implementation for a method already defined in its superclass. It involves methods with the *same signature* (name, parameters, return type) in a parent-child relationship. It achieves *runtime polymorphism*.\n2.  **Method Overloading:** Occurs when multiple methods in the *same class* (or inherited) have the *same name* but *different parameter lists* (different number, types, or order of parameters). It achieves *compile-time polymorphism*.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain \"covariant return types\" in the context of method overriding.",
+      "back": "A covariant return type means that an overriding method in a subclass can return a subtype of the return type declared in the superclass's overridden method. For example, if a superclass method returns `Object`, the overriding method in the subclass can return `String` (since `String` is a subtype of `Object`). This enhances flexibility by allowing more specific return types in subclasses without breaking the contract of the superclass method. This feature was introduced in Java 5 and is supported in other OOP languages.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can `final` methods or `static` methods be overridden? Explain why or why not.",
+      "back": "1.  **`final` methods:** Cannot be overridden. The `final` keyword explicitly prevents subclasses from modifying the implementation of that method, ensuring its behavior remains constant throughout the inheritance hierarchy.\n2.  **`static` methods:** Cannot be overridden. `static` methods belong to the class itself, not to an instance. When a subclass defines a `static` method with the same signature as a `static` method in its superclass, it's called \"method hiding,\" not overriding. The method called depends on the *compile-time type* of the reference, not the *runtime type* of the object.",
+      "difficulty": "hard"
+    }
+  ]
+}

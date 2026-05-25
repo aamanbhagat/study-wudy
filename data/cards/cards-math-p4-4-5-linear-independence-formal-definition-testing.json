@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-linear-independence-formal-definition-testing",
+  "subtopicTitle": "Linear independence — formal definition, testing",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:44.581Z",
+  "cards": [
+    {
+      "front": "Formally define linear independence for a set of vectors $\\{ \\mathbf{v}_1, \\dots, \\mathbf{v}_k \\}$.",
+      "back": "A set of vectors $\\{ \\mathbf{v}_1, \\dots, \\mathbf{v}_k \\}$ is linearly independent if the only solution to the vector equation $c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 + \\dots + c_k\\mathbf{v}_k = \\mathbf{0}$ is the trivial solution, i.e., $c_1 = c_2 = \\dots = c_k = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Formally define linear dependence for a set of vectors $\\{ \\mathbf{v}_1, \\dots, \\mathbf{v}_k \\}$.",
+      "back": "A set of vectors $\\{ \\mathbf{v}_1, \\dots, \\mathbf{v}_k \\}$ is linearly dependent if there exist scalars $c_1, c_2, \\dots, c_k$, *not all zero*, such that $c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 + \\dots + c_k\\mathbf{v}_k = \\mathbf{0}$. This implies at least one vector can be expressed as a linear combination of the others.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you test if vectors $\\mathbf{v}_1, \\dots, \\mathbf{v}_k$ in $\\mathbb{R}^n$ are linearly independent by setting up a system of equations?",
+      "back": "Form the vector equation $c_1\\mathbf{v}_1 + \\dots + c_k\\mathbf{v}_k = \\mathbf{0}$. This can be written as a homogeneous matrix equation $A\\mathbf{c} = \\mathbf{0}$, where $A = [\\mathbf{v}_1 \\dots \\mathbf{v}_k]$ (vectors as columns) and $\\mathbf{c} = [c_1 \\dots c_k]^T$. The vectors are linearly independent if and only if this system has only the trivial solution $\\mathbf{c} = \\mathbf{0}$. This means the null space of $A$ contains only the zero vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $n$ vectors in $\\mathbb{R}^n$, how can their linear independence be determined using properties of a square matrix?",
+      "back": "Form a square matrix $A$ where the columns (or rows) are the given vectors. The vectors are linearly independent if and only if any of the following equivalent conditions hold:\n1. $\\det(A) \neq 0$\n2. The rank of $A$ is $n$.\n3. The nullity of $A$ is $0$.\n4. $A$ is invertible.\n5. The system $A\\mathbf{x} = \\mathbf{b}$ has a unique solution for every $\\mathbf{b}$ in $\\mathbb{R}^n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you test linear independence for $k$ vectors in $\\mathbb{R}^n$ when $k \neq n$?",
+      "back": "Form a matrix $A$ with the vectors as columns. \n1. If $k > n$ (more vectors than the dimension of the space), the vectors are always linearly dependent.\n2. If $k \\le n$, the vectors are linearly independent if and only if the rank of $A$ is $k$. This means that when $A$ is reduced to row echelon form, there are $k$ pivot columns, implying no free variables in the homogeneous system $A\\mathbf{c}=\\mathbf{0}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Geometrically, what does it mean for a set of vectors to be linearly independent?",
+      "back": "Geometrically, a set of vectors is linearly independent if no vector in the set lies in the span of the other vectors. Each vector contributes a 'new' direction or dimension to the space spanned by the set. For example:\n- Two vectors in $\\mathbb{R}^2$ are independent if they don't lie on the same line (i.e., one is not a scalar multiple of the other).\n- Three vectors in $\\mathbb{R}^3$ are independent if they don't lie on the same plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the linear independence status of any set of vectors that includes the zero vector?",
+      "back": "Any set of vectors that includes the zero vector, say $\\{\\mathbf{0}, \\mathbf{v}_2, \\dots, \\mathbf{v}_k\\}$, is always *linearly dependent*. This is because we can form a non-trivial linear combination that equals the zero vector: $1 \\cdot \\mathbf{0} + 0 \\cdot \\mathbf{v}_2 + \\dots + 0 \\cdot \\mathbf{v}_k = \\mathbf{0}$. Since the coefficient of $\\mathbf{0}$ is $1$ (non-zero), the definition of linear dependence is met.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does linear independence relate to the concept of a basis for a vector space?",
+      "back": "A basis for a vector space $V$ is a set of vectors that is both linearly independent and spans $V$. Linear independence ensures that there are no 'redundant' vectors in the set – each vector is essential for spanning the space, and none can be expressed as a combination of the others. This guarantees that every vector in $V$ can be written as a *unique* linear combination of the basis vectors.",
+      "difficulty": "medium"
+    }
+  ]
+}

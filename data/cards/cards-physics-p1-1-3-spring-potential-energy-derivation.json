@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-3-spring-potential-energy-derivation",
+  "subtopicTitle": "Spring potential energy — derivation",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:08.079Z",
+  "cards": [
+    {
+      "front": "State Hooke's Law, including the meaning of each term and the significance of the negative sign.",
+      "back": "Hooke's Law states that the force exerted by a spring is directly proportional to its displacement from equilibrium. $F_s = -kx$.\n$F_s$: spring force (restoring force).\n$k$: spring constant (stiffness, N/m).\n$x$: displacement from equilibrium position.\nThe negative sign indicates that the spring force always opposes the displacement, acting to restore the spring to equilibrium.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why can't work done by a spring be simply calculated as $F_s \\cdot x$?",
+      "back": "The spring force $F_s = -kx$ is a *variable force*; its magnitude changes with displacement $x$. The formula $W = F \\cdot d$ is only valid for a constant force. For a variable force, work must be calculated using integration: $W = \\int F \\cdot dx$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the infinitesimal work $dW$ done by an *external* force to stretch a spring by an infinitesimal displacement $dx$?",
+      "back": "To stretch the spring, the external force $F_{ext}$ must overcome the spring's restoring force, so $F_{ext} = kx$. The infinitesimal work done by this external force is $dW = F_{ext} dx = kx dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the elastic potential energy, $U_s$, stored in a spring when it is stretched or compressed by a displacement $x$ from equilibrium.",
+      "back": "Elastic potential energy $U_s$ is defined as the work done by an external force to stretch or compress a spring from its equilibrium position ($x=0$) to a final displacement $x$.\n1. The external force required is $F_{ext} = kx$.\n2. The infinitesimal work done by $F_{ext}$ is $dW = F_{ext} dx = kx dx$.\n3. The total work done is the integral of $dW$ from $x=0$ to $x$:\n$$W = \\int_0^x kx dx$$\n$$W = k \\left[ \\frac{x^2}{2} \\right]_0^x$$\n$$W = k \\left( \\frac{x^2}{2} - \\frac{0^2}{2} \\right)$$\n$$W = \\frac{1}{2}kx^2$$\n4. Therefore, the elastic potential energy stored is $U_s = \\frac{1}{2}kx^2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the elastic potential energy formula $U_s = \\frac{1}{2}kx^2$, what does the variable '$x$' specifically represent?",
+      "back": "The variable '$x$' represents the *displacement* of the spring's end from its *equilibrium position* (or natural length). It is the amount by which the spring is stretched or compressed relative to its relaxed state, not its total length.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the spring force classified as a conservative force, allowing for the definition of spring potential energy?",
+      "back": "A force is conservative if the work it does on an object moving between two points is independent of the path taken, or equivalently, if the work done in a closed loop is zero. The spring force satisfies this condition: the work done by a spring depends only on its initial and final displacements from equilibrium, not how it got there. This property allows us to define a potential energy associated with it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the work done to stretch a spring from $x=0$ to $x$ be graphically represented, and what geometric shape's area corresponds to this work?",
+      "back": "On a graph of external force ($F_{ext}$) versus displacement ($x$), the relationship $F_{ext} = kx$ is a straight line passing through the origin. The work done to stretch the spring from $x=0$ to $x$ is represented by the *area under this force-displacement curve*. This area forms a right triangle with base $x$ and height $kx$, whose area is $\\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times x \\times kx = \\frac{1}{2}kx^2$.",
+      "difficulty": "hard"
+    }
+  ]
+}

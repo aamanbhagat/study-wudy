@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-demand-paging-page-fault-handling-steps",
+  "subtopicTitle": "Demand paging — page fault handling steps",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:09.628Z",
+  "cards": [
+    {
+      "front": "In demand paging, what event triggers the operating system to load a page from secondary storage into main memory?",
+      "back": "A page fault occurs when a program attempts to access a virtual memory address that maps to a page marked as 'invalid' (not present) in its page table, but which is part of its legitimate address space.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Upon a page fault, what are the first two immediate actions taken by the hardware before the OS gains control?",
+      "back": "1. The Memory Management Unit (MMU) detects the invalid page access and generates a trap (an internal interrupt) to the operating system. 2. The CPU saves the state of the currently executing process (e.g., program counter, registers) into its Process Control Block (PCB).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After a page fault trap, how does the OS determine if the access is valid and, if so, locate the required page on disk?",
+      "back": "The OS first examines the page table entry. If the 'valid-invalid' bit is 'invalid' but the page is within the process's legal address range (e.g., not an illegal memory access), the OS then consults an internal system table (like a swap space map or file system metadata) to find the physical disk address where the required page is stored.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If, during page fault handling, the OS finds no free physical memory frames, what critical decision must it make, and what is a common strategy?",
+      "back": "The OS must choose a 'victim page' to evict from main memory to free up a frame. This is done using a page replacement algorithm (e.g., LRU, FIFO, Optimal). If the victim page is 'dirty' (modified since it was loaded), its current contents must first be written back to secondary storage before the frame can be reused.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Once a free frame is identified (or created), describe the steps to load the demanded page into main memory.",
+      "back": "The OS initiates a disk I/O operation to read the desired page from its disk location into the chosen physical memory frame. This is a relatively slow, blocking operation, so the CPU typically context-switches to execute another ready process while the I/O completes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After the demanded page is loaded into memory, what essential updates must the OS perform to the page table and potentially the TLB?",
+      "back": "The OS updates the process's page table entry for the newly loaded page: 1. It sets the 'valid-invalid' bit to 'valid'. 2. It sets the frame number field to point to the physical frame where the page now resides. Additionally, the OS must invalidate any stale entries in the Translation Lookaside Buffer (TLB) that might refer to the old, invalid state of this page or the victim page (if one was replaced).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After successful page fault handling, what is the final step the OS takes to allow the program to continue execution?",
+      "back": "The OS restores the saved state of the faulting process (registers, program counter) and restarts the exact instruction that originally caused the page fault. Since the required page is now in main memory, the instruction will execute successfully without another fault.",
+      "difficulty": "easy"
+    }
+  ]
+}

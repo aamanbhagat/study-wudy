@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-5-chinese-remainder-theorem-intro",
+  "subtopicTitle": "Chinese Remainder Theorem (intro)",
+  "topicId": "math-p2-2-5-number-theory-intermediate",
+  "topicTitle": "Number Theory (Intermediate)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:01.941Z",
+  "cards": [
+    {
+      "front": "The Chinese Remainder Theorem (CRT) provides a unique solution to a system of simultaneous _________.",
+      "back": "The Chinese Remainder Theorem (CRT) provides a unique solution to a system of simultaneous **linear congruences**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the Chinese Remainder Theorem to guarantee a solution, the moduli $n_1, n_2, \\dots, n_k$ must be _________.",
+      "back": "For the Chinese Remainder Theorem to guarantee a solution, the moduli $n_1, n_2, \\dots, n_k$ must be **pairwise coprime** (i.e., $\\gcd(n_i, n_j) = 1$ for $i \\neq j$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Chinese Remainder Theorem for a system $x \\equiv a_i \\pmod{n_i}$.",
+      "back": "If $n_1, n_2, \\dots, n_k$ are pairwise coprime positive integers, then for any integers $a_1, a_2, \\dots, a_k$, the system of congruences:\n$$\\begin{cases} x \\equiv a_1 \\pmod{n_1} \\\\ x \\equiv a_2 \\pmod{n_2} \\\\ \\quad \\vdots \\\\ x \\equiv a_k \\pmod{n_k} \\end{cases}$$\nhas a unique solution modulo $N = n_1 n_2 \\dots n_k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the constructive proof of CRT for $x \\equiv a_i \\pmod{n_i}$, what is $M_i$ and how is it related to $N = n_1 n_2 \\dots n_k$?",
+      "back": "Let $N = n_1 n_2 \\dots n_k$. Then $M_i = N/n_i$. $M_i$ is the product of all moduli *except* $n_i$. Since $n_i$ and $M_i$ are coprime (because all $n_j$ are pairwise coprime), $M_i$ has a multiplicative inverse modulo $n_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $M_i$ from CRT, what is $y_i$ and how is it found?",
+      "back": "$y_i$ is the multiplicative inverse of $M_i$ modulo $n_i$. That is, $y_i$ is an integer such that $M_i y_i \\equiv 1 \\pmod{n_i}$. It can be found using the Extended Euclidean Algorithm.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $N, M_i, y_i$ as defined in the constructive proof of CRT, what is the general form of the solution $x$?",
+      "back": "The general solution $x$ is given by:\n$$x \\equiv \\sum_{i=1}^k a_i M_i y_i \\pmod{N}$$\nwhere $N = n_1 n_2 \\dots n_k$, $M_i = N/n_i$, and $y_i$ is the multiplicative inverse of $M_i$ modulo $n_i$ (i.e., $M_i y_i \\equiv 1 \\pmod{n_i}$). This solution is unique modulo $N$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the smallest positive integer $x$ that satisfies:\n$$\\begin{cases} x \\equiv 2 \\pmod{3} \\\\ x \\equiv 3 \\pmod{5} \\end{cases}$$",
+      "back": "Here $n_1=3, a_1=2$ and $n_2=5, a_2=3$. They are coprime.\n$N = 3 \\times 5 = 15$.\n$M_1 = N/n_1 = 15/3 = 5$.\n$M_2 = N/n_2 = 15/5 = 3$.\n\nFind $y_1$: $M_1 y_1 \\equiv 1 \\pmod{n_1} \\implies 5 y_1 \\equiv 1 \\pmod{3}$.\n$2 y_1 \\equiv 1 \\pmod{3}$. Multiplying by 2: $4 y_1 \\equiv 2 \\pmod{3} \\implies y_1 \\equiv 2 \\pmod{3}$. So $y_1=2$.\n\nFind $y_2$: $M_2 y_2 \\equiv 1 \\pmod{n_2} \\implies 3 y_2 \\equiv 1 \\pmod{5}$.\nMultiplying by 2: $6 y_2 \\equiv 2 \\pmod{5} \\implies y_2 \\equiv 2 \\pmod{5}$. So $y_2=2$.\n\nSolution: $x \\equiv a_1 M_1 y_1 + a_2 M_2 y_2 \\pmod{N}$\n$x \\equiv 2 \\cdot 5 \\cdot 2 + 3 \\cdot 3 \\cdot 2 \\pmod{15}$\n$x \\equiv 20 + 18 \\pmod{15}$\n$x \\equiv 38 \\pmod{15}$\n$x \\equiv 8 \\pmod{15}$.\nThe smallest positive integer is $x=8$.\nCheck: $8 \\equiv 2 \\pmod{3}$ (correct) and $8 \\equiv 3 \\pmod{5}$ (correct).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain the intuition behind why the term $a_i M_i y_i$ contributes to the solution $x \\pmod{n_i}$ but vanishes $\\pmod{n_j}$ for $j \\neq i$.",
+      "back": "For a specific $i$, $M_i y_i \\equiv 1 \\pmod{n_i}$ by definition of $y_i$. So $a_i M_i y_i \\equiv a_i \\cdot 1 \\equiv a_i \\pmod{n_i}$.\nFor any $j \\neq i$, $n_j$ is a factor of $M_i = N/n_i$. Thus, $M_i \\equiv 0 \\pmod{n_j}$.\nTherefore, $a_i M_i y_i \\equiv a_i \\cdot 0 \\cdot y_i \\equiv 0 \\pmod{n_j}$ for $j \\neq i$.\nThis construction ensures each term $a_i M_i y_i$ 'activates' for its own modulus $n_i$ and 'deactivates' for all other moduli $n_j$ ($j \\neq i$). The sum then correctly combines these individual conditions.",
+      "difficulty": "medium"
+    }
+  ]
+}

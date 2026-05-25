@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-tcp-flow-control-sliding-window-receive-buffer",
+  "subtopicTitle": "TCP flow control — sliding window, receive buffer",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:30.670Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of TCP flow control?",
+      "back": "TCP flow control's main purpose is to prevent a fast sender from overwhelming a slower receiver by ensuring the sender transmits data only at a rate the receiver can process and store in its buffer.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the 'receive buffer' in TCP, and what is its role in flow control?",
+      "back": "The receive buffer is a temporary storage area (a queue) at the receiver's end where incoming TCP segments are held. Its role in flow control is to absorb bursts of data and prevent data loss when the application layer cannot immediately read the incoming data, providing space for the 'sliding window'.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the 'sliding window' mechanism in TCP flow control from the receiver's perspective.",
+      "back": "From the receiver's perspective, the 'sliding window' represents the amount of available free space in its receive buffer. The receiver advertises this 'receive window' size to the sender in the ACK segment's `AdvertisedWindow` field. As the application reads data from the buffer, freeing up space, the window 'slides' forward, indicating more space is available for new data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a TCP sender use the advertised receive window ($RcvWindow$) to regulate its transmission rate?",
+      "back": "The sender maintains a 'send window' which dictates how many unacknowledged bytes it can have in flight. This send window is the minimum of its congestion window ($CongWin$) and the receiver's advertised window ($RcvWindow$). The sender will only transmit new data if the number of unacknowledged bytes currently in flight is less than the current send window size. Specifically, it ensures that $LastByteSent - LastByteAcked < RcvWindow$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a TCP receiver has a total receive buffer size of $B$ bytes, and it has already received $X$ bytes that are in order and stored in the buffer but not yet read by the application, what is the advertised receive window size it will send?",
+      "back": "The advertised receive window size ($RcvWindow$) is the amount of free space remaining in the receive buffer. Therefore, $RcvWindow = B - X$. This value is sent in the `AdvertisedWindow` field of the ACK segment.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the 'zero window' scenario in TCP flow control and how a sender handles it to prevent deadlock.",
+      "back": "A 'zero window' occurs when the receiver's buffer is full, and it advertises $RcvWindow = 0$. The sender must stop sending application data. To prevent deadlock (where the application might clear space, but the sender doesn't know), the sender periodically sends a small 'zero window probe' (typically a 1-byte segment) to solicit a new window advertisement from the receiver. This probe forces the receiver to respond with an ACK containing the current $RcvWindow$ value.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does a TCP receiver update its advertised window size to the sender?",
+      "back": "When the receiver's application layer reads data from the receive buffer, freeing up space, the receiver sends an ACK segment. This ACK segment includes an updated `AdvertisedWindow` field, which reflects the new amount of available buffer space. This informs the sender that it can now transmit more data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the 'Silly Window Syndrome' in TCP, and how do Nagle's algorithm (sender-side) and Clark's solution (receiver-side) help mitigate it?",
+      "back": "Silly Window Syndrome occurs when small amounts of data are sent or small window updates are advertised, leading to inefficient use of network bandwidth due to a high header-to-payload ratio.\n\n-   **Nagle's Algorithm (Sender):** Prevents sending small segments by buffering data until either an ACK for previously sent data arrives, or a full Maximum Segment Size (MSS) segment can be sent.\n-   **Clark's Solution (Receiver):** Prevents advertising small window updates by delaying window updates until either a significant amount of buffer space is available (e.g., half the buffer or an MSS amount) or the buffer is completely empty.",
+      "difficulty": "hard"
+    }
+  ]
+}

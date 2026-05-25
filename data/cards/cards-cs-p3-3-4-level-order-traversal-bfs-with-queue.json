@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-4-level-order-traversal-bfs-with-queue",
+  "subtopicTitle": "Level-order traversal — BFS with queue",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:52.358Z",
+  "cards": [
+    {
+      "front": "What is level-order traversal of a tree?",
+      "back": "Level-order traversal visits all nodes of a tree level by level, starting from the root. Within each level, nodes are visited from left to right. It's also known as Breadth-First Search (BFS) for trees.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which data structure is fundamental for implementing level-order traversal, and why?",
+      "back": "A **queue** is fundamental. It ensures that nodes are processed in a First-In, First-Out (FIFO) manner. When a node is visited, its children are added to the end of the queue. This guarantees that all nodes at the current level are processed before any nodes from the next level, maintaining the level-by-level order.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the high-level algorithm steps for a level-order traversal using a queue.",
+      "back": "1. Initialize an empty queue. If the tree's root is not `None`, add the root node to the queue.\n2. While the queue is not empty:\n   a. Dequeue a node from the front of the queue.\n   b. Process (e.g., print or store) the dequeued node.\n   c. If the dequeued node has a left child, enqueue it.\n   d. If the dequeued node has a right child, enqueue it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Complete the Python code snippet to perform a level-order traversal, appending node values to `result`.",
+      "back": "```python\nfrom collections import deque\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef level_order_traversal(root):\n    if not root:\n        return []\n    \n    queue = deque([root])\n    result = []\n    while queue:\n        node = queue.popleft()\n        result.append(node.val)\n        if node.left:\n            queue.append(node.left)\n        if node.right:\n            queue.append(node.right)\n    return result\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity and space complexity of level-order traversal for a tree with $N$ nodes and maximum width $W$?",
+      "back": "Time Complexity: $O(N)$ because every node is enqueued and dequeued exactly once.\nSpace Complexity: $O(W)$ in the worst case, where $W$ is the maximum number of nodes at any single level (i.e., the maximum width of the tree). For a complete binary tree, this can be $O(N/2)$ or $O(N)$. For a skewed tree, it's $O(1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does level-order traversal differ fundamentally from depth-first traversals (pre-order, in-order, post-order)?",
+      "back": "Level-order traversal (BFS) explores nodes level by level, horizontally across the tree, using a queue. Depth-first traversals (DFS) explore as far as possible down each branch before backtracking, using recursion or an explicit stack. BFS guarantees finding the shortest path in terms of number of edges in an unweighted graph, while DFS does not.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two common applications or variations of level-order traversal beyond simply printing nodes.",
+      "back": "1. **Level-by-level grouping**: Returning a list of lists, where each inner list contains all nodes at a specific level.\n2. **Finding tree height/depth**: The number of levels traversed directly corresponds to the height of the tree.\n3. **Serialization/Deserialization**: Representing a tree as a sequence of values for storage or transmission, often including null markers for missing children.\n4. **Finding the shortest path** in unweighted graphs (as it's a form of BFS).",
+      "difficulty": "hard"
+    }
+  ]
+}

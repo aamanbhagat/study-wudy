@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-4-gibbs-helmholtz-equation",
+  "subtopicTitle": "Gibbs-Helmholtz equation",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:24.355Z",
+  "cards": [
+    {
+      "front": "State the Gibbs-Helmholtz equation for the Gibbs free energy $G$.",
+      "back": "The Gibbs-Helmholtz equation is:$$ \\left( \\frac{\\partial (G/T)}{\\partial T} \\right)_P = - \\frac{H}{T^2} $$Where $G$ is the Gibbs free energy, $T$ is the absolute temperature, $P$ is the constant pressure, and $H$ is the enthalpy of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical insight does the Gibbs-Helmholtz equation provide regarding Gibbs free energy?",
+      "back": "The equation shows how the Gibbs free energy, *scaled by temperature* ($G/T$), changes with temperature at constant pressure. It reveals that this rate of change is directly proportional to the negative of the system's enthalpy ($H$) divided by the square of the temperature. This relationship is crucial for understanding the temperature dependence of spontaneity and equilibrium in chemical and physical processes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Gibbs-Helmholtz equation for a system at constant pressure, starting from the definition $G = H - TS$.",
+      "back": "Given the definition of Gibbs free energy: $G = H - TS$.\nDivide by $T$: $G/T = H/T - S$.\nDifferentiate with respect to $T$ at constant $P$:\n$$ \\left( \\frac{\\partial (G/T)}{\\partial T} \\right)_P = \\left( \\frac{\\partial (H/T)}{\\partial T} \\right)_P - \\left( \\frac{\\partial S}{\\partial T} \\right)_P $$\nApply the product rule to the first term on the right:\n$$ \\left( \\frac{\\partial (H/T)}{\\partial T} \\right)_P = \\frac{1}{T} \\left( \\frac{\\partial H}{\\partial T} \\right)_P - \\frac{H}{T^2} $$\nFrom the fundamental thermodynamic relation $dH = TdS + VdP$, at constant $P$, $dH = TdS$. Thus, $\\left( \\frac{\\partial H}{\\partial T} \\right)_P = T \\left( \\frac{\\partial S}{\\partial T} \\right)_P$.\nSubstitute this into the product rule result:\n$$ \\left( \\frac{\\partial (H/T)}{\\partial T} \\right)_P = \\frac{1}{T} \\left( T \\left( \\frac{\\partial S}{\\partial T} \\right)_P \\right) - \\frac{H}{T^2} = \\left( \\frac{\\partial S}{\\partial T} \\right)_P - \\frac{H}{T^2} $$\nNow substitute this back into the differentiated Gibbs equation:\n$$ \\left( \\frac{\\partial (G/T)}{\\partial T} \\right)_P = \\left( \\frac{\\partial S}{\\partial T} \\right)_P - \\frac{H}{T^2} - \\left( \\frac{\\partial S}{\\partial T} \\right)_P $$\n$$ \\left( \\frac{\\partial (G/T)}{\\partial T} \\right)_P = - \\frac{H}{T^2} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Gibbs-Helmholtz equation as applied to the change in Gibbs free energy for a chemical reaction, $\\Delta G$.",
+      "back": "For a chemical reaction, the Gibbs-Helmholtz equation is expressed in terms of changes in thermodynamic quantities:$$ \\left( \\frac{\\partial (\\Delta G/T)}{\\partial T} \\right)_P = - \\frac{\\Delta H}{T^2} $$Where $\\Delta G$ is the change in Gibbs free energy for the reaction, $\\Delta H$ is the change in enthalpy for the reaction, and $T$ is the absolute temperature. This form is essential for understanding how reaction spontaneity varies with temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $\\Delta G$ for a reaction is known at two different temperatures, $T_1$ and $T_2$, how can the Gibbs-Helmholtz equation be used to estimate $\\Delta H$?",
+      "back": "Assuming that $\\Delta H$ is approximately constant over the temperature range $(T_1, T_2)$, the Gibbs-Helmholtz equation can be integrated:\n$$ \\int_{T_1}^{T_2} d \\left( \\frac{\\Delta G}{T} \\right) = \\int_{T_1}^{T_2} - \\frac{\\Delta H}{T^2} dT $$\n$$ \\frac{\\Delta G_2}{T_2} - \\frac{\\Delta G_1}{T_1} = \\Delta H \\left( \\frac{1}{T_2} - \\frac{1}{T_1} \\right) $$\nThis integrated form allows for the calculation of $\\Delta H$ from experimental $\\Delta G$ values measured at two different temperatures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive an alternative form of the Gibbs-Helmholtz equation: $G = H + T \\left( \\frac{\\partial G}{\\partial T} \\right)_P$.",
+      "back": "Start with the definition of Gibbs free energy: $G = H - TS$.\nFrom the fundamental thermodynamic relation $dG = VdP - SdT$, we can identify the partial derivative of $G$ with respect to $T$ at constant $P$ as:\n$$ \\left( \\frac{\\partial G}{\\partial T} \\right)_P = -S $$\nNow, substitute this expression for $S$ back into the definition of $G$:\n$$ G = H - T \\left( - \\left( \\frac{\\partial G}{\\partial T} \\right)_P \\right) $$\n$$ G = H + T \\left( \\frac{\\partial G}{\\partial T} \\right)_P $$This form directly relates Gibbs free energy, enthalpy, and the temperature dependence of Gibbs free energy at constant pressure.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Gibbs-Helmholtz equation connect to the temperature dependence of the equilibrium constant $K$?",
+      "back": "For a chemical reaction at standard conditions, the relationship between standard Gibbs free energy change and the equilibrium constant is $\\Delta G^\\circ = -RT \\ln K$. Dividing by $T$, we get $\\Delta G^\\circ/T = -R \\ln K$.\nSubstitute this into the Gibbs-Helmholtz equation for reactions:\n$$ \\left( \\frac{\\partial (\\Delta G^\\circ/T)}{\\partial T} \\right)_P = - \\frac{\\Delta H^\\circ}{T^2} $$\n$$ \\left( \\frac{\\partial (-R \\ln K)}{\\partial T} \\right)_P = - \\frac{\\Delta H^\\circ}{T^2} $$\nSince $R$ is a constant:\n$$ -R \\left( \\frac{\\partial \\ln K}{\\partial T} \\right)_P = - \\frac{\\Delta H^\\circ}{T^2} $$\nRearranging gives the van 't Hoff equation:\n$$ \\left( \\frac{\\partial \\ln K}{\\partial T} \\right)_P = \\frac{\\Delta H^\\circ}{RT^2} $$\nThis equation shows that the temperature dependence of the equilibrium constant is directly related to the standard enthalpy change of the reaction, a direct consequence of the Gibbs-Helmholtz equation.",
+      "difficulty": "medium"
+    }
+  ]
+}

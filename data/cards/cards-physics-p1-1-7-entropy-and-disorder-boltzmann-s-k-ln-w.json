@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-7-entropy-and-disorder-boltzmann-s-k-ln-w",
+  "subtopicTitle": "Entropy and disorder — Boltzmann S = k·ln(W)",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:26.151Z",
+  "cards": [
+    {
+      "front": "In simple terms, what fundamental property does \"entropy\" describe in a thermodynamic system?",
+      "back": "Entropy is a measure of the number of possible microscopic configurations (microstates) that correspond to a system's macroscopic state (macrostate), or, more intuitively, the system's disorder or randomness.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between a 'microstate' and a 'macrostate' in thermodynamics.",
+      "back": "A **macrostate** describes a system's observable properties (e.g., temperature, pressure, volume, energy). A **microstate** describes the specific configuration of all constituent particles (e.g., their individual positions and momenta) that result in a particular macrostate. Multiple microstates can correspond to the same macrostate.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Boltzmann's entropy formula and define each variable.",
+      "back": "Boltzmann's entropy formula is $S = k \\cdot \\ln(W)$.\n*   $S$: Entropy of the system (units: J/K).\n*   $k$: Boltzmann constant ($1.38 \\times 10^{-23}$ J/K).\n*   $\\ln$: Natural logarithm.\n*   $W$: The number of microstates corresponding to the system's current macrostate, also known as thermodynamic probability or multiplicity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does an increase in $W$ (multiplicity) directly correspond to an increase in a system's 'disorder' or 'randomness'?",
+      "back": "A larger $W$ means there are more ways for the system's constituent particles to be arranged while still resulting in the same macroscopic properties. More possible arrangements imply a greater spread of possibilities and less specific order, hence a higher degree of disorder or randomness. For example, a gas uniformly spread throughout a room has many more microstates than if it were confined to a small corner.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the significance of the Boltzmann constant, $k$, in the entropy formula $S = k \\ln W$?",
+      "back": "The Boltzmann constant, $k$, provides the proportionality factor between the microscopic world (number of microstates, $W$) and the macroscopic thermodynamic property (entropy, $S$). It converts the dimensionless quantity $\\ln W$ into units of energy per unit temperature (J/K), making entropy consistent with other thermodynamic quantities. It essentially scales the 'information content' of the microstates to a thermodynamic energy equivalent.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using Boltzmann's definition, explain why isolated systems naturally tend towards states of higher entropy (the Second Law of Thermodynamics).",
+      "back": "Isolated systems evolve towards macrostates that have the largest number of corresponding microstates ($W$). Since $S = k \\ln W$, a larger $W$ means higher entropy. This is a statistical tendency: there are simply vastly more ways for a system to be in a disordered state than in an ordered one. Given enough time and random microscopic interactions, the system is overwhelmingly likely to explore and settle into the macrostate with the highest multiplicity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider 2 distinguishable particles in 2 energy states ($E_1, E_2$). What is $W$ for the macrostate 'total energy is $E_1 + E_2$'? What if 'both particles are in $E_1$'?",
+      "back": "*   **Macrostate: Total energy is $E_1 + E_2$**\n    *   Microstates: (Particle 1 in $E_1$, Particle 2 in $E_2$) OR (Particle 1 in $E_2$, Particle 2 in $E_1$).\n    *   So, $W = 2$.\n*   **Macrostate: Both particles are in $E_1$**\n    *   Microstates: (Particle 1 in $E_1$, Particle 2 in $E_1$).\n    *   So, $W = 1$.\nThis illustrates how a more 'disordered' macrostate (energy distributed) typically has a higher $W$ than a more 'ordered' one (energy concentrated).",
+      "difficulty": "hard"
+    }
+  ]
+}

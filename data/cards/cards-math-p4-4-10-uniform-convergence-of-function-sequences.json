@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-uniform-convergence-of-function-sequences",
+  "subtopicTitle": "Uniform convergence of function sequences",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:17:13.910Z",
+  "cards": [
+    {
+      "front": "Define uniform convergence for a sequence of functions $(f_n)$ to a function $f$ on a set $A$.",
+      "back": "A sequence of functions $(f_n)$ converges uniformly to $f$ on $A$ if for every $\\epsilon > 0$, there exists an integer $N \\in \\mathbb{N}$ such that for all $x \\in A$ and for all $n \\ge N$, we have $|f_n(x) - f(x)| < \\epsilon$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the key difference between pointwise and uniform convergence using the order of quantifiers.",
+      "back": "Pointwise convergence: $\\forall x \\in A, \\forall \\epsilon > 0, \\exists N_x \\in \\mathbb{N}$ such that $\\forall n \\ge N_x, |f_n(x) - f(x)| < \\epsilon$. The $N_x$ depends on $x$ and $\\epsilon$.<br>Uniform convergence: $\\forall \\epsilon > 0, \\exists N \\in \\mathbb{N}$ such that $\\forall x \\in A, \\forall n \\ge N, |f_n(x) - f(x)| < \\epsilon$. The $N$ depends only on $\\epsilon$, not on $x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Cauchy criterion for uniform convergence of a sequence of functions $(f_n)$ on a set $A$.",
+      "back": "A sequence of functions $(f_n)$ converges uniformly on $A$ if and only if for every $\\epsilon > 0$, there exists an integer $N \\in \\mathbb{N}$ such that for all $m, n \\ge N$ and for all $x \\in A$, we have $|f_m(x) - f_n(x)| < \\epsilon$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Weierstrass M-Test for uniform convergence of a series of functions $\\sum_{k=1}^\\infty f_k(x)$ on a set $A$.",
+      "back": "If there exists a sequence of positive numbers $(M_k)$ such that $|f_k(x)| \\le M_k$ for all $x \\in A$ and for all $k$, and the series $\\sum_{k=1}^\\infty M_k$ converges, then the series $\\sum_{k=1}^\\infty f_k(x)$ converges uniformly on $A$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $(f_n)$ is a sequence of continuous functions on $[a,b]$ that converges uniformly to $f$ on $[a,b]$, what can be said about $f$?",
+      "back": "If $(f_n)$ is a sequence of continuous functions on $[a,b]$ that converges uniformly to $f$ on $[a,b]$, then the limit function $f$ is also continuous on $[a,b]$. Uniform convergence preserves continuity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Suppose $f_n \\to f$ uniformly on $[a,b]$ and each $f_n$ is Riemann integrable. What is the relationship between $\\int_a^b f_n(x) \\, dx$ and $\\int_a^b f(x) \\, dx$?",
+      "back": "If $f_n \\to f$ uniformly on $[a,b]$ and each $f_n$ is Riemann integrable, then $f$ is also Riemann integrable on $[a,b]$, and we can interchange the limit and integral: $$ \\lim_{n \\to \\infty} \\int_a^b f_n(x) \\, dx = \\int_a^b f(x) \\, dx $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what conditions can we interchange the limit and differentiation operators for a sequence of functions $(f_n)$?",
+      "back": "If $(f_n)$ converges pointwise to $f$ on $[a,b]$, each $f_n$ is differentiable, and the sequence of derivatives $(f_n')$ converges uniformly to $g$ on $[a,b]$, then $f$ is differentiable on $[a,b]$ and $f'(x) = g(x) = \\lim_{n \\to \\infty} f_n'(x)$. Note that uniform convergence of $f_n$ alone is not sufficient.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an example of a sequence of continuous functions $(f_n)$ that converges pointwise to a continuous function $f$, but not uniformly, on $[0,1]$.",
+      "back": "Consider $f_n(x) = \\frac{nx}{1+n^2x^2}$ on $[0,1]$. The pointwise limit is $f(x) = 0$ for all $x \\in [0,1]$, which is continuous. However, $f_n(x)$ attains a maximum at $x=1/n$ with $f_n(1/n) = 1/2$. Since $\\sup_{x \\in [0,1]} |f_n(x) - f(x)| = 1/2 \\not\\to 0$ as $n \\to \\infty$, the convergence is not uniform.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-1-double-angle-formulas-sin2a-cos2a-three-forms-tan2a",
+  "subtopicTitle": "Double angle formulas — sin2A, cos2A (three forms), tan2A",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:35.892Z",
+  "cards": [
+    {
+      "front": "State the double angle formula for $\\sin(2A)$.",
+      "back": "The double angle formula for $\\sin(2A)$ is:\n$$\\sin(2A) = 2\\sin(A)\\cos(A)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the double angle formula for $\\sin(2A)$ using the angle sum identity $\\sin(A+B)$.",
+      "back": "The angle sum identity for sine is $\\sin(A+B) = \\sin A \\cos B + \\cos A \\sin B$.<br>\nTo derive $\\sin(2A)$, let $B=A$:\n$$\\sin(A+A) = \\sin A \\cos A + \\cos A \\sin A$$\n$$\\sin(2A) = 2\\sin A \\cos A$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List all three common forms of the double angle formula for $\\cos(2A)$.",
+      "back": "The three common forms of the double angle formula for $\\cos(2A)$ are:\n1.  $$\\cos(2A) = \\cos^2(A) - \\sin^2(A)$$\n2.  $$\\cos(2A) = 2\\cos^2(A) - 1$$\n3.  $$\\cos(2A) = 1 - 2\\sin^2(A)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the form $\\cos(2A) = 2\\cos^2(A) - 1$ from $\\cos(2A) = \\cos^2(A) - \\sin^2(A)$ and the Pythagorean identity.",
+      "back": "Start with the primary form: $\\cos(2A) = \\cos^2(A) - \\sin^2(A)$.<br>\nUsing the Pythagorean identity, $\\sin^2(A) = 1 - \\cos^2(A)$. Substitute this into the formula:\n$$\\cos(2A) = \\cos^2(A) - (1 - \\cos^2(A))$$\n$$\\cos(2A) = \\cos^2(A) - 1 + \\cos^2(A)$$\n$$\\cos(2A) = 2\\cos^2(A) - 1$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the form $\\cos(2A) = 1 - 2\\sin^2(A)$ from $\\cos(2A) = \\cos^2(A) - \\sin^2(A)$ and the Pythagorean identity.",
+      "back": "Start with the primary form: $\\cos(2A) = \\cos^2(A) - \\sin^2(A)$.<br>\nUsing the Pythagorean identity, $\\cos^2(A) = 1 - \\sin^2(A)$. Substitute this into the formula:\n$$\\cos(2A) = (1 - \\sin^2(A)) - \\sin^2(A)$$\n$$\\cos(2A) = 1 - 2\\sin^2(A)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the double angle formula for $\\tan(2A)$.",
+      "back": "The double angle formula for $\\tan(2A)$ is:\n$$\\tan(2A) = \\frac{2\\tan(A)}{1 - \\tan^2(A)}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the double angle formula for $\\tan(2A)$ using the angle sum identity $\\tan(A+B)$. What conditions must be met for this formula to be defined?",
+      "back": "The angle sum identity for tangent is $\\tan(A+B) = \\frac{\\tan A + \\tan B}{1 - \\tan A \\tan B}$.<br>\nTo derive $\\tan(2A)$, let $B=A$:\n$$\\tan(A+A) = \\frac{\\tan A + \\tan A}{1 - \\tan A \\tan A}$$\n$$\\tan(2A) = \\frac{2\\tan A}{1 - \\tan^2 A}$$<br>\nConditions for the formula to be defined:\n1.  $\\tan(A)$ must be defined, so $A \\neq \\frac{\\pi}{2} + n\\pi$ for any integer $n$.\n2.  The denominator $1 - \\tan^2(A)$ cannot be zero, so $\\tan^2(A) \\neq 1$, which means $\\tan(A) \\neq \\pm 1$. This implies $A \\neq \\frac{\\pi}{4} + \\frac{n\\pi}{2}$ for any integer $n$.\n3.  $\\tan(2A)$ must be defined, so $2A \\neq \\frac{\\pi}{2} + n\\pi$, which means $A \\neq \\frac{\\pi}{4} + \\frac{n\\pi}{2}$ for any integer $n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $\\cos(A) = -\\frac{5}{13}$ and $A$ is in Quadrant III, find the exact value of $\\sin(2A)$.",
+      "back": "Since $A$ is in Quadrant III, both $\\sin(A)$ and $\\cos(A)$ are negative.\nFirst, find $\\sin(A)$ using $\\sin^2(A) + \\cos^2(A) = 1$:\n$$\\sin^2(A) = 1 - \\cos^2(A) = 1 - \\left(-\\frac{5}{13}\\right)^2 = 1 - \\frac{25}{169} = \\frac{169 - 25}{169} = \\frac{144}{169}$$\nSince $A$ is in Quadrant III, $\\sin(A) = -\\sqrt{\\frac{144}{169}} = -\\frac{12}{13}$.\nNow, use the double angle formula for $\\sin(2A)$:\n$$\\sin(2A) = 2\\sin(A)\\cos(A) = 2\\left(-\\frac{12}{13}\\right)\\left(-\\frac{5}{13}\\right)$$\n$$\\sin(2A) = 2\\left(\\frac{60}{169}\\right) = \\frac{120}{169}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

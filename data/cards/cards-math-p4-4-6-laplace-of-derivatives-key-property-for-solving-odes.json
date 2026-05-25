@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-laplace-of-derivatives-key-property-for-solving-odes",
+  "subtopicTitle": "Laplace of derivatives — key property for solving ODEs",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:15.304Z",
+  "cards": [
+    {
+      "front": "State the formula for the Laplace transform of the first derivative of $f(t)$.",
+      "back": "The Laplace transform of the first derivative is given by:\n$$\\mathcal{L}\\{f'(t)\\} = sF(s) - f(0)$$\nwhere $F(s) = \\mathcal{L}\\{f(t)\\}$ is the Laplace transform of $f(t)$, and $f(0)$ is the initial value of $f(t)$ at $t=0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for $\\mathcal{L}\\{f'(t)\\}$ using the definition of the Laplace transform and integration by parts.",
+      "back": "By the definition of the Laplace transform:\n$$\\mathcal{L}\\{f'(t)\\} = \\int_0^\\infty e^{-st}f'(t)dt$$\nWe use integration by parts, $\\int u dv = uv - \\int v du$. Let:\n$u = e^{-st} \\implies du = -se^{-st}dt$\n$dv = f'(t)dt \\implies v = f(t)$\nSubstituting these into the integration by parts formula:\n$$\\int_0^\\infty e^{-st}f'(t)dt = [e^{-st}f(t)]_0^\\infty - \\int_0^\\infty f(t)(-se^{-st})dt$$\nAssuming $f(t)$ is of exponential order, $e^{-st}f(t) \\to 0$ as $t \\to \\infty$ for $s > 0$. So, the first term becomes:\n$[e^{-st}f(t)]_0^\\infty = 0 - e^{-s(0)}f(0) = -f(0)$ \nThe second term simplifies to:\n$$+s \\int_0^\\infty e^{-st}f(t)dt = sF(s)$$\nCombining these, we get:\n$$\\mathcal{L}\\{f'(t)\\} = sF(s) - f(0)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the Laplace transform of the second derivative of $f(t)$?",
+      "back": "The Laplace transform of the second derivative is:\n$$\\mathcal{L}\\{f''(t)\\} = s^2F(s) - sf(0) - f'(0)$$\nwhere $F(s) = \\mathcal{L}\\{f(t)\\}$, $f(0)$ is the initial value of $f(t)$, and $f'(0)$ is the initial value of its first derivative.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the general formula for $\\mathcal{L}\\{f^{(n)}(t)\\}$, the Laplace transform of the $n$-th derivative.",
+      "back": "The general formula for the Laplace transform of the $n$-th derivative is:\n$$\\mathcal{L}\\{f^{(n)}(t)\\} = s^n F(s) - s^{n-1}f(0) - s^{n-2}f'(0) - \\dots - sf^{(n-2)}(0) - f^{(n-1)}(0)$$\nThis can also be written using summation notation as:\n$$\\mathcal{L}\\{f^{(n)}(t)\\} = s^n F(s) - \\sum_{k=0}^{n-1} s^{n-1-k} f^{(k)}(0)$$\nwhere $F(s) = \\mathcal{L}\\{f(t)\\}$ and $f^{(k)}(0)$ denotes the $k$-th derivative of $f(t)$ evaluated at $t=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary reason why the Laplace transform of derivatives is so useful for solving ODEs.",
+      "back": "The primary reason is that the Laplace transform converts differentiation in the time domain ($t$) into simple multiplication by $s$ in the frequency domain ($s$). This transforms a differential equation (which involves derivatives) into an algebraic equation (which involves only powers of $s$ and constants). Algebraic equations are generally much easier to solve than differential equations, allowing us to find $Y(s)$ and then inverse transform it back to $y(t)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Apply the Laplace transform to the ODE $y'' + 4y = \\sin(t)$ with $y(0)=1, y'(0)=0$. (Do not solve for $Y(s)$).",
+      "back": "Let $\\mathcal{L}\\{y(t)\\} = Y(s)$.\n1.  Transform $y''(t)$: Using $\\mathcal{L}\\{f''(t)\\} = s^2F(s) - sf(0) - f'(0)$,\n    $\\mathcal{L}\\{y''(t)\\} = s^2Y(s) - sy(0) - y'(0) = s^2Y(s) - s(1) - 0 = s^2Y(s) - s$.\n2.  Transform $4y(t)$: $\\mathcal{L}\\{4y(t)\\} = 4\\mathcal{L}\\{y(t)\\} = 4Y(s)$.\n3.  Transform $\\sin(t)$: $\\mathcal{L}\\{\\sin(t)\\} = \\frac{1}{s^2+1}$.\nSubstituting these into the ODE:\n$(s^2Y(s) - s) + 4Y(s) = \\frac{1}{s^2+1}$\nThis simplifies to:\n$Y(s)(s^2+4) - s = \\frac{1}{s^2+1}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What crucial information do the initial conditions of a differential equation provide when using the Laplace transform of derivatives?",
+      "back": "The initial conditions $f(0), f'(0), \\dots, f^{(n-1)}(0)$ are directly incorporated as constants into the Laplace transform formulas for derivatives. This means that when you transform an Initial Value Problem (IVP), the initial conditions are automatically accounted for in the algebraic equation in the $s$-domain. This is a significant advantage, as it eliminates the need to solve for arbitrary constants later, unlike other methods.",
+      "difficulty": "easy"
+    }
+  ]
+}

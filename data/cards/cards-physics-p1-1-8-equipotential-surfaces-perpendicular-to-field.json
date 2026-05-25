@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-equipotential-surfaces-perpendicular-to-field",
+  "subtopicTitle": "Equipotential surfaces — perpendicular to field",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:39.202Z",
+  "cards": [
+    {
+      "front": "Define an equipotential surface in electromagnetism.",
+      "back": "An equipotential surface is a three-dimensional surface on which the electric potential $V$ is constant at every point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the geometric relationship between electric field lines and equipotential surfaces.",
+      "back": "Electric field lines are always perpendicular to equipotential surfaces at every point of intersection.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the work done by the electric field when a charge $q$ moves between two points $A$ and $B$ on the same equipotential surface?",
+      "back": "The work done $W_{AB}$ is zero. This is because $W_{AB} = q(V_A - V_B)$. Since points $A$ and $B$ are on the same equipotential surface, $V_A = V_B$, so $W_{AB} = q(0) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the fundamental reason why electric field lines must be perpendicular to equipotential surfaces.",
+      "back": "If the electric field $\\vec{E}$ had a component parallel to an equipotential surface, then moving a test charge $q$ along that surface would require work ($W = \\int q\\vec{E} \\cdot d\\vec{l} \\neq 0$). This work would cause a change in electric potential along the surface, which contradicts the definition of an equipotential surface (where potential is constant). Therefore, $\\vec{E}$ must have no component parallel to the surface, meaning it is perpendicular.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the shape of equipotential surfaces and electric field lines for an isolated positive point charge.",
+      "back": "The equipotential surfaces are concentric spherical shells centered on the point charge. The electric field lines radiate radially outward from the charge, always perpendicular to these spherical equipotential surfaces.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the gradient relationship, prove that the electric field $\\vec{E}$ is perpendicular to equipotential surfaces.",
+      "back": "The electric field $\\vec{E}$ is related to the electric potential $V$ by $\\vec{E} = -\\nabla V$. An equipotential surface is defined by $V(\\vec{r}) = \\text{constant}$. For any infinitesimal displacement $d\\vec{l}$ tangent to this surface, the change in potential $dV$ must be zero. We know that $dV = \\nabla V \\cdot d\\vec{l}$. Since $dV=0$ for any $d\\vec{l}$ on the surface, it implies $\\nabla V \\cdot d\\vec{l} = 0$. This means $\\nabla V$ is perpendicular to any vector $d\\vec{l}$ lying in the equipotential surface. Since $\\vec{E} = -\\nabla V$, the electric field $\\vec{E}$ must also be perpendicular to the equipotential surface.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the surface of a conductor in electrostatic equilibrium is always an equipotential surface.",
+      "back": "In electrostatic equilibrium, there is no net motion of charge within the conductor, meaning the electric field inside the conductor is zero. If there were an electric field component parallel to the surface, it would exert a force on surface charges, causing them to move and thus violating equilibrium. Therefore, the electric field lines must be perpendicular to the conductor's surface, which implies the surface itself must be an equipotential surface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the spacing between equipotential surfaces relate to the magnitude of the electric field?",
+      "back": "The electric field magnitude $E$ is related to the potential gradient by $E = -\\frac{dV}{dr}$, where $dr$ is the perpendicular distance between surfaces. For a fixed potential difference $\\Delta V$ between adjacent equipotential surfaces, $E \\approx -\\frac{\\Delta V}{\\Delta r}$. This means that where equipotential surfaces are closer together ($\\Delta r$ is small), the electric field is stronger. Conversely, where they are farther apart, the electric field is weaker.",
+      "difficulty": "hard"
+    }
+  ]
+}

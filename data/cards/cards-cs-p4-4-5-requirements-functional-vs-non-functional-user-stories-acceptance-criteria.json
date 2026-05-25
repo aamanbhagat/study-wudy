@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-5-requirements-functional-vs-non-functional-user-stories-acceptance-criteria",
+  "subtopicTitle": "Requirements — functional vs non-functional, user stories, acceptance criteria",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:55.426Z",
+  "cards": [
+    {
+      "front": "What is a functional requirement in software engineering?",
+      "back": "A functional requirement specifies *what* the system must do. It describes the system's behavior, features, and services that users expect, defining the core capabilities of the software.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a non-functional requirement (NFR)?",
+      "back": "A non-functional requirement specifies *how* the system should perform a function. It defines quality attributes like performance, security, usability, reliability, scalability, and maintainability, impacting the user experience and system quality.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Classify these: 'The system must allow users to upload files.' and 'The system must upload files within 5 seconds for 99% of requests.'",
+      "back": "'The system must allow users to upload files.' is a **Functional Requirement** (a specific feature). 'The system must upload files within 5 seconds for 99% of requests.' is a **Non-Functional Requirement** (performance, a quality attribute).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a user story, and what is its common structure?",
+      "back": "A user story is an informal, natural language description of one or more features of a software system, written from the perspective of an end-user or stakeholder. Its common structure is: 'As a [type of user], I want [some goal] so that [some reason/benefit].'",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are acceptance criteria, and how do they relate to user stories?",
+      "back": "Acceptance criteria are conditions that a software product must satisfy to be accepted by a user, customer, or other stakeholders. They define the boundaries of a user story, making it testable and verifiable, and are used to determine when a story is 'done.' Each criterion is a specific, testable statement.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a user story and two distinct acceptance criteria for a 'view order history' feature.",
+      "back": "User Story: \"As a registered customer, I want to view my past orders so that I can track my purchases and reorder items.\" \n\nAcceptance Criteria:\n1.  Given I am logged in and navigate to 'Order History'.\n2.  When the page loads.\n3.  Then I see a list of my past orders, including order date, total, and status.\n\n---\n\n1.  Given I am viewing my order history.\n2.  When I click on a specific order.\n3.  Then I am taken to an order details page showing items purchased, shipping address, and payment method.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are non-functional requirements (NFRs) crucial for software success, even if they don't describe direct features?",
+      "back": "NFRs are crucial because they determine the overall user experience, system quality, and operational viability. Poor performance, security vulnerabilities, or a difficult-to-use interface (all NFR concerns) can render a functionally complete system unusable or undesirable, leading to user dissatisfaction, high maintenance costs, and project failure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three key characteristics of a well-formed software requirement.",
+      "back": "Three key characteristics of a well-formed requirement are:\n1.  **Unambiguous:** Clear and precise, leaving no room for misinterpretation.\n2.  **Testable/Verifiable:** It must be possible to objectively determine whether the requirement has been met.\n3.  **Complete:** Contains all necessary information without omissions.\n(Other valid answers: Consistent, Feasible, Necessary, Traceable)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Refine this vague acceptance criterion to make it specific and testable: 'The system should be secure.'",
+      "back": "A refined, testable acceptance criterion could be: 'The system shall encrypt all user passwords using a one-way hashing algorithm (e.g., bcrypt) with a minimum of 10 rounds.' or 'The system shall prevent SQL injection attacks by sanitizing all user inputs before database queries.' This makes it specific, measurable, and verifiable.",
+      "difficulty": "hard"
+    }
+  ]
+}

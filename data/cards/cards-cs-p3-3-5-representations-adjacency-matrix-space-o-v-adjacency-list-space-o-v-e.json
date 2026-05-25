@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-5-representations-adjacency-matrix-space-o-v-adjacency-list-space-o-v-e",
+  "subtopicTitle": "Representations — adjacency matrix (space O(V²)), adjacency list (space O(V+E))",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:04.057Z",
+  "cards": [
+    {
+      "front": "Define an **adjacency matrix** for a graph with $V$ vertices.",
+      "back": "An adjacency matrix $A$ is a $V \\times V$ 2D array where $A[i][j]$ is $1$ if there is an edge from vertex $i$ to vertex $j$, and $0$ otherwise. For a weighted graph, $A[i][j]$ stores the weight of the edge, or $\\infty$ (or a special value like $0$ if non-negative weights are used and $0$ is not a valid weight) if no edge exists.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an **adjacency list** for a graph with $V$ vertices.",
+      "back": "An adjacency list is an array (or hash map) of $V$ lists, where the $i$-th list contains all vertices adjacent to vertex $i$. For a directed graph, the list for vertex $i$ contains all vertices $j$ for which there is an edge $(i, j)$. For a weighted graph, each entry in the list would typically be a pair `(neighbor, weight)`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the **space complexity** of an **adjacency matrix** for a graph with $V$ vertices? Explain why.",
+      "back": "The space complexity is $O(V^2)$. This is because an adjacency matrix is a $V \\times V$ 2D array, requiring storage for $V^2$ elements, regardless of the number of edges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the **space complexity** of an **adjacency list** for a graph with $V$ vertices and $E$ edges? Explain why.",
+      "back": "The space complexity is $O(V+E)$. There are $V$ lists (one for each vertex), contributing $O(V)$ space. For each edge $(u,v)$ in a directed graph, $v$ is stored once in $u$'s list, contributing $O(E)$ space. For an undirected graph, $v$ is in $u$'s list and $u$ is in $v$'s list, contributing $O(2E) = O(E)$ space in total.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How quickly can you check if an edge $(u, v)$ exists using an **adjacency matrix**?",
+      "back": "Checking for an edge $(u, v)$ using an adjacency matrix takes $O(1)$ time. You simply access the element $A[u][v]$ to see if it's $1$ (or a non-zero weight).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How quickly can you check if an edge $(u, v)$ exists using an **adjacency list**? What's the worst-case scenario?",
+      "back": "Checking for an edge $(u, v)$ using an adjacency list involves iterating through the list of neighbors for vertex $u$. In the worst case, this takes $O(\\text{deg}(u))$ time, where $\\text{deg}(u)$ is the degree of vertex $u$. If the lists are sorted, binary search could reduce this to $O(\\log(\\text{deg}(u)))$. If hash sets are used instead of lists, it's $O(1)$ on average.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a basic Python snippet to initialize an **adjacency list** for an undirected graph with `V` vertices and add an edge `(0, 1)`.",
+      "back": "```python\nV = 5 # Number of vertices\nadj = [[] for _ in range(V)]\n\n# Add an undirected edge (0, 1)\nadj[0].append(1)\nadj[1].append(0)\n\nprint(adj)\n# Expected output for V=5, edge (0,1): [[1], [0], [], [], []]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would an **adjacency matrix** be preferred over an **adjacency list**, and vice-versa?",
+      "back": "- **Adjacency Matrix preferred for:** Dense graphs (where $E \\approx V^2$), when frequent $O(1)$ edge existence checks are critical, or when iterating over all possible edges is common.\n- **Adjacency List preferred for:** Sparse graphs (where $E \\ll V^2$), when memory is a concern, or when frequent iteration over a vertex's neighbors is common (e.g., in BFS/DFS).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would you modify an **adjacency matrix** to represent a **weighted, undirected graph**? Provide a small example for an edge.",
+      "back": "Instead of storing $0$ or $1$, the matrix $A[i][j]$ would store the weight of the edge between $i$ and $j$. If no edge exists, a special value like $\\infty$ (or a very large number, or $0$ if all weights are positive) is used. Since it's undirected, $A[i][j] = A[j][i]$.\n\n**Example:** For an undirected edge $(0, 1)$ with weight $5$, the matrix would have:\n$A[0][1] = 5$\n$A[1][0] = 5$",
+      "difficulty": "hard"
+    }
+  ]
+}

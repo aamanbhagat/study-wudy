@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-7-neumann-and-dirichlet-boundary-conditions",
+  "subtopicTitle": "Neumann and Dirichlet boundary conditions",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:35.155Z",
+  "cards": [
+    {
+      "front": "What does a Dirichlet boundary condition specify for a PDE on a domain $\\Omega$ with boundary $\\partial\\Omega$?",
+      "back": "A Dirichlet boundary condition specifies the value of the solution $u$ itself on the boundary $\\partial\\Omega$. Mathematically, $u(\\mathbf{x}) = g(\\mathbf{x})$ for all $\\mathbf{x} \\in \\partial\\Omega$, where $g$ is a given function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does a Neumann boundary condition specify for a PDE on a domain $\\Omega$ with boundary $\\partial\\Omega$?",
+      "back": "A Neumann boundary condition specifies the value of the normal derivative of the solution $\\frac{\\partial u}{\\partial \\mathbf{n}}$ on the boundary $\\partial\\Omega$. Mathematically, $\\frac{\\partial u}{\\partial \\mathbf{n}}(\\mathbf{x}) = h(\\mathbf{x})$ for all $\\mathbf{x} \\in \\partial\\Omega$, where $h$ is a given function and $\\mathbf{n}$ is the outward unit normal vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of heat conduction, what physical quantity does a Dirichlet boundary condition typically represent?",
+      "back": "For a heat equation, a Dirichlet boundary condition represents a prescribed temperature on the boundary of the domain. For example, if a rod's ends are held at specific temperatures, these are Dirichlet conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the context of heat conduction, what physical quantity does a Neumann boundary condition typically represent?",
+      "back": "For a heat equation, a Neumann boundary condition represents a prescribed heat flux (rate of heat flow) across the boundary. A common special case is an insulated boundary, where the heat flux is zero, i.e., $\\frac{\\partial u}{\\partial \\mathbf{n}} = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a function $u(\\mathbf{x})$ and an outward unit normal vector $\\mathbf{n}$ to a boundary, define the normal derivative $\\frac{\\partial u}{\\partial \\mathbf{n}}$.",
+      "back": "The normal derivative $\\frac{\\partial u}{\\partial \\mathbf{n}}$ is defined as the dot product of the gradient of $u$ with the normal vector: $\\frac{\\partial u}{\\partial \\mathbf{n}} = \\nabla u \\cdot \\mathbf{n}$. It represents the rate of change of $u$ in the direction normal to the boundary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the Laplace equation $\\Delta u = 0$ on a disk $D$, if $u(x,y) = \\sin(x)$ for $(x,y) \\in \\partial D$, what type of boundary condition is this?",
+      "back": "This is a Dirichlet boundary condition because the value of the solution $u$ itself is specified directly on the boundary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the heat equation $u_t = \\alpha u_{xx}$ on a rod $[0,L]$, if $u_x(0,t) = 5$ and $u_x(L,t) = 0$, what types of boundary conditions are these?",
+      "back": "These are Neumann boundary conditions. At $x=0$, the outward normal is in the $-x$ direction, so $\\frac{\\partial u}{\\partial \\mathbf{n}} = -u_x$. Thus, the condition is equivalent to $\\frac{\\partial u}{\\partial \\mathbf{n}}(0,t) = -5$. At $x=L$, the outward normal is in the $+x$ direction, so $\\frac{\\partial u}{\\partial \\mathbf{n}} = u_x$. Thus, $\\frac{\\partial u}{\\partial \\mathbf{n}}(L,t) = 0$ represents an insulated end.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a PDE modeling fluid flow. Why might a Neumann boundary condition be more appropriate than a Dirichlet condition at an outlet?",
+      "back": "At an outlet, a Neumann condition might be more appropriate to specify the flow rate (flux) across the boundary, rather than the fluid velocity (Dirichlet) which might be unknown or vary. For instance, $\\frac{\\partial u}{\\partial \\mathbf{n}} = 0$ could represent a 'do-nothing' or 'outflow' condition where the flow leaves the domain without resistance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain what a Robin boundary condition is and how it relates to Dirichlet and Neumann conditions.",
+      "back": "A Robin (or mixed) boundary condition is a linear combination of Dirichlet and Neumann conditions: $a u + b \\frac{\\partial u}{\\partial \\mathbf{n}} = c$ on the boundary, where $a, b, c$ are given functions or constants. If $a=0$ (and $b \\neq 0$), it reduces to a Neumann condition. If $b=0$ (and $a \\neq 0$), it reduces to a Dirichlet condition. It often models convective heat transfer or elastic supports.",
+      "difficulty": "hard"
+    }
+  ]
+}

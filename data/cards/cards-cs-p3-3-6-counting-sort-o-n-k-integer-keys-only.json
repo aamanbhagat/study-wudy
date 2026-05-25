@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-6-counting-sort-o-n-k-integer-keys-only",
+  "subtopicTitle": "Counting sort — O(n + k), integer keys only",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:27.053Z",
+  "cards": [
+    {
+      "front": "Counting Sort is a non-comparison sorting algorithm primarily used for sorting arrays of __________.",
+      "back": "Counting Sort is a non-comparison sorting algorithm primarily used for sorting arrays of **integers**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the primary constraints and the time and space complexities of Counting Sort?",
+      "back": "Constraints: Requires **integer keys** within a specific range. Time Complexity: $O(n+k)$. Space Complexity: $O(n+k)$. ($n$ = number of elements, $k$ = range of input values, i.e., max value - min value + 1, or just max value if min is 0).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the first two steps of Counting Sort after determining the maximum value $k$ in the input array.",
+      "back": "1. Initialize a `count` array of size $k+1$ (assuming non-negative integers starting from 0) with all zeros. This array will store the frequency of each element. 2. Initialize an `output` array of size $n$ (same as input array) to store the sorted elements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After populating the frequency array, what is the next step in Counting Sort, and what is its crucial purpose?",
+      "back": "The next step is to modify the `count` array to store **cumulative counts** (prefix sums). For each index $i$ from 1 to $k$, `count[i]` becomes `count[i] + count[i-1]`. This transformation ensures that `count[i]` now holds the **correct sorted position** (or the index of the last occurrence) for any element with value $i$ in the final output array, which is vital for stability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When placing elements into the `output` array, why does Counting Sort iterate through the input array in reverse, and how does this ensure stability?",
+      "back": "Counting Sort iterates through the input array **from right to left (in reverse order)**. For each element `x`, its sorted position is `count[x] - 1`. After placing `x` at `output[count[x] - 1]`, `count[x]` is decremented. Iterating in reverse ensures that if duplicate elements exist, their **relative order** from the input array is preserved in the output, making the sort **stable**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the $O(n+k)$ time complexity for Counting Sort, clearly stating the operations contributing to $n$ and $k$.",
+      "back": "The time complexity is derived from these main steps:\n1.  Finding the maximum element $k$: $O(n)$ (one pass through the input array).\n2.  Initializing the `count` array of size $k+1$: $O(k)$.\n3.  Populating the `count` array (frequency count): $O(n)$ (one pass through the input array).\n4.  Modifying the `count` array (cumulative sums): $O(k)$ (one pass through the `count` array).\n5.  Populating the `output` array: $O(n)$ (one pass through the input array, one write per element).\nSumming these steps: $O(n) + O(k) + O(n) + O(k) + O(n) = O(3n + 2k) = \\mathbf{O(n+k)}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When is Counting Sort most suitable, and what are its primary limitations concerning the input data?",
+      "back": "Counting Sort is most suitable when the **range of input values ($k$) is not significantly larger than the number of elements ($n$)**. It's ideal for sorting integers with a small, known range.\nPrimary limitations:\n1.  **Integer keys only**: Cannot directly sort non-integer data (e.g., strings, floating-point numbers).\n2.  **Large $k$**: If $k$ is much larger than $n$ (e.g., $n=100$, $k=10^9$), it becomes highly inefficient due to excessive space and time complexity ($O(k)$ would dominate).\n3.  **Non-negative integers**: Typically implemented for non-negative integers; handling negative integers requires an offset to map them to non-negative values.",
+      "difficulty": "hard"
+    }
+  ]
+}

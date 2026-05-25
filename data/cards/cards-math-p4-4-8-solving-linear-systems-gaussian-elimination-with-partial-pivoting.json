@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-solving-linear-systems-gaussian-elimination-with-partial-pivoting",
+  "subtopicTitle": "Solving linear systems — Gaussian elimination with partial pivoting",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:39.321Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of Gaussian elimination when solving a system of linear equations $Ax=b$?",
+      "back": "To transform the original system into an equivalent upper triangular system $Ux=c$ through a series of elementary row operations, which can then be easily solved using back substitution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the two main phases of naive Gaussian elimination for solving $Ax=b$.",
+      "back": "1.  **Forward Elimination:** Transform the augmented matrix $[A|b]$ into an upper triangular form $[U|c]$ by eliminating elements below the main diagonal using elementary row operations (row swapping, row scaling, row addition).\n2.  **Back Substitution:** Solve the resulting upper triangular system $Ux=c$ starting from the last equation and working upwards to find the values of the variables.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the two main numerical stability issues that partial pivoting addresses in Gaussian elimination?",
+      "back": "1.  **Division by zero:** If a pivot element $a_{kk}$ is zero, the elimination process for that column halts.\n2.  **Propagation of round-off errors:** If a pivot element $a_{kk}$ is very small relative to other elements in its column, dividing by it can lead to very large multipliers, amplifying existing round-off errors and potentially producing an inaccurate solution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the partial pivoting strategy applied at step $k$ of forward elimination in Gaussian elimination.",
+      "back": "At step $k$ (to eliminate elements in column $k$ below row $k$):\n1.  Identify the element with the largest absolute value in column $k$ from row $k$ down to row $n$. Let this be $|a_{pk}|$.\n2.  Swap row $k$ with row $p$ (the row containing $|a_{pk}|$).\n3.  The element $a_{kk}$ (now the largest in absolute value in its column below it) becomes the pivot for this step.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the matrix $A = \\begin{pmatrix} 0 & 2 \\\\ 1 & 1 \\end{pmatrix}$, show the first step of Gaussian elimination with partial pivoting to transform it.",
+      "back": "1.  **Column 1:** Look at elements in column 1 from row 1 downwards: $a_{11}=0$, $a_{21}=1$.\n2.  **Largest Absolute Value:** $|0|=0$, $|1|=1$. The largest is $|1|$ in row 2.\n3.  **Swap:** Swap Row 1 and Row 2.\n$$ A \\rightarrow \\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix} $$\nNow $a_{11}=1$ is the pivot, and no further elimination is needed for this column as $a_{21}$ is already zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the approximate computational complexity (number of floating-point operations) of Gaussian elimination (forward elimination + back substitution) for an $n \\times n$ system?",
+      "back": "The dominant term for both forward elimination and back substitution combined is $\\mathcal{O}(n^3)$. Specifically, forward elimination is approximately $\\frac{2}{3}n^3$ operations, and back substitution is approximately $n^2$ operations. Partial pivoting adds $\\mathcal{O}(n^2)$ comparisons and row swaps, which does not change the overall $\\mathcal{O}(n^3)$ complexity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When might Gaussian elimination with partial pivoting still fail or produce highly inaccurate results, even without exact division by zero?",
+      "back": "1.  **Singular or Nearly Singular Matrices:** If the matrix $A$ is singular (determinant is zero), the system has no unique solution. GE will lead to a row of zeros in $U$ corresponding to a non-zero element in $c$, or an entire row of zeros.\n2.  **Ill-conditioned Matrices:** If the matrix is ill-conditioned, meaning small changes in $A$ or $b$ lead to large changes in the solution $x$, even with partial pivoting, round-off errors can be significantly amplified, leading to inaccurate results. The condition number of the matrix quantifies this sensitivity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain the difference between partial pivoting and full pivoting in Gaussian elimination. Which is generally preferred in practice and why?",
+      "back": "1.  **Partial Pivoting:** At step $k$, search for the largest absolute value in column $k$ from row $k$ downwards, then swap rows to bring it to the pivot position $a_{kk}$.\n2.  **Full Pivoting:** At step $k$, search for the largest absolute value in the *entire submatrix* from row $k$ to $n$ and column $k$ to $n$. Swap rows AND columns to bring this element to the pivot position $a_{kk}$.\n**Preference:** Partial pivoting is generally preferred. While full pivoting offers superior numerical stability, it significantly increases computational cost (searching an $(n-k+1) \\times (n-k+1)$ submatrix and requiring column swaps, which reorders variables). The added stability often doesn't justify the $\\mathcal{O}(n^4)$ complexity increase over partial pivoting's $\\mathcal{O}(n^3)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

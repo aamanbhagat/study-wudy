@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-properties-of-estimators-unbiasedness-consistency-efficiency",
+  "subtopicTitle": "Properties of estimators — unbiasedness, consistency, efficiency",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:45.632Z",
+  "cards": [
+    {
+      "front": "What does it mean for an estimator $\\hat{\\theta}$ to be **unbiased** for a parameter $\\theta$?",
+      "back": "An estimator $\\hat{\\theta}$ is unbiased for a parameter $\\theta$ if its expected value is equal to the true parameter value: $E[\\hat{\\theta}] = \\theta$. Intuitively, on average, the estimator will hit the true parameter value.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the formula for the **bias** of an estimator $\\hat{\\theta}$ for a parameter $\\theta$.",
+      "back": "The bias of an estimator $\\hat{\\theta}$ is defined as $Bias(\\hat{\\theta}) = E[\\hat{\\theta}] - \\theta$. An estimator is unbiased if and only if its bias is zero, i.e., $Bias(\\hat{\\theta}) = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Show that the sample variance $S^2 = \\frac{1}{n-1}\\sum_{i=1}^n (X_i - \\bar{X})^2$ is an unbiased estimator for the population variance $\\sigma^2$.",
+      "back": "We know that $E\\left[\\sum_{i=1}^n (X_i - \\bar{X})^2\\right] = (n-1)\\sigma^2$. Therefore,\n$$E[S^2] = E\\left[\\frac{1}{n-1}\\sum_{i=1}^n (X_i - \\bar{X})^2\\right] = \\frac{1}{n-1} E\\left[\\sum_{i=1}^n (X_i - \\bar{X})^2\\right] = \\frac{1}{n-1} (n-1)\\sigma^2 = \\sigma^2$$\nSince $E[S^2] = \\sigma^2$, $S^2$ is an unbiased estimator for $\\sigma^2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define **consistency** for an estimator $\\hat{\\theta}_n$ of a parameter $\\theta$.",
+      "back": "An estimator $\\hat{\\theta}_n$ is consistent for a parameter $\\theta$ if it converges in probability to $\\theta$ as the sample size $n$ approaches infinity. Formally, for any $\\epsilon > 0$, $\\lim_{n \\to \\infty} P(|\\hat{\\theta}_n - \\theta| < \\epsilon) = 1$. This means the estimator gets arbitrarily close to the true parameter with high probability as $n$ increases.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Can an estimator be **biased but consistent**? If so, provide an example or explain why.",
+      "back": "Yes, an estimator can be biased but consistent.\nExample: The sample variance $\\hat{\\sigma}^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i - \\bar{X})^2$ is biased because $E[\\hat{\\sigma}^2] = \\frac{n-1}{n}\\sigma^2 \\neq \\sigma^2$. However, as $n \\to \\infty$, $\\frac{n-1}{n} \\to 1$, so $E[\\hat{\\sigma}^2] \\to \\sigma^2$. More formally, $\\hat{\\sigma}^2 \\xrightarrow{P} \\sigma^2$, making it a consistent estimator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean for an estimator $\\hat{\\theta}$ to be **efficient**?",
+      "back": "An estimator $\\hat{\\theta}$ is considered efficient if it achieves the lowest possible variance among all unbiased estimators for a given parameter $\\theta$. This minimum possible variance is often given by the Cramér-Rao Lower Bound.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the **Cramér-Rao Lower Bound (CRLB)** for the variance of an unbiased estimator $\\hat{\\theta}$ of a parameter $\\theta$.",
+      "back": "For any unbiased estimator $\\hat{\\theta}$ of a parameter $\\theta$, its variance satisfies:\n$$Var(\\hat{\\theta}) \\ge \\frac{1}{I(\\theta)}$$\nwhere $I(\\theta)$ is the Fisher Information, defined as $I(\\theta) = E\\left[\\left(\\frac{\\partial \\ln f(X;\\theta)}{\\partial \\theta}\\right)^2\\right]$ (or $I(\\theta) = -E\\left[\\frac{\\partial^2 \\ln f(X;\\theta)}{\\partial \\theta^2}\\right]$ under regularity conditions).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If we have two unbiased estimators, $\\hat{\\theta}_1$ and $\\hat{\\theta}_2$, for the same parameter $\\theta$, how do we determine which is **more efficient**?",
+      "back": "To determine which unbiased estimator is more efficient, we compare their variances. The estimator with the smaller variance is considered more efficient. That is, if $Var(\\hat{\\theta}_1) < Var(\\hat{\\theta}_2)$, then $\\hat{\\theta}_1$ is more efficient than $\\hat{\\theta}_2$.",
+      "difficulty": "medium"
+    }
+  ]
+}

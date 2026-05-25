@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-thread-synchronization-needs-shared-memory-issues",
+  "subtopicTitle": "Thread synchronization needs — shared memory issues",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:00.677Z",
+  "cards": [
+    {
+      "front": "In concurrent programming, what is a \"race condition\"?",
+      "back": "A situation where multiple threads or processes access and manipulate shared data concurrently, and the final outcome depends on the non-deterministic order in which their operations are interleaved. This often leads to incorrect or unpredictable results.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how the simple operation `count++` on a shared integer `count` can lead to incorrect results when executed by multiple threads without synchronization.",
+      "back": "The `count++` operation is not atomic; it typically involves three steps:\n1. Load `count`'s value into a register.\n2. Increment the register's value.\n3. Store the register's value back to `count`.\nIf Thread A loads `count=5`, then Thread B loads `count=5`, then Thread A increments to 6 and stores 6, and then Thread B increments to 6 and stores 6, the final `count` is 6 instead of the expected 7.\n```c\n// Initial: count = 0\nThread A: load R1, count  // R1 = 0\nThread B: load R2, count  // R2 = 0\nThread A: inc R1          // R1 = 1\nThread B: inc R2          // R2 = 1\nThread A: store count, R1 // count = 1\nThread B: store count, R2 // count = 1 (Expected 2)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"critical section\" in the context of concurrent programming.",
+      "back": "A segment of code in a concurrent program where shared resources (e.g., shared variables, data structures, files) are accessed. Only one thread or process should be allowed to execute within its critical section at any given time to prevent race conditions and ensure data consistency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the three essential requirements that any robust solution to the critical section problem must satisfy?",
+      "back": "1.  **Mutual Exclusion:** If one thread is executing in its critical section, then no other thread is allowed to execute in its critical section.\n2.  **Progress:** If no thread is executing in its critical section and some threads want to enter their critical sections, then only those threads that are not executing in their remainder sections can participate in deciding which will enter its critical section next, and this selection cannot be postponed indefinitely.\n3.  **Bounded Waiting:** There must be a limit on the number of times that other threads are allowed to enter their critical sections after a thread has made a request to enter its critical section and before that request is granted. This prevents starvation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are hardware-level atomic operations (e.g., `TestAndSet`, `CompareAndSwap`) often necessary but not sufficient on their own to protect complex shared data structures from race conditions?",
+      "back": "While atomic operations guarantee that a single read-modify-write instruction completes without interruption, most complex operations on data structures (like adding a node to a linked list, or even `count++` which is a sequence of load-modify-store) involve multiple such steps. A race condition can still occur if another thread interleaves its operations between these atomic steps, leading to an inconsistent state of the overall data structure. Atomic operations are building blocks, not complete solutions for multi-step logic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can compiler optimizations or CPU instruction reordering, even on a single-processor system, lead to unexpected shared memory issues without proper synchronization primitives?",
+      "back": "Compilers and CPUs can reorder instructions for performance, as long as the reordering doesn't change the outcome for a single thread. However, this reordering can become problematic when multiple threads access shared memory. For example, a compiler might reorder a write to a flag *before* a write to shared data, even if the programmer intended the data write to happen first. Another thread observing the flag might then read inconsistent data. Memory barriers (fences) are needed to enforce a specific ordering of memory operations across threads.\n```c\n// Original intent: write data, then set flag\nshared_data = value;\nis_ready = true;\n\n// Compiler/CPU reordering might result in:\nis_ready = true;\nshared_data = value; // If another thread reads is_ready=true here,\n                     // it might read stale/uninitialized shared_data.\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a specific race condition that could occur when two threads concurrently attempt to add a new node to the *head* of a singly linked list without proper synchronization.",
+      "back": "Assume `head` points to the first node.\n1. Thread A creates `newNodeA`.\n2. Thread B creates `newNodeB`.\n3. Thread A executes `newNodeA->next = head;` (let's say `head` was `X`).\n4. Thread B executes `newNodeB->next = head;` (still `head` was `X`).\n5. Thread A executes `head = newNodeA;`.\n6. Thread B executes `head = newNodeB;`.\nResult: `newNodeA` is now unreachable (lost) because `head` points to `newNodeB`, and `newNodeB->next` points to `X`, effectively making `newNodeA` point to `X` but not being part of the list. The list should have `newNodeB -> newNodeA -> X`, but instead it has `newNodeB -> X`, and `newNodeA` is floating.",
+      "difficulty": "medium"
+    }
+  ]
+}

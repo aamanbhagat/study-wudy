@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-6-energy-in-shm-ke-pe-ka-constant",
+  "subtopicTitle": "Energy in SHM — KE + PE = ½kA² (constant)",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:43.335Z",
+  "cards": [
+    {
+      "front": "What is the formula for the potential energy (PE) stored in a spring-mass system undergoing SHM, where $x$ is the displacement from equilibrium and $k$ is the spring constant?",
+      "back": "The potential energy (PE) of a spring-mass system is given by: $$PE = \\frac{1}{2}kx^2$$ This assumes $PE=0$ at the equilibrium position ($x=0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the kinetic energy (KE) of a mass $m$ undergoing SHM with instantaneous velocity $v$?",
+      "back": "The kinetic energy (KE) of a mass $m$ with velocity $v$ is given by: $$KE = \\frac{1}{2}mv^2$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "At what positions in Simple Harmonic Motion (SHM) is the kinetic energy (KE) maximum, and at what positions is it zero?",
+      "back": "Kinetic energy (KE) is maximum at the equilibrium position ($x=0$), where the speed is greatest. KE is zero at the extreme positions ($x=\\pm A$, where $A$ is the amplitude), where the object momentarily stops before reversing direction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "At what positions in SHM is the potential energy (PE) maximum, and at what positions is it zero (assuming $PE=0$ at equilibrium)?",
+      "back": "Potential energy (PE) is maximum at the extreme positions ($x=\\pm A$), where the spring is maximally stretched or compressed. PE is zero at the equilibrium position ($x=0$), where the spring is at its natural length.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the total mechanical energy of a spring-mass system in SHM, showing it is constant and equal to $\\frac{1}{2}kA^2$. Assume $x(t) = A\\cos(\\omega t)$ and $v(t) = -A\\omega\\sin(\\omega t)$.",
+      "back": "The total mechanical energy $E_{total}$ is the sum of kinetic energy (KE) and potential energy (PE):\n$$E_{total} = KE + PE$$\nSubstitute the formulas for KE and PE, and the given kinematic equations:\n$$KE = \\frac{1}{2}mv^2 = \\frac{1}{2}m(-A\\omega\\sin(\\omega t))^2 = \\frac{1}{2}mA^2\\omega^2\\sin^2(\\omega t)$$\n$$PE = \\frac{1}{2}kx^2 = \\frac{1}{2}k(A\\cos(\\omega t))^2 = \\frac{1}{2}kA^2\\cos^2(\\omega t)$$\nFor a spring-mass system, the angular frequency is $\\omega = \\sqrt{\\frac{k}{m}}$, which means $\\omega^2 = \\frac{k}{m}$, or $m\\omega^2 = k$. Substitute this into the KE expression:\n$$KE = \\frac{1}{2}(k)A^2\\sin^2(\\omega t)$$\nNow, sum KE and PE:\n$$E_{total} = \\frac{1}{2}kA^2\\sin^2(\\omega t) + \\frac{1}{2}kA^2\\cos^2(\\omega t)$$\nFactor out $\\frac{1}{2}kA^2$:\n$$E_{total} = \\frac{1}{2}kA^2(\\sin^2(\\omega t) + \\cos^2(\\omega t))$$\nUsing the trigonometric identity $\\sin^2\\theta + \\cos^2\\theta = 1$:\n$$E_{total} = \\frac{1}{2}kA^2(1) = \\frac{1}{2}kA^2$$\nSince $k$ and $A$ are constants, the total mechanical energy $E_{total}$ is constant throughout the motion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the total mechanical energy remain constant in an ideal Simple Harmonic Motion (SHM) system?",
+      "back": "In an ideal SHM system (e.g., a spring-mass system without friction or air resistance), there are no non-conservative forces doing work on the system. According to the principle of conservation of mechanical energy, if only conservative forces (like the spring force) are doing work, the total mechanical energy (KE + PE) of the system remains constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a spring-mass system has a total mechanical energy $E = 25\\,J$ and a spring constant $k = 500\\,N/m$, what is the amplitude of oscillation $A$?",
+      "back": "We know that the total mechanical energy in SHM is given by $E = \\frac{1}{2}kA^2$. We can rearrange this to solve for $A$:\n$$A^2 = \\frac{2E}{k}$$\n$$A = \\sqrt{\\frac{2E}{k}}$$\nSubstitute the given values:\n$$A = \\sqrt{\\frac{2 \\times 25\\,J}{500\\,N/m}} = \\sqrt{\\frac{50}{500}}\\,m = \\sqrt{0.1}\\,m \\approx 0.316\\,m$$\nThe amplitude of oscillation is approximately $0.316\\,m$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the energy transformation between kinetic and potential energy during one full cycle of SHM, starting from an extreme position.",
+      "back": "Starting from an extreme position ($x=\\pm A$), all energy is potential ($PE = \\frac{1}{2}kA^2$, $KE=0$). As the mass moves towards the equilibrium position ($x=0$), the potential energy is converted into kinetic energy. At equilibrium, all energy is kinetic ($KE = \\frac{1}{2}mv_{max}^2$, $PE=0$). As the mass moves past equilibrium towards the other extreme, kinetic energy is converted back into potential energy. This continuous transformation between KE and PE occurs throughout the cycle, with their sum remaining constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship between the maximum speed ($v_{max}$) of an object in SHM and its amplitude ($A$), spring constant ($k$), and mass ($m$), using the principle of energy conservation.",
+      "back": "At the equilibrium position ($x=0$), the potential energy is zero ($PE=0$), and all the total mechanical energy is kinetic energy. Thus, $E_{total} = KE_{max} = \\frac{1}{2}mv_{max}^2$.\n\nWe also know that the total mechanical energy in SHM is constant and equal to the potential energy at the extreme positions ($x=\\pm A$), where $PE_{max} = \\frac{1}{2}kA^2$.\n\nBy conservation of energy, $KE_{max} = PE_{max}$, so:\n$$\\frac{1}{2}mv_{max}^2 = \\frac{1}{2}kA^2$$\nMultiply both sides by 2:\n$$mv_{max}^2 = kA^2$$\nSolve for $v_{max}$:\n$$v_{max}^2 = \\frac{k}{m}A^2$$\n$$v_{max} = \\sqrt{\\frac{k}{m}}A$$\nSince $\\omega = \\sqrt{\\frac{k}{m}}$ for a spring-mass system, this can also be written as $v_{max} = \\omega A$.",
+      "difficulty": "hard"
+    }
+  ]
+}

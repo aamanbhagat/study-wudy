@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p2-2-1-gyroscope-steady-precession-derivation",
+  "subtopicTitle": "Gyroscope — steady precession derivation",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:25.553Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of a gyroscope?",
+      "back": "A gyroscope is a rapidly spinning rigid body whose axis of rotation is free to assume any orientation in space. It exhibits gyroscopic effects like precession and nutation when subjected to external torques.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"precession\" in the context of a gyroscope.",
+      "back": "Precession is the change in the orientation of the rotational axis of a rotating body. In steady precession, the axis sweeps out a cone at a constant angular velocity, maintaining a constant angle with the vertical.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which fundamental equation governs the relationship between torque and angular momentum for a rotating body, crucial for gyroscopic motion?",
+      "back": "Newton's second law for rotation states: $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$, where $\\vec{\\tau}$ is the net external torque acting on the body and $\\vec{L}$ is its total angular momentum. This means torque causes a change in angular momentum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a torque $\\vec{\\tau}$ acts on a spinning gyroscope with angular momentum $\\vec{L}$, in which direction does the axis of precession occur relative to $\\vec{\\tau}$ and $\\vec{L}$?",
+      "back": "The torque $\\vec{\\tau}$ is in the direction of the change in angular momentum $d\\vec{L}$. Since $d\\vec{L}$ is perpendicular to the initial angular momentum $\\vec{L}$ (for a change in direction), the axis of precession is perpendicular to both $\\vec{L}$ and $\\vec{\\tau}$. It causes $\\vec{L}$ to rotate around the direction of precession.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a spinning top with mass $m$, with its center of mass a distance $r$ from the pivot, and its spin axis tilted at angle $\\alpha$ from the vertical, what is the magnitude and direction of the gravitational torque $\\vec{\\tau}$ about the pivot?",
+      "back": "The gravitational force is $F_g = mg$ acting vertically downwards at the center of mass. The torque about the pivot is $\\vec{\\tau} = \\vec{r} \\times \\vec{F}_g$. Its magnitude is $\\tau = mgr \\sin\\alpha$. The direction of $\\vec{\\tau}$ is horizontal, perpendicular to the plane containing the spin axis (vector $\\vec{r}$) and the vertical force $\\vec{F}_g$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for the steady precession rate $\\Omega_p$ of a gyroscope, given the applied torque $\\tau$ and its spin angular momentum $L_s$. Assume the spin angular momentum is much larger than the precessional angular momentum.",
+      "back": "From Newton's second law for rotation, $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$. For steady precession, the spin angular momentum vector $\\vec{L}_s$ rotates horizontally, tracing a cone. The change in angular momentum $d\\vec{L}$ is perpendicular to $\\vec{L}_s$ and in the direction of $\\vec{\\tau}$. The magnitude of this change is approximately $dL = L_s d\\phi$, where $d\\phi$ is the infinitesimal angle of precession. Thus, $\\tau dt = L_s d\\phi$. The precession rate is $\\Omega_p = \\frac{d\\phi}{dt}$. Substituting, we get: $$ \\Omega_p = \\frac{\\tau}{L_s} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the full formula for the steady precession rate $\\Omega_p$ of a gyroscope, considering its moment of inertia $I_s$, spin angular velocity $\\omega_s$, mass $m$, distance $r$ to CM, and angle $\\alpha$ with the vertical?",
+      "back": "The torque due to gravity is $\\tau = mgr \\sin\\alpha$. The spin angular momentum is $L_s = I_s \\omega_s$. Substituting these into the general precession formula $\\Omega_p = \\frac{\\tau}{L_s}$, we obtain the full formula for steady precession: $$ \\Omega_p = \\frac{mgr \\sin\\alpha}{I_s \\omega_s} $$ This formula is valid when the spin angular momentum is much greater than the precessional angular momentum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does increasing the spin angular velocity $\\omega_s$ affect the steady precession rate $\\Omega_p$ of a gyroscope, assuming other parameters are constant?",
+      "back": "Increasing the spin angular velocity $\\omega_s$ *decreases* the steady precession rate $\\Omega_p$. From the formula $\\Omega_p = \\frac{mgr \\sin\\alpha}{I_s \\omega_s}$, $\\Omega_p$ is inversely proportional to $\\omega_s$. A faster spin results in a larger spin angular momentum ($L_s$), which requires a smaller precession rate to accommodate the same applied torque.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why a spinning gyroscope precesses horizontally instead of simply falling under gravity like a non-spinning object.",
+      "back": "Gravity creates a torque that attempts to tip the gyroscope over, causing a change in its angular momentum $\\vec{L}$. For a non-spinning object, this torque directly causes it to fall. However, for a rapidly spinning gyroscope, its angular momentum $\\vec{L}$ is large and directed along its spin axis. The torque causes a *change* in $\\vec{L}$ ($d\\vec{L}$) that is perpendicular to the existing $\\vec{L}$. Instead of tipping $\\vec{L}$ downwards, this perpendicular change causes $\\vec{L}$ to rotate horizontally, resulting in precession. The gyroscope effectively 'leans into' the torque.",
+      "difficulty": "hard"
+    }
+  ]
+}

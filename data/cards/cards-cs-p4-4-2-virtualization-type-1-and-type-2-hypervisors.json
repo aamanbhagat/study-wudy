@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-virtualization-type-1-and-type-2-hypervisors",
+  "subtopicTitle": "Virtualization — type 1 and type 2 hypervisors",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:22.006Z",
+  "cards": [
+    {
+      "front": "A __________ is a piece of software, firmware, or hardware that creates and runs virtual machines (VMs). It is also known as a Virtual Machine Monitor (VMM).",
+      "back": "hypervisor",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary distinction between Type 1 and Type 2 hypervisors regarding their interaction with the host hardware?",
+      "back": "A Type 1 hypervisor runs directly on the host hardware (\"bare metal\"), while a Type 2 hypervisor runs as an application on top of a conventional host operating system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the typical architecture of a Type 1 hypervisor, including its relationship to guest operating systems and the underlying hardware.",
+      "back": "A Type 1 hypervisor, also known as a \"bare-metal\" hypervisor, runs directly on the host's hardware. It manages the hardware resources (CPU, memory, storage, network) and allocates them directly to multiple guest operating systems (VMs). There is no intervening host OS. Examples include VMware ESXi, Microsoft Hyper-V, and Xen.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the typical architecture of a Type 2 hypervisor, including its relationship to guest operating systems, the host operating system, and the underlying hardware.",
+      "back": "A Type 2 hypervisor, also known as a \"hosted\" hypervisor, runs as an application on top of a conventional host operating system (e.g., Windows, macOS, Linux). This host OS then manages the hardware resources, and the hypervisor requests these resources from the host OS to provide them to its guest operating systems (VMs). Examples include VMware Workstation, Oracle VirtualBox, and Parallels Desktop.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the performance characteristics and typical use cases of Type 1 versus Type 2 hypervisors.",
+      "back": "```\n- Performance: Type 1 generally offers better performance, lower latency, and higher resource efficiency because it has direct access to hardware and no host OS overhead. Type 2 has performance overhead due to the host OS layer.\n- Use Cases: Type 1 is ideal for server virtualization, data centers, cloud computing, and enterprise environments where high performance, security, and scalability are critical. Type 2 is more suited for desktop virtualization, development/testing environments, and running multiple OSes on a personal computer for convenience.\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are two key advantages of using a Type 1 hypervisor over a Type 2 hypervisor in a production server environment?",
+      "back": "```\n1. Performance & Efficiency: Direct hardware access minimizes overhead, leading to better performance and more efficient resource utilization for guest VMs.\n2. Security & Stability: A Type 1 hypervisor has a smaller attack surface and is less susceptible to vulnerabilities in a host OS, making it more secure and stable for critical workloads.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two key advantages of using a Type 2 hypervisor for a software developer who needs to test applications on various operating systems?",
+      "back": "```\n1. Ease of Setup & Use: It's simpler to install and manage, as it runs like any other application on an existing OS.\n2. Convenience & Flexibility: Developers can easily switch between host and guest OS, copy/move VMs, and leverage host OS features (e.g., file sharing, USB passthrough) directly from their desktop.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how hardware-assisted virtualization (e.g., Intel VT-x, AMD-V) enhances the performance and security of both Type 1 and Type 2 hypervisors.",
+      "back": "Hardware-assisted virtualization provides special CPU instructions and features (like new CPU modes or extended page tables) that allow the hypervisor to more efficiently manage and isolate guest OSes.\n- Performance: It reduces the need for \"binary translation\" or \"paravirtualization,\" allowing guest OS instructions to run more directly on the CPU, significantly speeding up execution.\n- Security: It provides stronger isolation between VMs and the hypervisor, as well as between different VMs, by enforcing hardware-level separation of memory and CPU states, making it harder for one VM to affect another or the hypervisor itself.",
+      "difficulty": "hard"
+    }
+  ]
+}

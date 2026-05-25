@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-file-system-concepts-file-directory-path-inode",
+  "subtopicTitle": "File system concepts — file, directory, path, inode",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:14.451Z",
+  "cards": [
+    {
+      "front": "In an operating system, what is the fundamental unit for storing user data, treated as a named sequence of bytes?",
+      "back": "A file is a named collection of related information, typically stored on a non-volatile device. It's the smallest unit of data the OS manages for user access, viewed as a contiguous sequence of bytes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What file system construct is used to organize files and other directories hierarchically, acting as a container?",
+      "back": "A directory (also known as a folder) is a special type of file that contains a list of names of other files and directories, along with pointers (e.g., inode numbers) to their actual locations. It provides hierarchical organization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a hierarchical file system, what special directory, denoted by `/`, serves as the top-most starting point for all absolute paths?",
+      "back": "The root directory (`/`) is the highest-level directory in the file system hierarchy. All other files and directories are contained within it, directly or indirectly, forming a tree structure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If your current working directory is `/home/user/docs`, what is the absolute path and a relative path to `report.pdf` located in `/home/user/docs/projects`?",
+      "back": "Absolute path: `/home/user/docs/projects/report.pdf`\nRelative path: `projects/report.pdf` (or `./projects/report.pdf`)\nAn absolute path starts from the root (`/`), while a relative path starts from the current working directory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Unix-like file systems, what data structure stores metadata about a file or directory (permissions, size, timestamps, data block pointers) but not its name or actual content?",
+      "back": "An inode (index node) is a data structure storing all metadata for a file or directory, such as type, permissions, owner, size, timestamps, and pointers to its data blocks on disk. Each file/directory has a unique inode number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between a file's name, its directory entry, and its inode in a Unix-like file system.",
+      "back": "A file's name is stored in a directory entry, which maps the name to a unique inode number. This inode number points to the inode structure, which holds all the file's metadata and disk block pointers. The file's content is stored in those disk blocks.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary benefit of separating a file's name (in a directory) from its metadata (in an inode) in Unix-like file systems?",
+      "back": "This separation enables **hard links**, where multiple directory entries (names) can point to the same inode. This means a single file's data can be accessed via different paths. It also simplifies file renaming/moving (only directory entry changes) and ensures metadata consistency.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When a file is deleted using `rm` in a Unix-like system, what specific actions occur regarding its directory entry and its inode's link count?",
+      "back": "1. The directory entry mapping the file's name to its inode number is removed from the parent directory.\n2. The `link count` stored in the inode is decremented.\n3. If the link count reaches zero, the inode is marked as free, and its associated data blocks are made available for reuse.",
+      "difficulty": "medium"
+    }
+  ]
+}

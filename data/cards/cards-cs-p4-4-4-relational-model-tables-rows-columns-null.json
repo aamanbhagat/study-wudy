@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-4-relational-model-tables-rows-columns-null",
+  "subtopicTitle": "Relational model — tables, rows, columns, NULL",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:39.991Z",
+  "cards": [
+    {
+      "front": "What is the primary data structure used to represent information in the relational model?",
+      "back": "A **table**, also known as a **relation**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of a relational table, what are the common terms for a horizontal entry and a vertical category of data, respectively?",
+      "back": "A horizontal entry is a **row** (or **tuple**), representing a single record or entity instance. A vertical category is a **column** (or **attribute**), representing a specific characteristic or property.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the components that define a **column** in a relational table, beyond just its name.",
+      "back": "A column is defined by its **name**, its **data type** (e.g., `INTEGER`, `VARCHAR(255)`, `DATE`), and sometimes constraints like `NOT NULL` or `UNIQUE`. The data type dictates the kind of values that can be stored in that column.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the `NULL` value signify in a relational database, and how does it differ from an empty string or zero?",
+      "back": "`NULL` signifies the absence of a value, meaning either \"unknown\" or \"not applicable.\" It is distinct from an empty string (`''`) or zero (`0`), which are actual, known values. An empty string is a string of length zero, and zero is a numeric value. `NULL` means *no value at all*.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In SQL, if you have a condition `WHERE column_A = column_B` and both `column_A` and `column_B` contain `NULL` for a given row, will that row be returned? Explain why.",
+      "back": "No, the row will **not** be returned. When comparing `NULL` values using standard comparison operators (`=`, `<`, `>`), the result is `UNKNOWN`, not `TRUE` or `FALSE`. SQL's `WHERE` clause only returns rows for which the condition evaluates to `TRUE`. To check for `NULL` values, you must use `IS NULL` or `IS NOT NULL`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a table `Products` with columns `ProductID`, `Name`, and `Price`. If `Price` is defined as `DECIMAL(10,2) NULL`, what happens if you try to insert a new product without specifying a `Price`? What if `Price` was defined as `DECIMAL(10,2) NOT NULL`?",
+      "back": "If `Price` is `DECIMAL(10,2) NULL`: The insertion will succeed, and the `Price` for that product will be `NULL`.\nIf `Price` is `DECIMAL(10,2) NOT NULL`: The insertion will fail with an error, as the `NOT NULL` constraint requires a value to be provided for the `Price` column.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Differentiate between a relational database **schema** and a relational database **instance**.",
+      "back": "A **schema** describes the logical design or structure of the database, including table names, column names, data types, constraints, and relationships. It's the blueprint.\nAn **instance** is the actual data stored in the database at a particular moment in time, conforming to the defined schema. It's the populated database.",
+      "difficulty": "medium"
+    }
+  ]
+}

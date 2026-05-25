@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-mach-number-m-v-a-subsonic-1-transonic-1-supersonic-1-hypersonic-5",
+  "subtopicTitle": "Mach number M = V/a — subsonic (<1), transonic (~1), supersonic (>1), hypersonic (>5)",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:06.017Z",
+  "cards": [
+    {
+      "front": "Define the Mach number and state its formula.",
+      "back": "The Mach number ($M$) is a dimensionless quantity representing the ratio of the flow velocity ($V$) to the local speed of sound ($a$) in the medium. Its formula is: $$M = \\frac{V}{a}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the Mach number formula $M = V/a$, what do $V$ and $a$ physically represent?",
+      "back": "$V$ represents the local flow velocity of the fluid relative to the object (e.g., an aircraft's true airspeed). $a$ represents the local speed of sound in that specific fluid medium under the prevailing conditions (e.g., air temperature and composition).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Categorize the four primary flow regimes based on Mach number, specifying their respective ranges.",
+      "back": "The four primary flow regimes are:\n*   **Subsonic:** $M < 1$\n*   **Transonic:** $M \\approx 1$ (typically $0.8 < M < 1.2$)\n*   **Supersonic:** $M > 1$\n*   **Hypersonic:** $M > 5$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "From an aerodynamic perspective, what makes the \"transonic\" flow regime ($M \\approx 1$) uniquely challenging for aircraft design?",
+      "back": "In the transonic regime, parts of the flow around an object can be supersonic while other parts remain subsonic. This leads to complex and unstable phenomena such as the formation of localized shock waves, flow separation, significant increase in drag (wave drag), and buffeting, making stable and efficient flight difficult to achieve.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an ideal gas, how does temperature influence the local speed of sound ($a$), and what is the formula?",
+      "back": "For an ideal gas, the local speed of sound ($a$) is primarily dependent on the absolute temperature ($T$). It is given by the formula: $$a = \\sqrt{\\gamma R T}$$\nwhere $\\gamma$ is the ratio of specific heats, and $R$ is the specific gas constant. Thus, $a$ increases with the square root of temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An aircraft maintains a constant true airspeed ($V$). If it descends from a colder high altitude to a warmer lower altitude, how does its Mach number change? Explain.",
+      "back": "As the aircraft descends from a colder high altitude to a warmer lower altitude, the local air temperature ($T$) increases. Since the local speed of sound is $a = \\sqrt{\\gamma R T}$, an increase in $T$ leads to an increase in $a$. Given that Mach number is $M = V/a$ and $V$ is constant, an increase in $a$ will result in a *decrease* in the Mach number ($M$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An aircraft flies at $V = 300 \\text{ m/s}$. If the local speed of sound is $a = 340 \\text{ m/s}$, calculate its Mach number and identify the flow regime.",
+      "back": "The Mach number is $M = V/a = 300 \\text{ m/s} / 340 \\text{ m/s} \\approx 0.882$. This falls into the **subsonic** flow regime, as $M < 1$. It is often categorized as high-subsonic, approaching the transonic range.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental physical phenomenon dictates the existence of distinct flow regimes (subsonic, supersonic, etc.) based on Mach number?",
+      "back": "The fundamental phenomenon is the **propagation of disturbances (or information) through the fluid**. At subsonic speeds, disturbances (like pressure waves) travel faster than the object, allowing the fluid to adjust smoothly. At supersonic speeds, the object travels faster than disturbances can propagate, meaning the fluid ahead of the object does not 'know' it's coming, leading to abrupt changes concentrated in shock waves.",
+      "difficulty": "hard"
+    }
+  ]
+}

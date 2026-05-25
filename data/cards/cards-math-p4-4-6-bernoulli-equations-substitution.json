@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-bernoulli-equations-substitution",
+  "subtopicTitle": "Bernoulli equations — substitution",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:48.519Z",
+  "cards": [
+    {
+      "front": "State the general form of a Bernoulli differential equation.",
+      "back": "A Bernoulli equation has the form: $$y' + P(x)y = Q(x)y^n$$ where $P(x)$ and $Q(x)$ are continuous functions, and $n$ is any real number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the standard substitution used to transform a Bernoulli equation into a linear first-order ODE?",
+      "back": "The standard substitution is $v = y^{1-n}$. This substitution is valid when $n \\ne 0$ and $n \\ne 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the linear first-order ODE obtained after applying the substitution $v = y^{1-n}$ to a Bernoulli equation $y' + P(x)y = Q(x)y^n$. Assume $y \\ne 0$.",
+      "back": "Given $y' + P(x)y = Q(x)y^n$. Let $v = y^{1-n}$.\nThen $\\frac{dv}{dx} = (1-n)y^{1-n-1}\\frac{dy}{dx} = (1-n)y^{-n}y'$.\nFrom this, $y' = \\frac{1}{1-n}y^n\\frac{dv}{dx}$.\nSubstitute $y'$ into the original equation:\n$\\frac{1}{1-n}y^n\\frac{dv}{dx} + P(x)y = Q(x)y^n$.\nDivide by $y^n$ (assuming $y \\ne 0$):\n$\\frac{1}{1-n}\\frac{dv}{dx} + P(x)y^{1-n} = Q(x)$.\nSubstitute $v = y^{1-n}$:\n$\\frac{1}{1-n}\\frac{dv}{dx} + P(x)v = Q(x)$.\nMultiply by $(1-n)$:\n$$\\frac{dv}{dx} + (1-n)P(x)v = (1-n)Q(x)$$\nThis is a linear first-order ODE in $v$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does a Bernoulli equation $y' + P(x)y = Q(x)y^n$ simplify if $n=0$ or $n=1$?",
+      "back": "If $n=0$, the equation becomes $y' + P(x)y = Q(x)$, which is a linear first-order ODE.\nIf $n=1$, the equation becomes $y' + P(x)y = Q(x)y$, which simplifies to $y' = (Q(x) - P(x))y$. This is a separable ODE.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general steps to solve a Bernoulli equation $y' + P(x)y = Q(x)y^n$ when $n \\ne 0, 1$.",
+      "back": "1. Identify $P(x)$, $Q(x)$, and $n$.\n2. Apply the substitution $v = y^{1-n}$.\n3. Transform the Bernoulli equation into its equivalent linear first-order ODE: $\\frac{dv}{dx} + (1-n)P(x)v = (1-n)Q(x)$.\n4. Solve this linear ODE for $v(x)$ using an integrating factor.\n5. Substitute back $y = v^{1/(1-n)}$ to express the solution in terms of $y(x)$.\n6. Check for the trivial solution $y=0$ if division by $y^n$ occurred.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Transform the Bernoulli equation $y' + \\frac{1}{x}y = xy^2$ into a linear first-order ODE.",
+      "back": "Here, $P(x) = \\frac{1}{x}$, $Q(x) = x$, and $n=2$. The substitution is $v = y^{1-n} = y^{1-2} = y^{-1}$.\nThen $\\frac{dv}{dx} = -y^{-2}y'$, so $y' = -y^2\\frac{dv}{dx}$.\nSubstitute into the original equation:\n$-y^2\\frac{dv}{dx} + \\frac{1}{x}y = xy^2$.\nDivide by $y^2$ (assuming $y \\ne 0$):\n$-\\frac{dv}{dx} + \\frac{1}{x}y^{-1} = x$.\nSubstitute $v = y^{-1}$:\n$-\\frac{dv}{dx} + \\frac{1}{x}v = x$.\nMultiply by $-1$ to get the standard linear form:\n$$\\frac{dv}{dx} - \\frac{1}{x}v = -x$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the intuitive reason why dividing by $y^n$ and then using $v=y^{1-n}$ helps solve a Bernoulli equation.",
+      "back": "Dividing $y' + P(x)y = Q(x)y^n$ by $y^n$ gives $y^{-n}y' + P(x)y^{1-n} = Q(x)$. Notice that the term $y^{-n}y'$ is directly related to the derivative of $y^{1-n}$. Specifically, $\\frac{d}{dx}(y^{1-n}) = (1-n)y^{-n}y'$. By setting $v = y^{1-n}$, the equation transforms into $\\frac{1}{1-n}\\frac{dv}{dx} + P(x)v = Q(x)$, which is a linear ODE in $v$. The substitution cleverly 'linearizes' both the derivative term and the $P(x)y$ term simultaneously.",
+      "difficulty": "medium"
+    }
+  ]
+}

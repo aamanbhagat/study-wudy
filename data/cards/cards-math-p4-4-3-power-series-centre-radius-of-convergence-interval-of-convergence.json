@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-3-power-series-centre-radius-of-convergence-interval-of-convergence",
+  "subtopicTitle": "Power series — centre, radius of convergence, interval of convergence",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:01:18.007Z",
+  "cards": [
+    {
+      "front": "What is the general form of a power series centered at $a$?",
+      "back": "A power series centered at $a$ is an infinite series of the form:\n$$\\sum_{n=0}^{\\infty} c_n (x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \\dots$$\nwhere $c_n$ are the coefficients of the series and $a$ is the center.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the power series $\\sum_{n=0}^{\\infty} c_n (x-a)^n$, identify its center.",
+      "back": "The center of the power series $\\sum_{n=0}^{\\infty} c_n (x-a)^n$ is $x=a$. It is the point around which the series is expanded.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the radius of convergence $R$ for a power series and state how to find it using the Ratio Test.",
+      "back": "$R$ is a non-negative number such that the power series converges for $|x-a| < R$ and diverges for $|x-a| > R$. The Ratio Test gives $L = \\lim_{n \\to \\infty} \\left| \\frac{c_{n+1}(x-a)^{n+1}}{c_n(x-a)^n} \\right| = |x-a| \\lim_{n \\to \\infty} \\left| \\frac{c_{n+1}}{c_n} \\right|$. For convergence, $L < 1$. Thus, $R = \\frac{1}{\\lim_{n \\to \\infty} \\left| \\frac{c_{n+1}}{c_n} \\right|}$ (if the limit is finite and non-zero). If the limit is $0$, $R=\\infty$; if the limit is $\\infty$, $R=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the two extreme cases for the radius of convergence $R$, and what do they imply about the interval of convergence?",
+      "back": "1.  $R=0$: The series converges only at its center, $x=a$. The interval of convergence is $[a, a]$.\n2.  $R=\\infty$: The series converges for all real numbers $x$. The interval of convergence is $(-\\infty, \\infty)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the interval of convergence (IOC) for a power series. What is its general form after finding $R$?",
+      "back": "The IOC is the set of all $x$ values for which the power series converges. After finding $R$, the series converges for $|x-a| < R$, which means $a-R < x < a+R$. The IOC is initially $(a-R, a+R)$, but the endpoints $x=a-R$ and $x=a+R$ must be checked separately for convergence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it necessary to test the endpoints $x=a-R$ and $x=a+R$ when determining the interval of convergence? How are they tested?",
+      "back": "The Ratio Test (or Root Test) is inconclusive when $L=1$. At the endpoints, $|x-a|=R$, which makes $L=1$. Therefore, we must substitute $x=a-R$ and $x=a+R$ back into the original power series $\\sum c_n (x-a)^n$. This results in a numerical series for each endpoint, which must be tested using other convergence tests (e.g., p-test, Alternating Series Test, Comparison Test, Divergence Test).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the radius and interval of convergence for the power series $\\sum_{n=1}^{\\infty} \\frac{(x-3)^n}{n}$.",
+      "back": "Center $a=3$.\nRatio Test: $L = \\lim_{n \\to \\infty} \\left| \\frac{(x-3)^{n+1}/(n+1)}{(x-3)^n/n} \\right| = \\lim_{n \\to \\infty} \\left| (x-3) \\frac{n}{n+1} \\right| = |x-3| \\cdot 1 = |x-3|$.\nFor convergence, $|x-3| < 1$. Thus, $R=1$.\nInitial interval: $3-1 < x < 3+1 \\Rightarrow 2 < x < 4$.\n\nEndpoints:\n1.  At $x=2$: $\\sum_{n=1}^{\\infty} \\frac{(2-3)^n}{n} = \\sum_{n=1}^{\\infty} \\frac{(-1)^n}{n}$. This is the alternating harmonic series, which converges by the Alternating Series Test.\n2.  At $x=4$: $\\sum_{n=1}^{\\infty} \\frac{(4-3)^n}{n} = \\sum_{n=1}^{\\infty} \\frac{1}{n}$. This is the harmonic series (p-series with $p=1$), which diverges.\n\nTherefore, the interval of convergence is $[2, 4)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-generator-expressions-memory-efficiency",
+  "subtopicTitle": "Generator expressions — memory efficiency",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:07.557Z",
+  "cards": [
+    {
+      "front": "What is the primary syntactic difference between a generator expression and a list comprehension, and what type of object does a generator expression produce?",
+      "back": "A generator expression uses parentheses `()` instead of square brackets `[]`. It produces an *iterator* (specifically, a generator object) that yields values one by one, rather than building a complete list in memory.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fundamental reason why generator expressions are more memory-efficient than list comprehensions for large datasets.",
+      "back": "Generator expressions are memory-efficient because they employ *lazy evaluation*. They do not store all values in memory simultaneously. Instead, they generate and yield values *on demand*, one at a time, as they are requested during iteration. This means only one value exists in memory at any given moment during the generation process.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You need to process a sequence of a billion numbers, but you only need to iterate over them once. Which Python construct would you choose for optimal memory usage?",
+      "back": "You should choose a **generator expression**. A list comprehension would attempt to create a list of a billion numbers in memory, likely leading to an `OverflowError` or `MemoryError`. A generator expression would generate each number only when needed, consuming minimal memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider calculating the sum of squares for numbers from 0 to $10^7$. Write two Python snippets, one using a list comprehension and one using a generator expression, and describe their memory implications.",
+      "back": "```python\n# List comprehension\nsquares_list = [i*i for i in range(10**7)]\ntotal_list = sum(squares_list) # Creates a list of 10^7 elements\n\n# Generator expression\nsquares_gen = (i*i for i in range(10**7))\ntotal_gen = sum(squares_gen) # Processes elements one by one\n```\nThe list comprehension `squares_list` creates and stores all $10^7$ squared numbers in memory *before* `sum()` starts processing them, requiring significant RAM. The generator expression `squares_gen` calculates and yields each squared number *only when `sum()` requests it*, keeping only one number in memory at a time. This makes the generator expression far more memory-efficient for large ranges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How many times can a generator object (produced by a generator expression) be iterated over?",
+      "back": "A generator object can be iterated over **only once**. After all values have been yielded, the generator is exhausted. To iterate again, you must create a *new* generator object.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what scenarios might a list comprehension be preferred over a generator expression, even if memory efficiency is a concern?",
+      "back": "A list comprehension might be preferred when:\n1.  You need to iterate over the collection **multiple times**. (Generators are single-pass).\n2.  You need to access elements by **index** (e.g., `my_list[5]`). Generators don't support direct indexing.\n3.  The dataset is **small**, and the overhead of creating a generator object (though minimal) doesn't outweigh the simplicity of a list.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Although generator expressions don't explicitly use the `yield` keyword, what underlying Python mechanism do they leverage to achieve their lazy evaluation behavior?",
+      "back": "Generator expressions are essentially syntactic sugar for creating a simple generator function that contains a `yield` statement. When you define a generator expression, Python internally creates a generator object that implements the iterator protocol (`__iter__` and `__next__`), pausing execution and resuming it to `yield` values on demand, just like a generator function.",
+      "difficulty": "hard"
+    }
+  ]
+}

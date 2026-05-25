@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-2-process-creation-fork-exec-wait-exit",
+  "subtopicTitle": "Process creation — fork(), exec(), wait(), exit()",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:57.128Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `fork()` system call in Unix-like operating systems, and what does it return in the parent and child processes?",
+      "back": "`fork()` creates a new process (the child) that is an exact copy of the calling process (the parent).\n*   In the **parent process**, `fork()` returns the **Process ID (PID)** of the newly created child process.\n*   In the **child process**, `fork()` returns **0**.\n*   If `fork()` fails, it returns **-1** in the parent process.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After a successful `fork()`, do the parent and child processes share the same memory space? Explain.",
+      "back": "No, after `fork()`, the parent and child processes have **separate and independent address spaces**. The child process receives a *copy* of the parent's memory segments (code, data, stack, heap). Modifications made by one process to its memory will not affect the other. This is often implemented efficiently using **copy-on-write (COW)**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `exec()` family of system calls (e.g., `execve()`, `execlp()`), and what happens to the calling process's PID after a successful `exec()`?",
+      "back": "The `exec()` family of system calls **replaces the current process's image** (code, data, stack, heap) with a new program specified by the arguments. The **PID of the process remains the same**; only the program it's executing changes. It never returns on success, only on failure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is `fork()` almost always followed by `exec()` when a new, different program needs to be run?",
+      "back": "This `fork()-exec()` pattern is fundamental for running new programs.\n1.  `fork()` creates a child process, which is an exact copy of the parent. This allows the child to inherit resources like open file descriptors, environment variables, and process priority from the parent.\n2.  `exec()` then *replaces* the child's program image with the new program.\nThis two-step process allows for clean inheritance and the execution of an entirely different application without changing the original process's identity (PID).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary function of the `wait()` system call, and what happens to the parent process if it calls `wait()` before a child has terminated?",
+      "back": "The `wait()` system call is used by a parent process to **wait for a child process to terminate**.\nIf a parent calls `wait()` and no child has terminated, the parent process will **block** (pause execution) until one of its children exits. Upon a child's termination, `wait()` retrieves the child's exit status and returns the child's PID.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `_exit()` (or `exit()`) system call, and what happens to the process's resources upon its invocation?",
+      "back": "The `_exit()` system call (or `exit()` from `stdlib.h` which calls `_exit()` after cleanup) is used to **terminate the calling process**.\nUpon termination, the operating system **releases all resources** held by the process, including memory, open file descriptors, and CPU time. The process's exit status is made available to its parent via `wait()`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"zombie process\" and explain how the `wait()` system call helps prevent them.",
+      "back": "A **zombie process** (or defunct process) is a process that has terminated but still has an entry in the process table because its parent has not yet called `wait()` (or `waitpid()`) to retrieve its exit status. It consumes minimal system resources (only process table entry).\nThe `wait()` system call explicitly **reaps** the child's exit status, allowing the operating system to completely remove the child's entry from the process table, thus preventing it from becoming a zombie.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define an \"orphan process\" and describe how Unix-like systems handle them.",
+      "back": "An **orphan process** is a child process whose parent process has terminated before the child.\nIn Unix-like systems, orphan processes are **adopted by the `init` process** (PID 1, or `systemd` in modern Linux). The `init` process periodically calls `wait()` to reap its adopted children, ensuring that they do not become zombies.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the following C code snippet. What will be the *possible* outputs, and why might the order vary?\n```c\n#include <stdio.h>\n#include <unistd.h>\n#include <sys/wait.h>\n\nint main() {\n    pid_t pid = fork();\n    if (pid == 0) { // Child process\n        printf(\"Child: My PID is %d\\n\", getpid());\n    } else if (pid > 0) { // Parent process\n        wait(NULL);\n        printf(\"Parent: My PID is %d, Child PID was %d\\n\", getpid(), pid);\n    } else {\n        perror(\"fork failed\");\n    }\n    return 0;\n}\n```",
+      "back": "The `wait(NULL)` in the parent ensures that the parent will always print *after* the child has terminated.\n**Possible Output:**\n```\nChild: My PID is <child_pid>\nParent: My PID is <parent_pid>, Child PID was <child_pid>\n```\nThe order of the `printf` calls is guaranteed because the parent blocks on `wait(NULL)` until the child exits. If `wait(NULL)` were removed, the order of `printf` statements would be non-deterministic, as both processes would run concurrently.",
+      "difficulty": "medium"
+    }
+  ]
+}

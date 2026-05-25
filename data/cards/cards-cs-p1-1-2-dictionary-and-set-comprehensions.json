@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-dictionary-and-set-comprehensions",
+  "subtopicTitle": "Dictionary and set comprehensions",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:07.164Z",
+  "cards": [
+    {
+      "front": "In Python, what is the primary purpose of a 'comprehension' (list, dictionary, or set)?",
+      "back": "To create new sequences or collections (lists, dictionaries, or sets) based on existing iterables in a concise and readable manner, often as a single line of code.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the basic syntax for a set comprehension that processes `item` from `iterable`?",
+      "back": "The basic syntax is `{item for item in iterable}`. It creates a new set containing unique elements derived from `iterable`, optionally transforming each `item`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a dictionary comprehension to create a dict where keys are numbers from 0 to 4 and values are their squares.",
+      "back": "```python\nsquares_dict = {i: i*i for i in range(5)}\n# Result: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Create a set comprehension to get all even numbers from 0 to 9.",
+      "back": "```python\neven_numbers = {x for x in range(10) if x % 2 == 0}\n# Result: {0, 2, 4, 6, 8}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using a dictionary comprehension, create a dict from `['apple', 'banana', 'cherry']` where keys are words and values are 'long' if word length > 5, else 'short'.",
+      "back": "```python\nwords = ['apple', 'banana', 'cherry']\nword_lengths = {word: 'long' if len(word) > 5 else 'short' for word in words}\n# Result: {'apple': 'short', 'banana': 'long', 'cherry': 'long'}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the key difference between `{x for x in iterable}` and `set(iterable)`.",
+      "back": "`set(iterable)` directly converts an iterable into a set, taking all elements as-is. `{x for x in iterable}` allows for transformation (`x`) and/or filtering (`if condition`) of elements before they are added to the new set. The comprehension provides more flexibility to modify or select elements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond conciseness, what are two significant advantages of using comprehensions over traditional loops for creating collections?",
+      "back": "1.  **Readability:** They often express the intent more clearly and compactly, making code easier to understand at a glance.\n2.  **Performance:** Comprehensions are generally faster than equivalent `for` loops that append/add elements, as they are optimized at the C level in Python's interpreter. They avoid repeated method calls and dynamic resizing overhead in some cases.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider `x = 10; my_list = [x for x in range(5)]`. What is the value of `x` after this line executes?",
+      "back": "The value of `x` remains `10`. The `x` inside the comprehension (`for x in range(5)`) is a *new* variable local to the comprehension's scope and does not affect the `x` in the outer scope. This behavior is specific to comprehensions (and distinct from generator expressions in older Python versions).",
+      "difficulty": "hard"
+    }
+  ]
+}

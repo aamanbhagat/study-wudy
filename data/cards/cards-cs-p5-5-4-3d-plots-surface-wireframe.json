@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-3d-plots-surface-wireframe",
+  "subtopicTitle": "3D plots — surface, wireframe",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:42.291Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of using 3D plots like surface or wireframe plots in scientific computing?",
+      "back": "3D plots are used to visualize the relationship between three variables, typically where one variable ($Z$) is a function of two others ($X, Y$), i.e., $Z = f(X, Y)$. They help in understanding the shape, contours, and behavior of multi-variate functions or data distributions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between a \"surface plot\" and a \"wireframe plot\" in 3D visualization.",
+      "back": "A **surface plot** renders a continuous surface by interpolating between data points, often using color mapping to represent the $Z$ values or other properties. A **wireframe plot** renders only the grid lines connecting the data points, showing the \"skeleton\" of the surface without filling the faces.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you prepare 2D domain data ($x, y$) for a 3D surface or wireframe plot in Python using NumPy?",
+      "back": "You use `numpy.meshgrid` to create 2D arrays of $X$ and $Y$ coordinates from 1D arrays of $x$ and $y$ values. These 2D arrays are then used to compute the $Z$ values for each $(X, Y)$ pair.\n```python\nimport numpy as np\nx = np.linspace(-5, 5, 100)\ny = np.linspace(-5, 5, 100)\nX, Y = np.meshgrid(x, y)\n# Z = f(X, Y) would be computed next\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the minimal Python code using Matplotlib to create a basic 3D surface plot for $z = \\sin(\\sqrt{x^2 + y^2})$.",
+      "back": "```python\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom mpl_toolkits.mplot3d import Axes3D\n\n# Prepare data\nx = np.linspace(-5, 5, 50)\ny = np.linspace(-5, 5, 50)\nX, Y = np.meshgrid(x, y)\nR = np.sqrt(X**2 + Y**2)\nZ = np.sin(R)\n\n# Create plot\nfig = plt.figure()\nax = fig.add_subplot(111, projection='3d')\nax.plot_surface(X, Y, Z, cmap='viridis') # Key function\nax.set_xlabel('X')\nax.set_ylabel('Y')\nax.set_zlabel('Z')\nplt.show()\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the minimal Python code using Matplotlib to create a basic 3D wireframe plot for $z = x \\cdot e^{-x^2 - y^2}$.",
+      "back": "```python\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom mpl_toolkits.mplot3d import Axes3D\n\n# Prepare data\nx = np.linspace(-2, 2, 30)\ny = np.linspace(-2, 2, 30)\nX, Y = np.meshgrid(x, y)\nZ = X * np.exp(-X**2 - Y**2)\n\n# Create plot\nfig = plt.figure()\nax = fig.add_subplot(111, projection='3d')\nax.plot_wireframe(X, Y, Z, rstride=2, cstride=2) # Key function with strides\nax.set_xlabel('X')\nax.set_ylabel('Y')\nax.set_zlabel('Z')\nplt.show()\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you typically choose a wireframe plot over a surface plot, and vice-versa?",
+      "back": "<ul>\n<li><b>Wireframe preferred:</b> When the underlying structure or grid of the data is more important than the continuous surface, or when visualizing multiple surfaces simultaneously where transparency is crucial. It's also good for quickly inspecting the mesh.</li>\n<li><b>Surface preferred:</b> When a smooth, continuous representation of the function's values is needed, especially when using colormaps to convey additional information (like $Z$ magnitude or another variable). It provides a more intuitive visual of the \"shape\" of the function.</li>\n</ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you control the density of lines (mesh resolution) in a Matplotlib `plot_wireframe` and what parameters are used?",
+      "back": "The density of lines in a `plot_wireframe` is controlled by the `rstride` and `cstride` parameters:\n<ul>\n<li>`rstride`: Row stride (step size) for the rows of the $Z$ array. A value of $N$ means every $N$-th row is plotted.</li>\n<li>`cstride`: Column stride (step size) for the columns of the $Z$ array. A value of $N$ means every $N$-th column is plotted.</li>\n</ul>\nSmaller stride values (e.g., 1) result in denser wireframes, while larger values create sparser ones.\n```python\nax.plot_wireframe(X, Y, Z, rstride=10, cstride=10) # Sparser\nax.plot_wireframe(X, Y, Z, rstride=1, cstride=1)  # Denser\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the role and benefit of a \"colormap\" in a 3D surface plot.",
+      "back": "A colormap (e.g., 'viridis', 'plasma', 'jet') maps data values (typically the $Z$ values of the surface) to a range of colors. In a 3D surface plot, it assigns a specific color to each point on the surface based on its $Z$ value (or another scalar field). This enhances visualization by:\n<ol>\n<li><b>Indicating magnitude:</b> Easily identifying high/low points or regions of change.</li>\n<li><b>Adding information:</b> Providing a fourth dimension of information (color) to a 3D plot.</li>\n<li><b>Clarity:</b> Making complex surfaces easier to interpret than a single-colored surface.</li>\n</ol>",
+      "difficulty": "easy"
+    }
+  ]
+}

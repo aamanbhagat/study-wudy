@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-area-mach-number-relation-a-a-f-m-isentropic-flow",
+  "subtopicTitle": "Area-Mach number relation A/A* = f(M) — isentropic flow",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:01.441Z",
+  "cards": [
+    {
+      "front": "For isentropic flow, what does the Area-Mach number relation, $A/A^* = f(M)$, describe?",
+      "back": "It describes how the cross-sectional area of a duct must change to achieve a desired Mach number for a compressible, steady, one-dimensional, isentropic flow. $A^*$ is the area where the flow is sonic ($M=1$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the full isentropic Area-Mach number relation, $A/A^* = f(M)$, for an ideal gas with specific heat ratio $\\gamma$.",
+      "back": "$$ \\frac{A}{A^*} = \\frac{1}{M} \\left[ \\frac{2}{\\gamma+1} \\left( 1 + \\frac{\\gamma-1}{2} M^2 \\right) \\right]^{\\frac{\\gamma+1}{2(\\gamma-1)}} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To accelerate an isentropic flow from subsonic ($M<1$) to supersonic ($M>1$), how must the duct's cross-sectional area change?",
+      "back": "The duct must first converge to a minimum area (a throat) where the flow reaches sonic conditions ($M=1$), and then diverge to further accelerate the flow to supersonic speeds. This configuration is known as a convergent-divergent (CD) nozzle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In an isentropic, one-dimensional flow, if the duct area *increases* in a *supersonic* stream ($M>1$), what happens to the Mach number and velocity?",
+      "back": "For supersonic flow ($M>1$), an *increase* in area causes the Mach number to *increase* and the velocity to *increase*. This is the behavior of a supersonic nozzle (diverging section).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the differential form of the Area-Mach number relation: $dA/A = -(1-M^2) dV/V$, starting from the continuity equation and Euler's equation.",
+      "back": "1.  **Continuity:** $\\rho A V = \\text{constant} \\implies \\frac{d\\rho}{\\rho} + \\frac{dA}{A} + \\frac{dV}{V} = 0$. (1)\n2.  **Euler (momentum):** For isentropic flow, $dp = -\\rho V dV$. (2)\n3.  **Isentropic relation:** $dp = c^2 d\\rho$, where $c$ is the speed of sound. So, $d\\rho = dp/c^2$. (3)\n4.  Substitute (3) into (2): $c^2 d\\rho = -\\rho V dV \\implies \\frac{d\\rho}{\\rho} = -\\frac{V dV}{c^2} = -\\frac{V^2}{c^2} \\frac{dV}{V} = -M^2 \\frac{dV}{V}$. (4)\n5.  Substitute (4) into (1): $-M^2 \\frac{dV}{V} + \\frac{dA}{A} + \\frac{dV}{V} = 0$.\n6.  Rearrange: $\\frac{dA}{A} = (M^2 - 1) \\frac{dV}{V} = -(1-M^2) \\frac{dV}{V}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What specific flow condition defines the reference area $A^*$ in the isentropic Area-Mach number relation $A/A^* = f(M)$?",
+      "back": "$A^*$ is the cross-sectional area where the flow reaches sonic conditions, i.e., where the Mach number $M=1$. This point is commonly referred to as the \"throat\" in a convergent-divergent nozzle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the $(1-M^2)$ term in the differential Area-Mach relation, $dA/A = -(1-M^2) dV/V$.",
+      "back": "The $(1-M^2)$ term dictates how area changes affect velocity (and thus Mach number):\n*   If $M<1$ (subsonic), $(1-M^2) > 0$. Thus $dA/A$ and $dV/V$ have opposite signs. A decrease in area ($dA<0$) causes an increase in velocity ($dV>0$).\n*   If $M>1$ (supersonic), $(1-M^2) < 0$. Thus $dA/A$ and $dV/V$ have the same sign. An increase in area ($dA>0$) causes an increase in velocity ($dV>0$).\n*   If $M=1$ (sonic), $(1-M^2) = 0$. This implies $dA/A = 0$, meaning the area must be at a minimum (a throat) for the flow to become sonic.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the primary assumptions required for the derivation and application of the isentropic Area-Mach number relation.",
+      "back": "1.  **Isentropic Flow:** No friction, no heat transfer (reversible adiabatic).\n2.  **Steady Flow:** Flow properties do not change with time.\n3.  **One-Dimensional Flow:** Flow properties vary only along the streamtube axis.\n4.  **Ideal Gas:** The working fluid behaves as an ideal gas.\n5.  **No External Work:** No shaft work done on or by the fluid.",
+      "difficulty": "medium"
+    }
+  ]
+}

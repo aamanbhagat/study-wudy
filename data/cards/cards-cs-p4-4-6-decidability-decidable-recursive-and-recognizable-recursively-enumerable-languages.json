@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-decidability-decidable-recursive-and-recognizable-recursively-enumerable-languages",
+  "subtopicTitle": "Decidability — decidable (recursive) and recognizable (recursively enumerable) languages",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:18.386Z",
+  "cards": [
+    {
+      "front": "What is a **decidable language** (also known as a **recursive language**)?",
+      "back": "A language $L$ is decidable if there exists a Turing Machine (TM) $M$ that **decides** $L$. This means $M$ halts on *all* inputs $w \\in \\Sigma^*$, accepting $w$ if $w \\in L$ and rejecting $w$ if $w \\notin L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a **recognizable language** (also known as a **recursively enumerable language**)?",
+      "back": "A language $L$ is recognizable if there exists a Turing Machine (TM) $M$ that **recognizes** $L$. This means $M$ halts and accepts $w$ if $w \\in L$. If $w \\notin L$, $M$ either halts and rejects, or it loops forever.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do **decidable languages** and **recognizable languages** relate to each other in terms of set inclusion?",
+      "back": "Every decidable language is also a recognizable language. This means the set of decidable languages is a proper subset of the set of recognizable languages.\n$$ \\text{Decidable Languages} \\subset \\text{Recognizable Languages} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A Turing Machine $M$ is said to **decide** a language $L$ if it always halts. What does this imply about the computational problem $L$ represents?",
+      "back": "If a TM decides $L$, it means there exists an **algorithm** (a guaranteed terminating procedure) to solve the computational problem represented by $L$. For any input, we can definitively determine whether it belongs to $L$ or not in a finite amount of time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a language $L$ is decidable, what can be said about its complement, $\\bar{L}$? What if $L$ is only recognizable?",
+      "back": "1. If $L$ is decidable, then its complement $\\bar{L}$ is also decidable. We can construct a TM for $\\bar{L}$ by swapping the accept and reject states of the TM for $L$.\n2. If $L$ is recognizable, $\\bar{L}$ is not necessarily recognizable. However, $L$ is decidable if and only if both $L$ and $\\bar{L}$ are recognizable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an example of a language that is **recognizable but not decidable**. Explain why.",
+      "back": "The **Halting Problem** language, $A_{TM} = \\{ \\langle M, w \\rangle \\mid M \\text{ is a TM and } M \\text{ halts on input } w \\}$.\n$A_{TM}$ is recognizable: A TM can simulate $M$ on $w$. If $M$ halts, the simulator accepts. If $M$ loops, the simulator loops.\n$A_{TM}$ is not decidable: This was proven by Alan Turing; no TM can always determine if an arbitrary TM $M$ halts on input $w$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the concept of a **recursively enumerable language** relate to an **enumerator**?",
+      "back": "A language $L$ is recursively enumerable (recognizable) if and only if some enumerator Turing Machine $E$ enumerates $L$. An enumerator is a TM that prints out all strings of $L$ one by one. If $L$ is infinite, $E$ runs forever, printing strings. If $L$ is empty, $E$ prints nothing. If $L$ is finite, $E$ prints all strings and then halts.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the distinction between \"decidable\" and \"recognizable\" crucial in computer science?",
+      "back": "It differentiates problems for which we can write a *guaranteed terminating algorithm* (decidable) from problems for which we can only write a *procedure that might run forever* on certain inputs (recognizable). For decidable problems, we always get an answer. For recognizable problems, if the answer is \"yes\", we'll eventually find out; if the answer is \"no\", we might never know (the program might just loop).",
+      "difficulty": "medium"
+    }
+  ]
+}

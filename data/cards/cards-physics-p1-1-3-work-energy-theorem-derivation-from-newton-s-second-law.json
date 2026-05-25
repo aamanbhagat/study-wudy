@@ -1,0 +1,35 @@
+{
+  "subtopicId": "physics-p1-1-3-work-energy-theorem-derivation-from-newton-s-second-law",
+  "subtopicTitle": "Work-energy theorem — derivation from Newton's second law",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:57.566Z",
+  "cards": [
+    {
+      "front": "What does the Work-Energy Theorem state?",
+      "back": "The Work-Energy Theorem states that the net work done on an object by all forces acting on it is equal to the change in its kinetic energy. Mathematically, $W_{net} = \\Delta K = K_f - K_i$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the mathematical definition of work done by a variable force $\\vec{F}$ acting along a path from point $A$ to point $B$.",
+      "back": "The work done by a variable force $\\vec{F}$ acting on an object as it moves along a path from point $A$ to point $B$ is given by the line integral:\n$$W = \\int_A^B \\vec{F} \\cdot d\\vec{r}$$\nwhere $d\\vec{r}$ is an infinitesimal displacement vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a particle moving in one dimension, how can acceleration $a$ be expressed in terms of velocity $v$ and position $x$ to facilitate integration with respect to displacement?",
+      "back": "Using the chain rule, acceleration $a = \\frac{dv}{dt}$ can be rewritten as:\n$$a = \\frac{dv}{dt} = \\frac{dv}{dx} \\frac{dx}{dt} = v \\frac{dv}{dx}$$\nThis form is crucial for integrating Newton's Second Law with respect to displacement $dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Work-Energy Theorem for a particle of mass $m$ moving in one dimension under a variable net force $F_{net}(x)$, starting from Newton's Second Law.",
+      "back": "1. Start with Newton's Second Law: $F_{net}(x) = ma$.\n2. Substitute $a = v \\frac{dv}{dx}$: $F_{net}(x) = m v \\frac{dv}{dx}$.\n3. Rearrange to separate variables: $F_{net}(x) dx = m v dv$.\n4. Integrate both sides from initial position $x_i$ (with velocity $v_i$) to final position $x_f$ (with velocity $v_f$):\n$$\\int_{x_i}^{x_f} F_{net}(x) dx = \\int_{v_i}^{v_f} m v dv$$\n5. The left side is the definition of net work done: $W_{net}$.\n6. Evaluate the right side:\n$$\\int_{v_i}^{v_f} m v dv = m \\left[ \\frac{v^2}{2} \\right]_{v_i}^{v_f} = \\frac{1}{2} m v_f^2 - \\frac{1}{2} m v_i^2$$\n7. Recognize the terms as final and initial kinetic energy ($K_f = \\frac{1}{2} m v_f^2$, $K_i = \\frac{1}{2} m v_i^2$).\n8. Thus, $W_{net} = K_f - K_i = \\Delta K$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the derivation of the Work-Energy Theorem extend to three dimensions, starting from Newton's Second Law $\\vec{F}_{net} = m\\vec{a}$?",
+      "back": "1. Start with Newton's Second Law: $\\vec{F}_{net} = m\\vec{a}$.\n2. Consider the infinitesimal work done $dW = \\vec{F}_{net} \\cdot d\\vec{r}$.\n3. Substitute $\\vec{F}_{net}$: $dW = m\\vec{a} \\cdot d\\vec{r}$.\n4. Express $\\vec{a} = \\frac{d\\vec{v}}{dt}$ and $d\\vec{r} = \\vec{v} dt$: \n$dW = m \\frac{d\\vec{v}}{dt} \\cdot (\\vec{v} dt) = m (d\\vec{v}) \\cdot \\vec{v}$.\n5. Recall the identity for the dot product of a vector with its differential: $\\vec{v} \\cdot d\\vec{v} = \\frac{1}{2} d(\\vec{v} \\cdot \\vec{v}) = \\frac{1}{2} d(v^2)$.\n6. Substitute this into the expression for $dW$: $dW = m \\frac{1}{2} d(v^2) = d\\left(\\frac{1}{2}mv^2\\right)$.\n7. Integrate both sides from initial state ($v_i$) to final state ($v_f$):\n$$\\int_{path} dW = \\int_{v_i}^{v_f} d\\left(\\frac{1}{2}mv^2\\right)$$\n$$W_{net} = \\left[ \\frac{1}{2}mv^2 \\right]_{v_i}^{v_f} = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2$$\n8. Thus, $W_{net} = K_f - K_i = \\Delta K$.",
+      "difficulty": "hard"
+    }
+  ]
+}

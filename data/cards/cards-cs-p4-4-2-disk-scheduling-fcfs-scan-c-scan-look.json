@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-disk-scheduling-fcfs-scan-c-scan-look",
+  "subtopicTitle": "Disk scheduling — FCFS, SCAN, C-SCAN, LOOK",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:19.910Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of disk scheduling algorithms in an operating system?",
+      "back": "The primary goal of disk scheduling algorithms is to minimize the total seek time and rotational latency, thereby optimizing disk I/O performance and improving the overall throughput and response time of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the FCFS (First-Come, First-Served) disk scheduling algorithm and its main disadvantage.",
+      "back": "FCFS processes disk I/O requests in the order they arrive in the queue. It is simple to implement and fair in terms of arrival order. Its main disadvantage is that it can lead to very long seek times if requests are scattered across the disk, resulting in a 'ping-pong' effect and poor performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the SCAN (Elevator) disk scheduling algorithm. How does it decide its direction of head movement?",
+      "back": "The SCAN algorithm moves the disk head in one direction, servicing all requests in its path, until it reaches the end of the disk (or the last request in that direction). Then, it reverses direction and services requests while moving back. The initial direction is usually determined by the current head movement or the direction that will service the nearest request.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does C-SCAN (Circular SCAN) differ from the standard SCAN algorithm, and what problem does it address?",
+      "back": "C-SCAN is similar to SCAN but, after reaching one end of the disk, it immediately 'jumps' back to the other end without servicing any requests on the return trip. It then resumes servicing requests while moving towards the initial end. This addresses the problem of starvation for requests at the far end of the disk and provides a more uniform wait time distribution compared to SCAN.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key optimization of the LOOK disk scheduling algorithm compared to SCAN, and why is it beneficial?",
+      "back": "LOOK is an optimization of SCAN. Instead of moving the disk head all the way to the end of the disk (or cylinder 0/max) before reversing direction, LOOK only moves as far as the last request in the current direction. Once it services the last request in that direction, it reverses. This is beneficial because it avoids unnecessary head movement to empty regions of the disk, reducing total seek time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the C-LOOK algorithm and its relationship to C-SCAN and LOOK.",
+      "back": "C-LOOK is an optimization of C-SCAN, similar to how LOOK optimizes SCAN. Instead of moving the head all the way to the physical end of the disk after servicing the last request in one direction, C-LOOK only moves to the last request in that direction. Then, it jumps directly to the request at the other extreme (the 'other end' of the active requests) and continues servicing in that direction. It avoids unnecessary travel to the physical ends of the disk.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the typical performance characteristics (seek time, variance, starvation risk) of FCFS, SCAN, and C-SCAN algorithms.",
+      "back": "<ul><li><b>FCFS:</b> High average seek time, high variance in response time, no starvation (but can have very long waits). Simple to implement.</li><li><b>SCAN:</b> Lower average seek time than FCFS, moderate variance, potential for starvation for requests continuously added behind the moving head. Provides better throughput.</li><li><b>C-SCAN:</b> Lower average seek time than FCFS, lower variance than SCAN (more uniform wait times), still potential for starvation but less pronounced due to the immediate jump. Good for heavily loaded systems.</li></ul>LOOK and C-LOOK generally improve upon SCAN and C-SCAN respectively by reducing unnecessary head movement, leading to better average seek times.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given requests: 98, 183, 37, 122, 14, 124, 65, 67. Current head at 53. Calculate total head movement for FCFS.",
+      "back": "Current head: 53. Requests: 98, 183, 37, 122, 14, 124, 65, 67.\nMovement:\n$|53 - 98| = 45$\n$|98 - 183| = 85$\n$|183 - 37| = 146$\n$|37 - 122| = 85$\n$|122 - 14| = 108$\n$|14 - 124| = 110$\n$|124 - 65| = 59$\n$|65 - 67| = 2$\nTotal head movement = $45 + 85 + 146 + 85 + 108 + 110 + 59 + 2 = 640$ cylinders.",
+      "difficulty": "medium"
+    }
+  ]
+}

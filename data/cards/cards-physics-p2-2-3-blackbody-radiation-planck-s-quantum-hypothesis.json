@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-blackbody-radiation-planck-s-quantum-hypothesis",
+  "subtopicTitle": "Blackbody radiation — Planck's quantum hypothesis",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:00.644Z",
+  "cards": [
+    {
+      "front": "What is an ideal blackbody in physics?",
+      "back": "An ideal blackbody is a hypothetical object that absorbs all incident electromagnetic radiation, regardless of frequency or angle. It also emits radiation perfectly, with a spectrum that depends solely on its absolute temperature, not its composition.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What phenomenon did the \"ultraviolet catastrophe\" describe in classical blackbody radiation theory?",
+      "back": "The \"ultraviolet catastrophe\" was the failure of classical physics (specifically the Rayleigh-Jeans law) to accurately predict the blackbody radiation spectrum at short wavelengths (high frequencies). It predicted that a blackbody would emit infinite energy as wavelength approached zero, contradicting experimental observations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Wien's Displacement Law and explain what it implies about the peak emission wavelength of a blackbody.",
+      "back": "Wien's Displacement Law states that the peak wavelength ($\\lambda_{max}$) of emitted radiation from a blackbody is inversely proportional to its absolute temperature ($T$): $\\lambda_{max} T = b$, where $b \\approx 2.898 \\times 10^{-3} \\text{ m}\\cdot\\text{K}$ is Wien's constant. This implies that hotter objects emit radiation with shorter peak wavelengths (e.g., blue stars are hotter than red stars).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What was Max Planck's revolutionary hypothesis about energy to explain blackbody radiation?",
+      "back": "Max Planck hypothesized that the energy of atomic oscillators within a blackbody is not continuous but quantized. Energy can only be emitted or absorbed in discrete packets, or \"quanta,\" with energy $E = nhf$, where $n$ is an integer, $h$ is Planck's constant, and $f$ is the oscillator's frequency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write down Planck's radiation law for the spectral radiance $B(\\lambda, T)$ of a blackbody as a function of wavelength $\\lambda$ and temperature $T$.",
+      "back": "Planck's radiation law is:\n$$B(\\lambda, T) = \\frac{2hc^2}{\\lambda^5} \\frac{1}{e^{hc/(\\lambda k_B T)} - 1}$$\nwhere $h$ is Planck's constant, $c$ is the speed of light, $k_B$ is Boltzmann's constant, $\\lambda$ is wavelength, and $T$ is temperature. This law perfectly matches experimental data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how Planck's quantum hypothesis resolves the \"ultraviolet catastrophe.\"",
+      "back": "Planck's hypothesis ($E=nhf$) implies that higher frequency oscillators require larger energy quanta ($hf$) to be excited. According to the Boltzmann distribution ($e^{-E/k_B T}$), the probability of an oscillator having such high energy decreases exponentially. This effectively \"freezes out\" high-frequency oscillators at typical temperatures, preventing them from radiating infinite energy at short wavelengths and thus resolving the catastrophe.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Show how Planck's radiation law reduces to the classical Rayleigh-Jeans law in the limit of long wavelengths or high temperatures.",
+      "back": "For long wavelengths ($\\lambda \\to \\infty$) or high temperatures ($T \\to \\infty$), the term $x = hc/(\\lambda k_B T)$ becomes very small. Using the Taylor expansion $e^x \\approx 1 + x$ for small $x$, we have $e^{hc/(\\lambda k_B T)} - 1 \\approx hc/(\\lambda k_B T)$.\nSubstituting this into Planck's law:\n$$B(\\lambda, T) = \\frac{2hc^2}{\\lambda^5} \\frac{1}{hc/(\\lambda k_B T)} = \\frac{2hc^2}{\\lambda^5} \\frac{\\lambda k_B T}{hc} = \\frac{2k_B T}{\\lambda^4}$$\nThis is precisely the Rayleigh-Jeans law, showing Planck's law encompasses the classical result in the appropriate limit.",
+      "difficulty": "hard"
+    }
+  ]
+}

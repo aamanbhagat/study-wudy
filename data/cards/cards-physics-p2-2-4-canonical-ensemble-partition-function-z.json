@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-4-canonical-ensemble-partition-function-z",
+  "subtopicTitle": "Canonical ensemble — partition function Z",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:41.409Z",
+  "cards": [
+    {
+      "front": "What defines a system in the Canonical Ensemble?",
+      "back": "A system in the Canonical Ensemble is characterized by a fixed number of particles ($N$), fixed volume ($V$), and fixed temperature ($T$). It is in thermal equilibrium with a much larger heat reservoir.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the canonical partition function $Z$ for a system with discrete energy states $E_i$.",
+      "back": "The canonical partition function $Z$ is defined as the sum over all possible microstates $i$ of the system:\n$$Z = \\sum_i e^{-\\beta E_i}$$\nwhere $E_i$ is the energy of microstate $i$, and $\\beta = 1/(k_B T)$ with $k_B$ being Boltzmann's constant and $T$ the absolute temperature.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide an intuitive physical interpretation of the canonical partition function $Z$.",
+      "back": "$Z$ is a measure of the \"number of thermally accessible states\" or \"volume in phase space\" available to the system at a given temperature $T$. It quantifies how energy is distributed among the microstates. A larger $Z$ indicates more accessible microstates and thus a greater degree of disorder or thermal excitation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship between the canonical partition function $Z$ and the Helmholtz Free Energy $F$.",
+      "back": "The Helmholtz Free Energy is defined as $F = U - TS$. The average energy is $\\langle E \\rangle = \\sum_i E_i p_i$ and entropy is $S = -k_B \\sum_i p_i \\ln p_i$, where $p_i = e^{-\\beta E_i}/Z$.\nSubstituting $p_i$ into the entropy expression:\n$S = -k_B \\sum_i \\frac{e^{-\\beta E_i}}{Z} (-\\beta E_i - \\ln Z)$\n$S = k_B \\beta \\frac{1}{Z} \\sum_i E_i e^{-\\beta E_i} + k_B \\frac{\\ln Z}{Z} \\sum_i e^{-\\beta E_i}$\n$S = k_B \\beta \\langle E \\rangle + k_B \\ln Z$\nNow substitute this into the definition of $F$:\n$F = \\langle E \\rangle - T(k_B \\beta \\langle E \\rangle + k_B \\ln Z)$\nSince $T k_B \\beta = T k_B (1/(k_B T)) = 1$, we get:\n$F = \\langle E \\rangle - \\langle E \\rangle - k_B T \\ln Z$\nThus, the fundamental relationship is:\n$$F = -k_B T \\ln Z$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the average energy $\\langle E \\rangle$ of a system in the canonical ensemble related to its partition function $Z$?",
+      "back": "The average energy $\\langle E \\rangle$ can be obtained by taking the derivative of $\\ln Z$ with respect to $\\beta$:\n$$\\langle E \\rangle = -\\frac{\\partial \\ln Z}{\\partial \\beta}$$\nAlternatively, in terms of temperature $T$:\n$$\\langle E \\rangle = k_B T^2 \\left(\\frac{\\partial \\ln Z}{\\partial T}\\right)_V$$\nThis is derived from $\\ln Z = \\ln (\\sum_i e^{-\\beta E_i})$, so $\\frac{\\partial \\ln Z}{\\partial \\beta} = \\frac{1}{Z} \\sum_i (-E_i) e^{-\\beta E_i} = -\\langle E \\rangle$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a system of $N$ non-interacting particles, how does the total canonical partition function $Z$ relate to the single-particle partition function $z$ if the particles are (a) distinguishable and (b) indistinguishable?",
+      "back": "(a) For $N$ **distinguishable**, non-interacting particles: \n$$Z = z^N$$\n(b) For $N$ **indistinguishable**, non-interacting particles (e.g., an ideal gas at high T, low density): \n$$Z = \\frac{z^N}{N!}$$\nThe $N!$ factor corrects for the overcounting of microstates when particles are indistinguishable, as permutations of identical particles among the same single-particle states do not lead to new macroscopic states (Gibbs paradox correction).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the canonical partition function $Z$ modified if energy levels $E_j$ have a degeneracy $g_j$?",
+      "back": "If energy levels $E_j$ have a degeneracy $g_j$ (meaning $g_j$ distinct microstates share the same energy $E_j$), the canonical partition function can be written as a sum over distinct energy levels $j$, weighted by their degeneracy:\n$$Z = \\sum_j g_j e^{-\\beta E_j}$$\nThis is equivalent to the original definition, where each of the $g_j$ degenerate microstates is explicitly included in the sum $\\sum_i e^{-\\beta E_i}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the entropy $S$ in terms of the canonical partition function $Z$ and its derivatives.",
+      "back": "We know the Helmholtz Free Energy $F = -k_B T \\ln Z$. From thermodynamics, entropy is related to $F$ by $S = -\\left(\\frac{\\partial F}{\\partial T}\\right)_V$.\nSubstituting the expression for $F$:\n$S = -\\frac{\\partial}{\\partial T}(-k_B T \\ln Z)_V$\n$S = k_B \\frac{\\partial}{\\partial T}(T \\ln Z)_V$\nUsing the product rule $\\frac{\\partial}{\\partial T}(uv) = u'v + uv'$:\n$S = k_B \\left( \\frac{\\partial T}{\\partial T} \\ln Z + T \\frac{\\partial \\ln Z}{\\partial T} \\right)_V$\nThus, the entropy is:\n$$S = k_B \\ln Z + k_B T \\left(\\frac{\\partial \\ln Z}{\\partial T}\\right)_V$$\nAlternatively, using the relation $\\langle E \\rangle = k_B T^2 \\left(\\frac{\\partial \\ln Z}{\\partial T}\\right)_V$, we can write $S = k_B \\ln Z + \\frac{\\langle E \\rangle}{T}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

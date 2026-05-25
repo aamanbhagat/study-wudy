@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p1-1-1-lcm-prime-factorization-method-relationship-hcf-lcm-product",
+  "subtopicTitle": "LCM — prime factorization method, relationship HCF × LCM = product",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:42.473Z",
+  "cards": [
+    {
+      "front": "What does LCM stand for, and what does it represent for two or more positive integers?",
+      "back": "LCM stands for Least Common Multiple. For two or more positive integers, it is the smallest positive integer that is a multiple of all the given integers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the steps to find the LCM of two or more positive integers using the prime factorization method.",
+      "back": "1. Find the prime factorization of each integer.\n2. For each *unique* prime factor, identify its highest power that appears in any of the factorizations.\n3. Multiply these highest powers together to get the LCM.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the LCM of $120$ and $144$ using the prime factorization method.",
+      "back": "Prime factorization of $120$: $2^3 \\times 3^1 \\times 5^1$\nPrime factorization of $144$: $2^4 \\times 3^2$\nUnique prime factors are $2, 3, 5$.\nHighest power of $2$: $2^4$ (from $144$)\nHighest power of $3$: $3^2$ (from $144$)\nHighest power of $5$: $5^1$ (from $120$)\nLCM $= 2^4 \\times 3^2 \\times 5^1 = 16 \\times 9 \\times 5 = 720$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the fundamental relationship between the HCF (GCD) and LCM of two positive integers $a$ and $b$.",
+      "back": "For any two positive integers $a$ and $b$, the product of their HCF (Highest Common Factor, also known as GCD - Greatest Common Divisor) and their LCM (Least Common Multiple) is equal to the product of the numbers themselves.\n$$ \\text{HCF}(a, b) \\times \\text{LCM}(a, b) = a \\times b $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain *why* the relationship $\\text{HCF}(a, b) \\times \\text{LCM}(a, b) = a \\times b$ holds true using prime factorization.",
+      "back": "Let $a = p_1^{x_1} p_2^{x_2} \\dots p_k^{x_k}$ and $b = p_1^{y_1} p_2^{y_2} \\dots p_k^{y_k}$, where $p_i$ are prime factors and $x_i, y_i \\ge 0$.\n$\\text{HCF}(a, b) = p_1^{\\min(x_1, y_1)} \\dots p_k^{\\min(x_k, y_k)}$\n$\\text{LCM}(a, b) = p_1^{\\max(x_1, y_1)} \\dots p_k^{\\max(x_k, y_k)}$\nConsider any prime factor $p_i$. Its power in $\\text{HCF}(a, b) \\times \\text{LCM}(a, b)$ is $p_i^{\\min(x_i, y_i) + \\max(x_i, y_i)}$.\nWe know that for any two numbers $x$ and $y$, $\\min(x, y) + \\max(x, y) = x + y$.\nSo, the power of $p_i$ is $p_i^{x_i + y_i}$.\nThe power of $p_i$ in $a \\times b$ is $p_i^{x_i} \\times p_i^{y_i} = p_i^{x_i + y_i}$.\nSince this holds for all prime factors, $\\text{HCF}(a, b) \\times \\text{LCM}(a, b) = a \\times b$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "The HCF of two numbers is $15$ and their product is $2250$. What is their LCM?",
+      "back": "Let the two numbers be $a$ and $b$.\nGiven $\\text{HCF}(a, b) = 15$ and $a \\times b = 2250$.\nUsing the formula $\\text{HCF}(a, b) \\times \\text{LCM}(a, b) = a \\times b$:\n$15 \\times \\text{LCM}(a, b) = 2250$\n$\\text{LCM}(a, b) = \\frac{2250}{15}$\n$\\text{LCM}(a, b) = 150$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does the relationship $\\text{HCF}(a, b, c) \\times \\text{LCM}(a, b, c) = a \\times b \\times c$ hold true for three or more positive integers? Provide an example.",
+      "back": "No, the relationship $\\text{HCF}(a, b) \\times \\text{LCM}(a, b) = a \\times b$ *does not generally extend* to three or more integers.\nFor example, let $a=2, b=3, c=4$.\n$\\text{HCF}(2, 3, 4) = 1$\n$\\text{LCM}(2, 3, 4) = 12$\n$\\text{HCF}(2, 3, 4) \\times \\text{LCM}(2, 3, 4) = 1 \\times 12 = 12$.\nHowever, $a \\times b \\times c = 2 \\times 3 \\times 4 = 24$.\nSince $12 \\ne 24$, the relationship does not hold for three numbers in this case.",
+      "difficulty": "hard"
+    }
+  ]
+}

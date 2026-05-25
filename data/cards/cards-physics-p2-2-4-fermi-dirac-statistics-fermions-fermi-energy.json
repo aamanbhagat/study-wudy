@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-4-fermi-dirac-statistics-fermions-fermi-energy",
+  "subtopicTitle": "Fermi-Dirac statistics — fermions, Fermi energy",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:43.458Z",
+  "cards": [
+    {
+      "front": "What fundamental property defines a fermion, and what is its characteristic spin value?",
+      "back": "A fermion is a particle that obeys Fermi-Dirac statistics and has half-integer spin (e.g., $\\hbar/2, 3\\hbar/2$). They are subject to the Pauli Exclusion Principle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Pauli Exclusion Principle and explain its direct consequence for identical fermions.",
+      "back": "The Pauli Exclusion Principle states that no two identical fermions can occupy the same quantum state simultaneously. This means that if two fermions are in the same spatial orbital, they must have opposite spins.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the Fermi-Dirac distribution function $f(E)$ and explain what it represents.",
+      "back": "The Fermi-Dirac distribution function is given by $f(E) = \\frac{1}{e^{(E-\\mu)/k_B T} + 1}$, where $E$ is the energy, $\\mu$ is the chemical potential (Fermi level), $k_B$ is Boltzmann's constant, and $T$ is the absolute temperature. It represents the probability that a quantum state with energy $E$ is occupied by a fermion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Fermi energy $E_F$ for a system of fermions at absolute zero temperature ($T=0$ K).",
+      "back": "At absolute zero ($T=0$ K), the Fermi energy $E_F$ is the maximum energy an electron (or any fermion) can have. All energy states below $E_F$ are occupied, and all states above $E_F$ are empty. In the Fermi-Dirac distribution, $f(E)=1$ for $E < E_F$ and $f(E)=0$ for $E > E_F$ at $T=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the behavior of the Fermi-Dirac distribution function $f(E)$ for $E \\approx E_F$ when $T > 0$ K.",
+      "back": "When $T > 0$ K, the sharp step-like transition of $f(E)$ at $E_F$ becomes broadened. States with $E < E_F$ have a probability slightly less than 1, and states with $E > E_F$ have a probability slightly greater than 0. The width of this transition region is approximately $k_B T$. At $E = E_F$ (or $\\mu$), $f(E_F) = \\frac{1}{e^0 + 1} = \\frac{1}{2}$, meaning there's a 50% probability of occupation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a 3D free electron gas, how is the Fermi energy $E_F$ related to the number density $n$ of electrons at $T=0$?",
+      "back": "For a 3D free electron gas, the Fermi energy $E_F$ at $T=0$ is given by:\n$$E_F = \\frac{\\hbar^2}{2m} (3\\pi^2 n)^{2/3}$$\nwhere $\\hbar$ is the reduced Planck constant, $m$ is the electron mass, and $n = N/V$ is the number density of electrons. This formula is derived by integrating the density of states for a 3D system up to $E_F$ and setting it equal to the total number of particles $N$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary distinction between \"Fermi energy\" and \"Fermi level\" in the context of Fermi-Dirac statistics?",
+      "back": "Fermi energy ($E_F$): Specifically refers to the maximum energy of a fermion at absolute zero temperature ($T=0$ K). It's a fixed value for a given system at $T=0$.\nFermi level ($\\mu$): Is the chemical potential for fermions. At $T=0$ K, the Fermi level is equal to the Fermi energy ($\\mu = E_F$). For $T > 0$ K, the Fermi level $\\mu$ is the energy at which the probability of occupation is 1/2, and it typically decreases slightly with increasing temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name three distinct types of particles that are classified as fermions.",
+      "back": "Examples of fermions include:\n1.  **Electrons** (spin 1/2)\n2.  **Protons** (spin 1/2)\n3.  **Neutrons** (spin 1/2)\n4.  **Quarks** (spin 1/2)\n5.  **Neutrinos** (spin 1/2)\n6.  **Composite particles with half-integer total spin**, e.g., Helium-3 atom (spin 1/2).",
+      "difficulty": "easy"
+    }
+  ]
+}

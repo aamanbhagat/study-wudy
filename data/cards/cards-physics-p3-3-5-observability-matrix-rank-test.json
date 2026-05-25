@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-observability-matrix-rank-test",
+  "subtopicTitle": "Observability matrix — rank test",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:18.722Z",
+  "cards": [
+    {
+      "front": "Define \"observability\" in the context of a linear time-invariant (LTI) system.",
+      "back": "A system is observable if, for any initial state $x(t_0)$, it is possible to determine $x(t_0)$ from the measurements $y(t)$ over a finite time interval $[t_0, t_f]$. Intuitively, it means we can infer the system's internal state by looking at its outputs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the observability matrix $\\mathcal{O}$ for a continuous-time LTI system defined by $\\dot{x} = Ax + Bu$ and $y = Cx + Du$?",
+      "back": "The observability matrix $\\mathcal{O}$ is given by:\n$$ \\mathcal{O} = \\begin{bmatrix} C \\\\ CA \\\\ CA^2 \\\\ \\vdots \\\\ CA^{n-1} \\end{bmatrix} $$\nwhere $n$ is the dimension of the state vector $x$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the rank test condition for a continuous-time LTI system to be fully observable.",
+      "back": "A continuous-time LTI system with state dimension $n$ is fully observable if and only if the rank of its observability matrix $\\mathcal{O}$ is equal to $n$.\n$$ \\text{rank}(\\mathcal{O}) = n $$\nThis means all $n$ state variables can be uniquely determined from the output measurements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is a full-rank observability matrix crucial for state estimation algorithms like the Kalman filter?",
+      "back": "A full-rank observability matrix ensures that all components of the system's state vector are uniquely discernible from the available output measurements. If the rank is less than $n$, some states or combinations of states are \"invisible\" to the sensors, making it impossible for a state estimator to accurately track or reconstruct the full state, leading to estimation errors or divergence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the system $\\dot{x} = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix} x + \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} u$ and $y = \\begin{bmatrix} 1 & 0 \\end{bmatrix} x$, construct the observability matrix and determine if the system is observable.",
+      "back": "Given $A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$ and $C = \\begin{bmatrix} 1 & 0 \\end{bmatrix}$. The state dimension is $n=2$.\nFirst, calculate $CA$:\n$CA = \\begin{bmatrix} 1 & 0 \\end{bmatrix} \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix} = \\begin{bmatrix} 0 & 1 \\end{bmatrix}$.\nThe observability matrix $\\mathcal{O}$ is:\n$$ \\mathcal{O} = \\begin{bmatrix} C \\\\ CA \\end{bmatrix} = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} $$\nThe determinant of $\\mathcal{O}$ is $(1)(1) - (0)(0) = 1 \\neq 0$.\nThus, $\\text{rank}(\\mathcal{O}) = 2$.\nSince $n=2$ and $\\text{rank}(\\mathcal{O}) = n$, the system is fully observable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a system's observability matrix has a rank deficiency (i.e., $\\text{rank}(\\mathcal{O}) < n$), what does this imply about the states, and what is the term for the subspace of unobservable states?",
+      "back": "A rank deficiency implies that some state variables, or linear combinations of them, cannot be uniquely determined from the system's output measurements. These \"unobservable\" states do not influence the output. The subspace of states that cannot be observed is called the **unobservable subspace**. Any initial state within this subspace will produce the same output as the zero initial state, making it impossible to distinguish.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain the conceptual duality between observability and controllability in LTI systems.",
+      "back": "Observability is concerned with whether the system's internal states can be inferred from its outputs. Controllability, on the other hand, is concerned with whether the system's internal states can be driven to any desired state using appropriate inputs. Mathematically, the observability criteria for $(A, C)$ are dual to the controllability criteria for $(A^T, C^T)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

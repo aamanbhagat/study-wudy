@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-ipv4-address-format-classes-subnetting-cidr-notation",
+  "subtopicTitle": "IPv4 — address format, classes, subnetting, CIDR notation",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:29.498Z",
+  "cards": [
+    {
+      "front": "Describe the standard format of an IPv4 address, including its length in bits and common representation.",
+      "back": "An IPv4 address is a 32-bit numerical label represented as four octets (8-bit bytes) separated by dots. Each octet ranges from 0 to 255. Example: `192.168.1.10`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the IPv4 address classes (A, B, C) and their respective starting bit patterns and default subnet masks.",
+      "back": "Class A: `0...` (first bit 0). Default Mask: `255.0.0.0` ($/8$).\nClass B: `10...` (first two bits 10). Default Mask: `255.255.0.0` ($/16$).\nClass C: `110...` (first three bits 110). Default Mask: `255.255.255.0` ($/24$).\n(Classes D and E are reserved for multicast and experimental use, respectively.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of subnetting in IPv4 networks?",
+      "back": "Subnetting divides a larger IP network into smaller, more manageable logical subnetworks. This improves network efficiency by reducing broadcast traffic, enhances security by isolating traffic, and optimizes IP address allocation by allowing more flexible network sizing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an IP address `172.16.20.50` and a subnet mask `255.255.255.0`, what is the network address and the broadcast address for this subnet?",
+      "back": "IP Address: `172.16.20.50`\nSubnet Mask: `255.255.255.0`\n\nNetwork Address (IP AND Mask): `172.16.20.0` (all host bits 0)\nBroadcast Address (Network part + all host bits 1): `172.16.20.255` (all host bits 1)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain what CIDR (Classless Inter-Domain Routing) notation is and its main advantage over classful addressing.",
+      "back": "CIDR notation represents an IP address followed by a slash and a number (e.g., `192.168.1.0/24`). The number indicates the length of the network portion of the address in bits (the number of consecutive '1's in the subnet mask). Its main advantage is eliminating the rigid boundaries of classful addressing, allowing for more flexible and efficient allocation of IP addresses and better routing table aggregation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Convert the CIDR notation `/27` into its equivalent dotted-decimal subnet mask.",
+      "back": "A `/27` mask means 27 network bits ('1's) and $32 - 27 = 5$ host bits ('0's).\n*   First three octets: $8+8+8 = 24$ ones = `255.255.255`\n*   Fourth octet: The remaining $27 - 24 = 3$ ones, followed by $5$ zeros.\n    *   Binary: `11100000`\n    *   Decimal: $128 + 64 + 32 = 224$\nTherefore, `/27` is `255.255.255.224`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A network `192.168.10.0/24` needs to be subnetted into 4 equal subnets. What is the new CIDR prefix length, and what are the network addresses of the first two subnets?",
+      "back": "1.  Original network: `192.168.10.0/24` (24 network bits).\n2.  To get 4 subnets, we need $2^n \\ge 4$, so $n=2$ bits are borrowed from the host portion.\n3.  New prefix length: $24 + 2 = /26$.\n4.  The new subnet mask for `/26` is `255.255.255.192` (block size $256-192=64$).\n5.  Network addresses of the first two subnets:\n    *   First subnet: `192.168.10.0/26`\n    *   Second subnet: `192.168.10.64/26`",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the subnet `192.168.10.64/26`, what is the range of usable host IP addresses?",
+      "back": "Given the subnet `192.168.10.64/26`:\n*   Network Address: `192.168.10.64`\n*   The next subnet starts at `192.168.10.128` (from the previous card's block size of 64).\n*   Broadcast Address for `192.168.10.64/26` is `192.168.10.127` (one less than the next network address).\n*   Usable host range: The first usable host is the network address plus one, and the last usable host is the broadcast address minus one.\n*   Usable range: `192.168.10.65` to `192.168.10.126`.",
+      "difficulty": "medium"
+    }
+  ]
+}

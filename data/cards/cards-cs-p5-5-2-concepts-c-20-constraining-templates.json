@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-concepts-c-20-constraining-templates",
+  "subtopicTitle": "Concepts (C++20) — constraining templates",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:10.266Z",
+  "cards": [
+    {
+      "front": "What problem do C++20 Concepts primarily solve in template programming, and what is their main purpose?",
+      "back": "C++20 Concepts address the issue of inscrutable error messages arising from SFINAE (Substitution Failure Is Not An Error) and complex template metaprogramming. Their primary purpose is to specify semantic requirements on template type parameters, making templates more readable, robust, and providing clear, concise error messages when constraints are violated.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a C++20 concept named `Addable` that requires a type `T` to support the binary `+` operator with another `T`, returning a result convertible to `T`.",
+      "back": "```cpp\ntemplate<typename T>\nconcept Addable = requires(T a, T b) {\n    { a + b } -> std::convertible_to<T>;\n};\n```\nThis defines `Addable` as true if `a + b` is a valid expression and its result is convertible to `T`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you constrain a function template `add_two_values` to accept only types that satisfy the `Addable` concept (from the previous card) using a trailing `requires` clause?",
+      "back": "```cpp\ntemplate<typename T>\nconcept Addable = requires(T a, T b) {\n    { a + b } -> std::convertible_to<T>;\n};\n\ntemplate<typename T>\nT add_two_values(T a, T b) requires Addable<T> {\n    return a + b;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Demonstrate two alternative ways to constrain the `add_two_values` function template using the `Addable` concept:\n1. Using the concept directly as a type parameter.\n2. Using an abbreviated function template.",
+      "back": "1.  **Concept as Type Parameter:**\n    ```cpp\n    template<Addable T>\n    T add_two_values(T a, T b) {\n        return a + b;\n    }\n    ```\n2.  **Abbreviated Function Template:**\n    ```cpp\n    Addable auto add_two_values(Addable auto a, Addable auto b) {\n        return a + b;\n    }\n    ```\n    Note: For the abbreviated form, `Addable auto` implies `Addable<decltype(a)>` and `Addable<decltype(b)>`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the four main categories of requirements that can appear within a `requires` *expression*, and what is the purpose of each?",
+      "back": "A `requires` *expression* can contain:\n1.  **`typename` requirements:** `typename T::value_type;` (checks if a nested type exists).\n2.  **`noexcept` requirements:** `{ f() } noexcept;` (checks if an expression does not throw).\n3.  **Type requirements:** `std::is_integral_v<T>;` (checks properties of types, often with type traits).\n4.  **Compound requirements:** `{ expression } -> TypeConstraint;` (checks if an expression is well-formed, optionally requiring its result to be convertible to `TypeConstraint`).\nThese components allow specifying detailed syntactic and semantic constraints on template arguments.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define a concept `Arithmetic` that requires a type `T` to be either `std::integral` OR `std::floating_point`, AND also satisfy `std::is_arithmetic_v<T>`.",
+      "back": "```cpp\n#include <type_traits> // For std::is_arithmetic_v\n#include <concepts>    // For std::integral, std::floating_point\n\ntemplate<typename T>\nconcept Arithmetic = (std::integral<T> || std::floating_point<T>) && std::is_arithmetic_v<T>;\n```\nThis demonstrates combining concepts using logical operators (`||` for OR, `&&` for AND).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a function `print_value` that takes a generic type `T`. Without concepts, if `T` doesn't support `operator<<` for `std::cout`, what kind of error message might you get? How do C++20 Concepts improve this?",
+      "back": "Without concepts, a non-`ostream` printable type `T` would typically result in a long, cryptic SFINAE-related error message, often involving many lines about template instantiation failures deep within the standard library (e.g., `std::basic_ostream::operator<<`).\nWith C++20 Concepts, if `print_value` were constrained by a `Printable` concept (e.g., `template<Printable T> void print_value(T val) { std::cout << val; }`), the compiler would produce a concise error like: \"error: 'T' does not satisfy concept 'Printable'\". This clearly indicates *which* concept failed and *why*, greatly improving readability and debugging.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the fundamental difference between a `requires` *clause* and a `requires` *expression* in C++20 Concepts.",
+      "back": "A `requires` **clause** is used to apply constraints to a template declaration (e.g., `template<typename T> requires MyConcept<T>`). It specifies *when* a template can be instantiated.\nA `requires` **expression** is the core language construct used *inside* a concept definition to specify the actual set of requirements (e.g., `{ a + b } -> std::convertible_to<T>;`). It evaluates to a boolean value at compile time, determining if a set of expressions and type properties are valid for a given set of template arguments.",
+      "difficulty": "medium"
+    }
+  ]
+}

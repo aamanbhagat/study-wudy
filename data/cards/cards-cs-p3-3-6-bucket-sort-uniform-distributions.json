@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-6-bucket-sort-uniform-distributions",
+  "subtopicTitle": "Bucket sort — uniform distributions",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:31.123Z",
+  "cards": [
+    {
+      "front": "What is the fundamental principle behind Bucket Sort?",
+      "back": "Bucket Sort works by distributing elements into a fixed number of \"buckets\", sorting each individual bucket independently, and then concatenating the sorted buckets to produce the final sorted list.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What crucial assumption about the input data distribution is essential for Bucket Sort's average-case efficiency?",
+      "back": "Bucket Sort achieves its average-case $O(n)$ time complexity when the input data is **uniformly distributed** over a given range. This ensures elements are spread relatively evenly among buckets.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the four main algorithmic steps of Bucket Sort.",
+      "back": "1.  **Initialize Buckets**: Create $k$ empty buckets (typically lists or dynamic arrays).\n2.  **Distribute Elements**: Iterate through the input array, placing each element into its corresponding bucket based on a mapping function.\n3.  **Sort Buckets**: Sort each non-empty bucket individually (often using a simple sort like Insertion Sort).\n4.  **Concatenate Buckets**: Gather the elements from all buckets in order, forming the final sorted array.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $n$ elements in the range $[0, 1)$ and $k$ buckets, what formula maps an element $A[i]$ to its bucket index?",
+      "back": "The bucket index for an element $A[i]$ is given by $\\lfloor k \\cdot A[i] \\rfloor$.\nExample: If $k=10$ and $A[i]=0.73$, it goes into bucket $\\lfloor 10 \\cdot 0.73 \\rfloor = \\lfloor 7.3 \\rfloor = 7$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the average-case time complexity of Bucket Sort for $n$ elements uniformly distributed into $k$ buckets, assuming Insertion Sort for buckets.",
+      "back": "1.  **Bucket Initialization**: $O(k)$ to create $k$ empty buckets.\n2.  **Element Distribution**: $O(n)$ to iterate through $n$ elements and place them into buckets.\n3.  **Bucket Sorting**: If $n$ elements are uniformly distributed into $k$ buckets, each bucket contains $n/k$ elements on average. If Insertion Sort (average $O(m^2)$ for $m$ elements) is used for each bucket, the total time is $k \\cdot O((n/k)^2) = k \\cdot O(n^2/k^2) = O(n^2/k)$.\n4.  **Bucket Concatenation**: $O(n)$ to collect elements from all buckets.\nTotal average-case complexity: $O(k + n + n^2/k)$. If $k \\approx n$, this simplifies to $O(n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the space complexity of Bucket Sort?",
+      "back": "The space complexity of Bucket Sort is $O(n+k)$, where $n$ is the number of elements in the input array and $k$ is the number of buckets used. This accounts for storing the $n$ elements themselves (potentially duplicated in buckets) and the $k$ bucket data structures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a scenario that would lead to Bucket Sort's worst-case $O(n^2)$ time complexity.",
+      "back": "The worst-case $O(n^2)$ time complexity occurs when all $n$ input elements are mapped to the *same single bucket*. This happens if the data is highly skewed and not uniformly distributed, or if the mapping function is poor. In such a case, sorting that one bucket (e.g., using Insertion Sort) takes $O(n^2)$ time, negating the benefits of bucketing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is Bucket Sort a stable sorting algorithm? Explain why or why not.",
+      "back": "Yes, Bucket Sort *can be* a stable sorting algorithm, provided that the sorting algorithm used to sort individual buckets is itself stable. If elements with equal values are placed into the same bucket, and the internal bucket sort preserves their relative order, then the overall Bucket Sort will be stable.",
+      "difficulty": "medium"
+    }
+  ]
+}

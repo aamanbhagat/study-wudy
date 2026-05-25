@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-startup-code-vector-table-reset-handler-stack-initialization",
+  "subtopicTitle": "Startup code — vector table, reset handler, stack initialization",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:02.577Z",
+  "cards": [
+    {
+      "front": "Define the purpose of a vector table in an embedded system.",
+      "back": "A vector table is a lookup table containing the memory addresses of exception handlers (e.g., reset, interrupts, faults). When an exception occurs, the CPU uses the vector table to find the appropriate handler routine to execute. It's typically located at a fixed, known address (often 0x0) in memory.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which entry in the vector table is the first one accessed by the CPU to begin software execution upon power-on or reset?",
+      "back": "The Reset Handler. It's usually the second entry in the vector table (after the initial stack pointer value) and contains the starting address of the program's main initialization routine.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is initializing the stack pointer crucial in embedded systems startup, and what typically happens if it's not done?",
+      "back": "The stack pointer (SP) must be initialized to a valid memory address (usually the top of the allocated stack memory region) before any function calls or interrupt service routines (ISRs) occur. Without it, the CPU won't know where to save return addresses and local variables, leading to memory corruption, crashes, or unpredictable behavior when the first `push` operation or function call is attempted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an ARM Cortex-M microcontroller, what are the first two entries typically found in the vector table?",
+      "back": "1. The initial value of the Main Stack Pointer (MSP).\n2. The address of the Reset Handler.\nThis structure ensures the stack is set up and the CPU knows where to jump to begin execution after reset.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List at least three essential tasks performed by a typical Reset Handler in an embedded system.",
+      "back": "1.  **Initialize data segments:** Copy initialized global/static variables from ROM (Flash) to RAM (.data section).\n2.  **Clear BSS segment:** Zero-out uninitialized global/static variables in RAM (.bss section).\n3.  **Call C++ constructors (if applicable):** For C++ applications.\n4.  **Call `main()` function:** Transfer control to the application's entry point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a linker script facilitates the Reset Handler's task of copying initialized data from Flash to RAM and clearing the BSS segment.",
+      "back": "A linker script defines memory regions and how different program sections (.text, .data, .bss) are placed. For `.data`, it defines two key addresses: `_sidata` (source in Flash, where initialized data is stored) and `_sdata` (destination in RAM). The Reset Handler iterates from `_sidata` to `_edata` (end of .data in RAM), copying byte-by-byte. For `.bss`, it defines `_sbss` (start) and `_ebss` (end) in RAM. The handler then iterates from `_sbss` to `_ebss`, writing zeros to each location. This ensures global variables have their correct initial values or are zeroed before `main()` runs.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does an ARM Cortex-M processor typically initialize its Main Stack Pointer (MSP) *before* the Reset Handler even begins execution?",
+      "back": "Upon reset, the ARM Cortex-M processor hardware automatically performs two crucial steps:\n1.  It fetches the value from the first entry of the vector table (at address 0x0) and loads it directly into the Main Stack Pointer (MSP) register.\n2.  It fetches the value from the second entry of the vector table (at address 0x4) and loads it into the Program Counter (PC), effectively jumping to the Reset Handler.\nThis hardware-driven process ensures the stack is ready before any code execution.",
+      "difficulty": "hard"
+    }
+  ]
+}

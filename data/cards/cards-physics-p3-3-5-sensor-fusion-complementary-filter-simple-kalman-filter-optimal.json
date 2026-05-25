@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-sensor-fusion-complementary-filter-simple-kalman-filter-optimal",
+  "subtopicTitle": "Sensor fusion — complementary filter (simple), Kalman filter (optimal)",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:03.877Z",
+  "cards": [
+    {
+      "front": "What fundamental problem in GNC does sensor fusion address by combining data from multiple sensors?",
+      "back": "Sensor fusion addresses the problem of obtaining a more accurate, reliable, and robust estimate of a system's state (e.g., position, velocity, attitude) than any single sensor could provide alone, by mitigating individual sensor limitations such as noise, drift, latency, and biases.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core idea behind a complementary filter for combining a noisy, drift-prone sensor (e.g., gyroscope) with a noisy, but stable sensor (e.g., accelerometer) for attitude estimation.",
+      "back": "A complementary filter uses a low-pass filter on the stable, low-frequency signal (e.g., accelerometer's slow-changing angle) and a high-pass filter on the noisy, high-frequency signal (e.g., gyroscope's fast-changing angular rate). By summing their outputs, it effectively filters out high-frequency noise from the stable sensor and low-frequency drift from the rate sensor, leveraging their complementary strengths.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the discrete-time complementary filter equation for estimating an angle $\\theta$ from a gyroscope's angular rate $\\omega$ and an accelerometer's angle $\\theta_{acc}$, given a time step $\\Delta t$ and filter constant $\\tau$.",
+      "back": "The gyroscope provides the change in angle: $\\Delta \\theta_{gyro} = \\omega \\Delta t$. The estimated angle is updated by integrating the gyro rate, then correcting it with a fraction of the difference between the accelerometer's angle and the current estimate. The discrete-time equation is:\n$$ \\theta_k = (1 - \\alpha) (\\theta_{k-1} + \\omega_k \\Delta t) + \\alpha \\theta_{acc,k} $$\nwhere $\\alpha = \\frac{\\Delta t}{\\tau + \\Delta t}$ is the filter coefficient. This effectively applies a low-pass filter to the accelerometer's input and a high-pass filter to the gyroscope's integrated input.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary goal of a Kalman filter, and what two fundamental steps does it alternate between to achieve this goal?",
+      "back": "The primary goal of a Kalman filter is to produce an optimal estimate of a system's state by fusing noisy sensor measurements with a mathematical model of the system's dynamics. It achieves this by alternating between two steps: the **prediction (or forecast) step** and the **update (or measurement correction) step**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the two key assumptions regarding system dynamics and noise that are fundamental to the standard (linear) Kalman filter's optimality.",
+      "back": "The two key assumptions for the standard Kalman filter's optimality are:\n1.  The system dynamics are **linear**.\n2.  All noise sources (process noise and measurement noise) are **Gaussian (normally distributed)** and have zero mean.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a linear system, provide the matrix equations for the Kalman filter's **prediction step**, specifically for the state estimate $\\hat{\\mathbf{x}}_{k|k-1}$ and the error covariance matrix $\\mathbf{P}_{k|k-1}$.",
+      "back": "Given the previous state estimate $\\hat{\\mathbf{x}}_{k-1|k-1}$ and its error covariance $\\mathbf{P}_{k-1|k-1}$:\n1.  **Predicted State Estimate**:\n    $$ \\hat{\\mathbf{x}}_{k|k-1} = \\mathbf{F}_k \\hat{\\mathbf{x}}_{k-1|k-1} + \\mathbf{B}_k \\mathbf{u}_k $$\n    where $\\mathbf{F}_k$ is the state transition matrix, $\\mathbf{B}_k$ is the control input matrix, and $\\mathbf{u}_k$ is the control vector.\n2.  **Predicted Error Covariance**:\n    $$ \\mathbf{P}_{k|k-1} = \\mathbf{F}_k \\mathbf{P}_{k-1|k-1} \\mathbf{F}_k^T + \\mathbf{Q}_k $$\n    where $\\mathbf{Q}_k$ is the process noise covariance matrix.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a linear system, provide the matrix equations for the Kalman filter's **update step**, specifically for the Kalman gain $\\mathbf{K}_k$, the updated state estimate $\\hat{\\mathbf{x}}_{k|k}$, and the updated error covariance matrix $\\mathbf{P}_{k|k}$.",
+      "back": "Given the predicted state $\\hat{\\mathbf{x}}_{k|k-1}$, predicted covariance $\\mathbf{P}_{k|k-1}$, and current measurement $\\mathbf{z}_k$:\n1.  **Kalman Gain**:\n    $$ \\mathbf{K}_k = \\mathbf{P}_{k|k-1} \\mathbf{H}_k^T (\\mathbf{H}_k \\mathbf{P}_{k|k-1} \\mathbf{H}_k^T + \\mathbf{R}_k)^{-1} $$\n    where $\\mathbf{H}_k$ is the measurement matrix and $\\mathbf{R}_k$ is the measurement noise covariance matrix.\n2.  **Updated State Estimate**:\n    $$ \\hat{\\mathbf{x}}_{k|k} = \\hat{\\mathbf{x}}_{k|k-1} + \\mathbf{K}_k (\\mathbf{z}_k - \\mathbf{H}_k \\hat{\\mathbf{x}}_{k|k-1}) $$\n3.  **Updated Error Covariance**:\n    $$ \\mathbf{P}_{k|k} = (\\mathbf{I} - \\mathbf{K}_k \\mathbf{H}_k) \\mathbf{P}_{k|k-1} $$\n    where $\\mathbf{I}$ is the identity matrix.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the complementary filter and Kalman filter based on their computational complexity, optimality, and typical application scenarios.",
+      "back": "1.  **Computational Complexity**: The complementary filter (CF) is very low, involving simple arithmetic. The Kalman filter (KF) is higher, requiring matrix operations (inversions, multiplications).\n2.  **Optimality**: CF is heuristic and not statistically optimal. KF is statistically optimal (minimum mean square error) under its assumptions (linearity, Gaussian noise).\n3.  **Application Scenarios**: CF is suitable for simple, resource-constrained systems where a 'good-enough' estimate is sufficient (e.g., basic IMU attitude estimation). KF is preferred for complex, dynamic systems requiring highly accurate state estimates, where system models and noise characteristics are well-understood (e.g., rocket navigation, advanced robotics).",
+      "difficulty": "medium"
+    }
+  ]
+}

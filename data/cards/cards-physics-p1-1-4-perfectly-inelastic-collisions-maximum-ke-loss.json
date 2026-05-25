@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-4-perfectly-inelastic-collisions-maximum-ke-loss",
+  "subtopicTitle": "Perfectly inelastic collisions — maximum KE loss",
+  "topicId": "physics-p1-1-4-momentum-collisions",
+  "topicTitle": "Momentum & Collisions",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:15.925Z",
+  "cards": [
+    {
+      "front": "Define a \"perfectly inelastic collision.\"",
+      "back": "A perfectly inelastic collision is one in which the colliding objects stick together after impact, moving as a single combined mass. This type of collision results in the maximum possible loss of kinetic energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a perfectly inelastic collision, which fundamental physical quantities are conserved and which are not?",
+      "back": "Linear momentum is always conserved in a perfectly inelastic collision. Kinetic energy is *not* conserved; it experiences its maximum possible loss, being converted into other forms of energy such as heat, sound, and deformation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the final velocity $v_f$ of two objects with masses $m_1, m_2$ and initial velocities $v_{1i}, v_{2i}$ after a perfectly inelastic collision.",
+      "back": "By the principle of conservation of linear momentum:\n$$m_1 v_{1i} + m_2 v_{2i} = (m_1 + m_2) v_f$$\nSolving for $v_f$:\n$$v_f = \\frac{m_1 v_{1i} + m_2 v_{2i}}{m_1 + m_2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A 2 kg block moving at 5 m/s collides perfectly inelastically with a stationary 3 kg block. What is their common final velocity?",
+      "back": "Given: $m_1 = 2 \\text{ kg}$, $v_{1i} = 5 \\text{ m/s}$. $m_2 = 3 \\text{ kg}$, $v_{2i} = 0 \\text{ m/s}$.\nUsing the formula $v_f = \\frac{m_1 v_{1i} + m_2 v_{2i}}{m_1 + m_2}$:\n$$v_f = \\frac{(2 \\text{ kg})(5 \\text{ m/s}) + (3 \\text{ kg})(0 \\text{ m/s})}{2 \\text{ kg} + 3 \\text{ kg}} = \\frac{10 \\text{ kg}\\cdot\\text{m/s}}{5 \\text{ kg}} = 2 \\text{ m/s}$$\nThe common final velocity is 2 m/s.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the general formula for the kinetic energy lost ($\\Delta KE$) in a perfectly inelastic collision between two masses $m_1, m_2$ with initial velocities $v_{1i}, v_{2i}$.",
+      "back": "Initial kinetic energy: $KE_i = \\frac{1}{2}m_1 v_{1i}^2 + \\frac{1}{2}m_2 v_{2i}^2$.\nFinal kinetic energy (using $v_f = \\frac{m_1 v_{1i} + m_2 v_{2i}}{m_1 + m_2}$):\n$$KE_f = \\frac{1}{2}(m_1 + m_2) v_f^2 = \\frac{1}{2}(m_1 + m_2) \\left(\\frac{m_1 v_{1i} + m_2 v_{2i}}{m_1 + m_2}\\right)^2 = \\frac{(m_1 v_{1i} + m_2 v_{2i})^2}{2(m_1 + m_2)}$$\nKinetic energy lost: $\\Delta KE = KE_i - KE_f$\n$$\\Delta KE = \\frac{1}{2}m_1 v_{1i}^2 + \\frac{1}{2}m_2 v_{2i}^2 - \\frac{(m_1 v_{1i} + m_2 v_{2i})^2}{2(m_1 + m_2)}$$\nAfter algebraic simplification, this yields:\n$$\\Delta KE = \\frac{1}{2} \\frac{m_1 m_2}{m_1 + m_2} (v_{1i} - v_{2i})^2$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the kinetic energy loss \"maximum\" in a perfectly inelastic collision compared to other types of collisions?",
+      "back": "Kinetic energy loss is maximum because the objects stick together, meaning their relative velocity after the collision is zero ($v_{1f} - v_{2f} = 0$). This ensures that the maximum possible amount of initial kinetic energy associated with the relative motion of the objects is converted into internal energy (e.g., heat, sound, permanent deformation) rather than being retained as kinetic energy of relative motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a perfectly inelastic collision where object 1 is much more massive than object 2 ($m_1 \\gg m_2$). If $m_2$ is initially at rest, what is the approximate final velocity of the combined system?",
+      "back": "The final velocity formula is $v_f = \\frac{m_1 v_{1i} + m_2 v_{2i}}{m_1 + m_2}$.\nIf $m_2$ is at rest, $v_{2i} = 0$, so $v_f = \\frac{m_1 v_{1i}}{m_1 + m_2}$.\nSince $m_1 \\gg m_2$, we can approximate $m_1 + m_2 \\approx m_1$.\nTherefore, $v_f \\approx \\frac{m_1 v_{1i}}{m_1} = v_{1i}$.\nThe final velocity of the combined system is approximately the initial velocity of the much more massive object. (e.g., a small bug hitting a car windshield).",
+      "difficulty": "hard"
+    }
+  ]
+}

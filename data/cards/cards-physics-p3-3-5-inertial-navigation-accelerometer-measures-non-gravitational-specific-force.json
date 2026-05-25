@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-inertial-navigation-accelerometer-measures-non-gravitational-specific-force",
+  "subtopicTitle": "Inertial navigation — accelerometer measures non-gravitational specific force",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:53.012Z",
+  "cards": [
+    {
+      "front": "What physical quantity does an accelerometer directly measure?",
+      "back": "An accelerometer directly measures **specific force**, which is the non-gravitational force per unit mass acting on the sensor.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"specific force\" ($\\mathbf{f}$) and explain why it is called \"specific\".",
+      "back": "Specific force ($\\mathbf{f}$) is the non-gravitational force per unit mass acting on a body. It is called \"specific\" because it is normalized by mass, essentially representing the acceleration that results from all forces *other than gravity*.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental equation relating a body's inertial acceleration ($\\mathbf{a}_i$), specific force ($\\mathbf{f}$), and the local gravitational acceleration ($\\mathbf{g}$).",
+      "back": "The fundamental equation is: $$\\mathbf{a}_i = \\mathbf{f} + \\mathbf{g}$$ Where:\n- $\\mathbf{a}_i$: The acceleration of the body relative to an inertial frame.\n- $\\mathbf{f}$: The specific force measured by an accelerometer (non-gravitational force per unit mass).\n- $\\mathbf{g}$: The local gravitational acceleration vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why an accelerometer inside a spacecraft in perfect freefall (e.g., orbiting Earth) would read approximately zero, despite the spacecraft constantly accelerating towards Earth.",
+      "back": "An accelerometer measures specific force, which is the non-gravitational force per unit mass. In perfect freefall, the only significant force acting on the spacecraft (and the accelerometer within it) is gravity. Since gravity is a *gravitational* force, it does not contribute to the specific force measurement. With no other contact forces or propulsion, the accelerometer experiences no non-gravitational forces and therefore reads approximately zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A rocket is accelerating upwards with an inertial acceleration $\\mathbf{a}_i$. An accelerometer on board measures a specific force $\\mathbf{f}_b$ in the rocket's body frame. How would an Inertial Navigation System (INS) use $\\mathbf{f}_b$ to calculate the rocket's inertial acceleration $\\mathbf{a}_i$? Assume $\\mathbf{g}$ is known in the inertial frame.",
+      "back": "1. **Transform to Inertial Frame:** The INS first transforms the measured specific force $\\mathbf{f}_b$ from the body frame to the inertial frame using the current attitude (orientation) of the rocket, typically provided by gyroscopes: $\\mathbf{f}_i = \\mathbf{C}_{b}^{i} \\mathbf{f}_b$, where $\\mathbf{C}_{b}^{i}$ is the rotation matrix from body to inertial frame.\n2. **Add Gravity:** The known local gravitational acceleration vector $\\mathbf{g}_i$ (which is modeled in the inertial frame) is then added to obtain the inertial acceleration: $\\mathbf{a}_i = \\mathbf{f}_i + \\mathbf{g}_i$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it crucial for an Inertial Navigation System (INS) to measure *non-gravitational* specific force rather than total acceleration including gravity?",
+      "back": "Accelerometers cannot inherently distinguish between acceleration caused by gravity and acceleration caused by other forces. If they measured total acceleration, the INS would have to *subtract* the known gravitational component. By measuring specific force (non-gravitational acceleration), the INS can simply *add* the precisely modeled gravitational vector $\\mathbf{g}$ to get the true inertial acceleration $\\mathbf{a}_i$. This approach leverages the fact that gravity is a predictable, well-modeled field, simplifying the calculation and reducing reliance on the accelerometer's ability to 'measure' gravity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general process an Inertial Navigation System (INS) uses to estimate a vehicle's position from specific force measurements, starting from an initial known position and velocity.",
+      "back": "1.  **Measure Specific Force:** Accelerometers measure specific force $\\mathbf{f}_b$ in the body frame.\n2.  **Transform to Inertial Frame:** Gyroscopes provide the vehicle's attitude, used to transform $\\mathbf{f}_b$ to the inertial frame: $\\mathbf{f}_i = \\mathbf{C}_{b}^{i} \\mathbf{f}_b$.\n3.  **Add Gravity:** The known local gravitational acceleration $\\mathbf{g}_i$ is added to obtain the inertial acceleration: $\\mathbf{a}_i = \\mathbf{f}_i + \\mathbf{g}_i$.\n4.  **Integrate Velocity:** The inertial acceleration $\\mathbf{a}_i$ is integrated over time to obtain the inertial velocity: $\\mathbf{v}_i(t) = \\mathbf{v}_i(t_0) + \\int_{t_0}^{t} \\mathbf{a}_i(\\tau) d\\tau$.\n5.  **Integrate Position:** The inertial velocity $\\mathbf{v}_i$ is integrated over time to obtain the inertial position: $\\mathbf{p}_i(t) = \\mathbf{p}_i(t_0) + \\int_{t_0}^{t} \\mathbf{v}_i(\\tau) d\\tau$.\nThis process requires accurate initial conditions and precise time synchronization.",
+      "difficulty": "hard"
+    }
+  ]
+}

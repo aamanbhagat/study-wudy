@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-6-nfa-to-dfa-conversion-subset-construction",
+  "subtopicTitle": "NFA to DFA conversion — subset construction",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:12.338Z",
+  "cards": [
+    {
+      "front": "Why is it always possible to convert any NFA into an equivalent DFA? What does \"equivalent\" mean in this context?",
+      "back": "Any language recognized by an NFA can also be recognized by a DFA. \"Equivalent\" means both machines accept exactly the same set of strings (i.e., they recognize the same language). This equivalence is fundamental to the theory of regular languages and allows us to use the simpler DFA model for implementation and analysis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental principle behind the \"subset construction\" algorithm for converting an NFA to a DFA?",
+      "back": "The fundamental principle is that each state in the resulting DFA corresponds to a *set* of states from the original NFA. The DFA simulates all possible parallel computations of the NFA simultaneously. If the NFA could be in multiple states at once, the DFA's single state represents that entire collection of NFA states.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an NFA $N = (Q_N, \\Sigma, \\delta_N, q_0, F_N)$, how are the states $Q_D$ and the initial state $q_{0D}$ of the equivalent DFA $D$ formally defined using subset construction?",
+      "back": "The states $Q_D$ are subsets of $Q_N$, i.e., $Q_D \\subseteq P(Q_N)$ (only reachable subsets are included). The initial state $q_{0D}$ is the $\\epsilon$-closure of the NFA's initial state: $q_{0D} = \\text{ECLOSE}(q_0)$. The $\\epsilon$-closure of a state $q$ is the set of all states reachable from $q$ by following zero or more $\\epsilon$-transitions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a DFA state $S \\in Q_D$ (which is a set of NFA states) and an input symbol $a \\in \\Sigma$, how is the transition function $\\delta_D(S, a)$ formally defined in subset construction?",
+      "back": "The transition function $\\delta_D(S, a)$ is formally defined as: $$\\delta_D(S, a) = \\text{ECLOSE}(\\bigcup_{p \\in S} \\delta_N(p, a))$$ This means: 1. Find all NFA states reachable from any state $p \\in S$ on input $a$. 2. Take the $\\epsilon$-closure of this entire set of states to include any further states reachable via $\\epsilon$-transitions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the set of final states $F_D$ for the DFA $D$ defined in subset construction, given the NFA's final states $F_N$?",
+      "back": "A DFA state $S \\in Q_D$ is a final state (i.e., $S \\in F_D$) if and only if $S$ contains at least one final state from the original NFA. Formally, $S \\in F_D \\iff S \\cap F_N \\neq \\emptyset$. This reflects that if any of the NFA's parallel computations end in an accepting state, the DFA should also accept.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the critical role of the $\\epsilon$-closure function in NFA to DFA subset construction, especially when the NFA has $\\epsilon$-transitions.",
+      "back": "The $\\epsilon$-closure function is critical for handling non-determinism introduced by $\\epsilon$-transitions. It ensures that: 1. The DFA's start state captures all NFA states reachable from the NFA's start state *without consuming any input* ($q_{0D} = \\text{ECLOSE}(q_0)$). 2. Every DFA transition correctly accounts for all NFA states reachable after consuming an input symbol, including any subsequent $\\epsilon$-moves, by applying $\\text{ECLOSE}$ to the set of states reached after the symbol transition. This guarantees the DFA accurately simulates all NFA paths.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If an NFA has $n$ states, what is the maximum number of states the equivalent DFA can have after subset construction? Why is this bound significant?",
+      "back": "The maximum number of states the equivalent DFA can have is $2^n$. This is because each DFA state corresponds to a subset of the $n$ NFA states, and there are $2^n$ possible subsets (including the empty set). This bound is significant because it demonstrates that while NFA to DFA conversion is always possible, the resulting DFA can be exponentially larger than the NFA in the worst case, indicating a potential explosion in complexity for certain NFA designs.",
+      "difficulty": "hard"
+    }
+  ]
+}

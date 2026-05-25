@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-print-comments-code-structure",
+  "subtopicTitle": "print(), comments, code structure",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:45.117Z",
+  "cards": [
+    {
+      "front": "What is the primary function of Python's `print()` statement, and how would you use it to display the exact text \"Hello, Python!\"?",
+      "back": "The `print()` function displays output to the console (standard output). To display \"Hello, Python!\":\n```python\nprint(\"Hello, Python!\")\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you add a single-line comment in Python, and what is its main purpose?",
+      "back": "You add a single-line comment using the hash symbol `#`. Its main purpose is to explain code, provide context, or temporarily disable a line of code for debugging, thereby improving readability and maintainability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the difference in output between `print(\"apple\", \"banana\")` and `print(\"apple\", \"banana\", sep=\", \")`.",
+      "back": "1. `print(\"apple\", \"banana\")` outputs: `apple banana` (The default separator between arguments is a single space).\n2. `print(\"apple\", \"banana\", sep=\", \")` outputs: `apple, banana` (The `sep` argument explicitly sets the separator to a comma followed by a space).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "By default, `print()` adds a newline character at the end. How can you modify `print(\"Part 1\")` and `print(\"Part 2\")` to appear on the *same line*?",
+      "back": "You can use the `end` argument to specify what character(s) should be appended instead of the default newline character (`\\n`).\n```python\nprint(\"Part 1\", end=\" \")\nprint(\"Part 2\")\n```\nOutput: `Part 1 Part 2`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is consistent indentation critically important in Python code structure, unlike many other programming languages?",
+      "back": "Python uses indentation to define code blocks (e.g., within functions, loops, conditional statements) instead of relying on curly braces or keywords like `begin`/`end`. Incorrect or inconsistent indentation will lead to an `IndentationError` and prevent the code from running correctly, as it fundamentally alters the program's structure and logic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two common ways to write multi-line comments or documentation in Python. Which is generally preferred for module/function documentation?",
+      "back": "1.  **Multiple single-line comments:**\n    ```python\n    # This is line 1\n    # This is line 2\n    ```\n2.  **Triple-quoted strings (Docstrings):**\n    ```python\n    \"\"\"\n    This is a multi-line string.\n    It serves as a docstring.\n    \"\"\"\n    ```\nDocstrings (triple-quoted strings) are generally preferred for module, class, and function documentation because they are formally recognized by Python, accessible via `help()` or the `__doc__` attribute, and contribute to self-documenting code.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given `item = \"Python\"` and `version = 3.9`, write a single `print()` statement using an f-string to output: \"I am learning Python version 3.9\".",
+      "back": "```python\nitem = \"Python\"\nversion = 3.9\nprint(f\"I am learning {item} version {version}\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond just making code executable, why is maintaining a clear and consistent code structure (e.g., proper indentation, blank lines, logical grouping) considered a best practice in programming?",
+      "back": "Maintaining a clear and consistent code structure is a best practice because it significantly improves:\n*   **Readability:** Makes the code easier for humans (including your future self) to understand the logic and flow.\n*   **Maintainability:** Simplifies debugging, updating, and extending the codebase.\n*   **Collaboration:** Enables multiple developers to work on the same project more efficiently and with fewer conflicts.\n*   **Professionalism:** Reflects good coding habits and attention to detail, leading to higher quality software.",
+      "difficulty": "hard"
+    }
+  ]
+}

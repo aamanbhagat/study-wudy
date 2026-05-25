@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-2-vertical-circular-motion-minimum-speed-conditions",
+  "subtopicTitle": "Vertical circular motion — minimum speed conditions",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:16.939Z",
+  "cards": [
+    {
+      "front": "What defines the 'minimum speed' condition for an object undergoing vertical circular motion?",
+      "back": "The minimum speed is the lowest instantaneous speed at which an object can successfully complete a full vertical circle without its supporting medium (e.g., string) going slack, or losing contact with its track (e.g., roller coaster car).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider an object on a string moving in a vertical circle. What are the forces acting on the object at the *very top* of its path, and in what direction?",
+      "back": "At the top, the forces are:\n1.  Gravity ($mg$): acting downwards.\n2.  Tension ($T$): acting downwards.\nBoth forces contribute to the net centripetal force required to maintain the circular path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the minimum speed, $v_{min}$, required for an object on a string to successfully complete a vertical circular loop of radius $R$.",
+      "back": "At the top of the loop, the net force provides the centripetal acceleration:\n$$F_{net} = T + mg = \\frac{mv^2}{R}$$\nFor the minimum speed condition, the string is just about to go slack, meaning the tension $T$ approaches zero ($T \\to 0$).\nSubstituting $T=0$:\n$$mg = \\frac{mv_{min}^2}{R}$$\nSolving for $v_{min}$:\n$$v_{min}^2 = gR$$\n$$v_{min} = \\sqrt{gR}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A roller coaster car is designed to complete a vertical loop of radius $R$. What is the minimum speed it must have at the *top* of the loop to stay on the track?",
+      "back": "The minimum speed for a roller coaster car (or any object on a track) to stay on the track at the top of a vertical loop is given by:\n$$v_{min} = \\sqrt{gR}$$\nThis is the same condition as for a string, where the normal force $N$ from the track becomes zero at the minimum speed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the *top* of the loop the critical point for determining the minimum speed required to complete a vertical circular motion?",
+      "back": "At the top of the loop, gravity ($mg$) acts in the same direction as the required centripetal force (downwards). This means gravity *assists* in providing the centripetal force. If the speed is too low at this point, gravity alone will be greater than the required centripetal force, and the object will fall or the string will go slack, failing to complete the circle. At other points, gravity either opposes or is perpendicular to the centripetal force, making the top the 'weakest link' for maintaining the path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An object is released from rest at a height $H$ and swings in a vertical circle of radius $R$ attached to a string. What is the minimum height $H$ required for the object to just complete the loop?",
+      "back": "For the object to just complete the loop, its speed at the top must be $v_{top} = \\sqrt{gR}$.\nUsing conservation of mechanical energy from the starting height $H$ to the top of the loop (height $2R$ from the bottom):\n$$E_{initial} = E_{final}$$\n$$mgH + \\frac{1}{2}m(0)^2 = mg(2R) + \\frac{1}{2}mv_{top}^2$$\nSubstitute $v_{top} = \\sqrt{gR}$:\n$$mgH = 2mgR + \\frac{1}{2}m(\\sqrt{gR})^2$$\n$$mgH = 2mgR + \\frac{1}{2}mgR$$\n$$mgH = \\frac{5}{2}mgR$$\n$$H = \\frac{5}{2}R$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the minimum speed condition for completing a vertical circular loop differ if an object is attached by a *string* versus a *rigid rod*?",
+      "back": "For a *string*, the tension ($T$) must always be non-negative ($T \\ge 0$). If the speed drops below $v_{min} = \\sqrt{gR}$ at the top, the string goes slack, and the object falls.\nFor a *rigid rod*, the rod can exert both tensile (pulling) and compressive (pushing) forces. If the speed at the top drops below $\\sqrt{gR}$, the rod simply pushes the object to maintain the circular path. Therefore, there is no 'minimum speed to complete the loop' in the same sense as for a string; the object will not fall off the circular path due to slack.",
+      "difficulty": "medium"
+    }
+  ]
+}

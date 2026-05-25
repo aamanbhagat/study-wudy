@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-4-nosql-document-mongodb-key-value-redis-column-cassandra-graph-neo4j",
+  "subtopicTitle": "NoSQL — document (MongoDB), key-value (Redis), column (Cassandra), graph (Neo4j)",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:57.732Z",
+  "cards": [
+    {
+      "front": "Define NoSQL databases and state their primary motivation.",
+      "back": "NoSQL (Not Only SQL) databases provide a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases. Their primary motivation is to address the challenges of scalability, flexibility, and performance faced by traditional RDBMS for modern web applications and big data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Match each NoSQL database type with its characteristic data model: Document, Key-Value, Column-Family, Graph.",
+      "back": "<ul><li><b>Document:</b> Stores semi-structured data, typically JSON or BSON documents.</li><li><b>Key-Value:</b> Stores data as a collection of unique key-value pairs.</li><li><b>Column-Family:</b> Stores data in tables, but organized by columns rather than rows.</li><li><b>Graph:</b> Stores data as nodes and edges, representing entities and their relationships.</li></ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the data model of a Document database using MongoDB. Provide a simple JSON example for a user profile.",
+      "back": "Document databases like MongoDB store data in flexible, semi-structured \"documents\" (often JSON or BSON). These documents can contain nested arrays and objects, providing a rich and hierarchical structure.\n```json\n{\n  \"_id\": \"user123\",\n  \"name\": \"Alice Smith\",\n  \"email\": \"alice@example.com\",\n  \"addresses\": [\n    { \"type\": \"home\", \"street\": \"123 Main St\", \"city\": \"Anytown\" },\n    { \"type\": \"work\", \"street\": \"456 Oak Ave\", \"city\": \"Otherville\" }\n  ],\n  \"interests\": [\"coding\", \"hiking\"]\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core principle of a Key-Value store like Redis and list two common use cases.",
+      "back": "Key-Value stores like Redis store data as a simple mapping of unique keys to their corresponding values. Values can be simple strings, but Redis also supports more complex data structures (lists, sets, hashes, sorted sets). It's primarily an in-memory store, making it extremely fast.\nCommon Use Cases:\n1.  <b>Caching:</b> Storing frequently accessed data to reduce database load.\n2.  <b>Session Management:</b> Storing user session data (e.g., login tokens, shopping cart contents).\n3.  <b>Real-time Analytics/Leaderboards:</b> Fast retrieval and updates of scores or metrics.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a Column-Family database like Cassandra differ from a traditional RDBMS in its data organization and what advantage does this offer for analytical workloads?",
+      "back": "In a Column-Family database like Cassandra, data is organized into column families (similar to tables), but within each row, columns are stored together. Unlike RDBMS where all columns for a row are stored contiguously, Cassandra stores columns belonging to the same column family contiguously on disk. This \"column-oriented\" storage allows for efficient retrieval of specific columns across many rows, which is highly advantageous for analytical workloads that often query subsets of columns over large datasets, minimizing I/O.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the two fundamental components of a Graph database using Neo4j and provide a conceptual example of a relationship query.",
+      "back": "Graph databases like Neo4j are built on two fundamental components:\n1.  <b>Nodes:</b> Represent entities (e.g., users, products, locations). Nodes can have properties (key-value pairs) and labels to categorize them.\n2.  <b>Relationships:</b> Represent connections or interactions between nodes (e.g., \"FOLLOWS\", \"PURCHASED\", \"WORKS_AT\"). Relationships also have properties and a direction.\nConceptual Relationship Query: Finding all friends of a specific user.\n```\n(User)-[:FOLLOWS]->(Friend)\n```\nThis models a directed relationship \"FOLLOWS\" from a User node to a Friend node.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For storing complex user profiles, when would you favor MongoDB over Redis, and vice-versa?",
+      "back": "<ul><li><b>MongoDB (Document DB) over Redis:</b> Favor MongoDB when the user profiles are complex, require flexible schema (e.g., varying fields for different user types), need robust querying capabilities (filtering, aggregation), and require persistent storage on disk. MongoDB is designed for primary data storage of rich documents.</li><li><b>Redis (Key-Value Store) over MongoDB:</b> Favor Redis when the primary need is extremely fast, in-memory access to user profile data (e.g., for caching frequently accessed profiles, session data, or temporary states). Redis excels at high-throughput reads/writes of relatively simpler data structures, often acting as a cache layer in front of a primary database like MongoDB.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A social network needs to store billions of user connections and quickly find \"friends of friends.\" Which NoSQL type is best suited and why?",
+      "back": "A <b>Graph database</b> (e.g., Neo4j) is best suited.\n<b>Why:</b> Graph databases are specifically optimized for representing and traversing relationships between entities. Users can be modeled as nodes, and connections (e.g., \"FRIENDS_WITH\", \"FOLLOWS\") as edges. Finding \"friends of friends\" translates directly into a graph traversal query, which graph databases can execute very efficiently, even with billions of connections, due to their index-free adjacency. Other NoSQL types would struggle with the performance of multi-hop relationship queries at scale.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a significant advantage of NoSQL databases over traditional RDBMS, and what common trade-off is often made?",
+      "back": "<ul><li><b>Advantage:</b> <b>Horizontal Scalability</b> (or \"scale-out\"). NoSQL databases are typically designed to distribute data across many inexpensive servers (clusters), allowing them to handle massive amounts of data and high traffic volumes much more easily than vertically scaling a single RDBMS server.</li><li><b>Trade-off:</b> <b>Reduced ACID compliance</b>. Many NoSQL databases prioritize availability and partition tolerance over strong consistency (following the CAP theorem), adhering to the <b>BASE</b> (Basically Available, Soft state, Eventually consistent) model rather than the strict ACID (Atomicity, Consistency, Isolation, Durability) guarantees of most RDBMS. This means data might not be immediately consistent across all nodes after a write.</li></ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

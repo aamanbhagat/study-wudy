@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-string-methods-upper-lower-strip-split-join-replace-find-format",
+  "subtopicTitle": "String methods — upper, lower, strip, split, join, replace, find, format",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:58.436Z",
+  "cards": [
+    {
+      "front": "What do the `upper()` and `lower()` string methods do in Python, and do they modify the original string?",
+      "back": "The `upper()` method returns a new string with all characters converted to uppercase. The `lower()` method returns a new string with all characters converted to lowercase. Neither method modifies the original string; they always return a new string.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does `s.strip()` do by default? How would you remove both leading/trailing hyphens and asterisks from `'**--Hello--**'`?",
+      "back": "By default, `s.strip()` removes leading and trailing whitespace characters (spaces, tabs, newlines) from a string. To remove multiple specific characters like hyphens and asterisks from `'**--Hello--**'`, you would use `s.strip('*-')`. This returns `'Hello'`. The order of characters in the argument doesn't matter.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the behavior of `split()` with no arguments vs. a specified delimiter. What does `\"one  two three\".split()` return?",
+      "back": "When `split()` is called with no arguments, it splits by *any* whitespace (spaces, tabs, newlines) and discards empty strings, effectively treating multiple spaces as a single delimiter. If a delimiter is specified, it splits by that exact delimiter. `\"one  two three\".split()` returns `['one', 'two', 'three']`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the `join()` method's syntax and purpose. What happens if you try to `join()` a list containing non-string elements?",
+      "back": "The `join()` method is called on a *separator string* (e.g., `','` or `' '`) and takes an iterable (like a list or tuple) of *strings* as its argument. It concatenates the elements of the iterable, using the string it's called on as the separator. Example: `'-'.join(['a', 'b', 'c'])` returns `'a-b-c'`. If the iterable contains non-string elements (e.g., numbers), a `TypeError` will be raised because `join()` expects all elements to be strings.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you replace all occurrences of 'Python' with 'Java' in the string `'I love Python programming. Python is great.'`? What if you only wanted to replace the first occurrence?",
+      "back": "To replace all occurrences: `s = 'I love Python programming. Python is great.'` then `s.replace('Python', 'Java')` returns `'I love Java programming. Java is great.'`. To replace only the first occurrence, provide the `count` argument: `s.replace('Python', 'Java', 1)` returns `'I love Java programming. Python is great.'`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the `find()` method return if a substring is found? What if it's not found? How does it differ from `index()` in the latter case?",
+      "back": "If the substring is found, `find()` returns the lowest index in the string where the substring is found. If the substring is not found, it returns `-1`. The `index()` method, in contrast, raises a `ValueError` if the substring is not found, which can be less graceful for simple checks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Demonstrate three ways to use the `format()` method to insert variables into the string `'Hello, my name is {} and I am {} years old.'` for `name = 'Alice'` and `age = 30`.",
+      "back": "1. **Positional arguments:**\n   ```python\n   'Hello, my name is {} and I am {} years old.'.format(name, age)\n   ```\n2. **Named arguments:**\n   ```python\n   'Hello, my name is {n} and I am {a} years old.'.format(n=name, a=age)\n   ```\n3. **Index-based positional arguments:**\n   ```python\n   'Hello, my name is {0} and I am {1} years old.'.format(name, age)\n   ```\nAll will produce `'Hello, my name is Alice and I am 30 years old.'`",
+      "difficulty": "hard"
+    }
+  ]
+}

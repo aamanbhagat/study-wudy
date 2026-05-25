@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-5-aberrations-chromatic-spherical-concepts",
+  "subtopicTitle": "Aberrations — chromatic, spherical (concepts)",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:53.628Z",
+  "cards": [
+    {
+      "front": "What is the fundamental definition of an optical aberration?",
+      "back": "An optical aberration is a deviation from ideal image formation, where a perfect optical system would produce a point image from a point object. Aberrations cause blurring, distortion, or color fringing, preventing all rays from a point object from converging to a single point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define chromatic aberration and describe its most common visual manifestation.",
+      "back": "Chromatic aberration is an optical defect where a lens fails to focus all colors of light to the same convergence point. Its most common visual manifestation is color fringing (rainbow-like halos) around objects, especially at high-contrast edges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the underlying physical principle responsible for chromatic aberration in refractive optical elements?",
+      "back": "Chromatic aberration is caused by **dispersion**, the phenomenon where the refractive index ($n$) of a material varies with the wavelength ($\\lambda$) of light. Since the focal length ($f$) of a lens depends on $n$ (e.g., for a thin lens in air, $1/f = (n-1)(1/R_1 - 1/R_2)$), different wavelengths will have different focal lengths.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define spherical aberration and explain how it affects the image quality of a spherical lens or mirror.",
+      "back": "Spherical aberration is an optical defect where light rays striking a spherical lens or mirror closer to its edge (marginal rays) focus at a different point than rays striking closer to its center (paraxial rays). This results in a blurred image, as there is no single, sharp focal point, but rather a region of minimum blur called the circle of least confusion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why spherical aberration occurs in lenses/mirrors with spherical surfaces, specifically differentiating the behavior of paraxial and marginal rays.",
+      "back": "Spherical aberration arises because the simple lens maker's formula ($1/f = (n-1)(1/R_1 - 1/R_2)$) and mirror formula ($1/f = 2/R$) are derived using the paraxial approximation, which assumes rays are close to the optical axis. For spherical surfaces, marginal rays (far from the axis) are refracted/reflected more strongly than paraxial rays (near the axis), causing them to converge at different focal points along the optical axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do achromatic doublets conceptually mitigate chromatic aberration?",
+      "back": "Achromatic doublets mitigate chromatic aberration by combining two lenses made of different types of glass (e.g., crown glass and flint glass) with different refractive indices and dispersions. One lens is typically a converging lens, and the other a diverging lens. Their powers and dispersions are chosen such that the chromatic aberrations of the two lenses largely cancel each other out for two specific wavelengths (e.g., red and blue), bringing them to a common focus.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two distinct methods or design choices used to reduce or eliminate spherical aberration in optical systems.",
+      "back": "1.  **Using aspheric lenses/mirrors:** These surfaces are not spherical but have a more complex profile (e.g., parabolic for mirrors) designed to bring all rays to a single focal point.\n2.  **Stopping down the aperture:** Reducing the aperture size blocks marginal rays, allowing only paraxial rays to pass, thereby reducing the effect of spherical aberration (though it also reduces light gathering and introduces diffraction).\n3.  **Using lens combinations:** Combining multiple spherical lenses with carefully chosen curvatures can also reduce spherical aberration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a lens material has a higher refractive index for blue light ($n_{blue}$) than for red light ($n_{red}$), which color will have a shorter focal length? Justify your answer.",
+      "back": "Blue light will have a shorter focal length.\nThe focal length of a thin converging lens is given by $1/f = (n-1)(1/R_1 - 1/R_2)$. Since $n_{blue} > n_{red}$, the term $(n-1)$ will be larger for blue light. A larger $(n-1)$ term means a larger value for $1/f$, which implies a smaller (shorter) focal length $f$. This difference in focal lengths for different colors is precisely what causes chromatic aberration.",
+      "difficulty": "hard"
+    }
+  ]
+}

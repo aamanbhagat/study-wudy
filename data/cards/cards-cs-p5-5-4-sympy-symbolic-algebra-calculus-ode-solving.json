@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-4-sympy-symbolic-algebra-calculus-ode-solving",
+  "subtopicTitle": "SymPy — symbolic algebra, calculus, ODE solving",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:44.864Z",
+  "cards": [
+    {
+      "front": "In SymPy, what is the fundamental first step to perform symbolic computations, and how do you define a variable like $x$?",
+      "back": "The fundamental first step is to define symbolic variables using `sympy.symbols()`. This tells SymPy to treat them as mathematical symbols rather than regular Python variables.\n```python\nimport sympy\nx = sympy.symbols('x')\n# For multiple variables:\nx, y, z = sympy.symbols('x y z')\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using SymPy, how would you expand the algebraic expression $(x+y)^3$?",
+      "back": "You use the `sympy.expand()` function.\n```python\nimport sympy\nx, y = sympy.symbols('x y')\nexpr = (x + y)**3\nexpanded_expr = sympy.expand(expr)\nprint(expanded_expr)\n# Output: x**3 + 3*x**2*y + 3*x*y**2 + y**3\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the first derivative of $f(x) = \\sin(x^2)$ with respect to $x$ using SymPy.",
+      "back": "You use the `sympy.diff()` function.\n$$ \\frac{d}{dx} \\sin(x^2) = 2x \\cos(x^2) $$\n```python\nimport sympy\nx = sympy.symbols('x')\nf_x = sympy.sin(x**2)\nderivative = sympy.diff(f_x, x)\nprint(derivative)\n# Output: 2*x*cos(x**2)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the indefinite integral of $x \\cdot e^x$ with respect to $x$ using SymPy.",
+      "back": "You use the `sympy.integrate()` function.\n$$ \\int x e^x \\, dx = (x-1)e^x + C $$\n```python\nimport sympy\nx = sympy.symbols('x')\nintegrand = x * sympy.exp(x)\nintegral = sympy.integrate(integrand, x)\nprint(integral)\n# Output: (x - 1)*exp(x)\n```\nNote: SymPy does not include the constant of integration $C$ for indefinite integrals.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can SymPy be used to find the Taylor series expansion of $\\sin(x)$ around $x=0$ up to the 5th order (terms up to $x^5$)?",
+      "back": "You use the `sympy.series()` function. The order argument specifies the highest power of the expansion variable.\n$$ \\sin(x) = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - O(x^6) $$\n```python\nimport sympy\nx = sympy.symbols('x')\nseries_expansion = sympy.sin(x).series(x, 0, 6) # 6 means terms up to x^5 + O(x^6)\nprint(series_expansion)\n# Output: x - x**3/6 + x**5/120 + O(x**6)\n```\nThe `O(x**6)` term represents the Landau symbol for higher-order terms.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "To solve an ODE like $y''(t) + 2y'(t) + y(t) = 0$ in SymPy, how do you define the function $y(t)$ and represent the equation?",
+      "back": "You define $y(t)$ as a SymPy `Function` and use `sympy.Derivative` to represent derivatives. The equation itself is formed using `sympy.Eq`.\n```python\nimport sympy\nt = sympy.symbols('t')\ny = sympy.Function('y')\n# Define derivatives\ny_prime = sympy.Derivative(y(t), t)\ny_double_prime = sympy.Derivative(y(t), t, 2)\n# Form the equation\node_eq = sympy.Eq(y_double_prime + 2*y_prime + y(t), 0)\nprint(ode_eq)\n# Output: Eq(Derivative(y(t), t, t) + 2*Derivative(y(t), t) + y(t), 0)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve the first-order linear ODE $y'(x) + y(x) = x$ using SymPy's `dsolve`.",
+      "back": "First, define the symbols and function, then set up the equation, and finally use `sympy.dsolve()`.\n$$ y'(x) + y(x) = x $$\n```python\nimport sympy\nx = sympy.symbols('x')\ny = sympy.Function('y')\node = sympy.Eq(y(x).diff(x) + y(x), x)\nsolution = sympy.dsolve(ode, y(x))\nprint(solution)\n# Output: Eq(y(x), C1*exp(-x) + x - 1)\n```\nThe solution includes an arbitrary constant `C1`.",
+      "difficulty": "hard"
+    }
+  ]
+}

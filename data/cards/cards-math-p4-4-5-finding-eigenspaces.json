@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-finding-eigenspaces",
+  "subtopicTitle": "Finding eigenspaces",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:21.194Z",
+  "cards": [
+    {
+      "front": "Define the eigenspace $E_\\lambda$ of a matrix $A$ corresponding to an eigenvalue $\\lambda$.",
+      "back": "The eigenspace $E_\\lambda$ is the set of all eigenvectors corresponding to $\\lambda$, along with the zero vector. Mathematically, $E_\\lambda = \\{ \\mathbf{v} \\in \\mathbb{R}^n \\mid A\\mathbf{v} = \\lambda\\mathbf{v} \\}$. This is equivalent to the null space of the matrix $(A - \\lambda I)$, i.e., $E_\\lambda = \\text{null}(A - \\lambda I)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To find the eigenvectors $\\mathbf{v}$ corresponding to an eigenvalue $\\lambda$ of a matrix $A$, which homogeneous linear system must be solved?",
+      "back": "The homogeneous linear system that must be solved is $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$. The non-trivial solutions to this system are the eigenvectors for $\\lambda$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the two main steps to find a basis for the eigenspace $E_\\lambda$ for a given eigenvalue $\\lambda$ of a matrix $A$.",
+      "back": "1. Form the matrix $(A - \\lambda I)$.\n2. Solve the homogeneous system $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$ by row reducing $(A - \\lambda I)$ to its reduced row echelon form (RREF) and expressing the general solution in parametric vector form. The vectors that span this solution set form a basis for $E_\\lambda$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $A = \\begin{pmatrix} 5 & 0 \\\\ 0 & 2 \\end{pmatrix}$ and eigenvalue $\\lambda = 5$, find a basis for the eigenspace $E_5$.",
+      "back": "First, form $A - 5I = \\begin{pmatrix} 5-5 & 0 \\\\ 0 & 2-5 \\end{pmatrix} = \\begin{pmatrix} 0 & 0 \\\\ 0 & -3 \\end{pmatrix}$.\nNext, solve $(A - 5I)\\mathbf{v} = \\mathbf{0}$: $\\begin{pmatrix} 0 & 0 \\\\ 0 & -3 \\end{pmatrix} \\begin{pmatrix} v_1 \\\\ v_2 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}$.\nThis gives $-3v_2 = 0$, so $v_2 = 0$. $v_1$ is a free variable.\nThe general solution is $\\mathbf{v} = \\begin{pmatrix} v_1 \\\\ 0 \\end{pmatrix} = v_1 \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$.\nA basis for $E_5$ is $\\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} \\right\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$ and eigenvalue $\\lambda = 2$, find a basis for the eigenspace $E_2$.",
+      "back": "First, form $A - 2I = \\begin{pmatrix} 2-2 & 1 & 0 \\\\ 0 & 2-2 & 1 \\\\ 0 & 0 & 2-2 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$.\nNext, solve $(A - 2I)\\mathbf{v} = \\mathbf{0}$: $\\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix} \\begin{pmatrix} v_1 \\\\ v_2 \\\\ v_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$.\nThis system implies $v_2 = 0$ and $v_3 = 0$. $v_1$ is a free variable.\nThe general solution is $\\mathbf{v} = \\begin{pmatrix} v_1 \\\\ 0 \\\\ 0 \\end{pmatrix} = v_1 \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$.\nA basis for $E_2$ is $\\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} \\right\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the dimension of an eigenspace $E_\\lambda$, denoted $\\dim(E_\\lambda)$, relate to the algebraic multiplicity (AM) and geometric multiplicity (GM) of $\\lambda$?",
+      "back": "The dimension of the eigenspace $E_\\lambda$ is defined as the geometric multiplicity (GM) of the eigenvalue $\\lambda$. For any eigenvalue $\\lambda$, its geometric multiplicity is always less than or equal to its algebraic multiplicity: $1 \\le \\text{GM}(\\lambda) \\le \\text{AM}(\\lambda)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the significance of the eigenspace $E_0$ for an eigenvalue $\\lambda=0$?",
+      "back": "If $\\lambda=0$ is an eigenvalue of a matrix $A$, then its corresponding eigenspace $E_0$ is precisely the null space of the matrix $A$. This is because $E_0 = \\text{null}(A - 0I) = \\text{null}(A)$. This means any vector in the null space of $A$ is an eigenvector corresponding to $\\lambda=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What condition on the dimensions of all eigenspaces of an $n \\times n$ matrix $A$ guarantees that $A$ is diagonalizable?",
+      "back": "An $n \\times n$ matrix $A$ is diagonalizable if and only if the sum of the dimensions of its eigenspaces equals $n$. This is equivalent to stating that for every eigenvalue $\\lambda$, its geometric multiplicity (the dimension of $E_\\lambda$) must be equal to its algebraic multiplicity.",
+      "difficulty": "hard"
+    }
+  ]
+}

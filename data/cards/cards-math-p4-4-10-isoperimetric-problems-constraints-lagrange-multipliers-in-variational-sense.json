@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-10-isoperimetric-problems-constraints-lagrange-multipliers-in-variational-sense",
+  "subtopicTitle": "Isoperimetric problems — constraints (Lagrange multipliers in variational sense)",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:10.031Z",
+  "cards": [
+    {
+      "front": "Define an isoperimetric problem in the calculus of variations.",
+      "back": "An isoperimetric problem is a type of variational problem where one seeks to extremize a functional $J[y]$ subject to one or more integral constraints $K_i[y] = C_i$, where $C_i$ are given constants.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a functional $J[y] = \\int_{a}^{b} F(x, y, y') dx$ and an integral constraint $K[y] = \\int_{a}^{b} G(x, y, y') dx = C$, write the augmented functional used to find extrema.",
+      "back": "The augmented functional $J^*[y, \\lambda]$ is formed by adding the constraint functional multiplied by a Lagrange multiplier $\\lambda$ to the original functional:\n$$J^*[y, \\lambda] = J[y] + \\lambda K[y] = \\int_{a}^{b} [F(x, y, y') + \\lambda G(x, y, y')] dx$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Euler-Lagrange equation for the augmented functional $J^*[y, \\lambda] = \\int_{a}^{b} [F(x, y, y') + \\lambda G(x, y, y')] dx$.",
+      "back": "Let $H(x, y, y', \\lambda) = F(x, y, y') + \\lambda G(x, y, y')$. The Euler-Lagrange equation for $J^*$ is given by:\n$$\\frac{\\partial H}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial H}{\\partial y'}\\right) = 0$$\nSubstituting $H$, we get:\n$$\\left(\\frac{\\partial F}{\\partial y} + \\lambda \\frac{\\partial G}{\\partial y}\\right) - \\frac{d}{dx}\\left(\\frac{\\partial F}{\\partial y'} + \\lambda \\frac{\\partial G}{\\partial y'}\\right) = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In an isoperimetric problem, what does the Lagrange multiplier $\\lambda$ represent, and how is its specific value determined?",
+      "back": "The Lagrange multiplier $\\lambda$ is a constant that arises from the constraint. It can be interpreted as the sensitivity of the extremum value of $J$ with respect to changes in the constraint constant $C$. Its specific value is determined *after* solving the Euler-Lagrange equation for $y(x)$ (which will contain $\\lambda$) by substituting the resulting $y(x)$ back into the original integral constraint $K[y] = C$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Set up the augmented functional for finding the curve $y(x)$ that connects two points $(x_1, y_1)$ and $(x_2, y_2)$, has a fixed arc length $L$, and encloses the maximum area with the x-axis.",
+      "back": "The functional to maximize (Area) is $J[y] = \\int_{x_1}^{x_2} y \\,dx$. The integral constraint (Length) is $K[y] = \\int_{x_1}^{x_2} \\sqrt{1 + (y')^2} \\,dx = L$. The augmented functional $J^*[y, \\lambda]$ is:\n$$J^*[y, \\lambda] = \\int_{x_1}^{x_2} \\left(y + \\lambda \\sqrt{1 + (y')^2}\\right) \\,dx$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the augmented functional modified when an extremization problem is subject to $N$ integral constraints, $K_1[y]=C_1, \\dots, K_N[y]=C_N$?",
+      "back": "For $N$ integral constraints, we introduce $N$ distinct Lagrange multipliers $\\lambda_1, \\dots, \\lambda_N$. The augmented functional becomes a sum of the original functional and each constraint multiplied by its respective Lagrange multiplier:\n$$J^*[y, \\lambda_1, \\dots, \\lambda_N] = J[y] + \\sum_{i=1}^{N} \\lambda_i K_i[y] = \\int_{a}^{b} \\left( F(x, y, y') + \\sum_{i=1}^{N} \\lambda_i G_i(x, y, y') \\right) dx$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What shape encloses the maximum area for a given perimeter in 2D Euclidean space?",
+      "back": "A circle. This is the solution to the classical isoperimetric problem.",
+      "difficulty": "easy"
+    }
+  ]
+}

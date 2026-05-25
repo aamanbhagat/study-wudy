@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-7-ideal-gas-law-pv-nrt-derivation-from-kinetic-theory",
+  "subtopicTitle": "Ideal gas law PV = nRT — derivation from kinetic theory",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:08.431Z",
+  "cards": [
+    {
+      "front": "State the Ideal Gas Law equation and define each variable.",
+      "back": "The Ideal Gas Law is $PV = nRT$.\n*   $P$: Absolute pressure of the gas (e.g., in Pascals, Pa)\n*   $V$: Volume occupied by the gas (e.g., in cubic meters, m$^3$)\n*   $n$: Number of moles of the gas (mol)\n*   $R$: Ideal gas constant (approx. $8.314 \\text{ J/(mol·K)}$)\n*   $T$: Absolute temperature of the gas (e.g., in Kelvin, K)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three fundamental assumptions of the Kinetic Theory of Gases.",
+      "back": "Three fundamental assumptions of the Kinetic Theory of Gases are:\n1.  The gas consists of a very large number of identical molecules, which are point particles (negligible volume).\n2.  The molecules are in continuous, random motion, colliding elastically with each other and with the container walls.\n3.  Intermolecular forces are negligible except during collisions.\n4.  The time duration of a collision is negligible compared to the time between collisions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "According to the Kinetic Theory, how does the pressure exerted by a gas arise?",
+      "back": "Pressure arises from the continuous bombardment of gas molecules against the walls of the container. Each time a molecule collides with a wall, it undergoes a change in momentum. By Newton's second law, this change in momentum implies a force exerted by the wall on the molecule, and by Newton's third law, an equal and opposite force exerted by the molecule on the wall. The sum of these forces over time, averaged over the surface area, constitutes the macroscopic pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Kinetic Theory expression for pressure $P$ in terms of the number of molecules $N$, volume $V$, molecular mass $m$, and mean squared speed $\\langle v^2 \\rangle$.",
+      "back": "The Kinetic Theory expression for pressure is:\n$$P = \\frac{1}{3} \\frac{N}{V} m \\langle v^2 \\rangle$$\nwhere:\n*   $P$ is pressure\n*   $N$ is the total number of gas molecules\n*   $V$ is the volume of the container\n*   $m$ is the mass of a single gas molecule\n*   $\\langle v^2 \\rangle$ is the mean squared speed of the gas molecules",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the average translational kinetic energy of an ideal gas molecule related to its absolute temperature $T$?",
+      "back": "The average translational kinetic energy ($\\langle KE_{trans} \\rangle$) of a single ideal gas molecule is directly proportional to its absolute temperature $T$. The relationship is given by:\n$$\\langle KE_{trans} \\rangle = \\frac{1}{2}m\\langle v^2 \\rangle = \\frac{3}{2}kT$$\nwhere $k$ is Boltzmann's constant (approx. $1.38 \\times 10^{-23} \\text{ J/K}$). This equation shows that temperature is a direct measure of the average translational kinetic energy of the gas molecules.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the ideal gas law in the form $PV = NkT$ from the Kinetic Theory expression for pressure $P = \\frac{1}{3}\\frac{N}{V}m\\langle v^2 \\rangle$.",
+      "back": "1.  Start with the Kinetic Theory pressure equation:\n    $$P = \\frac{1}{3}\\frac{N}{V}m\\langle v^2 \\rangle$$\n2.  Rearrange to isolate $PV$:\n    $$PV = \\frac{1}{3}N m\\langle v^2 \\rangle$$\n3.  Multiply and divide the right side by 2:\n    $$PV = \\frac{2}{3}N \\left(\\frac{1}{2}m\\langle v^2 \\rangle\\right)$$\n4.  Recognize that $\\frac{1}{2}m\\langle v^2 \\rangle$ is the average translational kinetic energy per molecule, $\\langle KE_{trans} \\rangle$.\n    $$PV = \\frac{2}{3}N \\langle KE_{trans} \\rangle$$\n5.  From the Kinetic Theory, we know that $\\langle KE_{trans} \\rangle = \\frac{3}{2}kT$, where $k$ is Boltzmann's constant and $T$ is absolute temperature.\n6.  Substitute this into the equation:\n    $$PV = \\frac{2}{3}N \\left(\\frac{3}{2}kT\\right)$$\n7.  Simplify to obtain:\n    $$PV = NkT$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how to convert the Ideal Gas Law from $PV = NkT$ to $PV = nRT$, defining Boltzmann's constant ($k$) and the ideal gas constant ($R$).",
+      "back": "1.  The total number of molecules $N$ can be expressed as the product of the number of moles $n$ and Avogadro's number $N_A$: $N = nN_A$.\n2.  Substitute this into $PV = NkT$: $PV = (nN_A)kT$.\n3.  The ideal gas constant $R$ is defined as the product of Avogadro's number and Boltzmann's constant: $R = N_A k$.\n4.  Substitute $R$ into the equation: $PV = nRT$.\n\n*   **Boltzmann's constant ($k$):** A fundamental physical constant relating the average kinetic energy of particles in a gas to the temperature of the gas. $k \\approx 1.38 \\times 10^{-23} \\text{ J/K}$.\n*   **Ideal gas constant ($R$):** Also known as the molar gas constant, it relates the energy scale to the temperature scale for one mole of gas. $R = N_A k \\approx 8.314 \\text{ J/(mol·K)}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

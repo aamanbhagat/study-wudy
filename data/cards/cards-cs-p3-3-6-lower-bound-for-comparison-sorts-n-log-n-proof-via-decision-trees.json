@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-6-lower-bound-for-comparison-sorts-n-log-n-proof-via-decision-trees",
+  "subtopicTitle": "Lower bound for comparison sorts — Ω(n log n) proof via decision trees",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:44.195Z",
+  "cards": [
+    {
+      "front": "What defines a \"comparison sort\" algorithm?",
+      "back": "A sorting algorithm that only gains information about the relative order of elements by comparing pairs of elements (e.g., $A[i]$ vs $A[j]$). It does not use their actual values directly (e.g., as array indices or for arithmetic operations). Examples include Merge Sort, Quick Sort, and Heap Sort.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of sorting, what does a \"decision tree\" represent?",
+      "back": "A binary tree where each internal node represents a comparison between two elements (e.g., $A[i] \\le A[j]$). The left child represents one outcome (e.g., true) and the right child the other (e.g., false). Each leaf node represents a unique permutation of the input array that could be the sorted output.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the height of a decision tree relate to the worst-case number of comparisons for a sorting algorithm?",
+      "back": "The height $h$ of a decision tree directly corresponds to the worst-case number of comparisons required by the sorting algorithm it represents. Each level of the tree signifies one comparison, and the longest path from the root to any leaf represents the maximum number of comparisons needed to sort the input.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a comparison sort of $n$ distinct elements, what is the minimum number of leaves a decision tree must have? Why?",
+      "back": "The decision tree must have at least $n!$ leaves. This is because there are $n!$ possible permutations (orderings) for $n$ distinct elements, and each leaf node must correspond to a unique sorted permutation of the input. If there were fewer leaves, some possible sorted output would not be reachable by the algorithm.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the $\\Omega(n \\log n)$ lower bound for comparison sorts using decision trees.",
+      "back": "A binary tree of height $h$ can have at most $2^h$ leaves. For sorting $n$ distinct elements, there are $n!$ possible permutations, so the decision tree must have at least $n!$ leaves. Thus, we have the inequality: $$n! \\le 2^h$$ Taking $\\log_2$ of both sides: $$h \\ge \\log_2(n!)$$ Using the property $\\log(xy) = \\log x + \\log y$ and $n! = n \\times (n-1) \\times \\dots \\times 1$, we can approximate $n! \\approx (n/e)^n \\sqrt{2\\pi n}$ (Stirling's approximation), or more simply, $n! > (n/e)^n$. So, $$h \\ge \\log_2((n/e)^n) = n \\log_2(n/e) = n (\\log_2 n - \\log_2 e)$$ Therefore, $h = \\Omega(n \\log n)$. Since $h$ is the worst-case number of comparisons, any comparison sort must perform at least $\\Omega(n \\log n)$ comparisons in the worst case.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What fundamental assumption underpins the $\\Omega(n \\log n)$ lower bound for comparison sorts?",
+      "back": "The fundamental assumption is that the sorting algorithm can only gain information about the relative order of elements by performing pairwise comparisons. It cannot use the actual values of the elements directly (e.g., their magnitude, range, or digits) for operations like indexing into an array, counting occurrences, or distributing into buckets.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can a sorting algorithm achieve better than $\\Omega(n \\log n)$ worst-case time complexity? If so, name one and explain why it's not subject to this lower bound.",
+      "back": "Yes, algorithms like Counting Sort, Radix Sort, and Bucket Sort can achieve $O(n+k)$ or $O(n)$ worst-case time complexity (where $k$ is the range of input values or number of buckets). They are not comparison sorts because they exploit properties of the input values (e.g., using values as indices, digits, or distributing into buckets based on value) rather than solely relying on pairwise comparisons. This allows them to bypass the decision tree lower bound, which applies only to comparison-based sorts.",
+      "difficulty": "hard"
+    }
+  ]
+}

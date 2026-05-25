@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-input-with-input-always-returns-string-conversion-needed",
+  "subtopicTitle": "Input with input() — always returns string, conversion needed",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:50.587Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `input()` function in Python?",
+      "back": "The `input()` function is used to get user input from the console. It pauses program execution, displays an optional prompt, and waits for the user to type something and press Enter.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Regardless of what the user types, what data type does the `input()` function *always* return in Python?",
+      "back": "The `input()` function always returns a `str` (string) data type.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is type conversion often necessary after using `input()` if you want to perform arithmetic operations?",
+      "back": "Because `input()` always returns a string, you cannot directly perform arithmetic operations (like addition, subtraction, multiplication) on it. You must convert the string to a numeric type (e.g., `int` or `float`) first.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Python code snippet that prompts the user for their age and stores it as an integer.",
+      "back": "```python\nage_str = input(\"Please enter your age: \")\nage_int = int(age_str)\n# Or more commonly in one line:\nage_int = int(input(\"Please enter your age: \"))\nprint(f\"You are {age_int} years old.\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you convert user input into a floating-point number in Python? Provide a code snippet.",
+      "back": "You use the `float()` function. For example:\n```python\nprice_str = input(\"Enter the item's price: \")\nprice_float = float(price_str)\n# Or combined:\nprice_float = float(input(\"Enter the item's price: \"))\nprint(f\"The price is ${price_float:.2f}\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What specific error will occur if a user enters non-numeric text like \"hello\" when your Python code expects an integer using `int(input())`?",
+      "back": "A `ValueError` will occur. This error signifies that the argument passed to a function (in this case, `int()`) has the correct type but an inappropriate value (e.g., a string that cannot be converted to an integer).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly describe a common programming pattern to handle potential `ValueError` exceptions when converting user input to a number, preventing your program from crashing.",
+      "back": "A common pattern is to use a `try-except` block. You place the conversion code inside the `try` block. If a `ValueError` occurs (e.g., due to invalid input), the `except ValueError` block catches it, allowing you to gracefully handle the error, such as printing an error message and prompting the user to try again.",
+      "difficulty": "hard"
+    }
+  ]
+}

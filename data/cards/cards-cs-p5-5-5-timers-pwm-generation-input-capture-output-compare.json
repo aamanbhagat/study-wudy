@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-timers-pwm-generation-input-capture-output-compare",
+  "subtopicTitle": "Timers — PWM generation, input capture, output compare",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:09.425Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a hardware timer in an embedded system?",
+      "back": "A hardware timer's primary function is to count clock cycles (from a system clock or external source) or specific external events, enabling precise timing, generating delays, and scheduling events without continuous CPU intervention.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define Pulse Width Modulation (PWM) and state its core principle.",
+      "back": "PWM is a technique for controlling the average power delivered to an electronic device by rapidly switching the power supply or signal on and off. Its core principle is varying the \"duty cycle\" (the ratio of ON time to the total period) of a square wave, effectively controlling the average voltage or current.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A microcontroller timer generates a PWM signal. If the timer counts up to a `Period` value of $N_{period}$ and the `Compare` register is set to $N_{compare}$, what is the duty cycle percentage?",
+      "back": "The duty cycle percentage is given by the formula: $$\\text{Duty Cycle} = \\frac{N_{compare}}{N_{period}} \\times 100\\%$$ For example, if $N_{period}=1000$ and $N_{compare}=250$, the duty cycle is $25\\%$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a timer's `Output Compare` (OC) mode is used to generate a PWM signal.",
+      "back": "In OC mode for PWM, the timer continuously counts. When the counter matches the `Compare` register value, the associated output pin either toggles or changes state (e.g., goes low). When the counter reaches its `Period` (or `Auto-Reload`) value, it resets to zero, and the output pin changes state again (e.g., goes high). By adjusting the `Compare` value relative to the `Period`, the ON time and thus the duty cycle are controlled.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is `Input Capture` and what is its primary use case in embedded systems?",
+      "back": "`Input Capture` is a timer feature that records the precise value of the timer's internal counter register when a specific event (e.g., a rising or falling edge) occurs on an associated input pin. Its primary use is to measure the timing characteristics of external signals, such as pulse widths, signal periods, or frequencies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You use `Input Capture` to measure the period of an incoming square wave. The timer runs at $F_{timer}$ Hz. If the first capture (rising edge) records $T_1$ and the second capture (next rising edge) records $T_2$, derive the signal's frequency.",
+      "back": "The period of the signal in timer ticks is $N_{period\\_ticks} = T_2 - T_1$. Since the timer runs at $F_{timer}$ Hz (ticks per second), the time duration for one period in seconds is $P = \\frac{N_{period\\_ticks}}{F_{timer}}$. Therefore, the frequency $F$ is the reciprocal of the period: $$F = \\frac{1}{P} = \\frac{F_{timer}}{N_{period\\_ticks}} = \\frac{F_{timer}}{T_2 - T_1} \\text{ Hz}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond PWM, describe one other common application of a timer's `Output Compare` (OC) mode.",
+      "back": "`Output Compare` can be used to generate precise, one-shot delays or periodic events without continuous CPU intervention. By setting the `Compare` register to a future timer count and configuring an interrupt, the CPU can be notified exactly when that time arrives, enabling accurate task scheduling, generating precise software delays, or toggling an output pin at specific, non-PWM intervals.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A timer operates at 100 MHz and is configured for a PWM frequency of 10 kHz. What is the maximum possible resolution (number of distinct duty cycle steps) for this PWM, assuming the period register is set optimally?",
+      "back": "The period of the PWM signal in timer ticks is calculated as: $N_{period} = \\frac{\\text{Timer Frequency}}{\\text{PWM Frequency}} = \\frac{100 \\times 10^6 \\text{ Hz}}{10 \\times 10^3 \\text{ Hz}} = 10000$ ticks. The maximum possible resolution (number of distinct duty cycle steps) is equal to the period in ticks. Therefore, the maximum resolution is $10000$ steps. This means the duty cycle can be adjusted in increments of $1/10000$ (or $0.01\\%$).",
+      "difficulty": "hard"
+    }
+  ]
+}

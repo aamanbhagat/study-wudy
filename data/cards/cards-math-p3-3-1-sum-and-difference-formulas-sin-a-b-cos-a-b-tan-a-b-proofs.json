@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p3-3-1-sum-and-difference-formulas-sin-a-b-cos-a-b-tan-a-b-proofs",
+  "subtopicTitle": "Sum and difference formulas — sin(A±B), cos(A±B), tan(A±B) — proofs",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T20:51:26.002Z",
+  "cards": [
+    {
+      "front": "State the sum formula for sine: $\\sin(A+B)$.",
+      "back": "$\\sin(A+B) = \\sin A \\cos B + \\cos A \\sin B$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the sum formula for cosine: $\\cos(A+B)$.",
+      "back": "$\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for $\\cos(A-B)$ using the $\\cos(A+B)$ formula and properties of even/odd functions.",
+      "back": "We know $\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B$.\nTo find $\\cos(A-B)$, substitute $B$ with $(-B)$: \n$\\cos(A-B) = \\cos(A+(-B)) = \\cos A \\cos(-B) - \\sin A \\sin(-B)$.\nSince $\\cos(-B) = \\cos B$ (cosine is an even function) and $\\sin(-B) = -\\sin B$ (sine is an odd function):\n$\\cos(A-B) = \\cos A \\cos B - \\sin A (-\\sin B)$ \n$\\cos(A-B) = \\cos A \\cos B + \\sin A \\sin B$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically prove the difference formula for cosine, $\\cos(A-B)$, using the unit circle and the distance formula.",
+      "back": "Consider points on the unit circle: $P_1(\\cos A, \\sin A)$, $P_2(\\cos B, \\sin B)$, $P_3(\\cos(A-B), \\sin(A-B))$, and $P_4(1,0)$.\nThe angle between $OP_1$ and $OP_2$ is $A-B$. The angle between $OP_4$ and $OP_3$ is also $A-B$. Therefore, the chord length $P_1P_2$ must equal $P_3P_4$.\nUsing the distance formula $d^2 = (x_2-x_1)^2 + (y_2-y_1)^2$: \n$P_1P_2^2 = (\\cos A - \\cos B)^2 + (\\sin A - \\sin B)^2$ \n$= \\cos^2 A - 2\\cos A \\cos B + \\cos^2 B + \\sin^2 A - 2\\sin A \\sin B + \\sin^2 B$ \n$= (\\cos^2 A + \\sin^2 A) + (\\cos^2 B + \\sin^2 B) - 2(\\cos A \\cos B + \\sin A \\sin B)$ \n$= 1 + 1 - 2(\\cos A \\cos B + \\sin A \\sin B) = 2 - 2(\\cos A \\cos B + \\sin A \\sin B)$.\n$P_3P_4^2 = (\\cos(A-B) - 1)^2 + (\\sin(A-B) - 0)^2$ \n$= \\cos^2(A-B) - 2\\cos(A-B) + 1 + \\sin^2(A-B)$ \n$= (\\cos^2(A-B) + \\sin^2(A-B)) - 2\\cos(A-B) + 1$ \n$= 1 - 2\\cos(A-B) + 1 = 2 - 2\\cos(A-B)$.\nEquating $P_1P_2^2$ and $P_3P_4^2$: \n$2 - 2(\\cos A \\cos B + \\sin A \\sin B) = 2 - 2\\cos(A-B)$ \n$-2(\\cos A \\cos B + \\sin A \\sin B) = -2\\cos(A-B)$ \n$\\cos(A-B) = \\cos A \\cos B + \\sin A \\sin B$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for $\\sin(A+B)$ using the $\\cos(X-Y)$ formula and cofunction identities.",
+      "back": "We know the cofunction identity $\\sin \\theta = \\cos(\\pi/2 - \\theta)$.\nLet $\\theta = A+B$. Then $\\sin(A+B) = \\cos(\\pi/2 - (A+B))$.\nRearrange the argument: $\\cos((\\pi/2 - A) - B)$.\nNow apply the $\\cos(X-Y)$ formula where $X = (\\pi/2 - A)$ and $Y = B$: \n$\\cos((\\pi/2 - A) - B) = \\cos(\\pi/2 - A) \\cos B + \\sin(\\pi/2 - A) \\sin B$.\nUsing cofunction identities again: $\\cos(\\pi/2 - A) = \\sin A$ and $\\sin(\\pi/2 - A) = \\cos A$.\nSubstituting these back: \n$\\sin(A+B) = \\sin A \\cos B + \\cos A \\sin B$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the exact value of $\\sin(75^\\circ)$ using sum formulas.",
+      "back": "$\\sin(75^\\circ) = \\sin(45^\\circ + 30^\\circ)$ \nUsing $\\sin(A+B) = \\sin A \\cos B + \\cos A \\sin B$: \n$= \\sin(45^\\circ)\\cos(30^\\circ) + \\cos(45^\\circ)\\sin(30^\\circ)$ \n$= \\left(\\frac{\\sqrt{2}}{2}\\right)\\left(\\frac{\\sqrt{3}}{2}\\right) + \\left(\\frac{\\sqrt{2}}{2}\\right)\\left(\\frac{1}{2}\\right)$ \n$= \\frac{\\sqrt{6}}{4} + \\frac{\\sqrt{2}}{4}$ \n$= \\frac{\\sqrt{6} + \\sqrt{2}}{4}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the sum formula for tangent: $\\tan(A+B)$.",
+      "back": "$\\tan(A+B) = \\frac{\\tan A + \\tan B}{1 - \\tan A \\tan B}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for $\\tan(A-B)$ from the sine and cosine difference formulas.",
+      "back": "We know that $\\tan(A-B) = \\frac{\\sin(A-B)}{\\cos(A-B)}$.\nSubstitute the difference formulas for sine and cosine:\n$\\tan(A-B) = \\frac{\\sin A \\cos B - \\cos A \\sin B}{\\cos A \\cos B + \\sin A \\sin B}$.\nTo express this in terms of tangent, divide both the numerator and the denominator by $\\cos A \\cos B$ (assuming $\\cos A \\cos B \\neq 0$):\n$= \\frac{\\frac{\\sin A \\cos B}{\\cos A \\cos B} - \\frac{\\cos A \\sin B}{\\cos A \\cos B}}{\\frac{\\cos A \\cos B}{\\cos A \\cos B} + \\frac{\\sin A \\sin B}{\\cos A \\cos B}}$\nSimplify each term:\n$= \\frac{\\frac{\\sin A}{\\cos A} - \\frac{\\sin B}{\\cos B}}{1 + \\frac{\\sin A}{\\cos A} \\frac{\\sin B}{\\cos B}}$\nSince $\\tan x = \\frac{\\sin x}{\\cos x}$:\n$\\tan(A-B) = \\frac{\\tan A - \\tan B}{1 + \\tan A \\tan B}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

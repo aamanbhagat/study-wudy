@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-orthogonal-matrices-properties-det-1",
+  "subtopicTitle": "Orthogonal matrices — properties, det = ±1",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:40.998Z",
+  "cards": [
+    {
+      "front": "What is the defining property of a real square matrix $Q$ to be considered orthogonal?",
+      "back": "A real square matrix $Q$ is orthogonal if its transpose is equal to its inverse, i.e., $Q^T Q = Q Q^T = I$, where $I$ is the identity matrix.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $Q$ is an orthogonal matrix, what is its inverse, $Q^{-1}$?",
+      "back": "If $Q$ is an orthogonal matrix, its inverse is its transpose: $Q^{-1} = Q^T$. This follows directly from the definition $Q^T Q = I$, by multiplying by $Q^{-1}$ on the right.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the nature of the columns (and rows) of an orthogonal matrix $Q$.",
+      "back": "The columns (and rows) of an orthogonal matrix $Q$ form an orthonormal basis. This means:\n1. Each column vector $q_i$ (and row vector) has unit length: $||q_i|| = 1$.\n2. All distinct column vectors $q_i$ and $q_j$ are orthogonal: $q_i^T q_j = 0$ for $i \\neq j$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that if $Q$ is an orthogonal matrix, then its determinant, $\\det(Q)$, must be either $1$ or $-1$.",
+      "back": "Given that $Q$ is an orthogonal matrix, we have $Q^T Q = I$. Taking the determinant of both sides:\n$$\\det(Q^T Q) = \\det(I)$$\nUsing the properties of determinants, $\\det(AB) = \\det(A)\\det(B)$ and $\\det(A^T) = \\det(A)$:\n$$\\det(Q^T) \\det(Q) = 1$$\n$$\\det(Q) \\det(Q) = 1$$\n$$(\\det(Q))^2 = 1$$\nTherefore, $\\det(Q) = \\pm 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do orthogonal transformations affect the length of vectors and the angle between vectors?",
+      "back": "Orthogonal transformations (multiplication by an orthogonal matrix $Q$) preserve the length (norm) of vectors, i.e., $||Qx|| = ||x||$ for any vector $x$. They also preserve the angle between vectors. This is because orthogonal matrices represent isometries (rigid transformations) that maintain distances and angles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $Q_1$ and $Q_2$ are orthogonal matrices of the same size, is their product $Q_1 Q_2$ also orthogonal? Justify your answer.",
+      "back": "Yes, their product $Q_1 Q_2$ is also orthogonal. To prove this, we check the definition of an orthogonal matrix:\n$$(Q_1 Q_2)^T (Q_1 Q_2) = Q_2^T Q_1^T Q_1 Q_2$$\nSince $Q_1$ is orthogonal, $Q_1^T Q_1 = I$. Substituting this:\n$$Q_2^T I Q_2 = Q_2^T Q_2$$\nSince $Q_2$ is orthogonal, $Q_2^T Q_2 = I$. Therefore:\n$$(Q_1 Q_2)^T (Q_1 Q_2) = I$$\nThis shows that $Q_1 Q_2$ is an orthogonal matrix.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An orthogonal matrix $Q$ with $\\det(Q) = 1$ is called a \"special orthogonal matrix\". What kind of geometric transformation does such a matrix represent in $\\mathbb{R}^n$?",
+      "back": "A special orthogonal matrix (with $\\det(Q)=1$) represents a pure rotation in $\\mathbb{R}^n$. If $\\det(Q)=-1$, it represents a rotation combined with a reflection. Both types of orthogonal matrices preserve lengths and angles, but reflections change the orientation (e.g., a left hand becomes a right hand).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-2-solid-single-responsibility-principle",
+  "subtopicTitle": "SOLID — Single Responsibility Principle",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:31.287Z",
+  "cards": [
+    {
+      "front": "What does the 'S' in SOLID stand for, and what is its core principle?",
+      "back": "The 'S' stands for **Single Responsibility Principle (SRP)**. It states that \"A class should have only one reason to change.\" (Robert C. Martin) Or, more simply, \"A class should have only one responsibility.\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the primary goal or benefit of adhering to the Single Responsibility Principle.",
+      "back": "The primary goal of SRP is to reduce coupling and increase cohesion. By ensuring each class has only one responsibility, changes to one part of the system are less likely to affect unrelated parts, leading to more robust, maintainable, and testable code.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to Robert C. Martin, how can you identify a \"responsibility\" for a class in the context of SRP?",
+      "back": "Robert C. Martin defines a responsibility as \"a reason to change.\" If a class has more than one reason to change, it has more than one responsibility. These \"reasons\" often correspond to different *actors* (users or stakeholders) who would request a change to that particular part of the system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the SRP violation in the `Report` class below and explain why it violates the principle.\n```python\nclass Report:\n    def __init__(self, title, content):\n        self.title = title\n        self.content = content\n\n    def generate_report(self):\n        return f\"<h1>{self.title}</h1><p>{self.content}</p>\"\n\n    def save_to_database(self):\n        print(f\"Saving report '{self.title}' to DB...\")\n        # DB saving logic here\n```",
+      "back": "The `Report` class violates SRP because it has two distinct responsibilities:\n1.  **Report Generation/Formatting**: Handled by `generate_report()`. This responsibility might change if the report format (e.g., HTML, PDF, plain text) needs to be altered.\n2.  **Data Persistence**: Handled by `save_to_database()`. This responsibility might change if the storage mechanism (e.g., database, file system, cloud storage) needs to be altered.\nThese are two separate \"reasons to change.\"",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Refactor the `Report` class from the previous card to adhere to the Single Responsibility Principle.",
+      "back": "```python\nclass Report:\n    def __init__(self, title, content):\n        self.title = title\n        self.content = content\n\n    def get_title(self):\n        return self.title\n\n    def get_content(self):\n        return self.content\n\nclass ReportFormatter:\n    def format_html(self, report: Report):\n        return f\"<h1>{report.get_title()}</h1><p>{report.get_content()}</p>\"\n\n    def format_plain_text(self, report: Report):\n        return f\"--- {report.get_title()} ---\\n{report.get_content()}\"\n\nclass ReportRepository:\n    def save(self, report: Report):\n        print(f\"Saving report '{report.get_title()}' to DB...\")\n        # DB saving logic here\n```\nNow, `Report` only holds data, `ReportFormatter` handles formatting, and `ReportRepository` handles persistence. Each has one reason to change.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is the \"single responsibility\" in SRP always limited to a single method, or can it apply to a broader scope? Explain.",
+      "back": "The \"single responsibility\" in SRP applies to the **class** level, not necessarily a single method. A class can have multiple methods, but all those methods should collectively serve *one cohesive responsibility*. For example, a `UserRepository` class might have `add_user()`, `get_user_by_id()`, `update_user()`, and `delete_user()`. All these methods contribute to the single responsibility of \"managing user persistence.\"",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three key benefits of designing software components to follow the Single Responsibility Principle.",
+      "back": "Key benefits of SRP include:\n1.  **Improved Maintainability**: Changes to one responsibility don't impact others, reducing side effects.\n2.  **Increased Testability**: Smaller, focused classes are easier to unit test in isolation.\n3.  **Better Readability and Understanding**: Classes with clear, single purposes are easier to understand and reason about.\n4.  **Reduced Coupling**: Components are less dependent on each other.\n5.  **Enhanced Reusability**: Single-purpose components are easier to reuse in different contexts.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-3-mass-energy-equivalence-e-pc-mc",
+  "subtopicTitle": "Mass-energy equivalence E² = (pc)² + (mc²)²",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:26.298Z",
+  "cards": [
+    {
+      "front": "What does $E$ represent in the relativistic energy-momentum relation $E^2 = (pc)^2 + (mc^2)^2$?",
+      "back": "$E$ represents the **total relativistic energy** of the particle. This includes both its rest energy and its kinetic energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the term $mc^2$ represent in the equation $E^2 = (pc)^2 + (mc^2)^2$?",
+      "back": "$mc^2$ represents the **rest energy** of the particle. It is the intrinsic energy a particle possesses solely due to its mass $m$, even when it is at rest ($p=0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a particle *at rest* ($p=0$), what does the energy-momentum relation $E^2 = (pc)^2 + (mc^2)^2$ simplify to?",
+      "back": "If a particle is at rest, its momentum $p=0$. The equation simplifies to:\n$$E^2 = (0 \\cdot c)^2 + (mc^2)^2$$\n$$E^2 = (mc^2)^2$$\n$$E = mc^2$$\nThis is Einstein's famous mass-energy equivalence, representing the particle's rest energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a *massless particle* (e.g., a photon, $m=0$), what does the energy-momentum relation $E^2 = (pc)^2 + (mc^2)^2$ simplify to?",
+      "back": "If a particle is massless, $m=0$. The equation simplifies to:\n$$E^2 = (pc)^2 + (0 \\cdot c^2)^2$$\n$$E^2 = (pc)^2$$\n$$E = pc$$\nThis means the energy of a massless particle is directly proportional to its momentum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the relativistic kinetic energy $K$ of a particle related to its total energy $E$ and its rest energy $mc^2$?",
+      "back": "The relativistic kinetic energy $K$ is the difference between the particle's total energy $E$ and its rest energy $mc^2$:\n$$K = E - mc^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle has a total energy of $E = 2mc^2$. What is its momentum $p$ in terms of $m$ and $c$?",
+      "back": "Using the energy-momentum relation $E^2 = (pc)^2 + (mc^2)^2$:\nSubstitute $E = 2mc^2$:\n$$(2mc^2)^2 = (pc)^2 + (mc^2)^2$$\n$$4(mc^2)^2 = (pc)^2 + (mc^2)^2$$\nSubtract $(mc^2)^2$ from both sides:\n$$3(mc^2)^2 = (pc)^2$$\nTake the square root of both sides:\n$$pc = \\sqrt{3}mc^2$$\nDivide by $c$:\n$$p = \\sqrt{3}mc$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Starting from $E = \\gamma mc^2$ and $p = \\gamma mv$, derive the energy-momentum relation $E^2 = (pc)^2 + (mc^2)^2$.",
+      "back": "Given $E = \\gamma mc^2$ and $p = \\gamma mv$, where $\\gamma = 1/\\sqrt{1 - v^2/c^2}$.\nFrom $E = \\gamma mc^2$, we have $\\gamma = E/(mc^2)$.\nFrom $p = \\gamma mv$, we have $p/m = \\gamma v$, so $v = p/(\\gamma m)$.\nSubstitute $v$ into $\\gamma^2 = 1/(1 - v^2/c^2)$:\n$$\\gamma^2 = \\frac{1}{1 - (p/(\\gamma m))^2/c^2}$$\n$$\\gamma^2 = \\frac{1}{1 - p^2/(\\gamma^2 m^2 c^2)}$$\nMultiply by the denominator:\n$$\\gamma^2 (1 - \\frac{p^2}{\\gamma^2 m^2 c^2}) = 1$$\n$$\\gamma^2 - \\frac{p^2}{m^2 c^2} = 1$$\nSubstitute $\\gamma = E/(mc^2)$:\n$$\\left(\\frac{E}{mc^2}\\right)^2 - \\frac{p^2}{m^2 c^2} = 1$$\n$$\\frac{E^2}{m^2 c^4} - \\frac{p^2}{m^2 c^2} = 1$$\nMultiply by $m^2 c^4$:\n$$E^2 - p^2 c^2 = m^2 c^4$$\nRearrange to get the desired form:\n$$E^2 = (pc)^2 + (mc^2)^2$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the full energy-momentum relation $E^2 = (pc)^2 + (mc^2)^2$ considered more fundamental than $E=mc^2$?",
+      "back": "$E=mc^2$ is a special case that applies only to a particle at rest. The full relation $E^2 = (pc)^2 + (mc^2)^2$ is more fundamental because it applies to **all particles** (massive or massless) and in **all reference frames**. It elegantly unifies energy and momentum into a single relativistic invariant quantity (specifically, $E^2 - (pc)^2$ is invariant) and shows that both mass and momentum contribute to a particle's total energy.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-double-integrals-over-rectangles-fubini-s-theorem",
+  "subtopicTitle": "Double integrals over rectangles — Fubini's theorem",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:00.477Z",
+  "cards": [
+    {
+      "front": "Define the double integral of a function $f(x,y)$ over a rectangular region $R = [a,b] \\times [c,d]$ using Riemann sums.",
+      "back": "The double integral is defined as the limit of Riemann sums:\n$$ \\iint_R f(x,y) \\,dA = \\lim_{m,n \\to \\infty} \\sum_{i=1}^m \\sum_{j=1}^n f(x_{ij}^*, y_{ij}^*) \\Delta A $$\nwhere $R_{ij}$ are subrectangles, $(x_{ij}^*, y_{ij}^*)$ is a sample point in $R_{ij}$, and $\\Delta A$ is the area of each subrectangle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does $\\iint_R f(x,y) \\,dA$ represent geometrically when $f(x,y) \\ge 0$ over a region $R$?",
+      "back": "When $f(x,y) \\ge 0$ over a region $R$, the double integral $\\iint_R f(x,y) \\,dA$ represents the volume of the solid region that lies under the surface $z = f(x,y)$ and above the rectangular region $R$ in the $xy$-plane.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Fubini's Theorem for a continuous function $f(x,y)$ over a rectangle $R = [a,b] \\times [c,d]$.",
+      "back": "If $f(x,y)$ is continuous on the rectangular region $R = [a,b] \\times [c,d]$, then the double integral can be evaluated by iterated integrals in either order:\n$$ \\iint_R f(x,y) \\,dA = \\int_a^b \\int_c^d f(x,y) \\,dy \\,dx = \\int_c^d \\int_a^b f(x,y) \\,dx \\,dy $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does Fubini's Theorem still hold if $f(x,y)$ is not continuous on $R = [a,b] \\times [c,d]$? If so, under what common condition?",
+      "back": "Yes, Fubini's Theorem can still hold even if $f(x,y)$ is not continuous. A common condition is that $f$ is bounded on $R$ and its set of discontinuities has measure zero (e.g., a finite number of points or curves). More generally, if $f$ is integrable over $R$ and both iterated integrals exist, then they are equal to the double integral.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate $\\iint_R xy^2 \\,dA$ where $R = [0,1] \\times [1,2]$.",
+      "back": "Using Fubini's Theorem:\n$$ \\int_0^1 \\int_1^2 xy^2 \\,dy \\,dx = \\int_0^1 x \\left[ \\frac{y^3}{3} \\right]_1^2 \\,dx $$\n$$ = \\int_0^1 x \\left( \\frac{2^3}{3} - \\frac{1^3}{3} \\right) \\,dx = \\int_0^1 x \\left( \\frac{8}{3} - \\frac{1}{3} \\right) \\,dx $$\n$$ = \\int_0^1 \\frac{7}{3}x \\,dx = \\frac{7}{3} \\left[ \\frac{x^2}{2} \\right]_0^1 = \\frac{7}{3} \\left( \\frac{1^2}{2} - \\frac{0^2}{2} \\right) = \\frac{7}{3} \\cdot \\frac{1}{2} = \\frac{7}{6} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which order of integration, $\\int_0^1 \\int_0^2 x e^{xy} \\,dy \\,dx$ or $\\int_0^2 \\int_0^1 x e^{xy} \\,dx \\,dy$, is generally easier to compute for $f(x,y) = x e^{xy}$? Briefly explain why.",
+      "back": "The order $\\int_0^1 \\int_0^2 x e^{xy} \\,dy \\,dx$ is generally easier. Integrating $x e^{xy}$ with respect to $y$ first is straightforward: $\\int x e^{xy} \\,dy = e^{xy}$ (since $x$ is treated as a constant, and the derivative of $e^{xy}$ with respect to $y$ is $x e^{xy}$). Integrating with respect to $x$ first, $\\int x e^{xy} \\,dx$, requires integration by parts, which is more involved.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $f(x,y) = g(x)h(y)$ is a separable function over a rectangle $R = [a,b] \\times [c,d]$, how can its double integral be simplified?",
+      "back": "If $f(x,y) = g(x)h(y)$ is a separable function over $R = [a,b] \\times [c,d]$, its double integral can be simplified as a product of two single integrals:\n$$ \\iint_R g(x)h(y) \\,dA = \\left( \\int_a^b g(x) \\,dx \\right) \\left( \\int_c^d h(y) \\,dy \\right) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the intuitive idea behind Fubini's Theorem using the concept of 'slicing'.",
+      "back": "Fubini's Theorem intuitively states that the total volume (or area) of a solid can be found by summing the areas of parallel 'slices'. For $\\int_a^b \\left( \\int_c^d f(x,y) \\,dy \\right) \\,dx$, the inner integral $\\int_c^d f(x,y) \\,dy$ calculates the area of a cross-section of the solid at a fixed $x$-value. The outer integral then sums up these cross-sectional areas along the $x$-axis from $a$ to $b$ to obtain the total volume. The other order of integration works by slicing along the $y$-axis.",
+      "difficulty": "hard"
+    }
+  ]
+}

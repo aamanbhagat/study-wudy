@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-unions-overlapping-memory",
+  "subtopicTitle": "Unions — overlapping memory",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:52.942Z",
+  "cards": [
+    {
+      "front": "In C, what is the fundamental difference in memory allocation between a `struct` and a `union`?",
+      "back": "A `struct` allocates distinct memory for *each* of its members, ensuring they all exist simultaneously. A `union` allocates memory only for its *largest* member, and all members share this same memory location. This means only one member can hold a value at any given time within a `union`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given the following C `union`, what is the minimum guaranteed size of `MyUnion` in bytes on a typical 64-bit system, and why?\n```c\nunion MyUnion {\n    int i;\n    float f;\n    char c[8];\n};\n```",
+      "back": "The size of `MyUnion` would be `8` bytes. This is because a `union` allocates memory equal to the size of its largest member. Assuming `sizeof(int)` is 4 bytes, `sizeof(float)` is 4 bytes, and `sizeof(char[8])` is 8 bytes, the largest member is `char c[8]`. The `sizeof` operator for a union returns the size of its largest member, potentially with padding to satisfy alignment requirements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the behavior and potential pitfall when assigning a value to one member of a C `union` and then attempting to read from a *different* member.",
+      "back": "When you assign a value to one member of a `union`, the shared memory location is overwritten with that value. Reading from a *different* member will interpret the bits stored in that shared memory according to the data type of the member being read. This technique is often called **type punning**. While commonly used, accessing a member that wasn't the last one written to can lead to **undefined behavior** according to the C standard if the types are incompatible or if strict aliasing rules are violated. However, it often works predictably for simple cases on many compilers/architectures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain one primary scenario where using a `union` instead of a `struct` would be advantageous for memory optimization.",
+      "back": "A primary scenario is when you have a variable that needs to hold *one of several different types* at any given time, but never simultaneously. For example, a 'variant' type that might store an `int`, a `float`, or a `char*` based on context. Using a `union` ensures that only enough memory for the largest possible type is allocated, rather than allocating memory for all possible types as a `struct` would, thus significantly saving memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a C code snippet using a `union` to convert an `int` value `0x00000001` into a `float` and print its raw bit representation, assuming `sizeof(int)` and `sizeof(float)` are both 4 bytes.",
+      "back": "```c\n#include <stdio.h>\n\nunion DataConverter {\n    int i;\n    float f;\n};\n\nint main() {\n    union DataConverter converter;\n    converter.i = 0x00000001; // Integer value 1\n\n    printf(\"Integer value: %d (0x%X)\\n\", converter.i, converter.i);\n    printf(\"Float representation (type punned): %f\\n\", converter.f);\n\n    // To show raw bytes (endianness dependent)\n    unsigned char* byte_ptr = (unsigned char*)&converter.f;\n    printf(\"Raw bytes of float: \");\n    for (int k = 0; k < sizeof(float); k++) {\n        printf(\"%02X \", byte_ptr[k]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}\n```\nThis demonstrates type punning. The output `converter.f` will likely be a very small, denormalized number (or 0.0) depending on endianness and how `0x00000001` maps to the IEEE 754 float representation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are C `union` variables typically initialized?",
+      "back": "A `union` can be initialized only with a value for its *first* declared member. For example:\n```c\nunion MyUnion {\n    int i;\n    float f;\n    char c;\n} u = {10}; // Initializes u.i to 10\n```\nTo initialize a different member, you must assign to it after declaration: `u.f = 3.14f;` or `u.c = 'A';`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "While both `enum` and `union` can represent a choice of types/values, what is the key difference in their purpose and how they are handled by the compiler?",
+      "back": "An `enum` (enumeration) defines a set of named integer constants, primarily for readability and type safety when representing distinct states or options. The compiler assigns integer values to these names. A `union`, on the other hand, is a user-defined data type that allows different members to share the *same memory location*. Its purpose is memory optimization or type punning, not defining distinct symbolic constants. `enum` deals with symbolic names for integer values, `union` deals with overlapping memory for different data types.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how to implement a \"safe\" variant type in C that combines a `union` with a `struct` to avoid accidental misinterpretation of `union` members.",
+      "back": "A \"safe\" variant type, often called a **tagged union**, uses a `struct` to encapsulate both a `union` and an `enum` (or similar integer type) that acts as a \"tag\" or \"discriminator\". The tag indicates which member of the `union` is currently active and valid.\n```c\nenum DataType { INT_TYPE, FLOAT_TYPE, STRING_TYPE };\n\nstruct Variant {\n    enum DataType type; // The tag\n    union {\n        int i_val;\n        float f_val;\n        char* s_val;\n    } data; // The union\n};\n\n// Example usage:\n// struct Variant v;\n// v.type = INT_TYPE;\n// v.data.i_val = 123;\n//\n// if (v.type == INT_TYPE) {\n//     printf(\"Value is an int: %d\\n\", v.data.i_val);\n// }\n```\nThis approach ensures that code can always check `type` before accessing `data` members, preventing undefined behavior from reading the wrong member.",
+      "difficulty": "hard"
+    }
+  ]
+}

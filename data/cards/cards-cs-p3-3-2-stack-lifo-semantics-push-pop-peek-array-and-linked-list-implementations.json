@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-2-stack-lifo-semantics-push-pop-peek-array-and-linked-list-implementations",
+  "subtopicTitle": "Stack — LIFO semantics, push/pop/peek, array and linked list implementations",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:40.751Z",
+  "cards": [
+    {
+      "front": "The LIFO principle, fundamental to a stack, stands for ________. Briefly explain what it means.",
+      "back": "LIFO stands for **Last-In, First-Out**. This principle dictates that the most recently added element to the stack is the first one to be removed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the three primary operations of a stack: `push`, `pop`, and `peek`.",
+      "back": "`push(item)`: Adds a new `item` to the top of the stack.\n`pop()`: Removes and returns the item currently at the top of the stack.\n`peek()`: Returns the item currently at the top of the stack without removing it.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When implementing a stack using a fixed-size array, what steps are involved in the `push(item)` operation, and what critical edge case must be handled?",
+      "back": "1. Check if the stack is full (i.e., `top == capacity - 1`). If full, throw a 'Stack Overflow' error.\n2. Increment the `top` pointer (or index).\n3. Place the `item` at the new `array[top]` position.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the implementation of the `pop()` operation for a stack built using a singly linked list. What edge case must be considered?",
+      "back": "1. Check if the stack is empty (i.e., `head` is `null`). If empty, throw a 'Stack Underflow' error.\n2. Store the `data` from the `head` node as the result.\n3. Update the `head` pointer to point to `head.next` (the second node).\n4. Decrement the stack's size count.\n5. Return the stored `data`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the average and worst-case time complexities for `push`, `pop`, and `peek` operations in both array-based and linked list-based stack implementations?",
+      "back": "For both array-based (assuming amortized $O(1)$ for dynamic resizing) and linked list-based stack implementations, the `push`, `pop`, and `peek` operations typically have an average and worst-case time complexity of $O(1)$ (constant time). This is because operations are always performed at one end (the 'top').",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define 'Stack Overflow' and 'Stack Underflow'. Which stack implementation (array vs. linked list) is inherently more susceptible to 'Stack Overflow'?",
+      "back": "**Stack Overflow**: Occurs when an attempt is made to `push` an element onto a stack that has reached its maximum capacity.\n**Stack Underflow**: Occurs when an attempt is made to `pop` or `peek` from an empty stack.\nAn **array-based stack** (especially fixed-size) is inherently more susceptible to 'Stack Overflow' because its capacity is predefined. A linked list-based stack's capacity is limited only by available memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a common real-world computer science application where a stack data structure is fundamental for managing program execution.",
+      "back": "The **Function Call Stack** (or Program Stack) is a prime example. When a function is called, its execution context (e.g., local variables, parameters, return address) is `push`ed onto the stack. When the function completes, its context is `pop`ped, and execution returns to the previous state. This LIFO behavior is crucial for managing nested function calls and program flow.",
+      "difficulty": "hard"
+    }
+  ]
+}

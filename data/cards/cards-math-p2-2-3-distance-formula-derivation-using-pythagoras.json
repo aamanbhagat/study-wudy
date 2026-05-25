@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-3-distance-formula-derivation-using-pythagoras",
+  "subtopicTitle": "Distance formula — derivation using Pythagoras",
+  "topicId": "math-p2-2-3-coordinate-geometry",
+  "topicTitle": "Coordinate Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:38.078Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the distance formula in coordinate geometry?",
+      "back": "The primary purpose is to calculate the straight-line distance between any two points $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$ in a Cartesian coordinate system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which fundamental geometric theorem is used to derive the distance formula?",
+      "back": "The Pythagorean Theorem, which states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides ($a^2 + b^2 = c^2$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given two points $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$, describe how to construct a right-angled triangle to find the distance between them.",
+      "back": "Draw a horizontal line through $P_1$ and a vertical line through $P_2$. Their intersection point, $P_3(x_2, y_1)$, forms the third vertex of a right-angled triangle $P_1P_3P_2$. The right angle is at $P_3$, and the distance $P_1P_2$ is the hypotenuse.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the distance formula between two points $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$ using the Pythagorean Theorem.",
+      "back": "1. Construct a right triangle $P_1P_3P_2$ with $P_3 = (x_2, y_1)$.\n2. The length of the horizontal leg $P_1P_3$ is the absolute difference in x-coordinates: $\\text{base} = |x_2 - x_1|$.\n3. The length of the vertical leg $P_3P_2$ is the absolute difference in y-coordinates: $\\text{height} = |y_2 - y_1|$.\n4. Let $d$ be the distance $P_1P_2$. By the Pythagorean Theorem: $d^2 = (\\text{base})^2 + (\\text{height})^2$.\n5. Substituting the lengths: $d^2 = (|x_2 - x_1|)^2 + (|y_2 - y_1|)^2$.\n6. Since $(|a|)^2 = a^2$, we have $d^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$.\n7. Taking the square root: $d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the distance formula for two points $(x_1, y_1)$ and $(x_2, y_2)$.",
+      "back": "The distance $d$ between two points $(x_1, y_1)$ and $(x_2, y_2)$ is given by: $$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the distance between the points $(3, -1)$ and $(-2, 4)$.",
+      "back": "Let $(x_1, y_1) = (3, -1)$ and $(x_2, y_2) = (-2, 4)$.\n$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\n$d = \\sqrt{(-2 - 3)^2 + (4 - (-1))^2}$\n$d = \\sqrt{(-5)^2 + (5)^2}$\n$d = \\sqrt{25 + 25}$\n$d = \\sqrt{50} = 5\\sqrt{2}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If two points, say $(x_1, y_1)$ and $(x_2, y_1)$, lie on the same horizontal line, how does the distance formula simplify, and why?",
+      "back": "If $y_1 = y_2$, the formula becomes:\n$d = \\sqrt{(x_2 - x_1)^2 + (y_1 - y_1)^2}$\n$d = \\sqrt{(x_2 - x_1)^2 + 0^2}$\n$d = \\sqrt{(x_2 - x_1)^2}$\n$d = |x_2 - x_1|$\nThis simplification occurs because the vertical difference is zero, and the distance is simply the absolute difference between their x-coordinates, representing the length of the horizontal segment. A similar simplification to $d = |y_2 - y_1|$ occurs for points on a vertical line ($x_1 = x_2$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why $(x_2 - x_1)^2$ is equivalent to $(x_1 - x_2)^2$ in the distance formula.",
+      "back": "This is because squaring a negative value yields the same positive result as squaring the positive value. For example, $(-5)^2 = 25$ and $(5)^2 = 25$. Algebraically:\n$(x_2 - x_1)^2 = (-(x_1 - x_2))^2 = (-1)^2 (x_1 - x_2)^2 = 1 \\cdot (x_1 - x_2)^2 = (x_1 - x_2)^2$.\nTherefore, the order of subtraction for the coordinates does not affect the final distance.",
+      "difficulty": "medium"
+    }
+  ]
+}

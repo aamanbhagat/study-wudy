@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-9-joint-distributions-joint-pmf-pdf-marginal-conditional",
+  "subtopicTitle": "Joint distributions — joint PMF/PDF, marginal, conditional",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:36.958Z",
+  "cards": [
+    {
+      "front": "Define the joint probability mass function (PMF) $P_{XY}(x,y)$ for two discrete random variables $X$ and $Y$.",
+      "back": "$P_{XY}(x,y) = P(X=x, Y=y)$. It must satisfy: 1) $P_{XY}(x,y) \\ge 0$ for all $x,y$. 2) $\\sum_x \\sum_y P_{XY}(x,y) = 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the joint probability density function (PDF) $f_{XY}(x,y)$ for two continuous random variables $X$ and $Y$.",
+      "back": "$f_{XY}(x,y)$ is a function such that for any region $A \\subseteq \\mathbb{R}^2$, $P((X,Y) \\in A) = \\iint_A f_{XY}(x,y) \\,dx\\,dy$. It must satisfy: 1) $f_{XY}(x,y) \\ge 0$ for all $x,y$. 2) $\\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} f_{XY}(x,y) \\,dx\\,dy = 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a joint PMF $P_{XY}(x,y)$, how do you find the marginal PMF $P_X(x)$?",
+      "back": "To find the marginal PMF $P_X(x)$, sum the joint PMF over all possible values of $Y$: $$P_X(x) = \\sum_y P_{XY}(x,y)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a joint PDF $f_{XY}(x,y)$, how do you find the marginal PDF $f_X(x)$?",
+      "back": "To find the marginal PDF $f_X(x)$, integrate the joint PDF over all possible values of $Y$: $$f_X(x) = \\int_{-\\infty}^{\\infty} f_{XY}(x,y) \\,dy$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the conditional PMF $P_{Y|X}(y|x)$ of $Y$ given $X=x$.",
+      "back": "The conditional PMF is defined as: $$P_{Y|X}(y|x) = \\frac{P_{XY}(x,y)}{P_X(x)}$$ provided $P_X(x) > 0$. It represents the probability that $Y=y$ given that $X=x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the conditional PDF $f_{Y|X}(y|x)$ of $Y$ given $X=x$.",
+      "back": "The conditional PDF is defined as: $$f_{Y|X}(y|x) = \\frac{f_{XY}(x,y)}{f_X(x)}$$ provided $f_X(x) > 0$. It describes the probability density of $Y$ when $X$ is fixed at $x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For continuous random variables $X, Y$ with joint PDF $f_{XY}(x,y)$, how do you calculate $P(X > Y)$?",
+      "back": "To calculate $P(X > Y)$, you integrate the joint PDF over the region where $x > y$: $$P(X > Y) = \\iint_{x>y} f_{XY}(x,y) \\,dx\\,dy$$ This can be expressed as iterated integrals, e.g., $\\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{x} f_{XY}(x,y) \\,dy\\,dx$ or $\\int_{-\\infty}^{\\infty} \\int_{y}^{\\infty} f_{XY}(x,y) \\,dx\\,dy$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If two random variables $X$ and $Y$ are independent, how does their joint PMF/PDF relate to their marginal PMFs/PDFs?",
+      "back": "If $X$ and $Y$ are independent, their joint distribution is the product of their marginal distributions:\n*   For discrete variables: $P_{XY}(x,y) = P_X(x) P_Y(y)$ for all $x,y$.\n*   For continuous variables: $f_{XY}(x,y) = f_X(x) f_Y(y)$ for all $x,y$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the conditional expectation $E[Y|X=x]$ calculated for continuous random variables using the conditional PDF $f_{Y|X}(y|x)$?",
+      "back": "The conditional expectation $E[Y|X=x]$ is the expected value of $Y$ given that $X$ has taken a specific value $x$. It is calculated as: $$E[Y|X=x] = \\int_{-\\infty}^{\\infty} y \\cdot f_{Y|X}(y|x) \\,dy$$ For discrete variables, it would be a sum: $E[Y|X=x] = \\sum_y y \\cdot P_{Y|X}(y|x)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

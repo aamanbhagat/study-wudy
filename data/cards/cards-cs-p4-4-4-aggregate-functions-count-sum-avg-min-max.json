@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-aggregate-functions-count-sum-avg-min-max",
+  "subtopicTitle": "Aggregate functions — COUNT, SUM, AVG, MIN, MAX",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:42.809Z",
+  "cards": [
+    {
+      "front": "In SQL, what is the primary purpose of an aggregate function?",
+      "back": "An aggregate function performs a calculation on a set of rows and returns a single summary value for that set. Examples include `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Distinguish between `COUNT(*)` and `COUNT(column_name)` in SQL queries.",
+      "back": "`COUNT(*)` counts all rows in the result set, including those with `NULL` values in any column. `COUNT(column_name)` counts only the non-`NULL` values within the specified `column_name`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do `SUM()` and `AVG()` functions handle `NULL` values present in the column they operate on?",
+      "back": "`SUM()` and `AVG()` functions ignore `NULL` values. They only consider non-`NULL` values in their calculations. For `AVG()`, this means `NULL`s are not included in the count of items used for the average calculation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a column `grades` with values `85, 90, NULL, 75`, what is `AVG(grades)`? Show the calculation.",
+      "back": "`AVG(grades)` would be calculated as $(85 + 90 + 75) / 3 = 250 / 3 \\approx 83.33$. The `NULL` value is ignored and does not contribute to the sum or the count of items.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can `MIN()` and `MAX()` aggregate functions be used on non-numeric data types, such as text (strings) or dates?",
+      "back": "Yes, `MIN()` and `MAX()` can be used on non-numeric data types. For text, they determine the \"smallest\" (first alphabetically/lexicographically) and \"largest\" (last alphabetically/lexicographically) values. For dates, they return the earliest and latest dates, respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a SQL query to determine the number of distinct job titles in an `Employees` table.",
+      "back": "```sql\nSELECT COUNT(DISTINCT job_title)\nFROM Employees;\n```\nThis query counts only the unique, non-`NULL` job titles present in the `Employees` table.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What do `SUM()`, `AVG()`, `MIN()`, and `MAX()` return if the `WHERE` clause filters out all rows, resulting in an empty set?",
+      "back": "If no rows satisfy the `WHERE` clause (or if the table is empty), `SUM()`, `AVG()`, `MIN()`, and `MAX()` all return `NULL`. In contrast, `COUNT(*)` and `COUNT(column)` would return `0` in this scenario.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A table `Products` has a column `price` where all 3 rows contain `NULL`. What are the results of `COUNT(*)` and `COUNT(price)`?",
+      "back": "If `Products` has 3 rows, all with `NULL` in `price`:\n*   `COUNT(*)`: Returns `3` (counts all rows regardless of `NULL`s in specific columns).\n*   `COUNT(price)`: Returns `0` (counts only non-`NULL` values in the `price` column).",
+      "difficulty": "hard"
+    }
+  ]
+}

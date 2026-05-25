@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-heap-operations-insert-o-log-n-extract-max-min-o-log-n-decrease-key",
+  "subtopicTitle": "Heap operations — insert O(log n), extract-max/min O(log n), decrease-key",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:02.801Z",
+  "cards": [
+    {
+      "front": "What are the two fundamental properties that define a binary max-heap?",
+      "back": "A binary max-heap must satisfy two properties:\n1.  **Shape Property (Completeness):** It is a complete binary tree, meaning all levels are fully filled except possibly the last level, which is filled from left to right.\n2.  **Heap Property (Max-Heap):** For every node $N$ (except the root), the value of $N$ is less than or equal to the value of its parent node. That is, $parent(N) \\ge N$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the two main steps to insert a new element into a max-heap, ensuring the heap properties are maintained. Include the specific 'heapify' operation used.",
+      "back": "To insert a new element into a max-heap:\n1.  **Placement:** Add the new element to the next available position in the heap, which is typically the leftmost open spot on the lowest level (maintaining the complete binary tree shape).\n2.  **Restoration:** Perform a `heapify-up` (also known as 'bubble-up' or 'percolate-up') operation. Compare the new element with its parent; if the new element is larger, swap them. Continue this process upwards until the element is no longer larger than its parent or it reaches the root.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the worst-case time complexity for inserting an element into a binary heap with $N$ elements, and why?",
+      "back": "The worst-case time complexity for inserting an element into a binary heap is $O(\\log N)$.\n\n**Reason:** The `heapify-up` operation, which is the dominant part of the insertion, involves traversing a path from a leaf node up to the root. In a complete binary tree with $N$ nodes, the height of the tree is $O(\\log N)$. Therefore, the number of comparisons and swaps is proportional to the height of the tree.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the three main steps to extract the maximum element from a max-heap, including the specific 'heapify' operation used.",
+      "back": "To extract the maximum element (which is always at the root) from a max-heap:\n1.  **Retrieve & Replace:** Store the root element (the maximum value). Replace the root with the last element in the heap (the rightmost leaf on the lowest level).\n2.  **Remove:** Remove the original last element (which is now at the root's old position) from its original leaf position, effectively reducing the heap size by one.\n3.  **Restoration:** Perform a `heapify-down` (also known as 'bubble-down' or 'percolate-down') operation on the new root. Compare the root with its children; if a child is larger, swap the root with the larger child. Continue this process downwards until the element is no longer smaller than its children or it becomes a leaf node.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the worst-case time complexity for extracting the maximum/minimum element from a binary heap with $N$ elements, and why?",
+      "back": "The worst-case time complexity for extracting the maximum (or minimum) element from a binary heap is $O(\\log N)$.\n\n**Reason:** The `heapify-down` operation, which is the dominant part of the extraction, involves traversing a path from the root down to a leaf node. In a complete binary tree with $N$ nodes, the height of the tree is $O(\\log N)$. Therefore, the number of comparisons and swaps is proportional to the height of the tree.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You have a min-heap implemented as an array. Describe the process for a `decreaseKey(index, newValue)` operation where `newValue` is *smaller* than the current value at `heap[index]`. What heap operation does it primarily use?",
+      "back": "To perform `decreaseKey(index, newValue)` in a min-heap where `newValue < heap[index]`:\n1.  **Update Value:** First, update the element at `heap[index]` to `newValue`.\n2.  **Restore Heap Property:** Since the new value is smaller, it might violate the min-heap property with its parent (i.e., `newValue` could be smaller than its parent). To fix this, you must perform a `heapify-up` (or 'bubble-up') operation starting from `index`. This involves repeatedly comparing `heap[index]` with its parent and swapping them if `heap[index]` is smaller, until the min-heap property is satisfied or the element reaches the root.\n\nExample (conceptual): \n```python\ndef decreaseKey(heap, index, newValue):\n    if newValue > heap[index]:\n        # This would be an increaseKey operation, requiring heapify-down\n        raise ValueError(\"New value must be smaller for decreaseKey in min-heap\")\n    heap[index] = newValue\n    # Perform heapify-up\n    while index > 0 and heap[index] < heap[(index - 1) // 2]:\n        parent_idx = (index - 1) // 2\n        heap[index], heap[parent_idx] = heap[parent_idx], heap[index]\n        index = parent_idx\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the worst-case time complexity for the `decreaseKey` (or `increaseKey`) operation in a binary heap with $N$ elements, and why?",
+      "back": "The worst-case time complexity for the `decreaseKey` (or `increaseKey`) operation in a binary heap is $O(\\log N)$.\n\n**Reason:** The operation involves updating a specific element and then performing either a `heapify-up` (if the key decreased in a min-heap, or increased in a max-heap) or a `heapify-down` (if the key increased in a min-heap, or decreased in a max-heap). Both `heapify-up` and `heapify-down` operations traverse a path proportional to the height of the tree, which is $O(\\log N)$ for a complete binary heap with $N$ elements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you implement a 'delete arbitrary element' operation for a max-heap using existing heap operations, and what would be its time complexity?",
+      "back": "To delete an arbitrary element at a given `index` from a max-heap:\n1.  **Modify Key:** Change the value of the element at `index` to positive infinity (or a value guaranteed to be larger than any other element currently in the heap). This effectively makes it the new maximum element.\n2.  **Heapify Up:** Perform a `heapify-up` operation from `index`. This will move the 'new maximum' element to the root of the heap.\n3.  **Extract Max:** Now that the element to be deleted is at the root, perform a standard `extract-max` operation.\n\n**Time Complexity:**\n*   Modifying the key: $O(1)$\n*   `heapify-up`: $O(\\log N)$\n*   `extract-max`: $O(\\log N)$\n\nTherefore, the total worst-case time complexity for deleting an arbitrary element is $O(\\log N)$.\n\n(Note: For a min-heap, you would change the element's value to negative infinity and then perform `heapify-up` followed by `extract-min`.)",
+      "difficulty": "hard"
+    }
+  ]
+}

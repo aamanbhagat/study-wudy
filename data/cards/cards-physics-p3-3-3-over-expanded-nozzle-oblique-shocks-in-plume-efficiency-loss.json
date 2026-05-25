@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-over-expanded-nozzle-oblique-shocks-in-plume-efficiency-loss",
+  "subtopicTitle": "Over-expanded nozzle — oblique shocks in plume, efficiency loss",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:38.919Z",
+  "cards": [
+    {
+      "front": "What condition defines an \"over-expanded nozzle\" in rocket propulsion?",
+      "back": "An over-expanded nozzle occurs when the exhaust gas pressure at the nozzle exit, $P_e$, is significantly lower than the ambient atmospheric pressure, $P_a$. This typically happens when a nozzle designed for high altitude (low $P_a$) operates at a lower altitude (higher $P_a$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the visible characteristics of the exhaust plume from an over-expanded nozzle.",
+      "back": "In an over-expanded nozzle, the exhaust plume appears \"pinched\" or \"constricted\" shortly after exiting the nozzle. This is due to the formation of oblique shock waves that compress the flow, often visible as distinct diamond patterns or \"shock diamonds\" in the plume.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fluid dynamic mechanism that leads to the formation of oblique shock waves in an over-expanded nozzle.",
+      "back": "When the exhaust gas exits an over-expanded nozzle ($P_e < P_a$), the higher ambient pressure acts on the exiting supersonic flow, attempting to compress it. This compression cannot occur smoothly. Instead, the pressure mismatch causes the flow to turn inward, generating a series of oblique shock waves originating from the nozzle lip. These shocks turn the flow towards the centerline, increasing its pressure to match the ambient pressure, and decreasing its velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the formation of oblique shocks in an over-expanded nozzle lead to a reduction in rocket engine thrust efficiency?",
+      "back": "Oblique shock waves are dissipative phenomena. As the supersonic flow passes through these shocks, kinetic energy is irreversibly converted into thermal energy (heat) and pressure energy. This increase in internal energy comes at the expense of the directed kinetic energy of the exhaust, which is the primary source of thrust. The flow also experiences a reduction in its axial velocity component, leading to a lower effective exhaust velocity and thus reduced thrust and specific impulse.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"flow separation\" in the context of an over-expanded nozzle and its potential consequences.",
+      "back": "Flow separation occurs in a severely over-expanded nozzle when the ambient pressure is so high relative to the exit pressure that the flow detaches from the nozzle wall before reaching the exit plane. This creates a region of recirculating flow and can lead to significant side loads on the nozzle structure due to asymmetric separation, potentially damaging the engine. It also drastically reduces thrust efficiency and can cause engine instability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the ideal pressure ratio at the nozzle exit for maximum thrust efficiency, assuming no flow separation?",
+      "back": "For maximum thrust efficiency, the ideal condition is when the exhaust gas pressure at the nozzle exit, $P_e$, is equal to the ambient atmospheric pressure, $P_a$. This is known as the \"perfectly expanded\" condition, where $P_e = P_a$. In this scenario, there are no shocks or expansion waves formed outside the nozzle due to pressure mismatch, and the exhaust momentum is maximized.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using the general thrust equation, explain how $P_e < P_a$ (over-expansion) directly impacts the net thrust.",
+      "back": "The general thrust equation is $F = \\dot{m}V_e + (P_e - P_a)A_e$. When the nozzle is over-expanded, $P_e < P_a$, making the pressure-area term $(P_e - P_a)A_e$ negative. This negative term subtracts from the momentum thrust ($\\dot{m}V_e$), thereby reducing the net thrust produced by the engine. The engine is essentially doing work against the higher ambient pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are rocket nozzles typically designed to be slightly under-expanded at sea level and become progressively more over-expanded as they ascend?",
+      "back": "Rocket nozzles are designed for optimal performance at a specific altitude. A nozzle designed for perfect expansion at sea level would be severely under-expanded in vacuum, losing significant thrust. Conversely, a nozzle designed for vacuum would be extremely long and heavy, and severely over-expanded at sea level, leading to flow separation and efficiency loss. Therefore, nozzles are often designed to be slightly under-expanded at sea level (to avoid severe over-expansion and separation) and become more over-expanded as ambient pressure drops, eventually becoming optimally or slightly under-expanded in vacuum.",
+      "difficulty": "hard"
+    }
+  ]
+}

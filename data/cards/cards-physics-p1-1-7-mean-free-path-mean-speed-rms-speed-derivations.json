@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-7-mean-free-path-mean-speed-rms-speed-derivations",
+  "subtopicTitle": "Mean free path, mean speed, RMS speed — derivations",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:35.830Z",
+  "cards": [
+    {
+      "front": "Define the \"mean free path\" ($\\lambda$) of a gas molecule.",
+      "back": "The mean free path ($\\lambda$) is the average distance a molecule travels between successive collisions with other molecules in a gas.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the mean free path ($\\lambda$) of a gas molecule, explicitly stating key assumptions.",
+      "back": "Assumptions:\n1. Molecules are hard spheres of diameter $d$.\n2. Initially, assume all other molecules are stationary.\n\nDerivation:\n1.  A single molecule moving with speed $\\bar{v}$ for time $\\Delta t$ sweeps out a cylindrical volume $V = \\pi d^2 \\bar{v} \\Delta t$.\n2.  Any other molecule whose center is within this cylinder will collide with the moving molecule.\n3.  If $n$ is the number density of molecules, the number of collisions in time $\\Delta t$ is $N_{coll} = n V = n \\pi d^2 \\bar{v} \\Delta t$.\n4.  The distance traveled is $L = \\bar{v} \\Delta t$.\n5.  The mean free path is the average distance per collision: $\\lambda = L / N_{coll} = (\\bar{v} \\Delta t) / (n \\pi d^2 \\bar{v} \\Delta t) = \\frac{1}{n \\pi d^2}$.\n6.  **Correction for all molecules moving:** A more rigorous treatment, considering the relative speeds of all molecules, introduces a factor of $\\sqrt{2}$.\n7.  Therefore, the corrected mean free path is: $$\\lambda = \\frac{1}{\\sqrt{2} \\pi d^2 n}$$\n    Using the ideal gas law $P = n k_B T$, so $n = P/(k_B T)$, we can also write:\n    $$\\lambda = \\frac{k_B T}{\\sqrt{2} \\pi d^2 P}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the \"mean speed\" ($\\bar{v}$ or $\\langle v \\rangle$) of gas molecules.",
+      "back": "The mean speed ($\\bar{v}$ or $\\langle v \\rangle$) is the average magnitude of the velocities of all molecules in a gas. It's calculated by summing the speeds of all molecules and dividing by the total number of molecules.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the mean speed ($\\bar{v}$) of gas molecules and identify its components.",
+      "back": "The mean speed ($\\bar{v}$) of gas molecules is given by:\n$$ \\bar{v} = \\sqrt{\\frac{8 k_B T}{\\pi m}} $$\nWhere:\n*   $k_B$ is the Boltzmann constant (approximately $1.38 \\times 10^{-23} \\text{ J/K}$)\n*   $T$ is the absolute temperature of the gas in Kelvin\n*   $m$ is the mass of a single gas molecule",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"root-mean-square (RMS) speed\" ($v_{rms}$) of gas molecules.",
+      "back": "The root-mean-square (RMS) speed ($v_{rms}$) is the square root of the average of the squares of the speeds of all molecules in a gas. It is a measure of the typical speed of molecules and is directly related to the gas's kinetic energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the root-mean-square (RMS) speed ($v_{rms}$) of gas molecules using the equipartition theorem.",
+      "back": "According to the equipartition theorem, the average translational kinetic energy per molecule in an ideal gas is:\n$$ \\langle K_{trans} \\rangle = \\frac{1}{2} m \\langle v^2 \\rangle = \\frac{3}{2} k_B T $$\nWhere:\n*   $m$ is the mass of a single molecule.\n*   $\\langle v^2 \\rangle$ is the mean square speed.\n*   $k_B$ is the Boltzmann constant.\n*   $T$ is the absolute temperature.\n\nSolving for the mean square speed $\\langle v^2 \\rangle$:\n$$ \\langle v^2 \\rangle = \\frac{3 k_B T}{m} $$\nThe RMS speed ($v_{rms}$) is the square root of the mean square speed:\n$$ v_{rms} = \\sqrt{\\langle v^2 \\rangle} = \\sqrt{\\frac{3 k_B T}{m}} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Rank the most probable speed ($v_p$), mean speed ($\\bar{v}$), and RMS speed ($v_{rms}$) from smallest to largest for an ideal gas at a given temperature, and provide their relative ratios.",
+      "back": "Ranking from smallest to largest:\n$$ v_p < \\bar{v} < v_{rms} $$\nTheir formulas are:\n*   Most probable speed: $v_p = \\sqrt{\\frac{2 k_B T}{m}}$\n*   Mean speed: $\\bar{v} = \\sqrt{\\frac{8 k_B T}{\\pi m}}$\n*   RMS speed: $v_{rms} = \\sqrt{\\frac{3 k_B T}{m}}$\n\nRelative ratios (approximately):\n$v_p : \\bar{v} : v_{rms} = \\sqrt{2} : \\sqrt{8/\\pi} : \\sqrt{3}$\n$v_p : \\bar{v} : v_{rms} \\approx 1.000 : 1.128 : 1.225$",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-2-separation-of-concerns",
+  "subtopicTitle": "Separation of concerns",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:32.605Z",
+  "cards": [
+    {
+      "front": "What is the core principle of \"Separation of Concerns\" (SoC) in computer science?",
+      "back": "SoC is a design principle that advocates for dividing a computer program into distinct sections, such that each section addresses a separate \"concern.\" A concern is a specific set of information or functionality that affects the program's behavior, like data storage, user interface, or business logic.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name two primary benefits of applying the \"Separation of Concerns\" principle to software design.",
+      "back": "Two primary benefits are:\n1.  **Modularity & Maintainability**: Changes to one concern have minimal impact on others, making the system easier to update and fix.\n2.  **Reusability**: Components handling specific concerns can be reused independently in different parts of the system or in other projects.\nOther benefits include improved testability and easier collaboration among developers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how the Model-View-Controller (MVC) architectural pattern exemplifies \"Separation of Concerns.\"",
+      "back": "MVC separates an application into three distinct concerns:\n*   **Model**: Manages data and business logic (the 'what' of the application).\n*   **View**: Handles the presentation of data to the user (the 'how it looks').\n*   **Controller**: Manages user input and orchestrates interactions between the Model and View (the 'how it reacts').\nThis separation allows changes to the UI (View) without altering the core business logic (Model), and vice-versa, enhancing maintainability and flexibility.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a function `process_order(order_id, items)` that fetches order details, calculates total, applies discounts, and saves to a database. How could you refactor this for better SoC?",
+      "back": "Refactor into distinct functions, each handling a single concern:\n```python\ndef fetch_order_details(order_id):\n    # Concern: Data retrieval\n    pass\n\ndef calculate_order_total(items):\n    # Concern: Business logic (calculation)\n    pass\n\ndef apply_discounts(total, customer_type):\n    # Concern: Business logic (discount rules)\n    pass\n\ndef save_order_to_db(order_data):\n    # Concern: Data persistence\n    pass\n\ndef process_order_orchestrator(order_id, items, customer_type):\n    # Concern: Orchestration/workflow\n    details = fetch_order_details(order_id)\n    total = calculate_order_total(items)\n    final_total = apply_discounts(total, customer_type)\n    save_order_to_db({'id': order_id, 'final_total': final_total})\n```\nThis improves testability, reusability, and readability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does \"Separation of Concerns\" relate to the SOLID principles, specifically the Single Responsibility Principle (SRP) and High Cohesion/Low Coupling?",
+      "back": "*   **Single Responsibility Principle (SRP)**: SRP is a specific application of SoC at the class/module level. It states that a class should have only one reason to change, meaning it should only be responsible for one concern.\n*   **High Cohesion**: SoC inherently leads to high cohesion. A highly cohesive module focuses on a single, well-defined concern, with all its elements working together towards that concern.\n*   **Low Coupling**: By separating concerns, modules become less dependent on each other, leading to low coupling. Changes in one module are less likely to break others, as their concerns are distinct.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is \"Tangled Concerns\" or \"Spaghetti Code,\" and how does it relate to a lack of \"Separation of Concerns\"?",
+      "back": "\"Tangled Concerns\" or \"Spaghetti Code\" describes a codebase where different concerns (e.g., UI logic, business rules, database access) are intertwined and mixed throughout the system, making it extremely difficult to understand, modify, or test. This directly results from a *lack* of Separation of Concerns, leading to high coupling and low cohesion within the codebase.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "While generally beneficial, what potential drawbacks can arise from an *excessive* or *overly granular* application of \"Separation of Concerns\"?",
+      "back": "Over-separation can lead to:\n1.  **Increased Complexity**: Too many small modules, layers, or interfaces can create a complex web of interactions, increasing boilerplate code and making the system harder to navigate and understand.\n2.  **Performance Overhead**: Excessive layers or function calls might introduce minor performance overhead due to increased indirection, though this is often negligible in modern systems.\n3.  **Increased Development Time**: Initially, designing and implementing very fine-grained separations can take more time and effort.\nThe key is to find a balance where concerns are separated enough to gain benefits without introducing undue complexity.",
+      "difficulty": "hard"
+    }
+  ]
+}

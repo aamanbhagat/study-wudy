@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-4-centre-of-mass-definition-for-system-of-particles",
+  "subtopicTitle": "Centre of mass — definition for system of particles",
+  "topicId": "physics-p1-1-4-momentum-collisions",
+  "topicTitle": "Momentum & Collisions",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:14.146Z",
+  "cards": [
+    {
+      "front": "Define the \"centre of mass\" for a system of particles.",
+      "back": "The centre of mass (CM) is the unique point representing the weighted average of the positions of all particles in a system. It is the point where the entire mass of the system can be considered to be concentrated for translational motion analysis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the position vector of the centre of mass ($\\vec{R}_{CM}$) for a system of $N$ discrete particles.",
+      "back": "For a system of $N$ particles with masses $m_i$ and position vectors $\\vec{r}_i$, the position vector of the centre of mass is given by:\n$$ \\vec{R}_{CM} = \\frac{\\sum_{i=1}^{N} m_i \\vec{r}_i}{\\sum_{i=1}^{N} m_i} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A system has two particles: $m_1$ at $(x_1, y_1)$ and $m_2$ at $(x_2, y_2)$. Write the $x$-component of the centre of mass, $X_{CM}$.",
+      "back": "The $x$-component of the centre of mass for a two-particle system is:\n$$ X_{CM} = \\frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} $$\nThis generalizes to $X_{CM} = \\frac{\\sum m_i x_i}{\\sum m_i}$ for $N$ particles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If two particles of *equal mass* are separated by a distance $d$, where is their centre of mass located?",
+      "back": "If two particles of equal mass ($m_1=m_2=m$) are separated by a distance $d$, their centre of mass is located exactly at the midpoint of the line segment connecting them. For example, if $m_1$ is at $x=0$ and $m_2$ is at $x=d$, then $X_{CM} = \\frac{m(0) + m(d)}{m+m} = \\frac{md}{2m} = \\frac{d}{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the $X_{CM}$ for a system with $m_1=2 \\text{ kg}$ at $x_1=1 \\text{ m}$ and $m_2=3 \\text{ kg}$ at $x_2=6 \\text{ m}$.",
+      "back": "Using the formula $X_{CM} = \\frac{m_1 x_1 + m_2 x_2}{m_1 + m_2}$:\n$$ X_{CM} = \\frac{(2 \\text{ kg})(1 \\text{ m}) + (3 \\text{ kg})(6 \\text{ m})}{2 \\text{ kg} + 3 \\text{ kg}} = \\frac{2 \\text{ kg}\\cdot\\text{m} + 18 \\text{ kg}\\cdot\\text{m}}{5 \\text{ kg}} = \\frac{20 \\text{ kg}\\cdot\\text{m}}{5 \\text{ kg}} = 4 \\text{ m} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show that the total momentum of a system of particles can be expressed as the total mass of the system multiplied by the velocity of its centre of mass.",
+      "back": "The total momentum of a system is $\\vec{P} = \\sum_{i=1}^{N} m_i \\vec{v}_i$.\nThe position of the centre of mass is $\\vec{R}_{CM} = \\frac{\\sum_{i=1}^{N} m_i \\vec{r}_i}{M_{total}}$, where $M_{total} = \\sum m_i$.\nDifferentiating $\\vec{R}_{CM}$ with respect to time gives the velocity of the centre of mass, $\\vec{V}_{CM}$:\n$$ \\vec{V}_{CM} = \\frac{d\\vec{R}_{CM}}{dt} = \\frac{1}{M_{total}} \\sum_{i=1}^{N} m_i \\frac{d\\vec{r}_i}{dt} = \\frac{1}{M_{total}} \\sum_{i=1}^{N} m_i \\vec{v}_i $$\nSubstituting $\\sum m_i \\vec{v}_i = \\vec{P}$:\n$$ \\vec{V}_{CM} = \\frac{\\vec{P}}{M_{total}} $$\nTherefore, $\\vec{P} = M_{total} \\vec{V}_{CM}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is the position of the centre of mass dependent on the choice of coordinate system origin? Explain.",
+      "back": "No, the *physical point* representing the centre of mass is independent of the choice of coordinate system origin. While the *position vector* $\\vec{R}_{CM}$ will change its components when the origin shifts, the actual location in space that it points to remains the same. It's an intrinsic property of the mass distribution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would the definition of the centre of mass change for a continuous mass distribution (e.g., a rigid body) instead of discrete particles?",
+      "back": "For a continuous mass distribution, the summation over discrete particles ($\\sum m_i \\vec{r}_i$) is replaced by an integral over infinitesimal mass elements $dm$ at position $\\vec{r}$. The total mass $M_{total}$ becomes the integral of $dm$.\n$$ \\vec{R}_{CM} = \\frac{\\int \\vec{r} \\,dm}{\\int dm} = \\frac{1}{M_{total}} \\int \\vec{r} \\,dm $$",
+      "difficulty": "hard"
+    }
+  ]
+}

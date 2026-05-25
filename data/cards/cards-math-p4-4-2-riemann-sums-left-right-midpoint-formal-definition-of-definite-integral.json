@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-riemann-sums-left-right-midpoint-formal-definition-of-definite-integral",
+  "subtopicTitle": "Riemann sums — left, right, midpoint; formal definition of definite integral",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:18.538Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of a Riemann sum in calculus?",
+      "back": "The fundamental purpose of a Riemann sum is to approximate the area under the curve of a function $f(x)$ over a given interval $[a, b]$ by dividing the interval into smaller subintervals and summing the areas of rectangles formed on each subinterval.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the Right Riemann Sum ($R_n$) of a function $f(x)$ over the interval $[a, b]$ using $n$ equal subintervals.",
+      "back": "$R_n = \\sum_{i=1}^{n} f(x_i) \\Delta x$, where $\\Delta x = \\frac{b-a}{n}$ and $x_i = a + i \\Delta x$ are the right endpoints of each subinterval.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the Left Riemann Sum for $f(x) = x^3$ on the interval $[0, 2]$ using $n=4$ equal subintervals.",
+      "back": "First, $\\Delta x = \\frac{2-0}{4} = 0.5$. The left endpoints are $x_0=0, x_1=0.5, x_2=1, x_3=1.5$.<br/>$L_4 = f(0)\\Delta x + f(0.5)\\Delta x + f(1)\\Delta x + f(1.5)\\Delta x$<br/>$L_4 = (0^3 + (0.5)^3 + 1^3 + (1.5)^3) \\times 0.5$<br/>$L_4 = (0 + 0.125 + 1 + 3.375) \\times 0.5$<br/>$L_4 = 4.5 \\times 0.5 = 2.25$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a strictly decreasing function $f(x)$ on an interval $[a, b]$, will the Midpoint Riemann Sum typically overestimate or underestimate the true area? Explain intuitively.",
+      "back": "For a strictly decreasing function, the Midpoint Riemann Sum tends to be a very good approximation and is often more accurate than Left or Right sums. However, it's not guaranteed to consistently overestimate or underestimate. For a decreasing function, the midpoint value might balance out errors, but it doesn't have a simple, consistent over/underestimation rule like Left/Right sums do for monotonic functions. It's generally considered more accurate because it samples from the 'middle' of the interval.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the Midpoint Riemann Sum ($M_n$) of $f(x)$ over $[a, b]$ using $n$ equal subintervals. Define the sample points $x_i^*$.",
+      "back": "$M_n = \\sum_{i=1}^{n} f(x_i^*) \\Delta x$, where $\\Delta x = \\frac{b-a}{n}$ and $x_i^*$ is the midpoint of the $i$-th subinterval. Specifically, $x_i^* = \\frac{x_{i-1} + x_i}{2} = a + (i - 0.5)\\Delta x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the formal definition of the definite integral of $f(x)$ from $a$ to $b$ as a limit of Riemann sums.",
+      "back": "The definite integral of $f(x)$ from $a$ to $b$ is defined as:<br/>$$\\int_a^b f(x) \\, dx = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i^*) \\Delta x$$<br/>where $\\Delta x = \\frac{b-a}{n}$, and $x_i^*$ is any sample point within the $i$-th subinterval $[x_{i-1}, x_i]$. This limit exists if $f$ is continuous on $[a,b]$ (or has a finite number of jump discontinuities).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the significance of the $\\lim_{n \\to \\infty}$ component in the formal definition of the definite integral.",
+      "back": "The $\\lim_{n \\to \\infty}$ signifies that as the number of subintervals $n$ approaches infinity, the width of each rectangle $\\Delta x = \\frac{b-a}{n}$ approaches zero. This process makes the approximation of the area under the curve by Riemann sums infinitely precise, eliminating the error from using finite-width rectangles and converging to the exact net signed area.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider $f(x) = \\cos(x)$ on $[0, \\pi/2]$. Will the Left Riemann Sum or Right Riemann Sum with $n$ subintervals provide a larger approximation of the area? Justify.",
+      "back": "On the interval $[0, \\pi/2]$, $f(x) = \\cos(x)$ is a strictly decreasing function. For a strictly decreasing function, the Left Riemann Sum will use the maximum height of the function in each subinterval, leading to an **overestimation** of the area. Conversely, the Right Riemann Sum will use the minimum height, leading to an **underestimation**. Therefore, the **Left Riemann Sum will provide a larger approximation**.",
+      "difficulty": "medium"
+    }
+  ]
+}

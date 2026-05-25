@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-fourier-analysis-dft-fft-algorithm-cooley-tukey",
+  "subtopicTitle": "Fourier analysis — DFT, FFT algorithm (Cooley-Tukey)",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:48.443Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Discrete Fourier Transform (DFT)?",
+      "back": "The primary purpose of the DFT is to transform a finite sequence of discrete-time samples from its time-domain representation into its discrete frequency-domain representation, revealing the frequency components present in the signal.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical formula for the $N$-point Discrete Fourier Transform (DFT) of a sequence $x[n]$.",
+      "back": "The $N$-point DFT of a sequence $x[n]$ for $n = 0, 1, \\dots, N-1$ is given by:\n$$X[k] = \\sum_{n=0}^{N-1} x[n] e^{-i 2\\pi k n / N}$$\nfor $k = 0, 1, \\dots, N-1$. Here, $X[k]$ represents the $k$-th frequency component.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the computational complexity of a direct, naive calculation of an $N$-point DFT?",
+      "back": "A direct computation of an $N$-point DFT involves $N$ sums, each with $N$ terms. Each term requires a complex multiplication and a complex addition. Thus, it requires approximately $N^2$ complex multiplications and $N(N-1)$ complex additions, leading to an $O(N^2)$ time complexity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental principle behind the Fast Fourier Transform (FFT) algorithms, such as Cooley-Tukey?",
+      "back": "The fundamental principle of FFT algorithms is to exploit the periodicity and symmetry properties of the DFT's twiddle factors ($e^{-i 2\\pi k n / N}$) to recursively decompose an $N$-point DFT into smaller DFTs. This divide-and-conquer approach significantly reduces the computational complexity from $O(N^2)$ to $O(N \\log N)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core idea of how the Cooley-Tukey radix-2 FFT algorithm decomposes an $N$-point DFT (where $N$ is a power of 2) into two $N/2$-point DFTs.",
+      "back": "The Cooley-Tukey radix-2 FFT algorithm decomposes an $N$-point DFT by splitting the input sequence $x[n]$ into its even-indexed and odd-indexed samples. Let $x_e[n] = x[2n]$ and $x_o[n] = x[2n+1]$ be two sequences of length $N/2$. The $N$-point DFT $X[k]$ can then be expressed as:\n$$X[k] = \\sum_{n=0}^{N/2-1} x[2n] e^{-i 2\\pi k (2n) / N} + \\sum_{n=0}^{N/2-1} x[2n+1] e^{-i 2\\pi k (2n+1) / N}$$\nThis simplifies to:\n$$X[k] = X_e[k] + W_N^k X_o[k]$$\nand for $k+N/2$:\n$$X[k+N/2] = X_e[k] - W_N^k X_o[k]$$\nwhere $X_e[k]$ and $X_o[k]$ are the $N/2$-point DFTs of $x_e[n]$ and $x_o[n]$ respectively, and $W_N^k = e^{-i 2\\pi k / N}$ is a twiddle factor. This recursive decomposition continues until 2-point DFTs are reached.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the context of the Cooley-Tukey FFT, what is the role of \"bit-reversal permutation\"?",
+      "back": "Bit-reversal permutation is used to reorder the input samples (for decimation-in-time FFT) or output samples (for decimation-in-frequency FFT) such that when the butterfly operations are performed in-place, the correct samples are combined at each stage. For a radix-2 FFT, if the input is ordered by bit-reversal, the output will be in natural order (or vice-versa), ensuring proper data flow through the butterfly stages.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the computational complexity of the Cooley-Tukey FFT algorithm for an $N$-point DFT, assuming $N$ is a power of 2?",
+      "back": "The computational complexity of the Cooley-Tukey FFT algorithm is $O(N \\log_2 N)$ complex multiplications and additions. This represents a significant reduction in computation compared to the $O(N^2)$ complexity of the direct DFT, especially for large $N$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly describe one significant real-world application where the efficiency of the FFT algorithm is crucial.",
+      "back": "The efficiency of the FFT is crucial in digital signal processing for applications like spectral analysis (e.g., analyzing audio signals, radio astronomy data), fast convolution and correlation (e.g., image filtering, echo cancellation, long-data filtering), and solving partial differential equations. For instance, in audio processing, applying a filter to a long signal is vastly faster when performed in the frequency domain using FFTs (transform, multiply, inverse transform) than direct time-domain convolution.",
+      "difficulty": "hard"
+    }
+  ]
+}

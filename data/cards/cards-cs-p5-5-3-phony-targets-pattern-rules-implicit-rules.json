@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-phony-targets-pattern-rules-implicit-rules",
+  "subtopicTitle": "Phony targets, pattern rules, implicit rules",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:22.385Z",
+  "cards": [
+    {
+      "front": "What is a \"phony target\" in Make, and what is its primary purpose?",
+      "back": "A phony target is a target that does not represent an actual file to be built. Its primary purpose is to ensure that Make always executes its associated recipe, even if a file with the same name exists, and to prevent Make from trying to build a file with that name.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you declare `clean` as a phony target in a Makefile, and why is this declaration crucial for targets like `clean`?",
+      "back": "You declare it using `.PHONY: clean`. This declaration is crucial because if a file named `clean` accidentally exists in the directory, Make would consider the `clean` target up-to-date and wouldn't execute its recipe (e.g., `rm -f *.o`). Declaring it phony forces Make to always execute the recipe, treating `clean` as an action rather than a file.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of a \"pattern rule\" in Make and provide its general syntax.",
+      "back": "A pattern rule in Make is a rule that specifies how to build a class of targets based on a pattern, rather than listing each target explicitly. It uses the `%` wildcard to match parts of file names. The general syntax is `target_pattern: prerequisite_pattern` (e.g., `%.o: %.c`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a Make pattern rule to compile any `.c` file into a corresponding `.o` file, using the automatic variables `$@` and `$<`.",
+      "back": "```makefile\n%.o: %.c\n\t$(CC) $(CFLAGS) -c $< -o $@\n```\nHere, `$@` expands to the target name (e.g., `foo.o`), and `$<` expands to the first prerequisite (e.g., `foo.c`). `$(CC)` and `$(CFLAGS)` are common Make variables for the C compiler and its flags.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are \"implicit rules\" in Make, and how do they differ from explicit rules and user-defined pattern rules?",
+      "back": "Implicit rules are built-in rules that Make provides by default to infer how to build certain files (e.g., compiling `.c` to `.o`, linking `.o` files into an executable). They differ from explicit rules (which you write for specific targets) and user-defined pattern rules (which you write for classes of targets) by being pre-defined within Make itself and automatically applied when no other rule matches.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can you modify the default C compiler (`CC`) and its flags (`CFLAGS`) used by Make's implicit rules?",
+      "back": "You can modify them by defining these variables in your Makefile. Make checks for these variable definitions before applying its implicit rules. For example:\n```makefile\nCC = clang\nCFLAGS = -Wall -Wextra -std=c11 -g\n```\nThese definitions will override Make's default values for `CC` (often `cc`) and `CFLAGS` (often empty).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a Makefile with a target `my_target: ...` and a file named `my_target` exists. When will Make execute its recipe if `my_target` is *not* phony versus if it *is* phony?",
+      "back": "If `my_target` is *not* phony, Make will execute its recipe only if the file `my_target` does not exist, or if any of its prerequisites are newer than `my_target`. If `my_target` exists and is up-to-date, the recipe is skipped.\nIf `my_target` *is* phony (declared with `.PHONY: my_target`), Make will *always* execute its recipe, regardless of whether a file named `my_target` exists or its timestamp. It treats `my_target` as an action to perform.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the key difference between a user-defined \"pattern rule\" and Make's built-in \"implicit rules\"?",
+      "back": "The key difference is their origin and flexibility. User-defined pattern rules are *explicitly defined by the user* in the Makefile using the `%` wildcard, allowing custom generic build logic. Implicit rules are *pre-defined by Make itself* and are automatically applied when no explicit or user-defined pattern rule matches. Pattern rules give the user control to define new build patterns, while implicit rules provide common, default build behaviors out-of-the-box.",
+      "difficulty": "medium"
+    }
+  ]
+}

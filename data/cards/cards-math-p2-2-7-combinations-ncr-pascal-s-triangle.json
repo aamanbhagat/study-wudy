@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p2-2-7-combinations-ncr-pascal-s-triangle",
+  "subtopicTitle": "Combinations — nCr, Pascal's triangle",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:49.155Z",
+  "cards": [
+    {
+      "front": "What is the key distinction between a combination and a permutation?",
+      "back": "A **combination** is a selection of items where the order of selection does not matter. A **permutation** is a selection where the order of selection *does* matter.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for $\\binom{n}{r}$, the number of combinations of $r$ items chosen from $n$ distinct items.",
+      "back": "$$\\binom{n}{r} = C(n, r) = \\frac{n!}{r!(n-r)!}$$ where $n$ is the total number of items, and $r$ is the number of items to choose. This formula applies for $0 \\le r \\le n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain intuitively why the combination formula $\\binom{n}{r}$ includes a division by $r!$ compared to the permutation formula $P(n,r)$.",
+      "back": "The permutation formula $P(n,r) = \\frac{n!}{(n-r)!}$ counts ordered arrangements. For any set of $r$ chosen items, there are $r!$ ways to arrange them (i.e., $r!$ permutations of the same combination). Since combinations disregard order, we divide $P(n,r)$ by $r!$ to remove these duplicate orderings, effectively counting each unique set of $r$ items only once.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A committee of 3 students is to be chosen from a class of 10. How many different committees can be formed?",
+      "back": "Since the order of students in a committee does not matter, this is a combination problem. We need to choose 3 students from 10: $$\\binom{10}{3} = \\frac{10!}{3!(10-3)!} = \\frac{10!}{3!7!} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 10 \\times 3 \\times 4 = 120$$ There are 120 different committees.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is each number in Pascal's Triangle (other than the 1s at the edges) derived from the numbers in the row above it?",
+      "back": "Each number in Pascal's Triangle is the sum of the two numbers directly above it. If a number only has one number directly above it (e.g., the 1s at the edges), it's treated as if there's a 0 in the missing position.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the relationship between the entries in Pascal's Triangle and combination coefficients $\\binom{n}{r}$?",
+      "back": "The entry in the $k$-th position (starting count from 0) of the $n$-th row (starting count from 0) of Pascal's Triangle is given by $\\binom{n}{k}$. For example, the 2nd entry (k=2) of the 4th row (n=4) is $\\binom{4}{2} = 6$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Pascal's Identity relating combination coefficients and explain its combinatorial meaning.",
+      "back": "Pascal's Identity states: $$\\binom{n}{r} = \\binom{n-1}{r-1} + \\binom{n-1}{r}$$ Combinatorial meaning: To choose $r$ items from $n$ distinct items, we can either: 1. Include a specific item: then we need to choose $r-1$ more from the remaining $n-1$ items (which is $\\binom{n-1}{r-1}$). 2. Exclude that specific item: then we need to choose all $r$ items from the remaining $n-1$ items (which is $\\binom{n-1}{r}$). The sum of these two mutually exclusive cases covers all possibilities.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove the identity $\\binom{n}{r} = \\binom{n}{n-r}$ using the definition of combinations.",
+      "back": "By definition, $$\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$$ Now consider $\\binom{n}{n-r}$: $$\\binom{n}{n-r} = \\frac{n!}{(n-r)!(n-(n-r))!} = \\frac{n!}{(n-r)!r!}$$ Since the denominators are identical (just factors swapped), $\\binom{n}{r} = \\binom{n}{n-r}$. This identity means that choosing $r$ items from $n$ is equivalent to choosing to *omit* $n-r$ items from $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many ways can you choose 0 items from a set of $n$ items? What is the value of $\\binom{n}{0}$?",
+      "back": "There is only one way to choose 0 items from a set of $n$ items: choose nothing. Using the formula: $$\\binom{n}{0} = \\frac{n!}{0!(n-0)!} = \\frac{n!}{0!n!}$$ Since $0! = 1$, $$\\binom{n}{0} = \\frac{n!}{1 \\cdot n!} = 1$$",
+      "difficulty": "medium"
+    }
+  ]
+}

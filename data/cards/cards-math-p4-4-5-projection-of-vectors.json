@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-projection-of-vectors",
+  "subtopicTitle": "Projection of vectors",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:08.977Z",
+  "cards": [
+    {
+      "front": "What is the geometric interpretation of the projection of vector $\\vec{a}$ onto vector $\\vec{b}$?",
+      "back": "It's the \"shadow\" that $\\vec{a}$ casts on the line defined by $\\vec{b}$, assuming a light source perpendicular to $\\vec{b}$. It represents the component of $\\vec{a}$ that lies in the direction of $\\vec{b}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the scalar projection of vector $\\vec{a}$ onto vector $\\vec{b}$, denoted $\\text{comp}_{\\vec{b}}\\vec{a}$.",
+      "back": "The scalar projection is given by $\\text{comp}_{\\vec{b}}\\vec{a} = \\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|}$. This value represents the signed magnitude of the vector projection, indicating how much of $\\vec{a}$ acts in the direction of $\\vec{b}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the vector projection of vector $\\vec{a}$ onto vector $\\vec{b}$, denoted $\\text{proj}_{\\vec{b}}\\vec{a}$.",
+      "back": "The vector projection is given by $\\text{proj}_{\\vec{b}}\\vec{a} = \\left(\\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\right)\\vec{b}$. It can also be written as $(\\vec{a} \\cdot \\vec{u}_{\\vec{b}})\\vec{u}_{\\vec{b}}$, where $\\vec{u}_{\\vec{b}} = \\frac{\\vec{b}}{\\|\\vec{b}\\|}$ is the unit vector in the direction of $\\vec{b}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the vector projection of $\\vec{a}$ onto $\\vec{b}$, $\\text{proj}_{\\vec{b}}\\vec{a}$, using geometric principles and dot products.",
+      "back": "Let $\\vec{p} = \\text{proj}_{\\vec{b}}\\vec{a}$. We know $\\vec{p}$ must be in the direction of $\\vec{b}$, so $\\vec{p} = k\\vec{b}$ for some scalar $k$. The \"error\" vector $\\vec{e} = \\vec{a} - \\vec{p}$ must be orthogonal to $\\vec{b}$. Thus, $\\vec{e} \\cdot \\vec{b} = 0$. Substituting $\\vec{p}$: $(\\vec{a} - k\\vec{b}) \\cdot \\vec{b} = 0$. Expanding: $\\vec{a} \\cdot \\vec{b} - k(\\vec{b} \\cdot \\vec{b}) = 0$. Since $\\vec{b} \\cdot \\vec{b} = \\|\\vec{b}\\|^2$: $\\vec{a} \\cdot \\vec{b} - k\\|\\vec{b}\\|^2 = 0$. Solving for $k$: $k = \\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}$. Substituting $k$ back into $\\vec{p} = k\\vec{b}$: $\\text{proj}_{\\vec{b}}\\vec{a} = \\left(\\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\right)\\vec{b}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given vectors $\\vec{a}$ and $\\vec{b}$, what is the relationship between the vector $\\vec{a} - \\text{proj}_{\\vec{b}}\\vec{a}$ and $\\vec{b}$?",
+      "back": "The vector $\\vec{a} - \\text{proj}_{\\vec{b}}\\vec{a}$ is orthogonal (perpendicular) to $\\vec{b}$. This vector represents the component of $\\vec{a}$ that is perpendicular to $\\vec{b}$, often called the orthogonal complement or the error vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the dot product $\\vec{a} \\cdot \\vec{b} < 0$, what does this imply about the direction of $\\text{proj}_{\\vec{b}}\\vec{a}$ relative to $\\vec{b}$?",
+      "back": "If $\\vec{a} \\cdot \\vec{b} < 0$, it means the angle between $\\vec{a}$ and $\\vec{b}$ is obtuse ($90^\\circ < \\theta \\le 180^\\circ$). In this case, the scalar factor $\\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}$ will be negative, so $\\text{proj}_{\\vec{b}}\\vec{a}$ will point in the opposite direction to $\\vec{b}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is vector projection onto a fixed vector $\\vec{b}$ a linear transformation? Justify your answer using the properties of dot products.",
+      "back": "Yes, vector projection onto a fixed vector $\\vec{b}$ is a linear transformation. This means it satisfies two properties:\n1.  Additivity: $\\text{proj}_{\\vec{b}}(\\vec{a}_1 + \\vec{a}_2) = \\text{proj}_{\\vec{b}}\\vec{a}_1 + \\text{proj}_{\\vec{b}}\\vec{a}_2$\n    $\\frac{(\\vec{a}_1 + \\vec{a}_2) \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\vec{b} = \\frac{\\vec{a}_1 \\cdot \\vec{b} + \\vec{a}_2 \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\vec{b} = \\frac{\\vec{a}_1 \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\vec{b} + \\frac{\\vec{a}_2 \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\vec{b}$\n2.  Homogeneity: $\\text{proj}_{\\vec{b}}(c\\vec{a}) = c\\text{proj}_{\\vec{b}}\\vec{a}$\n    $\\frac{(c\\vec{a}) \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\vec{b} = c\\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|^2}\\vec{b}$\nThese properties hold due to the linearity of the dot product.",
+      "difficulty": "hard"
+    }
+  ]
+}

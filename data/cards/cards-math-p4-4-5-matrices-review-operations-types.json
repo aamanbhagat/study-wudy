@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-matrices-review-operations-types",
+  "subtopicTitle": "Matrices — review, operations, types",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:54.698Z",
+  "cards": [
+    {
+      "front": "Define a matrix and explain its dimensions using standard notation.",
+      "back": "A matrix is a rectangular array of numbers, symbols, or expressions arranged in rows and columns. Its dimensions are denoted as $m \\times n$, where $m$ is the number of rows and $n$ is the number of columns. An element at row $i$ and column $j$ is typically denoted as $a_{ij}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the necessary conditions for matrix multiplication $AB$ to be defined, and the dimensions of the resulting product $AB$.",
+      "back": "For the product $AB$ to be defined, the number of columns in matrix $A$ must be equal to the number of rows in matrix $B$. If $A$ is an $m \\times p$ matrix and $B$ is a $p \\times n$ matrix, then the resulting product $AB$ will be an $m \\times n$ matrix.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the matrix product $AB$ for $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$.",
+      "back": "$$AB = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} (1)(5)+(2)(7) & (1)(6)+(2)(8) \\\\ (3)(5)+(4)(7) & (3)(6)+(4)(8) \\end{pmatrix}$$ $$AB = \\begin{pmatrix} 5+14 & 6+16 \\\\ 15+28 & 18+32 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a symmetric matrix and a skew-symmetric matrix using transpose notation.",
+      "back": "A square matrix $A$ is **symmetric** if $A^T = A$. This means $a_{ij} = a_{ji}$ for all $i, j$. A square matrix $A$ is **skew-symmetric** if $A^T = -A$. This means $a_{ij} = -a_{ji}$ for all $i, j$, which implies that all diagonal elements $a_{ii}$ must be zero.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove that for any square matrix $A$, the matrix $A + A^T$ is symmetric and $A - A^T$ is skew-symmetric.",
+      "back": "To prove $A + A^T$ is symmetric, we check its transpose:\n$$(A + A^T)^T = A^T + (A^T)^T = A^T + A = A + A^T$$ \nSince $(A + A^T)^T = A + A^T$, it is symmetric.\n\nTo prove $A - A^T$ is skew-symmetric, we check its transpose:\n$$(A - A^T)^T = A^T - (A^T)^T = A^T - A = -(A - A^T)$$ \nSince $(A - A^T)^T = -(A - A^T)$, it is skew-symmetric.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is matrix multiplication generally commutative? Provide a counterexample or explain why.",
+      "back": "No, matrix multiplication is generally **not commutative**. That is, $AB \\neq BA$ in most cases.\n\nCounterexample:\nLet $A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$ and $B = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$.\n$$AB = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix} \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$$\n$$BA = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$$\nSince $AB \\neq BA$, matrix multiplication is not commutative.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the $n \\times n$ identity matrix $I_n$ and state its unique property in matrix multiplication.",
+      "back": "The $n \\times n$ identity matrix, denoted $I_n$, is a square matrix with ones on the main diagonal and zeros elsewhere. For any $m \\times n$ matrix $A$, $A I_n = A$. For any $n \\times p$ matrix $B$, $I_n B = B$. It acts as the multiplicative identity in matrix algebra.\nExample $I_3 = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the trace of a square matrix $A$ and state one of its key properties.",
+      "back": "The trace of a square matrix $A$, denoted $\\text{tr}(A)$, is the sum of the elements on its main diagonal. If $A$ is an $n \\times n$ matrix, then $\\text{tr}(A) = \\sum_{i=1}^{n} a_{ii}$.\n\nOne key property is that for any two matrices $A$ and $B$ for which both $AB$ and $BA$ are defined, $\\text{tr}(AB) = \\text{tr}(BA)$, even if $AB \\neq BA$. Other properties include $\\text{tr}(A+B) = \\text{tr}(A) + \\text{tr}(B)$ and $\\text{tr}(cA) = c \\cdot \\text{tr}(A)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

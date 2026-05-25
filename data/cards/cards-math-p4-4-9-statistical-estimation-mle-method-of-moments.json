@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-statistical-estimation-mle-method-of-moments",
+  "subtopicTitle": "Statistical estimation — MLE, method of moments",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:07.465Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of statistical estimation?",
+      "back": "The primary objective of statistical estimation is to use observed sample data to infer or approximate the unknown parameters of a population distribution from which the data was drawn.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the likelihood function $L(\\theta | \\mathbf{x})$ for a sample $\\mathbf{x} = (x_1, \\dots, x_n)$ drawn independently from a distribution with PDF/PMF $f(x | \\theta)$.",
+      "back": "The likelihood function is defined as the joint probability (or probability density) of observing the given sample data $\\mathbf{x}$ as a function of the parameter(s) $\\theta$. For independent observations, it is given by:\n$$L(\\theta | \\mathbf{x}) = \\prod_{i=1}^n f(x_i | \\theta)$$\nIt is treated as a function of $\\theta$ for fixed $\\mathbf{x}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Maximum Likelihood Estimation (MLE), why is the log-likelihood function $\\ln L(\\theta | \\mathbf{x})$ often maximized instead of the likelihood function $L(\\theta | \\mathbf{x})$ itself?",
+      "back": "The natural logarithm is a monotonically increasing function, meaning that maximizing $\\ln L(\\theta | \\mathbf{x})$ is equivalent to maximizing $L(\\theta | \\mathbf{x})$. The log-likelihood is preferred because it transforms products into sums and exponents into coefficients, simplifying the differentiation process required to find the maximum. This makes calculations much more tractable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general procedure to find the Maximum Likelihood Estimator (MLE) for a parameter $\\theta$.",
+      "back": "1.  **Formulate Likelihood Function:** Write down $L(\\theta | \\mathbf{x}) = \\prod_{i=1}^n f(x_i | \\theta)$.\n2.  **Formulate Log-Likelihood:** Take the natural logarithm: $\\ln L(\\theta | \\mathbf{x})$.\n3.  **Differentiate:** Compute the first derivative of the log-likelihood with respect to $\\theta$: $\\frac{\\partial}{\\partial \\theta} \\ln L(\\theta | \\mathbf{x})$.\n4.  **Solve for $\\theta$:** Set the derivative to zero and solve for $\\theta$ to obtain $\\hat{\\theta}_{MLE}$.\n5.  **(Optional) Verify Maximum:** Use the second derivative test to ensure the solution corresponds to a maximum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Maximum Likelihood Estimator (MLE) for the parameter $p$ of a Bernoulli distribution, given $n$ independent observations $x_1, \\dots, x_n$.",
+      "back": "The PMF for a Bernoulli distribution is $f(x|p) = p^x (1-p)^{1-x}$.\n1.  **Likelihood Function:**\n    $$L(p | \\mathbf{x}) = \\prod_{i=1}^n p^{x_i} (1-p)^{1-x_i} = p^{\\sum x_i} (1-p)^{n-\\sum x_i}$$\n2.  **Log-Likelihood Function:**\n    $$\\ln L(p | \\mathbf{x}) = (\\sum x_i) \\ln p + (n-\\sum x_i) \\ln(1-p)$$\n3.  **Differentiate and Set to Zero:**\n    $$\\frac{\\partial}{\\partial p} \\ln L(p | \\mathbf{x}) = \\frac{\\sum x_i}{p} - \\frac{n-\\sum x_i}{1-p} = 0$$\n4.  **Solve for $p$:**\n    $$\\frac{\\sum x_i}{p} = \\frac{n-\\sum x_i}{1-p}$$\n    $$(\\sum x_i)(1-p) = p(n-\\sum x_i)$$\n    $$\\sum x_i - p\\sum x_i = np - p\\sum x_i$$\n    $$\\sum x_i = np$$\n    $$\\hat{p}_{MLE} = \\frac{\\sum x_i}{n} = \\bar{x}$$\n    The MLE for $p$ is the sample mean, $\\bar{x}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the core principle behind the Method of Moments (MoM) for estimating parameters.",
+      "back": "The Method of Moments works by equating theoretical population moments (expressed in terms of the unknown parameters) to their corresponding sample moments (calculated from the observed data). If there are $k$ unknown parameters, the first $k$ population moments are set equal to the first $k$ sample moments, and the resulting system of $k$ equations is solved for the $k$ parameters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a Poisson distribution with parameter $\\lambda$, find the Method of Moments (MoM) estimator for $\\lambda$. How does it compare to the MLE for $\\lambda$?",
+      "back": "1.  **Population Moment:** The first population moment (mean) for a Poisson distribution is $E[X] = \\lambda$.\n2.  **Sample Moment:** The first sample moment is the sample mean, $\\bar{X} = \\frac{1}{n}\\sum_{i=1}^n X_i$.\n3.  **Equate and Solve:** Equating the population mean to the sample mean gives the MoM estimator:\n    $$\\hat{\\lambda}_{MoM} = \\bar{X}$$\n    **Comparison to MLE:** For the Poisson distribution, the Maximum Likelihood Estimator (MLE) for $\\lambda$ is also $\\hat{\\lambda}_{MLE} = \\bar{X}$. In this specific case, the Method of Moments and Maximum Likelihood Estimation yield the same estimator.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are some key advantages and disadvantages of Maximum Likelihood Estimation (MLE) compared to the Method of Moments (MoM)?",
+      "back": "**MLE Advantages:**\n*   **Asymptotic Efficiency:** Often achieves the Cramér-Rao lower bound (minimum possible variance) for large samples.\n*   **Consistency:** Converges to the true parameter value as sample size increases.\n*   **Asymptotic Normality:** The sampling distribution of the MLE is approximately normal for large samples.\n*   **Invariance:** If $\\hat{\\theta}$ is the MLE for $\\theta$, then $g(\\hat{\\theta})$ is the MLE for $g(\\theta)$.\n\n**MLE Disadvantages:**\n*   Can be computationally intensive; often requires numerical optimization.\n*   May not have a closed-form solution.\n*   Sensitive to model misspecification.\n\n**MoM Advantages:**\n*   **Simplicity:** Conceptually straightforward and often easier to compute.\n*   Frequently yields closed-form solutions.\n\n**MoM Disadvantages:**\n*   Generally less efficient than MLE (higher variance) for large samples.\n*   Not invariant to reparameterization.\n*   May not use all available information in the data as effectively as MLE.",
+      "difficulty": "medium"
+    }
+  ]
+}

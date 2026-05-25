@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-5-strongly-connected-components-scc-kosaraju-s-algorithm-tarjan-s-algorithm",
+  "subtopicTitle": "Strongly Connected Components (SCC) — Kosaraju's algorithm, Tarjan's algorithm",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:37.853Z",
+  "cards": [
+    {
+      "front": "Define a Strongly Connected Component (SCC) in a directed graph $G=(V, E)$.",
+      "back": "A Strongly Connected Component (SCC) is a maximal subgraph $C \\subseteq G$ such that for any two vertices $u, v \\in C$, there is a path from $u$ to $v$ and a path from $v$ to $u$. 'Maximal' means it cannot be extended by adding more vertices from $G$ and still satisfy the property.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three main steps of Kosaraju's algorithm for finding SCCs.",
+      "back": "1. Perform DFS on the original graph $G$ to compute finishing times for all vertices. Push vertices onto a stack in order of finishing times (last finished on top).\n2. Compute the transpose graph $G^T$ (reverse all edge directions).\n3. Perform DFS on $G^T$ in the order specified by the stack (popping vertices). Each tree in this DFS forest is an SCC.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Kosaraju's algorithm, what is the purpose of performing the second DFS pass on the *transpose graph* ($G^T$)?",
+      "back": "The first DFS on $G$ orders vertices by finishing times such that a source vertex of an SCC (in the SCC condensation graph) will appear higher on the stack. When traversing $G^T$, edges are reversed. This ensures that when we start a DFS from the 'highest finishing time' vertex of an SCC, we can only explore vertices *within* that SCC, because any path leading *out* of that SCC in $G$ would be an incoming path in $G^T$, which cannot be reached from inside the SCC unless it's part of the same SCC (due to the finishing time order).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Tarjan's algorithm, what do `disc[u]` and `low[u]` represent, and how are they used to identify SCCs?",
+      "back": "`disc[u]` (discovery time) is the time when vertex $u$ is first visited during DFS. `low[u]` (low-link value) is the smallest discovery time reachable from $u$ (including $u$ itself) through $u$'s DFS subtree, considering back-edges to ancestors *on the current DFS stack*. An SCC is found when $disc[u] == low[u]$, meaning $u$ is the root of an SCC.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When performing DFS from vertex $u$ in Tarjan's algorithm, how is $low[u]$ updated based on its neighbor $v$?",
+      "back": "1. If $v$ has not been visited: Recursively call DFS on $v$. After the call returns, update $low[u] = \\min(low[u], low[v])$.\n2. If $v$ has been visited and is currently on the DFS stack (meaning $v$ is an ancestor of $u$): Update $low[u] = \\min(low[u], disc[v])$. This handles back-edges that connect $u$ to an ancestor $v$ in the DFS tree.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the time and space complexities of Kosaraju's and Tarjan's algorithms for a graph with $V$ vertices and $E$ edges?",
+      "back": "Both Kosaraju's and Tarjan's algorithms have a time complexity of $O(V+E)$ because they fundamentally involve a constant number of DFS traversals (two for Kosaraju's, one for Tarjan's) and operations proportional to graph size. Their space complexity is also $O(V+E)$ to store the graph, visited arrays, stacks, and auxiliary arrays like `disc` and `low`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant practical advantage of Tarjan's algorithm over Kosaraju's algorithm for finding SCCs?",
+      "back": "Tarjan's algorithm requires only a single DFS traversal, whereas Kosaraju's algorithm requires two DFS traversals and the explicit construction of the transpose graph $G^T$. This makes Tarjan's algorithm generally simpler to implement, potentially more memory-efficient (no explicit $G^T$ storage), and often faster in practice due to fewer graph traversals and setup overhead.",
+      "difficulty": "hard"
+    }
+  ]
+}

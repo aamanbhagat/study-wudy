@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-electromagnetic-waves-derivation-from-maxwell-s-equations",
+  "subtopicTitle": "Electromagnetic waves — derivation from Maxwell's equations",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:57.069Z",
+  "cards": [
+    {
+      "front": "List the four Maxwell's equations in their differential form for free space (vacuum).",
+      "back": "1. Gauss's Law for Electricity: $\\nabla \\cdot \\mathbf{E} = 0$\n2. Gauss's Law for Magnetism: $\\nabla \\cdot \\mathbf{B} = 0$\n3. Faraday's Law of Induction: $\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}$\n4. Ampere-Maxwell Law: $\\nabla \\times \\mathbf{B} = \\mu_0 \\epsilon_0 \\frac{\\partial \\mathbf{E}}{\\partial t}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which vector identity is essential when taking the curl of Faraday's Law or Ampere-Maxwell Law to derive the wave equation?",
+      "back": "The crucial vector identity is: $\\nabla \\times (\\nabla \\times \\mathbf{A}) = \\nabla (\\nabla \\cdot \\mathbf{A}) - \\nabla^2 \\mathbf{A}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the wave equation for the electric field $\\mathbf{E}$ in vacuum, starting from Maxwell's equations.",
+      "back": "1. Start with Faraday's Law: $\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}$\n2. Take the curl of both sides: $\\nabla \\times (\\nabla \\times \\mathbf{E}) = -\\frac{\\partial}{\\partial t}(\\nabla \\times \\mathbf{B})$\n3. Use the vector identity $\\nabla \\times (\\nabla \\times \\mathbf{E}) = \\nabla (\\nabla \\cdot \\mathbf{E}) - \\nabla^2 \\mathbf{E}$\n4. From Gauss's Law for Electricity in vacuum, $\\nabla \\cdot \\mathbf{E} = 0$. So, the equation becomes: $-\\nabla^2 \\mathbf{E} = -\\frac{\\partial}{\\partial t}(\\nabla \\times \\mathbf{B})$\n5. Substitute Ampere-Maxwell Law: $\\nabla \\times \\mathbf{B} = \\mu_0 \\epsilon_0 \\frac{\\partial \\mathbf{E}}{\\partial t}$\n6. This yields: $-\\nabla^2 \\mathbf{E} = -\\frac{\\partial}{\\partial t}(\\mu_0 \\epsilon_0 \\frac{\\partial \\mathbf{E}}{\\partial t}) = -\\mu_0 \\epsilon_0 \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2}$\n7. Rearranging gives the wave equation for $\\mathbf{E}$: $\\nabla^2 \\mathbf{E} - \\mu_0 \\epsilon_0 \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the general form of the wave equation for a field $\\Psi$ in vacuum, and how is the speed of the wave related to the constants in the derived electromagnetic wave equation?",
+      "back": "The general form of the wave equation is $\\nabla^2 \\Psi - \\frac{1}{v^2} \\frac{\\partial^2 \\Psi}{\\partial t^2} = 0$. Comparing this to the derived electromagnetic wave equation $\\nabla^2 \\mathbf{E} - \\mu_0 \\epsilon_0 \\frac{\\partial^2 \\mathbf{E}}{\\partial t^2} = 0$, we identify that $\\frac{1}{v^2} = \\mu_0 \\epsilon_0$. Therefore, the speed of the electromagnetic wave $v$ is given by $v = \\frac{1}{\\sqrt{\\mu_0 \\epsilon_0}}$. This speed is the speed of light, $c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the specific formula for the speed of light $c$ in vacuum, derived from fundamental constants in electromagnetism?",
+      "back": "The speed of light in vacuum, $c$, is given by the formula $c = \\frac{1}{\\sqrt{\\mu_0 \\epsilon_0}}$, where $\\mu_0$ is the permeability of free space and $\\epsilon_0$ is the permittivity of free space.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do Maxwell's equations (specifically Gauss's Laws) imply that electromagnetic waves are transverse?",
+      "back": "Gauss's Law for electricity ($\\nabla \\cdot \\mathbf{E} = 0$) and magnetism ($\\nabla \\cdot \\mathbf{B} = 0$) in vacuum imply that the electric and magnetic fields have no divergence. For a plane wave propagating in the z-direction, this means there are no components of $\\mathbf{E}$ or $\\mathbf{B}$ in the direction of propagation (i.e., $E_z = 0$ and $B_z = 0$). This is because if there were, the divergence would not be zero unless the field components were constant, which is not the case for a propagating wave. Thus, the fields must be perpendicular to the direction of wave propagation, making EM waves transverse.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a plane electromagnetic wave in vacuum, what is the relationship between the magnitudes of the electric field ($E$) and magnetic field ($B$)?",
+      "back": "For a plane electromagnetic wave in vacuum, the magnitudes of the electric field ($E$) and magnetic field ($B$) are related by $E = cB$, where $c$ is the speed of light. This relationship arises from Maxwell's equations, for example, by considering a plane wave solution in Faraday's Law, where the spatial derivative of E is related to the time derivative of B, and the ratio of these derivatives is $c$.",
+      "difficulty": "medium"
+    }
+  ]
+}

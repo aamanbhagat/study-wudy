@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-hooke-s-law-in-3d-generalized-stress-strain-tensor",
+  "subtopicTitle": "Hooke's law in 3D — generalized stress-strain (tensor)",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:38.747Z",
+  "cards": [
+    {
+      "front": "Define the Cauchy stress tensor $\\sigma_{ij}$. What do its indices represent, and what is its fundamental property?",
+      "back": "The Cauchy stress tensor $\\sigma_{ij}$ represents the force per unit area acting on a surface within a deformable body. The first index $i$ denotes the direction of the normal to the surface, and the second index $j$ denotes the direction of the force component. It is a symmetric tensor, meaning $\\sigma_{ij} = \\sigma_{ji}$, which implies angular momentum conservation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the infinitesimal strain tensor $\\epsilon_{ij}$. What do its diagonal and off-diagonal components represent?",
+      "back": "The infinitesimal strain tensor $\\epsilon_{ij}$ describes the deformation of a material. Its diagonal components $\\epsilon_{ii}$ represent normal strains (change in length per unit length) along the $i$-th axis. Its off-diagonal components $\\epsilon_{ij}$ ($i \\neq j$) represent half the engineering shear strains $\\gamma_{ij} = 2\\epsilon_{ij}$, which are related to the change in angle between initially perpendicular line segments. It is also a symmetric tensor, $\\epsilon_{ij} = \\epsilon_{ji}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the generalized Hooke's Law relating the stress tensor $\\sigma_{ij}$ and the strain tensor $\\epsilon_{kl}$ using the fourth-order stiffness tensor $C_{ijkl}$.",
+      "back": "The generalized Hooke's Law is given by:\n$$ \\sigma_{ij} = C_{ijkl} \\epsilon_{kl} $$\nwhere $C_{ijkl}$ is the stiffness tensor (or elastic modulus tensor). This equation implies summation over repeated indices $k$ and $l$. Alternatively, using the compliance tensor $S_{ijkl}$:\n$$ \\epsilon_{ij} = S_{ijkl} \\sigma_{kl} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many independent elastic constants does a general anisotropic material have? How many for an isotropic material, and what are they typically?",
+      "back": "A general anisotropic material has 21 independent elastic constants due to the symmetries of the stiffness/compliance tensors ($C_{ijkl} = C_{jikl} = C_{ijlk} = C_{klij}$). An isotropic material has only 2 independent elastic constants, typically Young's modulus ($E$) and Poisson's ratio ($\\nu$), or alternatively, the Shear modulus ($G$) and Bulk modulus ($K$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an isotropic material, provide the relationship between Young's modulus ($E$), Shear modulus ($G$), and Poisson's ratio ($\\nu$).",
+      "back": "For an isotropic material, the relationship between these elastic moduli is:\n$$ G = \\frac{E}{2(1+\\nu)} $$\nThis equation shows that only two of these three constants are independent for isotropic materials.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an isotropic material under uniaxial tension $\\sigma_x$ (i.e., $\\sigma_{xx} = \\sigma_x$, all other $\\sigma_{ij}=0$), derive the expressions for $\\epsilon_{xx}$, $\\epsilon_{yy}$, and $\\epsilon_{zz}$ in terms of $\\sigma_x$, $E$, and $\\nu$.",
+      "back": "For uniaxial tension $\\sigma_x$, we have:\n$$ \\epsilon_{xx} = \\frac{\\sigma_x}{E} $$\n$$ \\epsilon_{yy} = -\\nu \\frac{\\sigma_x}{E} $$\n$$ \\epsilon_{zz} = -\\nu \\frac{\\sigma_x}{E} $$\nThis shows that a tensile stress in one direction causes elongation in that direction and contraction (negative strain) in the perpendicular directions, scaled by Poisson's ratio.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the purpose and mechanism of Voigt notation when representing the generalized Hooke's Law.",
+      "back": "Voigt notation simplifies the representation of symmetric second-order tensors (stress, strain) and fourth-order tensors (stiffness, compliance) into matrix form. It maps the 3x3 symmetric tensors into 6-element vectors and the 81-component fourth-order tensors into 6x6 matrices, exploiting tensor symmetries. This makes calculations more manageable, e.g., $\\sigma_i = C_{ij} \\epsilon_j$ where $i,j \\in \\{1, ..., 6\\}$.\nMapping for indices:\n11 $\\rightarrow$ 1\n22 $\\rightarrow$ 2\n33 $\\rightarrow$ 3\n23, 32 $\\rightarrow$ 4\n13, 31 $\\rightarrow$ 5\n12, 21 $\\rightarrow$ 6",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an isotropic material, write the full expressions for the normal strains $\\epsilon_{xx}$, $\\epsilon_{yy}$, and $\\epsilon_{zz}$ in terms of the stress components ($\\sigma_{xx}, \\sigma_{yy}, \\sigma_{zz}$), Young's modulus ($E$), and Poisson's ratio ($\\nu$).",
+      "back": "For an isotropic material:\n$$ \\epsilon_{xx} = \\frac{1}{E} [\\sigma_{xx} - \\nu(\\sigma_{yy} + \\sigma_{zz})] $$\n$$ \\epsilon_{yy} = \\frac{1}{E} [\\sigma_{yy} - \\nu(\\sigma_{xx} + \\sigma_{zz})] $$\n$$ \\epsilon_{zz} = \\frac{1}{E} [\\sigma_{zz} - \\nu(\\sigma_{xx} + \\sigma_{yy})] $$\nThe shear strains are given by $\\epsilon_{xy} = \\frac{1}{2G} \\sigma_{xy}$, etc., where $G = \\frac{E}{2(1+\\nu)}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

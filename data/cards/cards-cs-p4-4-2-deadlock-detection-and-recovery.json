@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-deadlock-detection-and-recovery",
+  "subtopicTitle": "Deadlock detection and recovery",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:04.707Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of deadlock detection and recovery in an operating system?",
+      "back": "To identify when a system has entered a deadlocked state and then to break the deadlock, allowing processes to continue execution. It's employed when deadlock prevention or avoidance strategies are not used.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In deadlock detection, when is a \"wait-for graph\" used, and what does a cycle in this graph signify?",
+      "back": "A wait-for graph is used when there is only a single instance of each resource type. A cycle in the wait-for graph indicates the presence of a deadlock.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the main data structures required for the deadlock detection algorithm when multiple instances of each resource type exist.",
+      "back": "The algorithm requires:\n1.  `Available`: A vector of length $m$ indicating the number of available instances of each resource type.\n2.  `Allocation`: An $n \\times m$ matrix defining the number of resources of each type currently allocated to each process.\n3.  `Request`: An $n \\times m$ matrix indicating the current request of each process. `Request[i][j] = k` means process $P_i$ wants $k$ instances of resource $R_j$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the core logic of the deadlock detection algorithm for multiple resource instances, assuming `Work` and `Finish` vectors.",
+      "back": "1. Initialize `Work = Available` and `Finish[i] = false` for $i = 0, \\dots, n-1$.\n2. Find an index $i$ such that `Finish[i] == false` and `Request[i] \\le Work$.\n3. If such an $i$ exists: `Work = Work + Allocation[i]`, `Finish[i] = true`. Go to step 2.\n4. If no such $i$ exists: If `Finish[i] == false` for any $i$, then the system is in a deadlocked state, and the processes $P_i$ for which `Finish[i] == false` are deadlocked.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the two primary strategies for recovering from a detected deadlock?",
+      "back": "1.  **Process Termination:** Abort one or more deadlocked processes.\n2.  **Resource Preemption:** Take resources away from one or more processes and give them to others, forcing the victim process to wait or restart.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When using \"process termination\" for deadlock recovery, what are the two main approaches, and what is a key trade-off between them?",
+      "back": "1.  **Terminate all deadlocked processes:** Breaks the deadlock quickly but incurs significant overhead as all work done by these processes is lost.\n2.  **Terminate one process at a time until deadlock is broken:** Minimizes lost work by only terminating processes necessary to break the cycle, but requires running the detection algorithm repeatedly, incurring higher detection overhead.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In resource preemption for deadlock recovery, what three issues must be addressed to ensure fairness and correctness?",
+      "back": "1.  **Selecting a victim:** Which process's resources to preempt (e.g., minimum cost, fewest resources, longest remaining time).\n2.  **Rollback:** What to do with the victim process (e.g., restart, roll back to a safe checkpoint).\n3.  **Starvation:** Ensuring that the same process is not always chosen as a victim, potentially leading to it never completing. This can be addressed by including the number of rollbacks in the cost factor.",
+      "difficulty": "hard"
+    }
+  ]
+}

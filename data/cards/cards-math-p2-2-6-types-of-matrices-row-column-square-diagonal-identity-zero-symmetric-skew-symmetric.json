@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-6-types-of-matrices-row-column-square-diagonal-identity-zero-symmetric-skew-symmetric",
+  "subtopicTitle": "Types of matrices — row, column, square, diagonal, identity, zero, symmetric, skew-symmetric",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:19.745Z",
+  "cards": [
+    {
+      "front": "Define a row matrix and a column matrix, including their general dimensions.",
+      "back": "A **row matrix** (or row vector) is a matrix with only one row, i.e., of dimension $1 \\times n$. Example: $[1 \\ 2 \\ 3]$.\nA **column matrix** (or column vector) is a matrix with only one column, i.e., of dimension $m \\times 1$. Example: $\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a square matrix? What must be true about its dimensions?",
+      "back": "A **square matrix** is a matrix where the number of rows is equal to the number of columns. If a matrix $A$ has dimension $m \\times n$, it is square if $m=n$. The common order is then referred to as $n$. Example: $\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ is a square matrix of order 2.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a zero matrix. What is its common notation and property regarding addition?",
+      "back": "A **zero matrix** (or null matrix) is a matrix where all its elements are zero. It can be of any dimension $m \\times n$. It is commonly denoted by $O$ or $0$. For any matrix $A$ of the same dimensions, $A + O = A$.\nExample: $O_{2 \\times 3} = \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a diagonal matrix. Provide an example of a $3 \\times 3$ diagonal matrix that is not an identity matrix.",
+      "back": "A **diagonal matrix** is a square matrix where all the non-diagonal elements are zero. That is, for a matrix $A = [a_{ij}]$, $a_{ij} = 0$ for all $i \\neq j$.\nExample of a $3 \\times 3$ diagonal matrix (not identity):\n$$ \\begin{pmatrix} 5 & 0 & 0 \\\\ 0 & -2 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the identity matrix of order $n$? How does it behave under matrix multiplication?",
+      "back": "The **identity matrix** of order $n$, denoted by $I_n$ (or simply $I$), is a square matrix of order $n$ where all the elements on the main diagonal are $1$s and all other elements are $0$s.\nFor any $n \\times n$ matrix $A$, $A \\cdot I_n = I_n \\cdot A = A$.\nExample $I_3 = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the condition for a square matrix $A$ to be symmetric. Construct a $2 \\times 2$ symmetric matrix with distinct non-diagonal elements.",
+      "back": "A square matrix $A = [a_{ij}]$ is **symmetric** if its transpose is equal to itself, i.e., $A^T = A$. This means that $a_{ij} = a_{ji}$ for all $i, j$.\nExample of a $2 \\times 2$ symmetric matrix:\n$$ A = \\begin{pmatrix} 1 & 3 \\\\ 3 & 5 \\end{pmatrix} $$\nHere, $a_{12} = 3$ and $a_{21} = 3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the condition for a square matrix $A$ to be skew-symmetric. What must be true about its diagonal elements? Prove it.",
+      "back": "A square matrix $A = [a_{ij}]$ is **skew-symmetric** if its transpose is equal to its negative, i.e., $A^T = -A$. This means that $a_{ij} = -a_{ji}$ for all $i, j$.\nFor diagonal elements, $i=j$, so $a_{ii} = -a_{ii}$. This implies $2a_{ii} = 0$, which means $a_{ii} = 0$. Therefore, all diagonal elements of a skew-symmetric matrix must be zero.\nExample:\n$$ B = \\begin{pmatrix} 0 & -2 \\\\ 2 & 0 \\end{pmatrix} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can any square matrix $A$ be uniquely expressed as the sum of a symmetric matrix $P$ and a skew-symmetric matrix $Q$?",
+      "back": "Any square matrix $A$ can be uniquely expressed as the sum of a symmetric matrix $P$ and a skew-symmetric matrix $Q$ using the following decomposition:\n$$ A = P + Q $$\nwhere $P = \\frac{1}{2}(A + A^T)$ is the symmetric part, and $Q = \\frac{1}{2}(A - A^T)$ is the skew-symmetric part.\nTo verify:\n$P^T = \\frac{1}{2}(A + A^T)^T = \\frac{1}{2}(A^T + (A^T)^T) = \\frac{1}{2}(A^T + A) = P$. (Symmetric)\n$Q^T = \\frac{1}{2}(A - A^T)^T = \\frac{1}{2}(A^T - (A^T)^T) = \\frac{1}{2}(A^T - A) = -\\frac{1}{2}(A - A^T) = -Q$. (Skew-symmetric)",
+      "difficulty": "hard"
+    }
+  ]
+}

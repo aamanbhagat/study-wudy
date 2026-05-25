@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-4-numpy-fft-np-fft-module",
+  "subtopicTitle": "NumPy FFT — np.fft module",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:31.073Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of NumPy's `np.fft` module in scientific computing?",
+      "back": "The `np.fft` module provides functions to compute the Discrete Fourier Transform (DFT) and its inverse, primarily using the Fast Fourier Transform (FFT) algorithm. It's used to analyze the frequency content of discrete signals.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a 1D NumPy array `x` representing a time-domain signal, how do you compute its Discrete Fourier Transform using `np.fft`?",
+      "back": "You use `np.fft.fft(x)`. This returns a complex-valued array `X` where `X[k]` represents the $k$-th frequency component.\n```python\nimport numpy as np\nt = np.linspace(0, 1, 100, endpoint=False)\nx = np.sin(2 * np.pi * 5 * t) + np.sin(2 * np.pi * 10 * t)\nX = np.fft.fft(x)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After computing `X = np.fft.fft(x)` for a signal `x` of length $N$ with sampling rate $f_s$, how do you determine the actual frequencies corresponding to each element in `X`?",
+      "back": "You use `np.fft.fftfreq(N, d=1/f_s)`. The `d` parameter is the sample spacing (inverse of sampling rate).\n```python\nimport numpy as np\nN = 100 # Number of samples\nfs = 100 # Sampling rate (Hz)\nfrequencies = np.fft.fftfreq(N, d=1/fs)\n# frequencies will range from -fs/2 to fs/2 (excluding the upper bound)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why and how would you use `np.fft.fftshift` on the output of `np.fft.fft`?",
+      "back": "`np.fft.fft` places the zero-frequency component (DC component) at the beginning of the output array. `np.fft.fftshift` rearranges the output so that the zero-frequency component is in the center, which is often more intuitive for visualization and analysis.\n```python\nimport numpy as np\nX = np.fft.fft(np.random.rand(10))\nX_shifted = np.fft.fftshift(X)\n# The zero frequency is now at index len(X)//2\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When analyzing a real-valued input signal, which `np.fft` function should you use for efficiency, and why?",
+      "back": "You should use `np.fft.rfft`. For real-valued inputs, the positive and negative frequency components of the DFT are complex conjugates. `np.fft.rfft` takes advantage of this symmetry, computing only the non-negative frequency terms, resulting in a more compact output and faster computation.\n```python\nimport numpy as np\nx_real = np.array([1, 2, 3, 4])\nX_rfft = np.fft.rfft(x_real) # Output length is N/2 + 1\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the mathematical formula for the $k$-th component of the Discrete Fourier Transform (DFT) of a discrete signal $x_n$ of length $N$.",
+      "back": "The $k$-th component $X_k$ of the DFT is given by:\n$$X_k = \\sum_{n=0}^{N-1} x_n e^{-i 2\\pi k n / N}$$\nfor $k = 0, 1, \\dots, N-1$. Here, $i$ is the imaginary unit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would you apply a 2D FFT to a grayscale image represented as a 2D NumPy array `img`, and what does the result represent?",
+      "back": "You use `np.fft.fft2(img)`. The result is a 2D complex array representing the spatial frequency components of the image. The zero-frequency component (average brightness) is at the top-left corner. Shifting with `np.fft.fftshift` can move it to the center for better visualization of high-frequency (edges, textures) and low-frequency (smooth regions) content.\n```python\nimport numpy as np\n# Assume 'img' is a 2D numpy array\n# F_img = np.fft.fft2(img)\n# F_img_shifted = np.fft.fftshift(F_img)\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

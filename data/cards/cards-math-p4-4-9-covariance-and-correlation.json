@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-covariance-and-correlation",
+  "subtopicTitle": "Covariance and correlation",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:05.472Z",
+  "cards": [
+    {
+      "front": "Define the covariance between two random variables $X$ and $Y$, $\\text{Cov}(X, Y)$.",
+      "back": "The covariance measures the degree to which $X$ and $Y$ change together. Its formula is $\\text{Cov}(X, Y) = E[(X - E[X])(Y - E[Y])]$. A positive value indicates they tend to increase/decrease together, negative indicates one increases as the other decreases, and zero suggests no linear relationship.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express $\\text{Cov}(X, X)$ in terms of another common statistical measure.",
+      "back": "$\\text{Cov}(X, X) = E[(X - E[X])(X - E[X])] = E[(X - E[X])^2] = \\text{Var}(X)$. The covariance of a random variable with itself is its variance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Pearson product-moment correlation coefficient, $\\rho_{X,Y}$.",
+      "back": "The Pearson correlation coefficient is a normalized measure of the linear association between $X$ and $Y$. Its formula is $\\rho_{X,Y} = \\frac{\\text{Cov}(X, Y)}{\\sigma_X \\sigma_Y}$, where $\\sigma_X = \\sqrt{\\text{Var}(X)}$ and $\\sigma_Y = \\sqrt{\\text{Var}(Y)}$ are the standard deviations. It ranges from -1 to 1.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the relationship between $X$ and $Y$ if $\\rho_{X,Y} = 0.95$ vs. $\\rho_{X,Y} = -0.1$.",
+      "back": "If $\\rho_{X,Y} = 0.95$, there is a strong positive linear relationship; as $X$ increases, $Y$ tends to increase strongly. If $\\rho_{X,Y} = -0.1$, there is a very weak or almost no linear relationship; there's a negligible tendency for one to increase as the other decreases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $X$ and $Y$ are independent, what is $\\text{Cov}(X, Y)$? Is the converse (zero covariance implies independence) always true?",
+      "back": "If $X$ and $Y$ are independent, then $\\text{Cov}(X, Y) = 0$. This is because $E[XY] = E[X]E[Y]$ for independent variables. The converse is NOT always true. Zero covariance only implies *no linear* relationship. Variables can be dependent but have zero covariance (e.g., $Y=X^2$ where $X$ is symmetric around 0).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove the property: $\\text{Cov}(aX+b, cY+d) = ac \\text{Cov}(X, Y)$ for constants $a, b, c, d$.",
+      "back": "$\\text{Cov}(aX+b, cY+d) = E[((aX+b) - E[aX+b])((cY+d) - E[cY+d])] \\\\ = E[(aX+b - (aE[X]+b))(cY+d - (cE[Y]+d))] \\\\ = E[(aX - aE[X])(cY - cE[Y])] \\\\ = E[a(X - E[X])c(Y - E[Y])] \\\\ = ac E[(X - E[X])(Y - E[Y])] \\\\ = ac \\text{Cov}(X, Y)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why correlation does not imply causation, providing a simple example.",
+      "back": "Correlation measures the statistical association between two variables, but it does not indicate that one variable causes the other. A high correlation might be due to a confounding variable influencing both, or it could be a mere coincidence. \\nExample: Ice cream sales and drowning incidents are positively correlated. However, neither causes the other; both are influenced by a third variable: warm weather (more ice cream eaten, more swimming).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the alternative formula for $\\text{Cov}(X, Y)$ that is often easier for calculation.",
+      "back": "The alternative formula is $\\text{Cov}(X, Y) = E[XY] - E[X]E[Y]$. \\nDerivation: $\\text{Cov}(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY - X E[Y] - Y E[X] + E[X]E[Y]]$. By linearity of expectation and treating $E[X], E[Y]$ as constants: $E[XY] - E[Y]E[X] - E[X]E[Y] + E[X]E[Y] = E[XY] - E[X]E[Y]$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-3-term-by-term-differentiation-and-integration-of-power-series",
+  "subtopicTitle": "Term-by-term differentiation and integration of power series",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:29.424Z",
+  "cards": [
+    {
+      "front": "State the theorem for term-by-term differentiation of a power series $f(x) = \\sum_{n=0}^\\infty c_n (x-a)^n$.",
+      "back": "If $f(x) = \\sum_{n=0}^\\infty c_n (x-a)^n$ has a radius of convergence $R > 0$, then $f(x)$ is differentiable on $(a-R, a+R)$, and its derivative is given by $f'(x) = \\sum_{n=1}^\\infty n c_n (x-a)^{n-1}$. The differentiated series has the same radius of convergence $R$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the theorem for term-by-term integration of a power series $f(x) = \\sum_{n=0}^\\infty c_n (x-a)^n$.",
+      "back": "If $f(x) = \\sum_{n=0}^\\infty c_n (x-a)^n$ has a radius of convergence $R > 0$, then $f(x)$ is integrable on $(a-R, a+R)$, and its integral is given by $\\int f(x) dx = C + \\sum_{n=0}^\\infty \\frac{c_n}{n+1} (x-a)^{n+1}$. The integrated series has the same radius of convergence $R$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate the power series for $f(x) = \\frac{1}{1-x}$ term-by-term. What function does the resulting series represent?",
+      "back": "The power series for $f(x) = \\frac{1}{1-x}$ is $\\sum_{n=0}^\\infty x^n$. Differentiating term-by-term yields $f'(x) = \\sum_{n=1}^\\infty n x^{n-1}$. This series represents the function $\\frac{1}{(1-x)^2}$, since $\\frac{d}{dx}\\left(\\frac{1}{1-x}\\right) = \\frac{1}{(1-x)^2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Integrate the power series for $f(x) = \\frac{1}{1-x}$ term-by-term to find a series representation for $-\\ln(1-x)$.",
+      "back": "The power series for $f(x) = \\frac{1}{1-x}$ is $\\sum_{n=0}^\\infty x^n$. Integrating term-by-term: $\\int \\frac{1}{1-x} dx = C + \\sum_{n=0}^\\infty \\frac{x^{n+1}}{n+1}$. Since $\\int \\frac{1}{1-x} dx = -\\ln|1-x|$, we have $-\\ln(1-x) = C + \\sum_{n=0}^\\infty \\frac{x^{n+1}}{n+1}$. Setting $x=0$, we get $-\\ln(1) = C + 0$, so $C=0$. Thus, $-\\ln(1-x) = \\sum_{n=0}^\\infty \\frac{x^{n+1}}{n+1} = \\sum_{n=1}^\\infty \\frac{x^n}{n}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does term-by-term differentiation or integration affect the radius of convergence (ROC) of a power series?",
+      "back": "Term-by-term differentiation or integration does *not* change the radius of convergence. If the original power series has a radius of convergence $R$, then the differentiated or integrated series will also have the same radius of convergence $R$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiating or integrating a power series preserves its radius of convergence. Does it always preserve its interval of convergence, including the endpoints?",
+      "back": "No, it does not always preserve the interval of convergence at the endpoints. While the radius of convergence remains the same, the behavior at the endpoints might change. For example, a series might converge at an endpoint, but its differentiated series might diverge there (e.g., $\\sum_{n=1}^\\infty \\frac{x^n}{n}$ converges at $x=-1$, but its derivative $\\sum_{n=1}^\\infty x^{n-1}$ diverges at $x=-1$). Conversely, an integrated series might converge at an endpoint where the original series diverged.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the power series for $\\arctan(x)$ using term-by-term integration, starting from the geometric series for $\\frac{1}{1+x^2}$.",
+      "back": "We know the geometric series for $\\frac{1}{1-u}$ is $\\sum_{n=0}^\\infty u^n$. Substituting $u = -x^2$, we get $\\frac{1}{1+x^2} = \\sum_{n=0}^\\infty (-x^2)^n = \\sum_{n=0}^\\infty (-1)^n x^{2n}$ for $|x|<1$.\nIntegrating term-by-term:\n$\\int \\frac{1}{1+x^2} dx = \\int \\left( \\sum_{n=0}^\\infty (-1)^n x^{2n} \\right) dx$\n$\\arctan(x) = C + \\sum_{n=0}^\\infty (-1)^n \\frac{x^{2n+1}}{2n+1}$.\nTo find $C$, set $x=0$: $\\arctan(0) = C + 0 \\implies C=0$.\nThus, $\\arctan(x) = \\sum_{n=0}^\\infty (-1)^n \\frac{x^{2n+1}}{2n+1}$ for $|x|<1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When differentiating $f(x) = \\sum_{n=0}^\\infty c_n x^n$ term-by-term, what happens to the $n=0$ term, and how does this affect the starting index of the resulting series?",
+      "back": "The $n=0$ term in the original series is $c_0 x^0 = c_0$. Its derivative with respect to $x$ is $0$. Therefore, when differentiating term-by-term, the first non-zero term in the derivative series will come from $n=1$. The sum for the derivative typically starts at $n=1$, i.e., $f'(x) = \\sum_{n=1}^\\infty n c_n x^{n-1}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

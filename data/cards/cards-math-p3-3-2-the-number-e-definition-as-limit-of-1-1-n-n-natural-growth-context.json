@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-2-the-number-e-definition-as-limit-of-1-1-n-n-natural-growth-context",
+  "subtopicTitle": "The number e — definition as limit of (1+1/n)^n, natural growth context",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:02.224Z",
+  "cards": [
+    {
+      "front": "What is the mathematical definition of the number $e$ as a limit involving $n \\to \\infty$?",
+      "back": "$$e = \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the approximate numerical value of $e$ to two decimal places?",
+      "back": "$e \\approx 2.72$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the \"natural growth context\" that intuitively leads to the number $e$.",
+      "back": "Imagine an initial quantity growing at a 100% annual rate. If interest is compounded $n$ times per year, the growth factor for one year is $(1 + 1/n)^n$. As $n \\to \\infty$ (representing continuous compounding), this factor approaches $e$. It signifies the maximum possible growth from a 100% rate under continuous compounding.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State an alternative limit definition of $e$ using $x \\to 0$.",
+      "back": "$$e = \\lim_{x \\to 0} (1+x)^{1/x}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the continuous compounding formula $A = Pe^{rt}$ from the discrete compounding formula $A = P\\left(1 + \\frac{r}{n}\\right)^{nt}$, using the limit definition of $e$.",
+      "back": "Starting with $A = P\\left(1 + \\frac{r}{n}\\right)^{nt}$, we want to transform the base to the form $(1 + 1/m)^m$.<br>Let $m = n/r$. As $n \\to \\infty$, $m \\to \\infty$.<br>Then $n = mr$. Substitute $n$ and $r/n$ into the formula:<br>$$A = P\\left(1 + \\frac{1}{m}\\right)^{mrt}$$<br>Using exponent rules:<br>$$A = P\\left(\\left(1 + \\frac{1}{m}\\right)^m\\right)^{rt}$$<br>Taking the limit as $n \\to \\infty$ (and thus $m \\to \\infty$):<br>$$A = P \\lim_{m \\to \\infty} \\left(\\left(1 + \\frac{1}{m}\\right)^m\\right)^{rt}$$<br>Since $\\lim_{m \\to \\infty} \\left(1 + \\frac{1}{m}\\right)^m = e$, we get:<br>$$A = Pe^{rt}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Generalize the limit definition of $e$ to evaluate $\\lim_{n \\to \\infty} \\left(1 + \\frac{k}{n}\\right)^n$ for any constant $k$.",
+      "back": "$$\\lim_{n \\to \\infty} \\left(1 + \\frac{k}{n}\\right)^n = e^k$$<br>This can be shown by letting $m = n/k$, so $n = mk$. As $n \\to \\infty$, $m \\to \\infty$. The expression becomes $\\lim_{m \\to \\infty} \\left(1 + \\frac{1}{m}\\right)^{mk} = \\lim_{m \\to \\infty} \\left(\\left(1 + \\frac{1}{m}\\right)^m\\right)^k = e^k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the expression $\\left(1 + \\frac{1}{n}\\right)^n$ converge to a finite number $e$ rather than growing indefinitely to $\\infty$ as $n \\to \\infty$?",
+      "back": "This is an indeterminate form $1^\\infty$. While the exponent $n$ goes to infinity, the base $(1+1/n)$ approaches 1. The crucial point is that the base approaches 1 *slowly* enough that the 'extra' $1/n$ term, when compounded $n$ times, results in a finite, non-infinite increase. More formally, the sequence is monotonically increasing and bounded above (e.g., by 3 for all $n \\ge 1$), which guarantees its convergence to a finite limit.",
+      "difficulty": "hard"
+    }
+  ]
+}

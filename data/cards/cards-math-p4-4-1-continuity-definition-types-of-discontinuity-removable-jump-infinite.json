@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-continuity-definition-types-of-discontinuity-removable-jump-infinite",
+  "subtopicTitle": "Continuity — definition, types of discontinuity (removable, jump, infinite)",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:36.309Z",
+  "cards": [
+    {
+      "front": "State the three conditions required for a function $f(x)$ to be continuous at a point $x=c$.",
+      "back": "A function $f(x)$ is continuous at a point $x=c$ if and only if all three of the following conditions are met:\n1.  $f(c)$ is defined (i.e., $c$ is in the domain of $f$).\n2.  $\\lim_{x \\to c} f(x)$ exists.\n3.  $\\lim_{x \\to c} f(x) = f(c)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a removable discontinuity. How can it be \"removed\"?",
+      "back": "A removable discontinuity occurs at $x=c$ if $\\lim_{x \\to c} f(x)$ exists, but either $f(c)$ is undefined or $f(c) \\neq \\lim_{x \\to c} f(x)$. It can be \"removed\" by redefining $f(c)$ to be equal to $\\lim_{x \\to c} f(x)$. Graphically, it appears as a hole in the graph.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What characterizes a jump discontinuity at $x=c$?",
+      "back": "A jump discontinuity occurs at $x=c$ if the one-sided limits exist but are not equal, i.e., $\\lim_{x \\to c^-} f(x) \\neq \\lim_{x \\to c^+} f(x)$. This means the overall limit $\\lim_{x \\to c} f(x)$ does not exist. Graphically, the function \"jumps\" from one value to another.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define an infinite discontinuity. What does it imply about the limit?",
+      "back": "An infinite discontinuity occurs at $x=c$ if one or both of the one-sided limits approach $\\infty$ or $-\\infty$. That is, $\\lim_{x \\to c^-} f(x) = \\pm\\infty$ or $\\lim_{x \\to c^+} f(x) = \\pm\\infty$. This implies the presence of a vertical asymptote at $x=c$. The limit $\\lim_{x \\to c} f(x)$ does not exist.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the type of discontinuity for $f(x) = \\frac{x^2 - 4}{x - 2}$ at $x=2$.",
+      "back": "1. $f(2)$ is undefined.\n2. $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} \\frac{(x-2)(x+2)}{x-2} = \\lim_{x \\to 2} (x+2) = 2+2 = 4$.\nSince the limit exists but $f(2)$ is undefined, this is a **removable discontinuity**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of discontinuity does $f(x) = \\begin{cases} x+1 & \\text{if } x < 0 \\\\ x^2 & \\text{if } x \\ge 0 \\end{cases}$ have at $x=0$?",
+      "back": "1. $f(0) = 0^2 = 0$.\n2. $\\lim_{x \\to 0^-} f(x) = \\lim_{x \\to 0^-} (x+1) = 0+1 = 1$.\n3. $\\lim_{x \\to 0^+} f(x) = \\lim_{x \\to 0^+} (x^2) = 0^2 = 0$.\nSince $\\lim_{x \\to 0^-} f(x) \\neq \\lim_{x \\to 0^+} f(x)$, the overall limit $\\lim_{x \\to 0} f(x)$ does not exist. This is a **jump discontinuity**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine the type of discontinuity for $f(x) = \\frac{1}{x-3}$ at $x=3$.",
+      "back": "1. $f(3)$ is undefined.\n2. $\\lim_{x \\to 3^-} \\frac{1}{x-3} = -\\infty$.\n3. $\\lim_{x \\to 3^+} \\frac{1}{x-3} = \\infty$.\nSince the one-sided limits approach $\\pm\\infty$, this is an **infinite discontinuity**. There is a vertical asymptote at $x=3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For what value of $k$ is $f(x) = \\begin{cases} kx^2 & \\text{if } x \\le 2 \\\\ 2x+k & \\text{if } x > 2 \\end{cases}$ continuous at $x=2$?",
+      "back": "For $f(x)$ to be continuous at $x=2$, the three conditions must hold:\n1. $f(2) = k(2^2) = 4k$.\n2. $\\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} kx^2 = k(2^2) = 4k$.\n3. $\\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+} (2x+k) = 2(2)+k = 4+k$.\nFor the limit to exist, the one-sided limits must be equal:\n$4k = 4+k \\implies 3k = 4 \\implies k = \\frac{4}{3}$.\nWith $k=\\frac{4}{3}$, $f(2) = 4(\\frac{4}{3}) = \\frac{16}{3}$ and $\\lim_{x \\to 2} f(x) = \\frac{16}{3}$. So, $f(x)$ is continuous at $x=2$ when $k=\\frac{4}{3}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

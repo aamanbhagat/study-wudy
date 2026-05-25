@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-cross-validation-k-fold",
+  "subtopicTitle": "Cross-validation — k-fold",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:10.699Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of k-fold cross-validation in machine learning?",
+      "back": "The primary purpose of k-fold cross-validation is to robustly estimate a model's performance on unseen data and reduce the variance of this estimate, especially when data is limited. It provides a more reliable evaluation than a single train-test split, aiding in hyperparameter tuning and model selection.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the step-by-step process of k-fold cross-validation.",
+      "back": "1. The entire dataset is randomly partitioned into $k$ equally sized subsets, called folds.\n2. For each of the $k$ iterations:\n   a. One fold is designated as the validation (or test) set.\n   b. The remaining $k-1$ folds are combined to form the training set.\n   c. A model is trained on the training set and evaluated on the validation set.\n3. The performance metric (e.g., accuracy, MSE) from each of the $k$ iterations is recorded.\n4. The final estimated performance of the model is the average of these $k$ recorded metrics.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In k-fold cross-validation, what does the parameter $k$ represent, and what are common choices for its value?",
+      "back": "The parameter $k$ represents the number of folds (subsets) into which the dataset is divided. Common choices for $k$ are 5 or 10. A larger $k$ generally leads to a more reliable performance estimate but increases computational cost. If $k$ equals the number of samples ($N$), it becomes Leave-One-Out Cross-Validation (LOOCV).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain one significant advantage of k-fold cross-validation over a single train-test split.",
+      "back": "K-fold cross-validation significantly reduces the variance of the performance estimate. With a single train-test split, the estimate can be highly dependent on the specific random split. K-fold CV averages results over multiple splits, ensuring that every data point gets to be in the validation set exactly once, leading to a more robust and less biased estimate of the model's generalization performance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a 5-fold cross-validation, what percentage of the data is used for training and validation in each iteration? How many times does each data point serve as validation data?",
+      "back": "In each iteration of 5-fold cross-validation:\n- Training data: $4/5 = 80\\%$ of the dataset.\n- Validation data: $1/5 = 20\\%$ of the dataset.\n\nEach data point serves as validation data exactly once across the entire $k$ iterations. This ensures that the model's performance is evaluated on every data point without any data leakage from the training set.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a primary drawback of increasing the value of $k$ in k-fold cross-validation, especially for large datasets or complex models?",
+      "back": "The primary drawback is increased computational cost. As $k$ increases, the number of models that need to be trained and evaluated also increases (specifically, $k$ models). For large datasets or computationally intensive models, this can significantly prolong the time required for model evaluation and hyperparameter tuning.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When dealing with imbalanced datasets, which variation of k-fold cross-validation is often preferred and why?",
+      "back": "Stratified k-fold cross-validation is preferred for imbalanced datasets. It ensures that each fold maintains approximately the same proportion of target class labels as the overall dataset. This is crucial to prevent a fold from having too few (or none) of the minority class samples, which could lead to biased model training or evaluation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would you conceptually apply k-fold cross-validation using a Python library like scikit-learn for a classification model?",
+      "back": "```python\nfrom sklearn.model_selection import KFold, cross_val_score\nfrom sklearn.linear_model import LogisticRegression\nimport numpy as np\n\n# Assume X, y are your features and target data\n# X, y = ... \n\nmodel = LogisticRegression(solver='liblinear')\nkf = KFold(n_splits=5, shuffle=True, random_state=42)\n\n# Evaluate the model using k-fold cross-validation\nscores = cross_val_score(model, X, y, cv=kf, scoring='accuracy')\n\nprint(f\"Accuracy scores for each fold: {scores}\")\nprint(f\"Mean accuracy: {np.mean(scores):.2f}\")\nprint(f\"Standard deviation of accuracy: {np.std(scores):.2f}\")\n```\nThis snippet creates a `KFold` object, then uses `cross_val_score` to train and evaluate the `LogisticRegression` model $k$ times, returning an array of scores.",
+      "difficulty": "medium"
+    }
+  ]
+}

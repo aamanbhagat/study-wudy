@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-5-safety-critical-standards-do-178c-airborne-software-iec-61508-iso-26262",
+  "subtopicTitle": "Safety-critical standards — DO-178C (airborne software), IEC 61508, ISO 26262",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:26.661Z",
+  "cards": [
+    {
+      "front": "What is the primary domain of software development covered by DO-178C?",
+      "back": "DO-178C (Software Considerations in Airborne Systems and Equipment Certification) specifically addresses the development and verification of software used in **commercial airborne systems and equipment** (e.g., aircraft, helicopters).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In safety-critical standards, what do DALs (DO-178C), SILs (IEC 61508), and ASILs (ISO 26262) fundamentally quantify?",
+      "back": "They fundamentally quantify the **level of rigor** required for development and verification activities. This rigor directly corresponds to the **risk** or **potential severity of harm** that could result from a system failure. Higher levels (e.g., DAL A, SIL 4, ASIL D) indicate higher risk and thus demand more stringent processes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the significance of a \"DAL A\" classification for software under DO-178C.",
+      "back": "DAL A (Design Assurance Level A) is assigned to software whose failure would cause or contribute to a **catastrophic failure condition** of the aircraft, likely resulting in multiple fatalities. It mandates the **highest level of rigor** in all development and verification processes, including independent verification, extensive testing, and formal methods, to achieve an extremely low probability of failure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the scope of IEC 61508 differ from that of ISO 26262?",
+      "back": "**IEC 61508** is a **generic, sector-independent** international standard for the functional safety of electrical, electronic, and programmable electronic (E/E/PE) safety-related systems across all industries. **ISO 26262** is an **automotive-specific** adaptation of IEC 61508, tailored exclusively for the functional safety of E/E systems in road vehicles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In ISO 26262, how is an Automotive Safety Integrity Level (ASIL) determined for a specific hazardous event?",
+      "back": "An ASIL is determined by combining three factors using a predefined matrix:\n1.  **Severity (S):** The extent of harm to individuals (S0-S3).\n2.  **Exposure (E):** The probability of the vehicle operating in a state where the hazard can occur (E0-E4).\n3.  **Controllability (C):** The probability of the driver/others being able to avoid the harm once the hazard occurs (C0-C3).\nFor example, S3 (life-threatening), E4 (high probability), and C3 (difficult to control) typically results in **ASIL D**.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the core principle of the \"V-model\" often applied in safety-critical software development, as seen in standards like ISO 26262?",
+      "back": "The V-model's core principle is a **structured development lifecycle** where each development phase on the left side (e.g., requirements, design, coding) has a corresponding **verification and validation phase** on the right side (e.g., system testing, integration testing, unit testing). This ensures that requirements are thoroughly tested at each level of abstraction, promoting early defect detection and strong traceability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two distinct categories of activities or processes mandated by DO-178C for software development lifecycle assurance.",
+      "back": "Two distinct categories of activities mandated by DO-178C are:\n1.  **Planning Process:** Defines the overall software lifecycle, standards, and objectives (e.g., Software Development Plan).\n2.  **Development Processes:** Includes Requirements Process, Design Process, Coding Process, and Integration Process.\n3.  **Verification Process:** Conducts reviews, analyses, and tests to ensure correctness and compliance.\n4.  **Configuration Management Process:** Controls baselines and changes to software items.\n5.  **Quality Assurance Process:** Oversees compliance with plans and standards.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the purpose of \"tool qualification\" in DO-178C and ISO 26262, highlighting a key difference in their approach.",
+      "back": "Both standards require **tool qualification** for software tools that automate development or verification activities, especially when the tool's output is not fully verified by other means. The purpose is to ensure the tool's trustworthiness.\n-   **DO-178C** assigns **Tool Qualification Levels (TQLs)** based on whether the tool removes or reduces human effort, or if its output is verified.\n-   **ISO 26262** uses **Tool Confidence Levels (TCLs)**, which are derived from **Tool Impact (TI)** (whether a tool can introduce or fail to detect errors) and **Tool Error Detection (TD)** (the probability of detecting tool errors).\nThe key difference lies in the specific criteria and terminology used to categorize and qualify tools.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the context of IEC 61508, what is the relationship between a higher Safety Integrity Level (SIL) and the probability of dangerous failure?",
+      "back": "A higher Safety Integrity Level (SIL) corresponds to a **lower (better) target probability of dangerous failure** for the Safety Instrumented System (SIS). For example, SIL 4 demands the lowest probability of dangerous failure (e.g., $10^{-8}$ to $10^{-9}$ failures per hour for continuous mode), while SIL 1 allows a higher probability (e.g., $10^{-5}$ to $10^{-6}$ failures per hour).",
+      "difficulty": "medium"
+    }
+  ]
+}

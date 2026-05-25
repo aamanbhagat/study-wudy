@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-5-extended-kalman-filter-ekf-linearization-jacobians",
+  "subtopicTitle": "Extended Kalman Filter (EKF) — linearization, Jacobians",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:30.041Z",
+  "cards": [
+    {
+      "front": "What is the primary reason to use an Extended Kalman Filter (EKF) over a standard Kalman Filter (KF)?",
+      "back": "The EKF is used when the system dynamics or measurement models are **non-linear**. The standard KF assumes linear models, which is often not true for real-world systems like rocket navigation and control.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the EKF, what mathematical tool is used to approximate non-linear functions (both state transition and measurement) for linearization?",
+      "back": "The EKF uses a **first-order Taylor series expansion** to linearize non-linear functions around a specific operating point. This provides a local linear approximation of the non-linear function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Jacobian matrix in the context of EKF and state its general form for a vector-valued function $\\mathbf{f}(\\mathbf{x})$.",
+      "back": "The Jacobian matrix is a matrix of all first-order partial derivatives of a vector-valued function. For $\\mathbf{f}: \\mathbb{R}^n \\to \\mathbb{R}^m$, where $\\mathbf{f}(\\mathbf{x}) = [f_1(\\mathbf{x}), \\dots, f_m(\\mathbf{x})]^T$ and $\\mathbf{x} = [x_1, \\dots, x_n]^T$, its Jacobian $J_{\\mathbf{f}}(\\mathbf{x})$ is:\n$$ J_{\\mathbf{f}}(\\mathbf{x}) = \\begin{pmatrix} \\frac{\\partial f_1}{\\partial x_1} & \\cdots & \\frac{\\partial f_1}{\\partial x_n} \\\\ \\vdots & \\ddots & \\vdots \\\\ \\frac{\\partial f_m}{\\partial x_1} & \\cdots & \\frac{\\partial f_m}{\\partial x_n} \\end{pmatrix} $$\nIn EKF, these derivatives are evaluated at the linearization point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the state transition Jacobian matrix, $F_k$, derived for the EKF's prediction step?",
+      "back": "The state transition Jacobian $F_k$ (often denoted $A_k$) is the Jacobian of the non-linear state transition function $\\mathbf{f}(\\mathbf{x}_{k-1}, \\mathbf{u}_k)$ with respect to the state vector $\\mathbf{x}_{k-1}$.\n$$ F_k = \\frac{\\partial \\mathbf{f}}{\\partial \\mathbf{x}} \\Big|_{\\mathbf{x} = \\hat{\\mathbf{x}}_{k-1|k-1}, \\mathbf{u} = \\mathbf{u}_k} $$\nIt describes how small changes in the state at time $k-1$ affect the state at time $k$. It's evaluated at the *a posteriori* state estimate from the previous step, $\\hat{\\mathbf{x}}_{k-1|k-1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the measurement Jacobian matrix, $H_k$, derived for the EKF's update step?",
+      "back": "The measurement Jacobian $H_k$ is the Jacobian of the non-linear measurement function $\\mathbf{h}(\\mathbf{x}_k)$ with respect to the state vector $\\mathbf{x}_k$.\n$$ H_k = \\frac{\\partial \\mathbf{h}}{\\partial \\mathbf{x}} \\Big|_{\\mathbf{x} = \\hat{\\mathbf{x}}_{k|k-1}} $$\nIt describes how small changes in the state at time $k$ affect the expected measurement at time $k$. It's evaluated at the *a priori* state estimate (predicted state) at time $k$, $\\hat{\\mathbf{x}}_{k|k-1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the significance of the \"linearization point\" in EKF and how it differs between the prediction and update steps.",
+      "back": "The linearization point is the specific state estimate around which the non-linear functions are approximated using a first-order Taylor expansion.\n*   For the **state transition Jacobian ($F_k$)**, the linearization point is the **previous *a posteriori* state estimate**, $\\hat{\\mathbf{x}}_{k-1|k-1}$.\n*   For the **measurement Jacobian ($H_k$)**, the linearization point is the **current *a priori* state estimate (predicted state)**, $\\hat{\\mathbf{x}}_{k|k-1}$.\nThe choice of linearization point is crucial for the EKF's performance and stability, as it determines the accuracy of the local linear approximation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write down the EKF state covariance prediction equation, highlighting where the Jacobian $F_k$ is used.",
+      "back": "The EKF state covariance prediction equation is:\n$$ P_{k|k-1} = F_k P_{k-1|k-1} F_k^T + Q_k $$\nHere, $P_{k|k-1}$ is the *a priori* (predicted) state covariance at time $k$, and $P_{k-1|k-1}$ is the *a posteriori* (updated) state covariance at time $k-1$. The **state transition Jacobian $F_k$** propagates the uncertainty from the previous state estimate into the predicted state covariance, accounting for the local linear dynamics. $Q_k$ is the process noise covariance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write down the EKF Kalman gain equation, highlighting where the Jacobian $H_k$ is used.",
+      "back": "The EKF Kalman gain equation is:\n$$ K_k = P_{k|k-1} H_k^T (H_k P_{k|k-1} H_k^T + R_k)^{-1} $$\nHere, $K_k$ is the Kalman gain, $P_{k|k-1}$ is the *a priori* state covariance, and $R_k$ is the measurement noise covariance. The **measurement Jacobian $H_k$** transforms the state covariance into the measurement space, allowing the filter to appropriately weight the innovation (measurement residual) when updating the state estimate.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the Jacobian matrix physically represent in the context of system dynamics or measurements for an EKF?",
+      "back": "Physically, the Jacobian matrix represents the **local sensitivity** or **linearized gain** of the output (next state or measurement) with respect to changes in the input (current state).\n*   $F_k$ tells us how much the predicted state changes for a small change in the current state.\n*   $H_k$ tells us how much the predicted measurement changes for a small change in the current state.\nIt provides the best linear approximation of a non-linear function around a specific operating point, indicating the \"direction\" and \"magnitude\" of change.",
+      "difficulty": "medium"
+    }
+  ]
+}

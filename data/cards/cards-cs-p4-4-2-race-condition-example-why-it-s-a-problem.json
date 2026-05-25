@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-race-condition-example-why-it-s-a-problem",
+  "subtopicTitle": "Race condition — example, why it's a problem",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:57.609Z",
+  "cards": [
+    {
+      "front": "In concurrent programming, what is a \"race condition\"?",
+      "back": "A situation where multiple threads or processes access and manipulate shared data concurrently, and the final outcome depends on the specific, unpredictable order in which the accesses take place.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What two conditions are necessary for a race condition to arise in a system with concurrent execution?",
+      "back": "1. Multiple threads/processes access a shared resource (e.g., a variable, file, or memory location).\n2. At least one of these accesses is a write operation (modification).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Imagine two people trying to buy the last concert ticket online simultaneously. Describe how this could lead to a race condition.",
+      "back": "Both users check ticket availability (ticket exists). Both proceed to purchase. If the system doesn't properly synchronize these operations, both might successfully \"buy\" the ticket, leading to an over-sale (two people thinking they own the one ticket). The final state (who gets the ticket, or if it's oversold) depends on the exact timing of their requests.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a global integer `counter` initialized to 0. Two threads each increment `counter` 100,000 times. Provide a C-like code snippet for the increment operation that is prone to a race condition.",
+      "back": "```c\n// Global shared variable\nint counter = 0;\n\nvoid increment_counter() {\n    // This is the critical section\n    int temp = counter; // Read 'counter'\n    temp = temp + 1;    // Modify 'temp'\n    counter = temp;     // Write 'temp' back to 'counter'\n}\n```\nThe race occurs because the read, modify, and write operations on `counter` are not atomic; another thread can interleave its operations between them.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are race conditions problematic for software reliability and correctness?",
+      "back": "They lead to unpredictable and incorrect program behavior. The outcome is non-deterministic, meaning the same input can produce different results depending on thread scheduling, which is hard to reproduce and debug. This can result in data corruption, inconsistent states, deadlocks, or security vulnerabilities.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the scenario from Card 4 (two threads incrementing `counter` 100,000 times each), what is the *expected* final value of `counter`, and what is a *possible incorrect* final value due to a race condition?",
+      "back": "The *expected* final value of `counter` is $200,000$. A *possible incorrect* final value due to a race condition could be any value less than $200,000$ (e.g., $100,001$, $150,000$, or $199,999$). This happens when one thread reads a stale value of `counter`, another thread increments it, and then the first thread overwrites the `counter` with its own (stale) incremented value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a \"critical section\" in concurrent programming?",
+      "back": "A segment of code that accesses shared resources (data structures, variables, files, etc.) and must not be concurrently executed by more than one thread or process to prevent race conditions and ensure data consistency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the concept of \"non-determinism\" relate to the behavior caused by race conditions?",
+      "back": "Race conditions introduce non-determinism because the final outcome of the program depends on the specific, unpredictable timing and interleaving of operations from multiple threads/processes. The same program with the same inputs might produce different results on different runs, making it extremely difficult to test, debug, and guarantee correctness.",
+      "difficulty": "medium"
+    }
+  ]
+}

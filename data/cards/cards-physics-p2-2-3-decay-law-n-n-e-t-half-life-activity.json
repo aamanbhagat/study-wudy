@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-3-decay-law-n-n-e-t-half-life-activity",
+  "subtopicTitle": "Decay law — N = N₀e^(-λt), half-life, activity",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:22.039Z",
+  "cards": [
+    {
+      "front": "In the radioactive decay law $N = N_0e^{-\\lambda t}$, what does $\\lambda$ represent?",
+      "back": "$\\lambda$ is the **decay constant** (or disintegration constant). It represents the probability per unit time for a single nucleus to decay. Its SI unit is $s^{-1}$. A larger $\\lambda$ means a faster decay rate.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the radioactive decay law and define all its variables.",
+      "back": "The radioactive decay law is $N(t) = N_0e^{-\\lambda t}$.\n*   $N(t)$: Number of undecayed nuclei remaining at time $t$.\n*   $N_0$: Initial number of undecayed nuclei at $t=0$.\n*   $\\lambda$: Decay constant ($s^{-1}$).\n*   $t$: Time elapsed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the relationship between the half-life ($T_{1/2}$) and the decay constant ($\\lambda$).",
+      "back": "By definition, after one half-life ($t = T_{1/2}$), the number of nuclei remaining is $N = N_0/2$. Substituting into the decay law:\n$$ \\frac{N_0}{2} = N_0e^{-\\lambda T_{1/2}} $$\n$$ \\frac{1}{2} = e^{-\\lambda T_{1/2}} $$\nTaking the natural logarithm of both sides:\n$$ \\ln\\left(\\frac{1}{2}\\right) = -\\lambda T_{1/2} $$\n$$ -\\ln(2) = -\\lambda T_{1/2} $$\n$$ T_{1/2} = \\frac{\\ln(2)}{\\lambda} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A radioactive isotope has a half-life of 8 days. What fraction of the original sample will remain after 24 days?",
+      "back": "The number of half-lives ($n$) passed is $n = \\frac{\\text{total time}}{\\text{half-life}} = \\frac{24 \\text{ days}}{8 \\text{ days}} = 3$.\nAfter $n$ half-lives, the fraction remaining is $\\left(\\frac{1}{2}\\right)^n$.\nFraction remaining = $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"activity\" ($A$) of a radioactive sample and state its SI unit.",
+      "back": "Activity ($A$) is the rate of radioactive decay, or the number of decays per unit time. It is given by $A = -\\frac{dN}{dt}$.\nThe SI unit for activity is the **becquerel (Bq)**, where $1 \\text{ Bq} = 1 \\text{ decay per second}$. Another common unit is the curie (Ci), where $1 \\text{ Ci} = 3.7 \\times 10^{10} \\text{ Bq}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the radioactive decay law, $N(t) = N_0 e^{-\\lambda t}$, from the fundamental assumption of radioactive decay.",
+      "back": "The fundamental assumption is that the rate of decay ($-\\frac{dN}{dt}$) is directly proportional to the number of undecayed nuclei ($N$) present at that instant:\n$$ -\\frac{dN}{dt} \\propto N $$\nIntroducing the decay constant $\\lambda$:\n$$ -\\frac{dN}{dt} = \\lambda N $$\nRearranging into a separable differential equation:\n$$ \\frac{dN}{N} = -\\lambda dt $$\nIntegrate both sides from $t=0$ to $t$ and $N_0$ to $N(t)$:\n$$ \\int_{N_0}^{N(t)} \\frac{dN}{N} = \\int_0^t -\\lambda dt $$\n$$ [\\ln N]_{N_0}^{N(t)} = [-\\lambda t]_0^t $$\n$$ \\ln N(t) - \\ln N_0 = -\\lambda t - 0 $$\n$$ \\ln\\left(\\frac{N(t)}{N_0}\\right) = -\\lambda t $$\nExponentiate both sides:\n$$ \\frac{N(t)}{N_0} = e^{-\\lambda t} $$\n$$ N(t) = N_0 e^{-\\lambda t} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the activity of a radioactive sample related to the number of undecayed nuclei, and how does activity change over time?",
+      "back": "Activity $A$ is related to the number of undecayed nuclei $N$ by $A = \\lambda N$.\nSince $N(t) = N_0 e^{-\\lambda t}$, we can substitute this into the activity equation:\n$$ A(t) = \\lambda N_0 e^{-\\lambda t} $$\nRecognizing that the initial activity $A_0 = \\lambda N_0$, we get:\n$$ A(t) = A_0 e^{-\\lambda t} $$\nThis shows that activity decays exponentially with the same decay constant $\\lambda$ as the number of nuclei.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A radioactive sample's activity drops from 200 Bq to 50 Bq in 6 hours. Calculate the decay constant $\\lambda$ in $s^{-1}$.",
+      "back": "We use the activity decay law: $A(t) = A_0 e^{-\\lambda t}$.\nGiven $A_0 = 200 \\text{ Bq}$, $A(t) = 50 \\text{ Bq}$, and $t = 6 \\text{ hours}$.\nFirst, convert time to seconds: $t = 6 \\text{ hours} \\times 3600 \\text{ s/hour} = 21600 \\text{ s}$.\n$$ 50 = 200 e^{-\\lambda (21600)} $$\n$$ \\frac{50}{200} = e^{-21600\\lambda} $$\n$$ \\frac{1}{4} = e^{-21600\\lambda} $$\nTake the natural logarithm of both sides:\n$$ \\ln\\left(\\frac{1}{4}\\right) = -21600\\lambda $$\n$$ -\\ln(4) = -21600\\lambda $$\n$$ \\lambda = \\frac{\\ln(4)}{21600} \\approx \\frac{1.38629}{21600} $$\n$$ \\lambda \\approx 6.41 \\times 10^{-5} \\text{ s}^{-1} $$",
+      "difficulty": "hard"
+    }
+  ]
+}

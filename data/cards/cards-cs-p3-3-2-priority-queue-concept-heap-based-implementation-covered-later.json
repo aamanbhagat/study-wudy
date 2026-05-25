@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-2-priority-queue-concept-heap-based-implementation-covered-later",
+  "subtopicTitle": "Priority Queue — concept (heap-based implementation covered later)",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:44.182Z",
+  "cards": [
+    {
+      "front": "What is the primary characteristic that distinguishes a Priority Queue from a standard Queue?",
+      "back": "A Priority Queue retrieves elements based on their assigned priority, rather than the First-In, First-Out (FIFO) order of a standard Queue. The element with the highest (or lowest) priority is always processed next.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the two fundamental operations of a Priority Queue that allow elements to be added and retrieved.",
+      "back": "The two fundamental operations are:\n1.  `insert(element, priority)` (also known as `add` or `enqueue`): Adds an element with an associated priority.\n2.  `extractMax()` (or `deleteMax`, `dequeue`, `extractMin`): Removes and returns the element with the highest (or lowest) priority.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a Priority Queue contains elements A (priority 5), B (priority 10), and C (priority 7), which element would be retrieved by `extractMax()`?",
+      "back": "Element B would be retrieved. A max-priority queue always extracts the element with the highest priority. In this case, 10 is the highest priority value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a task scheduler where certain tasks are more critical than others, explain why a Priority Queue is a better choice than a standard Queue.",
+      "back": "A Priority Queue allows critical tasks to be assigned a higher priority, ensuring they are processed before less critical tasks, regardless of their arrival time. A standard Queue would process tasks strictly by arrival order (FIFO), potentially delaying urgent tasks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is \"priority\" typically determined for elements in a Priority Queue, and what does it mean for a queue to be a \"min-priority queue\" versus a \"max-priority queue\"?",
+      "back": "Priority is typically determined by a numerical value associated with each element.\n*   In a **max-priority queue**, higher numerical values indicate higher priority (e.g., $10 > 5$). `extractMax()` retrieves the element with the largest priority value.\n*   In a **min-priority queue**, lower numerical values indicate higher priority (e.g., $1 < 5$). `extractMin()` retrieves the element with the smallest priority value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a Priority Queue is considered an Abstract Data Type (ADT) rather than a concrete data structure.",
+      "back": "A Priority Queue is an ADT because it defines a set of operations (like `insert`, `extractMax`, `peek`) and their behavior, without specifying how these operations are implemented internally. It describes *what* it does, not *how* it does it. Concrete data structures (like arrays, linked lists, or heaps) are specific implementations that can be used to realize the Priority Queue ADT.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If two elements with identical priority values are inserted into a Priority Queue, which one is guaranteed to be retrieved first by `extractMax()`?",
+      "back": "There is no guaranteed order for elements with identical priority values. The behavior is implementation-dependent. Some implementations might retrieve the one inserted first (FIFO for same priority), others the one inserted last (LIFO for same priority), or it might depend on other factors. The ADT itself does not specify this behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the conceptual model of a max-priority queue's internal state, focusing on how elements are logically ordered, without discussing specific implementation details.",
+      "back": "Conceptually, a max-priority queue maintains a collection of elements where the element with the highest priority is always \"at the front\" or \"readily accessible\" for removal. All other elements are logically ordered such that their priority dictates their position relative to each other, ensuring that the highest priority element can be efficiently identified and extracted. It's like a dynamically maintained list where only the maximum can be removed, but the internal structure doesn't necessarily imply a physically sorted array or specific arrangement.",
+      "difficulty": "hard"
+    }
+  ]
+}

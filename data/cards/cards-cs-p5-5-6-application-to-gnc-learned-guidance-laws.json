@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-application-to-gnc-learned-guidance-laws",
+  "subtopicTitle": "Application to GNC — learned guidance laws",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:23.411Z",
+  "cards": [
+    {
+      "front": "In aerospace GNC, what are \"learned guidance laws\"?",
+      "back": "Guidance laws derived or optimized using machine learning techniques, typically from data or through interaction with an environment, rather than being explicitly programmed based on analytical models. They aim to generate control commands to achieve mission objectives (e.g., target interception, trajectory tracking).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do learned guidance laws fundamentally differ from traditional analytical guidance laws?",
+      "back": "Traditional laws are derived from explicit mathematical models of dynamics and objectives (e.g., proportional navigation), offering closed-form solutions or well-defined algorithms. Learned laws, conversely, discover optimal or near-optimal policies through data-driven training, often without an explicit underlying model, making them adaptable to complex or uncertain environments.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which machine learning paradigm is most commonly associated with learning optimal control policies for guidance, and why?",
+      "back": "Reinforcement Learning (RL). RL agents learn optimal policies by interacting with an environment, receiving rewards for desired behaviors and penalties for undesired ones. This trial-and-error process is ideal for control problems where an agent needs to learn a sequence of actions to achieve a goal, such as guiding a vehicle along a trajectory or intercepting a target.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a missile intercepting a maneuvering target, describe a common Reinforcement Learning setup (states, actions, reward).",
+      "back": "States ($S$): Relative position and velocity vectors between missile and target, target's estimated acceleration, missile's current velocity, time-to-go. Example: $S = [ \\mathbf{r}_{MT}, \\mathbf{v}_{MT}, \\mathbf{a}_T, \\mathbf{v}_M, t_{go} ]$.\nActions ($A$): Missile's commanded lateral acceleration components (e.g., $a_y, a_z$) within physical limits. Example: $A = [ a_y, a_z ]$.\nReward ($R$): Positive reward for successful interception (e.g., relative distance $< \\epsilon$), negative reward for missing the target or exceeding operational limits. Continuous reward could be based on reducing relative distance or minimizing control effort.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name two key advantages of using learned guidance laws, especially in scenarios with high uncertainty or complex dynamics.",
+      "back": "1.  **Adaptability/Robustness:** Can adapt to unmodeled dynamics, disturbances, or target maneuvers not explicitly accounted for in traditional models.\n2.  **Optimality in Complex Scenarios:** Can discover highly non-linear or counter-intuitive optimal policies in environments too complex for analytical solutions.\n3.  **Reduced Modeling Effort:** Potentially reduces the need for precise analytical modeling of complex systems or environments.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant challenge in deploying learned guidance laws in safety-critical aerospace applications, and how might it be mitigated?",
+      "back": "**Challenge:** **Lack of Explainability/Interpretability** and **Guaranteed Performance/Safety**. Learned guidance laws, especially neural networks, are \"black boxes,\" making it hard to understand *why* a command was issued or to formally verify behavior in safety-critical aerospace.\n**Mitigation:**\n*   **Formal Verification:** Proving properties using reachability analysis.\n*   **Robustness Guarantees:** Training with adversarial examples.\n*   **Hybrid Approaches:** Combining learned policies with traditional, verifiable controllers (e.g., a traditional fallback).\n*   **Explainable AI (XAI):** Developing methods to interpret network decisions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how a neural network can represent a guidance law, given a state vector.",
+      "back": "A neural network acts as a universal function approximator. For a guidance law, the network's input layer receives the current state vector (e.g., relative position, velocity, target acceleration). The hidden layers process this information through non-linear transformations. The output layer then produces the desired guidance command (e.g., commanded acceleration components). The network learns to map states to optimal actions by adjusting its internal weights and biases during training.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does \"generalization\" in ML relate to the robustness of a learned guidance law in unseen operational conditions?",
+      "back": "Generalization refers to an ML model's ability to perform well on data it has not encountered during training. For a learned guidance law, strong generalization means the policy can effectively guide the vehicle even when faced with new target maneuvers, atmospheric conditions, or system perturbations that were not explicitly part of the training data. A lack of generalization leads to poor robustness, where the guidance law might fail or perform suboptimally in slightly varied real-world scenarios.",
+      "difficulty": "hard"
+    }
+  ]
+}

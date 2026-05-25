@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-optimization-constrained-unconstrained-real-world-problems",
+  "subtopicTitle": "Optimization — constrained, unconstrained, real-world problems",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:16.999Z",
+  "cards": [
+    {
+      "front": "Define a critical point for a function $f(x)$.",
+      "back": "A critical point of a function $f(x)$ is a point $x=c$ in the domain of $f$ where either $f'(c) = 0$ or $f'(c)$ is undefined. These points are candidates for local extrema.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the steps to find local extrema for a differentiable function $f(x)$ in an unconstrained optimization problem?",
+      "back": "1. Find the first derivative $f'(x)$.\n2. Find all critical points by setting $f'(x) = 0$ and identifying points where $f'(x)$ is undefined (if any, within the domain).\n3. Use the First Derivative Test or Second Derivative Test to classify each critical point as a local maximum, local minimum, or neither.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Second Derivative Test for classifying critical points $x=c$ of a function $f(x)$.",
+      "back": "For a critical point $x=c$ where $f'(c)=0$ and $f''(c)$ exists:\n1. If $f''(c) > 0$, then $f$ has a local minimum at $x=c$.\n2. If $f''(c) < 0$, then $f$ has a local maximum at $x=c$.\n3. If $f''(c) = 0$, the test is inconclusive. Use the First Derivative Test instead.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the method for finding the absolute maximum and minimum of a continuous function $f(x)$ on a closed interval $[a, b]$.",
+      "back": "This method is based on the Extreme Value Theorem:\n1. Find all critical points of $f(x)$ that lie within the open interval $(a, b)$.\n2. Evaluate $f(x)$ at these critical points.\n3. Evaluate $f(x)$ at the endpoints of the interval, $f(a)$ and $f(b)$.\n4. The largest of these values is the absolute maximum, and the smallest is the absolute minimum on $[a, b]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general strategy for solving real-world optimization problems that result in a single-variable function.",
+      "back": "1.  **Understand the Problem:** Identify the objective function (quantity to optimize) and constraints.\n2.  **Draw a Diagram:** If applicable, label variables.\n3.  **Define Variables:** Assign symbols to all quantities.\n4.  **Formulate Objective Function:** Write an equation for the quantity to be maximized or minimized.\n5.  **Formulate Constraint Equations:** Write equations relating the variables based on problem constraints.\n6.  **Reduce to Single Variable:** Use constraint equations to express the objective function as a function of a single independent variable. Determine its domain.\n7.  **Find Extrema:** Use calculus techniques (critical points, derivative tests, endpoint evaluation) to find the absolute maximum or minimum.\n8.  **Interpret Result:** Answer the original question in context.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A rectangular garden is to be enclosed by a fence with a fixed total length $P$. Set up the objective function and constraint to find the dimensions that maximize its area.",
+      "back": "Let the length of the garden be $L$ and the width be $W$.\nObjective Function (to maximize): Area $A = LW$\nConstraint: Perimeter $P = 2L + 2W$ (fixed constant)\nTo solve, express $W$ from the constraint: $W = \\frac{P - 2L}{2} = \\frac{P}{2} - L$.\nSubstitute $W$ into the objective function: $A(L) = L(\\frac{P}{2} - L) = \\frac{P}{2}L - L^2$.\nDomain for $L$: $0 < L < P/2$. Now, find $L$ that maximizes $A(L)$ using calculus.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In Calculus I, what is the key conceptual difference between an unconstrained optimization problem and a constrained optimization problem?",
+      "back": "In **unconstrained optimization**, we seek extrema of a function $f(x)$ over its natural domain (or a specified open interval) without explicit restrictions on the independent variable. We directly analyze $f'(x)$.\nIn **constrained optimization**, we seek extrema of a function $f(x,y,...)$ subject to *additional conditions* (constraints) relating the variables. In Calculus I, this typically involves using the constraint(s) to reduce the objective function to a single variable, transforming it into an unconstrained problem over a potentially restricted domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find the absolute extrema of a continuous function $f(x)$ on an open interval $(a, b)$, or an infinite interval like $(-\\infty, \\infty)$?",
+      "back": "1. Find all critical points of $f(x)$ within the given interval.\n2. Evaluate $f(x)$ at these critical points.\n3. Evaluate the limits of $f(x)$ as $x$ approaches the boundaries of the interval: $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ (or $\\lim_{x \\to \\pm\\infty} f(x)$).\n4. Compare the critical point values with these limits. If a critical point value is greater than or equal to all other values and limits, it's the absolute maximum. If it's less than or equal, it's the absolute minimum.\n5. **Crucially:** Absolute extrema may not exist on open or infinite intervals if the function approaches $\\pm\\infty$ or if the limits are not bounded. If the function approaches a finite value at the boundaries, but no critical point achieves a higher/lower value, then no absolute max/min exists *within* the interval.",
+      "difficulty": "hard"
+    }
+  ]
+}

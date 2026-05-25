@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-6-properties-of-determinants",
+  "subtopicTitle": "Properties of determinants",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:10.189Z",
+  "cards": [
+    {
+      "front": "State the relationship between the determinant of a matrix $A$ and its transpose $A^T$.",
+      "back": "The determinant of a matrix is equal to the determinant of its transpose: $\\det(A^T) = \\det(A)$. This property implies that any property true for rows is also true for columns.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does swapping two rows of a matrix $A$ affect its determinant?",
+      "back": "Swapping any two rows (or columns) of a matrix multiplies its determinant by $-1$. If $A'$ is the matrix after swapping two rows of $A$, then $\\det(A') = -\\det(A)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an $n \\times n$ matrix $A$ and a scalar $k$, what is the relationship between $\\det(kA)$ and $\\det(A)$?",
+      "back": "$\\det(kA) = k^n \\det(A)$. This is because multiplying the matrix $A$ by $k$ is equivalent to multiplying each of its $n$ rows by $k$. Each row multiplication scales the determinant by $k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the determinant of a matrix that has two identical rows or columns? Briefly explain why.",
+      "back": "The determinant is $0$. If we swap the two identical rows (or columns), the matrix remains unchanged, but its determinant must change sign (from the row swap property). The only number that is equal to its negative is $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the effect on the determinant of a matrix when a multiple of one row is added to another row.",
+      "back": "This elementary row operation (e.g., $R_i \\to R_i + cR_j$) does not change the determinant of the matrix. This property is crucial for Gaussian elimination to simplify determinants without altering their value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the product rule for determinants. Why is it significant for understanding matrix transformations?",
+      "back": "For two $n \\times n$ matrices $A$ and $B$, $\\det(AB) = \\det(A) \\det(B)$. It's significant because it shows that the scaling factor (area/volume change) of a composite linear transformation is the product of the scaling factors of the individual transformations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for $\\det(A^{-1})$ in terms of $\\det(A)$, assuming $A$ is an invertible matrix.",
+      "back": "Since $A$ is invertible, $AA^{-1} = I$, where $I$ is the identity matrix. Taking the determinant of both sides:\n$\\det(AA^{-1}) = \\det(I)$\nUsing the product rule for determinants and knowing $\\det(I) = 1$:\n$\\det(A)\\det(A^{-1}) = 1$\nTherefore, $\\det(A^{-1}) = \\frac{1}{\\det(A)}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you calculate the determinant of any triangular matrix (upper, lower, or diagonal)?",
+      "back": "The determinant of any triangular matrix (upper, lower, or diagonal) is simply the product of its diagonal entries. For example, if $A$ is a triangular matrix, $\\det(A) = a_{11} a_{22} \\cdots a_{nn}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

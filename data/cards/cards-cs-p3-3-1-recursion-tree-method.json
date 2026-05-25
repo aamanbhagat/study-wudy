@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-1-recursion-tree-method",
+  "subtopicTitle": "Recursion tree method",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:16:56.902Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the recursion tree method in complexity analysis?",
+      "back": "The primary purpose is to visualize and sum the work done at each level of a recursive algorithm's execution, thereby deriving its time complexity, especially for recurrence relations that may not fit the Master Theorem's form.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key steps to construct a recursion tree for a recurrence relation $T(n) = aT(n/b) + f(n)$.",
+      "back": "1. Draw the root node representing the work $f(n)$ at the top level.\n2. For each recursive call $aT(n/b)$, draw $a$ children nodes, each representing the cost $f(n/b)$ for that subproblem.\n3. Repeat this process for subsequent levels, reducing the problem size by $b$ at each step, until the base cases (e.g., $T(1)$) are reached.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you calculate the total cost for a single level in a recursion tree, and what is the final step to find the overall time complexity?",
+      "back": "To calculate the total cost for a single level, you sum the costs of all nodes at that specific level. The final step to find the overall time complexity is to sum the costs of all levels (from the root down to the base case level) to get the total work done by the algorithm.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the recursion tree method to derive the time complexity for $T(n) = 2T(n/2) + cn$, assuming $T(1) = c_0$.",
+      "back": "1. **Level 0 (Root):** Cost = $cn$\n2. **Level 1:** Two nodes, each $c(n/2)$. Total cost = $2 \\cdot c(n/2) = cn$\n3. **Level 2:** Four nodes, each $c(n/4)$. Total cost = $4 \\cdot c(n/4) = cn$\n... \n4. **Level $k$:** $2^k$ nodes, each $c(n/2^k)$. Total cost = $2^k \\cdot c(n/2^k) = cn$\n5. **Tree Height:** The problem size reaches 1 when $n/2^k = 1 \\implies k = \\log_2 n$. So there are $\\log_2 n + 1$ levels (from $k=0$ to $k=\\log_2 n$).\n6. **Total Cost:** Sum of costs per level $\\approx \\sum_{i=0}^{\\log_2 n - 1} cn + (\text{cost of base cases})$. The base cases are $n$ nodes of $T(1)$, contributing $n \\cdot c_0 = O(n)$.\nTotal $\\approx (\\log_2 n) \\cdot cn + O(n) = O(n \\log n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Use the recursion tree method to find the time complexity of $T(n) = T(n-1) + c$, assuming $T(1) = c_0$.",
+      "back": "1. **Level 0 (Root):** Cost = $c$\n2. **Level 1:** One child node for $T(n-1)$. Cost = $c$\n3. **Level 2:** One child node for $T(n-2)$. Cost = $c$\n... \n4. **Level $k$:** One node for $T(n-k)$. Cost = $c$\n5. **Tree Height:** The problem size reaches 1 when $n-k = 1 \\implies k = n-1$. So there are $n$ levels (from $k=0$ to $k=n-1$).\n6. **Total Cost:** Sum of costs per level $\\approx \\sum_{i=0}^{n-1} c + T(1) = nc + c_0 = O(n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When analyzing $T(n) = T(n/3) + T(2n/3) + cn$ using a recursion tree, how do you determine the height of the tree?",
+      "back": "The height of the recursion tree is determined by the longest path from the root to a leaf node. In this specific recurrence, the path involving the $T(2n/3)$ subproblems will be the longest. The depth $k$ at which the subproblem size becomes 1 along this path is found by solving $n \\cdot (2/3)^k = 1$. This implies $(3/2)^k = n$, so $k = \\log_{3/2} n$. Thus, the height of the tree is $O(\\log n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name one advantage of the recursion tree method over the Master Theorem and one situation where it might be preferred.",
+      "back": "Advantage: The recursion tree method provides a visual and intuitive understanding of the work distribution at each level of the recursion. It can also handle recurrence relations that do not fit the specific forms required by the Master Theorem (e.g., $f(n)$ not being a polynomial, or non-uniform subproblem sizes like $T(n/3) + T(2n/3)$).\nPreference: It is preferred when the Master Theorem is not applicable or when a deeper, step-by-step understanding of the recursion's behavior and work distribution is desired.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a recursion tree, why is it crucial to correctly identify the \"base case level\" and include its cost in the total summation, even if $T(1)$ is just $O(1)$?",
+      "back": "It's crucial because while a single $T(1)$ call might be $O(1)$, the *total* cost contributed by all base cases across the entire tree can be significant. For example, in $T(n) = 2T(n/2) + cn$, there are $n$ leaf nodes, each representing a $T(1)$ call. Their combined cost is $n \\cdot T(1) = O(n)$, which is a lower-order term compared to $O(n \\log n)$ but still essential for a complete and accurate summation. Omitting it would lead to an incomplete analysis, potentially understating the actual work done.",
+      "difficulty": "hard"
+    }
+  ]
+}

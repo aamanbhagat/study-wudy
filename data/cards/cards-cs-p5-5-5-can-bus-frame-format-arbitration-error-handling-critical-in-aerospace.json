@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-5-can-bus-frame-format-arbitration-error-handling-critical-in-aerospace",
+  "subtopicTitle": "CAN bus — frame format, arbitration, error handling — critical in aerospace",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:51.088Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the CAN (Controller Area Network) bus in embedded systems?",
+      "back": "The CAN bus provides a robust, message-based protocol for communication between Electronic Control Units (ECUs) in real-time applications, minimizing wiring and enabling distributed control. It's known for its reliability and error detection capabilities, crucial in automotive and aerospace.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the main fields of a standard CAN data frame and briefly state their purpose.",
+      "back": "1.  **Start of Frame (SOF)**: Single dominant bit, synchronizes nodes.\n2.  **Arbitration Field**: 11-bit Identifier + RTR bit. Determines message priority and type.\n3.  **Control Field**: IDE bit, r0 bit, 4-bit Data Length Code (DLC).\n4.  **Data Field**: 0 to 8 bytes of actual data.\n5.  **CRC Field**: 15-bit Cyclic Redundancy Check + CRC Delimiter. For error detection.\n6.  **ACK Field**: ACK Slot + ACK Delimiter. Receiver acknowledges correct reception.\n7.  **End of Frame (EOF)**: 7 recessive bits, signals end of frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key difference in the Arbitration Field between a standard CAN frame and an extended CAN frame?",
+      "back": "A standard CAN frame uses an 11-bit identifier in its Arbitration Field. An extended CAN frame uses a 29-bit identifier, formed by the 11-bit base identifier and an 18-bit extended identifier. This allows for a much larger range of unique message IDs. The IDE (Identifier Extension) bit in the Control Field differentiates between the two formats.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the non-destructive bit-wise arbitration process on a CAN bus when multiple nodes attempt to transmit simultaneously.",
+      "back": "When multiple nodes transmit, they monitor the bus bit by bit. A dominant bit (logic 0) overrides a recessive bit (logic 1). If a node transmits a recessive bit and detects a dominant bit on the bus, it immediately loses arbitration and stops transmitting. This allows the message with the lower (more dominant) identifier to continue unimpeded, ensuring the highest priority message is transmitted without corruption.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"dominant\" and \"recessive\" bits in the context of CAN bus signaling.",
+      "back": "A **dominant bit (logic 0)** is achieved when the CAN_H line is driven high and CAN_L is driven low, creating a differential voltage. If any node transmits a dominant bit, the bus becomes dominant.\nA **recessive bit (logic 1)** is achieved when both CAN_H and CAN_L are at approximately the same voltage (e.g., via pull-up/pull-down resistors). A recessive bit is only seen on the bus if *all* transmitting nodes send a recessive bit.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name at least three distinct types of errors a CAN controller can detect.",
+      "back": "Common CAN error types include:\n1.  **Bit Error**: A node transmits a bit but monitors a different bit value on the bus.\n2.  **Stuff Error**: Detection of more than five consecutive bits of the same polarity (violating the bit stuffing rule).\n3.  **CRC Error**: The calculated Cyclic Redundancy Check by the receiver does not match the CRC received in the frame.\n4.  **Form Error**: A fixed-form bit (e.g., SOF, Delimiters, EOF) is detected with the wrong value.\n5.  **Acknowledgement Error**: A transmitter does not receive a dominant ACK bit in the ACK slot.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a CAN node signal an error, and what does an \"Error Frame\" consist of?",
+      "back": "When a CAN node detects an error, it immediately transmits an \"Error Frame.\" An Error Frame consists of an **Error Flag** (6-12 dominant bits) followed by an **Error Delimiter** (8 recessive bits). This intentionally violates the bit stuffing rule, causing all other nodes to detect a \"stuff error\" and also transmit their own error flags, ensuring the corrupted message is invalidated and retransmission can occur.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the three main error states (Error Active, Error Passive, Bus-Off) in CAN, and how the Transmit Error Counter (TEC) and Receive Error Counter (REC) influence transitions between them.",
+      "back": "1.  **Error Active**: Normal operational state. TEC/REC $< 128$. Node transmits active error flags (6 dominant bits) upon error detection.\n2.  **Error Passive**: Node detects frequent errors. TEC/REC $\\ge 128$. Node transmits passive error flags (6 recessive bits) to avoid disrupting the bus further. It cannot send active error frames.\n3.  **Bus-Off**: Node detects severe errors. TEC $\\ge 256$. Node is disconnected from the bus and cannot transmit or receive. It must be reset by the host controller to re-join.\nTEC increments for transmit errors, decrements for successful transmissions. REC increments for receive errors, decrements for successful receptions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the CAN bus considered critical for aerospace applications, particularly concerning its error handling and arbitration features?",
+      "back": "CAN's criticality in aerospace stems from:\n1.  **Robustness**: Excellent error detection (CRC, bit stuffing, monitoring) and fault confinement (error counters, Bus-Off state) ensure data integrity in harsh, high-reliability environments.\n2.  **Real-Time Capability**: Non-destructive, priority-based arbitration guarantees that critical, high-priority messages (e.g., flight control data) are transmitted with minimal latency, even during bus contention.\n3.  **Simplicity & Cost-Effectiveness**: Two-wire differential bus reduces wiring complexity and weight, crucial for aircraft.\n4.  **Distributed Control**: Allows multiple ECUs (e.g., engine, avionics, landing gear) to communicate reliably without a central master, enhancing system resilience and fault tolerance.",
+      "difficulty": "hard"
+    }
+  ]
+}

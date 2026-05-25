@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-heap-sort-in-place-o-n-log-n",
+  "subtopicTitle": "Heap sort — in-place, O(n log n)",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:06.611Z",
+  "cards": [
+    {
+      "front": "What is Heap Sort, and what are its key time and space complexity characteristics?",
+      "back": "Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It's known for its $O(n \\log n)$ average and worst-case time complexity and $O(1)$ auxiliary space complexity, making it an in-place sort.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an ascending Heap Sort (smallest to largest), what type of binary heap is constructed, and why?",
+      "back": "A Max-Heap is constructed. This is because Heap Sort repeatedly extracts the largest element (which is always at the root of a Max-Heap) and places it at the end of the array. By doing this $n$ times, the array is sorted in ascending order from the end towards the beginning.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the two distinct phases of the Heap Sort algorithm.",
+      "back": "1.  **Build Phase:** Transform the input array into a Max-Heap (or Min-Heap for descending sort). This is typically done in a bottom-up manner using the `heapify_down` operation, starting from the last non-leaf node.\n2.  **Sort Phase:** Repeatedly extract the root (largest element) of the heap, swap it with the last element of the unsorted portion of the array, and then reduce the heap size by one. Restore the heap property by calling `heapify_down` on the new root.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Heap Sort achieve its \"in-place\" sorting property?",
+      "back": "Heap Sort achieves in-place sorting by using the input array itself to store the heap. During the sort phase, when the maximum element (root) is extracted, it is swapped with the last element of the current heap. The extracted maximum element then occupies its final sorted position at the end of the array, while the heap shrinks by one element. No additional significant auxiliary data structures are needed beyond a few variables for swapping.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the time complexity for building a heap from an unsorted array using the bottom-up approach (the first phase of Heap Sort).",
+      "back": "Building a heap from an array of $n$ elements using the bottom-up `heapify_down` approach takes $O(n)$ time. While a naive analysis might suggest $O(n \\log n)$ (calling `heapify_down` $n/2$ times, each potentially $O(\\log n)$), a tighter analysis shows:\n\nThe cost of `heapify_down` for a node at depth $d$ (or height $h = \\log n - d$) is proportional to $h$. There are approximately $n/2^{h+1}$ nodes at height $h$.\n\nTotal work: $\\sum_{h=0}^{\\log n} \\frac{n}{2^{h+1}} \\cdot h = \\frac{n}{2} \\sum_{h=0}^{\\log n} \\frac{h}{2^h}$.\n\nThe sum $\\sum_{h=0}^{\\infty} \\frac{h}{2^h}$ converges to 2.\n\nThus, the total time complexity for building the heap is $O(n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the array `[4, 10, 3, 5, 1, 2]`, show its state after the \"build max-heap\" phase using the bottom-up approach.",
+      "back": "Initial array: `[4, 10, 3, 5, 1, 2]`\nNodes to heapify (from last non-leaf to root): indices `2, 1, 0` (for 0-indexed array of size 6)\n\n1.  Heapify `arr[2]` (value 3): Children `arr[5]=2`. `3 > 2`, no change. Array: `[4, 10, 3, 5, 1, 2]`\n2.  Heapify `arr[1]` (value 10): Children `arr[3]=5, arr[4]=1`. `10` is largest. No change. Array: `[4, 10, 3, 5, 1, 2]`\n3.  Heapify `arr[0]` (value 4): Children `arr[1]=10, arr[2]=3`. Swap 4 with 10.\n    Array becomes: `[10, 4, 3, 5, 1, 2]`\n    Now, `arr[1]` (value 4) needs to be heapified down. Its children are `arr[3]=5, arr[4]=1`. Swap 4 with 5.\n    Array becomes: `[10, 5, 3, 4, 1, 2]`\n\nFinal Max-Heap: `[10, 5, 3, 4, 1, 2]`",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After building a max-heap, describe the iterative process of sorting the array in ascending order, highlighting the key operation performed in each step.",
+      "back": "1.  **Swap:** The largest element (root of the max-heap, `arr[0]`) is swapped with the last element of the current heap (`arr[heap_size-1]`). This places the largest element in its final sorted position.\n2.  **Shrink:** The effective `heap_size` is decremented by one, excluding the now-sorted element from future heap operations.\n3.  **Heapify Down:** The element that was moved to the root (`arr[0]`) might violate the max-heap property. `heapify_down` is called on `arr[0]` to restore the max-heap property for the reduced heap. This operation takes $O(\\log n)$ time.\n\nThis process is repeated $n-1$ times (for $n$ elements), resulting in an overall $O(n \\log n)$ time complexity for the sort phase.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is Heap Sort a stable sorting algorithm? Explain why or why not.",
+      "back": "No, Heap Sort is **not a stable** sorting algorithm.\n\nStability means that elements with equal values maintain their relative order in the sorted output as they had in the input.\n\nHeap Sort's `heapify_down` operation and the swapping of elements (especially the root with the last element) can change the relative order of equal elements. For example, if you have `[A_1, B_1, A_2]` where `A_1` and `A_2` have the same value, `A_1` might be moved out of its original position relative to `A_2` during heap construction or extraction, leading to `[A_2, B_1, A_1]` in the sorted output, violating stability.",
+      "difficulty": "medium"
+    }
+  ]
+}

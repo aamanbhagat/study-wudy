@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-3-geometric-series-convergence-condition-proof",
+  "subtopicTitle": "Geometric series — convergence condition, proof",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:22.451Z",
+  "cards": [
+    {
+      "front": "What is the general form of a geometric series, starting from $n=0$?",
+      "back": "A geometric series is a series of the form $\\sum_{n=0}^{\\infty} ar^n = a + ar + ar^2 + ar^3 + \\dots$, where $a$ is the first term and $r$ is the common ratio.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the $N$-th partial sum $S_N$ of a geometric series $\\sum_{n=0}^{\\infty} ar^n$.",
+      "back": "The $N$-th partial sum is $S_N = a \\frac{1-r^{N+1}}{1-r}$, for $r \\neq 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the $N$-th partial sum $S_N = a + ar + \\dots + ar^N$.",
+      "back": "Let $S_N = a + ar + ar^2 + \\dots + ar^N$.<br/>Multiply by $r$: $rS_N = ar + ar^2 + ar^3 + \\dots + ar^{N+1}$.<br/>Subtract $rS_N$ from $S_N$:<br/>$S_N - rS_N = (a + ar + \\dots + ar^N) - (ar + ar^2 + \\dots + ar^{N+1})$<br/>$S_N(1-r) = a - ar^{N+1}$<br/>$S_N = \\frac{a(1-r^{N+1})}{1-r}$, provided $r \\neq 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition does a geometric series $\\sum_{n=0}^{\\infty} ar^n$ converge?",
+      "back": "A geometric series $\\sum_{n=0}^{\\infty} ar^n$ converges if and only if the absolute value of the common ratio $|r| < 1$ (i.e., $-1 < r < 1$). It also converges trivially if $a=0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a geometric series $\\sum_{n=0}^{\\infty} ar^n$ converges, what is its sum $S$?",
+      "back": "If $|r| < 1$, the sum of the geometric series is $S = \\frac{a}{1-r}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that if $|r|<1$, the sum of a geometric series is $S = \\frac{a}{1-r}$.",
+      "back": "The sum of an infinite series is defined as the limit of its partial sums: $S = \\lim_{N \\to \\infty} S_N$.<br/>We know $S_N = a \\frac{1-r^{N+1}}{1-r}$.<br/>If $|r| < 1$, then $\\lim_{N \\to \\infty} r^{N+1} = 0$.<br/>Therefore, $S = \\lim_{N \\to \\infty} a \\frac{1-r^{N+1}}{1-r} = a \\frac{1-0}{1-r} = \\frac{a}{1-r}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the sum of the series $5 - \\frac{5}{3} + \\frac{5}{9} - \\frac{5}{27} + \\dots$.",
+      "back": "This is a geometric series with $a=5$ and $r = -\\frac{1}{3}$. Since $|r| = |-\\frac{1}{3}| < 1$, the series converges.<br/>The sum is $S = \\frac{a}{1-r} = \\frac{5}{1 - (-\\frac{1}{3})} = \\frac{5}{1 + \\frac{1}{3}} = \\frac{5}{\\frac{4}{3}} = 5 \\times \\frac{3}{4} = \\frac{15}{4}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to a geometric series $\\sum_{n=0}^{\\infty} ar^n$ if $|r| \\ge 1$ (and $a \\neq 0$)?",
+      "back": "If $|r| \\ge 1$ (and $a \\neq 0$), the geometric series diverges.<br/>If $r=1$, $S_N = a(N+1)$, which goes to $\\infty$.<br/>If $r=-1$, $S_N$ alternates between $a$ and $0$ (or $a$ and $a-a=0$ if starting from $n=0$), so it oscillates and diverges.<br/>If $|r|>1$, then $|r^{N+1}|$ goes to $\\infty$, so $S_N$ diverges.",
+      "difficulty": "medium"
+    }
+  ]
+}

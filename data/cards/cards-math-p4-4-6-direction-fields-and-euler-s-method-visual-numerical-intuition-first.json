@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-6-direction-fields-and-euler-s-method-visual-numerical-intuition-first",
+  "subtopicTitle": "Direction fields and Euler's method — visual/numerical intuition first",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:41.089Z",
+  "cards": [
+    {
+      "front": "What is a direction field (or slope field) for a first-order ODE $y' = f(t, y)$?",
+      "back": "A direction field is a graphical representation where, at various points $(t, y)$ in the $ty$-plane, a short line segment is drawn with a slope equal to $f(t, y)$. These segments indicate the direction (slope) of the solution curve that would pass through that particular point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a direction field, how can you sketch an approximate solution curve for an initial value problem (IVP) $y(t_0) = y_0$?",
+      "back": "To sketch an approximate solution curve, start at the initial point $(t_0, y_0)$. From there, draw a curve that is tangent to the small line segments (slopes) indicated by the direction field at every point it passes through. The curve should 'flow' along the directions shown by the field.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What qualitative information about solutions can be inferred from a direction field without solving the ODE analytically?",
+      "back": "From a direction field, one can infer:\n1.  **Equilibrium points/solutions:** Where $y' = 0$, indicated by horizontal line segments.\n2.  **Stability of equilibria:** Whether solutions converge to (attractors) or diverge from (repellers) equilibrium points.\n3.  **Long-term behavior:** How solutions behave as $t \\to \\infty$.\n4.  **Regions of increase/decrease:** Where $y' > 0$ (solutions increase) or $y' < 0$ (solutions decrease).\n5.  **Existence and uniqueness:** If the field is 'smooth', it visually suggests that unique solutions exist for given initial conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are direction fields insufficient for precise quantitative analysis of ODE solutions?",
+      "back": "Direction fields are primarily qualitative tools. They provide visual insight into solution behavior but do not yield exact functional forms of solutions or precise numerical values at specific points. Their accuracy is limited by the density of grid points and the precision of human drawing or computer rendering. For quantitative results, analytical solutions or numerical methods are required.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When analytical solutions to an ODE are difficult or impossible to find, what general approach can be used to approximate the solution?",
+      "back": "When analytical solutions are intractable, numerical methods can be employed. These methods generate a sequence of discrete points $(t_k, y_k)$ that approximate the true solution curve over a given interval.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for Euler's method to approximate the solution to the IVP $y' = f(t, y)$, $y(t_0) = y_0$, with a step size $h$.",
+      "back": "Euler's method approximates the solution at $t_{k+1} = t_k + h$ using the iterative formula:\n$$y_{k+1} = y_k + h \\cdot f(t_k, y_k)$$\nwhere $y_k$ is the approximation of $y(t_k)$. This formula is derived from the first-order Taylor expansion (tangent line approximation) of $y(t)$ around $t_k$: $y(t_k+h) \\approx y(t_k) + h \\cdot y'(t_k)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the geometric intuition behind Euler's method.",
+      "back": "Geometrically, Euler's method approximates the solution curve by a sequence of connected line segments. Starting at an initial point $(t_k, y_k)$, it uses the slope $f(t_k, y_k)$ (which is $y'(t_k)$ according to the ODE) to draw a straight line segment of length $h$ to the next point $(t_{k+1}, y_{k+1})$. Essentially, at each step, it follows the tangent line to the solution curve at the current point for a small step forward.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use Euler's method with step size $h=0.1$ to approximate $y(0.1)$ for the IVP $y' = t+y$, $y(0)=1$.",
+      "back": "Given $t_0=0, y_0=1, h=0.1$. The ODE is $f(t,y) = t+y$.\n\nWe want to approximate $y(0.1)$, which corresponds to $t_1$.\n\n$t_1 = t_0 + h = 0 + 0.1 = 0.1$\n$y_1 = y_0 + h \\cdot f(t_0, y_0)$\n$y_1 = 1 + 0.1 \\cdot (0+1)$\n$y_1 = 1 + 0.1 \\cdot 1$\n$y_1 = 1.1$\n\nSo, the approximation for $y(0.1)$ using Euler's method is $1.1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the step size $h$ affect the accuracy of Euler's method, and what is the difference between local and global truncation error?",
+      "back": "1.  **Effect of Step Size $h$:** A smaller step size $h$ generally leads to a more accurate approximation but requires more computational steps and thus more time. Conversely, a larger $h$ results in less accuracy but fewer computations.\n\n2.  **Local Truncation Error:** This is the error introduced in a single step, assuming the starting point for that step was exact. For Euler's method, the local truncation error is $O(h^2)$, meaning it's proportional to the square of the step size. It arises because the method uses a first-order Taylor approximation.\n\n3.  **Global Truncation Error:** This is the total accumulated error over the entire interval of integration, from the initial point $t_0$ to the final desired time $t_f$. Since there are approximately $N = (t_f - t_0)/h$ steps, and each step contributes an $O(h^2)$ local error, the global truncation error for Euler's method is $O(h)$. This means the global error is proportional to the step size itself.",
+      "difficulty": "hard"
+    }
+  ]
+}

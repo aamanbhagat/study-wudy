@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-6-spring-mass-system-horizontal-vertical",
+  "subtopicTitle": "Spring-mass system — horizontal, vertical",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:46.610Z",
+  "cards": [
+    {
+      "front": "Define the restoring force in a spring-mass system and state Hooke's Law.",
+      "back": "The restoring force is a force that always acts to bring the system back to its equilibrium position. According to Hooke's Law, it is directly proportional to the displacement from equilibrium and acts in the opposite direction: $F = -kx$, where $F$ is the restoring force, $k$ is the spring constant, and $x$ is the displacement. The negative sign indicates its restorative nature.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the angular frequency ($\\omega$) of a horizontal spring-mass system? Explain the physical meaning of $k$ and $m$.",
+      "back": "The angular frequency is $\\omega = \\sqrt{\\frac{k}{m}}$. Here, $k$ is the spring constant (in N/m), representing the stiffness of the spring (how much force is required to stretch/compress it by a unit length). A larger $k$ means a stiffer spring. $m$ is the mass (in kg) attached to the spring, representing the inertia of the system. A larger $m$ means more resistance to changes in motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the differential equation of motion for a horizontal spring-mass system from first principles.",
+      "back": "Consider a mass $m$ attached to a horizontal spring with spring constant $k$, displaced by $x$ from equilibrium.\n1.  **Hooke's Law:** The restoring force exerted by the spring is $F_s = -kx$.\n2.  **Newton's Second Law:** The net force on the mass is $F_{net} = ma = m \\frac{d^2x}{dt^2}$.\n3.  **Equating forces:** Since the spring force is the only horizontal force acting, $F_{net} = F_s$.\n    $$m \\frac{d^2x}{dt^2} = -kx$$\n4.  **Rearranging:**\n    $$m \\frac{d^2x}{dt^2} + kx = 0$$\n    $$\\frac{d^2x}{dt^2} + \\frac{k}{m}x = 0$$\n    This is the differential equation for Simple Harmonic Motion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A mass $m$ is attached to a vertical spring with spring constant $k$. What is the spring's extension ($\\Delta L$) at its new equilibrium position?",
+      "back": "At the new equilibrium position, the upward spring force balances the downward gravitational force.\n*   Gravitational force: $F_g = mg$\n*   Spring force (upward): $F_s = k \\Delta L$\n*   At equilibrium, $F_s = F_g$, so $k \\Delta L = mg$.\n*   Therefore, the extension at equilibrium is $\\Delta L = \\frac{mg}{k}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show that the angular frequency of a vertical spring-mass system is identical to that of a horizontal system, despite gravity.",
+      "back": "1.  Let the natural length of the spring be $L_0$. When mass $m$ is attached, it stretches to an equilibrium length $L_0 + \\Delta L$, where $k \\Delta L = mg$.\n2.  Let $y$ be the displacement *from this new equilibrium position*. So, the total extension from natural length is $\\Delta L + y$.\n3.  **Forces:**\n    *   Spring force (upward): $F_s = -k(\\Delta L + y)$ (negative because it opposes downward displacement $y$).\n    *   Gravitational force (downward): $F_g = mg$.\n4.  **Newton's Second Law:** $F_{net} = ma = m \\frac{d^2y}{dt^2}$.\n5.  **Net force:** $F_{net} = F_s + F_g = -k(\\Delta L + y) + mg = -k \\Delta L - ky + mg$.\n6.  Since $k \\Delta L = mg$ at equilibrium, these terms cancel out:\n    $$F_{net} = -ky$$\n7.  **Equation of motion:**\n    $$m \\frac{d^2y}{dt^2} = -ky$$\n    This is the same differential equation as the horizontal system. Thus, the angular frequency $\\omega = \\sqrt{\\frac{k}{m}}$ is identical. Gravity only shifts the equilibrium point, it doesn't affect the oscillation frequency.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A spring-mass system oscillates vertically on Earth with period $T$. What is its period on the Moon, where $g$ is different? Explain.",
+      "back": "The period $T$ of a spring-mass system, whether horizontal or vertical, is given by $T = 2\\pi \\sqrt{\\frac{m}{k}}$. This formula does *not* depend on the acceleration due to gravity ($g$). Therefore, the period of oscillation would be the *same* on the Moon as on Earth. Gravity only shifts the equilibrium position for a vertical system, but it does not alter the frequency or period of oscillation around that equilibrium.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of motion does an ideal spring-mass system exhibit?",
+      "back": "An ideal spring-mass system (massless spring, no friction, no air resistance, perfectly elastic spring) exhibits Simple Harmonic Motion (SHM). This is characterized by a restoring force directly proportional to the displacement and results in sinusoidal oscillations.",
+      "difficulty": "easy"
+    }
+  ]
+}

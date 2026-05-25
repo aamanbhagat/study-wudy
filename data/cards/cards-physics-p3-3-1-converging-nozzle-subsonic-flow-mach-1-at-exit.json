@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-converging-nozzle-subsonic-flow-mach-1-at-exit",
+  "subtopicTitle": "Converging nozzle — subsonic flow, Mach 1 at exit",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:15.049Z",
+  "cards": [
+    {
+      "front": "Define a \"converging nozzle\" in the context of compressible flow.",
+      "back": "A converging nozzle is a duct whose cross-sectional area continuously decreases from the inlet to the exit. It is used to accelerate a subsonic flow.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the maximum Mach number that can be achieved at the exit of a *converging* nozzle, assuming an ideal gas and isentropic flow?",
+      "back": "The maximum Mach number that can be achieved at the exit of a converging nozzle is Mach 1 (sonic conditions).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the phenomenon of \"choked flow\" in a converging nozzle.",
+      "back": "Choked flow occurs in a converging nozzle when the flow at the nozzle exit reaches Mach 1. At this point, the mass flow rate through the nozzle reaches its maximum possible value and cannot increase further, even if the back pressure is reduced. Upstream conditions are unaffected by further reductions in back pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the critical pressure ratio, $(P_e/P_0)$, for an ideal gas in a converging nozzle when choked, and define the terms.",
+      "back": "The critical pressure ratio for choked flow (Mach 1 at exit) is given by: $$ \\frac{P_e}{P_0} = \\left(\\frac{2}{\\gamma + 1}\\right)^{\\frac{\\gamma}{\\gamma - 1}} $$ Where $P_e$ is the static pressure at the nozzle exit (which equals the critical pressure $P^*$), $P_0$ is the total (stagnation) pressure at the inlet, and $\\gamma$ is the ratio of specific heats ($c_p/c_v$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the back pressure $P_b$ is reduced *below* the critical pressure $P_e$ (where $P_e$ is the pressure at the exit when choked), what happens to the flow *inside* the converging nozzle?",
+      "back": "If the back pressure $P_b$ is reduced below the critical pressure $P_e$, the flow *inside* the nozzle, including at the exit plane, remains unchanged. The exit Mach number remains at 1, and the mass flow rate remains at its maximum (choked) value. The pressure at the exit plane ($P_e$) remains at the critical pressure ($P^*$). The additional expansion from $P_e$ to $P_b$ occurs *outside* the nozzle as a series of expansion waves.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the critical temperature ratio, $(T^*/T_0)$, for isentropic flow in a converging nozzle, where $T^*$ is the temperature at Mach 1.",
+      "back": "For isentropic flow, the stagnation temperature relation is: $$ \\frac{T_0}{T} = 1 + \\frac{\\gamma - 1}{2} M^2 $$ At the critical condition, the flow reaches Mach 1, so $M=1$ and $T=T^*$. Substituting these into the equation: $$ \\frac{T_0}{T^*} = 1 + \\frac{\\gamma - 1}{2} (1)^2 = 1 + \\frac{\\gamma - 1}{2} = \\frac{2 + \\gamma - 1}{2} = \\frac{\\gamma + 1}{2} $$ Therefore, the critical temperature ratio is: $$ \\frac{T^*}{T_0} = \\frac{2}{\\gamma + 1} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why a converging nozzle cannot accelerate a flow to supersonic speeds (i.e., beyond Mach 1).",
+      "back": "Once the flow in a converging nozzle reaches Mach 1 at its exit (the choked condition), any pressure disturbance downstream of the exit cannot propagate upstream into the nozzle. This is because the flow is moving at the speed of sound relative to the nozzle exit. To accelerate a flow beyond Mach 1, the flow area must *increase* (a diverging section), as dictated by the area-Mach number relation for supersonic flow ($dA/A = (M^2-1)dV/V$). A converging section would decelerate supersonic flow, not accelerate it.",
+      "difficulty": "hard"
+    }
+  ]
+}

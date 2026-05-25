@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-namespaces-avoiding-name-collisions",
+  "subtopicTitle": "Namespaces — avoiding name collisions",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:55.127Z",
+  "cards": [
+    {
+      "front": "What fundamental problem do C++ namespaces primarily solve?",
+      "back": "C++ namespaces primarily solve the problem of **name collisions** (or name clashes). This occurs when different libraries or parts of a large project define functions, classes, or variables with the same name, leading to ambiguity and compilation errors.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you define a namespace named `Network` containing a class `Socket` and a function `connect()`?",
+      "back": "You define a namespace using the `namespace` keyword, followed by its name and curly braces:\n```cpp\nnamespace Network {\n    class Socket { /* ... */ };\n    void connect() { /* ... */ }\n}\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `namespace Utils { void log(const std::string& msg); }`, how would you call `log()` from outside the `Utils` namespace without any `using` declarations or directives?",
+      "back": "You must use the **scope resolution operator (`::`)** to explicitly qualify the name:\n```cpp\nUtils::log(\"Application started.\");\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between a `using` declaration (`using MyLib::func;`) and a `using` directive (`using namespace MyLib;`). When is each generally preferred?",
+      "back": "A `using` declaration (`using MyLib::func;`) makes *only* the specified name (`func`) directly accessible by its unqualified name. A `using` directive (`using namespace MyLib;`) makes *all* names within `MyLib` directly accessible.\n\n`using` declarations are preferred for selective access, minimizing potential name collisions. `using` directives are generally discouraged in header files or global scope due to the increased risk of name collisions, especially in large projects or with multiple libraries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is an anonymous (unnamed) namespace, and what is its primary use case?",
+      "back": "An anonymous namespace is defined without a name (e.g., `namespace { /* ... */ }`). Its members have **internal linkage**, meaning they are only visible and accessible within the specific translation unit (source file) where the namespace is defined. Its primary use case is to restrict the scope of global variables or functions to a single file, effectively replacing the C-style `static` keyword for this purpose in C++.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would you define a nested namespace `App::Config` and then access a variable `port` within it using a namespace alias?",
+      "back": "You can define nested namespaces directly or sequentially. To access `port` using an alias:\n```cpp\nnamespace App {\n    namespace Config {\n        int port = 8080;\n    }\n}\n\n// ...\n\nnamespace AC = App::Config; // Define alias\nstd::cout << AC::port; // Access using alias\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is an `inline` namespace, and how does it impact name lookup for its members?",
+      "back": "An `inline` namespace (e.g., `inline namespace V2 { /* ... */ }`) makes its members appear as if they are directly part of the enclosing namespace. This means that names from the `inline` namespace can be looked up and accessed as if they were declared directly in the parent namespace, without explicit qualification of the `inline` namespace itself.\n\nIt's primarily used for library versioning, allowing clients to transparently use the latest version (e.g., `Library::foo()` might resolve to `Library::V2::foo()`) while still allowing explicit access to older versions if needed (e.g., `Library::V1::foo()`).",
+      "difficulty": "hard"
+    }
+  ]
+}

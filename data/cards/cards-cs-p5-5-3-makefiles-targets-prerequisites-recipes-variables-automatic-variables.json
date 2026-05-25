@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-makefiles-targets-prerequisites-recipes-variables-automatic-variables",
+  "subtopicTitle": "Makefiles — targets, prerequisites, recipes, variables, automatic variables",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:20.575Z",
+  "cards": [
+    {
+      "front": "In a Makefile, what is a \"target\"?",
+      "back": "A target is typically the name of a file that `make` will build or update (e.g., an executable, an object file). It can also be a name for an action `make` will perform (e.g., `clean`, `all`), in which case it's often declared as `.PHONY`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are \"prerequisites\" in a Makefile rule, and how do they influence a target's build?",
+      "back": "Prerequisites (also called dependencies) are files or other targets that the target depends on. If any prerequisite is newer than the target, or if the target doesn't exist, `make` will execute the rule's recipe to update the target. This ensures dependencies are built or are up-to-date before the target is built.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a \"recipe\" in a Makefile, and what is its crucial syntax requirement?",
+      "back": "A recipe is one or more shell commands that `make` executes to create or update the target. Each line of a recipe *must* begin with a **tab character**, not spaces. If a line starts with spaces, `make` will report a syntax error.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a basic Makefile rule to compile `my_program.c` into an executable named `my_program`.",
+      "back": "```makefile\nmy_program: my_program.c\n\tgcc my_program.c -o my_program\n```\n(Note: The indentation before `gcc` must be a tab character.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you define a variable `CC` for the C compiler and `CFLAGS` for compiler flags, then use them in a rule to compile `main.c` into `app`?",
+      "back": "```makefile\nCC = gcc\nCFLAGS = -Wall -g\n\napp: main.c\n\t$(CC) $(CFLAGS) main.c -o app\n```\nVariables are referenced using `$(VAR_NAME)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the automatic variables `$@` and `$<`. Provide a generic rule to compile *any* `.c` file into an executable with the same base name.",
+      "back": "*   `$@`: The file name of the target of the rule.\n*   `$<`: The name of the first prerequisite.\n\nGeneric rule:\n```makefile\n%: %.c\n\t$(CC) $(CFLAGS) $< -o $@\n```\nHere, `%` is a pattern matching any target. If `make program` is run, `$<` becomes `program.c` and `$@` becomes `program`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a `.PHONY` target in Makefiles, and why is it essential for targets like `clean` or `all`?",
+      "back": "A `.PHONY` target is a target that does not correspond to an actual file. Declaring a target as `.PHONY` tells `make` that it is an action to be performed, not a file to be built. This is crucial for targets like `clean` or `all` because:\n1.  It prevents `make` from failing or getting confused if a file with the same name (e.g., a file named `clean`) exists in the directory.\n2.  It ensures `make` always executes the recipe for the phony target, regardless of whether a file of that name exists or is up-to-date, as it's not trying to build a file.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how `make` determines which recipes to execute when invoked without a specific target (e.g., just `make`).",
+      "back": "When `make` is invoked without a specific target, it attempts to build the **first target** defined in the Makefile (unless `.DEFAULT_GOAL` is specified). It constructs a **dependency graph**:\n1.  It identifies the initial target.\n2.  For that target, it recursively examines its prerequisites.\n3.  It compares the modification times of each target with its prerequisites. If a prerequisite is newer than its target, or if the target doesn't exist, `make` marks the target for rebuilding.\n4.  It executes recipes for prerequisites first, working \"bottom-up\" through the dependency tree, ensuring all dependencies are satisfied and up-to-date before building the targets that depend on them.",
+      "difficulty": "hard"
+    }
+  ]
+}

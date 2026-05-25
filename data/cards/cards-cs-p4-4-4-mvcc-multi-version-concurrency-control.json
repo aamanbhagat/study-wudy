@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-mvcc-multi-version-concurrency-control",
+  "subtopicTitle": "MVCC — multi-version concurrency control",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:58.183Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of Multi-Version Concurrency Control (MVCC) in a database system?",
+      "back": "To allow multiple transactions to access and modify data concurrently without traditional locking mechanisms blocking readers from writers, ensuring high availability and performance. It achieves this by maintaining multiple versions of a data item.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In MVCC, how does a database typically handle a `WRITE` operation on an existing data item, rather than updating it in place?",
+      "back": "Instead of overwriting the original data, a `WRITE` operation creates a *new version* of the data item. The old version is retained, and the new version is marked with the transaction ID of the writing transaction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core principle that determines which version of a data item a `READ` transaction sees in an MVCC system.",
+      "back": "A read transaction typically sees a *snapshot* of the database as it existed at the moment the transaction started. It will only see versions of data that were committed *before* its own start time and will ignore any versions written by transactions that started *after* it or are still in progress.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What metadata is typically associated with each version of a data item in an MVCC system to manage visibility?",
+      "back": "Each data item version usually has:\n*   `tx_id_start` (or `xmin`): The ID of the transaction that created this version.\n*   `tx_id_end` (or `xmax`): The ID of the transaction that \"deleted\" or updated this version (making it invisible to new transactions). If still active, it might be null or a special value.\n*   A `row_id` or pointer to the actual data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a database using MVCC. Transaction A starts at $T_1$ and reads $X$. Transaction B starts at $T_2$ ($T_2 > T_1$), modifies $X$ to $X'$, and commits at $T_3$. If Transaction A reads $X$ again at $T_4$ ($T_4 > T_3$), what value of $X$ will Transaction A see and why?",
+      "back": "Transaction A will still see the original value of $X$ (the version that existed at $T_1$). This is because MVCC ensures that a transaction operates on a consistent snapshot of the database from its start time. Even though $X'$ was committed by Transaction B, Transaction A's snapshot was taken *before* $X'$ existed, thus it continues to see its initial consistent view. This is a characteristic of Snapshot Isolation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does MVCC help prevent the 'readers block writers, writers block readers' problem common in traditional locking concurrency control?",
+      "back": "Readers never acquire locks that would prevent writers, because they operate on old versions of data. Writers create new versions and only need to acquire short-lived locks on metadata to update pointers, not on the data itself. This allows concurrent reads and writes with minimal contention, significantly improving throughput.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the process called in MVCC databases that reclaims storage space occupied by old, no-longer-visible data versions, and why is it necessary?",
+      "back": "This process is typically called \"vacuuming\" or \"garbage collection\". It's necessary because MVCC creates multiple versions of data, leading to storage overhead. Old versions that are no longer visible to any active or future transaction need to be identified and physically removed from storage to prevent unbounded growth of the database and maintain performance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which common database isolation level is naturally and efficiently supported by MVCC, providing a consistent view of the database for the duration of a transaction?",
+      "back": "Snapshot Isolation. MVCC allows each transaction to read a consistent \"snapshot\" of the database as it existed at the transaction's start time, ensuring that reads within the transaction are repeatable and free from anomalies like non-repeatable reads or phantom reads, without blocking writers.",
+      "difficulty": "medium"
+    }
+  ]
+}

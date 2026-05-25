@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-gauss-s-law-integral-form-choosing-gaussian-surfaces",
+  "subtopicTitle": "Gauss's law — integral form, choosing Gaussian surfaces",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:57.581Z",
+  "cards": [
+    {
+      "front": "State Gauss's Law in its integral form, defining each term.",
+      "back": "Gauss's Law (integral form) is: $$\\oint_S \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{enc}}{\\epsilon_0}$$ Where:\n- $\\vec{E}$ is the electric field vector.\n- $d\\vec{A}$ is an infinitesimal area vector element of the closed surface $S$, pointing outward.\n- $\\oint_S$ denotes the integral over the entire closed surface $S$.\n- $Q_{enc}$ is the total net electric charge enclosed within the surface $S$.\n- $\\epsilon_0$ is the permittivity of free space (a fundamental constant, approximately $8.85 \\times 10^{-12} \\text{ F/m}$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity does the term $\\oint_S \\vec{E} \\cdot d\\vec{A}$ represent in Gauss's Law?",
+      "back": "The term $\\oint_S \\vec{E} \\cdot d\\vec{A}$ represents the total **electric flux** ($\\Phi_E$) through the closed Gaussian surface $S$. Electric flux is a measure of the 'flow' or 'number' of electric field lines passing through a given surface. A positive flux means more field lines exit than enter, indicating a net positive charge enclosed, and vice-versa for negative flux.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For Gauss's Law to be *practically useful* for calculating electric fields, what two key conditions must be met when choosing a Gaussian surface?",
+      "back": "For practical utility in calculating $\\vec{E}$, the Gaussian surface must exploit symmetry such that:\n1.  The electric field $\\vec{E}$ is either constant in magnitude over parts of the surface where the flux is non-zero, allowing $E$ to be pulled out of the integral.\n2.  The angle between $\\vec{E}$ and $d\\vec{A}$ is constant (ideally $0^\\circ$ or $90^\\circ$) over different parts of the surface. This simplifies $\\vec{E} \\cdot d\\vec{A}$ to $E dA$ (when parallel) or $0$ (when perpendicular).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To determine the electric field of an infinitely long, uniformly charged line, what is the most appropriate Gaussian surface, and why?",
+      "back": "The most appropriate Gaussian surface is a **coaxial cylinder** centered on the line charge. This choice is ideal because:\n1.  **Curved Surface:** The electric field $\\vec{E}$ is radial and perpendicular to the curved surface of the cylinder, and its magnitude is constant at a given radius $r$.\n2.  **End Caps:** The electric field $\\vec{E}$ is parallel to the end caps of the cylinder, meaning $\\vec{E} \\cdot d\\vec{A} = 0$ for these surfaces, so they contribute no flux.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using Gauss's Law, derive the magnitude of the electric field $\\vec{E}$ at a distance $r > R$ from the center of a uniformly charged solid sphere with radius $R$ and total charge $Q$. Assume the sphere is non-conducting.",
+      "back": "1.  **Choose Gaussian Surface:** A spherical Gaussian surface of radius $r$ concentric with the charged sphere.\n2.  **Symmetry Argument:** Due to spherical symmetry, $\\vec{E}$ is purely radial and its magnitude is constant over the Gaussian surface.\n3.  **Calculate Flux:** The flux integral simplifies to $\\oint_S \\vec{E} \\cdot d\\vec{A} = E \\oint_S dA = E (4\\pi r^2)$.\n4.  **Enclosed Charge:** For $r > R$, the entire charge $Q$ of the sphere is enclosed, so $Q_{enc} = Q$.\n5.  **Apply Gauss's Law:** $E (4\\pi r^2) = \\frac{Q}{\\epsilon_0}$\n6.  **Solve for E:** $$E = \\frac{Q}{4\\pi\\epsilon_0 r^2} = \\frac{kQ}{r^2}$$ (where $k = 1/(4\\pi\\epsilon_0)$ is Coulomb's constant). This is the same field as if all the charge were concentrated at the center.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the magnitude of the electric field $\\vec{E}$ produced by an infinite non-conducting plane with a uniform surface charge density $\\sigma$.",
+      "back": "1.  **Choose Gaussian Surface:** A cylindrical Gaussian surface (often called a 'pillbox') with its axis perpendicular to the plane, passing through it. The cylinder has cross-sectional area $A$ and extends symmetrically on both sides of the plane.\n2.  **Symmetry Argument:** Due to the infinite plane's symmetry, $\\vec{E}$ is uniform, perpendicular to the plane, and points away from a positive plane on both sides.\n3.  **Calculate Flux:**\n    *   **Curved Surface:** $\\vec{E}$ is parallel to the curved surface, so $\\vec{E} \\cdot d\\vec{A} = 0$. The flux through this part is zero.\n    *   **End Caps:** $\\vec{E}$ is perpendicular to each end cap. The flux through each cap is $E A$. Since there are two caps, the total flux is $2EA$.\n4.  **Enclosed Charge:** The charge enclosed by the pillbox is the charge on the area $A$ of the plane intersected by the cylinder: $Q_{enc} = \\sigma A$.\n5.  **Apply Gauss's Law:** $2EA = \\frac{\\sigma A}{\\epsilon_0}$\n6.  **Solve for E:** $$E = \\frac{\\sigma}{2\\epsilon_0}$$ This field is uniform and independent of the distance from the plane.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a Gaussian surface encloses no net charge ($Q_{enc}=0$), does this imply that the electric field $\\vec{E}$ is zero everywhere on the surface? Explain.",
+      "back": "No, not necessarily. If $Q_{enc}=0$, Gauss's Law states $\\oint_S \\vec{E} \\cdot d\\vec{A} = 0$. This means the *net* electric flux through the surface is zero. It implies that any electric field lines entering the surface must also exit it. The electric field $\\vec{E}$ can still be non-zero at various points on the surface, as long as the total inward flux exactly cancels the total outward flux. For example, if a Gaussian surface encloses an electric dipole (equal positive and negative charges), $Q_{enc}=0$, but there is a non-zero electric field everywhere on the surface.",
+      "difficulty": "medium"
+    }
+  ]
+}

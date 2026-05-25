@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-derivatives-of-ln-x-and-log-a-x",
+  "subtopicTitle": "Derivatives of ln x and log_a(x)",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:03.549Z",
+  "cards": [
+    {
+      "front": "What is the derivative of $f(x) = \\ln x$?",
+      "back": "The derivative of $f(x) = \\ln x$ is $\\frac{d}{dx}(\\ln x) = \\frac{1}{x}$ for $x > 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Find the derivative of $f(x) = \\ln(5x^3 - 2x + 1)$.",
+      "back": "Using the chain rule, $\\frac{d}{dx}(\\ln(g(x))) = \\frac{1}{g(x)} \\cdot g'(x)$. For $f(x) = \\ln(5x^3 - 2x + 1)$, $g(x) = 5x^3 - 2x + 1$, so $g'(x) = 15x^2 - 2$. Thus, $f'(x) = \\frac{1}{5x^3 - 2x + 1} \\cdot (15x^2 - 2) = \\frac{15x^2 - 2}{5x^3 - 2x + 1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the derivative of $f(x) = \\log_a x$. Specify conditions for $x$ and $a$.",
+      "back": "The derivative of $f(x) = \\log_a x$ is $\\frac{d}{dx}(\\log_a x) = \\frac{1}{x \\ln a}$. This formula is valid for $x > 0$, and for the base $a > 0$ with $a \\neq 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for $\\frac{d}{dx}(\\log_a x)$ using the change of base formula.",
+      "back": "We use the change of base formula to express $\\log_a x$ in terms of the natural logarithm: $\\log_a x = \\frac{\\ln x}{\\ln a}$.\nNow, we differentiate with respect to $x$:\n$\\frac{d}{dx}(\\log_a x) = \\frac{d}{dx}\\left(\\frac{\\ln x}{\\ln a}\\right)$\nSince $\\ln a$ is a constant, we can factor it out:\n$= \\frac{1}{\\ln a} \\cdot \\frac{d}{dx}(\\ln x)$\nWe know that $\\frac{d}{dx}(\\ln x) = \\frac{1}{x}$.\nTherefore, $\\frac{d}{dx}(\\log_a x) = \\frac{1}{\\ln a} \\cdot \\frac{1}{x} = \\frac{1}{x \\ln a}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the derivative of $y = \\log_5(\\cos x)$.",
+      "back": "Using the generalized chain rule for $\\log_a(g(x))$, which is $\\frac{d}{dx}(\\log_a(g(x))) = \\frac{1}{g(x) \\ln a} \\cdot g'(x)$.\nHere, $g(x) = \\cos x$ and $a = 5$. So $g'(x) = -\\sin x$.\nThus, $\\frac{dy}{dx} = \\frac{1}{\\cos x \\ln 5} \\cdot (-\\sin x) = -\\frac{\\sin x}{\\cos x \\ln 5} = -\\frac{\\tan x}{\\ln 5}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use logarithmic differentiation to find $\\frac{dy}{dx}$ for $y = \\frac{e^{3x} \\sqrt{x^2+1}}{(x-4)^2}$.",
+      "back": "Take the natural logarithm of both sides:\n$\\ln y = \\ln\\left(\\frac{e^{3x} \\sqrt{x^2+1}}{(x-4)^2}\\right)$\nUse logarithm properties to expand:\n$\\ln y = \\ln(e^{3x}) + \\ln(\\sqrt{x^2+1}) - \\ln((x-4)^2)$\n$\\ln y = 3x + \\frac{1}{2}\\ln(x^2+1) - 2\\ln(x-4)$\nDifferentiate implicitly with respect to $x$:\n$\\frac{1}{y}\\frac{dy}{dx} = 3 + \\frac{1}{2} \\cdot \\frac{2x}{x^2+1} - 2 \\cdot \\frac{1}{x-4}$\n$\\frac{1}{y}\\frac{dy}{dx} = 3 + \\frac{x}{x^2+1} - \\frac{2}{x-4}$\nSolve for $\\frac{dy}{dx}$:\n$\\frac{dy}{dx} = y \\left(3 + \\frac{x}{x^2+1} - \\frac{2}{x-4}\\right)$\nSubstitute back the original expression for $y$:\n$\\frac{dy}{dx} = \\frac{e^{3x} \\sqrt{x^2+1}}{(x-4)^2} \\left(3 + \\frac{x}{x^2+1} - \\frac{2}{x-4}\\right)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the domain restriction for the derivative of $f(x) = \\ln(x-3)$? Why?",
+      "back": "The derivative of $f(x) = \\ln(x-3)$ is $f'(x) = \\frac{1}{x-3}$.\nThe domain restriction for this derivative is $x-3 > 0$, which means $x > 3$.\nThis is because the original function $f(x) = \\ln(x-3)$ is only defined when its argument $(x-3)$ is positive. The derivative must exist on the same domain as the function it's derived from (or a subset thereof).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the intuitive connection between the derivative of $\\ln x$ and the derivative of $e^x$. (Hint: Inverse functions)",
+      "back": "The functions $y = \\ln x$ and $x = e^y$ are inverse functions. We can use the Inverse Function Theorem for derivatives, which states that if $y = f^{-1}(x)$, then $\\frac{dy}{dx} = \\frac{1}{f'(y)}$.\nLet $f(y) = e^y$. Then $f'(y) = e^y$.\nSince $y = \\ln x$ is the inverse of $x = e^y$, we have:\n$\\frac{d}{dx}(\\ln x) = \\frac{1}{f'(y)} = \\frac{1}{e^y}$.\nSince $x = e^y$, we can substitute $x$ back into the expression:\n$\\frac{d}{dx}(\\ln x) = \\frac{1}{x}$.\nThis shows how the derivatives of inverse functions are reciprocally related, specifically linking $\\ln x$ to $e^x$.",
+      "difficulty": "medium"
+    }
+  ]
+}

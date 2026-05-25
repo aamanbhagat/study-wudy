@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-linear-regression-normal-equation-gradient-descent-derivation",
+  "subtopicTitle": "Linear regression — normal equation, gradient descent derivation",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:11.383Z",
+  "cards": [
+    {
+      "front": "In supervised learning, what is the primary goal of linear regression, and what is its general hypothesis function $h_\\theta(x)$?",
+      "back": "The primary goal is to find a linear relationship between input features $x$ and a continuous target variable $y$. The hypothesis function is typically expressed as $h_\\theta(x) = \\theta_0 + \\theta_1 x_1 + \\dots + \\theta_n x_n$, which can be written in vector form as $h_\\theta(x) = \\theta^T x$ (where $x$ includes a bias term $x_0=1$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Mean Squared Error (MSE) cost function $J(\\theta)$ for linear regression. Why is the squared error commonly used?",
+      "back": "The MSE cost function is $J(\\theta) = \\frac{1}{2m} \\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)})^2$. The squared error is used because it results in a convex cost function, guaranteeing a unique global minimum. The $\\frac{1}{2}$ term simplifies the derivative calculation by canceling out the exponent's 2.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For linear regression, what is the Normal Equation formula to directly compute the optimal parameters $\\theta$?",
+      "back": "The Normal Equation formula is $\\theta = (X^T X)^{-1} X^T y$. Here, $X$ is the design matrix (where each row is a training example and the first column is typically ones for the intercept term $\\theta_0$), and $y$ is the column vector of target values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Normal Equation $\\theta = (X^T X)^{-1} X^T y$ by minimizing the cost function $J(\\theta)$ with respect to $\\theta$.",
+      "back": "The cost function in matrix form is $J(\\theta) = \\frac{1}{2m} (X\\theta - y)^T (X\\theta - y)$. To find the minimum, we take the gradient with respect to $\\theta$ and set it to zero:\n$$\\nabla_\\theta J(\\theta) = \\frac{1}{m} X^T (X\\theta - y) = 0$$\n$$X^T X\\theta - X^T y = 0$$\n$$X^T X\\theta = X^T y$$\n$$\\theta = (X^T X)^{-1} X^T y$$\nThis solution assumes that the matrix $X^T X$ is invertible.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When should one prefer the Normal Equation over Gradient Descent for linear regression? What are its main limitations?",
+      "back": "The Normal Equation is preferred when the number of features $n$ is relatively small (e.g., $n < 10,000$) because it provides a direct, non-iterative solution and requires no learning rate tuning. Its main limitations are its computational cost, which is $O(n^3)$ due to the matrix inversion, making it impractical for very large $n$. It also requires $X^T X$ to be invertible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the core idea behind Gradient Descent for minimizing $J(\\theta)$. What is the general iterative update rule for a parameter $\\theta_j$?",
+      "back": "Gradient Descent is an iterative optimization algorithm that minimizes a cost function by repeatedly moving in the direction of the steepest descent (negative of the gradient). The general update rule for each parameter $\\theta_j$ is:\n$$\\theta_j := \\theta_j - \\alpha \\frac{\\partial}{\\partial \\theta_j} J(\\theta)$$\nwhere $\\alpha$ is the learning rate, controlling the step size.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the specific Gradient Descent update rules for $\\theta_0$ and $\\theta_j$ ($j \\ge 1$) for the linear regression cost function $J(\\theta)$.",
+      "back": "The cost function is $J(\\theta) = \\frac{1}{2m} \\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)})^2$.\n\nFor $\\theta_0$:\n$\\frac{\\partial}{\\partial \\theta_0} J(\\theta) = \\frac{1}{m} \\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)}) \\cdot 1$\nUpdate rule: $\\theta_0 := \\theta_0 - \\alpha \\frac{1}{m} \\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)})$\n\nFor $\\theta_j$ ($j \\ge 1$):\n$\\frac{\\partial}{\\partial \\theta_j} J(\\theta) = \\frac{1}{m} \\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$\nUpdate rule: $\\theta_j := \\theta_j - \\alpha \\frac{1}{m} \\sum_{i=1}^m (h_\\theta(x^{(i)}) - y^{(i)}) x_j^{(i)}$\n(All parameters $\\theta_j$ must be updated simultaneously in each iteration.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In Gradient Descent, what is the role of the learning rate $\\alpha$? Describe the consequences of choosing $\\alpha$ to be too large or too small.",
+      "back": "The learning rate $\\alpha$ dictates the size of the steps taken down the gradient during optimization. If $\\alpha$ is too large, Gradient Descent might overshoot the minimum, fail to converge, or even diverge, causing the cost function to increase. If $\\alpha$ is too small, it will take many small steps, making the convergence very slow and computationally inefficient.",
+      "difficulty": "medium"
+    }
+  ]
+}

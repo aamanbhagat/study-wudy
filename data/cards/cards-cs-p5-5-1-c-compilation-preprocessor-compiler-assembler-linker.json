@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-c-compilation-preprocessor-compiler-assembler-linker",
+  "subtopicTitle": "C compilation — preprocessor, compiler, assembler, linker",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:31.212Z",
+  "cards": [
+    {
+      "front": "List the four main stages of the C compilation process in their correct order.",
+      "back": "1. Preprocessing\n2. Compilation\n3. Assembly\n4. Linking",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary function of the C preprocessor, and name two common directives it handles?",
+      "back": "The preprocessor performs textual transformations on the source code before actual compilation. Its primary functions include macro expansion, file inclusion, and conditional compilation. Common directives: `#include`, `#define`, `#ifdef`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After the C compiler stage, what is the typical output file format and what kind of code does it contain?",
+      "back": "The typical output is an **assembly language file** (e.g., `.s` or `.asm`). It contains human-readable mnemonic instructions specific to the target CPU architecture, representing the translated C code.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the line `#include \"myheader.h\"` is processed during compilation, specifying the stage involved and the resulting change to the source code.",
+      "back": "This line is handled by the **preprocessor**. It searches for `myheader.h` in specified directories (first current, then standard include paths) and, upon finding it, literally copies the entire content of `myheader.h` into the source file at the location of the `#include` directive. This creates a single, expanded 'translation unit' for the compiler.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which stage of the C compilation process is responsible for converting assembly code into machine code, and what is the output file type?",
+      "back": "The **assembler** converts assembly code into machine code. The output is an **object file** (e.g., `.o` on Unix-like systems, `.obj` on Windows).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "An object file contains machine code but is not yet executable. What critical information is often missing or unresolved in an object file that prevents it from being run directly?",
+      "back": "An object file typically contains **unresolved symbol references**. These are placeholders for functions or global variables that are defined in *other* source files or external libraries. For example, a call to `printf()` would be an unresolved symbol until linked with the standard C library.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A C program `main.c` uses a function `foo()` defined in `foo.c`. If `gcc main.o -o myprog` fails with an 'undefined reference to `foo`' error, which stage of compilation is failing and what is the specific problem?",
+      "back": "This error occurs during the **linking** stage. The problem is that the linker cannot find the definition of the `foo()` function. You've provided `main.o` (which likely *calls* `foo`), but you haven't provided `foo.o` (which *defines* `foo`) to the linker. The correct command would be `gcc main.o foo.o -o myprog` (or `gcc main.c foo.c -o myprog` to compile and link both).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the purpose of the `gcc` flag `-c` when compiling a C source file, and what is its output?",
+      "back": "The `-c` flag tells `gcc` to compile and assemble the source file but **not to link** it. Its output is an **object file** (e.g., `filename.o`), which contains machine code for that specific source file but is not yet an executable program.",
+      "difficulty": "medium"
+    }
+  ]
+}

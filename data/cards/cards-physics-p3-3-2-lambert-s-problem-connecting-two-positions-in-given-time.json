@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-2-lambert-s-problem-connecting-two-positions-in-given-time",
+  "subtopicTitle": "Lambert's problem — connecting two positions in given time",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:34.052Z",
+  "cards": [
+    {
+      "front": "What is Lambert's problem in orbital mechanics?",
+      "back": "Lambert's problem is to determine the unique conic section (transfer orbit) that connects two given position vectors, $ \\vec{r}_1 $ and $ \\vec{r}_2 $, in a specified time of flight, $ \\Delta t $, under the influence of a single central gravitational body.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the primary inputs and desired outputs when solving Lambert's problem?",
+      "back": "Inputs: Initial position vector $ \\vec{r}_1 $, final position vector $ \\vec{r}_2 $, time of flight $ \\Delta t $, and the gravitational parameter $ \\mu $ of the central body. Outputs: The initial velocity vector $ \\vec{v}_1 $ and the final velocity vector $ \\vec{v}_2 $.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The solution to Lambert's problem involves finding a specific conic section. What characteristic of this conic section is uniquely determined by the given parameters?",
+      "back": "For a given $ \\mu $, $ r_1 $, $ r_2 $, and $ \\Delta t $, the semi-major axis $a$ (or equivalently, the specific energy $ \\mathcal{E} = -\\mu / (2a) $) of the transfer orbit is uniquely determined. This is the core of Lambert's problem: finding $a$ for a given $ \\Delta t $.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the role of universal variables (e.g., $x$ or $\\psi$) and Stumpff functions ($C(z)$, $S(z)$) in solving Lambert's problem.",
+      "back": "Universal variables transform time and position/velocity into a single parameter, making the equations of motion general across all conic sections (elliptic, parabolic, hyperbolic) without case-by-case evaluation. Stumpff functions are power series used to evaluate these equations, particularly for the time of flight, avoiding singularities and improving numerical stability. The core solution involves iteratively solving an equation relating $ \\Delta t $ to $z$ (related to the universal variable and semi-major axis), where $z$ is evaluated using Stumpff functions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a given $ \\vec{r}_1 $, $ \\vec{r}_2 $, and $ \\Delta t $, how many distinct solutions (transfer orbits) can Lambert's problem yield, and what differentiates them?",
+      "back": "Generally, two primary solutions exist: the \"short way\" (transfer angle $ \\Delta \\theta < \\pi $) and the \"long way\" (transfer angle $ \\Delta \\theta > \\pi $). These correspond to different semi-major axes and thus different specific energies. For transfers involving multiple revolutions, there can be additional solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When solving Lambert's problem for a given $ \\vec{r}_1 $, $ \\vec{r}_2 $, and $ \\Delta t $, how does one identify the \"minimum energy\" solution among the possible transfer orbits?",
+      "back": "The \"minimum energy\" solution for a given $ \\Delta t $ is typically the one with the smallest semi-major axis $a$ (or largest negative specific energy $ \\mathcal{E} $) among the valid solutions (e.g., short way vs. long way, or multi-revolution solutions). This corresponds to the orbit requiring the least total specific energy to achieve the transfer in the specified time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a practical application where solving Lambert's problem is crucial for mission design.",
+      "back": "Lambert's problem is fundamental for interplanetary trajectory design. For example, planning a mission to Mars requires knowing Earth's position ($ \\vec{r}_1 $) and Mars' position ($ \\vec{r}_2 $) at specific times, and a desired time of flight ($ \\Delta t $). Solving Lambert's problem yields the necessary departure velocity from Earth and arrival velocity at Mars, which directly informs the $ \\Delta V $ requirements for the spacecraft.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a given $ \\vec{r}_1 $, $ \\vec{r}_2 $, and $ \\Delta t $, what condition on the semi-major axis $a$ indicates a parabolic transfer orbit, and what is a key characteristic of such an orbit's energy?",
+      "back": "A parabolic transfer occurs when the semi-major axis $a \\rightarrow \\infty$ (or $1/a \\rightarrow 0$). This means the specific energy $ \\mathcal{E} = 0 $. A parabolic orbit represents the minimum possible energy required for a spacecraft to escape the central body's gravitational influence, and it corresponds to a specific $ \\Delta t $ for which the transfer path is parabolic.",
+      "difficulty": "hard"
+    }
+  ]
+}

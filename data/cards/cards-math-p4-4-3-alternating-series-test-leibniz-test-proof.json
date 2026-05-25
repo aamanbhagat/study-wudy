@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-3-alternating-series-test-leibniz-test-proof",
+  "subtopicTitle": "Alternating series test — Leibniz test, proof",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:01:44.422Z",
+  "cards": [
+    {
+      "front": "Define an alternating series.",
+      "back": "An alternating series is a series whose terms alternate in sign. It can typically be written in one of two forms, where $b_n > 0$ for all $n$:\n1. $\\sum_{n=1}^{\\infty} (-1)^{n-1} b_n = b_1 - b_2 + b_3 - b_4 + \\dots$\n2. $\\sum_{n=1}^{\\infty} (-1)^{n} b_n = -b_1 + b_2 - b_3 + b_4 - \\dots$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the two conditions required for an alternating series $\\sum_{n=1}^{\\infty} (-1)^{n-1} b_n$ (with $b_n > 0$) to converge according to the Alternating Series Test (Leibniz Test).",
+      "back": "For the alternating series $\\sum_{n=1}^{\\infty} (-1)^{n-1} b_n$ to converge, two conditions must be met:\n1. The sequence $b_n$ must be decreasing, i.e., $b_{n+1} \\le b_n$ for all $n$.\n2. The limit of the terms $b_n$ must be zero, i.e., $\\lim_{n \\to \\infty} b_n = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Does the series $\\sum_{n=1}^{\\infty} (-1)^{n-1} \\frac{n}{n+1}$ converge by the Alternating Series Test? Explain.",
+      "back": "No, the series does not converge by the Alternating Series Test. While it is an alternating series, the second condition, $\\lim_{n \\to \\infty} b_n = 0$, is not met.\nHere, $b_n = \\frac{n}{n+1}$.\n$\\lim_{n \\to \\infty} b_n = \\lim_{n \\to \\infty} \\frac{n}{n+1} = 1 \\ne 0$.\nSince the terms do not approach zero, the series diverges by the Test for Divergence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does the series $\\sum_{n=1}^{\\infty} (-1)^{n} \\frac{1}{\\sqrt{n}}$ converge by the Alternating Series Test? Justify your answer.",
+      "back": "Yes, the series converges by the Alternating Series Test.\nHere, $b_n = \\frac{1}{\\sqrt{n}}$.\n1. Decreasing condition: For $n \\ge 1$, $\\sqrt{n+1} > \\sqrt{n}$, so $\\frac{1}{\\sqrt{n+1}} < \\frac{1}{\\sqrt{n}}$. Thus, $b_{n+1} < b_n$, meaning $b_n$ is a decreasing sequence.\n2. Limit condition: $\\lim_{n \\to \\infty} b_n = \\lim_{n \\to \\infty} \\frac{1}{\\sqrt{n}} = 0$.\nBoth conditions are satisfied, so the series converges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why must $b_n$ be decreasing and $\\lim_{n \\to \\infty} b_n = 0$ for an alternating series $\\sum (-1)^{n-1} b_n$ to converge?",
+      "back": "1. $\\lim_{n \\to \\infty} b_n = 0$: This is a fundamental requirement for any series to converge. If the terms $b_n$ do not approach zero, the sum cannot settle to a finite value, as new terms would continue to add a significant amount.\n2. $b_n$ is decreasing: This ensures that the partial sums 'oscillate' with diminishing amplitude. Each positive term adds to the sum, then each negative term subtracts, but by a smaller amount than the previous addition. This 'dampened oscillation' means the partial sums are always moving closer to a central limit, rather than diverging or oscillating with constant/increasing amplitude.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the proof of the Alternating Series Test, show that the sequence of even partial sums $S_{2k}$ is increasing and bounded above.",
+      "back": "Let $S_n = \\sum_{i=1}^{n} (-1)^{i-1} b_i$. The even partial sums are $S_{2k} = b_1 - b_2 + b_3 - b_4 + \\dots + b_{2k-1} - b_{2k}$.\nTo show $S_{2k}$ is increasing, consider $S_{2k+2} - S_{2k} = (b_1 - \\dots - b_{2k} + b_{2k+1} - b_{2k+2}) - (b_1 - \\dots - b_{2k}) = b_{2k+1} - b_{2k+2}$.\nSince $b_n$ is a decreasing sequence, $b_{2k+1} \\ge b_{2k+2}$, so $b_{2k+1} - b_{2k+2} \\ge 0$. Thus, $S_{2k+2} \\ge S_{2k}$, meaning $S_{2k}$ is increasing.\nTo show $S_{2k}$ is bounded above, rewrite $S_{2k} = b_1 - (b_2 - b_3) - (b_4 - b_5) - \\dots - (b_{2k-2} - b_{2k-1}) - b_{2k}$.\nSince $b_n$ is decreasing, each term $(b_i - b_{i+1}) \\ge 0$. Also, $b_{2k} \\ge 0$.\nTherefore, $S_{2k} = b_1 - (\\text{sum of non-negative terms}) \\le b_1$. $S_{2k}$ is bounded above by $b_1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Continuing the proof of the Alternating Series Test, show that the sequence of odd partial sums $S_{2k+1}$ converges to the same limit as $S_{2k}$, thus proving the series converges.",
+      "back": "From the previous step, we established that the increasing and bounded sequence $S_{2k}$ converges to some limit $L$. So, $\\lim_{k \\to \\infty} S_{2k} = L$.\nNow consider the odd partial sums: $S_{2k+1} = S_{2k} + b_{2k+1}$.\nWe take the limit as $k \\to \\infty$:\n$\\lim_{k \\to \\infty} S_{2k+1} = \\lim_{k \\to \\infty} (S_{2k} + b_{2k+1})$\nBy the limit properties, this is $\\lim_{k \\to \\infty} S_{2k} + \\lim_{k \\to \\infty} b_{2k+1}$.\nWe know $\\lim_{k \\to \\infty} S_{2k} = L$. Also, by the second condition of the Alternating Series Test, $\\lim_{n \\to \\infty} b_n = 0$, so $\\lim_{k \\to \\infty} b_{2k+1} = 0$.\nTherefore, $\\lim_{k \\to \\infty} S_{2k+1} = L + 0 = L$.\nSince both the sequence of even partial sums and the sequence of odd partial sums converge to the same limit $L$, the sequence of partial sums $S_n$ converges to $L$. Hence, the alternating series converges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Alternating Series Estimation Theorem regarding the error in approximating the sum $S$ of a convergent alternating series.",
+      "back": "If $S = \\sum_{n=1}^{\\infty} (-1)^{n-1} b_n$ is the sum of a convergent alternating series (where $b_n$ satisfies the conditions of the Alternating Series Test), then the error $|R_n|$ in approximating $S$ by its $n$-th partial sum $S_n$ is bounded by the absolute value of the first neglected term:\n$|R_n| = |S - S_n| \\le b_{n+1}$.\nFurthermore, the sum $S$ lies between any two consecutive partial sums $S_n$ and $S_{n+1}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

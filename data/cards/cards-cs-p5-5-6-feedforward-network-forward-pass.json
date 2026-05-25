@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-6-feedforward-network-forward-pass",
+  "subtopicTitle": "Feedforward network — forward pass",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:12.402Z",
+  "cards": [
+    {
+      "front": "Define a \"feedforward neural network.\"",
+      "back": "A type of artificial neural network where connections between nodes do not form a cycle. Information flows strictly in one direction: from the input layer, through any hidden layers, to the output layer, without loops or backward connections.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"forward pass\" in a feedforward network.",
+      "back": "The forward pass is the process of taking input data, propagating it through each layer of the network (applying weights, biases, and activation functions sequentially), to compute and produce the final output prediction or classification.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a single neuron, what is the formula for its weighted sum ($z$) before activation?",
+      "back": "The weighted sum ($z$) for a single neuron is calculated by multiplying each input by its corresponding weight and summing these products, then adding a bias term. In vector form, for inputs $\\mathbf{x}$ and weights $\\mathbf{w}$: $$z = \\mathbf{w}^T \\mathbf{x} + b$$ Where $b$ is the bias.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of an activation function in a neuron's forward pass? Give an example.",
+      "back": "Activation functions introduce non-linearity into the network. Without them, a multi-layer neural network would behave like a single-layer linear model, unable to learn complex patterns. They transform the weighted sum into an output signal. An example is the Rectified Linear Unit (ReLU) function: $f(z) = \\max(0, z)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the matrix formula for calculating the weighted sum ($\\mathbf{Z}$) for an entire layer of neurons, given input $\\mathbf{X}$, weight matrix $\\mathbf{W}$, and bias vector $\\mathbf{b}$.",
+      "back": "For a layer, if $\\mathbf{X}$ is the input (a vector for a single sample, or matrix for a batch), $\\mathbf{W}$ is the weight matrix, and $\\mathbf{b}$ is the bias vector, the weighted sum $\\mathbf{Z}$ for the entire layer is calculated as: $$\\mathbf{Z} = \\mathbf{W}\\mathbf{X} + \\mathbf{b}$$ Subsequently, the activated output $\\mathbf{A} = f(\\mathbf{Z})$, where $f$ is the element-wise activation function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the output of a neuron with inputs $\\mathbf{x} = [0.5, -0.2]$, weights $\\mathbf{w} = [1.0, -0.5]$, bias $b = 0.1$, and ReLU activation.",
+      "back": "1. Calculate the weighted sum ($z$):\n   $z = (1.0 \\times 0.5) + (-0.5 \\times -0.2) + 0.1$\n   $z = 0.5 + 0.1 + 0.1$\n   $z = 0.7$\n2. Apply ReLU activation $f(z) = \\max(0, z)$:\n   $a = \\max(0, 0.7) = 0.7$\n   The neuron's output is $0.7$.\n```python\nimport numpy as np\nx = np.array([0.5, -0.2])\nw = np.array([1.0, -0.5])\nb = 0.1\nz = np.dot(w, x) + b\na = np.maximum(0, z) # ReLU\n# print(a) # Output: 0.7\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does a forward pass transform raw sensor data (e.g., engine temperature, pressure) into an aircraft fault prediction in an aerospace ML application?",
+      "back": "Raw sensor data (e.g., engine temperature, pressure, vibration, fuel flow) is fed as the network's input. During the forward pass, each layer processes these inputs through weighted sums and activation functions. Early layers might learn to detect simple patterns like sudden temperature drops or pressure spikes. Subsequent layers combine these lower-level features to identify more complex, abstract patterns indicative of specific faults (e.g., a specific combination of temperature, pressure, and vibration might signal a turbine blade crack). The final output layer then produces probabilities or classifications for different fault types.",
+      "difficulty": "hard"
+    }
+  ]
+}

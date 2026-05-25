@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-systems-engineering-v-model-requirements-traceability",
+  "subtopicTitle": "Systems engineering — V-model, requirements traceability",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:05.695Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Systems Engineering V-model?",
+      "back": "The V-model illustrates the relationship between development phases (requirements definition and system decomposition) and corresponding testing phases (system integration and verification) in a structured, integrated manner, emphasizing verification and validation throughout the lifecycle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the two main 'arms' or sides of the V-model and what they generally represent.",
+      "back": "The left arm represents requirements definition and system decomposition (design phases), moving from abstract user needs to detailed component specifications. The right arm represents system integration and verification (testing phases), moving from component testing up to full system validation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the V-model, which specific testing phase typically corresponds to the 'System Design' phase on the left arm?",
+      "back": "The 'System Integration Testing' phase. This phase verifies that the integrated subsystems function correctly as a complete system, ensuring that the overall system architecture and interfaces defined during System Design meet their specifications.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between 'verification' and 'validation' within the context of the V-model.",
+      "back": "**Verification** asks: 'Are we building the system right?' It checks if the system meets its specified requirements and design (e.g., component testing, system integration testing). **Validation** asks: 'Are we building the right system?' It checks if the system meets the user's needs and intended purpose (e.g., acceptance testing, operational testing).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define 'requirements traceability' in the context of systems engineering.",
+      "back": "Requirements traceability is the ability to document and follow the life of a requirement, in both a forward and backward direction, from its origin (e.g., mission objective), through its development and specification (e.g., design, code), to its deployment and verification (e.g., test cases), and across all phases of the system lifecycle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is robust requirements traceability particularly critical for complex spacecraft missions?",
+      "back": "It ensures that all mission objectives are met, helps identify the impact of changes across the system, supports comprehensive verification and validation, aids in fault isolation and root cause analysis, provides an auditable record for regulatory compliance and safety, and manages complexity in high-stakes, long-duration projects.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how a 'traceability matrix' would link a top-level mission requirement (e.g., 'The spacecraft shall maintain orbital stability within $\\pm 0.1^\\circ$ for 5 years') to lower-level design elements and test cases.",
+      "back": "A traceability matrix is a table linking requirements to other artifacts. For the given requirement, it would link:\n1.  **Mission Requirement:** 'Spacecraft orbital stability $\\pm 0.1^\\circ$ for 5 years.'\n2.  **System Requirements:** e.g., 'Attitude Determination and Control System (ADCS) shall provide pointing accuracy of $\\pm 0.05^\\circ$.'\n3.  **Subsystem Requirements:** e.g., 'Star tracker shall provide $\\pm 1$ arc-second accuracy.'\n4.  **Design Elements:** e.g., ADCS software module, specific reaction wheel model, star tracker hardware.\n5.  **Test Cases:** e.g., 'Perform 5-year orbital simulation with ADCS model to verify stability,' 'Ground test star tracker accuracy.'\nThis ensures all aspects contribute to and verify the top-level goal.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the iterative nature of agile development reconcile with the sequential nature implied by the V-model in spacecraft systems engineering?",
+      "back": "While the V-model appears sequential, its phases can be applied iteratively within a larger project. An 'outer' V-model defines major system increments (e.g., a specific subsystem or mission phase). Within each increment, smaller 'inner' V-models or agile sprints can be executed for specific components (especially software). Requirements for each iteration are defined, designed, implemented, and tested. The V-model provides the overarching framework for formal verification and validation at major integration points, while agile methods optimize development within those phases, allowing for early feedback and adaptation.",
+      "difficulty": "hard"
+    }
+  ]
+}

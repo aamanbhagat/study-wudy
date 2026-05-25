@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-convergence-tests-for-improper-integrals-comparison",
+  "subtopicTitle": "Convergence tests for improper integrals — comparison",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:56.542Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of comparison tests (Direct Comparison Test and Limit Comparison Test) for improper integrals?",
+      "back": "To determine the convergence or divergence of an improper integral by comparing its integrand to another integrand whose convergence or divergence is already known. They are particularly useful when direct integration is difficult or impossible.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the conditions and conclusion for the Direct Comparison Test (DCT) to show that an improper integral $\\int_a^\\infty f(x) \\, dx$ converges.",
+      "back": "Let $f(x)$ and $g(x)$ be continuous functions such that $0 \\le f(x) \\le g(x)$ for all $x \\ge a$. If $\\int_a^\\infty g(x) \\, dx$ converges, then $\\int_a^\\infty f(x) \\, dx$ also converges. (A smaller positive integral bounded by a convergent larger positive integral must also converge).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions and conclusion for the Direct Comparison Test (DCT) to show that an improper integral $\\int_a^\\infty f(x) \\, dx$ diverges.",
+      "back": "Let $f(x)$ and $g(x)$ be continuous functions such that $0 \\le g(x) \\le f(x)$ for all $x \\ge a$. If $\\int_a^\\infty g(x) \\, dx$ diverges, then $\\int_a^\\infty f(x) \\, dx$ also diverges. (A larger positive integral bounded below by a divergent smaller positive integral must also diverge).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Direct Comparison Test to determine if $\\int_1^\\infty \\frac{\\sin^2(x)}{x^2} \\, dx$ converges or diverges.",
+      "back": "For $x \\ge 1$, we know that $0 \\le \\sin^2(x) \\le 1$. Therefore, $0 \\le \\frac{\\sin^2(x)}{x^2} \\le \\frac{1}{x^2}$. The integral $\\int_1^\\infty \\frac{1}{x^2} \\, dx$ is a p-integral with $p=2 > 1$, which converges. Since $0 \\le \\frac{\\sin^2(x)}{x^2} \\le \\frac{1}{x^2}$ and $\\int_1^\\infty \\frac{1}{x^2} \\, dx$ converges, by the Direct Comparison Test, $\\int_1^\\infty \\frac{\\sin^2(x)}{x^2} \\, dx$ converges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions and conclusion for the Limit Comparison Test (LCT) for improper integrals $\\int_a^\\infty f(x) \\, dx$ and $\\int_a^\\infty g(x) \\, dx$.",
+      "back": "Let $f(x)$ and $g(x)$ be positive and continuous functions for $x \\ge a$. If $\\lim_{x \\to \\infty} \\frac{f(x)}{g(x)} = L$, where $L$ is a finite, positive number ($0 < L < \\infty$), then both $\\int_a^\\infty f(x) \\, dx$ and $\\int_a^\\infty g(x) \\, dx$ either both converge or both diverge. (Special cases: If $L=0$ and $\\int g(x) dx$ converges, then $\\int f(x) dx$ converges. If $L=\\infty$ and $\\int g(x) dx$ diverges, then $\\int f(x) dx$ diverges.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Limit Comparison Test to determine if $\\int_1^\\infty \\frac{x+1}{\\sqrt{x^4+1}} \\, dx$ converges or diverges.",
+      "back": "For large $x$, $f(x) = \\frac{x+1}{\\sqrt{x^4+1}}$ behaves like $\\frac{x}{\\sqrt{x^4}} = \\frac{x}{x^2} = \\frac{1}{x}$. Let $g(x) = \\frac{1}{x}$. We know $\\int_1^\\infty \\frac{1}{x} \\, dx$ is a p-integral with $p=1$, which diverges. Now, calculate the limit: $$ \\lim_{x \\to \\infty} \\frac{f(x)}{g(x)} = \\lim_{x \\to \\infty} \\frac{(x+1)/\\sqrt{x^4+1}}{1/x} = \\lim_{x \\to \\infty} \\frac{x(x+1)}{\\sqrt{x^4+1}} $$ $$ = \\lim_{x \\to \\infty} \\frac{x^2+x}{\\sqrt{x^4+1}} = \\lim_{x \\to \\infty} \\frac{x^2(1+1/x)}{\\sqrt{x^4(1+1/x^4)}} = \\lim_{x \\to \\infty} \\frac{x^2(1+1/x)}{x^2\\sqrt{1+1/x^4}} $$ $$ = \\lim_{x \\to \\infty} \\frac{1+1/x}{\\sqrt{1+1/x^4}} = \\frac{1+0}{\\sqrt{1+0}} = 1 $$ Since $L=1$ (a finite, positive number) and $\\int_1^\\infty \\frac{1}{x} \\, dx$ diverges, by the Limit Comparison Test, $\\int_1^\\infty \\frac{x+1}{\\sqrt{x^4+1}} \\, dx$ also diverges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When is the Limit Comparison Test generally preferred over the Direct Comparison Test for improper integrals?",
+      "back": "LCT is preferred when:\n1. It's difficult to establish a direct inequality ($f(x) \\le g(x)$ or $g(x) \\le f(x)$) between the integrand and a known function.\n2. The integrand contains sums or differences of terms that make direct comparison tricky, but its dominant term for large $x$ is clear.\nDCT requires careful inequality proof, while LCT relies on asymptotic behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What crucial property must the integrands $f(x)$ and $g(x)$ satisfy for both the Direct Comparison Test and Limit Comparison Test to be applicable?",
+      "back": "Both $f(x)$ and $g(x)$ must be **non-negative** (i.e., $f(x) \\ge 0$ and $g(x) \\ge 0$) on the interval of integration. Without this condition, the tests can lead to incorrect conclusions.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-9-multiple-regression",
+  "subtopicTitle": "Multiple regression",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:53.906Z",
+  "cards": [
+    {
+      "front": "Define multiple linear regression and its primary distinction from simple linear regression.",
+      "back": "Multiple linear regression models the linear relationship between a dependent variable $Y$ and *two or more* independent variables $X_1, X_2, \\dots, X_p$. Simple linear regression, in contrast, uses only *one* independent variable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the multiple linear regression model equation and interpret a coefficient $\\beta_j$.",
+      "back": "The model equation is: $Y_i = \\beta_0 + \\beta_1 X_{i1} + \\beta_2 X_{i2} + \\dots + \\beta_p X_{ip} + \\epsilon_i$. \\n$\\beta_j$ represents the expected change in the dependent variable $Y$ for a one-unit increase in the independent variable $X_j$, *holding all other independent variables constant*.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key Gauss-Markov assumptions for OLS estimators to be BLUE (Best Linear Unbiased Estimators).",
+      "back": "1.  **Linearity**: The model is linear in parameters. \\n2.  **Random Sampling**: The data is a random sample from the population. \\n3.  **No Perfect Multicollinearity**: No independent variable is a perfect linear combination of other independent variables. \\n4.  **Zero Conditional Mean**: The error term has an expected value of zero, conditional on the independent variables: $E(\\epsilon_i | X_{i1}, \\dots, X_{ip}) = 0$. \\n5.  **Homoscedasticity**: The error term has constant variance, conditional on the independent variables: $Var(\\epsilon_i | X_{i1}, \\dots, X_{ip}) = \\sigma^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the OLS estimator $\\hat{\\boldsymbol{\\beta}}$ for multiple linear regression using matrix notation.",
+      "back": "The multiple linear regression model in matrix form is $\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}$. \\nThe sum of squared residuals (SSR) is $SSR = \\boldsymbol{\\epsilon}^T\\boldsymbol{\\epsilon} = (\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^T(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})$. \\nTo minimize SSR, we take the derivative with respect to $\\boldsymbol{\\beta}$ and set it to zero: \\n$$ \\frac{\\partial SSR}{\\partial \\boldsymbol{\\beta}} = -2\\mathbf{X}^T(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}) = \\mathbf{0} $$ \\n$$ \\mathbf{X}^T\\mathbf{y} - \\mathbf{X}^T\\mathbf{X}\\boldsymbol{\\beta} = \\mathbf{0} $$ \\n$$ \\mathbf{X}^T\\mathbf{X}\\boldsymbol{\\beta} = \\mathbf{X}^T\\mathbf{y} $$ \\nAssuming $\\mathbf{X}^T\\mathbf{X}$ is invertible, the OLS estimator is: \\n$$ \\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^T\\mathbf{X})^{-1}\\mathbf{X}^T\\mathbf{y} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the difference between $R^2$ and Adjusted $R^2$ in multiple regression. When is Adjusted $R^2$ preferred?",
+      "back": "$R^2$ (coefficient of determination) measures the proportion of variance in the dependent variable explained by the independent variables. It always increases or stays the same when new predictors are added, even if they don't significantly improve the model. \\nAdjusted $R^2$ accounts for the number of predictors and sample size, penalizing the inclusion of unnecessary variables. It only increases if a new variable improves the model more than would be expected by chance. \\nAdjusted $R^2$ is preferred when comparing models with different numbers of predictors, as it provides a more honest assessment of model fit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is multicollinearity, what are its symptoms, and how can it be detected?",
+      "back": "Multicollinearity occurs when two or more independent variables in a multiple regression model are highly correlated with each other. \\n**Symptoms**: \\n1. Large standard errors for coefficients, leading to insignificant t-statistics. \\n2. Coefficients with unexpected signs or magnitudes. \\n3. A high overall $R^2$ but few individually significant predictors. \\n**Detection**: \\n1. High pairwise correlations between independent variables. \\n2. Variance Inflation Factor (VIF) values greater than 5 or 10. \\n3. Examining eigenvalues of the correlation matrix of predictors.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you model an interaction effect between two continuous variables, $X_1$ and $X_2$, and how is the effect of $X_1$ interpreted in such a model?",
+      "back": "To model an interaction, include a product term of the two variables in the regression equation: \\n$$ Y = \\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\beta_3 (X_1 X_2) + \\epsilon $$ \\nThe effect of $X_1$ on $Y$ is no longer constant. To interpret, we take the partial derivative of $Y$ with respect to $X_1$: \\n$$ \\frac{\\partial Y}{\\partial X_1} = \\beta_1 + \\beta_3 X_2 $$ \\nThis means that the effect of a one-unit increase in $X_1$ on $Y$ depends on the value of $X_2$. Specifically, for every one-unit increase in $X_2$, the effect of $X_1$ on $Y$ changes by $\\beta_3$.",
+      "difficulty": "hard"
+    }
+  ]
+}

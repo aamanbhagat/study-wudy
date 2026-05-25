@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-2-yagni-you-aren-t-gonna-need-it",
+  "subtopicTitle": "YAGNI — You Aren't Gonna Need It",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:27.061Z",
+  "cards": [
+    {
+      "front": "What does the acronym YAGNI stand for, and what is its core principle in software development?",
+      "back": "YAGNI stands for \"You Aren't Gonna Need It.\" Its core principle is to avoid adding functionality, features, or infrastructure until it is absolutely necessary and has a concrete, immediate requirement.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List two primary benefits of strictly adhering to the YAGNI principle in software development.",
+      "back": "1.  **Reduces Complexity & Technical Debt:** Prevents the codebase from becoming bloated with unused or overly generalized code. \n2.  **Saves Time & Resources:** Avoids spending effort on features that may never be used, allowing focus on current priorities. \n3.  **Faster Delivery:** Less code to write, test, and maintain means features can be shipped more quickly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A developer is building an API and considers adding a caching layer for a feature that currently has very low traffic. How would YAGNI advise them?",
+      "back": "YAGNI would advise against adding the caching layer *now*. Caching adds complexity and maintenance overhead. It should only be implemented when performance profiling clearly indicates a bottleneck and the current traffic volume genuinely necessitates it, not based on speculative future needs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how YAGNI complements the KISS (Keep It Simple, Stupid) principle.",
+      "back": "YAGNI directly supports KISS by preventing the introduction of unnecessary complexity. By only building what's needed *now*, YAGNI ensures that the solution remains as simple as possible, avoiding speculative features or over-engineering that would make the system more intricate than required.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two common negative consequences of *ignoring* the YAGNI principle and building speculative features?",
+      "back": "1.  **Increased Technical Debt:** Unused or overly complex code still needs to be understood, maintained, and potentially refactored, even if it's not actively used.\n2.  **Wasted Resources:** Time, effort, and money are spent on features that provide no immediate value and might never be used, diverting resources from critical tasks.\n3.  **Slower Development:** More code means more to build, test, and debug, slowing down the delivery of essential features.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "While YAGNI promotes minimalism, when might it be reasonable to *slightly* deviate and build a small, easily extensible abstraction for a future need?",
+      "back": "It might be reasonable when:\n1.  The future need is *highly probable* and well-understood, almost a certainty.\n2.  The cost of adding the abstraction *later* would be significantly higher (e.g., requiring a fundamental architectural change).\n3.  The abstraction is *minimal* and doesn't add significant complexity or overhead *now*. This requires careful judgment and a deep understanding of the domain.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the practice of 'refactoring' work in conjunction with YAGNI to ensure code quality over time?",
+      "back": "YAGNI encourages building only what's needed now, which might initially lead to simpler, less generalized code. Refactoring then allows developers to evolve and improve the design of the existing, working code *as new requirements emerge*. This ensures that the code remains clean, adaptable, and well-structured without over-engineering upfront, embracing an iterative approach to design.",
+      "difficulty": "medium"
+    }
+  ]
+}

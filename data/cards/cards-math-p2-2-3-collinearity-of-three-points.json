@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-3-collinearity-of-three-points",
+  "subtopicTitle": "Collinearity of three points",
+  "topicId": "math-p2-2-3-coordinate-geometry",
+  "topicTitle": "Coordinate Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:10.134Z",
+  "cards": [
+    {
+      "front": "Define \"collinear points\" in coordinate geometry.",
+      "back": "Points are said to be collinear if they all lie on the same straight line.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the condition for three points $A(x_1, y_1)$, $B(x_2, y_2)$, $C(x_3, y_3)$ to be collinear using the concept of slopes.",
+      "back": "For points $A, B, C$ to be collinear, the slope of any two segments formed by these points must be equal. For example, the slope of segment $AB$ must be equal to the slope of segment $BC$. That is, $m_{AB} = m_{BC}$.\n$$ \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{y_3 - y_2}{x_3 - x_2} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the condition for three points $A(x_1, y_1)$, $B(x_2, y_2)$, $C(x_3, y_3)$ to be collinear using the area of a triangle.",
+      "back": "For points $A, B, C$ to be collinear, the area of the triangle formed by these three points must be zero. The formula for the area of a triangle is:\n$$ \\text{Area} = \\frac{1}{2} |x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)| $$\nSo, for collinearity, $x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Are points $A(1, 2)$, $B(3, 4)$, $C(5, 6)$ collinear? Use the slope method to justify your answer.",
+      "back": "Calculate the slopes:\nSlope of $AB = m_{AB} = \\frac{4-2}{3-1} = \\frac{2}{2} = 1$\nSlope of $BC = m_{BC} = \\frac{6-4}{5-3} = \\frac{2}{2} = 1$\nSince $m_{AB} = m_{BC} = 1$, the points $A, B, C$ are collinear.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Are points $P(1, 1)$, $Q(2, 3)$, $R(3, 5)$ collinear? Use the area of a triangle method to justify your answer.",
+      "back": "Using the area formula: $\\text{Area} = \\frac{1}{2} |x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$\nSubstituting the coordinates $P(1, 1)$, $Q(2, 3)$, $R(3, 5)$:\n$\\text{Area} = \\frac{1}{2} |1(3 - 5) + 2(5 - 1) + 3(1 - 3)|$\n$\\text{Area} = \\frac{1}{2} |1(-2) + 2(4) + 3(-2)|$\n$\\text{Area} = \\frac{1}{2} |-2 + 8 - 6|$\n$\\text{Area} = \\frac{1}{2} |0| = 0$\nSince the area of the triangle formed by $P, Q, R$ is 0, the points are collinear.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the condition for collinearity using the area of a triangle for points $A(x_1, y_1)$, $B(x_2, y_2)$, $C(x_3, y_3)$. Explain the geometric intuition.",
+      "back": "Geometrically, if three points $A, B, C$ are collinear, they all lie on the same straight line. When points lie on a single line, they cannot form a triangle with any positive area. The \"triangle\" they form is degenerate, having a height of zero. Therefore, its area must be zero.\n\nThe formula for the area of a triangle with vertices $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ is:\n$$ \\text{Area} = \\frac{1}{2} |x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)| $$\nFor collinearity, we set the area to zero:\n$$ \\frac{1}{2} |x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)| = 0 $$\nThis implies the expression inside the absolute value must be zero:\n$$ x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2) = 0 $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the value of $k$ if the points $A(1, 3)$, $B(2, k)$, $C(3, 7)$ are collinear.",
+      "back": "Using the slope method, if $A, B, C$ are collinear, then $m_{AB} = m_{BC}$.\nSlope of $AB = \\frac{k-3}{2-1} = \\frac{k-3}{1} = k-3$\nSlope of $BC = \\frac{7-k}{3-2} = \\frac{7-k}{1} = 7-k$\nSet the slopes equal:\n$k-3 = 7-k$\n$2k = 10$\n$k = 5$\nThus, the value of $k$ is 5.",
+      "difficulty": "hard"
+    }
+  ]
+}

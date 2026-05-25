@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-nested-conditionals",
+  "subtopicTitle": "Nested conditionals",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:59.602Z",
+  "cards": [
+    {
+      "front": "What is a \"nested conditional\" in programming?",
+      "back": "A conditional statement (like `if`, `elif`, `else`) placed inside another conditional statement. It allows for more complex decision-making by evaluating a condition only after an outer condition has been met.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Python, how do you visually distinguish a nested `if` statement from an outer `if` statement? Provide a minimal example.",
+      "back": "Nested `if` statements are distinguished by their **indentation**. Each level of nesting requires an additional level of indentation (typically 4 spaces).\n```python\nif condition1:\n    # Outer block\n    if condition2:\n        # Nested block\n        print(\"Both conditions met.\")\n    else:\n        print(\"Condition1 met, but not condition2.\")\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the flow of execution for the following Python code snippet, assuming `x = 10` and `y = 5`.\n```python\nif x > 5:\n    if y < 10:\n        print(\"A\")\n    else:\n        print(\"B\")\nelse:\n    print(\"C\")\n```",
+      "back": "1. The outer condition `x > 5` (10 > 5) is `True`.\n2. The program enters the outer `if` block.\n3. The nested condition `y < 10` (5 < 10) is `True`.\n4. The program enters the nested `if` block and prints \"A\".\n5. The execution of the conditional statement finishes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Python code snippet using nested conditionals to determine if a person is eligible to vote (age $\\ge 18$) AND registered in a specific `district` (e.g., \"North\"). Assume `age`, `is_registered` (boolean), and `district` variables exist.",
+      "back": "```python\nage = 20\nis_registered = True\ndistrict = \"North\"\n\nif age >= 18:\n    if is_registered:\n        if district == \"North\":\n            print(\"Eligible to vote and registered in North district.\")\n        else:\n            print(\"Eligible to vote and registered, but not in North district.\")\n    else:\n        print(\"Eligible by age, but not registered.\")\nelse:\n    print(\"Not eligible to vote by age.\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When might you prefer using the logical `and` operator to combine conditions instead of nesting `if` statements, and what's a key difference in their typical use cases?",
+      "back": "You might prefer `and` when conditions are **independent** and you only care if *all* of them are true to execute a single block of code:\n```python\nif condition1 and condition2:\n    print(\"Both are true.\")\n```\nNesting is preferred when the execution of an inner condition (or its associated code) **depends on the outer condition being true**, and you need different actions based on which specific combination of conditions is met or not met at various levels. It allows for more granular control and different `else` branches for each level.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a potential drawback of excessively deep nesting of conditional statements in terms of code quality?",
+      "back": "Excessively deep nesting (often called \"arrow code\" due to the visual shape) can significantly reduce code **readability** and **maintainability**. It makes the logic harder to follow, increases cognitive load, and can lead to more complex debugging and higher chances of introducing bugs when modifying the code.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Refactor the following nested conditional using `elif` statements to achieve the same logic, assuming `score` is an integer.\n```python\nscore = 75\nif score >= 90:\n    print(\"Grade A\")\nelse:\n    if score >= 80:\n        print(\"Grade B\")\n    else:\n        if score >= 70:\n            print(\"Grade C\")\n        else:\n            print(\"Grade F\")\n```",
+      "back": "```python\nscore = 75\nif score >= 90:\n    print(\"Grade A\")\nelif score >= 80:\n    print(\"Grade B\")\nelif score >= 70:\n    print(\"Grade C\")\nelse:\n    print(\"Grade F\")\n```\nThis refactoring improves readability by flattening the conditional structure when evaluating mutually exclusive conditions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the following code. If `x = 5` and `y = 12`, what will be printed? Explain why the `else` is associated with a specific `if`.\n```python\nx = 5\ny = 12\nif x > 10:\n    if y > 10:\n        print(\"A\")\nelse:\n    print(\"B\")\n```",
+      "back": "The code will print \"B\".\nIn Python, an `else` statement is always associated with the **nearest preceding `if` statement at the same indentation level**.\n1. The outer condition `x > 10` (5 > 10) is `False`.\n2. Therefore, the program skips the outer `if` block entirely (including the nested `if y > 10:`).\n3. The `else` block associated with the outer `if` is executed, printing \"B\".",
+      "difficulty": "hard"
+    }
+  ]
+}

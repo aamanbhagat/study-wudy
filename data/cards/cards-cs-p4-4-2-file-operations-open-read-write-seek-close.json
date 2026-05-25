@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-file-operations-open-read-write-seek-close",
+  "subtopicTitle": "File operations — open, read, write, seek, close",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:16.987Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `open()` system call in operating systems?",
+      "back": "To establish a connection between a process and a file on persistent storage, returning a unique identifier called a file descriptor (or file handle in some contexts) for subsequent operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When using `lseek()` (or equivalent `fseek()` in C stdio), what are the three common `whence` arguments and their meaning?",
+      "back": "<ul><li>`SEEK_SET`: The offset is relative to the beginning of the file.</li><li>`SEEK_CUR`: The offset is relative to the current position of the file pointer.</li><li>`SEEK_END`: The offset is relative to the end of the file.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a \"file descriptor\" and why is it crucial for file operations in a process?",
+      "back": "A small, non-negative integer (typically 0, 1, 2 are reserved for stdin, stdout, stderr) used by the OS kernel to identify an open file or I/O resource within a specific process. It's crucial because all subsequent file operations (`read`, `write`, `lseek`, `close`) refer to the file via this descriptor, abstracting away the file's actual location and type.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the difference in behavior between opening a file with mode `\"w\"` versus `\"a\"` (write vs. append) in terms of file creation and existing content.",
+      "back": "<ul><li>`\"w\"` (write): If the file exists, its contents are <strong>truncated</strong> (emptied) to zero length. If the file does not exist, it is created. New data is written from the beginning of the file.</li><li>`\"a\"` (append): If the file exists, new data is written to the <strong>end</strong> of the file, preserving existing content. If the file does not exist, it is created.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A program needs to read 100 bytes from a file, starting at an offset of 512 bytes from the beginning. Outline the typical sequence of POSIX system calls.",
+      "back": "```c\nint fd;\nchar buffer[100];\n\n// 1. Open the file for reading\nfd = open(\"my_file.bin\", O_RDONLY);\nif (fd == -1) { /* handle error */ }\n\n// 2. Move the file pointer to the desired offset\noff_t new_pos = lseek(fd, 512, SEEK_SET);\nif (new_pos == (off_t)-1) { /* handle error */ }\n\n// 3. Read 100 bytes from the current file pointer position\nssize_t bytes_read = read(fd, buffer, 100);\nif (bytes_read == -1) { /* handle error */ }\n// Note: bytes_read might be < 100 if EOF is reached or other issues.\n\n// 4. Close the file\nclose(fd);\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it signify if the `read()` system call returns a value less than the requested number of bytes, but not -1?",
+      "back": "It indicates that the end of the file (EOF) has been reached, or that the system could not provide all requested bytes (e.g., due to a pipe, non-blocking I/O, or a partial read from a device) but some data was still read successfully. A return value of 0 specifically indicates that EOF was reached and no bytes were read.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why might data written using `write()` not immediately appear on disk, and what system call can explicitly force it to persistent storage?",
+      "back": "Operating systems employ buffering for performance. Data written via `write()` often goes into an in-memory buffer managed by the OS kernel. It's only flushed to disk when the buffer is full, explicitly requested, the file is closed, or the system needs to free up memory. The `fsync()` (file synchronize) system call can explicitly force all buffered data for a given file descriptor to be written to the underlying storage device.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides making the file descriptor unavailable, what crucial actions does the `close()` system call perform regarding system resources and data integrity?",
+      "back": "<ul><li><strong>Releases File Descriptor:</strong> Frees up the file descriptor number so it can be reused by the process.</li><li><strong>Releases Kernel Resources:</strong> Deallocates kernel data structures associated with the open file (e.g., entries in the per-process open file table and the system-wide open file table).</li><li><strong>Flushes Buffers:</strong> Ensures that any remaining buffered data associated with that file descriptor is written to the underlying storage device, maintaining data integrity and persistence.</li><li><strong>Removes Locks:</strong> Releases any advisory or mandatory file locks held by the process on that file.</li></ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

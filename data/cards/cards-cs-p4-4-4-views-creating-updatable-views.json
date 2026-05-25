@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-views-creating-updatable-views",
+  "subtopicTitle": "Views — creating, updatable views",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:44.027Z",
+  "cards": [
+    {
+      "front": "In SQL, what is a \"view\" and what primary purpose does it serve?",
+      "back": "A view is a virtual table based on the result-set of a SQL query. It does not store data itself but rather provides a dynamic window into the underlying base tables, simplifying complex queries and enhancing data security and abstraction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the SQL query to create a view named `HighSalaryEmployees` that shows `EmpID`, `Name`, and `Salary` for employees with `Salary > 50000` from a table `Employees`.",
+      "back": "```sql\nCREATE VIEW HighSalaryEmployees AS\nSELECT EmpID, Name, Salary\nFROM Employees\nWHERE Salary > 50000;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three key benefits of using views in a database system.",
+      "back": "1.  **Security:** Restrict access to specific rows/columns without granting full table access.\n2.  **Simplicity:** Simplify complex queries by pre-joining tables or pre-filtering data, presenting a simpler interface to users.\n3.  **Logical Data Independence:** Present a consistent interface to applications/users even if the underlying base table schema changes (e.g., table splits or column renames).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the fundamental conditions that typically allow a SQL view to be *updatable* (i.e., support `INSERT`, `UPDATE`, `DELETE` operations)?",
+      "back": "A view is generally updatable if:\n1.  It's based on a single base table.\n2.  It includes the primary key (or a unique key) of the base table.\n3.  It does not contain `DISTINCT`, aggregate functions (`SUM`, `AVG`, `COUNT`), `GROUP BY`, or `HAVING`.\n4.  It does not use `UNION`, `INTERSECT`, or `EXCEPT`.\n5.  It does not use subqueries in the `SELECT` clause that refer to the same table.\n6.  All non-nullable columns of the base table are included in the view or have default values.\n7.  It does not use `JOIN` (though some DBMS allow updates on certain types of joined views with specific restrictions).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why a view created with `SELECT Department, COUNT(EmpID) FROM Employees GROUP BY Department` would *not* be updatable.",
+      "back": "This view is not updatable because it includes an aggregate function (`COUNT`) and a `GROUP BY` clause. Operations like `INSERT` or `UPDATE` on such a view would be ambiguous: how would a new row map to a specific `EmpID` in the base table, or how would updating a `COUNT` value affect individual employee records? Views based on derived or aggregated data cannot be directly mapped back to individual base table rows for modification.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `WITH CHECK OPTION` clause when creating a view, and how does it affect data modification?",
+      "back": "`WITH CHECK OPTION` ensures that all `INSERT` and `UPDATE` operations performed through the view satisfy the view's `WHERE` clause conditions. If an operation would create or modify a row such that it no longer meets the view's criteria (and thus would \"disappear\" from the view), the operation is rejected with an error. This maintains data integrity within the view's defined scope.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a view `ActiveUsers` created from `Users` table with `WHERE Status = 'Active'`. If you `UPDATE ActiveUsers SET Status = 'Inactive' WHERE UserID = 101`, what happens if the view was created *without* `WITH CHECK OPTION` vs. *with* `WITH CHECK OPTION`?",
+      "back": "1.  **Without `WITH CHECK OPTION`**: The `UPDATE` will succeed. User 101's status will change to 'Inactive' in the base `Users` table, and consequently, this user will no longer appear in the `ActiveUsers` view.\n2.  **With `WITH CHECK OPTION`**: The `UPDATE` will fail with an error. The `WITH CHECK OPTION` prevents modifications that would cause the updated row to no longer satisfy the view's `WHERE Status = 'Active'` condition. The system prevents the row from \"disappearing\" from the view.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the SQL command to remove an existing view named `CustomerOrdersSummary`.",
+      "back": "```sql\nDROP VIEW CustomerOrdersSummary;\n```",
+      "difficulty": "easy"
+    }
+  ]
+}

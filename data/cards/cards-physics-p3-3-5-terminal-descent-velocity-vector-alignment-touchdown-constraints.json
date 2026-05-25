@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-terminal-descent-velocity-vector-alignment-touchdown-constraints",
+  "subtopicTitle": "Terminal descent — velocity vector alignment, touchdown constraints",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:39.514Z",
+  "cards": [
+    {
+      "front": "Define \"Terminal Descent\" in the context of spacecraft landing.",
+      "back": "The final phase of a spacecraft's landing sequence, typically from a specific altitude and velocity down to touchdown. It is characterized by active deceleration and precise control to meet stringent landing constraints, ensuring a safe and accurate landing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is velocity vector alignment critical for a safe spacecraft touchdown?",
+      "back": "It ensures the spacecraft's velocity is predominantly vertical (or aligned with the landing gear's axis) relative to the landing surface. This minimizes horizontal forces, preventing skidding, tipping, and structural damage upon impact, and allows for precise placement.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State typical quantitative constraints on vertical velocity ($v_z$) and horizontal velocity ($v_{xy}$) at touchdown for a propulsively landed vehicle.",
+      "back": "<ul><li><b>Vertical Velocity ($v_z$):</b> Typically constrained to a low value, e.g., $|v_z| \\le 2 \\text{ m/s}$ (often negative, meaning downward). Too high risks structural damage; too low wastes fuel.</li><li><b>Horizontal Velocity ($v_{xy}$):</b> Must be very close to zero, e.g., $|v_{xy}| \\le 0.5 \\text{ m/s}$. Higher values cause skidding, tipping, and lateral stress on landing gear.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Besides linear velocities, what angular rate and attitude constraints are crucial for safe touchdown?",
+      "back": "<ul><li><b>Angular Rates ($\\omega_x, \\omega_y, \\omega_z$):</b> Must be minimized, typically $< 1-2 \\text{ deg/s}$, to prevent uncontrolled rotation or instability at contact.</li><li><b>Attitude (Pitch, Roll):</b> Must be within a small range, e.g., $\\le 5-10 \\text{ deg}$ from vertical, to ensure landing gear contact is stable and symmetrical, preventing tipping. Yaw is less critical for stability but important for orientation.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a vertical landing, derive the thrust $T$ required to achieve a desired vertical acceleration $a_z$ at a given mass $m$ and local gravity $g$.",
+      "back": "From Newton's second law, the net force in the vertical direction is $F_{net,z} = ma_z$. Assuming positive $z$ is upwards, the forces acting are thrust $T$ (upwards) and gravity $mg$ (downwards). Thus, the force balance is: $$T - mg = ma_z$$ Solving for thrust, we get: $$T = m(a_z + g)$$ To control vertical velocity ($v_z$), the GNC system adjusts $T$ to command $a_z$. For deceleration, $a_z$ is positive (upwards), requiring $T > mg$. For hover, $a_z=0$, so $T=mg$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how a GNC system achieves precise velocity vector alignment during terminal descent, considering both vertical and horizontal components.",
+      "back": "The GNC system employs a closed-loop process:\n1.  <b>State Estimation:</b> Continuously determines current position, velocity, and attitude using sensors (IMU, altimeter, radar, vision).\n2.  <b>Guidance Algorithm:</b> Calculates the desired thrust vector (magnitude and direction) to steer the spacecraft towards the target, nulling horizontal velocity ($v_{xy} \\to 0$) and following a predefined vertical velocity profile ($v_z$).\n3.  <b>Control System:</b> Commands engines (throttle for magnitude, thrust vectoring or reaction control thrusters for direction) to produce the desired thrust.\n4.  <b>Horizontal Nulling:</b> Actively generates horizontal thrust components to counteract lateral motion, often by tilting the vehicle slightly, driving $v_{xy}$ to zero.\n5.  <b>Vertical Control:</b> Modulates main engine thrust to manage the descent rate, decelerating from high altitude to a safe touchdown velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What role does terrain sensing play in fulfilling touchdown constraints, especially for uncrewed missions?",
+      "back": "Terrain sensing (e.g., using lidar, radar, or cameras with vision-based navigation) is crucial for:\n1.  <b>Hazard Avoidance:</b> Identifying and avoiding rocks, craters, or slopes that could damage the lander or cause tipping.\n2.  <b>Safe Site Selection:</b> Selecting the flattest, safest possible landing spot within the target ellipse, often autonomously.\n3.  <b>Relative Navigation:</b> Providing precise altitude and velocity relative to the local terrain, improving state estimation for accurate guidance and control, especially over uneven surfaces or during the final meters of descent.",
+      "difficulty": "medium"
+    }
+  ]
+}

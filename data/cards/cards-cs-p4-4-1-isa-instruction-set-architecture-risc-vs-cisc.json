@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-1-isa-instruction-set-architecture-risc-vs-cisc",
+  "subtopicTitle": "ISA (Instruction Set Architecture) — RISC vs CISC",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:29.429Z",
+  "cards": [
+    {
+      "front": "Define Instruction Set Architecture (ISA).",
+      "back": "An ISA is the abstract interface between a computer's hardware and its software. It specifies the set of instructions a CPU can execute, data types, registers, addressing modes, and interrupt handling, essentially defining what a programmer sees of a processor.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What do RISC and CISC stand for, and what's their core instruction philosophy?",
+      "back": "RISC: **Reduced Instruction Set Computer**. Philosophy: Simple, fixed-length instructions that execute in one clock cycle, with most operations happening on registers.\n\nCISC: **Complex Instruction Set Computer**. Philosophy: Complex, variable-length instructions that can perform multiple low-level operations (e.g., memory access, arithmetic) in a single instruction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three key architectural characteristics of a typical RISC processor.",
+      "back": "1.  **Load/Store Architecture:** Memory access is restricted to explicit `LOAD` and `STORE` instructions; all other operations occur on registers.\n2.  **Fixed-length Instructions:** All instructions have the same bit length, simplifying instruction fetching and decoding.\n3.  **Many General-Purpose Registers:** A large number of registers are available to reduce memory access and improve data locality.\n(Also: Simple addressing modes, hardwired control unit, emphasis on pipelining.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how CISC handles complex operations like `ADD MEM_A, MEM_B` and its implications for instruction length.",
+      "back": "CISC allows complex operations, such as adding the contents of two memory locations and storing the result in one of them (`ADD MEM_A, MEM_B`), to be encoded as a single instruction. This often involves multiple micro-operations executed by a microcode engine. This capability leads to **variable-length instructions**, as different operations require varying numbers of operands, addressing modes, and internal steps.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show how to compute $C = A + B$ (where A, B, C are memory locations) using conceptual RISC vs. CISC instructions.",
+      "back": "```assembly\n// CISC (e.g., x86-like)\nADD C, A, B  // Add contents of memory location A and B, store result in C\n\n// RISC (e.g., MIPS-like, assuming R1, R2, R3 are registers)\nLOAD R1, A   // Load value from memory location A into register R1\nLOAD R2, B   // Load value from memory location B into register R2\nADD R3, R1, R2 // Add contents of R1 and R2, store result in R3\nSTORE C, R3  // Store value from register R3 into memory location C\n```\nRISC requires multiple instructions due to its load/store architecture, while CISC can often perform this in a single instruction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how RISC's fixed-length instructions and load/store architecture benefit CPU pipelining.",
+      "back": "**Fixed-length instructions** simplify the `Instruction Fetch` and `Decode` stages of a pipeline. The CPU knows exactly how many bytes to fetch and how to parse them, preventing delays and ensuring instructions flow smoothly. **Load/store architecture** separates memory access from arithmetic/logic operations. This reduces pipeline stalls because computational units don't have to wait for complex memory addressing calculations, and memory access can be handled independently, leading to more efficient instruction throughput.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a modern x86 (CISC) processor achieve high performance, often leveraging RISC-like principles internally?",
+      "back": "Modern x86 processors achieve high performance by translating complex, variable-length x86 instructions into a sequence of simpler, fixed-length internal operations called **micro-operations (µops)**. This translation is done by a hardware decoder. These µops are then executed by a RISC-like core, which can efficiently utilize techniques like deep pipelining, out-of-order execution, and register renaming, leveraging the performance benefits typically associated with RISC architectures while maintaining backward compatibility with the CISC x86 ISA.",
+      "difficulty": "hard"
+    }
+  ]
+}

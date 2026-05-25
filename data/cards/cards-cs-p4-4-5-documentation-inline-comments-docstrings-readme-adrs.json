@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-documentation-inline-comments-docstrings-readme-adrs",
+  "subtopicTitle": "Documentation — inline comments, docstrings, README, ADRs",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:08.668Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of inline comments in source code?",
+      "back": "Inline comments are used to clarify non-obvious or complex logic within a specific line or block of code. They explain *why* something is done (e.g., a workaround, a business rule), rather than *what* it does (which the code itself should convey). They can also be used for temporary notes or debugging.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Python, what is the key difference in purpose and placement between an inline comment and a docstring?",
+      "back": "Inline comments (`#`) explain specific lines or small code blocks, are ignored by the interpreter, and are typically placed next to the code they clarify. Docstrings (`\"\"\"...\"\"\"`) describe modules, classes, or functions, are the first statement within them, and are stored as the `__doc__` attribute, accessible programmatically (e.g., via `help()`). They explain *what* the code does and *how* to use it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an example of a *redundant* inline comment and explain why it's considered poor practice.",
+      "back": "```python\n# Increment the counter by one\ncounter = counter + 1\n```\nThis is redundant because the code `counter = counter + 1` is self-explanatory. Good code should be readable enough that comments are only needed for non-obvious logic, workarounds, or complex business rules not immediately apparent from the syntax itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List at least five essential sections that a comprehensive `README.md` file for a software project should typically include.",
+      "back": "A comprehensive `README.md` should typically include:\n1.  **Project Title & Description**: What the project is and what it does.\n2.  **Installation**: How to set up and run the project.\n3.  **Usage**: How to use the project's features and examples.\n4.  **Contributing**: Guidelines for contributing to the project.\n5.  **License**: Information about the project's license.\n(Other common sections include: Badges, Technologies Used, Tests, Contact, Acknowledgements).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define an Architectural Decision Record (ADR) and explain its primary benefit in software development.",
+      "back": "An Architectural Decision Record (ADR) is a document that captures a significant architectural decision made about a software system, along with its context, the options considered, the rationale for the chosen option, and its consequences. Its primary benefit is to provide a historical log of *why* certain architectural choices were made, helping future developers understand the system's evolution, avoid re-debating past decisions, and onboard new team members more effectively.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the four core components typically found in a well-structured Architectural Decision Record (ADR) according to common templates (e.g., Michael Nygard's)?",
+      "back": "The four core components typically found in an ADR are:\n1.  **Title**: A short, descriptive name for the decision.\n2.  **Status**: The current state of the decision (e.g., Proposed, Accepted, Superseded, Deprecated).\n3.  **Context**: The forces and challenges that led to the decision.\n4.  **Decision**: The specific architectural choice made, often including a rationale and alternatives considered.\n5.  **Consequences**: The positive and negative impacts of the decision.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Python docstring for a function `calculate_area(length, width)` that computes the area of a rectangle, following the Google Style Python Docstrings format.",
+      "back": "```python\ndef calculate_area(length: float, width: float) -> float:\n    \"\"\"Calculates the area of a rectangle.\n\n    Args:\n        length: The length of the rectangle.\n        width: The width of the rectangle.\n\n    Returns:\n        The calculated area of the rectangle.\n\n    Raises:\n        ValueError: If length or width is negative.\n    \"\"\"\n    if length < 0 or width < 0:\n        raise ValueError(\"Length and width must be non-negative.\")\n    return length * width\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

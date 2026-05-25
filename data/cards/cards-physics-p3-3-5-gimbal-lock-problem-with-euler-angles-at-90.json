@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-gimbal-lock-problem-with-euler-angles-at-90",
+  "subtopicTitle": "Gimbal lock — problem with Euler angles at θ = ±90°",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:37.820Z",
+  "cards": [
+    {
+      "front": "What is \"gimbal lock\" in the context of 3D rotations, particularly with Euler angles?",
+      "back": "Gimbal lock is a phenomenon where a system using Euler angles for orientation loses a degree of freedom, typically when two of the three rotation axes become coplanar or perfectly aligned. This reduces the system's ability to rotate about three independent axes to only two.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a standard Z-Y-X (yaw-pitch-roll) Euler angle sequence, at what specific pitch angle(s) does gimbal lock occur?",
+      "back": "Gimbal lock occurs when the pitch angle ($\theta$) reaches $\\pm 90^\\circ$. At these angles, the first (yaw, Z-axis) and third (roll, X-axis) rotation axes become aligned, making them indistinguishable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the physical mechanism that causes gimbal lock when the pitch angle is $\\pm 90^\\circ$ in a Z-Y-X Euler angle system.",
+      "back": "When the middle rotation axis (pitch, Y-axis) rotates by $\\pm 90^\\circ$, it causes the first rotation axis (yaw, Z-axis) and the third rotation axis (roll, X-axis) to become parallel. This effectively merges two distinct rotational capabilities into one, leading to the loss of one degree of rotational freedom.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a practical consequence of gimbal lock for a spacecraft's attitude control system?",
+      "back": "The spacecraft's attitude control system loses the ability to independently control rotation about one of its axes. For example, if yaw and roll axes align, the system can no longer distinguish between a pure yaw rotation and a pure roll rotation, making precise attitude adjustments or recovery from certain orientations impossible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Mathematically, explain why a singularity occurs at $\theta = \\pm 90^\\circ$ when trying to extract Z-Y-X Euler angles from a rotation matrix.",
+      "back": "The Z-Y-X Euler angle rotation matrix is $R = R_z(\\psi) R_y(\theta) R_x(\\phi)$. When $\theta = 90^\\circ$, $\\cos\theta = 0$ and $\\sin\theta = 1$. The combined rotation matrix elements become dependent only on the sum or difference of $\\psi$ and $\\phi$ (e.g., $\\psi \\pm \\phi$), rather than on $\\psi$ and $\\phi$ independently. This means there are infinitely many pairs of $(\\psi, \\phi)$ that produce the same rotation matrix, making the extraction of unique Euler angles impossible and indicating a loss of a degree of freedom.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are common alternatives to Euler angles for representing 3D rotations that inherently avoid gimbal lock?",
+      "back": "The most common alternatives are:\n1.  **Quaternions:** A 4-component mathematical entity that provides a compact and singularity-free representation of 3D rotations.\n2.  **Rotation Matrices:** A 3x3 orthogonal matrix that directly represents the orientation. While the matrix itself is not singular, extracting Euler angles from it can still lead to the singularity.\n3.  **Axis-Angle Representation:** Defines a rotation by a unit vector representing the axis of rotation and an angle of rotation around that axis.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which famous space mission faced a critical risk from gimbal lock, leading to specific operational procedures to avoid it?",
+      "back": "The Apollo 11 mission. The spacecraft's Inertial Measurement Unit (IMU) used gimbals, and if the spacecraft's attitude caused two gimbal axes to align (gimbal lock), the IMU would lose its reference. Astronauts had to perform 'gimbal lock avoidance maneuvers' to prevent this critical navigation failure.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-3-chaining-linked-lists-in-buckets-load-factor-resizing",
+  "subtopicTitle": "Chaining — linked lists in buckets, load factor, resizing",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:49.678Z",
+  "cards": [
+    {
+      "front": "What is the primary mechanism of \"chaining\" for collision resolution in hash tables?",
+      "back": "When two or more keys hash to the same index (collision), chaining resolves this by storing all colliding keys in a separate data structure (typically a linked list) at that specific bucket index, rather than overwriting existing data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are linked lists commonly used for buckets in chained hash tables, and what is one alternative data structure?",
+      "back": "Linked lists are preferred because they dynamically grow/shrink with collisions, avoiding fixed-size array overhead for each bucket. They are simple to implement for insertions/deletions. An alternative could be a dynamic array (e.g., `std::vector`), especially for smaller lists, or a balanced binary search tree for very large buckets to improve worst-case search time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"load factor\" ($\\alpha$) of a hash table and provide its formula.",
+      "back": "The load factor ($\\alpha$) quantifies how full a hash table is. It's the ratio of the total number of elements ($n$) currently stored in the table to the total number of available buckets ($m$).\nFormula: $$\\alpha = \\frac{n}{m}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the performance implications of a very high load factor ($\\alpha \\gg 1$) in a chained hash table.",
+      "back": "A very high load factor means many elements are distributed into each bucket, leading to long linked lists. This significantly degrades the average-case performance of `insert`, `search`, and `delete` operations, making them approach $O(n)$ in the worst case (where $n$ is the total number of elements) as the hash table essentially behaves like a single linked list.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What event typically triggers a \"resizing\" operation in a chained hash table, and why is it crucial for performance?",
+      "back": "Resizing is usually triggered when the load factor ($\\alpha$) exceeds a predefined threshold (e.g., $\\alpha > 0.7$ or $\\alpha > 1.0$). It's crucial because it increases the number of buckets ($m$), thereby reducing the average length of linked lists and keeping the load factor low, which maintains the hash table's $O(1)$ average-case performance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the complete \"rehashing\" process when a chained hash table's capacity needs to increase.",
+      "back": "1.  **Allocate New Array**: Create a new, larger array of buckets (e.g., double the current size).\n2.  **Iterate and Rehash**: Traverse through every element in the *old* hash table.\n3.  **Recompute Index**: For each element, recompute its hash value using the *new* hash function (which typically incorporates the new table size as a modulus).\n4.  **Insert into New Table**: Insert the element into the corresponding bucket in the *new* hash table.\n5.  **Replace**: Once all elements are moved, discard the old bucket array and use the new one.\nThis process is $O(n)$ where $n$ is the number of elements, as each element must be rehashed and reinserted.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a chained hash table with a good hash function and load factor $\\alpha$, what are the average-case time complexities for `insert`, `search`, and `delete`?",
+      "back": "Assuming uniform distribution and an average bucket length of $\\alpha$:\n*   `Insert`: $O(1 + \\alpha)$\n*   `Search`: $O(1 + \\alpha)$\n*   `Delete`: $O(1 + \\alpha)$\nThe $1$ accounts for hash computation and bucket access. $\\alpha$ accounts for traversing the linked list within the bucket. If $\\alpha$ is kept constant (e.g., by resizing), these operations are effectively $O(1)$ on average.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the space complexity of a chained hash table?",
+      "back": "The space complexity is $O(m + n)$, where $m$ is the number of buckets (size of the array) and $n$ is the total number of elements stored across all buckets. This accounts for the space taken by the bucket array itself and the space for all the elements within the linked lists.",
+      "difficulty": "medium"
+    }
+  ]
+}

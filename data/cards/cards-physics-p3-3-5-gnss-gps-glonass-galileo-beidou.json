@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-gnss-gps-glonass-galileo-beidou",
+  "subtopicTitle": "GNSS — GPS, GLONASS, Galileo, BeiDou",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:58.844Z",
+  "cards": [
+    {
+      "front": "What does GNSS stand for, and what is its primary purpose?",
+      "back": "GNSS stands for **Global Navigation Satellite System**. Its primary purpose is to provide autonomous geo-spatial positioning with global coverage, allowing a receiver to determine its precise position, velocity, and time anywhere on or near Earth's surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fundamental principle by which a GNSS receiver determines its position.",
+      "back": "A GNSS receiver determines its position by measuring the time delay of signals received from multiple satellites. Each satellite transmits its precise position (ephemeris) and the exact time the signal was sent. By knowing the signal travel time ($\\Delta t$) and the speed of light ($c$), the receiver calculates its range (pseudorange, $d = c \\cdot \\Delta t$) to each satellite. With ranges to at least four satellites (to solve for 3D position and receiver clock bias), the receiver can trilaterate its precise location.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name and briefly describe the three main segments of any GNSS architecture.",
+      "back": "The three main segments are:\n1.  **Space Segment:** The constellation of satellites orbiting Earth, transmitting navigation signals and data.\n2.  **Control Segment:** Ground stations responsible for monitoring satellite health, tracking orbits, uploading navigation data (ephemeris, clock corrections), and maintaining the system's accuracy and integrity.\n3.  **User Segment:** GNSS receivers (e.g., in phones, vehicles, rockets) that process satellite signals to calculate position, velocity, and time (PVT).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare and contrast GPS, GLONASS, Galileo, and BeiDou in terms of their primary orbital characteristics (e.g., altitude, inclination) and signal access methods (CDMA vs. FDMA).",
+      "back": "Key differences:\n*   **GPS (USA):** MEO, ~20,200 km altitude, 55° inclination. Primarily CDMA (Code Division Multiple Access) for civilian signals.\n*   **GLONASS (Russia):** MEO, ~19,100 km altitude, 64.8° inclination. Traditionally FDMA (Frequency Division Multiple Access) for civilian signals (each satellite on a different frequency), though newer signals use CDMA.\n*   **Galileo (EU):** MEO, ~23,222 km altitude, 56° inclination. Exclusively CDMA.\n*   **BeiDou (China):** Hybrid constellation with MEO (~21,500 km), IGSO (Inclined Geosynchronous Orbit), and GEO (Geosynchronous Equatorial Orbit) satellites. Primarily CDMA.\n\n**CDMA** allows all satellites to transmit on the same frequency using unique codes, while **FDMA** assigns a unique frequency to each satellite.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why relativistic effects must be accounted for in GNSS satellite clocks, specifying both special and general relativity contributions.",
+      "back": "Without relativistic corrections, GNSS systems would accumulate significant errors. \n1.  **Special Relativity:** Due to the satellites' high orbital velocity relative to Earth-bound receivers, their clocks run slower. This causes a delay of about $-7 \\, \\mu s$ per day.\n2.  **General Relativity:** Satellites are in a weaker gravitational field than receivers on Earth's surface. Clocks in weaker gravitational fields run faster. This causes an advance of about $+45 \\, \\mu s$ per day.\nThe net effect is that satellite clocks run faster by approximately $+38 \\, \\mu s$ per day ($45 - 7 = 38$). This cumulative error must be precisely corrected (typically by offsetting the onboard clock's frequency before launch) to maintain the required timing accuracy. A $1 \\, \\mu s$ timing error translates to a $300 \\, m$ position error.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List and briefly describe three major non-satellite-related error sources that affect GNSS positioning accuracy.",
+      "back": "Three major error sources are:\n1.  **Ionospheric Delay:** The ionosphere (a layer of charged particles) refracts and slows down GNSS signals, causing a delay proportional to the signal's frequency. Dual-frequency receivers can mitigate this.\n2.  **Tropospheric Delay:** The troposphere (lower atmosphere) also refracts and slows signals due to water vapor and pressure, causing a delay less dependent on frequency. Modeled using atmospheric models.\n3.  **Multipath:** Signals reflect off nearby surfaces (e.g., buildings, terrain) before reaching the receiver, causing delayed, distorted, or attenuated signals that can be misinterpreted as longer ranges. Mitigated by antenna design and receiver algorithms.\n4.  **Receiver Clock Bias:** The receiver's internal clock is not perfectly synchronized with satellite clocks, introducing a timing error that is typically solved for as an unknown in the navigation equations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the principle behind Differential GPS (DGPS) and Real-Time Kinematic (RTK) techniques for improving GNSS accuracy.",
+      "back": "Both DGPS and RTK use ground-based reference stations at known locations to improve accuracy:\n*   **Differential GPS (DGPS):** A reference station calculates the difference between its measured GNSS position and its true, known position. This 'correction' is then broadcast to nearby user receivers, which apply it to their own pseudorange measurements. DGPS primarily corrects common-mode errors like satellite clock drift, ephemeris errors, and atmospheric delays, improving accuracy to sub-meter levels.\n*   **Real-Time Kinematic (RTK):** An advanced DGPS technique that uses carrier phase measurements (the phase of the carrier wave, not just the pseudorange) from both the reference station and the user receiver. By resolving integer ambiguities in the carrier phase, RTK can achieve centimeter-level accuracy in real-time, crucial for high-precision applications.",
+      "difficulty": "medium"
+    }
+  ]
+}

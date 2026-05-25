@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-3-ethernet-ieee-802-3-csma-cd-frame-format",
+  "subtopicTitle": "Ethernet (IEEE 802.3) — CSMA/CD, frame format",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:26.428Z",
+  "cards": [
+    {
+      "front": "Define CSMA/CD and state its primary purpose in Ethernet.",
+      "back": "CSMA/CD stands for Carrier Sense Multiple Access with Collision Detection. It's a media access control method used in half-duplex Ethernet networks to detect and handle collisions when multiple devices attempt to transmit data on a shared medium simultaneously.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the sequential steps a station follows when transmitting data using CSMA/CD.",
+      "back": "1. **Carrier Sense**: Listen for activity on the medium. If busy, wait. 2. **Transmit**: If idle, transmit the frame. 3. **Collision Detection**: While transmitting, monitor for collisions. 4. **Collision Handling**: If a collision is detected, stop transmission, send a jam signal, and then perform a **Binary Exponential Backoff** before reattempting transmission.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the necessity of Ethernet's minimum frame size (64 bytes) in the context of CSMA/CD.",
+      "back": "The minimum frame size ensures that a transmitting station can detect a collision before it finishes sending its entire frame, even in the worst-case scenario (two stations at maximum distance). This \"worst-case\" round-trip time (RTT) for a signal to propagate across the network segment must be less than the time it takes to transmit the minimum frame. If the frame is too short, a collision might occur, and the sender finishes transmitting before the collision signal returns, thus failing to detect it.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which IEEE standard defines Ethernet, and what layer of the OSI model does it primarily operate at?",
+      "back": "Ethernet is defined by the **IEEE 802.3** standard. It primarily operates at the **Data Link Layer (Layer 2)**, specifically the MAC sublayer, and also specifies aspects of the Physical Layer (Layer 1).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the ordered fields of an Ethernet II (DIX) frame, excluding the preamble and SFD.",
+      "back": "1. **Destination MAC Address** (6 bytes)\n2. **Source MAC Address** (6 bytes)\n3. **EtherType/Length** (2 bytes)\n4. **Data (Payload)** (46-1500 bytes)\n5. **Frame Check Sequence (FCS)** (4 bytes)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the dual purpose of the 2-byte EtherType/Length field in an Ethernet frame.",
+      "back": "This field has a dual purpose:\n*   If its value is $\\le 1500$, it indicates the **length** of the data payload in bytes (IEEE 802.3 raw frame).\n*   If its value is $\\ge 1536$ (0x0600), it indicates the **EtherType**, specifying the protocol encapsulated in the payload (e.g., 0x0800 for IPv4, 0x0806 for ARP).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the total overhead (non-payload bytes) for a standard Ethernet II frame, including preamble and SFD.",
+      "back": "Total Overhead = Preamble (7 bytes) + SFD (1 byte) + Destination MAC (6 bytes) + Source MAC (6 bytes) + EtherType/Length (2 bytes) + FCS (4 bytes) = $7 + 1 + 6 + 6 + 2 + 4 = 26$ bytes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the role of the Preamble and Start Frame Delimiter (SFD) fields in an Ethernet frame.",
+      "back": "*   **Preamble (7 bytes):** An alternating pattern of 1s and 0s (e.g., `10101010...`) used for synchronization between the transmitting and receiving network interface cards (NICs). It allows the receiver to lock onto the incoming bit stream.\n*   **Start Frame Delimiter (SFD) (1 byte):** The pattern `10101011`. It signals the end of the preamble and marks the beginning of the actual Ethernet frame (i.e., the Destination MAC address field immediately follows).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the Binary Exponential Backoff algorithm used by CSMA/CD after a collision.",
+      "back": "After a collision, a station waits a random amount of time before retransmitting. The Binary Exponential Backoff algorithm determines this wait time:\n1.  After the $n$-th collision, the station chooses a random integer $k$ from $[0, 2^n - 1]$.\n2.  The wait time is $k \\times \\text{slot\\_time}$, where `slot_time` is typically 51.2 microseconds for Ethernet (time to transmit 64 bytes).\n3.  The maximum value for $n$ is usually 10 (meaning $2^{10}-1 = 1023$ possible slots). After 16 collisions, the transmission is aborted. This mechanism helps reduce the probability of repeated collisions.",
+      "difficulty": "hard"
+    }
+  ]
+}

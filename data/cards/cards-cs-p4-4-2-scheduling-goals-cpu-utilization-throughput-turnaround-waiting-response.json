@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-scheduling-goals-cpu-utilization-throughput-turnaround-waiting-response",
+  "subtopicTitle": "Scheduling goals — CPU utilization, throughput, turnaround, waiting, response",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:57.483Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of CPU utilization as a scheduling goal?",
+      "back": "CPU utilization is the percentage of time the CPU is busy executing processes. The primary objective is to maximize it, ensuring the CPU is not idle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is throughput in the context of CPU scheduling, and how is it typically measured?",
+      "back": "Throughput is the number of processes completed per unit of time. The goal is to maximize it. It's typically measured in processes/hour or processes/minute.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define turnaround time for a process, and provide its formula.",
+      "back": "Turnaround time is the total time from a process's submission until its completion. It includes waiting in the ready queue, execution on the CPU, and I/O operations. Formula: $T_{turnaround} = T_{completion} - T_{arrival}$. Goal: Minimize.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define waiting time for a process, and provide its formula.",
+      "back": "Waiting time is the total amount of time a process spends in the ready queue waiting for the CPU to become available. Formula: $T_{waiting} = T_{turnaround} - T_{burst}$. Goal: Minimize.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define response time, particularly relevant for interactive systems, and provide its formula.",
+      "back": "Response time is the time from a request's submission until the first response is produced. This is crucial for interactive systems where quick initial feedback is important. Formula: $T_{response} = T_{first\\_run} - T_{arrival}$. Goal: Minimize.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between a process's turnaround time, waiting time, and CPU burst time.",
+      "back": "A process's turnaround time ($T_{turnaround}$) is the sum of its total CPU burst time ($T_{burst}$) and its total waiting time ($T_{waiting}$) in the ready queue. This is because the total time a process exists in the system (turnaround) is spent either executing on the CPU (burst) or waiting for the CPU. So, $T_{turnaround} = T_{burst} + T_{waiting}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How might the scheduling goals of maximizing CPU utilization and minimizing response time conflict in an interactive system?",
+      "back": "Maximizing CPU utilization often favors running long CPU-bound jobs to completion to reduce context-switching overhead. However, this can delay the first response to new interactive processes, leading to high response times. Conversely, minimizing response time for interactive users requires frequent preemption and context switches, which introduces overhead and can reduce the overall CPU utilization.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Categorize the scheduling goals (CPU utilization, throughput, turnaround, waiting, response) into 'system-centric' and 'user-centric' perspectives.",
+      "back": "**System-centric goals**: Focus on efficient resource usage and overall work done by the system.\n*   CPU Utilization\n*   Throughput\n\n**User-centric goals**: Focus on the experience and performance perceived by individual users or processes.\n*   Turnaround Time\n*   Waiting Time\n*   Response Time",
+      "difficulty": "medium"
+    }
+  ]
+}

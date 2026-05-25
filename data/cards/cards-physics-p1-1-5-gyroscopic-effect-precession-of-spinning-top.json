@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-gyroscopic-effect-precession-of-spinning-top",
+  "subtopicTitle": "Gyroscopic effect — precession of spinning top",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:55.528Z",
+  "cards": [
+    {
+      "front": "What is the gyroscopic effect?",
+      "back": "The gyroscopic effect is the tendency of a rotating object to maintain the orientation of its axis of rotation in space, resisting external torques that attempt to change that orientation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define precession in the context of a spinning top.",
+      "back": "Precession is the change in the orientation of the rotational axis of a rotating body, caused by an external torque. For a spinning top, it is the slow, conical rotation of the top's spin axis around the vertical axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A spinning top subject to gravity precesses instead of falling over. Explain why using angular momentum.",
+      "back": "Gravity exerts a torque $\\vec{\\tau}$ on the top, tending to tip it over. This torque is perpendicular to the top's angular momentum vector $\\vec{L}$ (which points along the spin axis). According to $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$, the torque causes a change in angular momentum $d\\vec{L}$ in the direction of the torque. Because $d\\vec{L}$ is perpendicular to $\\vec{L}$, it adds vectorially to $\\vec{L}$ causing its direction to change horizontally (precession) rather than simply tipping over. The magnitude of $\\vec{L}$ remains constant, but its direction changes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the angular velocity of precession, $\\Omega_p$, for a spinning top with spin angular velocity $\\omega$, moment of inertia $I$, mass $m$, and center of mass at distance $r$ from the pivot.",
+      "back": "The torque due to gravity is $\\tau = mgr \\sin \\alpha$, where $\\alpha$ is the angle of the spin axis with the vertical. The change in angular momentum is $d\\vec{L} = \\vec{\\tau} dt$. For precession, the change in the direction of $\\vec{L}$ over time $dt$ results in a vector $d\\vec{L}$ perpendicular to $\\vec{L}$. The magnitude of this change is $dL = L \\sin \\alpha \\cdot d\\phi$, where $d\\phi$ is the angular displacement of precession. Equating the two expressions for $dL$: \n$$L \\sin \\alpha \\cdot d\\phi = \\tau dt$$\n$$L \\sin \\alpha \\cdot d\\phi = mgr \\sin \\alpha \\cdot dt$$\nThe precession angular velocity is $\\Omega_p = \\frac{d\\phi}{dt}$: \n$$\\Omega_p = \\frac{mgr \\sin \\alpha}{L \\sin \\alpha} = \\frac{mgr}{L}$$\nSubstituting $L = I\\omega$ (where $I$ is the moment of inertia about the spin axis and $\\omega$ is the spin angular velocity):\n$$\\Omega_p = \\frac{mgr}{I\\omega}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does increasing the spin angular velocity ($\\omega$) of a top affect its precession angular velocity ($\\Omega_p$)?",
+      "back": "From the formula $\\Omega_p = \\frac{mgr}{I\\omega}$, increasing the spin angular velocity $\\omega$ will *decrease* the precession angular velocity $\\Omega_p$. A faster spinning top precesses more slowly because its angular momentum $L=I\\omega$ is larger, making it more resistant to changes in its axis orientation caused by the torque.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is nutation, and when is it typically observed in a precessing top?",
+      "back": "Nutation is a wobbling or oscillation in the angle of inclination of the axis of a precessing body. It's a superimposed oscillatory motion on top of the steady precessional motion. It is typically observed when the top is first set in motion, when its precession rate changes (e.g., due to friction), or when an impulsive torque is applied, causing the axis to 'nod' up and down.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If an external torque is applied *parallel* to the spin axis of a gyroscope, what motion results?",
+      "back": "If an external torque is applied *parallel* to the spin axis of a gyroscope, it will cause a change in the *magnitude* of the angular momentum $L$, either speeding up or slowing down the spin rate of the gyroscope. It will *not* cause precession. Precession occurs when the torque is perpendicular to the angular momentum vector, causing a change in its *direction*.",
+      "difficulty": "hard"
+    }
+  ]
+}

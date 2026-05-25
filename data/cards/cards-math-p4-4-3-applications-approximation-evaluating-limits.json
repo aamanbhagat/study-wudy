@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-3-applications-approximation-evaluating-limits",
+  "subtopicTitle": "Applications — approximation, evaluating limits",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:02:13.337Z",
+  "cards": [
+    {
+      "front": "What is the primary method for approximating the value of a function $f(x)$ near a point $a$ using power series?",
+      "back": "The Taylor series (or Maclaurin series if $a=0$) of $f(x)$ centered at $a$. By taking a finite number of terms, $T_n(x)$, we can approximate $f(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can Taylor series be used to approximate definite integrals like $\\int_a^b f(x) dx$ when an antiderivative of $f(x)$ is not easily found?",
+      "back": "Replace $f(x)$ with its Taylor series expansion, $\\sum_{n=0}^\\infty c_n (x-c)^n$. Then, integrate the series term-by-term: $\\int_a^b \\left( \\sum_{n=0}^\\infty c_n (x-c)^n \\right) dx = \\sum_{n=0}^\\infty c_n \\int_a^b (x-c)^n dx$. This yields an infinite series, which can be truncated for approximation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Taylor's Inequality (Remainder Estimation Theorem) for the remainder $R_n(x)$ when approximating $f(x)$ by its $n$-th degree Taylor polynomial $T_n(x)$ centered at $a$.",
+      "back": "If $|f^{(n+1)}(t)| \\le M$ for all $t$ between $x$ and $a$, then the remainder $R_n(x) = f(x) - T_n(x)$ satisfies:\n$$|R_n(x)| \\le \\frac{M}{(n+1)!}|x-a|^{n+1}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the limit $\\lim_{x \\to 0} \\frac{\\cos x - 1 + x^2/2}{x^4}$ using Maclaurin series.",
+      "back": "The Maclaurin series for $\\cos x$ is $1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\frac{x^6}{6!} + \\dots$.\nSubstitute this into the expression:\n$$ \\lim_{x \\to 0} \\frac{\\left(1 - \\frac{x^2}{2} + \\frac{x^4}{24} - \\dots\\right) - 1 + \\frac{x^2}{2}}{x^4} $$\n$$ = \\lim_{x \\to 0} \\frac{\\frac{x^4}{24} - \\frac{x^6}{720} + \\dots}{x^4} $$\n$$ = \\lim_{x \\to 0} \\left( \\frac{1}{24} - \\frac{x^2}{720} + \\dots \\right) = \\frac{1}{24} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are Taylor series often preferred over L'Hôpital's Rule for evaluating limits of indeterminate forms, especially when multiple differentiations are required?",
+      "back": "Taylor series provide a polynomial approximation of the functions involved, simplifying the expression directly. This avoids repeated, potentially complex, differentiations required by L'Hôpital's Rule, especially for products or quotients of functions. It also gives insight into the local behavior of the function near the point of interest.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Approximate $\\sqrt{1.02}$ using the second-degree Taylor polynomial for $f(x) = \\sqrt{x}$ centered at $a=1$. What is the maximum error for this approximation?",
+      "back": "$f(x) = x^{1/2}$, $f(1)=1$\n$f'(x) = \\frac{1}{2}x^{-1/2}$, $f'(1)=\\frac{1}{2}$\n$f''(x) = -\\frac{1}{4}x^{-3/2}$, $f''(1)=-\\frac{1}{4}$\n$T_2(x) = f(1) + f'(1)(x-1) + \\frac{f''(1)}{2!}(x-1)^2 = 1 + \\frac{1}{2}(x-1) - \\frac{1}{8}(x-1)^2$.\nFor $x=1.02$: $T_2(1.02) = 1 + \\frac{1}{2}(0.02) - \\frac{1}{8}(0.02)^2 = 1 + 0.01 - \\frac{1}{8}(0.0004) = 1.01 - 0.00005 = 1.00995$.\n\nFor error, $f'''(x) = \\frac{3}{8}x^{-5/2}$. For $x \\in [1, 1.02]$, $|f'''(x)|$ is maximized at $x=1$, so $M = \\frac{3}{8}$.\n$|R_2(1.02)| \\le \\frac{M}{3!}|1.02-1|^3 = \\frac{3/8}{6}(0.02)^3 = \\frac{1}{16}(0.000008) = 0.0000005$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a convergent series $\\sum_{n=1}^\\infty a_n$ with positive terms where $f(x)=a_x$ is continuous, positive, and decreasing, how can the remainder $R_N = \\sum_{n=N+1}^\\infty a_n$ be estimated using the Integral Test?",
+      "back": "The Integral Test Remainder states that if $\\sum a_n$ converges by the Integral Test, then the remainder $R_N = \\sum_{n=N+1}^\\infty a_n$ satisfies:\n$$ \\int_{N+1}^\\infty f(x) dx \\le R_N \\le \\int_N^\\infty f(x) dx $$\nThis allows us to bound the error when approximating the sum of the series by its $N$-th partial sum $S_N$.",
+      "difficulty": "hard"
+    }
+  ]
+}

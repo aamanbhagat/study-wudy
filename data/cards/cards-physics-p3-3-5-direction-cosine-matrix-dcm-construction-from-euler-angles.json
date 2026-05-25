@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-direction-cosine-matrix-dcm-construction-from-euler-angles",
+  "subtopicTitle": "Direction cosine matrix (DCM) — construction from Euler angles",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:06:26.801Z",
+  "cards": [
+    {
+      "front": "What is a Direction Cosine Matrix (DCM), and what is its primary purpose in GNC?",
+      "back": "A DCM, often denoted $[C]$ or $[R]$, is a $3 \\times 3$ matrix that describes the orientation of one coordinate frame relative to another. Its primary purpose is to transform vector components from one frame to another via $[V]_B = [C]_{B/A} [V]_A$, where $[V]_A$ is a vector in frame A and $[V]_B$ is the same vector in frame B.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are Euler angles, and what crucial characteristic must be remembered when using them to describe orientation?",
+      "back": "Euler angles are a set of three angular displacements (rotations) used to describe the orientation of a rigid body or coordinate frame relative to a fixed frame. The crucial characteristic is that the *order* of rotations significantly affects the final orientation, meaning the resulting DCM depends on the chosen rotation sequence.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the $3 \\times 3$ rotation matrix for a positive rotation $\\theta$ about the $y$-axis.",
+      "back": "$$R_y(\\theta) = \\begin{bmatrix} \\cos\\theta & 0 & -\\sin\\theta \\\\ 0 & 1 & 0 \\\\ \\sin\\theta & 0 & \\cos\\theta \\end{bmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When constructing a DCM from a sequence of Euler angle rotations (e.g., $R_1$, then $R_2$, then $R_3$), how are the individual rotation matrices multiplied?",
+      "back": "If the rotations are applied sequentially about the *current* (body-fixed) frame axes, the DCM is formed by multiplying the individual rotation matrices in the *reverse* order of application: $[C] = R_3 R_2 R_1$. If rotations are applied about the *inertial* (fixed) frame axes, the multiplication order is the same as the application order.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the DCM for a 3-2-1 Euler angle sequence (yaw $\\psi$ about $Z$, pitch $\\theta$ about new $Y'$, roll $\\phi$ about new $X''$).",
+      "back": "The 3-2-1 sequence means rotations are applied about the *current* axes:\n1. Rotation about $Z$ by $\\psi$: $R_Z(\\psi) = \\begin{bmatrix} c\\psi & s\\psi & 0 \\\\ -s\\psi & c\\psi & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$\n2. Rotation about *new* $Y'$ by $\\theta$: $R_Y(\\theta) = \\begin{bmatrix} c\\theta & 0 & -s\\theta \\\\ 0 & 1 & 0 \\\\ s\\theta & 0 & c\\theta \\end{bmatrix}$\n3. Rotation about *new* $X''$ by $\\phi$: $R_X(\\phi) = \\begin{bmatrix} 1 & 0 & 0 \\\\ 0 & c\\phi & s\\phi \\\\ 0 & -s\\phi & c\\phi \\end{bmatrix}$\n\nThe combined DCM is $[C] = R_X(\\phi) R_Y(\\theta) R_Z(\\psi)$.\n$$[C] = \\begin{bmatrix} c\\theta c\\psi & c\\theta s\\psi & -s\\theta \\\\ s\\phi s\\theta c\\psi - c\\phi s\\psi & s\\phi s\\theta s\\psi + c\\phi c\\psi & s\\phi c\\theta \\\\ c\\phi s\\theta c\\psi + s\\phi s\\psi & c\\phi s\\theta s\\psi - s\\phi c\\psi & c\\phi c\\theta \\end{bmatrix}$$\n(where $c$ denotes $\\cos$ and $s$ denotes $\\sin$)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List two fundamental mathematical properties of a Direction Cosine Matrix.",
+      "back": "1.  **Orthogonality:** The columns (and rows) are orthogonal unit vectors. This means $[C]^T [C] = [C] [C]^T = [I]$, where $[I]$ is the identity matrix.\n2.  **Determinant:** The determinant of a DCM is always $+1$, i.e., $\\det([C]) = +1$. This signifies a proper rotation (no reflection).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a DCM $[C]_{B/A}$ that transforms vectors from frame A to frame B, how do you find the DCM $[C]_{A/B}$ that transforms vectors from frame B to frame A?",
+      "back": "Due to the orthogonality property of DCMs, the inverse of a DCM is simply its transpose. If $[V]_B = [C]_{B/A} [V]_A$, then $[V]_A = [C]_{B/A}^{-1} [V]_B = [C]_{B/A}^T [V]_B$. Therefore, $[C]_{A/B} = [C]_{B/A}^T$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical meaning of an element $C_{ij}$ in a DCM $[C]_{B/A}$ that transforms vectors from frame A to frame B.",
+      "back": "The element $C_{ij}$ represents the cosine of the angle between the $i$-th axis of frame B and the $j$-th axis of frame A. More formally, if $\\hat{b}_i$ are the basis vectors of frame B and $\\hat{a}_j$ are the basis vectors of frame A, then $C_{ij} = \\hat{b}_i \\cdot \\hat{a}_j$. It quantifies the projection of the $j$-th axis of frame A onto the $i$-th axis of frame B.",
+      "difficulty": "hard"
+    }
+  ]
+}

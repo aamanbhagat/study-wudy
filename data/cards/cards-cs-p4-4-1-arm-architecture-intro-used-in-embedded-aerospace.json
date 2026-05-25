@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-arm-architecture-intro-used-in-embedded-aerospace",
+  "subtopicTitle": "ARM architecture intro — used in embedded/aerospace",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:33.810Z",
+  "cards": [
+    {
+      "front": "What does the acronym ARM stand for, and what is its primary role in the computing world?",
+      "back": "ARM stands for **Advanced RISC Machines**. It is a semiconductor intellectual property (IP) company that designs and licenses processor architectures (ISAs) and microprocessors, rather than manufacturing its own chips. Its designs are used by many other companies worldwide.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "ARM architecture is fundamentally a _______ (RISC/CISC) architecture. What are two key benefits of this design philosophy?",
+      "back": "ARM architecture is fundamentally a **RISC (Reduced Instruction Set Computer)** architecture. Two key benefits include:\n1.  **Simplicity:** Simpler instructions lead to faster execution and easier pipelining.\n2.  **Power Efficiency:** Simpler hardware requires less power, making it ideal for mobile and embedded devices.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"load-store architecture\" principle as implemented in ARM, and explain why it's beneficial for performance.",
+      "back": "In a load-store architecture, arithmetic and logic operations can only be performed on data held in **processor registers**. Memory access is restricted to explicit **load** (data from memory to register) and **store** (data from register to memory) instructions.\nThis design simplifies the control unit, enables faster clock speeds, and allows for more efficient pipelining by separating memory access from data processing, reducing the complexity of instruction decoding and execution stages.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name at least four essential registers found in a typical ARM processor's user mode, and briefly state their purpose.",
+      "back": "1.  **General-Purpose Registers (R0-R12):** Used for storing data and intermediate results.\n2.  **Stack Pointer (SP or R13):** Points to the current top of the stack.\n3.  **Link Register (LR or R14):** Stores the return address for function calls.\n4.  **Program Counter (PC or R15):** Contains the address of the next instruction to be fetched.\n5.  **Current Program Status Register (CPSR):** Holds condition flags (N, Z, C, V), interrupt disable bits, and the current processor mode.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how ARM's \"conditional execution\" feature contributes to code density and performance, especially compared to architectures that rely solely on conditional branches.",
+      "back": "ARM's conditional execution allows most instructions to be executed only if a specified condition (based on CPSR flags) is met. For example, `ADDEQ R0, R1, R2` adds only if the Z flag is set.\nThis reduces the need for frequent conditional branch instructions, which can cause pipeline stalls due to branch mispredictions. By executing instructions conditionally, small `if` statements can be implemented without branches, leading to:\n1.  **Improved Pipeline Efficiency:** Fewer branch mispredictions.\n2.  **Increased Code Density:** Often requires fewer instructions.\n\nExample `if (R0 == 0) R1 = 1;`:\n```arm\n; Conditional execution\nCMP R0, #0    ; Set Z flag if R0 == 0\nMOVEQ R1, #1  ; Execute only if Z flag is set\n```\nThis avoids the potential pipeline flush of a branch.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List three primary reasons why ARM architecture is exceptionally well-suited for embedded systems and aerospace applications.",
+      "back": "1.  **Power Efficiency:** Its RISC design and focus on low power consumption make it ideal for battery-powered devices and systems where heat dissipation is critical (e.g., satellites, IoT).\n2.  **Small Die Size:** The simpler instruction set and hardware lead to smaller chip footprints, reducing manufacturing costs and allowing for integration into compact devices.\n3.  **Performance per Watt:** ARM processors deliver excellent computational power for their energy consumption, crucial for resource-constrained environments.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of ARM's Thumb instruction set, and how does it achieve its goal compared to the standard ARM instruction set?",
+      "back": "The **Thumb instruction set** is a 16-bit instruction set designed to improve **code density** (reduce memory footprint) compared to the standard 32-bit ARM instruction set.\nIt achieves this by:\n1.  Using shorter, more compact instruction encodings (16-bit vs. 32-bit).\n2.  Having a slightly reduced instruction set and fewer addressing modes.\n3.  Limiting access to fewer registers (typically R0-R7 for most operations).\nModern ARM processors can switch between ARM and Thumb modes, or even execute a unified **Thumb-2** instruction set which mixes 16-bit and 32-bit instructions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly differentiate between the primary use cases for ARM's Cortex-A, Cortex-R, and Cortex-M processor profiles.",
+      "back": "1.  **Cortex-A (Application Profile):** High-performance, general-purpose computing, running complex OS (smartphones, tablets, high-end embedded).\n2.  **Cortex-R (Real-time Profile):** High-performance, real-time applications requiring deterministic behavior, low latency, and safety features (automotive, industrial control, aerospace).\n3.  **Cortex-M (Microcontroller Profile):** Low-cost, low-power microcontrollers, typically running bare-metal or RTOS (IoT devices, sensors, simple embedded systems).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-deadlock-avoidance-banker-s-algorithm",
+  "subtopicTitle": "Deadlock avoidance — Banker's algorithm",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:07.982Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of the Banker's algorithm in operating systems?",
+      "back": "The Banker's algorithm is a deadlock avoidance algorithm that ensures the system always remains in a safe state, thereby preventing deadlocks by carefully evaluating resource requests before granting them.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the four main data structures used by the Banker's algorithm to manage resources and processes.",
+      "back": "1.  `Available`: A vector indicating the number of available instances of each resource type.\n2.  `Max`: A matrix defining the maximum demand of each process for each resource type.\n3.  `Allocation`: A matrix showing the number of resources of each type currently allocated to each process.\n4.  `Need`: A matrix indicating the remaining resources each process may still request.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a process $P_i$ and resource type $R_j$, how is the `Need[i][j]` value calculated based on `Max` and `Allocation` matrices?",
+      "back": "The `Need` matrix entry `Need[i][j]` is calculated as:\n$$ \\text{Need}[i][j] = \\text{Max}[i][j] - \\text{Allocation}[i][j] $$\nThis value represents the additional instances of resource $R_j$ that process $P_i$ may still request to complete its execution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the two conditions a process $P_k$ must satisfy to be selected next in the Banker's safety algorithm's search for a safe sequence.",
+      "back": "To select process $P_k$ for potential execution in a safe sequence:\n1.  $P_k$ must not have finished yet: `Finish[k] == false`.\n2.  $P_k$'s current resource `Need` must be less than or equal to the currently `Work` resources: `Need[k] <= Work`.\nIf both conditions are true, $P_k$ can theoretically execute, release its resources, and `Work` can be updated.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the steps for the Banker's algorithm to handle a resource request `Request[i]` from process $P_i$.",
+      "back": "1.  **Check 1 (Validity):** If `Request[i] > Need[i]`, reject the request (process $P_i$ has exceeded its declared maximum need).\n2.  **Check 2 (Availability):** If `Request[i] > Available`, $P_i$ must wait (requested resources are not currently available).\n3.  **Tentative Allocation:** Otherwise, assume the request is granted:\n    *   `Available = Available - Request[i]`\n    *   `Allocation[i] = Allocation[i] + Request[i]`\n    *   `Need[i] = Need[i] - Request[i]`\n4.  **Safety Check:** Run the Safety Algorithm on this new state.\n    *   If the resulting state is safe, grant the request permanently.\n    *   If the resulting state is unsafe, revert the tentative allocation (undo step 3) and make $P_i$ wait.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean for a system to be in a \"safe state\" according to the Banker's algorithm?",
+      "back": "A system is in a safe state if there exists at least one \"safe sequence\" of processes. A safe sequence is an ordering of all processes ($P_1, P_2, ..., P_n$) such that for each $P_i$ in the sequence, its current `Need` can be satisfied by the `Available` resources plus the resources currently held by all processes $P_j$ that precede $P_i$ in the sequence. If such a sequence exists, all processes can complete without entering a deadlock.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the main limitations or practical challenges of implementing the Banker's algorithm in a real-world operating system?",
+      "back": "1.  **Prior Knowledge of Max Needs:** Processes must declare their maximum resource needs in advance, which is often difficult to predict accurately.\n2.  **Fixed Number of Processes/Resources:** The number of processes and resources must be relatively fixed, which is not typical in dynamic systems.\n3.  **Resource Release:** Processes must release resources in a predictable manner, eventually returning all allocated resources.\n4.  **Overhead:** Running the safety algorithm for every resource request introduces significant computational overhead, potentially impacting system performance.\n5.  **Resource Utilization:** It can lead to low resource utilization if resources are held for long periods due to conservative allocation policies.",
+      "difficulty": "hard"
+    }
+  ]
+}

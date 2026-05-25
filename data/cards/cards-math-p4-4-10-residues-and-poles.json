@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-residues-and-poles",
+  "subtopicTitle": "Residues and poles",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:54.540Z",
+  "cards": [
+    {
+      "front": "Define a pole of order $m$ for a complex function $f(z)$ at $z_0$.",
+      "back": "A point $z_0$ is a pole of order $m$ if $f(z) = \\frac{g(z)}{(z-z_0)^m}$ where $g(z)$ is analytic at $z_0$ and $g(z_0) \\neq 0$. Equivalently, $\\lim_{z \\to z_0} (z-z_0)^m f(z)$ exists and is non-zero, but $\\lim_{z \\to z_0} (z-z_0)^{m-1} f(z)$ does not exist (or is infinite).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the residue of a complex function $f(z)$ at an isolated singularity $z_0$.",
+      "back": "The residue of $f(z)$ at an isolated singularity $z_0$, denoted $\\text{Res}(f, z_0)$, is the coefficient $a_{-1}$ in the Laurent series expansion of $f(z)$ around $z_0$: $f(z) = \\sum_{n=-\\infty}^{\\infty} a_n (z-z_0)^n$. It is also given by $a_{-1} = \\frac{1}{2\\pi i} \\oint_C f(z) dz$, where $C$ is a simple closed contour enclosing $z_0$ but no other singularities.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the residue of $f(z)$ at a simple pole $z_0$.",
+      "back": "If $z_0$ is a simple pole of $f(z)$, then $\\text{Res}(f, z_0) = \\lim_{z \\to z_0} (z-z_0) f(z)$. Alternatively, if $f(z) = \\frac{P(z)}{Q(z)}$ where $P(z_0) \\neq 0$, $Q(z_0)=0$, and $Q'(z_0) \\neq 0$, then $\\text{Res}(f, z_0) = \\frac{P(z_0)}{Q'(z_0)}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the residue of $f(z)$ at a pole $z_0$ of order $m > 1$.",
+      "back": "If $z_0$ is a pole of order $m$ for $f(z)$, then $\\text{Res}(f, z_0) = \\frac{1}{(m-1)!} \\lim_{z \\to z_0} \\frac{d^{m-1}}{dz^{m-1}} [(z-z_0)^m f(z)]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Cauchy's Residue Theorem.",
+      "back": "If $f(z)$ is analytic inside and on a simple closed contour $C$, except for a finite number of isolated singularities $z_1, z_2, \\ldots, z_n$ inside $C$, then $\\oint_C f(z) dz = 2\\pi i \\sum_{k=1}^n \\text{Res}(f, z_k)$. The contour $C$ must be traversed in the positive (counter-clockwise) direction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\oint_C \\frac{e^z}{z^2+1} dz$ where $C$ is the circle $|z-i|=1$.",
+      "back": "The singularities of $f(z) = \\frac{e^z}{(z-i)(z+i)}$ are $z=i$ and $z=-i$. The contour $C$ encloses only the simple pole $z=i$. \\n$\\text{Res}(f, i) = \\lim_{z \\to i} (z-i) \\frac{e^z}{(z-i)(z+i)} = \\frac{e^i}{i+i} = \\frac{e^i}{2i}$. \\nBy the Residue Theorem, $\\oint_C f(z) dz = 2\\pi i \\cdot \\text{Res}(f, i) = 2\\pi i \\frac{e^i}{2i} = \\pi e^i = \\pi (\\cos 1 + i \\sin 1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define and state the formula for the residue of $f(z)$ at infinity.",
+      "back": "The residue of $f(z)$ at infinity, denoted $\\text{Res}(f, \\infty)$, is defined as $-\\frac{1}{2\\pi i} \\oint_C f(z) dz$, where $C$ is a simple closed contour enclosing all finite singularities of $f(z)$ and traversed in the positive direction. \\nAlternatively, $\\text{Res}(f, \\infty) = -\\text{Res}\\left(\\frac{1}{z^2} f\\left(\\frac{1}{z}\\right), 0\\right)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the residue of $f(z)$ at an essential singularity $z_0$ determined?",
+      "back": "At an essential singularity $z_0$, the residue $\\text{Res}(f, z_0)$ cannot be found using limit formulas for poles. Instead, it must be determined directly from the Laurent series expansion of $f(z)$ around $z_0$. The residue is the coefficient $a_{-1}$ of the $(z-z_0)^{-1}$ term in the Laurent series. For example, for $f(z) = e^{1/z}$ at $z=0$, $e^{1/z} = 1 + \\frac{1}{z} + \\frac{1}{2!z^2} + \\dots$, so $\\text{Res}(e^{1/z}, 0) = 1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

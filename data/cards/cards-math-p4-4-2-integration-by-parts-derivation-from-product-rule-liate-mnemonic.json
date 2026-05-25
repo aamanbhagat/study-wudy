@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-integration-by-parts-derivation-from-product-rule-liate-mnemonic",
+  "subtopicTitle": "Integration by parts — derivation from product rule, LIATE mnemonic",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:23.225Z",
+  "cards": [
+    {
+      "front": "State the product rule for differentiation in differential form.",
+      "back": "The product rule for differentiation in differential form is $d(uv) = u \\, dv + v \\, du$. Alternatively, $\\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the integration by parts formula $\\int u \\, dv = uv - \\int v \\, du$ from the product rule for differentiation.",
+      "back": "Start with the product rule in differential form: $d(uv) = u \\, dv + v \\, du$.<br/>Integrate both sides: $\\int d(uv) = \\int u \\, dv + \\int v \\, du$.<br/>The integral of a differential is the function itself: $uv = \\int u \\, dv + \\int v \\, du$.<br/>Rearranging to isolate $\\int u \\, dv$ gives the integration by parts formula: $\\int u \\, dv = uv - \\int v \\, du$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the integration by parts formula?",
+      "back": "The integration by parts formula is $\\int u \\, dv = uv - \\int v \\, du$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the LIATE mnemonic stand for, and what is its primary purpose in integration by parts?",
+      "back": "LIATE stands for Logarithmic, Inverse trigonometric, Algebraic, Trigonometric, Exponential. Its primary purpose is to provide a heuristic for choosing the function $u$ in integration by parts (for $\\int u \\, dv$), prioritizing functions higher on the list as $u$ because they tend to simplify upon differentiation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using LIATE, identify $u$ and $dv$ for the integral $\\int x^2 \\ln x \\, dx$.",
+      "back": "According to LIATE, Logarithmic (L) functions come before Algebraic (A) functions. Therefore, choose $u = \\ln x$ and $dv = x^2 \\, dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\int x \\cos x \\, dx$ using integration by parts.",
+      "back": "Let $u = x$ (Algebraic, higher in LIATE than Trigonometric), $dv = \\cos x \\, dx$.<br/>Then $du = dx$, and $v = \\int \\cos x \\, dx = \\sin x$.<br/>Using $\\int u \\, dv = uv - \\int v \\, du$:<br/>$\\int x \\cos x \\, dx = x \\sin x - \\int \\sin x \\, dx$<br/>$= x \\sin x - (-\\cos x) + C$<br/>$= x \\sin x + \\cos x + C$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond LIATE, what is the fundamental strategic goal when choosing $u$ and $dv$ in integration by parts?",
+      "back": "The fundamental goal is to make the new integral $\\int v \\, du$ simpler to evaluate than the original integral $\\int u \\, dv$. This often means choosing $u$ such that $du$ is simpler than $u$, and choosing $dv$ such that $v$ is not significantly more complex than $dv$ and $\\int v \\, du$ is manageable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the 'cyclic' application of integration by parts and provide an example integral.",
+      "back": "Cyclic integration by parts occurs when applying the IBP formula twice results in an expression containing the original integral (or a multiple of it) on the right-hand side. You then treat this as an algebraic equation to solve for the integral. A common example is $\\int e^{ax} \\sin(bx) \\, dx$ or $\\int e^{ax} \\cos(bx) \\, dx$.",
+      "difficulty": "hard"
+    }
+  ]
+}

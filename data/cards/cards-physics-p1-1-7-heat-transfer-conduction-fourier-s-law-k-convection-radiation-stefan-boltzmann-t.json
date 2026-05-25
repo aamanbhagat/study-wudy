@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-heat-transfer-conduction-fourier-s-law-k-convection-radiation-stefan-boltzmann-t",
+  "subtopicTitle": "Heat transfer — conduction (Fourier's law k), convection, radiation (Stefan-Boltzmann σT⁴)",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:03.026Z",
+  "cards": [
+    {
+      "front": "Describe the primary physical mechanism for heat transfer via conduction, convection, and radiation.",
+      "back": "Conduction: Transfer through direct molecular contact and vibration, and free electron movement (especially in metals). No bulk material movement. Convection: Transfer through the macroscopic movement of fluid particles (liquids or gases) carrying thermal energy. Radiation: Transfer through electromagnetic waves emitted due to the thermal energy of matter, requiring no medium.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Fourier's Law of Heat Conduction, defining all variables and their standard SI units.",
+      "back": "$$Q = -kA \\frac{dT}{dx}$$ where $Q$ is the heat transfer rate (W), $k$ is the thermal conductivity (W/m·K), $A$ is the cross-sectional area ($m^2$), and $dT/dx$ is the temperature gradient (K/m). The negative sign indicates heat flows in the direction of decreasing temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Newton's Law of Cooling for convective heat transfer, defining all variables and their standard SI units.",
+      "back": "$$Q = hA(T_s - T_\\infty)$$ where $Q$ is the heat transfer rate (W), $h$ is the convective heat transfer coefficient (W/m²·K), $A$ is the surface area ($m^2$), $T_s$ is the surface temperature (K or °C), and $T_\\infty$ is the bulk fluid temperature (K or °C).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Stefan-Boltzmann Law for thermal radiation, defining all variables and their standard SI units.",
+      "back": "$$Q = \\epsilon \\sigma A T^4$$ where $Q$ is the emitted heat transfer rate (W), $\\epsilon$ is the emissivity (dimensionless, $0 \\le \\epsilon \\le 1$), $\\sigma$ is the Stefan-Boltzmann constant ($5.67 \\times 10^{-8} W/m^2·K^4$), $A$ is the surface area ($m^2$), and $T$ is the absolute surface temperature (K). For a blackbody, $\\epsilon=1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What material/fluid properties and conditions primarily influence the values of thermal conductivity ($k$), convective heat transfer coefficient ($h$), and emissivity ($\\epsilon$)?",
+      "back": "$k$ (conduction): Material composition (e.g., crystalline structure, free electron density), temperature, phase. $h$ (convection): Fluid properties (density, viscosity, specific heat, thermal conductivity), fluid velocity, surface geometry, temperature difference between surface and fluid, and flow regime (laminar/turbulent). $\\epsilon$ (radiation): Surface material composition, surface finish (roughness, oxidation), temperature, and wavelength of radiation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the net radiative heat transfer from a gray surface (emissivity $\\epsilon$, area $A$, temp $T_s$) to large surroundings (temp $T_{surr}$).",
+      "back": "A surface at $T_s$ emits radiation $Q_{emit} = \\epsilon \\sigma A T_s^4$. If surrounded by large surroundings at $T_{surr}$, the incident radiation on the surface is equivalent to that from a blackbody at $T_{surr}$, i.e., $\\sigma T_{surr}^4$ per unit area. The absorbed radiation is $Q_{abs} = \\alpha A (\\sigma T_{surr}^4)$. For a gray surface, absorptivity $\\alpha = \\epsilon$. Thus, $Q_{abs} = \\epsilon \\sigma A T_{surr}^4$. The net heat transfer is: $$Q_{net} = Q_{emit} - Q_{abs} = \\epsilon \\sigma A (T_s^4 - T_{surr}^4)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why a metal spoon placed in hot soup heats up much faster along its length than a wooden spoon of similar dimensions.",
+      "back": "Metals have a significantly higher thermal conductivity ($k$) compared to wood. Heat transfer along the spoon's length occurs primarily via conduction. The higher $k$ of the metal spoon means that thermal energy (molecular vibrations and free electron movement) propagates much more rapidly from the hot end (in the soup) to the colder end (held by hand), causing a quicker temperature increase along its entire length.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the context of thermal radiation, what defines an ideal 'blackbody'?",
+      "back": "An ideal blackbody is a hypothetical object that absorbs all electromagnetic radiation incident upon it, regardless of frequency or angle. It is also a perfect emitter of thermal radiation, meaning it emits the maximum possible amount of radiation for its given temperature (emissivity $\\epsilon=1$). It does not reflect any radiation.",
+      "difficulty": "easy"
+    }
+  ]
+}

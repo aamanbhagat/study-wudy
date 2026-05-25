@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-area-between-curves-horizontal-and-vertical-slices",
+  "subtopicTitle": "Area between curves — horizontal and vertical slices",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:58.909Z",
+  "cards": [
+    {
+      "front": "What is the fundamental geometric principle behind using definite integrals to find the area between two curves?",
+      "back": "The area is approximated by summing the areas of infinitesimally thin rectangles (or strips) that span the region between the curves. The definite integral performs this summation precisely.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the definite integral formula for the area between $y=f(x)$ and $y=g(x)$ from $x=a$ to $x=b$, assuming $f(x) \\ge g(x)$ on $[a,b]$.",
+      "back": "The area $A$ is given by: $$A = \\int_a^b [f(x) - g(x)] dx$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the definite integral formula for the area between $x=f(y)$ and $x=g(y)$ from $y=c$ to $y=d$, assuming $f(y) \\ge g(y)$ on $[c,d]$.",
+      "back": "The area $A$ is given by: $$A = \\int_c^d [f(y) - g(y)] dy$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When using vertical slices ($dx$), how do you identify which function corresponds to the \"upper curve\" and which to the \"lower curve\"?",
+      "back": "For any given $x$ within the interval of integration, the function with the greater $y$-value is the upper curve, and the function with the smaller $y$-value is the lower curve. Graphing the functions is often the easiest way to determine this.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When using horizontal slices ($dy$), how do you identify which function corresponds to the \"right curve\" and which to the \"left curve\"?",
+      "back": "For any given $y$ within the interval of integration, the function with the greater $x$-value is the right curve, and the function with the smaller $x$-value is the left curve. Graphing the functions is often the easiest way to determine this.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary considerations when deciding whether to integrate with respect to $x$ (vertical slices) or $y$ (horizontal slices) for finding the area between curves.",
+      "back": "1.  **Number of Integrals:** Choose the orientation that requires the fewest separate integrals (e.g., if curves swap top/bottom or right/left roles). \n2.  **Function Form:** Consider which variable ($x$ or $y$) is easier to express the curves as a function of (e.g., $y=f(x)$ vs $x=g(y)$) and which form leads to simpler integration. \n3.  **Intersection Points:** The limits of integration might be easier to find in one variable than the other.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If curves $y=f(x)$ and $y=g(x)$ intersect at $x=a$ and $x=b$, and $f(x) \\ge g(x)$ on $[a, m]$ but $g(x) \\ge f(x)$ on $[m, b]$ (where $m$ is an intersection point between $a$ and $b$), how is the total area between them expressed?",
+      "back": "The total area $A$ is given by the sum of two integrals, splitting the region where the \"upper\" and \"lower\" curves swap: $$A = \\int_a^m [f(x) - g(x)] dx + \\int_m^b [g(x) - f(x)] dx$$ This is equivalent to: $$A = \\int_a^b |f(x) - g(x)| dx$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an intuitive explanation for why $\\int_a^b [f(x) - g(x)] dx$ (for $f(x) \\ge g(x)$) yields the area between curves.",
+      "back": "Imagine the region is composed of infinitely many thin vertical strips, each of width $dx$. At any given $x$, the height of such a strip is the difference between the $y$-value of the upper curve, $f(x)$, and the $y$-value of the lower curve, $g(x)$, so its height is $f(x) - g(x)$. The area of one such strip is approximately its height times its width: $(f(x) - g(x)) dx$. The definite integral sums these infinitesimal strip areas from $x=a$ to $x=b$, giving the total area.",
+      "difficulty": "hard"
+    }
+  ]
+}

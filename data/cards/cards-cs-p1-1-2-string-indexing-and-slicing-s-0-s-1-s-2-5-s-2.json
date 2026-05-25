@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-string-indexing-and-slicing-s-0-s-1-s-2-5-s-2",
+  "subtopicTitle": "String indexing and slicing — s[0], s[-1], s[2:5], s[::2]",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:55.293Z",
+  "cards": [
+    {
+      "front": "How do you access the first character of a string `my_string` using positive indexing in Python?",
+      "back": "`my_string[0]`. Positive indexing starts at $0$ for the first character, $1$ for the second, and so on.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you access the *last* character of a string `my_string` using negative indexing?",
+      "back": "`my_string[-1]`. Negative indexing starts at $-1$ for the last character, $-2$ for the second to last, etc.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `s = \"Python\"`, what is the result of `s[1:4]`? Explain the `start` and `end` parameters in `s[start:end]`.",
+      "back": "`'yth'`. In `s[start:end]`, `start` is the index of the first character to include (inclusive), and `end` is the index of the first character *not* to include (exclusive). So, `s[1:4]` includes characters at indices $1, 2, 3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For `s = \"Hello\"`, what are the results of `s[:3]` and `s[3:]`?",
+      "back": "`s[:3]` results in `'Hel'`. When `start` is omitted, it defaults to $0$. `s[3:]` results in `'lo'`. When `end` is omitted, it defaults to the length of the string.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `text = \"Programming\"`, what does `text[::2]` return?",
+      "back": "`'Prgamig'`. The slice `[start:end:step]` extracts characters from `start` up to (but not including) `end`, taking every `step`-th character. When `start` and `end` are omitted, they default to the beginning and end of the string, respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you reverse a string `my_string` using slicing with a negative step?",
+      "back": "`my_string[::-1]`. \n```python\ns = \"Python\"\nreversed_s = s[::-1] # 'nohtyP'\n```\nWhen `step` is negative, the slice proceeds backward. Omitting `start` and `end` with a negative step implies starting from the end of the string and going to the beginning.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the difference in behavior between `s[10]` and `s[1:10]` if `s = \"abc\"`?",
+      "back": "`s[10]` will raise an `IndexError` because index $10$ is out of bounds for a string of length $3$.\n```python\ns = \"abc\"\n# s[10] # IndexError: string index out of range\n```\n`s[1:10]` will return `'bc'` (or `s[1:]`). Slicing gracefully handles out-of-bounds `start` or `end` indices by simply returning the available portion of the string without raising an error.\n```python\ns = \"abc\"\nprint(s[1:10]) # Output: bc\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

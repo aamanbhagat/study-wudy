@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-6-distance-formula-in-3d",
+  "subtopicTitle": "Distance formula in 3D",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:26.669Z",
+  "cards": [
+    {
+      "front": "How is the distance between two points in 3D space conceptually defined?",
+      "back": "It is the length of the straight line segment connecting the two points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the distance formula between two points $P_1(x_1, y_1, z_1)$ and $P_2(x_2, y_2, z_2)$ in 3D space.",
+      "back": "The distance $D$ is given by: $$D = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Briefly outline the conceptual steps to derive the 3D distance formula using the Pythagorean theorem.",
+      "back": "1. Find the 2D distance between the points in one plane (e.g., XY-plane) using the Pythagorean theorem. This forms one leg of a new right triangle.\n2. The difference in the third coordinate (Z) forms the second leg of this new right triangle.\n3. Apply the Pythagorean theorem again to these two legs to find the 3D distance (hypotenuse).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the distance formula between $P_1(x_1, y_1, z_1)$ and $P_2(x_2, y_2, z_2)$ from first principles.",
+      "back": "Consider an intermediate point $Q(x_2, y_2, z_1)$.\n1. The distance between $P_1(x_1, y_1, z_1)$ and $Q(x_2, y_2, z_1)$ (in the plane $z=z_1$) is $d_{xy} = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$. This is a 2D distance.\n2. Now, consider the right triangle formed by $P_1$, $Q$, and $P_2$. The legs are $P_1Q$ and $QP_2$.\n   $P_1Q = d_{xy}$\n   $QP_2 = |z_2 - z_1|$ (the vertical distance).\n3. By the Pythagorean theorem for this 3D right triangle:\n   $D^2 = (P_1Q)^2 + (QP_2)^2$\n   $D^2 = (\\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2})^2 + (z_2-z_1)^2$\n   $D^2 = (x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2$\n   $$D = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Calculate the distance between points $A(1, -2, 3)$ and $B(4, 2, -1)$.",
+      "back": "Using the formula $D = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$:\n$D = \\sqrt{(4-1)^2 + (2-(-2))^2 + (-1-3)^2}$\n$D = \\sqrt{(3)^2 + (4)^2 + (-4)^2}$\n$D = \\sqrt{9 + 16 + 16}$\n$D = \\sqrt{41}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the distance of a point $P(x, y, z)$ from the origin $O(0, 0, 0)$?",
+      "back": "Using the distance formula with $P_1=(0,0,0)$ and $P_2=(x,y,z)$:\n$D = \\sqrt{(x-0)^2 + (y-0)^2 + (z-0)^2}$\n$$D = \\sqrt{x^2 + y^2 + z^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between the 3D distance formula and the Pythagorean theorem.",
+      "back": "The 3D distance formula is a direct extension of the Pythagorean theorem, applied sequentially. It uses the Pythagorean theorem twice: first to find the 2D distance in a plane (e.g., the XY-plane), and then again to combine that 2D distance with the difference in the third dimension (Z) to find the overall 3D distance. It essentially breaks down the 3D problem into two 2D right triangle problems.",
+      "difficulty": "hard"
+    }
+  ]
+}

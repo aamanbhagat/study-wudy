@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-lambda-expressions-capture-list-by-value-by-reference",
+  "subtopicTitle": "Lambda expressions — capture list (by value, by reference)",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:11.147Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the capture list in a C++ lambda expression?",
+      "back": "The capture list allows a lambda expression to access variables from its surrounding (enclosing) scope. Without it, a lambda can only access its own parameters or global variables.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the syntax to capture a local variable `myVar` by value in a C++ lambda?",
+      "back": "`[myVar]`\n```cpp\nint myVar = 5;\nauto lambda = [myVar]() { /* myVar is a copy here */ };\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the syntax to capture a local variable `myRef` by reference in a C++ lambda?",
+      "back": "`[&myRef]`\n```cpp\nint myRef = 10;\nauto lambda = [&myRef]() { /* myRef refers to the original */ };\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fundamental difference in how `int x` is captured by `[x]` versus `[&x]` in a lambda's capture list.",
+      "back": "`[x]` captures `x` by value, meaning a *copy* of `x` is made at the time the lambda is created. Changes to the original `x` after lambda creation will not affect the lambda's copy. `[&x]` captures `x` by reference, meaning the lambda holds a *reference* to the original `x`. Changes to the original `x` *will* be reflected inside the lambda, and the lambda can modify the original `x`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `int count = 0; auto f = [count]() { /* ... */ };`, can `count` be modified inside `f`? How would you enable modification?",
+      "back": "No, `count` cannot be modified inside `f`. When captured by value, variables are `const` by default within the lambda. To enable modification of the *captured copy*, the lambda must be declared `mutable`:\n```cpp\nint count = 0;\nauto f = [count]() mutable {\n    count++; // Valid now, modifies the lambda's copy\n};\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the \"dangling reference\" problem, and how does it relate to capturing variables by reference in C++ lambdas?",
+      "back": "A dangling reference occurs when a reference points to an object that no longer exists (e.g., has gone out of scope). When capturing by reference (`[&var]`), if the lambda outlives the `var` it references, the lambda will attempt to access an invalid memory location, leading to undefined behavior.\n```cpp\nstd::function<void()> create_bad_lambda() {\n    int temp_val = 42;\n    // DANGER: temp_val goes out of scope when function returns\n    return [&temp_val]() { std::cout << temp_val << std::endl; };\n}\n// main()\n// auto f = create_bad_lambda();\n// f(); // Undefined behavior!\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you capture `std::string name` by value and `int& score` by reference simultaneously in a single lambda capture list?",
+      "back": "Combine them with a comma: `[name, &score]`\n```cpp\nstd::string name = \"Alice\";\nint score = 100;\nauto display_info = [name, &score]() {\n    std::cout << name << \": \" << score << std::endl;\n    score += 10; // Modifies original score\n};\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between the default capture modes `[=]` and `[&]` in C++ lambdas.",
+      "back": "*   `[=]` (default by value): Captures all *used* variables from the enclosing scope by value. This creates copies, making the lambda generally safer from dangling references but preventing modification of original variables (unless `mutable` is used for the copies).\n*   `[&]` (default by reference): Captures all *used* variables from the enclosing scope by reference. This allows modification of original variables and can be more efficient for large objects, but introduces the risk of dangling references if the lambda outlives the referenced variables.",
+      "difficulty": "hard"
+    }
+  ]
+}

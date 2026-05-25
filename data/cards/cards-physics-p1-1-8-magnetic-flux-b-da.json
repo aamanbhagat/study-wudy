@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p1-1-8-magnetic-flux-b-da",
+  "subtopicTitle": "Magnetic flux Φ = ∫B·dA",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:03.182Z",
+  "cards": [
+    {
+      "front": "Define magnetic flux ($\\Phi$).",
+      "back": "Magnetic flux ($\\Phi$) is a measure of the total magnetic field passing through a given surface. It quantifies the \"number\" of magnetic field lines piercing the surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general formula for magnetic flux ($\\Phi$) and its SI unit.",
+      "back": "The general formula for magnetic flux is $\\Phi = \\int \\mathbf{B} \\cdot d\\mathbf{A}$. The SI unit is the Weber (Wb), which is equivalent to Tesla-meter squared ($T \\cdot m^2$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In $\\Phi = \\int \\mathbf{B} \\cdot d\\mathbf{A}$, what do $\\mathbf{B}$, $d\\mathbf{A}$, and the dot product signify?",
+      "back": "$\\mathbf{B}$ is the magnetic field vector. $d\\mathbf{A}$ is an infinitesimal area vector, whose magnitude is the area $dA$ and whose direction is normal (perpendicular) to the surface. The dot product $\\mathbf{B} \\cdot d\\mathbf{A} = B dA \\cos\\theta$ signifies that only the component of $\\mathbf{B}$ perpendicular to the surface contributes to the flux.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Simplify the magnetic flux formula for a uniform magnetic field $\\mathbf{B}$ passing through a flat surface of area $A$.",
+      "back": "If $\\mathbf{B}$ is uniform and the surface is flat, the formula simplifies to $\\Phi = \\mathbf{B} \\cdot \\mathbf{A}$. If $\\theta$ is the angle between $\\mathbf{B}$ and the normal to the surface, then $\\Phi = BA \\cos\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is magnetic flux through a surface maximum, zero, or minimum (negative maximum)?",
+      "back": "<ul><li><b>Maximum positive flux</b>: When $\\mathbf{B}$ is parallel to the area vector $\\mathbf{A}$ (i.e., perpendicular to the surface, $\\theta = 0^\\circ$), $\\Phi = BA$.</li><li><b>Zero flux</b>: When $\\mathbf{B}$ is perpendicular to the area vector $\\mathbf{A}$ (i.e., parallel to the surface, $\\theta = 90^\\circ$), $\\Phi = 0$.</li><li><b>Minimum (negative maximum) flux</b>: When $\\mathbf{B}$ is anti-parallel to the area vector $\\mathbf{A}$ ($\\theta = 180^\\circ$), $\\Phi = -BA$.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the integral $\\int \\mathbf{B} \\cdot d\\mathbf{A}$ is necessary for calculating magnetic flux, rather than simply $\\mathbf{B} \\cdot \\mathbf{A}$.",
+      "back": "The integral form is necessary when: 1. The magnetic field $\\mathbf{B}$ is *not uniform* over the surface (i.e., its magnitude or direction varies from point to point). 2. The surface itself is *not flat* (i.e., its normal vector $d\\mathbf{A}$ changes direction across the surface). In these cases, the dot product $\\mathbf{B} \\cdot d\\mathbf{A}$ must be summed infinitesimally over the entire surface.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the magnetic flux through *any closed surface*? State the relevant law.",
+      "back": "The magnetic flux through any closed surface is always zero. This is known as Gauss's Law for Magnetism: $$\\oint \\mathbf{B} \\cdot d\\mathbf{A} = 0$$ This law implies that magnetic monopoles do not exist; magnetic field lines always form closed loops, entering and exiting any closed surface in equal measure.",
+      "difficulty": "hard"
+    }
+  ]
+}

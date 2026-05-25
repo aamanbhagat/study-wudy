@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-3-time-dilation-derivation-twin-paradox",
+  "subtopicTitle": "Time dilation — derivation, twin paradox",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:28.845Z",
+  "cards": [
+    {
+      "front": "Define time dilation in the context of special relativity.",
+      "back": "Time dilation is the phenomenon where two observers in relative motion measure different durations for the same event. The observer in motion relative to the event will measure a longer time interval for the event compared to an observer at rest relative to the event (who measures the proper time). It is a consequence of the constancy of the speed of light for all inertial observers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the time dilation formula and define all variables, including the Lorentz factor.",
+      "back": "The time dilation formula is given by: $$\\Delta t = \\gamma \\Delta t_0 = \\frac{\\Delta t_0}{\\sqrt{1 - v^2/c^2}}$$ where:\n*   $\\Delta t$: Time interval measured by an observer *relative* to the event (in the moving frame).\n*   $\\Delta t_0$: Proper time (the time interval measured in the event's *rest frame*).\n*   $v$: Relative velocity between the two inertial frames.\n*   $c$: Speed of light in vacuum.\n*   $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$: The Lorentz factor.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the time dilation formula $\\Delta t = \\gamma \\Delta t_0$ using a light clock thought experiment.",
+      "back": "Consider a light clock with two mirrors separated by a distance $L_0$. In its rest frame $S_0$, a light pulse travels up and down, taking time $\\Delta t_0$. The path length is $2L_0 = c \\Delta t_0$, so $L_0 = c \\Delta t_0 / 2$.\n\nNow, consider this clock moving at velocity $v$ relative to an observer in frame $S$. For this observer, the light pulse travels diagonally. In time $\\Delta t$, the clock moves a horizontal distance $v \\Delta t$. The light travels a total distance $c \\Delta t$. Using the Pythagorean theorem for one leg of the light's journey (half the total time):\n\n$(c \\Delta t / 2)^2 = L_0^2 + (v \\Delta t / 2)^2$\n\nSubstitute $L_0 = c \\Delta t_0 / 2$:\n\n$(c \\Delta t / 2)^2 = (c \\Delta t_0 / 2)^2 + (v \\Delta t / 2)^2$\n\nMultiply by 4:\n\n$c^2 (\\Delta t)^2 = c^2 (\\Delta t_0)^2 + v^2 (\\Delta t)^2$\n\nRearrange terms to solve for $\\Delta t$:\n\n$c^2 (\\Delta t)^2 - v^2 (\\Delta t)^2 = c^2 (\\Delta t_0)^2$\n\n$(\\Delta t)^2 (c^2 - v^2) = c^2 (\\Delta t_0)^2$\n\n$(\\Delta t)^2 = \\frac{c^2 (\\Delta t_0)^2}{c^2 - v^2} = \\frac{(\\Delta t_0)^2}{1 - v^2/c^2}$\n\nTaking the square root:\n\n$\\Delta t = \\frac{\\Delta t_0}{\\sqrt{1 - v^2/c^2}} = \\gamma \\Delta t_0$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is \"proper time\" ($\\Delta t_0$) and how is it measured?",
+      "back": "Proper time ($\\Delta t_0$) is the time interval between two events measured by an observer who is at rest relative to both events. Crucially, this means the two events occur at the *same spatial location* in that observer's reference frame. It is the shortest possible time interval measured between those two events.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the classic \"Twin Paradox\" scenario.",
+      "back": "The Twin Paradox involves two identical twins, Alice and Bob. Alice remains on Earth (an inertial frame). Bob travels on a high-speed rocket to a distant star and then returns to Earth. From Alice's perspective, Bob's clock runs slower due to time dilation, so Bob should be younger upon his return. However, from Bob's perspective, Alice (and Earth) moves away and then towards him, so Alice's clock should run slower, making Alice younger. This apparent contradiction is the paradox.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Resolve the Twin Paradox, explaining why the traveling twin is indeed younger.",
+      "back": "The paradox is resolved by recognizing the asymmetry in the twins' experiences. Alice remains in a single inertial frame throughout the journey. Bob, the traveling twin, is *not* in a single inertial frame; he must accelerate to turn around and return to Earth. This acceleration (a change in his velocity vector) means his frame of reference is non-inertial during parts of the journey. Special Relativity applies only to inertial frames. When accounting for the non-inertial phase, it is found that the accelerating twin (Bob) experiences less proper time, and thus is indeed younger upon reunion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens to the time interval $\\Delta t$ measured by an observer as the relative velocity $v$ approaches the speed of light $c$?",
+      "back": "As the relative velocity $v$ approaches the speed of light $c$, the term $v^2/c^2$ approaches 1. This causes the denominator $\\sqrt{1 - v^2/c^2}$ to approach 0, and thus the Lorentz factor $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$ approaches infinity. Consequently, $\\Delta t = \\gamma \\Delta t_0$ approaches infinity. This means that for an observer, events on an object moving at near light speed appear to slow down drastically, potentially appearing to stop entirely as $v \\to c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name a real-world phenomenon or experiment that confirms time dilation.",
+      "back": "Two prominent examples are:\n1.  **Muon Decay**: Muons are unstable particles created in the upper atmosphere by cosmic rays. They travel at relativistic speeds. Their observed lifetime on Earth is significantly longer than their proper lifetime (measured in their rest frame), allowing them to reach the Earth's surface before decaying, which would be impossible without time dilation.\n2.  **GPS Satellites**: Clocks on GPS satellites experience time dilation due to their high speed (special relativity) and also due to weaker gravitational fields (general relativity). Both effects must be precisely accounted for to ensure the accuracy of GPS navigation systems.",
+      "difficulty": "easy"
+    }
+  ]
+}

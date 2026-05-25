@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-sturm-liouville-theory-eigenvalue-problems-orthogonality-of-eigenfunctions",
+  "subtopicTitle": "Sturm-Liouville theory — eigenvalue problems, orthogonality of eigenfunctions",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:39.447Z",
+  "cards": [
+    {
+      "front": "What is the standard form of a Sturm-Liouville equation?",
+      "back": "The standard form of a Sturm-Liouville equation is:\n$$ \\frac{d}{dx} \\left[ p(x) \\frac{dy}{dx} \\right] + [q(x) + \\lambda w(x)]y = 0 $$\nwhere $p(x), q(x), w(x)$ are real-valued functions, $p(x) > 0$, $w(x) > 0$, and $\\lambda$ is a constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a Sturm-Liouville problem, what do $\\lambda$ and $y(x)$ represent?",
+      "back": "In a Sturm-Liouville problem, $\\lambda$ represents an **eigenvalue**, a constant for which non-trivial solutions exist. $y(x)$ represents the corresponding **eigenfunction**, the non-trivial solution associated with a particular eigenvalue $\\lambda$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the four main conditions for a Sturm-Liouville problem to be considered \"regular\" on an interval $[a, b]$.",
+      "back": "For a Sturm-Liouville problem to be regular on $[a, b]$:\n1.  $p(x), p'(x), q(x), w(x)$ are continuous on $[a, b]$.\n2.  $p(x) > 0$ on $[a, b]$.\n3.  $w(x) > 0$ on $[a, b]$.\n4.  Homogeneous boundary conditions of the form $\\alpha_1 y(a) + \\alpha_2 y'(a) = 0$ and $\\beta_1 y(b) + \\beta_2 y'(b) = 0$, where coefficients are not simultaneously zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental property can be stated about the eigenvalues of a regular Sturm-Liouville problem?",
+      "back": "The eigenvalues $\\lambda$ of a regular Sturm-Liouville problem are always **real**. This property simplifies analysis and is crucial for physical interpretations, as it ensures that the solutions correspond to physically measurable quantities.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the orthogonality property for eigenfunctions $y_m(x)$ and $y_n(x)$ corresponding to distinct eigenvalues $\\lambda_m \\neq \\lambda_n$ of a regular S-L problem.",
+      "back": "If $y_m(x)$ and $y_n(x)$ are eigenfunctions corresponding to distinct eigenvalues $\\lambda_m$ and $\\lambda_n$ of a regular Sturm-Liouville problem, then they are orthogonal with respect to the weight function $w(x)$ over the interval $[a, b]$:\n$$ \\int_a^b w(x) y_m(x) y_n(x) \\, dx = 0 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the key steps to derive the orthogonality relation for eigenfunctions of a regular S-L problem.",
+      "back": "1. Write S-L equations for $y_m, y_n$: $L y_m = -\\lambda_m w y_m$, $L y_n = -\\lambda_n w y_n$.\n2. Multiply first by $y_n$, second by $y_m$, subtract: $y_n L y_m - y_m L y_n = (\\lambda_n - \\lambda_m) w y_m y_n$.\n3. Integrate from $a$ to $b$: $\\int_a^b (y_n L y_m - y_m L y_n) \\, dx = (\\lambda_n - \\lambda_m) \\int_a^b w y_m y_n \\, dx$.\n4. Using integration by parts (Lagrange's Identity), show LHS equals $[p(y_n y_m' - y_m y_n')]_a^b$.\n5. Show boundary terms vanish due to homogeneous boundary conditions.\n6. Since $\\lambda_n \\neq \\lambda_m$, the integral $\\int_a^b w y_m y_n \\, dx$ must be zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the orthogonality of eigenfunctions important for solving PDEs?",
+      "back": "Orthogonality is crucial because it allows us to represent arbitrary 'well-behaved' functions as a generalized Fourier series (eigenfunction expansion) of these eigenfunctions. This forms a basis for solving initial/boundary value problems for PDEs by projecting initial/boundary conditions onto the eigenfunction basis, simplifying the solution process.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the \"completeness\" property of Sturm-Liouville eigenfunctions imply for function representation?",
+      "back": "The completeness property implies that the eigenfunctions of a regular Sturm-Liouville problem form a complete orthogonal basis for the space of square-integrable functions (with weight $w(x)$) on the interval $[a, b]$. This means any such function $f(x)$ can be uniquely expanded as an infinite series of these eigenfunctions:\n$$ f(x) = \\sum_{n=1}^\\infty c_n y_n(x) $$",
+      "difficulty": "hard"
+    }
+  ]
+}

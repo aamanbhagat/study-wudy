@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-5-euler-s-formula-e-i-cos-i-sin-proof-via-taylor-series",
+  "subtopicTitle": "Euler's formula — e^(iθ) = cosθ + i sinθ (proof via Taylor series)",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:19.041Z",
+  "cards": [
+    {
+      "front": "State Euler's formula, relating the exponential function to trigonometric functions.",
+      "back": "Euler's formula is given by: $$e^{i\theta} = \\cos\\theta + i \\sin\\theta$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the Taylor series expansion for $e^x$ about $x=0$.",
+      "back": "The Taylor series for $e^x$ about $x=0$ (Maclaurin series) is: $$e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\frac{x^4}{4!} + \\dots$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the Taylor series expansions for $\\cos x$ and $\\sin x$ about $x=0$.",
+      "back": "The Taylor series for $\\cos x$ and $\\sin x$ about $x=0$ are:\n$$\\cos x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n x^{2n}}{(2n)!} = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\frac{x^6}{6!} + \\dots$$\n$$\\sin x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} + \\dots$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Begin the proof of Euler's formula: Substitute $x=i\\theta$ into the Taylor series for $e^x$ and expand the first few terms, simplifying powers of $i$.",
+      "back": "Substituting $x=i\\theta$ into the Taylor series for $e^x$:\n$$e^{i\\theta} = 1 + (i\\theta) + \\frac{(i\\theta)^2}{2!} + \\frac{(i\\theta)^3}{3!} + \\frac{(i\\theta)^4}{4!} + \\frac{(i\\theta)^5}{5!} + \\dots$$\nSimplifying powers of $i$ ($i^2=-1, i^3=-i, i^4=1, i^5=i$):\n$$e^{i\\theta} = 1 + i\\theta + \\frac{i^2\\theta^2}{2!} + \\frac{i^3\\theta^3}{3!} + \\frac{i^4\\theta^4}{4!} + \\frac{i^5\\theta^5}{5!} + \\dots$$\n$$e^{i\\theta} = 1 + i\\theta - \\frac{\\theta^2}{2!} - i\\frac{\\theta^3}{3!} + \\frac{\\theta^4}{4!} + i\\frac{\\theta^5}{5!} - \\dots$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Complete the proof of Euler's formula by grouping the real and imaginary terms from the Taylor series expansion of $e^{i\\theta}$.",
+      "back": "From the expansion $e^{i\\theta} = 1 + i\\theta - \\frac{\\theta^2}{2!} - i\\frac{\\theta^3}{3!} + \\frac{\\theta^4}{4!} + i\\frac{\\theta^5}{5!} - \\dots$, we group the real and imaginary terms:\n$$e^{i\\theta} = \\left(1 - \\frac{\\theta^2}{2!} + \\frac{\\theta^4}{4!} - \\dots\\right) + i\\left(\\theta - \\frac{\\theta^3}{3!} + \\frac{\\theta^5}{5!} - \\dots\\right)$$\nRecognizing the Taylor series for $\\cos\\theta$ and $\\sin\\theta$ (from previous cards):\n$$e^{i\\theta} = \\cos\\theta + i \\sin\\theta$$\nThis completes the proof of Euler's formula.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is Euler's Identity, and how is it derived from Euler's formula?",
+      "back": "Euler's Identity is $e^{i\\pi} + 1 = 0$. It is derived by setting $\\theta = \\pi$ in Euler's formula:\n$$e^{i\\pi} = \\cos\\pi + i \\sin\\pi$$\nSince $\\cos\\pi = -1$ and $\\sin\\pi = 0$:\n$$e^{i\\pi} = -1 + i(0)$$\n$$e^{i\\pi} = -1$$\nRearranging gives $e^{i\\pi} + 1 = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the geometric interpretation of $e^{i\\theta}$ in the complex plane.",
+      "back": "In the complex plane, $e^{i\\theta}$ represents a complex number with a magnitude of 1. It lies on the unit circle, and the angle it makes with the positive real axis is $\\theta$ radians. It can be seen as a rotation operator, rotating a complex number by an angle $\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express a general complex number $z = x + iy$ in its polar form using Euler's formula.",
+      "back": "A complex number $z = x + iy$ can be expressed in polar form as $z = r(\\cos\\theta + i\\sin\\theta)$, where $r = |z| = \\sqrt{x^2+y^2}$ is the magnitude and $\\theta = \\arg(z)$ is the argument (angle).\nUsing Euler's formula, $\\cos\\theta + i\\sin\\theta = e^{i\\theta}$.\nTherefore, the polar form of $z$ using Euler's formula is: $$z = r e^{i\\theta}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

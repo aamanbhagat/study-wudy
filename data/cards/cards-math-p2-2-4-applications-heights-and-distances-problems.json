@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-4-applications-heights-and-distances-problems",
+  "subtopicTitle": "Applications — heights and distances problems",
+  "topicId": "math-p2-2-4-trigonometry-foundation",
+  "topicTitle": "Trigonometry — Foundation",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:22.808Z",
+  "cards": [
+    {
+      "front": "Define the \"angle of elevation\" from an observer's eye to an object above the horizontal line of sight.",
+      "back": "The angle formed by the line of sight and the horizontal line, when the object is above the horizontal. It is measured upwards from the horizontal.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the \"angle of depression\" from an observer's eye to an object below the horizontal line of sight.",
+      "back": "The angle formed by the line of sight and the horizontal line, when the object is below the horizontal. It is measured downwards from the horizontal.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A ladder $10 \\text{ m}$ long leans against a wall. If it makes an angle of $60^\\circ$ with the ground, what trigonometric ratio relates the wall's height to the ladder's length?",
+      "back": "Let $H$ be the height of the wall and $L$ be the length of the ladder. The angle $\\theta = 60^\\circ$ is between the ladder and the ground. The height $H$ is opposite to $\\theta$, and $L$ is the hypotenuse. Thus, $\\sin(\\theta) = \\frac{\\text{Opposite}}{\\text{Hypotenuse}} = \\frac{H}{L}$. So, $\\sin(60^\\circ) = \\frac{H}{10}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "From a point $50 \\text{ m}$ away from the base of a tower, the angle of elevation to its top is $30^\\circ$. Calculate the tower's height.",
+      "back": "Let $h$ be the tower's height. We have the adjacent side ($50 \\text{ m}$) and need the opposite side ($h$).\n$$ \\tan(30^\\circ) = \\frac{\\text{Opposite}}{\\text{Adjacent}} = \\frac{h}{50} $$\n$$ h = 50 \\times \\tan(30^\\circ) = 50 \\times \\frac{1}{\\sqrt{3}} = \\frac{50\\sqrt{3}}{3} \\text{ m} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A person observes the top of a $20 \\text{ m}$ high building at an angle of elevation of $45^\\circ$. How far is the person from the building?",
+      "back": "Let $d$ be the distance from the person to the building. The height $h = 20 \\text{ m}$ is opposite the angle of elevation $\\theta = 45^\\circ$, and $d$ is the adjacent side.\n$$ \\tan(45^\\circ) = \\frac{h}{d} $$\n$$ 1 = \\frac{20}{d} \\implies d = 20 \\text{ m} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A $10 \\text{ m}$ pole casts a $10\\sqrt{3} \\text{ m}$ shadow. What is the angle of elevation of the sun?",
+      "back": "Let $\\theta$ be the angle of elevation. The pole's height is the opposite side ($10 \\text{ m}$), and the shadow's length is the adjacent side ($10\\sqrt{3} \\text{ m}$). \n$$ \\tan(\\theta) = \\frac{\\text{Opposite}}{\\text{Adjacent}} = \\frac{10}{10\\sqrt{3}} = \\frac{1}{\\sqrt{3}} $$\n$$ \\theta = \\arctan\\left(\\frac{1}{\\sqrt{3}}\\right) = 30^\\circ $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "From two points $A$ and $B$ on the ground, $d$ meters apart and in a straight line with the base of a tower, the angles of elevation to the top of the tower are $\\alpha$ and $\\beta$ respectively (where $\\beta > \\alpha$). Derive the tower's height $h$.",
+      "back": "Let $x$ be the distance from the base of the tower to point $B$.\nFrom point $B$: $\\tan(\\beta) = \\frac{h}{x} \\implies x = \\frac{h}{\\tan(\\beta)}$.\nFrom point $A$: $\\tan(\\alpha) = \\frac{h}{x+d} \\implies h = (x+d)\\tan(\\alpha)$.\nSubstitute $x$: $h = \\left(\\frac{h}{\\tan(\\beta)} + d\\right)\\tan(\\alpha)$.\n$h = \\frac{h\\tan(\\alpha)}{\\tan(\\beta)} + d\\tan(\\alpha)$.\n$h\\left(1 - \\frac{\\tan(\\alpha)}{\\tan(\\beta)}\\right) = d\\tan(\\alpha)$.\n$h\\left(\\frac{\\tan(\\beta) - \\tan(\\alpha)}{\\tan(\\beta)}\\right) = d\\tan(\\alpha)$.\n$$ h = \\frac{d\\tan(\\alpha)\\tan(\\beta)}{\\tan(\\beta) - \\tan(\\alpha)} $$",
+      "difficulty": "hard"
+    }
+  ]
+}

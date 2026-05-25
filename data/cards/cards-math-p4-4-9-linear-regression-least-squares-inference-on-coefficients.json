@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-linear-regression-least-squares-inference-on-coefficients",
+  "subtopicTitle": "Linear regression — least squares, inference on coefficients",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:44.948Z",
+  "cards": [
+    {
+      "front": "State the simple linear regression model equation and identify its components.",
+      "back": "The simple linear regression model is: $$Y_i = \\beta_0 + \\beta_1 X_i + \\epsilon_i$$ Where:\n- $Y_i$: Dependent variable for observation $i$.\n- $X_i$: Independent variable for observation $i$.\n- $\\beta_0$: Intercept coefficient.\n- $\\beta_1$: Slope coefficient.\n- $\\epsilon_i$: Error term for observation $i$, representing unobserved factors and random variation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental principle of Ordinary Least Squares (OLS) in linear regression, and what function does it minimize?",
+      "back": "OLS aims to find the regression line that minimizes the sum of the squared vertical distances (residuals) from each observed data point to the line. This objective function is called the Residual Sum of Squares (RSS):\n$$RSS = \\sum_{i=1}^{n} (Y_i - \\hat{Y}_i)^2 = \\sum_{i=1}^{n} (Y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 X_i))^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Ordinary Least Squares (OLS) estimator for the slope coefficient $\\hat{\\beta}_1$ in simple linear regression.",
+      "back": "To minimize $RSS = \\sum_{i=1}^{n} (Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i)^2$, we take partial derivatives with respect to $\\hat{\\beta}_0$ and $\\hat{\\beta}_1$ and set them to zero.\nFrom $\\frac{\\partial RSS}{\\partial \\hat{\\beta}_0} = 0$, we get $\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X}$.\nFrom $\\frac{\\partial RSS}{\\partial \\hat{\\beta}_1} = \\sum_{i=1}^{n} 2(Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i)(-X_i) = 0$.\nDividing by $-2$ and substituting $\\hat{\\beta}_0$:\n$\\sum X_i (Y_i - (\\bar{Y} - \\hat{\\beta}_1 \\bar{X}) - \\hat{\\beta}_1 X_i) = 0$\n$\\sum X_i (Y_i - \\bar{Y} - \\hat{\\beta}_1 (X_i - \\bar{X})) = 0$\n$\\sum X_i (Y_i - \\bar{Y}) - \\hat{\\beta}_1 \\sum X_i (X_i - \\bar{X}) = 0$\nWe know $\\sum X_i (Y_i - \\bar{Y}) = \\sum (X_i - \\bar{X})(Y_i - \\bar{Y})$ and $\\sum X_i (X_i - \\bar{X}) = \\sum (X_i - \\bar{X})^2$.\nThus, $\\hat{\\beta}_1 = \\frac{\\sum (X_i - \\bar{X})(Y_i - \\bar{Y})}{\\sum (X_i - \\bar{X})^2} = \\frac{Cov(X,Y)}{Var(X)}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the key assumptions required for valid statistical inference (e.g., hypothesis tests, confidence intervals) on coefficients in a linear regression model.",
+      "back": "The key assumptions for valid inference (often called the Classical Linear Model (CLM) assumptions) are:\n1.  **Linearity:** The relationship between $Y$ and $X$ is linear in parameters.\n2.  **Random Sampling:** The data is a random sample from the population.\n3.  **No Perfect Collinearity:** No perfect linear relationships among independent variables.\n4.  **Zero Conditional Mean:** $E[\\epsilon_i | X_i] = 0$ (errors are uncorrelated with predictors).\n5.  **Homoskedasticity:** $Var(\\epsilon_i | X_i) = \\sigma^2$ (constant variance of errors).\n6.  **Normality of Errors:** $\\epsilon_i \\sim N(0, \\sigma^2)$ (errors are normally distributed).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you construct a $(1-\\alpha)100\\%$ confidence interval for a regression coefficient $\\beta_j$? Provide the general formula.",
+      "back": "A $(1-\\alpha)100\\%$ confidence interval for a regression coefficient $\\beta_j$ is given by:\n$$\\hat{\\beta}_j \\pm t_{\\alpha/2, n-k-1} \\cdot SE(\\hat{\\beta}_j)$$\nWhere:\n- $\\hat{\\beta}_j$: The estimated coefficient.\n- $SE(\\hat{\\beta}_j)$: The standard error of the estimated coefficient.\n- $n$: The number of observations.\n- $k$: The number of independent variables in the model (excluding the intercept).\n- $t_{\\alpha/2, n-k-1}$: The critical t-value from the t-distribution with $n-k-1$ degrees of freedom.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the interpretation of the p-value associated with a regression coefficient $\\hat{\\beta}_j$ in the context of hypothesis testing.",
+      "back": "The p-value for $\\hat{\\beta}_j$ is used to test the null hypothesis $H_0: \\beta_j = 0$ (i.e., the independent variable $X_j$ has no linear effect on $Y$) against the alternative $H_1: \\beta_j \\neq 0$. It represents the probability of observing a sample coefficient as extreme as, or more extreme than, $\\hat{\\beta}_j$ (or its absolute value), assuming the null hypothesis is true. A small p-value (typically $< \\alpha$, the significance level) leads to the rejection of $H_0$, suggesting that $X_j$ is a statistically significant predictor of $Y$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the purpose of the F-statistic in a multiple linear regression model and state its null hypothesis.",
+      "back": "The F-statistic tests the overall significance of the multiple linear regression model. It assesses whether at least one of the independent variables in the model has a statistically significant linear relationship with the dependent variable.\n\nThe null hypothesis is $H_0: \\beta_1 = \\beta_2 = \\dots = \\beta_k = 0$, which states that all slope coefficients are simultaneously zero (meaning the model has no explanatory power beyond the intercept). The alternative hypothesis is $H_1:$ at least one $\\beta_j \\neq 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the coefficient of determination ($R^2$) represent in linear regression, and what is its range?",
+      "back": "The coefficient of determination ($R^2$) measures the proportion of the total variation in the dependent variable ($Y$) that is explained by the independent variable(s) ($X$) in the regression model. It indicates how well the model fits the observed data. Its value ranges from $0$ to $1$, inclusive ($0 \\le R^2 \\le 1$). An $R^2$ of 1 means the model perfectly explains all the variation in $Y$, while an $R^2$ of 0 means the model explains none of the variation.",
+      "difficulty": "easy"
+    }
+  ]
+}

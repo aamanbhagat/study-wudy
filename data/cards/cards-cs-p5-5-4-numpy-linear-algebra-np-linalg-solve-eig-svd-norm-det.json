@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-numpy-linear-algebra-np-linalg-solve-eig-svd-norm-det",
+  "subtopicTitle": "NumPy linear algebra — np.linalg.solve, eig, svd, norm, det",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:31.074Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of `np.linalg.solve(A, b)` in NumPy?",
+      "back": "It solves the linear matrix equation $Ax = b$ for $x$, where $A$ is a square matrix and $b$ is a 1-D or 2-D array. It's generally preferred over calculating $A^{-1}$ and multiplying due to better numerical stability and efficiency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what condition will `np.linalg.solve(A, b)` raise a `LinAlgError`?",
+      "back": "It will raise a `LinAlgError` if the matrix $A$ is singular (i.e., its determinant is zero), meaning the system $Ax=b$ either has no unique solution or no solution at all.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What mathematical property of a square matrix does `np.linalg.det(A)` compute?",
+      "back": "It computes the determinant of the square matrix $A$. The determinant is a scalar value that provides information about the matrix's properties, such as its invertibility. A non-zero determinant implies the matrix is invertible.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the default norm computed by `np.linalg.norm(x)` for a 1-D array (vector) `x`?",
+      "back": "For a 1-D array `x`, the default norm is the Euclidean norm (or $L_2$ norm), calculated as $\\sqrt{\\sum_{i=1}^n |x_i|^2}$.\n```python\nimport numpy as np\nx = np.array([3, 4])\nprint(np.linalg.norm(x)) # Output: 5.0\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental equation defines the relationship between a square matrix $A$, its eigenvector $v$, and its eigenvalue $\\lambda$?",
+      "back": "The fundamental eigenvalue equation is $Av = \\lambda v$, where $v$ is a non-zero eigenvector and $\\lambda$ is its corresponding eigenvalue. `np.linalg.eig(A)` returns a tuple `(eigenvalues, eigenvectors)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a real symmetric matrix $A$, what special properties do its eigenvalues and eigenvectors possess?",
+      "back": "For a real symmetric matrix:\n1. All eigenvalues are real.\n2. Eigenvectors corresponding to distinct eigenvalues are orthogonal.\n3. It is always diagonalizable, and its eigenvectors can form an orthonormal basis.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the full Singular Value Decomposition (SVD) formula for a matrix $A$, and what do $U, s, V^T$ represent?",
+      "back": "The SVD of an $m \\times n$ matrix $A$ is $A = U \\Sigma V^T$.\n*   $U$: $m \\times m$ orthogonal matrix (left singular vectors).\n*   $\\Sigma$: $m \\times n$ diagonal matrix with non-negative singular values $s_i$ on the diagonal. `np.linalg.svd` returns `s` as a 1D array of singular values.\n*   $V^T$: $n \\times n$ orthogonal matrix (transpose of right singular vectors).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can `np.linalg.svd` be conceptually applied for dimensionality reduction, such as in Principal Component Analysis (PCA)?",
+      "back": "SVD decomposes a matrix into components ordered by their \"importance\" (singular values). By keeping only the largest $k$ singular values and their corresponding left and right singular vectors, we can reconstruct a lower-rank approximation of the original matrix. This effectively reduces the dimensionality of the data while retaining most of its variance, which is the core idea behind PCA.",
+      "difficulty": "hard"
+    }
+  ]
+}

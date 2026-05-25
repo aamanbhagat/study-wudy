@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-2-true-anomaly-from-eccentric-anomaly",
+  "subtopicTitle": "True anomaly from eccentric anomaly",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:30.367Z",
+  "cards": [
+    {
+      "front": "What is the True Anomaly ($\\nu$) in orbital mechanics?",
+      "back": "The angle from the periapsis direction to the current position vector of the orbiting body, measured at the primary focus of the orbit. It describes the actual angular position of the body in its orbit.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Eccentric Anomaly ($E$) for an elliptical orbit.",
+      "back": "An auxiliary angle used in elliptical orbits. Imagine a circle circumscribing the ellipse with radius equal to the semi-major axis ($a$). $E$ is the angle from the periapsis to a point on this circle, where a perpendicular line from that point (parallel to the minor axis) intersects the ellipse at the orbiting body's position.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the primary formula relating True Anomaly ($\\nu$) and Eccentric Anomaly ($E$) for an elliptical orbit with eccentricity $e$.",
+      "back": "$$ \\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{\\frac{1+e}{1-e}} \\tan\\left(\\frac{E}{2}\\right) $$ This formula is fundamental for converting between the two anomalies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the relationship between true anomaly ($\\nu$) and eccentric anomaly ($E$) change as eccentricity ($e$) approaches 0 (a circular orbit)?",
+      "back": "As $e \\to 0$, the formula simplifies:\n$$ \\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{\\frac{1+0}{1-0}} \\tan\\left(\\frac{E}{2}\right) \\implies \\tan\\left(\\frac{\\nu}{2}\right) = \\tan\\left(\\frac{E}{2}\right) $$\nThis implies $\\nu = E$. For a circular orbit, true anomaly, eccentric anomaly, and mean anomaly are all equal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship between the true anomaly ($\\nu$) and the eccentric anomaly ($E$) from the polar equation of an ellipse and the definition of eccentric anomaly.",
+      "back": "The polar equation of an ellipse is $r = \\frac{a(1-e^2)}{1+e\\cos\\nu}$.\nFrom the geometry of the eccentric anomaly, $r = a(1-e\\cos E)$ and $\\cos\\nu = \\frac{\\cos E - e}{1-e\\cos E}$.\nUsing the half-angle tangent identity $\\tan^2\\left(\\frac{x}{2}\\right) = \\frac{1-\\cos x}{1+\\cos x}$:\n$$ \\tan^2\\left(\\frac{\\nu}{2}\\right) = \\frac{1 - \\frac{\\cos E - e}{1-e\\cos E}}{1 + \\frac{\\cos E - e}{1-e\\cos E}} = \\frac{1-e\\cos E - \\cos E + e}{1-e\\cos E + \\cos E - e} = \\frac{(1+e)(1-\\cos E)}{(1-e)(1+\\cos E)} $$\n$$ \\tan^2\\left(\\frac{\\nu}{2}\right) = \\frac{1+e}{1-e} \\frac{1-\\cos E}{1+\\cos E} = \\frac{1+e}{1-e} \\tan^2\\left(\\frac{E}{2}\\right) $$\nTaking the square root yields:\n$$ \\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{\\frac{1+e}{1-e}} \\tan\\left(\\frac{E}{2}\\right) $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given an elliptical orbit with eccentricity $e=0.5$ and an eccentric anomaly $E = \\pi/3$ radians, calculate the true anomaly $\\nu$.",
+      "back": "Using the formula: $\\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{\\frac{1+e}{1-e}} \\tan\\left(\\frac{E}{2}\\right)$\nSubstitute $e=0.5$ and $E=\\pi/3$:\n$$ \\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{\\frac{1+0.5}{1-0.5}} \\tan\\left(\\frac{\\pi/3}{2}\\right) $$\n$$ \\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{\\frac{1.5}{0.5}} \\tan\\left(\\frac{\\pi}{6}\\right) $$\n$$ \\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{3} \\cdot \\frac{1}{\\sqrt{3}} $$\n$$ \\tan\\left(\\frac{\\nu}{2}\\right) = 1 $$\nTherefore, $\\frac{\\nu}{2} = \\arctan(1) = \\frac{\\pi}{4}$ radians.\nSo, $\\nu = \\frac{\\pi}{2}$ radians.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you derive the formula to find the Eccentric Anomaly ($E$) given the True Anomaly ($\\nu$) and eccentricity ($e$)?",
+      "back": "Start with the known formula:\n$$ \\tan\\left(\\frac{\\nu}{2}\\right) = \\sqrt{\\frac{1+e}{1-e}} \\tan\\left(\\frac{E}{2}\\right) $$\nTo isolate $\\tan\\left(\\frac{E}{2}\\right)$, divide both sides by $\\sqrt{\\frac{1+e}{1-e}}$:\n$$ \\tan\\left(\\frac{E}{2}\\right) = \\frac{1}{\\sqrt{\\frac{1+e}{1-e}}} \\tan\\left(\\frac{\\nu}{2}\\right) $$\n$$ \\tan\\left(\\frac{E}{2}\\right) = \\sqrt{\\frac{1-e}{1+e}} \\tan\\left(\\frac{\\nu}{2}\\right) $$\nThen, $E = 2 \\arctan\\left(\\sqrt{\\frac{1-e}{1+e}} \\tan\\left(\\frac{\\nu}{2}\\right)\\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the $\\sqrt{\\frac{1+e}{1-e}}$ factor in the true anomaly to eccentric anomaly conversion formula.",
+      "back": "This factor accounts for the non-uniform angular speed of the orbiting body. When $e > 0$, the body moves faster near periapsis and slower near apoapsis. The factor $\\sqrt{\\frac{1+e}{1-e}}$ is greater than 1 for $e>0$, meaning that for the same change in $E$, the change in $\\nu$ is larger near periapsis (where the body is moving faster) and smaller near apoapsis (where it's slower). This effectively 'stretches' the angular motion near periapsis and 'compresses' it near apoapsis to reflect the actual orbital speed variations.",
+      "difficulty": "hard"
+    }
+  ]
+}

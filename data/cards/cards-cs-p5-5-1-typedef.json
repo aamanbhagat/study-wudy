@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-typedef",
+  "subtopicTitle": "Typedef",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:46.837Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `typedef` keyword in C?",
+      "back": "The `typedef` keyword in C is used to create an alias (an alternative name) for an existing data type. This improves code readability, portability, and simplifies complex declarations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the `typedef` syntax to create an alias `Integer` for the `int` data type.",
+      "back": "```c\ntypedef int Integer;\n\n// Usage:\nInteger my_var = 10;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How would you use `typedef` to define a new type `Point` for a `struct` containing `x` and `y` integer coordinates, avoiding the `struct` keyword every time?",
+      "back": "```c\ntypedef struct {\n    int x;\n    int y;\n} Point;\n\n// Usage:\nPoint p1 = {10, 20};\n// Without typedef, you would write: struct Point p1 = {10, 20};\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use `typedef` to declare a type `Operation` for a function pointer that takes two `int` arguments and returns an `int`.",
+      "back": "```c\ntypedef int (*Operation)(int, int);\n\n// Example usage:\nint add(int a, int b) { return a + b; }\nOperation op_func = add;\nint result = op_func(5, 3); // result is 8\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given `typedef int MyInt;`, declare a pointer `ptr` to `MyInt` using the `MyInt` alias.",
+      "back": "```c\ntypedef int MyInt;\nMyInt *ptr; // Correct way to declare a pointer to MyInt\n// This is equivalent to: int *ptr;\n```\n`typedef` creates an alias, not a new distinct type. So `MyInt *ptr;` means \"pointer to an `int`\", not \"pointer to a `MyInt` type distinct from `int`.\"",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain two key differences between `typedef` and `#define` when creating type aliases, particularly concerning scope and handling of pointers.",
+      "back": "1.  **Scope:** `typedef` is limited by scope (like any variable declaration), whereas `#define` is a preprocessor directive that performs simple text substitution globally from its point of definition until `#undef` or end of file.\n2.  **Pointers:** `typedef` correctly handles pointer types. For example, `typedef int* IntPtr; IntPtr a, b;` declares both `a` and `b` as pointers to `int`. In contrast, `#define IntPtr int*` would result in `IntPtr a, b;` expanding to `int* a, b;`, where `a` is a pointer to `int` but `b` is just an `int`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is it permissible to `typedef` the same name multiple times for the *same* underlying type in C?",
+      "back": "Yes, it is permissible to `typedef` the same name multiple times for the *same* underlying type. This is allowed and commonly occurs when header files are included multiple times (if not protected by include guards, though `typedef` itself doesn't cause issues here).\n\nHowever, `typedef`ing the same name for *different* underlying types results in a compilation error.\nExample:\n```c\ntypedef int MyType;\ntypedef int MyType; // OK\n// typedef float MyType; // ERROR: redefinition of 'MyType' with a different type\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

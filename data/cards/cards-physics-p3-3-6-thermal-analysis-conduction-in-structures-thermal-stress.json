@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-thermal-analysis-conduction-in-structures-thermal-stress",
+  "subtopicTitle": "Thermal analysis — conduction in structures, thermal stress",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:56.371Z",
+  "cards": [
+    {
+      "front": "State Fourier's Law of Conduction for one-dimensional heat transfer.",
+      "back": "Fourier's Law states that the heat flux ($q_x''$) through a material is proportional to the negative of the temperature gradient ($\\frac{dT}{dx}$):\n$$q_x'' = -k \\frac{dT}{dx}$$\nWhere $k$ is the thermal conductivity of the material. The negative sign indicates that heat flows from higher to lower temperatures.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the expression for thermal resistance ($R_t$) for steady-state 1D conduction through a planar wall of thickness $L$ and area $A$?",
+      "back": "The thermal resistance for steady-state 1D conduction through a planar wall is:\n$$R_t = \\frac{L}{kA}$$\nThis resistance is analogous to electrical resistance, where temperature difference ($\\Delta T$) is analogous to voltage and heat rate ($Q$) to current ($Q = \\frac{\\Delta T}{R_t}$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is thermal contact resistance significant in spacecraft structures, especially at bolted interfaces, and how is it typically modeled?",
+      "back": "Thermal contact resistance is significant because spacecraft structures are often assembled from multiple components, and imperfect contact at interfaces (due to surface roughness, waviness, or gaps) creates a significant barrier to heat flow. It's typically modeled as an additional thermal resistance, $R_{tc} = 1/(h_c A)$, where $h_c$ is the thermal contact conductance (a property of the interface) and $A$ is the apparent contact area.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define thermal stress and provide the formula for stress in a fully constrained rod undergoing a temperature change $\\Delta T$.",
+      "back": "Thermal stress is the stress induced within a material when its natural thermal expansion or contraction (due to a temperature change) is restricted or constrained by external forces or surrounding structures. For a fully constrained rod, the thermal stress ($\\sigma_T$) is given by:\n$$\\sigma_T = -E \\alpha \\Delta T$$\nWhere $E$ is Young's modulus, $\\alpha$ is the coefficient of thermal expansion, and $\\Delta T$ is the temperature change.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for thermal stress in a fully constrained rod of length $L$, Young's modulus $E$, and coefficient of thermal expansion $\\alpha$, subjected to a temperature change $\\Delta T$.",
+      "back": "1.  **Free Thermal Expansion**: If the rod were unconstrained, its change in length due to temperature change $\\Delta T$ would be $\\Delta L_T = L \\alpha \\Delta T$.\n2.  **Constraint**: For the rod to be fully constrained, an external force must be applied to prevent this expansion, effectively compressing the rod back to its original length. The mechanical strain ($\\epsilon_M$) required to counteract the thermal expansion is $\\epsilon_M = -\\frac{\\Delta L_T}{L} = -\\frac{L \\alpha \\Delta T}{L} = -\\alpha \\Delta T$.\n3.  **Stress from Strain**: According to Hooke's Law, stress is proportional to strain: $\\sigma_T = E \\epsilon_M$.\n4.  **Substituting**: Combining these, the thermal stress is $\\sigma_T = E(-\\alpha \\Delta T) = -E \\alpha \\Delta T$. The negative sign indicates compressive stress for a positive $\\Delta T$ (heating).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain two practical implications of thermal stress in spacecraft design and how engineers might mitigate them.",
+      "back": "1.  **Structural Distortion/Buckling**: Large temperature gradients or repeated thermal cycles can cause components to expand/contract unevenly, leading to warpage, misalignment of optical instruments, or even buckling of thin structural elements. Mitigation: Use materials with low coefficients of thermal expansion (e.g., Invar), design with thermal expansion joints, or implement active thermal control to minimize temperature differences.\n2.  **Fatigue Failure**: Repeated thermal cycling (e.g., during orbital day/night transitions) induces cyclic thermal stresses. Over time, these cyclic stresses can lead to material fatigue, causing cracks and eventual failure of components or joints. Mitigation: Select materials with good fatigue resistance, design for compliant structures that can absorb thermal strains, or minimize temperature fluctuations through insulation and heaters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A spacecraft panel consists of two layers: aluminum ($k_{Al}$) and composite ($k_{comp}$), with thicknesses $L_{Al}$ and $L_{comp}$. If the outer surface is at $T_1$ and the inner at $T_2$, derive the steady-state heat flux assuming perfect contact.",
+      "back": "In steady-state 1D heat conduction through multiple layers in series, the heat flux ($q''$) is constant through each layer. The total thermal resistance per unit area ($R'_{total}$) is the sum of the individual layer resistances per unit area:\n$R'_{total} = R'_{Al} + R'_{comp} = \\frac{L_{Al}}{k_{Al}} + \\frac{L_{comp}}{k_{comp}}$\nThe steady-state heat flux is then given by the total temperature difference divided by the total thermal resistance per unit area:\n$$q'' = \\frac{T_1 - T_2}{R'_{total}} = \\frac{T_1 - T_2}{\\frac{L_{Al}}{k_{Al}} + \\frac{L_{comp}}{k_{comp}}}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the primary factors that influence a material's thermal conductivity ($k$), particularly for metals and non-metals relevant to spacecraft?",
+      "back": "1.  **Material Structure**: In metals, free electrons are the primary carriers of thermal energy, so $k$ generally correlates with electrical conductivity. In non-metals (like ceramics or polymers), lattice vibrations (phonons) are the dominant heat carriers.\n2.  **Temperature**: For most metals, $k$ decreases with increasing temperature due to increased electron scattering. For non-metals, $k$ can either increase or decrease with temperature depending on the specific material and temperature range.\n3.  **Density/Porosity**: Denser materials typically have higher $k$. Porous materials (e.g., multi-layer insulation) have very low $k$ because the trapped air or vacuum significantly impedes heat transfer.\n4.  **Alloying/Impurities**: Introducing impurities or alloying elements disrupts the crystal lattice, scattering electrons and phonons, which generally reduces $k$.",
+      "difficulty": "medium"
+    }
+  ]
+}

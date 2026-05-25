@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-5-complex-conjugate-properties-applications-in-division",
+  "subtopicTitle": "Complex conjugate — properties, applications in division",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:19.040Z",
+  "cards": [
+    {
+      "front": "Define the complex conjugate of $z = a + bi$.",
+      "back": "If $z = a + bi$, its complex conjugate, denoted $\\bar{z}$, is $a - bi$. It is formed by negating the imaginary part of the complex number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, what does taking the complex conjugate of $z$ correspond to in the Argand plane?",
+      "back": "Taking the complex conjugate $\\bar{z}$ of $z$ corresponds to reflecting $z$ across the real axis (x-axis) in the Argand plane.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For any complex number $z$, what is $z + \\bar{z}$? What kind of number is the result?",
+      "back": "If $z = a + bi$, then $z + \\bar{z} = (a + bi) + (a - bi) = 2a$. The result is always a real number, specifically twice the real part of $z$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For any complex number $z$, what is $z \\cdot \\bar{z}$? Express it in terms of $|z|$.",
+      "back": "If $z = a + bi$, then $z \\cdot \\bar{z} = (a + bi)(a - bi) = a^2 - (bi)^2 = a^2 - b^2i^2 = a^2 + b^2$. This is equal to $|z|^2$ (the square of the modulus of $z$). The result is always a non-negative real number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the property for the conjugate of a sum/difference of two complex numbers $z_1$ and $z_2$.",
+      "back": "The conjugate of a sum (or difference) is the sum (or difference) of the conjugates:\n$$ \\overline{z_1 + z_2} = \\overline{z_1} + \\overline{z_2} $$\n$$ \\overline{z_1 - z_2} = \\overline{z_1} - \\overline{z_2} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the property for the conjugate of a product/quotient of two complex numbers $z_1$ and $z_2$ ($z_2 \\neq 0$ for quotient).",
+      "back": "The conjugate of a product (or quotient) is the product (or quotient) of the conjugates:\n$$ \\overline{z_1 \\cdot z_2} = \\overline{z_1} \\cdot \\overline{z_2} $$\n$$ \\overline{\\left(\\frac{z_1}{z_2}\\right)} = \\frac{\\overline{z_1}}{\\overline{z_2}} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for dividing two complex numbers $z_1 = a + bi$ by $z_2 = c + di$, expressing the result in the form $x + yi$.",
+      "back": "To divide $z_1$ by $z_2$, we multiply the numerator and denominator by the conjugate of the denominator:\n$$ \\frac{z_1}{z_2} = \\frac{a+bi}{c+di} = \\frac{a+bi}{c+di} \\cdot \\frac{c-di}{c-di} $$\n$$ = \\frac{(a+bi)(c-di)}{(c+di)(c-di)} = \\frac{ac - adi + bci - bdi^2}{c^2 + d^2} $$\n$$ = \\frac{ac + bd + (bc - ad)i}{c^2 + d^2} = \\frac{ac+bd}{c^2+d^2} + \\frac{bc-ad}{c^2+d^2}i $$\nThis expresses the quotient in the standard form $x+yi$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Express $\\frac{3+2i}{1-4i}$ in the form $a+bi$.",
+      "back": "To express $\\frac{3+2i}{1-4i}$ in the form $a+bi$, multiply the numerator and denominator by the conjugate of the denominator, which is $1+4i$:\n$$ \\frac{3+2i}{1-4i} = \\frac{3+2i}{1-4i} \\cdot \\frac{1+4i}{1+4i} $$\n$$ = \\frac{(3)(1) + (3)(4i) + (2i)(1) + (2i)(4i)}{(1)^2 + (4)^2} $$\n$$ = \\frac{3 + 12i + 2i + 8i^2}{1 + 16} = \\frac{3 - 8 + (12+2)i}{17} $$\n$$ = \\frac{-5 + 14i}{17} = -\\frac{5}{17} + \\frac{14}{17}i $$",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-3-spring-mass-systems-collision-problems",
+  "subtopicTitle": "Spring-mass systems — collision problems",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:10.680Z",
+  "cards": [
+    {
+      "front": "When a mass collides with an ideal spring, what forms of energy are typically interconverted during the compression phase?",
+      "back": "During the compression phase, the kinetic energy of the colliding mass is converted into elastic potential energy stored in the spring. If the collision is perfectly elastic, the total mechanical energy (KE + PE_spring) of the system is conserved throughout the process.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A mass $m$ with velocity $v$ collides with a spring (constant $k$) attached to a rigid wall. What is the maximum compression $x_{max}$ of the spring?",
+      "back": "By conservation of energy, the initial kinetic energy of the mass is fully converted into elastic potential energy at maximum compression (when the mass momentarily stops):\n$$ \\frac{1}{2}mv^2 = \\frac{1}{2}kx_{max}^2 $$\nSolving for $x_{max}$:\n$$ x_{max} = v \\sqrt{\\frac{m}{k}} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A mass $m_1$ with velocity $v_1$ collides with a stationary mass $m_2$ attached to a spring (constant $k$). Derive the expression for the maximum compression $x_{max}$ of the spring.",
+      "back": "1.  **Conservation of Momentum (until max compression):** At maximum compression, both masses move together with a common velocity $V_{common}$.\n    $$ m_1v_1 = (m_1+m_2)V_{common} \\implies V_{common} = \\frac{m_1v_1}{m_1+m_2} $$\n2.  **Conservation of Energy (initial state to max compression):** Initial KE of $m_1$ is converted into KE of the combined system and elastic potential energy of the spring.\n    $$ \\frac{1}{2}m_1v_1^2 = \\frac{1}{2}(m_1+m_2)V_{common}^2 + \\frac{1}{2}kx_{max}^2 $$\n    Substitute $V_{common}$ and solve for $x_{max}$:\n    $$ \\frac{1}{2}m_1v_1^2 = \\frac{1}{2}(m_1+m_2)\\left(\\frac{m_1v_1}{m_1+m_2}\\right)^2 + \\frac{1}{2}kx_{max}^2 $$\n    $$ kx_{max}^2 = m_1v_1^2 - \\frac{m_1^2v_1^2}{m_1+m_2} = m_1v_1^2 \\left(1 - \\frac{m_1}{m_1+m_2}\\right) = m_1v_1^2 \\left(\\frac{m_2}{m_1+m_2}\\right) $$\n    $$ x_{max} = v_1 \\sqrt{\\frac{m_1m_2}{k(m_1+m_2)}} = v_1 \\sqrt{\\frac{\\mu}{k}} $$ where $\\mu = \\frac{m_1m_2}{m_1+m_2}$ is the reduced mass.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a collision involving a spring, why is mechanical energy *not* conserved during the compression phase, but momentum *is* conserved (assuming no external forces)?",
+      "back": "The statement is slightly imprecise. The *total mechanical energy* (kinetic + spring potential) *is* conserved if the system is isolated and the spring is ideal. However, if we only consider kinetic energy, it is *not* conserved during compression as it's converted to potential energy. Momentum *is* conserved because the spring force is an *internal force* within the system of colliding masses, and no external impulses act on the system during the collision.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After maximum compression in a perfectly elastic collision between a mass $m_1$ (initial $v_1$) and $m_2$ (initially at rest, attached to a spring $k$), what are the final velocities of $m_1$ and $m_2$ after they separate?",
+      "back": "This is equivalent to a standard 1D perfectly elastic collision. Let $v_1'$ and $v_2'$ be the final velocities.\n1.  **Conservation of Momentum:** $m_1v_1 = m_1v_1' + m_2v_2'$\n2.  **Relative Velocity (for elastic collision):** $v_1 - 0 = -(v_1' - v_2')$ or $v_1 = v_2' - v_1'$\nSolving these two equations yields:\n$$ v_1' = \\left(\\frac{m_1-m_2}{m_1+m_2}\\right)v_1 $$\n$$ v_2' = \\left(\\frac{2m_1}{m_1+m_2}\\right)v_1 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does analyzing a two-mass-spring collision in the center of mass (CoM) frame simplify finding the maximum compression?",
+      "back": "In the CoM frame, the total momentum of the system is always zero. At maximum compression, the relative velocity between the masses is momentarily zero, meaning both masses are *at rest* in the CoM frame. Therefore, all the initial kinetic energy in the CoM frame is entirely converted into the spring's potential energy. The initial KE in the CoM frame is $KE_{CoM} = \\frac{1}{2}\\mu v_{rel}^2$, where $\\mu$ is the reduced mass and $v_{rel}$ is the initial relative velocity. Thus, $\\frac{1}{2}\\mu v_{rel}^2 = \\frac{1}{2}kx_{max}^2$, directly giving $x_{max} = v_{rel} \\sqrt{\\frac{\\mu}{k}}$. This avoids the intermediate step of finding the common velocity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A block of mass $m$ slides with velocity $v$ towards a spring (constant $k$) that is *already compressed* by a distance $x_0$. What is the new maximum compression $x_{max}$ (from the spring's equilibrium position)?",
+      "back": "By conservation of energy, the initial kinetic energy of the block plus the initial potential energy stored in the spring is converted into the final potential energy at maximum compression:\n$$ \\frac{1}{2}mv^2 + \\frac{1}{2}kx_0^2 = \\frac{1}{2}kx_{max}^2 $$\nMultiplying by 2 and solving for $x_{max}$:\n$$ mv^2 + kx_0^2 = kx_{max}^2 $$\n$$ x_{max} = \\sqrt{\\frac{mv^2}{k} + x_0^2} $$",
+      "difficulty": "medium"
+    }
+  ]
+}

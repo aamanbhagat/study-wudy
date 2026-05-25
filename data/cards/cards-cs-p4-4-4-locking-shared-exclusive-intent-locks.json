@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-locking-shared-exclusive-intent-locks",
+  "subtopicTitle": "Locking — shared, exclusive, intent locks",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:54.414Z",
+  "cards": [
+    {
+      "front": "Define a \"shared lock\" (S-lock) in the context of database concurrency.",
+      "back": "An S-lock (Shared Lock) allows multiple transactions to read the same data concurrently. A transaction holding an S-lock can read the data, but cannot modify it. Other transactions can also acquire S-locks on the same data, but no transaction can acquire an X-lock on it.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an \"exclusive lock\" (X-lock) in the context of database concurrency.",
+      "back": "An X-lock (Exclusive Lock) grants a transaction exclusive access to data, allowing it to read and modify it. While an X-lock is held, no other transaction can acquire any type of lock (S, X, or intent) on that same data, ensuring isolation for writes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A transaction holds an S-lock on a row. Can another transaction acquire an S-lock on the same row? What about an X-lock?",
+      "back": "Yes, another transaction can acquire an S-lock on the same row (allowing multiple transactions to read concurrently). No, another transaction cannot acquire an X-lock on the same row, as an X-lock requires exclusive access, which conflicts with the existing S-lock.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary problem intent locks solve in a multi-granularity locking (MGL) scheme.",
+      "back": "Intent locks solve the problem of efficiently checking for lock conflicts across different granularity levels (e.g., table, page, row). Without them, to acquire a lock on a higher-level resource (like a table), the DBMS would have to check every single lower-level resource (pages, rows) within that table for conflicting locks. Intent locks signal a transaction's *intention* to lock lower-level resources, allowing the DBMS to check only the higher-level intent locks for conflicts.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly describe the purpose of IS, IX, and SIX locks.",
+      "back": "<ul><li><b>IS (Intent Shared):</b> A transaction intends to set S-locks on some lower-level resources (e.g., specific rows within a table).</li><li><b>IX (Intent Exclusive):</b> A transaction intends to set X-locks on some lower-level resources (e.g., specific rows within a table).</li><li><b>SIX (Shared Intent Exclusive):</b> A transaction holds an S-lock on the higher-level resource (e.g., table) AND intends to set X-locks on some lower-level resources (e.g., rows within that table).</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Transaction $T_1$ holds an IX lock on `TableA`. Can transaction $T_2$ acquire an S-lock on `TableA`? Explain.",
+      "back": "No, $T_2$ cannot acquire an S-lock on `TableA`. An IX lock on `TableA` indicates that $T_1$ *intends* to place X-locks on some rows within `TableA`. Allowing $T_2$ to acquire an S-lock on the entire table would conflict with $T_1$'s potential X-locks on individual rows, as an S-lock implies reading all rows, which would be blocked by $T_1$'s exclusive access to specific rows.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a resource currently holds an IX lock, which of these incoming lock requests are compatible? (Select all that apply)\n1. IS\n2. S\n3. IX\n4. X\n5. SIX",
+      "back": "Compatible: IS, IX.\n\nExplanation:\n*   **IS (Intent Shared):** Compatible. An existing IX lock means some lower-level resources *might* be exclusively locked. An incoming IS lock means the new transaction *intends* to shared-lock some lower-level resources. These intentions do not conflict at the higher level.\n*   **S (Shared):** Not compatible. An existing IX lock implies a potential for X-locks on lower-level resources. An S-lock on the entire resource would conflict with any such X-locks, as it assumes the entire resource can be read without interference.\n*   **IX (Intent Exclusive):** Compatible. Multiple transactions can intend to exclusively lock different lower-level resources within the same higher-level resource.\n*   **X (Exclusive):** Not compatible. An existing IX lock implies potential lower-level X-locks. An incoming X lock on the entire resource would conflict with these potential lower-level locks and the intention to modify.\n*   **SIX (Shared Intent Exclusive):** Not compatible. A SIX lock includes an S-lock component on the higher-level resource, which conflicts with the existing IX lock (as explained for S-lock compatibility).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the optimal lock types a transaction would acquire on `TableA` and its specific rows if it needs to read all rows and update a few.",
+      "back": "The transaction would acquire a **SIX (Shared Intent Exclusive)** lock on `TableA`. This grants an S-lock on the entire table (allowing it to read all rows) and also signals its intention to acquire X-locks on specific lower-level resources (the rows it intends to update). For the specific rows it updates, it would then acquire **X-locks**.",
+      "difficulty": "hard"
+    }
+  ]
+}

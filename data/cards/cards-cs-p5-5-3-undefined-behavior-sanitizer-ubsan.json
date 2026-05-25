@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-3-undefined-behavior-sanitizer-ubsan",
+  "subtopicTitle": "Undefined Behavior Sanitizer (UBSan)",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:27.358Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Undefined Behavior Sanitizer (UBSan)?",
+      "back": "UBSan is a dynamic analysis tool that detects various types of Undefined Behavior (UB) in C/C++ programs at runtime. Its primary purpose is to help developers find and fix subtle bugs that lead to unpredictable program behavior, crashes, or security vulnerabilities.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three common types of Undefined Behavior that UBSan is designed to detect.",
+      "back": "Common UB types detected by UBSan include:\n1.  Signed integer overflow/underflow.\n2.  Division by zero.\n3.  Invalid shift operations (e.g., shifting by a negative amount or by an amount $\\ge$ the bit width of the type).\n4.  Dereferencing a null or misaligned pointer.\n5.  Invalid conversions (e.g., floating-point to integer conversion that overflows).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does UBSan detect Undefined Behavior in a compiled program?",
+      "back": "UBSan works by instrumenting the program's source code during compilation. The compiler inserts additional runtime checks at points where UB might occur (e.g., before an arithmetic operation, a pointer dereference, or a type conversion). If a check fails during execution, UBSan reports an error, typically printing a detailed message to `stderr` and potentially aborting the program.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why `int x = INT_MAX + 1;` is Undefined Behavior, but `unsigned int y = UINT_MAX + 1;` is not.",
+      "back": "The expression `int x = INT_MAX + 1;` involves signed integer overflow. The C/C++ standard defines signed integer overflow as Undefined Behavior, meaning the compiler can make assumptions that it never happens, potentially leading to incorrect optimizations.\n\nConversely, `unsigned int y = UINT_MAX + 1;` is *not* Undefined Behavior. For unsigned integers, the C/C++ standard explicitly defines that arithmetic operations \"wrap around\" modulo $2^N$ (where $N$ is the number of bits for the type). The result is well-defined.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What UB would UBSan detect in this C++ snippet, and why?\n```cpp\nint arr[5];\nint* p = arr;\nint val = p[5];\n```",
+      "back": "UBSan would detect an out-of-bounds array access. The array `arr` has valid indices from $0$ to $4$. Accessing `p[5]` attempts to read memory beyond the allocated array bounds, which is Undefined Behavior. Specifically, it would likely trigger a `bounds` or `array-index` check if enabled.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Contrast UBSan with AddressSanitizer (ASan) in terms of their primary detection domains and typical performance overhead.",
+      "back": "UBSan primarily targets *semantic* Undefined Behavior related to language rules (e.g., integer overflows, division by zero, invalid shifts, null/misaligned pointer dereferences, invalid casts). Its performance overhead is generally low to moderate (typically 5-20% runtime slowdown).\n\nASan primarily targets *memory safety* errors (e.g., use-after-free, heap/stack buffer overflows, use-after-return, double-free, invalid free). Its performance overhead is typically higher than UBSan (often 2x or more runtime slowdown, and significant memory increase).\n\nThey are complementary tools, often used together for comprehensive bug detection.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a scenario where a program contains Undefined Behavior that UBSan might *not* detect, even with all checks enabled.",
+      "back": "UBSan is a *dynamic* analysis tool. It only detects UB that actually occurs during program execution. If a specific code path containing UB is never executed during testing (e.g., a division by zero inside an `if` block that is never entered with a zero divisor), UBSan will not report it. Additionally, UBSan's primary scope does not include all types of UB; for instance, data races (TSan's domain) or uninitialized reads (MSan's domain) are outside its main detection capabilities.",
+      "difficulty": "hard"
+    }
+  ]
+}

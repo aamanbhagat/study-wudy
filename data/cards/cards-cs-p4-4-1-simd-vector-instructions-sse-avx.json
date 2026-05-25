@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-1-simd-vector-instructions-sse-avx",
+  "subtopicTitle": "SIMD — vector instructions, SSE/AVX",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:48.220Z",
+  "cards": [
+    {
+      "front": "What does SIMD stand for, and what is its core principle in computer architecture?",
+      "back": "SIMD stands for **Single Instruction, Multiple Data**. Its core principle is to allow a single instruction to operate simultaneously on multiple data elements, enabling parallel processing of data streams.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe how a typical SIMD vector instruction, like adding two arrays, achieves parallelism.",
+      "back": "A SIMD vector instruction loads multiple data elements (e.g., 4 integers) into a wide register. It then performs the same operation (e.g., addition) on all these elements in parallel, storing the multiple results back into another wide register or memory. This contrasts with scalar operations that process one element at a time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What was the maximum width of SIMD registers in SSE, and how did AVX significantly expand this?",
+      "back": "SSE (Streaming SIMD Extensions) provided 128-bit wide XMM registers. AVX (Advanced Vector Extensions) introduced 256-bit wide YMM registers, effectively doubling the number of data elements that could be processed simultaneously per instruction compared to SSE for many operations. AVX-512 later introduced 512-bit ZMM registers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does FMA stand for, what operation does it perform, and which major SIMD extension first introduced it?",
+      "back": "FMA stands for **Fused Multiply-Add**. It performs a multiplication and an addition as a single instruction: $A \\times B + C$. This improves precision by only rounding once (after the addition) and can also improve performance. FMA was first introduced with **AVX2** (Advanced Vector Extensions 2).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using SSE intrinsics, how would you add two 4-element single-precision float vectors, `vec_a` and `vec_b`, storing the result in `vec_c`?",
+      "back": "```c\n#include <immintrin.h> // For SSE intrinsics\n\n// Assume vec_a, vec_b, vec_c are float arrays, 16-byte aligned\n// float vec_a[4] = {1.0f, 2.0f, 3.0f, 4.0f};\n// float vec_b[4] = {5.0f, 6.0f, 7.0f, 8.0f};\n// float vec_c[4];\n\n__m128 a = _mm_load_ps(vec_a);    // Load 4 floats into __m128 register\n__m128 b = _mm_load_ps(vec_b);\n__m128 result = _mm_add_ps(a, b); // Perform parallel addition\n_mm_store_ps(vec_c, result);      // Store result back to memory\n```\n`_mm_load_ps` loads packed single-precision floats, `_mm_add_ps` performs packed addition, and `_mm_store_ps` stores packed single-precision floats.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is data alignment crucial for optimal SIMD performance, especially with older SSE instructions like `_mm_load_ps`?",
+      "back": "SIMD instructions often require data to be aligned to specific memory boundaries (e.g., 16-byte for SSE, 32-byte for AVX). Unaligned access can lead to:\n1.  **Performance Penalties:** The CPU might need to perform multiple memory accesses or additional internal operations to fetch unaligned data, slowing down execution.\n2.  **Crashes (for some instructions):** Some older \"aligned\" load/store intrinsics (e.g., `_mm_load_ps`) will cause a segmentation fault if the data is not properly aligned. \"Unaligned\" versions (e.g., `_mm_loadu_ps`) exist but are generally slower.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do modern compilers leverage SIMD capabilities without requiring the programmer to write explicit intrinsics?",
+      "back": "Modern compilers use **auto-vectorization**. They analyze loops and array operations in the source code to identify patterns that can be parallelized using SIMD instructions. If the loop structure, data dependencies, and memory access patterns are suitable, the compiler automatically transforms the scalar operations into equivalent SIMD vector instructions, often significantly improving performance.",
+      "difficulty": "medium"
+    }
+  ]
+}

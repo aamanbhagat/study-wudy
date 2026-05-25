@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-3-sigma-notation-evaluating-telescoping-sums",
+  "subtopicTitle": "Sigma (Σ) notation — evaluating, telescoping sums",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:21.607Z",
+  "cards": [
+    {
+      "front": "Define $\\Sigma$ notation. Identify the index, lower limit, upper limit, and summand in $\\sum_{i=a}^{b} f(i)$.",
+      "back": "$\\Sigma$ notation (summation notation) is a concise way to represent the sum of a sequence of terms.\n*   $i$: index of summation (dummy variable)\n*   $a$: lower limit of summation (starting value for $i$)\n*   $b$: upper limit of summation (ending value for $i$)\n*   $f(i)$: summand (the expression being summed)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate the sum: $\\sum_{k=1}^{4} (2k-1)$.",
+      "back": "$$ \\sum_{k=1}^{4} (2k-1) = (2(1)-1) + (2(2)-1) + (2(3)-1) + (2(4)-1) $$\n$$ = 1 + 3 + 5 + 7 = 16 $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the linearity properties of sigma notation for constants $c$ and sequences $f(i), g(i)$.",
+      "back": "1.  Constant Multiple Rule: $\\sum_{i=a}^{b} c \\cdot f(i) = c \\sum_{i=a}^{b} f(i)$\n2.  Sum/Difference Rule: $\\sum_{i=a}^{b} (f(i) \\pm g(i)) = \\sum_{i=a}^{b} f(i) \\pm \\sum_{i=a}^{b} g(i)$\nThese properties allow us to break down complex sums into simpler ones.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain what a telescoping sum is and the general form of its terms that allows for cancellation.",
+      "back": "A telescoping sum is a sum where intermediate terms cancel out, leaving only the first and last terms (or a few initial and final terms).\nThe general form of its terms is often $a_i - a_{i+1}$ or $a_{i+1} - a_i$, or more generally $f(i) - f(i-k)$ for some integer $k$.\nFor example, $\\sum_{i=1}^{n} (a_i - a_{i+1}) = (a_1 - a_2) + (a_2 - a_3) + \\dots + (a_n - a_{n+1}) = a_1 - a_{n+1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the telescoping sum $\\sum_{k=1}^{n} \\left( \\frac{1}{k} - \\frac{1}{k+1} \\right)$.",
+      "back": "$$ \\sum_{k=1}^{n} \\left( \\frac{1}{k} - \\frac{1}{k+1} \\right) = \\left( \\frac{1}{1} - \\frac{1}{2} \\right) + \\left( \\frac{1}{2} - \\frac{1}{3} \\right) + \\left( \\frac{1}{3} - \\frac{1}{4} \\right) + \\dots + \\left( \\frac{1}{n} - \\frac{1}{n+1} \\right) $$\nThe intermediate terms $(-\\frac{1}{2} + \\frac{1}{2})$, $(-\\frac{1}{3} + \\frac{1}{3})$, etc., all cancel out.\n$$ = 1 - \\frac{1}{n+1} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate the sum $\\sum_{k=1}^{n} \\frac{1}{k(k+1)}$.",
+      "back": "First, use partial fraction decomposition to rewrite the summand:\n$$ \\frac{1}{k(k+1)} = \\frac{A}{k} + \\frac{B}{k+1} $$\nMultiplying by $k(k+1)$: $1 = A(k+1) + Bk$.\nIf $k=0$, $1 = A(1) \\Rightarrow A=1$.\nIf $k=-1$, $1 = B(-1) \\Rightarrow B=-1$.\nSo, $\\frac{1}{k(k+1)} = \\frac{1}{k} - \\frac{1}{k+1}$.\nNow, the sum becomes a telescoping sum:\n$$ \\sum_{k=1}^{n} \\left( \\frac{1}{k} - \\frac{1}{k+1} \\right) = \\left( \\frac{1}{1} - \\frac{1}{2} \\right) + \\left( \\frac{1}{2} - \\frac{1}{3} \\right) + \\dots + \\left( \\frac{1}{n} - \\frac{1}{n+1} \\right) = 1 - \\frac{1}{n+1} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the value of an \"empty sum,\" such as $\\sum_{i=5}^{2} f(i)$?",
+      "back": "An \"empty sum\" is a sum where the lower limit of summation is greater than the upper limit (e.g., $\\sum_{i=a}^{b} f(i)$ where $a > b$). By convention, the value of an empty sum is $0$. This is analogous to an empty product being $1$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-3-divergence-test-necessary-but-not-sufficient",
+  "subtopicTitle": "Divergence test (necessary but not sufficient)",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:34.518Z",
+  "cards": [
+    {
+      "front": "State the Divergence Test for series $\\sum_{n=1}^{\\infty} a_n$.",
+      "back": "If $\\lim_{n \\to \\infty} a_n \\neq 0$ (or if the limit does not exist), then the series $\\sum_{n=1}^{\\infty} a_n$ diverges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Does the Divergence Test tell us anything about the convergence of $\\sum_{n=1}^{\\infty} \\frac{n}{3n+2}$?",
+      "back": "Yes. We evaluate $\\lim_{n \\to \\infty} \\frac{n}{3n+2} = \\frac{1}{3}$. Since $\\frac{1}{3} \\neq 0$, the Divergence Test states that the series $\\sum_{n=1}^{\\infty} \\frac{n}{3n+2}$ diverges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What conclusion, if any, can be drawn from the Divergence Test for the series $\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt{n}}$?",
+      "back": "For $\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt{n}}$, we find $\\lim_{n \\to \\infty} \\frac{1}{\\sqrt{n}} = 0$. Since the limit is $0$, the Divergence Test is inconclusive. It does not tell us whether the series converges or diverges (in this case, it diverges by the p-series test, as $p=1/2 \\le 1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the Divergence Test is described as 'necessary but not sufficient' for convergence.",
+      "back": "It is *necessary* because for a series $\\sum a_n$ to converge, it is a prerequisite that $\\lim_{n \\to \\infty} a_n = 0$. It is *not sufficient* because even if $\\lim_{n \\to \\infty} a_n = 0$, the series might still diverge (e.g., the harmonic series $\\sum \\frac{1}{n}$). The condition $\\lim_{n \\to \\infty} a_n = 0$ does not guarantee convergence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why must the terms $a_n$ of a convergent series $\\sum_{n=1}^{\\infty} a_n$ approach zero as $n \\to \\infty$?",
+      "back": "For a series to converge, its sequence of partial sums $S_N = \\sum_{n=1}^{N} a_n$ must approach a finite limit $L$. This means that as $N$ gets very large, $S_N$ must stabilize. If the terms $a_n$ did not approach zero, then each new term added to the sum would contribute a non-negligible amount, causing the sum to continue growing (or shrinking) indefinitely, thus preventing it from stabilizing at a finite limit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the contrapositive of the Divergence Test, which describes a necessary condition for convergence.",
+      "back": "If the series $\\sum_{n=1}^{\\infty} a_n$ converges, then $\\lim_{n \\to \\infty} a_n = 0$. This is the contrapositive of the Divergence Test, and it highlights that the terms *must* go to zero for convergence to be possible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine if the Divergence Test applies to $\\sum_{n=1}^{\\infty} \\left(1 - \\frac{1}{n}\\right)^n$ and state the conclusion.",
+      "back": "We need to evaluate $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n$. This is a standard limit that evaluates to $e^{-1}$ or $\\frac{1}{e}$. Since $\\lim_{n \\to \\infty} \\left(1 - \\frac{1}{n}\\right)^n = \\frac{1}{e}$, and $\\frac{1}{e} \\neq 0$, the Divergence Test tells us that the series $\\sum_{n=1}^{\\infty} \\left(1 - \\frac{1}{n}\\right)^n$ diverges.",
+      "difficulty": "hard"
+    }
+  ]
+}

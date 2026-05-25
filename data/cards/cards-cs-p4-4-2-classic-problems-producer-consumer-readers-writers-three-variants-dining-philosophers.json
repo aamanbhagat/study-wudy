@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-2-classic-problems-producer-consumer-readers-writers-three-variants-dining-philosophers",
+  "subtopicTitle": "Classic problems — Producer-Consumer, Readers-Writers (three variants), Dining Philosophers",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:04.903Z",
+  "cards": [
+    {
+      "front": "Describe the core components and interaction in the classic Producer-Consumer problem.",
+      "back": "A Producer process generates data and places it into a shared, bounded buffer. A Consumer process retrieves data from the buffer and consumes it. The core interaction is through this shared buffer, requiring synchronization to prevent race conditions, ensure correct data transfer, and handle buffer full/empty conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a bounded buffer solution for Producer-Consumer, what are the typical roles of the three semaphores: `mutex`, `empty`, and `full`?",
+      "back": "<ul><li>`mutex`: A binary semaphore (or mutex lock) ensuring mutual exclusion when accessing the shared buffer itself (e.g., `buffer.add()` or `buffer.remove()`). Initialized to 1.</li><li>`empty`: A counting semaphore tracking the number of empty slots in the buffer. Producer waits on `empty` before producing, Consumer signals `empty` after consuming. Initialized to buffer size $N$.</li><li>`full`: A counting semaphore tracking the number of full slots in the buffer. Consumer waits on `full` before consuming, Producer signals `full` after producing. Initialized to 0.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental conflict addressed by the Readers-Writers problem?",
+      "back": "The problem involves multiple processes (readers and writers) accessing a shared data resource. Readers can access the resource concurrently without issues. Writers, however, require exclusive access: no other reader or writer can access the resource while a writer is active, to prevent data corruption and maintain data consistency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"Readers Priority\" variant of the Readers-Writers problem and its main drawback.",
+      "back": "In the Readers Priority variant, new readers are granted access to the shared resource as long as at least one reader is active, even if a writer is waiting. A writer can only gain access when no readers are active. The main drawback is that writers can suffer indefinite postponement (starvation) if there's a continuous stream of new readers arriving.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the \"Writers Priority\" variant of the Readers-Writers problem and its main drawback.",
+      "back": "In the Writers Priority variant, if a writer is waiting, no new readers are allowed to start reading. Existing readers can finish, but new readers must wait until the waiting writer (and any subsequent writers) has completed its operation. The main drawback is that readers can suffer indefinite postponement (starvation) if there's a continuous stream of new writers arriving.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly outline one strategy to achieve a \"no starvation\" solution for the Readers-Writers problem.",
+      "back": "One strategy involves using a \"turnstile\" or a queueing mechanism. For example, a main mutex (`resource_access`) can guard entry to the critical section, while separate semaphores for readers (`read_try`) and writers (`write_try`) control their respective access. A global `turnstile` semaphore can ensure processes wait in line, preventing a continuous stream of one type of process from starving the other by enforcing a more balanced access pattern.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the setup and core resource contention in the Dining Philosophers problem.",
+      "back": "$N$ philosophers are seated around a circular table, with one chopstick placed between each pair of philosophers. To eat, a philosopher needs two chopsticks: one from their left and one from their right. The core resource contention is for these shared chopsticks, as each chopstick can only be held by one philosopher at a time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how a deadlock can occur in the naive solution to the Dining Philosophers problem.",
+      "back": "Deadlock occurs if all $N$ philosophers simultaneously pick up their *left* chopstick. Each philosopher now holds one chopstick and waits indefinitely for their *right* chopstick, which is held by their neighbor. This creates a circular wait condition: each process is waiting for a resource held by another process in the cycle, leading to a permanent block where no philosopher can acquire both chopsticks to eat.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Propose one common solution to prevent deadlock in the Dining Philosophers problem.",
+      "back": "One common solution is to impose an ordering on resource acquisition (chopsticks) or limit the number of philosophers allowed to attempt eating simultaneously.\n1.  **Resource Ordering:** Assign a unique ID to each chopstick. A philosopher must pick up the lower-numbered chopstick first, then the higher-numbered one. This breaks the circular wait condition by ensuring no circular dependency can form.\n2.  **K-Philosophers Limit:** Allow at most $N-1$ philosophers to be simultaneously seated at the table (or attempt to pick up chopsticks). This ensures that at least one philosopher will always be able to acquire both chopsticks, preventing a full circular wait.",
+      "difficulty": "hard"
+    }
+  ]
+}

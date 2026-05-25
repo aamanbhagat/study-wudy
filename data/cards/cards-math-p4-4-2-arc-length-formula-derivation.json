@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-2-arc-length-formula-derivation",
+  "subtopicTitle": "Arc length formula — derivation",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:11.438Z",
+  "cards": [
+    {
+      "front": "When deriving the arc length formula, what fundamental geometric theorem is used to approximate the length of a small, straight line segment connecting two points on a curve?",
+      "back": "The Pythagorean theorem. We approximate a small curve segment as the hypotenuse of a right triangle with legs $\\Delta x$ and $\\Delta y$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Starting with an infinitesimal segment length $ds$, express $ds$ in terms of $dx$ and $dy$.",
+      "back": "$$ds = \\sqrt{(dx)^2 + (dy)^2}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Show the algebraic manipulation to factor out $dx$ from the infinitesimal arc length $ds = \\sqrt{(dx)^2 + (dy)^2}$, leading to a term involving $\\frac{dy}{dx}$.",
+      "back": "$$ds = \\sqrt{(dx)^2 + (dy)^2} = \\sqrt{(dx)^2 \\left(1 + \\frac{(dy)^2}{(dx)^2}\\right)} = \\sqrt{(dx)^2} \\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2} = dx \\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the arc length formula for a function $y=f(x)$ from $x=a$ to $x=b$, starting from the sum of infinitesimal segments.",
+      "back": "We approximate the curve with $n$ line segments. The length of the $i$-th segment is $\\Delta L_i = \\sqrt{(\\Delta x_i)^2 + (\\Delta y_i)^2}$.\nSumming these segments gives $L \\approx \\sum_{i=1}^n \\sqrt{(\\Delta x_i)^2 + (\\Delta y_i)^2}$.\nFactor out $\\Delta x_i$: $L \\approx \\sum_{i=1}^n \\sqrt{1 + \\left(\\frac{\\Delta y_i}{\\Delta x_i}\\right)^2} \\Delta x_i$.\nBy the Mean Value Theorem, $\\frac{\\Delta y_i}{\\Delta x_i} = f'(c_i)$ for some $c_i \\in (x_{i-1}, x_i)$.\nSo, $L \\approx \\sum_{i=1}^n \\sqrt{1 + (f'(c_i))^2} \\Delta x_i$.\nTaking the limit as $n \\to \\infty$ (and $\\Delta x_i \\to 0$), this Riemann sum becomes a definite integral:\n$$L = \\int_a^b \\sqrt{1 + (f'(x))^2} dx$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the arc length formula for a curve defined by $x=g(y)$ from $y=c$ to $y=d$. Include the necessary derivative notation.",
+      "back": "$$L = \\int_c^d \\sqrt{1 + (g'(y))^2} dy \\quad \\text{or} \\quad L = \\int_c^d \\sqrt{1 + \\left(\\frac{dx}{dy}\\right)^2} dy$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What crucial condition must the derivative $f'(x)$ satisfy for the arc length formula $L = \\int_a^b \\sqrt{1 + (f'(x))^2} dx$ to be valid and for the integral to exist?",
+      "back": "The derivative $f'(x)$ must be continuous on the interval $[a,b]$. This ensures the curve is 'smooth' and the integrand is continuous, making the integral well-defined.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are arc length integrals often difficult to evaluate analytically, even for relatively simple functions $f(x)$?",
+      "back": "The integrand $\\sqrt{1 + (f'(x))^2}$ frequently results in non-elementary integrals. This means the antiderivative cannot be expressed in terms of elementary functions (polynomials, exponentials, logarithms, trigonometric functions, etc.), requiring numerical methods for evaluation in many practical cases.",
+      "difficulty": "hard"
+    }
+  ]
+}

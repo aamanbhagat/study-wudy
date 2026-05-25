@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-4-conservation-of-linear-momentum-derivation-from-newton-s-third-law",
+  "subtopicTitle": "Conservation of linear momentum — derivation from Newton's third law",
+  "topicId": "physics-p1-1-4-momentum-collisions",
+  "topicTitle": "Momentum & Collisions",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:53.738Z",
+  "cards": [
+    {
+      "front": "Define linear momentum, $\\vec{p}$, for a single particle.",
+      "back": "Linear momentum is defined as the product of a particle's mass ($m$) and its velocity ($\\vec{v}$): $\\vec{p} = m\\vec{v}$. It is a vector quantity, having both magnitude and direction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Newton's Third Law of Motion.",
+      "back": "Newton's Third Law states that for every action, there is an equal and opposite reaction. If object A exerts a force $\\vec{F}_{AB}$ on object B, then object B simultaneously exerts a force $\\vec{F}_{BA}$ on object A, such that $\\vec{F}_{AB} = -\\vec{F}_{BA}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does Newton's Second Law relate the net force ($\\vec{F}_{net}$) acting on a particle to its linear momentum ($\\vec{p}$)?",
+      "back": "Newton's Second Law states that the net force acting on a particle is equal to the rate of change of its linear momentum: $\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}$. If the mass ($m$) is constant, this simplifies to $\\vec{F}_{net} = m\\frac{d\\vec{v}}{dt} = m\\vec{a}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider two objects, 1 and 2, interacting (e.g., colliding). How do the internal forces they exert on each other relate, according to Newton's Third Law?",
+      "back": "During their interaction, object 1 exerts a force $\\vec{F}_{12}$ on object 2, and object 2 exerts a force $\\vec{F}_{21}$ on object 1. According to Newton's Third Law, these forces are equal in magnitude and opposite in direction: $\\vec{F}_{12} = -\\vec{F}_{21}$. These are internal forces within the two-object system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive that the rate of change of total momentum for a two-object system (1 and 2) is zero, assuming only internal forces $\\vec{F}_{12}$ and $\\vec{F}_{21}$ are present.",
+      "back": "Let $\\vec{p}_1$ and $\\vec{p}_2$ be the momenta of object 1 and object 2. By Newton's Second Law:\n$\\vec{F}_{21} = \\frac{d\\vec{p}_1}{dt}$ (Force on 1 by 2)\n$\\vec{F}_{12} = \\frac{d\\vec{p}_2}{dt}$ (Force on 2 by 1)\nThe total momentum of the system is $\\vec{P}_{sys} = \\vec{p}_1 + \\vec{p}_2$.\nThe rate of change of total system momentum is:\n$\\frac{d\\vec{P}_{sys}}{dt} = \\frac{d\\vec{p}_1}{dt} + \\frac{d\\vec{p}_2}{dt}$\nSubstituting the forces:\n$\\frac{d\\vec{P}_{sys}}{dt} = \\vec{F}_{21} + \\vec{F}_{12}$\nBy Newton's Third Law, $\\vec{F}_{12} = -\\vec{F}_{21}$.\nTherefore, $\\frac{d\\vec{P}_{sys}}{dt} = \\vec{F}_{21} + (-\\vec{F}_{21}) = \\vec{0}$.\nThis shows the total momentum of the system is constant if only internal forces act.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Law of Conservation of Linear Momentum for an isolated system.",
+      "back": "The Law of Conservation of Linear Momentum states that if no net external force acts on a system (i.e., it is an isolated system), the total linear momentum of the system remains constant over time. Mathematically, if $\\vec{P}_{sys}$ is the total momentum, then $\\frac{d\\vec{P}_{sys}}{dt} = \\vec{0}$, which implies $\\vec{P}_{sys, \\text{initial}} = \\vec{P}_{sys, \\text{final}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary condition for the total linear momentum of a system to be conserved?",
+      "back": "The total linear momentum of a system is conserved if and only if the net external force acting on the system is zero. Internal forces (forces between objects within the system) do not affect the total momentum of the system, as their effects cancel out due to Newton's Third Law.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an intuitive explanation of why Newton's Third Law leads to the conservation of linear momentum in an isolated system.",
+      "back": "When objects within an isolated system interact, Newton's Third Law dictates that for every force one object exerts on another, there's an equal and opposite force exerted back. Since force is the rate of change of momentum (Newton's Second Law), this means any momentum gained by one object due to an interaction is exactly balanced by an equal and opposite momentum change (loss) by the other interacting object. These internal momentum changes cancel each other out, ensuring that the *total* momentum of the entire system remains constant.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-network-security-ddos-man-in-the-middle-replay-attacks-countermeasures",
+  "subtopicTitle": "Network security — DDoS, man-in-the-middle, replay attacks, countermeasures",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:41.160Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of a Distributed Denial of Service (DDoS) attack?",
+      "back": "To overwhelm a target system (server, network, or application) with a flood of traffic or requests, making it unavailable to legitimate users. It leverages multiple compromised systems (a botnet) to launch the attack simultaneously.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three common countermeasures employed to mitigate DDoS attacks.",
+      "back": "1.  **Traffic Filtering/Scrubbing:** Identifying and dropping malicious traffic at the network edge (e.g., using specialized DDoS mitigation services, firewalls, or IDS/IPS).\n2.  **Rate Limiting:** Restricting the number of requests a server or network can handle from a single source or within a specific timeframe.\n3.  **Load Balancing/CDN:** Distributing incoming traffic across multiple servers or geographically dispersed Content Delivery Networks to absorb and spread the attack load.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the fundamental principle behind a Man-in-the-Middle (MitM) attack.",
+      "back": "An attacker secretly intercepts and relays communications between two parties who believe they are communicating directly with each other. The attacker can read, insert, and modify messages without either party knowing their communication has been compromised.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does strong encryption, such as TLS/SSL, primarily protect against Man-in-the-Middle (MitM) attacks, and what specific MitM variant does it counter?",
+      "back": "TLS/SSL protects against MitM by establishing a secure, encrypted channel *and* verifying the identity of the server (and optionally the client) using digital certificates and public-key cryptography. This prevents attackers from reading or tampering with data, even if they intercept it. It specifically counters attacks like **SSL stripping** (by enforcing HTTPS) and general eavesdropping/tampering.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a replay attack in the context of network security.",
+      "back": "A replay attack (also known as a playback attack) occurs when an attacker intercepts a valid data transmission (e.g., authentication credentials, transaction requests) and maliciously re-transmits it later to impersonate the original sender or repeat an action.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What two primary mechanisms are commonly used in cryptographic protocols to prevent replay attacks, and how do they work?",
+      "back": "1.  **Nonces (Numbers Used Once):** A unique, random number generated for each session or message. The receiver checks if the nonce has been seen before; if so, it's a replay.\n2.  **Timestamps/Sequence Numbers:** Messages are tagged with a timestamp or a monotonically increasing sequence number. The receiver accepts only messages within a valid time window or with a higher sequence number than the last received, discarding older or duplicate ones.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how ARP spoofing facilitates a Man-in-the-Middle attack, specifying which network layer it targets.",
+      "back": "ARP (Address Resolution Protocol) spoofing, also known as ARP poisoning, targets the **data link layer (Layer 2)**. An attacker sends forged ARP messages onto a local area network. This causes the attacker's MAC address to be associated with the IP address of a legitimate host (e.g., the default gateway) on other devices. Consequently, traffic intended for the legitimate host is redirected through the attacker's machine, allowing them to intercept, modify, or drop it before forwarding it to the actual destination.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do nonces and digital signatures collectively contribute to both preventing replay attacks and ensuring non-repudiation in secure communication?",
+      "back": "1.  **Replay Prevention:** Nonces (random numbers used once) ensure that each message is unique. If an attacker re-transmits an old message, the nonce will be recognized as already used, and the message will be rejected.\n2.  **Non-repudiation:** A digital signature, created using the sender's private key, proves the sender's identity and confirms that the message content has not been altered since it was signed. When a nonce is included *within* the message content before signing, the digital signature effectively binds the sender to that specific, unique message instance. This prevents the sender from later denying they sent that particular message, as the unique nonce and their signature provide undeniable proof.",
+      "difficulty": "hard"
+    }
+  ]
+}

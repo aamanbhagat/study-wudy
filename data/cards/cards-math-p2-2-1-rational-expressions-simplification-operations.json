@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p2-2-1-rational-expressions-simplification-operations",
+  "subtopicTitle": "Rational expressions — simplification, operations",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:20.791Z",
+  "cards": [
+    {
+      "front": "Define a rational expression.",
+      "back": "A rational expression is a ratio of two polynomials, $P(x)/Q(x)$, where $Q(x)$ is not the zero polynomial. For example, $\\frac{x^2 + 3x - 1}{x - 5}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the domain of a rational expression $\\frac{P(x)}{Q(x)}$?",
+      "back": "The domain of a rational expression consists of all real numbers for which the denominator $Q(x)$ is not equal to zero. Any values of $x$ that make $Q(x)=0$ must be excluded from the domain.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Simplify the rational expression: $\\frac{x^2 - 9}{x^2 + 6x + 9}$.",
+      "back": "First, factor the numerator and denominator:\n$\\frac{(x-3)(x+3)}{(x+3)^2}$\nThen, cancel the common factor $(x+3)$:\n$\\frac{x-3}{x+3}$\nThis simplification is valid for $x \\neq -3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the steps to multiply two rational expressions $\\frac{A}{B} \\cdot \\frac{C}{D}$.",
+      "back": "1. Factor all numerators and denominators completely.\n2. Multiply the numerators together and the denominators together.\n3. Cancel any common factors that appear in both the new numerator and denominator.\n4. State any restrictions on the variables (values that make any original denominator zero).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you divide two rational expressions $\\frac{A}{B} \\div \\frac{C}{D}$?",
+      "back": "To divide rational expressions, you multiply the first expression by the reciprocal of the second expression (the divisor). That is, $\\frac{A}{B} \\div \\frac{C}{D} = \\frac{A}{B} \\cdot \\frac{D}{C}$. Then, follow the steps for multiplying rational expressions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Perform the operation and simplify: $\\frac{5}{x-2} + \\frac{3}{2-x}$.",
+      "back": "Notice that $2-x = -(x-2)$. So, we can rewrite the expression as:\n$\\frac{5}{x-2} + \\frac{3}{-(x-2)} = \\frac{5}{x-2} - \\frac{3}{x-2}$\nNow, with a common denominator, combine the numerators:\n$\\frac{5-3}{x-2} = \\frac{2}{x-2}$\nThis is valid for $x \\neq 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the first step to add or subtract rational expressions with different denominators, e.g., $\\frac{A}{B} + \\frac{C}{D}$?",
+      "back": "The first step is to find the Least Common Denominator (LCD) of the expressions. This involves factoring each denominator completely and then forming the LCD by taking the highest power of each unique prime factor present in any denominator. Once the LCD is found, rewrite each rational expression with the LCD as its denominator.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Perform the operation and simplify: $\\frac{x}{x+1} - \\frac{2}{x-1}$.",
+      "back": "The LCD is $(x+1)(x-1)$. Rewrite each fraction:\n$\\frac{x(x-1)}{(x+1)(x-1)} - \\frac{2(x+1)}{(x+1)(x-1)}$\nCombine the numerators:\n$\\frac{x(x-1) - 2(x+1)}{(x+1)(x-1)} = \\frac{x^2 - x - 2x - 2}{(x+1)(x-1)}$\nSimplify the numerator:\n$\\frac{x^2 - 3x - 2}{(x+1)(x-1)}$\nThis is valid for $x \\neq -1, 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can a complex rational expression like $\\frac{\\frac{1}{x} + 1}{\\frac{1}{x^2} - 1}$ be simplified?",
+      "back": "Method 1: Treat as division. Simplify numerator and denominator separately, then divide:\n$\\frac{\\frac{1+x}{x}}{\\frac{1-x^2}{x^2}} = \\frac{1+x}{x} \\cdot \\frac{x^2}{1-x^2} = \\frac{1+x}{x} \\cdot \\frac{x^2}{(1-x)(1+x)} = \\frac{x}{1-x}$\nMethod 2: Multiply numerator and denominator by the LCD of all internal fractions (here, $x^2$):\n$\\frac{x^2(\\frac{1}{x} + 1)}{x^2(\\frac{1}{x^2} - 1)} = \\frac{x + x^2}{1 - x^2} = \\frac{x(1+x)}{(1-x)(1+x)} = \\frac{x}{1-x}$\nBoth valid for $x \\neq 0, 1, -1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

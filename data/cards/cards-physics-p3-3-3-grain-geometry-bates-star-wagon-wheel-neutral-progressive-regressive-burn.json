@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-grain-geometry-bates-star-wagon-wheel-neutral-progressive-regressive-burn",
+  "subtopicTitle": "Grain geometry — BATES, star, wagon wheel; neutral/progressive/regressive burn",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:08.766Z",
+  "cards": [
+    {
+      "front": "Differentiate between a neutral, progressive, and regressive burn profile in a solid rocket motor.",
+      "back": "<ul><li><b>Neutral Burn:</b> Burn surface area ($A_b$) remains relatively constant throughout the burn, resulting in constant thrust.</li><li><b>Progressive Burn:</b> $A_b$ increases over time, leading to increasing thrust.</li><li><b>Regressive Burn:</b> $A_b$ decreases over time, leading to decreasing thrust.</li></ul>The burn profile dictates the thrust-time curve of the motor.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the acronym BATES stand for, and what is the characteristic physical form of a BATES grain?",
+      "back": "BATES stands for <b>Ballistic Test and Evaluation System</b>. It typically consists of multiple short, cylindrical propellant grains with an internal bore (a hole through the center), often stacked end-to-end.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a BATES grain geometry typically achieve a nearly neutral burn profile over its operational duration?",
+      "back": "A BATES grain achieves a neutral burn because as the internal bore burns outward, increasing the internal surface area, the outer cylindrical surface also burns inward, decreasing the external surface area. With proper design (e.g., inhibiting the ends and outer cylindrical surface of some segments), these two opposing effects can be balanced to maintain a relatively constant total burn surface area.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the initial geometry and burn surface area evolution of a 'star grain.' What burn profile does it usually produce?",
+      "back": "A star grain has an internal bore shaped like a star (e.g., 5, 6, or 7 points). Initially, the burn occurs along the points and valleys of the star. As it burns, the points recede, exposing more surface area in the valleys, causing the burn surface area to <b>increase</b> rapidly. This typically results in a <b>progressive burn</b> profile, often used for high initial thrust.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the geometry and burn surface area evolution of a 'wagon wheel grain.' What burn profile does it typically produce?",
+      "back": "A wagon wheel grain is a cylindrical grain with multiple axial slots or perforations around the central bore, resembling spokes. Initially, all internal surfaces (central bore and slots) burn. As the slots widen and the central bore expands, the total burn surface area generally <b>increases</b> for a period, then may become more neutral or slightly regressive as adjacent burning surfaces merge. It's often designed for a <b>progressive to neutral</b> burn, offering a controlled thrust increase.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a solid rocket motor with a constant burn rate $r$, derive the relationship between thrust $F$, burn surface area $A_b$, and chamber pressure $P_c$. How does this relate to the burn profile?",
+      "back": "The mass flow rate $\\dot{m}$ is given by:\n$$\\dot{m} = \\rho A_b r$$\nwhere $\\rho$ is propellant density, $A_b$ is burn surface area, and $r$ is burn rate.\nThrust $F$ is primarily given by:\n$$F = \\dot{m} V_e + (P_e - P_a) A_e$$\nwhere $V_e$ is exhaust velocity, $P_e$ is exit pressure, $P_a$ is ambient pressure, and $A_e$ is exit area.\nAssuming optimal expansion and neglecting the pressure term for simplicity, $F \\approx \\dot{m} V_e$.\nSubstituting $\\dot{m}$:\n$$F \\approx \\rho A_b r V_e$$\nAlso, chamber pressure $P_c$ is related to $\\dot{m}$ and nozzle throat area $A_t$ by:\n$$P_c = \\frac{\\dot{m} c^*}{A_t} = \\frac{\\rho A_b r c^*}{A_t}$$\nwhere $c^*$ is characteristic velocity.\nThus, $F$ is directly proportional to $A_b$ (and $P_c$ is also directly proportional to $A_b$). The burn profile (neutral, progressive, regressive) describes how $A_b$ changes over time, directly dictating how $F$ and $P_c$ change over time.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Design a conceptual solid propellant grain profile that starts with a progressive burn, transitions to neutral, and ends with a regressive burn. Briefly describe the geometric features for each phase.",
+      "back": "A complex grain geometry combining elements can achieve this:\n<ol><li><b>Progressive Phase:</b> Start with a star-shaped internal bore. As the points burn away, the surface area increases rapidly.</li><li><b>Neutral Phase:</b> Transition to a BATES-like configuration (e.g., a cylindrical bore with inhibited outer surfaces) after the star points have burned out. The internal burning outward balances the external burning inward (if uninhibited, or by maintaining a constant internal area). Alternatively, a C-slot or multiple perforations could be designed to maintain constant area for a period.</li><li><b>Regressive Phase:</b> End with an outer-burning cylinder (like an end burner, but burning inward from the outer diameter) or a simple internal cylinder that shrinks as it burns, reducing the area.</li></ol>This requires careful segment design and inhibition.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond thrust profile, what is a significant advantage of a star grain over a simple cylindrical internal-burning grain (like a single BATES segment) in terms of initial thrust and motor performance?",
+      "back": "A significant advantage of a star grain is its very large initial burn surface area compared to a simple cylindrical bore of the same outer diameter. This allows for a much higher initial mass flow rate and thus <b>higher initial thrust</b> and chamber pressure. This is beneficial for applications requiring rapid acceleration or overcoming high initial drag, even if it leads to a progressive burn profile.",
+      "difficulty": "medium"
+    }
+  ]
+}

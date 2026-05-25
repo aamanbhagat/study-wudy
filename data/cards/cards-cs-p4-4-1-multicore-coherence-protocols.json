@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-multicore-coherence-protocols",
+  "subtopicTitle": "Multicore coherence protocols",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:51.292Z",
+  "cards": [
+    {
+      "front": "What fundamental problem do cache coherence protocols address in a multicore processor system?",
+      "back": "They ensure that all processors (cores) maintain a consistent view of shared memory, preventing issues where different caches might hold conflicting or stale copies of the same data block.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the two primary architectural approaches for implementing cache coherence protocols.",
+      "back": "1. Snooping protocols (typically bus-based) and 2. Directory-based protocols.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the operational principle of snooping cache coherence protocols.",
+      "back": "Each cache controller continuously \"snoops\" (monitors) the shared bus for memory transactions initiated by other processors. If a transaction involves a memory block that the snooping cache also holds, it takes appropriate action, such as invalidating its copy or supplying the requested data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the MESI cache coherence protocol, what do the letters M, E, S, and I represent, and what is the characteristic of a cache line in each state?",
+      "back": "*   **M**odified: The cache line is dirty (modified from main memory) and is the only copy in any cache. It must be written back to main memory.\n*   **E**xclusive: The cache line is clean (matches main memory) and is the only copy in any cache.\n*   **S**hared: The cache line is clean and may exist in multiple caches.\n*   **I**nvalid: The cache line does not contain valid data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a MESI protocol. A cache (P1) holds a block in the **Exclusive (E)** state. What state transition occurs for P1's block if another core (P2) performs a **read request** for the same block?",
+      "back": "P1's block transitions from **Exclusive (E)** to **Shared (S)**. P1 also supplies the data to P2, which then loads the block into its cache in the **Shared (S)** state. Both copies are now clean and shared.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do directory-based cache coherence protocols fundamentally differ from snooping protocols in managing coherence, especially regarding scalability?",
+      "back": "Directory-based protocols use a central (or distributed) \"directory\" to track the sharing status and location of each memory block. Instead of broadcasting all transactions, the directory sends point-to-point messages to specific caches. This reduces bus traffic and improves scalability for systems with a large number of cores, unlike snooping which relies on a shared bus that becomes a bottleneck.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a directory-based coherence protocol, outline the typical directory entry information for a memory block and the steps involved when a core requests a **write** to a block currently in the **Shared** state.",
+      "back": "A directory entry often includes:\n1.  **State:** e.g., Uncached, Shared, Modified.\n2.  **Sharer List (or Bitmask):** Identifies which caches hold a copy of the block.\nWhen a core (P_write) requests a write to a block in the Shared state:\n1.  P_write sends a write request to the directory.\n2.  The directory, seeing the block is Shared, sends **invalidate** messages to all caches in the sharer list (excluding P_write).\n3.  Upon receiving acknowledgments from all invalidated caches, the directory updates the block's state to Modified and sets P_write as the sole owner/sharer. P_write then performs its write.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"false sharing\" in the context of multicore cache coherence and explain why it negatively impacts performance.",
+      "back": "False sharing occurs when multiple cores access *different*, independent variables that happen to reside within the *same* cache line. Because cache coherence protocols operate on entire cache lines, even though the cores access distinct data, the cache line is repeatedly invalidated and transferred between caches, leading to unnecessary cache misses, increased bus traffic, and reduced performance.",
+      "difficulty": "medium"
+    }
+  ]
+}

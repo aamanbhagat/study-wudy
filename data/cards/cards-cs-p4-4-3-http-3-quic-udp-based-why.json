@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-http-3-quic-udp-based-why",
+  "subtopicTitle": "HTTP/3 — QUIC, UDP-based, why",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:38.474Z",
+  "cards": [
+    {
+      "front": "HTTP/3 primarily utilizes which transport layer protocol for its operations?",
+      "back": "HTTP/3 primarily uses **QUIC** (Quick UDP Internet Connections) as its transport layer protocol, instead of TCP.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does QUIC stand for, and what is its fundamental departure from traditional web transport protocols regarding its foundation?",
+      "back": "QUIC stands for **Quick UDP Internet Connections**. Its fundamental departure is that it is built **on top of UDP** rather than TCP, allowing it to implement its own reliable, stream-multiplexed, and secure transport layer.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain one significant performance issue in HTTP/2 over TCP that HTTP/3, through QUIC, aims to resolve.",
+      "back": "HTTP/2 over TCP suffers from **TCP Head-of-Line (HOL) Blocking**. If a single TCP segment is lost, all subsequent segments for *all* HTTP/2 streams on that connection must wait for retransmission, even if they belong to different logical streams. QUIC mitigates this by implementing **stream-level reliability** directly over UDP, so a lost packet only blocks the specific stream it belongs to, not others.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why was UDP chosen as the foundation for QUIC instead of building directly on an enhanced TCP?",
+      "back": "UDP was chosen because TCP is **ossified** in operating system kernels and middleboxes, making it difficult to deploy new features or change its behavior. Building on UDP allows QUIC to:\n1. Implement **custom congestion control** algorithms in user space.\n2. Perform **0-RTT or 1-RTT handshakes** for faster connection establishment.\n3. Support **connection migration** natively.\n4. Evolve independently of OS updates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does QUIC enable seamless **connection migration** (e.g., switching from Wi-Fi to cellular) without breaking active connections, a challenge for TCP?",
+      "back": "QUIC uses a **Connection ID** to identify a connection, rather than the traditional 4-tuple (source IP, source port, destination IP, destination port) used by TCP. When a client's IP address or port changes (e.g., due to network handover), the client simply sends packets with the *same Connection ID* from its new address. The server recognizes the Connection ID and continues the session, making the migration transparent to the application.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given that UDP is an unreliable protocol, how does QUIC ensure **reliability, flow control, and congestion control** for its streams?",
+      "back": "QUIC implements its own mechanisms for these features, essentially recreating TCP's core functionalities at the QUIC layer (above UDP). It uses:\n*   **Packet numbers and acknowledgments** for reliability (retransmitting lost packets).\n*   **Flow control windows** per stream and for the entire connection to prevent sender overload.\n*   **Congestion control algorithms** (e.g., BBR, Reno) to adapt sending rates to network conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the significance of **TLS 1.3 integration** within QUIC, and how does it improve security and latency compared to HTTP/2 over TCP+TLS?",
+      "back": "TLS 1.3 is **tightly integrated into the QUIC handshake**, rather than being layered on top of a separate TCP handshake. This means:\n1.  **Reduced Latency:** Often achieves 0-RTT or 1-RTT for both connection and security setup.\n2.  **Enhanced Privacy:** All QUIC packets, including initial handshake messages and metadata (like connection IDs), are encrypted by default, preventing passive observation of connection parameters.\n3.  **Mandatory Encryption:** Encryption is a fundamental part of QUIC, making unencrypted QUIC connections impossible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between **application-level Head-of-Line (HOL) blocking** (HTTP/1.1 pipelining) and **TCP-level HOL blocking** (HTTP/2 over TCP), and explain how QUIC specifically addresses the latter.",
+      "back": "*   **Application-level HOL blocking (HTTP/1.1):** Occurs when a server processes requests sequentially. If the first request takes a long time, subsequent requests are blocked, even if they could be processed quickly.\n*   **TCP-level HOL blocking (HTTP/2 over TCP):** Occurs when a lost TCP segment causes all subsequent segments on the *same TCP connection* to be held in the receiver's buffer until the lost segment is retransmitted, regardless of which HTTP/2 stream they belong to.\nQUIC addresses TCP-level HOL blocking by using **independent streams** multiplexed over a single QUIC connection. Each stream has its own sequence of packets and reliability mechanism. A lost packet only affects the specific stream it belongs to, allowing other streams to continue processing without interruption.",
+      "difficulty": "hard"
+    }
+  ]
+}

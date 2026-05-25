@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-freertos-task-creation-priorities-xtaskcreate",
+  "subtopicTitle": "FreeRTOS — task creation, priorities, xTaskCreate",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:54.264Z",
+  "cards": [
+    {
+      "front": "In FreeRTOS, what is a \"task\"?",
+      "back": "A task is an independent thread of execution that runs concurrently with other tasks. It's the fundamental building block for organizing application code, allowing for modularity, responsiveness, and pseudo-parallel execution on a single-core processor.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary function of `xTaskCreate` in FreeRTOS?",
+      "back": "`xTaskCreate` is the FreeRTOS API function used to create a new task and add it to the list of tasks managed by the scheduler. It allocates memory for the task's stack and TCB (Task Control Block) and initializes the task's context (registers, program counter).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the six essential parameters required by the `xTaskCreate` function.",
+      "back": "The six essential parameters for `xTaskCreate` are:\n1. `pvTaskCode`: Pointer to the task function.\n2. `pcName`: A descriptive name for the task (for debugging).\n3. `usStackDepth`: The size of the task's stack in words (not bytes).\n4. `pvParameters`: A pointer to parameters passed to the task function.\n5. `uxPriority`: The priority at which the task will run.\n6. `pxCreatedTask`: A pointer to a `TaskHandle_t` variable to receive the handle of the created task.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In FreeRTOS, what is the range of valid task priorities, and how is the maximum priority configured?",
+      "back": "Task priorities in FreeRTOS range from $0$ (lowest priority) to `configMAX_PRIORITIES - 1` (highest priority). The `configMAX_PRIORITIES` macro is defined in `FreeRTOSConfig.h` and determines the total number of priority levels available. For example, if `configMAX_PRIORITIES` is $5$, valid priorities are $0, 1, 2, 3, 4$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the typical structure of a FreeRTOS task function, including its return type and arguments.",
+      "back": "A FreeRTOS task function typically has a `void` return type and takes a `void *` parameter for task-specific arguments. It almost always contains an infinite loop (`for(;;)` or `while(1)`) to ensure the task does not exit, as exiting would lead to undefined behavior (e.g., attempting to return from the task's initial stack frame).\n```c\nvoid vMyTask(void *pvParameters) {\n    // Task initialization code here\n    for (;;) {\n        // Task's main functionality\n        // Must include a blocking call (e.g., vTaskDelay, xQueueReceive)\n        // or explicitly yield (taskYIELD()) to allow other tasks to run.\n    }\n    // Should never reach here unless task self-deletes (vTaskDelete(NULL))\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When specifying `usStackDepth` for `xTaskCreate`, what units are used, and why is this important to remember?",
+      "back": "`usStackDepth` is specified in **words**, not bytes. This is crucial because the size of a \"word\" depends on the architecture of the microcontroller (e.g., 2 bytes for 16-bit, 4 bytes for 32-bit). Forgetting this can lead to stack overflows (if you provide too few words thinking they are bytes) or excessive memory allocation (if you provide too many words thinking they are bytes).\nExample: To allocate 256 bytes on a 32-bit system, `usStackDepth` should be $256 / 4 = 64$ words.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the return type of `xTaskCreate`, and how should a developer handle its return value for robust system operation?",
+      "back": "`xTaskCreate` returns a `BaseType_t`, which is typically `pdPASS` if successful, or `errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY` if insufficient RAM was available for the TCB or stack. Developers **must** check this return value. If it fails, the system is likely out of memory, and continuing without handling this can lead to unpredictable behavior. Common handling includes logging the error, entering a safe error state, or halting the system.\n```c\nif (xTaskCreate(vMyTask, \"MyTask\", 128, NULL, 1, &xMyTaskHandle) != pdPASS) {\n    // Handle error: e.g., log, blink LED, enter error state\n    for(;;); // Halt or reset\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a `TaskHandle_t`, and what is its primary use after a task has been created?",
+      "back": "A `TaskHandle_t` is a pointer-like type that uniquely identifies a specific FreeRTOS task. When `xTaskCreate` is called, it can return the handle of the newly created task via its `pxCreatedTask` parameter. This handle is primarily used by other FreeRTOS API functions to reference and control that specific task, such as `vTaskDelete()`, `vTaskSuspend()`, `vTaskResume()`, or `xTaskGetHandle()`. If a task does not need to be referenced by its handle, `NULL` can be passed for `pxCreatedTask`.",
+      "difficulty": "medium"
+    }
+  ]
+}

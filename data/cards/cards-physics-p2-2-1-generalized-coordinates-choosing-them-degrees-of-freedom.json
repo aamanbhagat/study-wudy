@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-generalized-coordinates-choosing-them-degrees-of-freedom",
+  "subtopicTitle": "Generalized coordinates — choosing them, degrees of freedom",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:02.501Z",
+  "cards": [
+    {
+      "front": "What are \"generalized coordinates\" in analytical mechanics?",
+      "back": "A set of independent coordinates $\\{q_1, q_2, ..., q_n\\}$ that completely specify the configuration of a system. They do not necessarily have units of length or angle and can be any set of variables suitable for describing the system's state.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"degrees of freedom\" (DOF) for a mechanical system.",
+      "back": "The minimum number of independent generalized coordinates required to completely specify the configuration of a system. It represents the number of independent ways a system can move.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the number of degrees of freedom ($N_{DOF}$) for a system of $N$ particles subject to $k$ holonomic constraints.",
+      "back": "$N_{DOF} = 3N - k$. Here, $3N$ is the total number of Cartesian coordinates needed for $N$ particles in 3D space, and $k$ is the number of independent holonomic constraint equations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the key principles or desirable characteristics when choosing a set of generalized coordinates for a system?",
+      "back": "1.  **Independence:** They must be independent of each other.\n2.  **Minimality:** Use the minimum number of coordinates (equal to the DOF).\n3.  **Simplicity:** Choose coordinates that simplify the description of kinetic and potential energy.\n4.  **Physical Meaning:** Often, choosing physically intuitive coordinates (e.g., angles, arc lengths) can aid understanding.\n5.  **Constraint Incorporation:** They should inherently satisfy the system's constraints, reducing the problem to an unconstrained one in terms of generalized coordinates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A simple pendulum consists of a mass $m$ attached to a massless rod of length $L$, free to swing in a vertical plane. How many degrees of freedom does it have, and what is a suitable generalized coordinate?",
+      "back": "**Degrees of Freedom:** 1.\n*   $N=1$ particle (the mass $m$).\n*   In 2D, initial coordinates: 2 ($x, y$).\n*   Constraint: $x^2 + y^2 = L^2$ (1 holonomic constraint).\n*   $N_{DOF} = 2N - k = 2(1) - 1 = 1$.\n**Suitable Generalized Coordinate:** The angle $\\theta$ the rod makes with the vertical axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A double pendulum consists of two masses $m_1, m_2$ connected by two massless rods of lengths $L_1, L_2$. The first rod is pivoted at a fixed point, and the second rod is pivoted at the end of the first. Both pendulums swing in a vertical plane. Determine the degrees of freedom and suggest a suitable set of generalized coordinates.",
+      "back": "**Degrees of Freedom:** 2.\n*   $N=2$ particles ($m_1, m_2$).\n*   In 2D, initial coordinates: $2N = 4$ ($x_1, y_1, x_2, y_2$).\n*   Constraints:\n    1.  Mass $m_1$ fixed distance $L_1$ from pivot: $x_1^2 + y_1^2 = L_1^2$.\n    2.  Mass $m_2$ fixed distance $L_2$ from $m_1$: $(x_2-x_1)^2 + (y_2-y_1)^2 = L_2^2$.\n*   Number of holonomic constraints $k=2$.\n*   $N_{DOF} = 2N - k = 2(2) - 2 = 2$.\n**Suitable Generalized Coordinates:** The angles $\\theta_1$ and $\\theta_2$ that the first and second rods, respectively, make with the vertical axis.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary advantage of using generalized coordinates when formulating problems in Lagrangian or Hamiltonian mechanics?",
+      "back": "The primary advantage is that they allow the constraints of the system to be *built directly into the choice of coordinates*. This means that the equations of motion (Lagrange's equations or Hamilton's equations) are automatically free of constraint forces, simplifying the problem significantly by reducing the number of variables and equations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do holonomic and non-holonomic constraints differ, and how does this difference impact the choice of generalized coordinates and the calculation of degrees of freedom?",
+      "back": "**Holonomic Constraints:** Can be expressed as an algebraic equation relating the coordinates and time, $f(q_1, ..., q_N, t) = 0$. They reduce the number of independent coordinates. For holonomic constraints, $N_{DOF} = 3N - k$, and generalized coordinates can be chosen to *eliminate* the constraints.\n**Non-holonomic Constraints:** Cannot be expressed as an algebraic equation. They often involve inequalities or non-integrable differential relations (e.g., a wheel rolling without slipping, a particle confined to a sphere's interior). For non-holonomic constraints, the formula $N_{DOF} = 3N - k$ does *not* directly apply, and the constraints cannot be eliminated by simply choosing fewer generalized coordinates; they require methods like Lagrange multipliers.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-equations-of-motion-suvat-derivations-from-calculus",
+  "subtopicTitle": "Equations of motion (SUVAT) — derivations from calculus",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:35.355Z",
+  "cards": [
+    {
+      "front": "In SUVAT equations, what do S, U, V, A, and T represent?",
+      "back": "S = displacement, U = initial velocity, V = final velocity, A = constant acceleration, T = time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are displacement $s(t)$, velocity $v(t)$, and acceleration $a(t)$ related through calculus?",
+      "back": "Velocity is the time derivative of displacement: $v(t) = \\frac{ds}{dt}$. Acceleration is the time derivative of velocity: $a(t) = \\frac{dv}{dt}$. Conversely, velocity is the integral of acceleration, and displacement is the integral of velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the equation $v = u + at$ from the definition of constant acceleration using calculus.",
+      "back": "Given constant acceleration $a = \\frac{dv}{dt}$.\nIntegrate both sides with respect to time:\n$$ \\int_{u}^{v} dv = \\int_{0}^{t} a \\, dt $$\n$$ [v]_{u}^{v} = a [t]_{0}^{t} $$\n$$ v - u = a(t - 0) $$\n$$ v = u + at $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the equation $s = ut + \\frac{1}{2}at^2$ using calculus, starting from $v = u + at$.",
+      "back": "We know $v = \\frac{ds}{dt}$ and $v = u + at$.\nSo, $\\frac{ds}{dt} = u + at$.\nIntegrate both sides with respect to time:\n$$ \\int_{0}^{s} ds = \\int_{0}^{t} (u + at) \\, dt $$\n$$ [s]_{0}^{s} = [ut + \\frac{1}{2}at^2]_{0}^{t} $$\n$$ s - 0 = (ut + \\frac{1}{2}at^2) - (u(0) + \\frac{1}{2}a(0)^2) $$\n$$ s = ut + \\frac{1}{2}at^2 $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the equation $v^2 = u^2 + 2as$ using calculus.",
+      "back": "We know $a = \\frac{dv}{dt}$ and $v = \\frac{ds}{dt}$.\nUsing the chain rule, $a = \\frac{dv}{ds} \\frac{ds}{dt} = v \\frac{dv}{ds}$.\nSo, $a = v \\frac{dv}{ds}$.\nRearrange: $a \\, ds = v \\, dv$.\nIntegrate both sides:\n$$ \\int_{0}^{s} a \\, ds = \\int_{u}^{v} v \\, dv $$\n$$ a [s]_{0}^{s} = [\\frac{1}{2}v^2]_{u}^{v} $$\n$$ a(s - 0) = \\frac{1}{2}v^2 - \\frac{1}{2}u^2 $$\n$$ 2as = v^2 - u^2 $$\n$$ v^2 = u^2 + 2as $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the equation $s = \\frac{(u+v)}{2}t$ using calculus and other equations of motion.",
+      "back": "Start with $s = ut + \\frac{1}{2}at^2$ (derived from calculus).\nFrom $v = u + at$, we can express acceleration as $a = \\frac{v-u}{t}$.\nSubstitute this expression for $a$ into the equation for $s$:\n$$ s = ut + \\frac{1}{2}\\left(\\frac{v-u}{t}\\right)t^2 $$\n$$ s = ut + \\frac{1}{2}(v-u)t $$\n$$ s = ut + \\frac{1}{2}vt - \\frac{1}{2}ut $$\n$$ s = \\frac{1}{2}ut + \\frac{1}{2}vt $$\n$$ s = \\frac{(u+v)}{2}t $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental assumption required for the SUVAT equations to be valid?",
+      "back": "The fundamental assumption is that the **acceleration ($a$) is constant**. If acceleration changes with time or position, these specific equations cannot be directly applied.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what specific scenarios are the SUVAT equations applicable?",
+      "back": "SUVAT equations are applicable for motion in a straight line (one dimension) where the **acceleration is constant**. This includes scenarios like free fall (neglecting air resistance) or objects moving under a constant applied force.",
+      "difficulty": "medium"
+    }
+  ]
+}

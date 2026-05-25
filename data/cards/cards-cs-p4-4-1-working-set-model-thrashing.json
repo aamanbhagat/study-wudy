@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-working-set-model-thrashing",
+  "subtopicTitle": "Working set model, thrashing",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:35.962Z",
+  "cards": [
+    {
+      "front": "Define the 'working set' of a process.",
+      "back": "The working set of a process is the set of pages that the process has referenced in a given time interval (often denoted as $\\Delta$). It represents the process's current locality of reference and is an approximation of the minimum set of pages that must be in memory for the process to execute efficiently without excessive page faults.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary goal of the 'working set model' in memory management?",
+      "back": "The primary goal of the working set model is to prevent thrashing by ensuring that a process's entire working set is in main memory before it is allowed to execute. By keeping the active pages in RAM, it minimizes page faults and maximizes CPU utilization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the working set typically determined by an operating system?",
+      "back": "The working set is determined by monitoring page references within a 'working set window' of time, denoted as $\\Delta$. At any point, the working set consists of all pages referenced by the process during the last $\\Delta$ time units. Pages not referenced within this window are considered candidates for removal from memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define 'thrashing' in the context of virtual memory.",
+      "back": "Thrashing is a state where a computer system spends most of its time swapping pages between main memory and secondary storage (disk) rather than executing application instructions. This occurs when processes frequently need pages that are not in memory, leading to a very high page fault rate, low CPU utilization, and severely degraded system performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental cause of thrashing?",
+      "back": "The fundamental cause of thrashing is an insufficient allocation of physical memory to active processes, specifically when the sum of the working sets of all active processes exceeds the available physical memory. This forces the OS to constantly page in and page out necessary pages, creating a cycle of high page faults.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify two key symptoms that indicate a system might be thrashing.",
+      "back": "1.  **Very low CPU utilization:** The CPU is idle most of the time, waiting for I/O operations (page swaps) to complete.\n2.  **Extremely high page fault rate:** Processes are constantly generating page faults, indicating they cannot find necessary pages in main memory.\n3.  **High disk activity (paging device):** The paging disk is continuously busy due to frequent page-ins and page-outs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the working set model helps prevent thrashing.",
+      "back": "The working set model prevents thrashing by enforcing a policy that a process can only run if its entire working set (the set of pages it actively uses) is present in main memory. If the sum of all active processes' working sets exceeds available physical memory, the OS will temporarily suspend or swap out one or more processes to ensure that the remaining active processes have their full working sets in memory, thus maintaining their efficiency and preventing system-wide thrashing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the implications of choosing a very small vs. a very large value for the working set window $\\Delta$?",
+      "back": "A **very small $\\Delta$** might not capture the full locality of reference, leading to frequent page faults even for pages that are part of the process's active usage pattern. This can cause unnecessary page-outs and page-ins.\nA **very large $\\Delta$** will include many pages that are no longer actively used, wasting physical memory and potentially reducing the number of processes that can reside in memory simultaneously, increasing the risk of thrashing for the system as a whole.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the sum of the working sets of all currently active processes exceeds the total available physical memory, what action should the operating system take to maintain system stability and prevent thrashing?",
+      "back": "The operating system should temporarily suspend or swap out one or more active processes. By reducing the degree of multiprogramming, the OS can ensure that the remaining active processes have sufficient physical memory to hold their entire working sets, thereby preventing excessive page faults and maintaining efficient execution for the active processes. This is a crucial mechanism of the working set model.",
+      "difficulty": "hard"
+    }
+  ]
+}

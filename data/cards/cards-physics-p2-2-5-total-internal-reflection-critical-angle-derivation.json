@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-5-total-internal-reflection-critical-angle-derivation",
+  "subtopicTitle": "Total internal reflection — critical angle derivation",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:10.498Z",
+  "cards": [
+    {
+      "front": "What phenomenon occurs when light traveling from a denser to a rarer medium strikes the interface at an angle greater than the critical angle?",
+      "back": "Total Internal Reflection (TIR). It is the complete reflection of a light ray back into the original medium.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the two essential conditions required for Total Internal Reflection to occur.",
+      "back": "1. Light must travel from an optically denser medium to an optically rarer medium (i.e., from higher refractive index to lower refractive index).\n2. The angle of incidence ($ \\theta_i $) in the denser medium must be greater than the critical angle ($ \\theta_c $) for that interface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"critical angle\" ($ \\theta_c $) in the context of light passing between two media.",
+      "back": "The critical angle ($ \\theta_c $) is the angle of incidence in the optically denser medium for which the angle of refraction in the optically rarer medium is $90^\\circ$. At this angle, the refracted ray grazes the interface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Snell's Law, relating the angles of incidence and refraction to the refractive indices of two media.",
+      "back": "Snell's Law: $ n_1 \\sin(\\theta_1) = n_2 \\sin(\\theta_2) $, where $ n_1 $ and $ n_2 $ are the refractive indices of medium 1 and medium 2, respectively, and $ \\theta_1 $ and $ \\theta_2 $ are the angles of incidence and refraction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the critical angle ($ \\theta_c $) in terms of the refractive indices of the two media, $ n_1 $ (denser) and $ n_2 $ (rarer).",
+      "back": "To derive the critical angle, we use Snell's Law: $ n_1 \\sin(\\theta_1) = n_2 \\sin(\\theta_2) $.\nBy definition, at the critical angle $ \\theta_1 = \\theta_c $, the angle of refraction $ \\theta_2 = 90^\\circ $.\nSubstituting these into Snell's Law:\n$ n_1 \\sin(\\theta_c) = n_2 \\sin(90^\\circ) $\nSince $ \\sin(90^\\circ) = 1 $:\n$ n_1 \\sin(\\theta_c) = n_2 $\nTherefore, the formula for the critical angle is:\n$ \\sin(\\theta_c) = \\frac{n_2}{n_1} $\nor $ \\theta_c = \\arcsin\\left(\\frac{n_2}{n_1}\\right) $.\nNote: $ n_1 > n_2 $ is required for a real solution, corresponding to light going from denser to rarer.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the behavior of a light ray traveling from glass ($n_1$) to air ($n_2$) when the angle of incidence is (a) less than, (b) equal to, and (c) greater than the critical angle.",
+      "back": "(a) If $ \\theta_i < \\theta_c $: The light ray will refract into the air, bending away from the normal. Partial reflection also occurs.\n(b) If $ \\theta_i = \\theta_c $: The refracted ray will graze the interface, meaning the angle of refraction is $90^\\circ$. Partial reflection also occurs.\n(c) If $ \\theta_i > \\theta_c $: Total Internal Reflection occurs. The light ray is completely reflected back into the glass, following the law of reflection. No light is refracted into the air.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two common technological applications that rely on the principle of Total Internal Reflection.",
+      "back": "1. **Optical Fibers:** Used for high-speed data transmission (internet, telecommunications) and medical imaging (endoscopes).\n2. **Prism Binoculars/Periscopes:** Prisms are used instead of mirrors to achieve total internal reflection, providing clearer images and minimizing light loss.\n(Other valid answers include: Diamonds for brilliance, retroreflectors, certain sensors.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why Total Internal Reflection cannot occur when light travels from an optically rarer medium to an optically denser medium.",
+      "back": "For TIR to occur, the angle of refraction ($ \\theta_r $) would need to reach $90^\\circ$ or greater. From Snell's Law, $ n_1 \\sin(\\theta_i) = n_2 \\sin(\\theta_r) $.\nIf light travels from rarer ($ n_1 $) to denser ($ n_2 $), then $ n_1 < n_2 $.\nThis implies $ \\sin(\\theta_r) = \\frac{n_1}{n_2} \\sin(\\theta_i) $. Since $ n_1/n_2 < 1 $, then $ \\sin(\\theta_r) < \\sin(\\theta_i) $, which means $ \\theta_r < \\theta_i $.\nThe refracted ray always bends *towards* the normal. The maximum possible value for $ \\sin(\\theta_i) $ is 1 (when $ \\theta_i = 90^\\circ $). Even at $ \\theta_i = 90^\\circ $, $ \\sin(\\theta_r) = n_1/n_2 $, which is always less than 1. Thus, $ \\theta_r $ can never reach $90^\\circ$, and therefore TIR cannot occur.",
+      "difficulty": "hard"
+    }
+  ]
+}

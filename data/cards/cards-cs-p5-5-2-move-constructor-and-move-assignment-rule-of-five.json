@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-2-move-constructor-and-move-assignment-rule-of-five",
+  "subtopicTitle": "Move constructor and move assignment — Rule of Five",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:05.127Z",
+  "cards": [
+    {
+      "front": "In C++, what is the primary purpose of a move constructor?",
+      "back": "A move constructor transfers ownership of resources (e.g., dynamically allocated memory, file handles) from a temporary object (an rvalue) to a new object, avoiding expensive deep copies and improving performance. It \"steals\" the resources from the source object, leaving the source in a valid but unspecified state, typically null/empty.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the role of a move assignment operator (`operator=`) in C++?",
+      "back": "A move assignment operator transfers ownership of resources from an existing temporary object (an rvalue) to an existing object, similar to a move constructor but for assignment. It typically involves releasing the target object's current resources, stealing the source's resources, and then leaving the source in a valid but empty state.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is an rvalue reference (`&&`) in C++ and how does it relate to move semantics?",
+      "back": "An rvalue reference is a type of reference that can bind only to rvalues (temporary objects or objects about to be destroyed). It's crucial for move semantics because it allows function overloads (like move constructors/assignments) to specifically target and modify rvalues, enabling the \"stealing\" of resources.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain what `std::move(obj)` actually does in C++. Does it perform a \"move\" operation itself?",
+      "back": "`std::move(obj)` does *not* perform any actual \"move\" operation. It is a `static_cast` to an rvalue reference (`static_cast<T&&>(obj)`). Its purpose is to explicitly convert an lvalue into an rvalue, thereby enabling overload resolution to select a move constructor or move assignment operator if available, allowing resources to be \"moved.\"",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a class `MyVector` managing a `char*` buffer, complete its move constructor.",
+      "back": "```cpp\nclass MyVector {\n    char* data;\n    size_t size;\npublic:\n    // ... other members ...\n    MyVector(MyVector&& other) noexcept : data(nullptr), size(0) {\n        data = other.data;\n        size = other.size;\n        other.data = nullptr;\n        other.size = 0;\n    }\n};\n```\nThe `noexcept` specifier is important because moving resources should generally not throw exceptions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement a move assignment operator for the `MyVector` class from the previous card, ensuring self-assignment safety.",
+      "back": "```cpp\nclass MyVector {\n    char* data;\n    size_t size;\npublic:\n    // ... other members ...\n    MyVector& operator=(MyVector&& other) noexcept {\n        if (this != &other) { // Self-assignment check\n            delete[] data;    // Release own resources\n            data = other.data; // Steal resources\n            size = other.size;\n            other.data = nullptr; // Nullify source\n            other.size = 0;\n        }\n        return *this;\n    }\n};\n```\nAgain, `noexcept` is crucial. The self-assignment check `if (this != &other)` prevents an object from deleting its own resources before stealing them if assigned to itself.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the \"Rule of Five\" in C++ and why it's crucial for classes managing resources.",
+      "back": "The \"Rule of Five\" states that if you explicitly define any of the following five special member functions, you should probably define all five:\n1. Destructor\n2. Copy Constructor\n3. Copy Assignment Operator\n4. Move Constructor\n5. Move Assignment Operator\nThis rule applies to classes that manage resources (e.g., raw pointers, file handles). If you customize one (e.g., a destructor to `delete[]` a pointer), the default implementations of the others (especially copy) would likely be incorrect (e.g., shallow copy leading to double-free), and move operations would be implicitly deleted or poorly performing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For what types of C++ classes are move constructors and move assignment operators most beneficial or even necessary?",
+      "back": "Move constructors and move assignment operators are most beneficial for classes that manage resources (e.g., raw pointers, file descriptors, network sockets) or hold large amounts of data. They enable efficient transfer of these resources/data, avoiding expensive deep copies, especially when dealing with temporary objects (rvalues) or returning objects by value from functions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a resource-managing class (e.g., one with a raw pointer) does *not* provide explicit move constructors/assignments, what are the potential consequences?",
+      "back": "If a resource-managing class doesn't provide explicit move constructors/assignments, but *does* provide a copy constructor/assignment or destructor, then move operations are implicitly deleted or fall back to copy operations. This leads to:\n1.  **Performance Degradation:** Expensive deep copies instead of efficient resource transfers.\n2.  **Potential for Errors:** If only a destructor and copy constructor are provided, and the copy constructor performs a shallow copy, then both the original and copied objects would try to `delete` the same resource, leading to a double-free error.\n3.  **No `noexcept` guarantee:** Implicitly generated copy operations are not `noexcept`, which can hinder compiler optimizations.",
+      "difficulty": "hard"
+    }
+  ]
+}

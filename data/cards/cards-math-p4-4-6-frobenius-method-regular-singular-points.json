@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-frobenius-method-regular-singular-points",
+  "subtopicTitle": "Frobenius method — regular singular points",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:52.929Z",
+  "cards": [
+    {
+      "front": "For $P(x)y'' + Q(x)y' + R(x)y = 0$, what conditions define a regular singular point at $x_0$?",
+      "back": "$x_0$ is a singular point (i.e., $P(x_0)=0$), AND the functions $(x-x_0)\\frac{Q(x)}{P(x)}$ and $(x-x_0)^2\\frac{R(x)}{P(x)}$ are both analytic at $x_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the assumed form of a Frobenius series solution around a regular singular point $x_0=0$?",
+      "back": "The solution is assumed to be of the form $y(x) = \\sum_{n=0}^\\infty c_n x^{n+r}$, where $c_0 \\neq 0$ and $r$ is a constant to be determined.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the indicial equation derived in the Frobenius method, and what is its purpose?",
+      "back": "The indicial equation is derived by substituting $y(x) = \\sum_{n=0}^\\infty c_n x^{n+r}$ into the ODE and setting the coefficient of the lowest power of $x$ (typically $x^r$) to zero. Its roots, $r_1$ and $r_2$, determine the possible exponents for the series solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After finding the indicial roots, what is the next critical step in the Frobenius method to determine the coefficients $c_n$?",
+      "back": "The next step is to derive the recurrence relation for the coefficients $c_n$. This is done by setting the coefficient of the general power $x^{n+r}$ (for $n \\ge 1$) to zero, which allows $c_n$ to be expressed in terms of previous coefficients (e.g., $c_{n-1}$, $c_{n-2}$, etc.).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the form of the two linearly independent solutions when the indicial roots $r_1, r_2$ are distinct and $r_1 - r_2$ is not an integer.",
+      "back": "The two linearly independent solutions are:\n$y_1(x) = x^{r_1} \\sum_{n=0}^\\infty c_n(r_1) x^n$\n$y_2(x) = x^{r_2} \\sum_{n=0}^\\infty c_n(r_2) x^n$\nBoth series are found directly by substituting $r_1$ and $r_2$ into the recurrence relation for $c_n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If the indicial equation yields equal roots $r_1 = r_2 = r$, what is the form of the two linearly independent solutions?",
+      "back": "The first solution is $y_1(x) = x^r \\sum_{n=0}^\\infty c_n(r) x^n$.\nThe second linearly independent solution takes the form:\n$y_2(x) = y_1(x) \\ln|x| + x^r \\sum_{n=1}^\\infty d_n(r) x^n$\nwhere $d_n(r) = \\frac{\\partial c_n}{\\partial r} \\Big|_{r=r_1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the two sub-cases for solutions when indicial roots $r_1, r_2$ are distinct and $r_1 - r_2 = N$ (a positive integer)?",
+      "back": "Let $r_1$ be the larger root.\n1.  **Case A:** The recurrence relation for $c_n(r_2)$ does not lead to a division by zero for any $n$. Then, $y_1(x) = x^{r_1} \\sum_{n=0}^\\infty c_n(r_1) x^n$ and $y_2(x) = x^{r_2} \\sum_{n=0}^\\infty c_n(r_2) x^n$.\n2.  **Case B:** The recurrence relation for $c_n(r_2)$ leads to a division by zero for some $n$. Then, $y_1(x)$ is found directly, and $y_2(x) = k y_1(x) \\ln|x| + x^{r_2} \\sum_{n=0}^\\infty d_n(r_2) x^n$, where $k$ is a constant (which might be zero) and $d_n(r_2)$ are new coefficients. This case requires a more involved derivation.",
+      "difficulty": "hard"
+    }
+  ]
+}

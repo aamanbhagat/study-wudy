@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-control-system-fundamentals-plant-actuator-sensor-controller",
+  "subtopicTitle": "Control system fundamentals — plant, actuator, sensor, controller",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:01.837Z",
+  "cards": [
+    {
+      "front": "In control system theory, what is the \"plant\" and what does it represent?",
+      "back": "The plant (or controlled process) is the part of the system whose behavior is to be controlled. It's the physical system itself, like a rocket, a chemical reactor, or an aircraft. It takes control inputs and produces outputs (its state).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the role of an \"actuator\" in a control system, and where is it typically located relative to the plant?",
+      "back": "An actuator is a device that converts a control signal (often electrical) into a physical action (e.g., mechanical motion, fluid flow) that directly influences the plant. It's typically part of the plant's input mechanism, receiving commands from the controller. Examples include rocket engine gimbals, control fins, or thrusters.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"sensor\" in the context of a control system and explain its primary function.",
+      "back": "A sensor is a device that measures a physical quantity (e.g., position, velocity, temperature, pressure) of the plant's output or state, and converts it into a signal (often electrical) that can be understood by the controller. Its primary function is to provide feedback on the plant's actual behavior.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the \"controller\" in a feedback control system, and what information does it use to generate its output?",
+      "back": "The controller (or control law) is the \"brain\" of the system. It compares the measured output from the sensor (actual state) with the desired output (reference/setpoint) and calculates the necessary control signal to drive the actuator. Its goal is to minimize the error between the desired and actual states.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the sequence of information flow in a basic closed-loop control system, starting from the desired setpoint.",
+      "back": "1. Desired setpoint is compared with the sensor feedback. 2. The controller calculates an error signal and generates a control command. 3. The actuator receives the command and applies a physical input to the plant. 4. The plant's state changes. 5. The sensor measures the new plant state and sends feedback to the controller, closing the loop.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a rocket's pitch control system using thrust vectoring, identify the plant, actuator, sensor, and controller.",
+      "back": "<ul><li><b>Plant:</b> The rocket body itself, whose pitch angle needs to be controlled.</li><li><b>Actuator:</b> The gimbal mechanism that swivels the rocket engine nozzle, changing the direction of thrust.</li><li><b>Sensor:</b> An Inertial Measurement Unit (IMU) containing gyroscopes and accelerometers, measuring the rocket's current pitch angle and angular rate.</li><li><b>Controller:</b> The flight computer running the control algorithms (e.g., PID controller) that calculates how much to swivel the nozzle based on desired vs. actual pitch.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is a closed-loop control system essential for rocket guidance, rather than a simpler open-loop system?",
+      "back": "An open-loop system would execute pre-programmed commands without considering the actual state or disturbances. Rockets face numerous unpredictable disturbances (e.g., wind gusts, engine thrust variations, atmospheric density changes). A closed-loop system uses sensor feedback to detect and correct for these disturbances, ensuring the rocket stays on its intended trajectory and achieves its mission objectives, making it robust and adaptive.",
+      "difficulty": "medium"
+    }
+  ]
+}

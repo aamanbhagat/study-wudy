@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-6-reducibility-many-one-reductions",
+  "subtopicTitle": "Reducibility — many-one reductions",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:21.442Z",
+  "cards": [
+    {
+      "front": "Define many-one reducibility, $A \\le_m B$, including the required properties of the reduction function.",
+      "back": "A language $A$ is many-one reducible to a language $B$, denoted $A \\le_m B$, if there exists a total computable function $f: \\Sigma^* \\to \\Sigma^*$ such that for every string $w \\in \\Sigma^*$, $w \\in A \\iff f(w) \\in B$. The function $f$ must be computable by a Turing machine.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two key logical conditions that the reduction function $f$ must satisfy for $A \\le_m B$?",
+      "back": "The function $f$ must satisfy two conditions:\n1.  If $w \\in A$, then $f(w) \\in B$. (Maps 'yes' instances of A to 'yes' instances of B)\n2.  If $w \\notin A$, then $f(w) \\notin B$. (Maps 'no' instances of A to 'no' instances of B)\nThese two conditions are equivalent to $w \\in A \\iff f(w) \\in B$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $A \\le_m B$ and $B$ is a decidable language, what can we conclude about $A$?",
+      "back": "If $A \\le_m B$ and $B$ is decidable, then $A$ is also decidable. \n\n**Proof Sketch:**\nLet $M_B$ be a decider for $B$, and $f$ be the computable reduction function from $A$ to $B$. We can construct a decider $M_A$ for $A$ as follows:\n1.  On input $w$, compute $f(w)$.\n2.  Run $M_B$ on $f(w)$.\n3.  If $M_B$ accepts $f(w)$, then $M_A$ accepts $w$. If $M_B$ rejects $f(w)$, then $M_A$ rejects $w$.\nSince $f$ is computable and $M_B$ always halts, $M_A$ will always halt and correctly decide $A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $A \\le_m B$ and $A$ is an undecidable language, what can we conclude about $B$?",
+      "back": "If $A \\le_m B$ and $A$ is undecidable, then $B$ is also undecidable. \n\n**Proof Sketch (by contrapositive):**\nAssume, for contradiction, that $B$ is decidable. From the previous card, we know that if $A \\le_m B$ and $B$ is decidable, then $A$ must also be decidable. This contradicts our premise that $A$ is undecidable. Therefore, our assumption that $B$ is decidable must be false, meaning $B$ is undecidable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $A \\le_m B$ and $B$ is a Turing-recognizable language, what can we conclude about $A$?",
+      "back": "If $A \\le_m B$ and $B$ is Turing-recognizable, then $A$ is also Turing-recognizable. \n\n**Proof Sketch:**\nLet $M_B$ be a recognizer for $B$, and $f$ be the computable reduction function from $A$ to $B$. We can construct a recognizer $M_A$ for $A$ as follows:\n1.  On input $w$, compute $f(w)$.\n2.  Run $M_B$ on $f(w)$.\n3.  If $M_B$ accepts $f(w)$, then $M_A$ accepts $w$.\nIf $w \\in A$, then $f(w) \\in B$, so $M_B$ accepts $f(w)$, and $M_A$ accepts $w$. If $w \\notin A$, then $f(w) \\notin B$, so $M_B$ will either reject or loop on $f(w)$, meaning $M_A$ will not accept $w$. Thus, $M_A$ recognizes $A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $A \\le_m B$ and $A$ is not Turing-recognizable, what can we conclude about $B$?",
+      "back": "If $A \\le_m B$ and $A$ is not Turing-recognizable, then $B$ is also not Turing-recognizable. \n\n**Proof Sketch (by contrapositive):**\nAssume, for contradiction, that $B$ is Turing-recognizable. From the previous card, we know that if $A \\le_m B$ and $B$ is Turing-recognizable, then $A$ must also be Turing-recognizable. This contradicts our premise that $A$ is not Turing-recognizable. Therefore, our assumption that $B$ is Turing-recognizable must be false, meaning $B$ is not Turing-recognizable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the many-one reduction from $A_{TM}$ (the Acceptance Problem) to $HALT_{TM}$ (the Halting Problem).",
+      "back": "We want to show $A_{TM} \\le_m HALT_{TM}$. This means we need a computable function $f$ such that $\\langle M, w \\rangle \\in A_{TM} \\iff f(\\langle M, w \\rangle) \\in HALT_{TM}$.\n\nLet $f(\\langle M, w \\rangle) = \\langle M', w \\rangle$, where $M'$ is a new Turing machine constructed as follows:\n```\nM' = \"On input x:\n    1. Simulate M on x.\n    2. If M accepts x, M' halts and accepts.\n    3. If M rejects x, M' enters an infinite loop.\"\n```\n\n**Verification:**\n*   If $\\langle M, w \\rangle \\in A_{TM}$ (i.e., $M$ accepts $w$), then $M'$ on input $w$ will simulate $M$ on $w$, $M$ accepts, so $M'$ halts and accepts. Thus, $\\langle M', w \\rangle \\in HALT_{TM}$.\n*   If $\\langle M, w \\rangle \\notin A_{TM}$ (i.e., $M$ does not accept $w$, meaning $M$ either rejects $w$ or loops on $w$), then $M'$ on input $w$ will simulate $M$ on $w$. If $M$ rejects, $M'$ loops. If $M$ loops, $M'$ also loops. In either case, $M'$ does not halt on $w$. Thus, $\\langle M', w \\rangle \\notin HALT_{TM}$.\n\nSince $f$ is computable (we can construct $M'$ from $M$), this is a valid many-one reduction.",
+      "difficulty": "hard"
+    }
+  ]
+}

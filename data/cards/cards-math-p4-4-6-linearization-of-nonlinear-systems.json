@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-linearization-of-nonlinear-systems",
+  "subtopicTitle": "Linearization of nonlinear systems",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:12.256Z",
+  "cards": [
+    {
+      "front": "What is the concept of linearization for a nonlinear system of ODEs?",
+      "back": "Linearization is the process of approximating a nonlinear system of ordinary differential equations by a linear system in the vicinity of an equilibrium point. This approximation is valid for small perturbations around that point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is linearization a useful technique for analyzing nonlinear systems of ODEs?",
+      "back": "Linearization is useful because linear systems are generally solvable, and their stability properties (e.g., at equilibrium points) can be easily determined using eigenvalues. This provides crucial insight into the local behavior of the original nonlinear system near its equilibrium points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general procedure to linearize a nonlinear system $\\dot{\\mathbf{x}} = \\mathbf{f}(\\mathbf{x})$ around an equilibrium point $\\mathbf{x}_0$.",
+      "back": "First, find the equilibrium point $\\mathbf{x}_0$ by solving $\\mathbf{f}(\\mathbf{x}_0) = \\mathbf{0}$. Then, define a small perturbation $\\delta\\mathbf{x} = \\mathbf{x} - \\mathbf{x}_0$. The linearized system is given by $\\delta\\dot{\\mathbf{x}} = J(\\mathbf{x}_0)\\delta\\mathbf{x}$, where $J(\\mathbf{x}_0)$ is the Jacobian matrix of $\\mathbf{f}$ evaluated at $\\mathbf{x}_0$: $J(\\mathbf{x}_0) = \\left( \\frac{\\partial f_i}{\\partial x_j} \\right)_{\\mathbf{x}=\\mathbf{x}_0}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Linearize the system $\\dot{x} = y$, $\\dot{y} = -x - y^2$ around its equilibrium $(0,0)$.",
+      "back": "The system is $\\mathbf{f}(x,y) = \\begin{pmatrix} y \\\\ -x - y^2 \\end{pmatrix}$.\nThe Jacobian matrix is $J(x,y) = \\begin{pmatrix} \\frac{\\partial f_1}{\\partial x} & \\frac{\\partial f_1}{\\partial y} \\\\ \\frac{\\partial f_2}{\\partial x} & \\frac{\\partial f_2}{\\partial y} \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ -1 & -2y \\end{pmatrix}$.\nAt the equilibrium point $(0,0)$, $J(0,0) = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$.\nThe linearized system is $\\begin{pmatrix} \\delta\\dot{x} \\\\ \\delta\\dot{y} \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix} \\begin{pmatrix} \\delta x \\\\ \\delta y \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the eigenvalues of the Jacobian matrix at an equilibrium point predict the local stability of the *original nonlinear* system.",
+      "back": "1. If all eigenvalues of $J(\\mathbf{x}_0)$ have negative real parts, the equilibrium is locally asymptotically stable.\n2. If at least one eigenvalue has a positive real part, the equilibrium is unstable.\n3. If all eigenvalues have non-positive real parts, and some have zero real parts (purely imaginary or zero), the linearization is inconclusive about stability (a 'critical case'). Higher-order terms are needed to determine stability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what conditions is linearization inconclusive for determining the stability of a nonlinear system's equilibrium point?",
+      "back": "Linearization is inconclusive (a 'critical case') when the Jacobian matrix at the equilibrium point has one or more eigenvalues with zero real parts. This includes cases with purely imaginary eigenvalues (e.g., center) or zero eigenvalues. In such scenarios, the higher-order nonlinear terms, which are neglected in linearization, dictate the true stability, and more advanced techniques (e.g., center manifold theory, Lyapunov functions) are required.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the linearized system $\\delta\\dot{\\mathbf{x}} = J(\\mathbf{x}_0)\\delta\\mathbf{x}$ from the Taylor series expansion of $\\mathbf{f}(\\mathbf{x})$ around an equilibrium point $\\mathbf{x}_0$.",
+      "back": "Let $\\mathbf{x}_0$ be an equilibrium point, so $\\mathbf{f}(\\mathbf{x}_0) = \\mathbf{0}$.\nWe can write $\\mathbf{x} = \\mathbf{x}_0 + \\delta\\mathbf{x}$, where $\\delta\\mathbf{x}$ is a small perturbation.\nThe Taylor series expansion of $\\mathbf{f}(\\mathbf{x})$ around $\\mathbf{x}_0$ is:\n$\\mathbf{f}(\\mathbf{x}) = \\mathbf{f}(\\mathbf{x}_0) + J(\\mathbf{x}_0)(\\mathbf{x} - \\mathbf{x}_0) + O(|\\mathbf{x} - \\mathbf{x}_0|^2)$\nSubstituting $\\mathbf{f}(\\mathbf{x}_0) = \\mathbf{0}$ and $\\mathbf{x} - \\mathbf{x}_0 = \\delta\\mathbf{x}$:\n$\\mathbf{f}(\\mathbf{x}) = \\mathbf{0} + J(\\mathbf{x}_0)\\delta\\mathbf{x} + O(|\\delta\\mathbf{x}|^2)$\nSince $\\dot{\\mathbf{x}} = \\mathbf{f}(\\mathbf{x})$ and $\\dot{\\mathbf{x}} = \\dot{\\mathbf{x}}_0 + \\delta\\dot{\\mathbf{x}} = \\mathbf{0} + \\delta\\dot{\\mathbf{x}}$, we have:\n$\\delta\\dot{\\mathbf{x}} = J(\\mathbf{x}_0)\\delta\\mathbf{x} + O(|\\delta\\mathbf{x}|^2)$\nFor sufficiently small $\\delta\\mathbf{x}$, the higher-order terms $O(|\\delta\\mathbf{x}|^2)$ become negligible, yielding the linearized system:\n$\\delta\\dot{\\mathbf{x}} \\approx J(\\mathbf{x}_0)\\delta\\mathbf{x}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

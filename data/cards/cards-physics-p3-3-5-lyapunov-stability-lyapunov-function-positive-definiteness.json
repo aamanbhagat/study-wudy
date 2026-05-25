@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-lyapunov-stability-lyapunov-function-positive-definiteness",
+  "subtopicTitle": "Lyapunov stability — Lyapunov function, positive definiteness",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:06:55.279Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Lyapunov stability analysis in control systems?",
+      "back": "To determine the stability of an equilibrium point of a dynamical system without explicitly solving the system's differential equations. It is particularly useful for nonlinear systems where analytical solutions are often intractable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a dynamical system $\\dot{\\mathbf{x}} = f(\\mathbf{x})$ with an equilibrium at $\\mathbf{x}=\\mathbf{0}$, what are the three fundamental properties a scalar function $V(\\mathbf{x})$ must satisfy to be a Lyapunov function candidate?",
+      "back": "1.  $V(\\mathbf{0}) = 0$.\n2.  $V(\\mathbf{x}) > 0$ for all $\\mathbf{x} \\neq \\mathbf{0}$ in some neighborhood of the origin (i.e., $V(\\mathbf{x})$ is positive definite).\n3.  $V(\\mathbf{x})$ must have continuous partial derivatives (i.e., be continuously differentiable).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a quadratic form $V(\\mathbf{x}) = \\mathbf{x}^T P \\mathbf{x}$ where $P$ is a symmetric matrix, what condition on $P$ ensures $V(\\mathbf{x})$ is positive definite?",
+      "back": "$V(\\mathbf{x})$ is positive definite if and only if the symmetric matrix $P$ is positive definite. This means all eigenvalues of $P$ are positive, or equivalently, all leading principal minors of $P$ are positive (Sylvester's Criterion).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Lyapunov Direct Method conditions for the *stability* of the equilibrium point $\\mathbf{x}=\\mathbf{0}$ for the system $\\dot{\\mathbf{x}} = f(\\mathbf{x})$.",
+      "back": "If there exists a continuously differentiable, positive definite scalar function $V(\\mathbf{x})$ such that its time derivative along the system trajectories, $\\dot{V}(\\mathbf{x}) = \\nabla V(\\mathbf{x}) \\cdot f(\\mathbf{x})$, satisfies $\\dot{V}(\\mathbf{x}) \\le 0$ for all $\\mathbf{x}$ in some neighborhood of the origin, then the equilibrium point $\\mathbf{x}=\\mathbf{0}$ is Lyapunov stable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What additional condition on $\\dot{V}(\\mathbf{x})$ is required for the equilibrium point $\\mathbf{x}=\\mathbf{0}$ to be *asymptotically stable* using the Lyapunov Direct Method?",
+      "back": "For asymptotic stability, in addition to $V(\\mathbf{x})$ being positive definite, its time derivative $\\dot{V}(\\mathbf{x})$ must be negative definite. Specifically, $\\dot{V}(\\mathbf{x}) < 0$ for all $\\mathbf{x} \\neq \\mathbf{0}$ in some neighborhood of the origin. If $\\dot{V}(\\mathbf{x}) \\le 0$, additional conditions (e.g., LaSalle's Invariance Principle) are needed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the scalar system $\\dot{x} = -x^3$. Using $V(x) = \\frac{1}{2}x^2$ as a Lyapunov candidate, prove that the equilibrium $x=0$ is asymptotically stable.",
+      "back": "1.  **Positive Definiteness:** $V(0) = 0$. For $x \\neq 0$, $V(x) = \\frac{1}{2}x^2 > 0$. Thus, $V(x)$ is positive definite.\n2.  **Time Derivative:**\n    $$ \\dot{V}(x) = \\frac{\\partial V}{\\partial x} \\dot{x} = (x)(-x^3) = -x^4 $$\n3.  **Negative Definiteness of $\\dot{V}(x)$:** For $x \\neq 0$, $\\dot{V}(x) = -x^4 < 0$. Thus, $\\dot{V}(x)$ is negative definite.\nSince $V(x)$ is positive definite and $\\dot{V}(x)$ is negative definite, the equilibrium point $x=0$ is asymptotically stable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the physical intuition behind a Lyapunov function often being described as an \"energy-like\" function for a dynamical system.",
+      "back": "A Lyapunov function can be thought of as a generalized \"energy\" of the system. If this \"energy\" is always positive (positive definite) and continuously decreases over time ($\\dot{V} \\le 0$ for stability, $\\dot{V} < 0$ for asymptotic stability), then the system must eventually settle down to its lowest energy state, which is the equilibrium point. It implies the system cannot \"run away\" or oscillate indefinitely.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the relationship between \"negative definite\" and \"positive definite\" for a function $W(\\mathbf{x})$?",
+      "back": "A function $W(\\mathbf{x})$ is negative definite if $-W(\\mathbf{x})$ is positive definite. This means $W(\\mathbf{0})=0$ and $W(\\mathbf{x}) < 0$ for all $\\mathbf{x} \\neq \\mathbf{0}$ in some neighborhood of the origin.",
+      "difficulty": "easy"
+    }
+  ]
+}

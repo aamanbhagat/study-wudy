@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-6-batch-mini-batch-stochastic-gradient-descent",
+  "subtopicTitle": "Batch, mini-batch, stochastic gradient descent",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:14.499Z",
+  "cards": [
+    {
+      "front": "What is the fundamental goal of Gradient Descent in machine learning models?",
+      "back": "The fundamental goal of Gradient Descent is to iteratively adjust model parameters (weights and biases) in the direction that minimizes a given cost (or loss) function, thereby finding the optimal parameters for the model.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe Batch Gradient Descent (BGD) based on how it uses data to compute gradients.",
+      "back": "BGD computes the gradient of the cost function with respect to the model parameters using *all* training examples in the dataset before performing a single parameter update. This ensures an accurate gradient but can be slow for large datasets.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a cost function $J(\\theta)$ and learning rate $\\alpha$, write the parameter update rule for Batch Gradient Descent for parameter $\\theta_j$.",
+      "back": "The update rule for Batch Gradient Descent is:\n$$ \\theta_j := \\theta_j - \\alpha \\frac{1}{m} \\sum_{i=1}^{m} \\frac{\\partial}{\\partial \\theta_j} J(\\theta, x^{(i)}, y^{(i)}) $$\nwhere $m$ is the total number of training examples.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe Stochastic Gradient Descent (SGD) based on how it uses data to compute gradients.",
+      "back": "SGD computes the gradient of the cost function using *only one* randomly chosen training example at a time before performing a parameter update. This process is repeated for each example in the dataset (an epoch).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a cost function $J(\\theta)$ and learning rate $\\alpha$, write the parameter update rule for Stochastic Gradient Descent for parameter $\\theta_j$.",
+      "back": "The update rule for Stochastic Gradient Descent (for a single example $(x^{(i)}, y^{(i)})$) is:\n$$ \\theta_j := \\theta_j - \\alpha \\frac{\\partial}{\\partial \\theta_j} J(\\theta, x^{(i)}, y^{(i)}) $$\nThis update is performed for each example, often in a randomized order.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe Mini-batch Gradient Descent (MBGD) based on how it uses data to compute gradients.",
+      "back": "MBGD computes the gradient of the cost function using a *small random subset* (a \"mini-batch\") of the training examples before performing a parameter update. It balances the stability of BGD with the speed of SGD.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare BGD, SGD, and MBGD regarding convergence stability, training speed, and memory usage.",
+      "back": "<ul><li><b>BGD</b>: High stability (smooth convergence), very slow for large datasets, high memory usage (needs all data).</li><li><b>SGD</b>: Low stability (noisy, oscillating convergence), very fast iterations, low memory usage (one data point).</li><li><b>MBGD</b>: Moderate stability (smoother than SGD), faster than BGD, moderate memory usage (mini-batch size). Offers the best practical compromise.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For aerospace applications with massive datasets (e.g., satellite imagery, engine telemetry), why are SGD or Mini-batch GD often preferred over Batch GD?",
+      "back": "Batch GD becomes computationally infeasible and memory-intensive for massive aerospace datasets. SGD/Mini-batch GD allow training on subsets, making it much faster and memory-efficient. Although updates are noisy, the overall trend still converges, and the speedup is critical for practical applications like real-time fault detection or trajectory optimization.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can the \"noisy\" updates of Stochastic Gradient Descent (SGD) sometimes be advantageous for escaping local minima compared to Batch Gradient Descent (BGD)?",
+      "back": "BGD always moves directly towards the steepest descent, which can trap it in a shallow local minimum. SGD's gradient is computed from a single example, introducing variance (noise). This noise can occasionally push the parameters out of a local minimum, allowing the model to explore the loss landscape and potentially find a better, deeper minimum.",
+      "difficulty": "medium"
+    }
+  ]
+}

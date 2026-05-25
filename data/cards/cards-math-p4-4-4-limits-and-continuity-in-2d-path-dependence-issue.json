@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-limits-and-continuity-in-2d-path-dependence-issue",
+  "subtopicTitle": "Limits and continuity in 2D — path-dependence issue",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:47.679Z",
+  "cards": [
+    {
+      "front": "Intuitively, what does it mean for $\\lim_{(x,y) \\to (a,b)} f(x,y) = L$?",
+      "back": "It means that as the point $(x,y)$ approaches $(a,b)$ from *any* direction or along *any* path in the domain, the corresponding values of $f(x,y)$ get arbitrarily close to the single value $L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the key difference in approaching a point $(a,b)$ in 2D vs. $a$ in 1D that complicates limits?",
+      "back": "In 1D, you can only approach $a$ from two directions (left or right). In 2D, you can approach $(a,b)$ along infinitely many paths (e.g., lines, parabolas, spirals). For a 2D limit to exist, $f(x,y)$ must approach the *same value* along *all* possible paths.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To show $\\lim_{(x,y) \\to (a,b)} f(x,y)$ does not exist, what is a common strategy involving paths?",
+      "back": "Find two distinct paths approaching $(a,b)$ such that the limit of $f(x,y)$ along the first path is $L_1$ and along the second path is $L_2$, where $L_1 \\neq L_2$. If such paths exist, the overall limit does not exist due to path dependence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\lim_{(x,y) \\to (0,0)} \\frac{xy}{x^2+y^2}$ along the path $y=mx$ for $m \\neq 0$.",
+      "back": "Substitute $y=mx$ into the expression:\n$$ \\lim_{(x,y) \\to (0,0), y=mx} \\frac{xy}{x^2+y^2} = \\lim_{x \\to 0} \\frac{x(mx)}{x^2+(mx)^2} = \\lim_{x \\to 0} \\frac{mx^2}{x^2+m^2x^2} = \\lim_{x \\to 0} \\frac{mx^2}{x^2(1+m^2)} = \\frac{m}{1+m^2} $$\nSince this result depends on $m$, the limit depends on the path, implying the overall limit does not exist.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $f(x,y) = \\frac{x^2y}{x^4+y^2}$, evaluate $\\lim_{(x,y) \\to (0,0)}$ along $y=mx$ and $y=x^2$.",
+      "back": "1. Along $y=mx$:\n$$ \\lim_{x \\to 0} \\frac{x^2(mx)}{x^4+(mx)^2} = \\lim_{x \\to 0} \\frac{mx^3}{x^4+m^2x^2} = \\lim_{x \\to 0} \\frac{mx}{x^2+m^2} = \\frac{0}{0+m^2} = 0 $$\n2. Along $y=x^2$:\n$$ \\lim_{x \\to 0} \\frac{x^2(x^2)}{x^4+(x^2)^2} = \\lim_{x \\to 0} \\frac{x^4}{x^4+x^4} = \\lim_{x \\to 0} \\frac{x^4}{2x^4} = \\frac{1}{2} $$\nSince the limits along these two paths are $0$ and $\\frac{1}{2}$ (which are not equal), the overall limit does not exist.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "To prove $\\lim_{(x,y) \\to (a,b)} f(x,y) = L$ (without $\\epsilon-\\delta$), what are two common techniques?",
+      "back": "1. **Polar Coordinates**: Transform $x=r\\cos\\theta$, $y=r\\sin\\theta$ (for $(a,b)=(0,0)$). If the limit depends only on $r$ and goes to $L$ as $r \\to 0$ (independent of $\\theta$), the limit exists.\n2. **Squeeze Theorem**: Find functions $g(x,y)$ and $h(x,y)$ such that $g(x,y) \\le f(x,y) \\le h(x,y)$ for all $(x,y)$ near $(a,b)$, and $\\lim_{(x,y) \\to (a,b)} g(x,y) = \\lim_{(x,y) \\to (a,b)} h(x,y) = L$. Then $\\lim_{(x,y) \\to (a,b)} f(x,y) = L$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A function $f(x,y)$ is continuous at $(a,b)$ if three conditions are met. What are they?",
+      "back": "1. $f(a,b)$ is defined.\n2. $\\lim_{(x,y) \\to (a,b)} f(x,y)$ exists.\n3. $\\lim_{(x,y) \\to (a,b)} f(x,y) = f(a,b)$.\nThese conditions ensure there are no 'holes', 'jumps', or 'breaks' in the graph of the function at $(a,b)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $\\lim_{(x,y) \\to (a,b)} f(x,y)$ depends on the path taken, can $f(x,y)$ be continuous at $(a,b)$?",
+      "back": "No. If the limit depends on the path, then the limit itself does not exist. For a function to be continuous at a point, its limit *must* exist at that point and be equal to the function's value there. Therefore, path dependence directly implies discontinuity at that point.",
+      "difficulty": "medium"
+    }
+  ]
+}

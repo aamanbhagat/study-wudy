@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-http-2-multiplexing-header-compression-hpack-server-push",
+  "subtopicTitle": "HTTP/2 — multiplexing, header compression (HPACK), server push",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:37.212Z",
+  "cards": [
+    {
+      "front": "HTTP/2's multiplexing feature primarily addresses which performance bottleneck common in HTTP/1.x, especially when loading multiple resources?",
+      "back": "HTTP/2 multiplexing mitigates the 'head-of-line blocking' (HOL blocking) problem. In HTTP/1.x, even with persistent connections, only one request could be processed at a time per connection, blocking subsequent requests if the first was slow.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how HTTP/2 achieves full request and response multiplexing over a single TCP connection.",
+      "back": "HTTP/2 breaks down HTTP messages (requests/responses) into smaller, independent 'frames'. These frames, belonging to different 'streams' (logical bidirectional exchanges), can be interleaved and transmitted asynchronously over a single TCP connection. The receiving end reassembles frames into their respective streams.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the name of the header compression format specifically designed for HTTP/2 to reduce overhead and improve performance?",
+      "back": "HPACK. It's designed to prevent CRIME/BREACH attacks that could exploit general-purpose compression algorithms on HTTP headers, while still providing efficient compression.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe two primary mechanisms HPACK uses to achieve efficient compression of HTTP/2 headers.",
+      "back": "HPACK uses:\n1.  **Static and Dynamic Tables:** Common header fields (e.g., `:method`, `content-type`) and their values are indexed. Subsequent occurrences can be sent as small integer references. Dynamic tables are built during the connection for frequently used custom headers.\n2.  **Huffman Encoding:** String literals (header names/values not found in tables) are compressed using Huffman encoding to further reduce their size.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does HTTP/2 Server Push improve perceived page load times, and which specific HTTP/2 frame is used by the server to initiate a push?",
+      "back": "Server Push allows a server to proactively send resources (e.g., CSS, JavaScript, images) to the client that it anticipates the client will need, *before* the client explicitly requests them. This eliminates the round-trip delay for those resources. The `PUSH_PROMISE` frame is used by the server to inform the client about the resource it intends to push.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare how a browser loads a main HTML page, 3 CSS files, and 2 JS files using HTTP/1.1 with persistent connections versus HTTP/2. Focus on TCP connection usage and concurrency.",
+      "back": "<ul><li>**HTTP/1.1 (Persistent Connections):** The browser typically opens multiple TCP connections (e.g., 6-8 per origin) to achieve some parallelism. Each connection can only process one request-response at a time (HOL blocking). Resources are fetched sequentially within each connection.</li><li>**HTTP/2:** The browser uses a *single* TCP connection per origin. All resources (HTML, CSS, JS) are requested and received concurrently over this one connection via multiplexed streams. This eliminates the overhead of multiple TCP handshakes and allows for more efficient use of network resources without HOL blocking.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider two consecutive HTTP/2 requests from a client to the same server. The first request includes the header `User-Agent: MyBrowser/1.0`. The second request, immediately following, includes `User-Agent: MyBrowser/1.0` again. How might HPACK compress the `User-Agent` header in the *second* request differently from the first?",
+      "back": "For the first request, `User-Agent` and `MyBrowser/1.0` might be sent as literals (potentially Huffman encoded) and then added to the dynamic table. For the *second* request, if the `User-Agent: MyBrowser/1.0` entry is now in the dynamic table, HPACK can send a *single integer index* referencing that entry. This is significantly smaller than sending the string literal again, demonstrating the efficiency of dynamic table indexing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a significant drawback or anti-pattern to be aware of when implementing HTTP/2 Server Push, and how can clients prevent unwanted pushes?",
+      "back": "A significant drawback is pushing resources the client already has cached or doesn't need. This wastes bandwidth and client processing. Clients can send a `RST_STREAM` frame for a `PUSH_PROMISE` stream to explicitly reject a pushed resource, indicating they don't want it (e.g., because it's already in cache).",
+      "difficulty": "medium"
+    }
+  ]
+}

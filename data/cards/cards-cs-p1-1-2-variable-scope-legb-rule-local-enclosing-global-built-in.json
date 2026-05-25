@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-variable-scope-legb-rule-local-enclosing-global-built-in",
+  "subtopicTitle": "Variable scope — LEGB rule (Local, Enclosing, Global, Built-in)",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:11.930Z",
+  "cards": [
+    {
+      "front": "What does the LEGB rule in Python's variable scope stand for?",
+      "back": "LEGB stands for:\n1.  **L**ocal\n2.  **E**nclosing function locals\n3.  **G**lobal\n4.  **B**uilt-in\nIt defines the order in which Python searches for names (variables, functions, classes) during name resolution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the search order Python follows when resolving a name according to the LEGB rule.",
+      "back": "Python searches for a name in the following strict order, stopping at the first match found:\n1.  **L**ocal scope (current function or method).\n2.  **E**nclosing function locals (for nested functions, the scope of the outer function).\n3.  **G**lobal scope (top-level of a module).\n4.  **B**uilt-in scope (predefined names like `print`, `len`, `True`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider the following Python code. Explain why the `print(x)` outside the function raises a `NameError`.\n```python\ndef my_func():\n    x = 10\n    print(x)\nmy_func()\n# print(x)\n```",
+      "back": "The variable `x` is defined within `my_func`, making it a **Local** variable. Its scope is limited to `my_func`. Once `my_func` finishes execution, `x` is no longer accessible. When `print(x)` is called outside the function, Python searches for `x` in the Global and Built-in scopes, but not in the now-defunct Local scope of `my_func`, leading to a `NameError`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you modify a global variable from within a function in Python? Provide a code example.",
+      "back": "To modify an existing global variable from within a function, you must explicitly declare it using the `global` keyword. Without `global`, an assignment inside a function creates a new local variable, even if a global variable with the same name exists.\n```python\nglobal_var = \"Hello\"\n\ndef modify_global():\n    global global_var # Declare intent to modify global_var\n    global_var = \"World\"\n\nprint(f\"Before: {global_var}\") # Output: Before: Hello\nmodify_global()\nprint(f\"After: {global_var}\")  # Output: After: World\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of **Enclosing function locals** (E in LEGB) using a nested function example.",
+      "back": "The 'E' in LEGB refers to the scope of an enclosing function when dealing with nested functions. If a variable is not found in the local scope of the inner function, Python looks for it in the scope of the function(s) that directly contain it.\n```python\ndef outer_func():\n    message = \"I am from the outer function.\" # Enclosing scope for inner_func\n\n    def inner_func():\n        print(message) # 'message' is found in the enclosing scope\n\n    inner_func()\n\nouter_func() # Output: I am from the outer function.\n```\nHere, `message` is not local to `inner_func`, but it is found in `outer_func`'s local scope, which is the enclosing scope for `inner_func`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if you define a local variable with the same name as a built-in function, e.g., `len = 5`? How does this relate to the LEGB rule?",
+      "back": "If you define a local variable (or even a global one) with the same name as a built-in function (e.g., `len = 5`), you **shadow** the built-in name. According to the LEGB rule, Python searches Local, then Enclosing, then Global, then Built-in. If `len` is found in a more restrictive scope (Local, Enclosing, or Global), that version is used, and the built-in `len()` function becomes inaccessible within that specific scope.\n```python\ndef my_function():\n    len = 5 # Shadows the built-in len()\n    print(len) # Prints 5\n    # print(len(\"hello\")) # This would raise a TypeError: 'int' object is not callable\n\nmy_function()\nprint(len(\"world\")) # Built-in len() is still accessible here, prints 5\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the following code print `10` then `5`? Explain the interaction between local and global scopes during assignment.\n```python\nx = 5\n\ndef func():\n    x = 10\n    print(x)\n\nfunc()\nprint(x)\n```",
+      "back": "1.  `x = 5`: This defines a **Global** variable `x` with the value `5`.\n2.  `def func():`: Inside `func()`, the line `x = 10` creates a **Local** variable named `x` within `func()`. Python's default behavior for assignment within a function is to create a new local variable unless `global` or `nonlocal` is explicitly used. This local `x` is distinct from the global `x`.\n3.  `print(x)` inside `func()`: Python finds the `x` in the **Local** scope of `func()` (value `10`) and prints it.\n4.  `print(x)` outside `func()`: Python searches for `x` in the **Global** scope, finds the global `x` (value `5`), and prints it.\nThe local assignment inside `func()` did not affect the global `x`.",
+      "difficulty": "hard"
+    }
+  ]
+}

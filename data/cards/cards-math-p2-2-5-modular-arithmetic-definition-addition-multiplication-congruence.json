@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-5-modular-arithmetic-definition-addition-multiplication-congruence",
+  "subtopicTitle": "Modular arithmetic — definition, addition, multiplication, congruence",
+  "topicId": "math-p2-2-5-number-theory-intermediate",
+  "topicTitle": "Number Theory (Intermediate)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:59.585Z",
+  "cards": [
+    {
+      "front": "Define what $a \\equiv b \\pmod n$ means in modular arithmetic.",
+      "back": "$a \\equiv b \\pmod n$ (read as \"$a$ is congruent to $b$ modulo $n$\") means that $n$ divides the difference $(a-b)$. Equivalently, $a$ and $b$ have the same remainder when divided by $n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three properties that make congruence modulo $n$ an equivalence relation.",
+      "back": "For integers $a, b, c$ and modulus $n > 0$:\n1.  **Reflexive:** $a \\equiv a \\pmod n$\n2.  **Symmetric:** If $a \\equiv b \\pmod n$, then $b \\equiv a \\pmod n$.\n3.  **Transitive:** If $a \\equiv b \\pmod n$ and $b \\equiv c \\pmod n$, then $a \\equiv c \\pmod n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the rule for modular addition: If $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$, then $a+b \\equiv \\text{?}$",
+      "back": "If $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$, then $a+b \\equiv a'+b' \\pmod n$. This implies that $(a+b) \\pmod n = ((a \\pmod n) + (b \\pmod n)) \\pmod n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the rule for modular multiplication: If $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$, then $ab \\equiv \\text{?}$",
+      "back": "If $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$, then $ab \\equiv a'b' \\pmod n$. This implies that $(ab) \\pmod n = ((a \\pmod n) \\cdot (b \\pmod n)) \\pmod n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove that if $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$, then $a+b \\equiv a'+b' \\pmod n$.",
+      "back": "Given $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$.\nBy definition, $n | (a-a')$ and $n | (b-b')$.\nThis means $a-a' = kn$ for some integer $k$, and $b-b' = mn$ for some integer $m$.\nSo, $a = a' + kn$ and $b = b' + mn$.\nAdding these equations: $a+b = (a' + kn) + (b' + mn) = (a'+b') + (k+m)n$.\nRearranging: $(a+b) - (a'+b') = (k+m)n$.\nSince $(k+m)$ is an integer, $n | ((a+b) - (a'+b'))$.\nTherefore, $a+b \\equiv a'+b' \\pmod n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove that if $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$, then $ab \\equiv a'b' \\pmod n$.",
+      "back": "Given $a \\equiv a' \\pmod n$ and $b \\equiv b' \\pmod n$.\nBy definition, $a-a' = kn$ and $b-b' = mn$ for integers $k, m$.\nSo, $a = a' + kn$ and $b = b' + mn$.\nMultiplying: $ab = (a' + kn)(b' + mn) = a'b' + a'mn + knb' + kmn^2 = a'b' + n(a'm + kb' + kmn)$.\nRearranging: $ab - a'b' = n(a'm + kb' + kmn)$.\nSince $(a'm + kb' + kmn)$ is an integer, $n | (ab - a'b')$.\nTherefore, $ab \\equiv a'b' \\pmod n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the last digit of $3^{2024}$? Use modular arithmetic.",
+      "back": "The last digit of a number is its value modulo 10. We need to find $3^{2024} \\pmod{10}$.\nLet's look for a pattern in powers of 3 modulo 10:\n$3^1 \\equiv 3 \\pmod{10}$\n$3^2 \\equiv 9 \\pmod{10}$\n$3^3 \\equiv 27 \\equiv 7 \\pmod{10}$\n$3^4 \\equiv 3 \\cdot 7 \\equiv 21 \\equiv 1 \\pmod{10}$\nThe pattern of last digits is $3, 9, 7, 1$, which repeats every 4 powers.\nWe need to find $2024 \\pmod 4$.\n$2024 = 4 \\times 506 + 0$. So, $2024 \\equiv 0 \\pmod 4$, which means it's equivalent to the 4th power in the cycle.\nTherefore, $3^{2024} \\equiv 3^4 \\pmod{10}$.\n$3^4 \\equiv 1 \\pmod{10}$.\nThe last digit of $3^{2024}$ is $1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a \"residue class modulo $n$\" and provide an example for $n=4$.",
+      "back": "A residue class modulo $n$ (also known as a congruence class) is the set of all integers that are congruent to a specific integer modulo $n$. It is denoted by $[a]_n$ or $a+n\\mathbb{Z}$.\nFormally, $[a]_n = \\{x \\in \\mathbb{Z} \\mid x \\equiv a \\pmod n\\}$.\nExample for $n=4$:\n$[0]_4 = \\{..., -8, -4, 0, 4, 8, ...\\}$\n$[1]_4 = \\{..., -7, -3, 1, 5, 9, ...\\}$\n$[2]_4 = \\{..., -6, -2, 2, 6, 10, ...\\}$\n$[3]_4 = \\{..., -5, -1, 3, 7, 11, ...\\}$\nThese four distinct residue classes partition the set of all integers.",
+      "difficulty": "medium"
+    }
+  ]
+}

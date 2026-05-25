@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-redundancy-tmr-triple-modular-redundancy-voting-logic",
+  "subtopicTitle": "Redundancy — TMR (triple modular redundancy), voting logic",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:05.705Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of employing redundancy in safety-critical embedded systems?",
+      "back": "The primary goal is to enhance system reliability and availability by ensuring continued operation or graceful degradation even when individual components fail (fault tolerance).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define TMR, including what the acronym stands for and its core operational principle.",
+      "back": "TMR stands for **Triple Modular Redundancy**. Its core operational principle is to execute the same task on three independent, identical modules in parallel and then use a voter to determine the correct output based on a majority decision.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the essential components and the typical data flow within a Triple Modular Redundancy (TMR) system.",
+      "back": "A TMR system comprises three **identical computational modules** (M1, M2, M3) and a **voter module (V)**. All three modules receive the same input, process it independently, and send their outputs to the voter. The voter then compares these three outputs and forwards the majority result as the system's final output.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the main advantage of TMR for fault tolerance, and what is its most significant practical drawback?",
+      "back": "**Advantage:** TMR provides fault tolerance against any *single-point failure* in one of the three processing modules, significantly increasing system reliability and uptime.\n**Drawback:** It incurs a substantial overhead, typically tripling hardware cost, power consumption, weight, and system complexity compared to a non-redundant system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the function of \"voting logic\" in TMR and provide a pseudocode snippet for a simple 2-out-of-3 voter for boolean outputs.",
+      "back": "Voting logic is the mechanism that compares the outputs from the redundant modules and decides the system's final output. In TMR, it typically implements a majority vote (2-out-of-3).\n```\nfunction vote_2_of_3(output_A, output_B, output_C):\n    if output_A == output_B:\n        return output_A\n    else if output_A == output_C:\n        return output_A\n    else if output_B == output_C:\n        return output_B\n    else:\n        // All three outputs are different. This indicates a more complex failure\n        // or an unresolvable state, requiring specific error handling.\n        return ERROR_NO_MAJORITY\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify two distinct scenarios where a TMR system might fail to mask a fault, despite its inherent redundancy.",
+      "back": "A TMR system can fail to mask a fault if:\n1.  **Common-Mode Failure:** A single event (e.g., a design flaw, software bug, or environmental stress like extreme temperature) affects all three identical modules simultaneously, causing them to fail in the same way.\n2.  **Voter Failure:** The voter module itself, which is a single point of failure, malfunctions. If the voter fails, it cannot correctly arbitrate the module outputs, rendering the redundancy ineffective.\n3.  **Multiple Independent Failures:** Two or more of the three processing modules fail independently and simultaneously (or within a very short, unmitigated window), leading to a tie or no majority.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Assuming independent module failures and an ideal voter, derive the probability of failure for a TMR system ($P_{TMR\\_fail}$) given that the probability of failure for a single module is $P_f$.",
+      "back": "For a TMR system to fail, at least two out of the three modules must fail. Let $P_f$ be the probability of a single module failing, and $P_{nf} = 1 - P_f$ be the probability of it not failing.\nThe TMR system fails if:\n1.  Exactly two modules fail: There are $\\binom{3}{2} = 3$ ways this can happen (e.g., M1, M2 fail; M3 doesn't). Each way has probability $P_f \\cdot P_f \\cdot P_{nf} = P_f^2 (1 - P_f)$.\n2.  All three modules fail: There is $\\binom{3}{3} = 1$ way this can happen. This has probability $P_f \\cdot P_f \\cdot P_f = P_f^3$.\nSumming these probabilities:\n$$P_{TMR\\_fail} = 3 \\cdot P_f^2 (1 - P_f) + P_f^3$$\n$$P_{TMR\\_fail} = 3P_f^2 - 3P_f^3 + P_f^3$$\n$$P_{TMR\\_fail} = 3P_f^2 - 2P_f^3$$\nThis formula shows that for small $P_f$, $P_{TMR\\_fail}$ is significantly smaller than $P_f$.",
+      "difficulty": "hard"
+    }
+  ]
+}

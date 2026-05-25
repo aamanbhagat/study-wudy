@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-product-rule-proof",
+  "subtopicTitle": "Product rule — proof",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:56.484Z",
+  "cards": [
+    {
+      "front": "State the product rule for differentiation of two functions $f(x)$ and $g(x)$.",
+      "back": "If $P(x) = f(x)g(x)$, then the derivative $P'(x)$ is given by: $$P'(x) = f'(x)g(x) + f(x)g'(x)$$ Alternatively, $\\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the derivative $f'(x)$ using the limit definition.",
+      "back": "The derivative $f'(x)$ is defined as: $$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To prove the product rule $\\frac{d}{dx}[f(x)g(x)]$ using the limit definition, what is the initial expression you need to evaluate?",
+      "back": "You need to evaluate the limit of the difference quotient for the product function $P(x) = f(x)g(x)$: $$\\lim_{h \\to 0} \\frac{f(x+h)g(x+h) - f(x)g(x)}{h}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the product rule proof, after setting up the limit, what specific term is typically added and subtracted in the numerator to facilitate factoring, and why is this strategic?",
+      "back": "The term $f(x+h)g(x)$ (or $f(x)g(x+h)$) is added and subtracted in the numerator. This is strategic because it allows you to group terms such that each group contains a difference quotient for either $f(x)$ or $g(x)$, and a remaining function term that can be factored out, leading to the application of limit properties.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Complete the proof of the product rule, starting from the expression after adding and subtracting $f(x+h)g(x)$ in the numerator:\n$$\\lim_{h \\to 0} \\frac{f(x+h)g(x+h) - f(x+h)g(x) + f(x+h)g(x) - f(x)g(x)}{h}$$",
+      "back": "We can split the expression and factor:\n$$ \\lim_{h \\to 0} \\left( \\frac{f(x+h)[g(x+h) - g(x)]}{h} + \\frac{g(x)[f(x+h) - f(x)]}{h} \\right) $$\nUsing limit properties, we can separate the terms:\n$$ = \\lim_{h \\to 0} f(x+h) \\cdot \\lim_{h \\to 0} \\frac{g(x+h) - g(x)}{h} + \\lim_{h \\to 0} g(x) \\cdot \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} $$\nSince $f$ and $g$ are differentiable, they are continuous, so $\\lim_{h \\to 0} f(x+h) = f(x)$. Also, $g(x)$ does not depend on $h$, so $\\lim_{h \\to 0} g(x) = g(x)$.\n$$ = f(x)g'(x) + g(x)f'(x) $$\nThus, $\\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What implicit assumption about the functions $f(x)$ and $g(x)$ is made when evaluating $\\lim_{h \\to 0} f(x+h)$ as $f(x)$ during the product rule proof?",
+      "back": "The assumption is that $f(x)$ (and $g(x)$) are **continuous** at $x$. Differentiability implies continuity, meaning that if $f'(x)$ exists, then $f(x)$ must be continuous at $x$. Therefore, $\\lim_{h \\to 0} f(x+h) = f(x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the geometric intuition for the product rule by considering the area of a rectangle with sides $f(x)$ and $g(x)$ changing with $x$.",
+      "back": "Imagine a rectangle with sides $u=f(x)$ and $v=g(x)$, so its area is $A = uv$. When $x$ changes by a small amount $\\Delta x$, $u$ changes by $\\Delta u$ and $v$ changes by $\\Delta v$. The new area is $(u+\\Delta u)(v+\\Delta v)$. The change in area $\\Delta A = (u+\\Delta u)(v+\\Delta v) - uv = u\\Delta v + v\\Delta u + \\Delta u \\Delta v$. Dividing by $\\Delta x$: $\\frac{\\Delta A}{\\Delta x} = u\\frac{\\Delta v}{\\Delta x} + v\\frac{\\Delta u}{\\Delta x} + \\frac{\\Delta u \\Delta v}{\\Delta x}$. As $\\Delta x \\to 0$, $\\frac{\\Delta u}{\\Delta x} \\to u'$ and $\\frac{\\Delta v}{\\Delta x} \\to v'$. The term $\\frac{\\Delta u \\Delta v}{\\Delta x} = \\frac{\\Delta u}{\\Delta x} \\cdot \\Delta v \\to u' \\cdot 0 = 0$. So, $\\frac{dA}{dx} = uv' + vu'$. This represents the sum of the area added by extending one side ($u\\Delta v$) plus the area added by extending the other side ($v\\Delta u$), neglecting the infinitesimally small corner piece ($\\Delta u \\Delta v$).",
+      "difficulty": "medium"
+    }
+  ]
+}

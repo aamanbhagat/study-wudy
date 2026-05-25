@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-6-skew-lines-shortest-distance",
+  "subtopicTitle": "Skew lines — shortest distance",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:00.870Z",
+  "cards": [
+    {
+      "front": "Define \"skew lines\" in 3D geometry.",
+      "back": "Two lines in 3D are called skew lines if they are neither parallel nor intersecting. This implies they lie in different planes and thus have no common points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can you determine if two lines, given by their vector equations $\\vec{r}_1 = \\vec{a}_1 + \\lambda \\vec{b}_1$ and $\\vec{r}_2 = \\vec{a}_2 + \\mu \\vec{b}_2$, are skew?",
+      "back": "Two lines are skew if they satisfy two conditions:\n1.  They are not parallel: $\\vec{b}_1 \\times \\vec{b}_2 \\neq \\vec{0}$.\n2.  They do not intersect: The scalar triple product $(\\vec{a}_2 - \\vec{a}_1) \\cdot (\\vec{b}_1 \\times \\vec{b}_2) \\neq 0$. If this product is zero, the lines are coplanar (either parallel or intersecting).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does the \"shortest distance\" between two skew lines represent?",
+      "back": "The shortest distance between two skew lines is the length of the unique line segment that is perpendicular to *both* skew lines. This segment is often referred to as the common perpendicular.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the vector formula for the shortest distance ($d$) between two skew lines $\\vec{r}_1 = \\vec{a}_1 + \\lambda \\vec{b}_1$ and $\\vec{r}_2 = \\vec{a}_2 + \\mu \\vec{b}_2$.",
+      "back": "The shortest distance $d$ is given by:\n$$d = \\frac{|(\\vec{a}_2 - \\vec{a}_1) \\cdot (\\vec{b}_1 \\times \\vec{b}_2)|}{|\\|\\vec{b}_1 \\times \\vec{b}_2\\||}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the vector formula for the shortest distance between two skew lines $\\vec{r}_1 = \\vec{a}_1 + \\lambda \\vec{b}_1$ and $\\vec{r}_2 = \\vec{a}_2 + \\mu \\vec{b}_2$.",
+      "back": "Let $P_1$ be a point on line 1 with position vector $\\vec{a}_1$, and $P_2$ be a point on line 2 with position vector $\\vec{a}_2$. The direction of the common perpendicular to both lines is given by the vector normal to both direction vectors: $\\vec{n} = \\vec{b}_1 \\times \\vec{b}_2$. The unit vector in this direction is $\\hat{n} = \\frac{\\vec{b}_1 \\times \\vec{b}_2}{|\\|\\vec{b}_1 \\times \\vec{b}_2\\||}$. The shortest distance $d$ is the magnitude of the projection of the vector connecting any point on line 1 to any point on line 2 (e.g., $\\vec{P_1P_2} = \\vec{a}_2 - \\vec{a}_1$) onto the direction of the common perpendicular. Thus, $d = |\\vec{P_1P_2} \\cdot \\hat{n}| = |(\\vec{a}_2 - \\vec{a}_1) \\cdot \\frac{\\vec{b}_1 \\times \\vec{b}_2}{|\\|\\vec{b}_1 \\times \\vec{b}_2\\||}|$. This simplifies to the formula:\n$$d = \\frac{|(\\vec{a}_2 - \\vec{a}_1) \\cdot (\\vec{b}_1 \\times \\vec{b}_2)|}{|\\|\\vec{b}_1 \\times \\vec{b}_2\\||}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you find the specific points on two skew lines $\\vec{r}_1 = \\vec{a}_1 + \\lambda \\vec{b}_1$ and $\\vec{r}_2 = \\vec{a}_2 + \\mu \\vec{b}_2$ that are closest to each other?",
+      "back": "Let the closest points be $P(\\vec{p}_1)$ on line 1 and $Q(\\vec{p}_2)$ on line 2. Then $\\vec{p}_1 = \\vec{a}_1 + \\lambda_0 \\vec{b}_1$ and $\\vec{p}_2 = \\vec{a}_2 + \\mu_0 \\vec{b}_2$ for some specific $\\lambda_0, \\mu_0$. The vector connecting these points, $\\vec{PQ} = \\vec{p}_2 - \\vec{p}_1$, must be perpendicular to both direction vectors $\\vec{b}_1$ and $\\vec{b}_2$. Therefore, we set up two dot product equations:\n1. $(\\vec{p}_2 - \\vec{p}_1) \\cdot \\vec{b}_1 = 0$\n2. $(\\vec{p}_2 - \\vec{p}_1) \\cdot \\vec{b}_2 = 0$\nSubstitute the expressions for $\\vec{p}_1$ and $\\vec{p}_2$ into these equations to get a system of two linear equations in $\\lambda_0$ and $\\mu_0$. Solve for $\\lambda_0$ and $\\mu_0$, then substitute these values back into the line equations to find the coordinates of points $P$ and $Q$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the shortest distance between two *parallel* lines $\\vec{r}_1 = \\vec{a}_1 + \\lambda \\vec{b}$ and $\\vec{r}_2 = \\vec{a}_2 + \\mu \\vec{b}$?",
+      "back": "For parallel lines, the denominator $|\\|\\vec{b}_1 \\times \\vec{b}_2\\||$ in the skew line formula becomes zero, as $\\vec{b}_1 = \\vec{b}_2 = \\vec{b}$, so $\\vec{b} \\times \\vec{b} = \\vec{0}$. The shortest distance $d$ between two parallel lines is given by:\n$$d = \\frac{|\\|\\vec{b} \\times (\\vec{a}_2 - \\vec{a}_1)\\||}{|\\|\\vec{b}\\||}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "subtopicId": "math-p4-4-1-implicit-differentiation-technique-applications",
+  "subtopicTitle": "Implicit differentiation — technique, applications",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:15.885Z",
+  "cards": [
+    {
+      "front": "What is implicit differentiation, and when is it primarily used?",
+      "back": "Implicit differentiation is a technique for differentiating functions that are not explicitly defined in terms of one variable (e.g., $y=f(x)$). It is primarily used when $y$ is difficult or impossible to isolate as an explicit function of $x$, or when the relationship between variables is given by an equation like $x^2 + y^2 = r^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When differentiating a term involving $y$ with respect to $x$, such as $g(y)$, what fundamental rule must always be applied, and what is the general form of its derivative?",
+      "back": "The Chain Rule must always be applied. The general form of the derivative of $g(y)$ with respect to $x$ is $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$. For example, $\\frac{d}{dx}(y^n) = ny^{n-1} \\cdot \\frac{dy}{dx}$ and $\\frac{d}{dx}(\\sin y) = \\cos y \\cdot \\frac{dy}{dx}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use implicit differentiation to find $\\frac{dy}{dx}$ for the equation $x^3 + y^3 = 6xy$.",
+      "back": "Differentiate both sides with respect to $x$:\n$$ \\frac{d}{dx}(x^3) + \\frac{d}{dx}(y^3) = \\frac{d}{dx}(6xy) $$\n$$ 3x^2 + 3y^2 \\frac{dy}{dx} = 6(1 \\cdot y + x \\cdot \\frac{dy}{dx}) $$\n$$ 3x^2 + 3y^2 \\frac{dy}{dx} = 6y + 6x \\frac{dy}{dx} $$\nRearrange to solve for $\\frac{dy}{dx}$:\n$$ 3y^2 \\frac{dy}{dx} - 6x \\frac{dy}{dx} = 6y - 3x^2 $$\n$$ (3y^2 - 6x) \\frac{dy}{dx} = 6y - 3x^2 $$\n$$ \\frac{dy}{dx} = \\frac{6y - 3x^2}{3y^2 - 6x} = \\frac{2y - x^2}{y^2 - 2x} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the slope of the tangent line to the curve $e^x + e^y = e^{x+y}$ at the point $(1,1)$.",
+      "back": "First, find $\\frac{dy}{dx}$ using implicit differentiation:\n$$ \\frac{d}{dx}(e^x) + \\frac{d}{dx}(e^y) = \\frac{d}{dx}(e^{x+y}) $$\n$$ e^x + e^y \\frac{dy}{dx} = e^{x+y} (1 + \\frac{dy}{dx}) $$\n$$ e^x + e^y \\frac{dy}{dx} = e^{x+y} + e^{x+y} \\frac{dy}{dx} $$\n$$ e^y \\frac{dy}{dx} - e^{x+y} \\frac{dy}{dx} = e^{x+y} - e^x $$\n$$ (e^y - e^{x+y}) \\frac{dy}{dx} = e^{x+y} - e^x $$\n$$ \\frac{dy}{dx} = \\frac{e^{x+y} - e^x}{e^y - e^{x+y}} $$\nNow, evaluate $\\frac{dy}{dx}$ at the point $(1,1)$:\n$$ \\frac{dy}{dx} \\Big|_{(1,1)} = \\frac{e^{1+1} - e^1}{e^1 - e^{1+1}} = \\frac{e^2 - e}{e - e^2} = \\frac{e(e-1)}{e(1-e)} = \\frac{e-1}{-(e-1)} = -1 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the equation $xy = 1$, find the second derivative $\\frac{d^2y}{dx^2}$ using implicit differentiation.",
+      "back": "First, find the first derivative $\\frac{dy}{dx}$:\n$$ \\frac{d}{dx}(xy) = \\frac{d}{dx}(1) $$\n$$ 1 \\cdot y + x \\cdot \\frac{dy}{dx} = 0 $$\n$$ \\frac{dy}{dx} = -\\frac{y}{x} $$\nNow, differentiate $\\frac{dy}{dx}$ with respect to $x$ using the quotient rule:\n$$ \\frac{d^2y}{dx^2} = \\frac{d}{dx}\\left(-\\frac{y}{x}\\right) = -\\frac{x \\frac{dy}{dx} - y(1)}{x^2} $$\nSubstitute $\\frac{dy}{dx} = -\\frac{y}{x}$ into the expression:\n$$ \\frac{d^2y}{dx^2} = -\\frac{x \\left(-\\frac{y}{x}\\right) - y}{x^2} = -\\frac{-y - y}{x^2} = -\\frac{-2y}{x^2} = \\frac{2y}{x^2} $$\nSince $xy=1$, we have $y = 1/x$. Substitute this back to express $\\frac{d^2y}{dx^2}$ solely in terms of $x$:\n$$ \\frac{d^2y}{dx^2} = \\frac{2(1/x)}{x^2} = \\frac{2}{x^3} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using implicit differentiation, derive the derivative of $y = \\arctan x$. State any necessary domain restrictions for the result.",
+      "back": "Let $y = \\arctan x$. This means $\\tan y = x$. \nNow, differentiate both sides with respect to $x$:\n$$ \\frac{d}{dx}(\\tan y) = \\frac{d}{dx}(x) $$\n$$ \\sec^2 y \\cdot \\frac{dy}{dx} = 1 $$\n$$ \\frac{dy}{dx} = \\frac{1}{\\sec^2 y} $$\nWe know from trigonometry that $\\sec^2 y = 1 + \\tan^2 y$. Substitute this into the equation:\n$$ \\frac{dy}{dx} = \\frac{1}{1 + \\tan^2 y} $$\nSince $\\tan y = x$, substitute $x$ into the expression:\n$$ \\frac{dy}{dx} = \\frac{1}{1 + x^2} $$\nThere are no additional domain restrictions for $x$ beyond those for $\\arctan x$ itself, which is defined for all real numbers $x \\in (-\\infty, \\infty)$. The result $\\frac{1}{1+x^2}$ is also defined for all real $x$.",
+      "difficulty": "hard"
+    }
+  ]
+}

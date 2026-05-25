@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-length-contraction-derivation",
+  "subtopicTitle": "Length contraction — derivation",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:29.343Z",
+  "cards": [
+    {
+      "front": "Define \"length contraction\" in the context of special relativity.",
+      "back": "Length contraction is the phenomenon where the length of an object measured by an observer is shorter when the object is moving relative to the observer, compared to its proper length (length measured in its rest frame). This contraction occurs only along the direction of relative motion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In special relativity, define \"proper length\" ($L_0$) and state how it is measured.",
+      "back": "Proper length ($L_0$) is the length of an object measured in its own rest frame (the inertial frame where the object is stationary). It is measured by simultaneously noting the positions of its two endpoints in that frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which of Einstein's postulates for special relativity is essential for deriving length contraction?",
+      "back": "The second postulate: The speed of light in a vacuum ($c$) is the same for all inertial observers, regardless of the motion of the light source.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "An observer in frame $S$ measures the length of a rod moving at speed $v$. What condition must be met when recording the rod's endpoints, and why?",
+      "back": "To measure the length of a moving rod, the observer in frame $S$ must record the positions of the rod's two endpoints, $x_1$ and $x_2$, *simultaneously* (i.e., at the same time $t$). If not simultaneous, the rod would have moved between measurements, leading to an incorrect length. The measured length is then $L = x_2 - x_1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the length contraction formula, $L = L_0 \\sqrt{1 - v^2/c^2}$, starting from the Lorentz transformations.",
+      "back": "Let a rod be at rest in frame $S'$ with endpoints $x'_1$ and $x'_2$, so its proper length is $L_0 = x'_2 - x'_1$. Frame $S'$ moves with velocity $v$ relative to frame $S$. An observer in $S$ measures the rod's length $L = x_2 - x_1$ by recording $x_1$ and $x_2$ *simultaneously* at time $t$.\nUsing the inverse Lorentz transformations for position:\n$x'_1 = \\gamma(x_1 - vt)$\n$x'_2 = \\gamma(x_2 - vt)$\nSubtracting the first from the second:\n$x'_2 - x'_1 = \\gamma(x_2 - vt - (x_1 - vt))$\n$x'_2 - x'_1 = \\gamma(x_2 - x_1)$\nSubstituting $L_0$ and $L$:\n$L_0 = \\gamma L$\nSolving for $L$:\n$L = L_0 / \\gamma$\nSince $\\gamma = 1/\\sqrt{1 - v^2/c^2}$, the length contraction formula is:\n$L = L_0 \\sqrt{1 - v^2/c^2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the length contraction formula and define the Lorentz factor ($\\gamma$) in terms of $v$ and $c$.",
+      "back": "The length contraction formula is $L = L_0 \\sqrt{1 - v^2/c^2}$, where $L$ is the observed length, $L_0$ is the proper length, $v$ is the relative speed, and $c$ is the speed of light. The Lorentz factor is $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$. Thus, $L = L_0 / \\gamma$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A meter stick (proper length $1.0 \\text{ m}$) flies past you at $0.8c$ along its length. What length do you measure, and in what direction does contraction occur?",
+      "back": "Given $L_0 = 1.0 \\text{ m}$ and $v = 0.8c$.\nThe Lorentz factor is $\\gamma = \\frac{1}{\\sqrt{1 - (0.8c)^2/c^2}} = \\frac{1}{\\sqrt{1 - 0.64}} = \\frac{1}{\\sqrt{0.36}} = \\frac{1}{0.6} = \\frac{5}{3}$.\nUsing $L = L_0 / \\gamma = 1.0 \\text{ m} / (5/3) = 0.6 \\text{ m}$.\nYou would measure the meter stick to be $0.6 \\text{ m}$ long. The contraction occurs *only* along the direction of relative motion.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-1-hamilton-jacobi-equation",
+  "subtopicTitle": "Hamilton-Jacobi equation",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:37.415Z",
+  "cards": [
+    {
+      "front": "State the Hamilton-Jacobi equation for Hamilton's principal function $S(q, P, t)$.",
+      "back": "The Hamilton-Jacobi equation is given by:\n$$H\\left(q, \\frac{\\partial S}{\\partial q}, t\\right) + \\frac{\\partial S}{\\partial t} = 0$$\nwhere $H$ is the Hamiltonian, $q$ are generalized coordinates, and $p_i = \\frac{\\partial S}{\\partial q_i}$ are the generalized momenta. $S$ is Hamilton's principal function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary objective when solving a classical mechanics problem using the Hamilton-Jacobi equation?",
+      "back": "The primary objective is to find a canonical transformation to a new set of coordinates $(Q, P)$ such that the new Hamiltonian $K$ is zero. In this case, the new generalized coordinates $Q$ and momenta $P$ are constants of motion, simplifying the solution of the system's dynamics as $Q_i = \\text{constant}$ and $P_i = \\text{constant}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is Hamilton's Principal Function $S(q, P, t)$ defined in the context of a canonical transformation?",
+      "back": "Hamilton's Principal Function $S(q, P, t)$ is a Type 2 generating function for a canonical transformation from old coordinates $(q, p)$ to new coordinates $(Q, P)$, such that the new Hamiltonian $K(Q, P, t)$ is identically zero. It relates the old coordinates $q$ to the new constant momenta $P$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Hamilton-Jacobi equation starting from a Type 2 generating function $S(q, P, t)$ for a canonical transformation where the new Hamiltonian $K$ is zero.",
+      "back": "For a Type 2 generating function $S(q, P, t)$, the canonical transformation relations are:\n$$p_i = \\frac{\\partial S}{\\partial q_i}$$\n$$Q_i = \\frac{\\partial S}{\\partial P_i}$$\nThe transformation equation for the Hamiltonian is $K = H + \\frac{\\partial S}{\\partial t}$.\nIf we choose $S$ such that the new Hamiltonian $K$ is identically zero, then:\n$$0 = H(q, p, t) + \\frac{\\partial S}{\\partial t}$$\nSubstituting $p_i = \\frac{\\partial S}{\\partial q_i}$ into the Hamiltonian $H$ yields the Hamilton-Jacobi equation:\n$$H\\left(q, \\frac{\\partial S}{\\partial q}, t\\right) + \\frac{\\partial S}{\\partial t} = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a complete integral $S(q_1, ..., q_n, \\alpha_1, ..., \\alpha_n, t)$ of the HJE, where $\\alpha_i$ are $n$ independent constants, how are the new constant canonical coordinates $Q_i$ and the equations of motion for $q_i(t)$ obtained?",
+      "back": "The new constant canonical coordinates $Q_i$ (which are also constants of motion, often denoted $\\beta_i$) are obtained by differentiating $S$ with respect to the new constant momenta $\\alpha_i$:\n$$\\frac{\\partial S}{\\partial \\alpha_i} = \\beta_i$$\nThese $n$ equations, along with $p_i = \\frac{\\partial S}{\\partial q_i}$, allow us to solve for $q_i(t)$ and $p_i(t)$ as functions of time, the initial conditions (encoded in $\\alpha_i, \\beta_i$), and the system parameters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a time-independent Hamiltonian $H(q, p)$, how does the Hamilton-Jacobi equation simplify, and what is Hamilton's characteristic function $W(q, \\alpha)$?",
+      "back": "If $H$ is time-independent, $S$ can be separated into a time-dependent part and a time-independent part: $S(q, \\alpha, t) = W(q, \\alpha) - E t$, where $E$ is the constant energy.\nSubstituting this into the HJE $H(q, \\partial S/\\partial q) + \\partial S/\\partial t = 0$ gives:\n$$H\\left(q, \\frac{\\partial W}{\\partial q}\\right) - E = 0$$\nThis is the time-independent Hamilton-Jacobi equation. $W(q, \\alpha)$ is Hamilton's characteristic function, related to the action integral for a path that does not explicitly depend on time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the conceptual link between the Hamilton-Jacobi equation and the classical limit of quantum mechanics.",
+      "back": "The Hamilton-Jacobi equation, particularly Hamilton's principal function $S$, plays a crucial role in the WKB approximation (Wentzel-Kramers-Brillouin) for the Schrödinger equation. In this approximation, the wavefunction $\\Psi$ is expressed as $\\Psi \\approx A e^{iS/\\hbar}$. Substituting this into the Schrödinger equation and taking the limit $\\hbar \\to 0$ (the classical limit) recovers the Hamilton-Jacobi equation for $S$. This demonstrates that classical mechanics, as described by the HJE, emerges as the short-wavelength limit of quantum mechanics.",
+      "difficulty": "hard"
+    }
+  ]
+}

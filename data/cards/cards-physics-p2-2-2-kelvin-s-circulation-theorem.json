@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-2-kelvin-s-circulation-theorem",
+  "subtopicTitle": "Kelvin's circulation theorem",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:28.209Z",
+  "cards": [
+    {
+      "front": "State Kelvin's Circulation Theorem.",
+      "back": "For an inviscid, barotropic fluid subject to conservative body forces, the circulation around a closed material loop (a loop that moves with the fluid particles) remains constant over time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the three primary conditions required for Kelvin's Circulation Theorem to hold true?",
+      "back": "1. The fluid must be **inviscid** (negligible viscosity). 2. The fluid must be **barotropic** (density $\\rho$ is a function of pressure $P$ only, i.e., $\\rho = f(P)$). 3. All **body forces** acting on the fluid must be **conservative** (e.g., gravity, which can be expressed as the gradient of a scalar potential).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define circulation $\\Gamma$ mathematically for a closed material loop $C$ in a fluid with velocity field $\\mathbf{u}$.",
+      "back": "Circulation $\\Gamma$ is defined as the line integral of the velocity field around a closed material loop $C$: $$\\Gamma = \\oint_C \\mathbf{u} \\cdot d\\mathbf{l}$$ By Stokes' theorem, this can also be expressed as the integral of the vorticity $\\boldsymbol{\\omega} = \\nabla \\times \\mathbf{u}$ over any surface $S$ bounded by $C$: $$\\Gamma = \\iint_S (\\nabla \\times \\mathbf{u}) \\cdot d\\mathbf{S} = \\iint_S \\boldsymbol{\\omega} \\cdot d\\mathbf{S}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A fluid flow starts from rest in a region where all body forces are conservative. What does Kelvin's theorem imply about the flow's rotational nature?",
+      "back": "If a fluid starts from rest, its initial velocity is zero, so its initial circulation $\\Gamma_0 = 0$ for any closed loop. Under the conditions of Kelvin's theorem (inviscid, barotropic, conservative body forces), the circulation remains constant. Thus, $\\Gamma(t) = 0$ for all time. This implies that if a fluid is initially irrotational, it remains irrotational.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the derivation of Kelvin's theorem, we start with $\\frac{D\\Gamma}{Dt} = \\oint_C \\frac{D\\mathbf{u}}{Dt} \\cdot d\\mathbf{l} + \\oint_C \\mathbf{u} \\cdot d(\\frac{D\\mathbf{l}}{Dt})$. Simplify the second term.",
+      "back": "The material derivative of a line element $d\\mathbf{l}$ is $d(\\frac{D\\mathbf{l}}{Dt}) = d(\\frac{d\\mathbf{x}}{dt}) = d\\mathbf{u}$. So the second term becomes $\\oint_C \\mathbf{u} \\cdot d\\mathbf{u}$. This integral can be written as $\\oint_C d(\\frac{1}{2}\\mathbf{u} \\cdot \\mathbf{u}) = \\oint_C d(\\frac{1}{2}u^2)$. For a closed loop, the integral of an exact differential is zero. Therefore, $\\oint_C \\mathbf{u} \\cdot d(\\frac{D\\mathbf{l}}{Dt}) = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Starting from $\\frac{D\\Gamma}{Dt} = \\oint_C \\frac{D\\mathbf{u}}{Dt} \\cdot d\\mathbf{l}$, use Euler's equation and Kelvin's conditions to show $\\frac{D\\Gamma}{Dt} = 0$.",
+      "back": "The Euler equation for an inviscid fluid is $\\frac{D\\mathbf{u}}{Dt} = -\\frac{1}{\\rho}\\nabla P + \\mathbf{f}_b$, where $\\mathbf{f}_b$ are conservative body forces per unit mass. Substituting this: $$\\frac{D\\Gamma}{Dt} = \\oint_C \\left(-\\frac{1}{\\rho}\\nabla P + \\mathbf{f}_b\\right) \\cdot d\\mathbf{l}$$ 1. **Pressure term**: Since the fluid is barotropic, $\\rho = f(P)$, so $\\frac{1}{\\rho}\\nabla P = \\nabla \\int \\frac{dP}{\\rho}$. This is an exact differential of a scalar potential. The line integral of an exact differential around a closed loop is zero. 2. **Body force term**: Since body forces are conservative, $\\mathbf{f}_b = -\\nabla \\Phi$ for some scalar potential $\\Phi$. This is also an exact differential ($d\\Phi$). The line integral of an exact differential around a closed loop is zero. Therefore, $\\frac{D\\Gamma}{Dt} = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If the fluid is *not* barotropic, how might the term $\\oint_C -\\frac{1}{\\rho}\\nabla P \\cdot d\\mathbf{l}$ behave, and what does this imply for Kelvin's theorem?",
+      "back": "If the fluid is not barotropic (e.g., density depends on temperature as well as pressure, $\\rho = f(P, T)$), then $\\frac{1}{\\rho}\\nabla P$ cannot generally be written as the gradient of a scalar potential. In this case, the integral $\\oint_C -\\frac{1}{\\rho}\\nabla P \\cdot d\\mathbf{l}$ will generally *not* be zero. This means that circulation is no longer conserved, and Kelvin's theorem does not hold. This non-conservation of circulation due to baroclinicity is crucial for phenomena like baroclinic instability in meteorology and oceanography.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical significance of Kelvin's circulation theorem for the generation and persistence of vortices in an ideal fluid?",
+      "back": "Kelvin's theorem implies that in an ideal fluid (inviscid, barotropic, conservative body forces), vortices cannot be created or destroyed. If a fluid starts from an irrotational state, it will remain irrotational. Conversely, if a vortex exists, its strength (circulation) will be conserved. This explains why phenomena like smoke rings or bathtub vortices, once formed, tend to persist for a long time in low-viscosity fluids. It also means that vorticity can only be introduced into the fluid by non-conservative forces, non-barotropic effects, or at boundaries.",
+      "difficulty": "medium"
+    }
+  ]
+}

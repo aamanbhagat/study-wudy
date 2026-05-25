@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-row-echelon-form-and-reduced-row-echelon-form",
+  "subtopicTitle": "Row echelon form and reduced row echelon form",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:59.363Z",
+  "cards": [
+    {
+      "front": "What are the three conditions a matrix must satisfy to be in Row Echelon Form (REF)?",
+      "back": "A matrix is in Row Echelon Form (REF) if it satisfies these three conditions:\n1.  All nonzero rows are above any rows of all zeros.\n2.  Each leading entry (pivot) of a row is in a column strictly to the right of the leading entry of the row above it.\n3.  All entries in a column below a leading entry are zeros.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two *additional* conditions a matrix must satisfy to be in Reduced Row Echelon Form (RREF), beyond those for REF?",
+      "back": "A matrix is in Reduced Row Echelon Form (RREF) if it satisfies all three conditions for REF, plus these two additional conditions:\n1.  Each leading entry (pivot) is 1.\n2.  Each leading 1 is the *only* nonzero entry in its column.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the matrix $A = \\begin{pmatrix} 1 & 2 & 0 & 3 \\\\ 0 & 0 & 1 & 4 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix}$, is it in REF, RREF, or neither? Justify.",
+      "back": "This matrix is in **Reduced Row Echelon Form (RREF)**.\nIt satisfies REF conditions:\n1. Nonzero rows are above zero rows.\n2. Leading entries (1 in col 1, 1 in col 3) are to the right of those above.\n3. Entries below leading entries are zero.\nIt satisfies RREF conditions:\n1. Leading entries are 1.\n2. Each leading 1 is the only nonzero entry in its column (e.g., for the leading 1 in column 1, all other entries in column 1 are 0; for the leading 1 in column 3, all other entries in column 3 are 0).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the two main phases of Gaussian Elimination to transform a matrix into Row Echelon Form (REF).",
+      "back": "Gaussian Elimination primarily involves a **Forward Elimination** phase:\n1.  Start from the leftmost nonzero column. If necessary, swap rows to place a nonzero entry (pivot) at the top of this column.\n2.  Use row operations (scaling and replacement) to make this pivot 1. Then, use row replacement operations to create zeros below this leading 1.\n3.  Cover the row containing the pivot and all rows above it, and repeat the process for the remaining submatrix. Continue this process until the matrix is in Row Echelon Form.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the two main phases of Gauss-Jordan Elimination to transform a matrix into Reduced Row Echelon Form (RREF).",
+      "back": "Gauss-Jordan Elimination extends Gaussian Elimination:\n1.  **Forward Elimination:** First, transform the matrix into Row Echelon Form (REF) using the steps of Gaussian Elimination. This ensures leading entries are 1s and zeros are below them.\n2.  **Backward Elimination:** Starting from the rightmost pivot row and moving upwards, use row replacement operations to create zeros *above* each leading 1. Each leading 1 should become the *only* nonzero entry in its column.\nThis results in the matrix being in Reduced Row Echelon Form (RREF).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is the Row Echelon Form (REF) of a given matrix unique? Is the Reduced Row Echelon Form (RREF) of a given matrix unique?",
+      "back": "1.  The **Row Echelon Form (REF)** of a matrix is **NOT unique**. Different sequences of elementary row operations can lead to different REF matrices for the same initial matrix (e.g., multiplying a pivot row by a non-zero scalar changes the REF but it remains a valid REF).\n2.  The **Reduced Row Echelon Form (RREF)** of a matrix is **unique**. Regardless of the sequence of elementary row operations used, every matrix has one and only one RREF. This uniqueness is a fundamental property.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a matrix that is in Row Echelon Form (or RREF), define \"pivot position\" and \"pivot column\".",
+      "back": "1.  A **pivot position** is a location in the matrix that corresponds to a leading entry (which is 1 in RREF, or any nonzero number in REF) in a row. It's the position of the first nonzero entry in a nonzero row.\n2.  A **pivot column** is a column that contains a pivot position. These columns are crucial for understanding linear independence, basis, and the solution structure of linear systems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the Reduced Row Echelon Form (RREF) of the augmented matrix $[A | b]$ be used to determine the solution set of a system of linear equations $Ax=b$?",
+      "back": "If the RREF of the augmented matrix $[A | b]$ is $[R | c]$:\n1.  **No Solution:** If there is a row in $[R | c]$ of the form $[0 \\ 0 \\ \\dots \\ 0 \\ | \\ 1]$, the system is inconsistent (e.g., $0=1$) and has no solution.\n2.  **Unique Solution:** If there are no free variables (every column corresponding to a variable is a pivot column), the system has a unique solution. Each variable's value is directly given by the corresponding entry in $c$.\n3.  **Infinitely Many Solutions:** If there are free variables (columns without pivots), the system has infinitely many solutions. Express the basic variables (corresponding to pivot columns) in terms of the free variables, which can take any real value.",
+      "difficulty": "hard"
+    }
+  ]
+}

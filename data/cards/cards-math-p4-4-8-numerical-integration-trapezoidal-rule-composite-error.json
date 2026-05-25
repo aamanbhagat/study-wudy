@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-numerical-integration-trapezoidal-rule-composite-error",
+  "subtopicTitle": "Numerical integration — trapezoidal rule (composite), error",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:11.794Z",
+  "cards": [
+    {
+      "front": "How does the composite trapezoidal rule approximate the definite integral of a function $f(x)$ over an interval $[a, b]$?",
+      "back": "It approximates the area under the curve by dividing the interval $[a, b]$ into $n$ subintervals of equal width $h$. Over each subinterval, the area is approximated by a trapezoid formed by connecting the function values at the endpoints with a straight line. The sum of these trapezoidal areas gives the total approximation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the composite trapezoidal rule to approximate $\\int_a^b f(x) dx$ using $n$ subintervals.",
+      "back": "Let $h = \\frac{b-a}{n}$ and $x_i = a + ih$ for $i=0, 1, \\dots, n$. The composite trapezoidal rule is given by:\n$$T_n = \\frac{h}{2} [f(x_0) + 2f(x_1) + 2f(x_2) + \\dots + 2f(x_{n-1}) + f(x_n)]$$\nThis can also be written as:\n$$T_n = h \\left[ \\frac{f(x_0) + f(x_n)}{2} + \\sum_{i=1}^{n-1} f(x_i) \\right]$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the geometric interpretation of the term $\\frac{h}{2}(f(x_i) + f(x_{i+1}))$ in the trapezoidal rule.",
+      "back": "This term represents the area of a single trapezoid formed over the subinterval $[x_i, x_{i+1}]$. The parallel sides of the trapezoid have lengths $f(x_i)$ and $f(x_{i+1})$, and the height (or width) of the trapezoid is $h$. This directly corresponds to the standard formula for the area of a trapezoid: $\\frac{1}{2}(\\text{sum of parallel sides}) \\times \\text{height}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the form of the local error for approximating $\\int_{x_i}^{x_{i+1}} f(x) dx$ with a single trapezoid, and on what does it primarily depend?",
+      "back": "The local error $E_i$ for a single subinterval is $E_i = -\\frac{h^3}{12} f''(\\xi_i)$ for some $\\xi_i \\in (x_i, x_{i+1})$. It primarily depends on the cube of the step size ($h^3$) and the second derivative of the function ($f''(\\xi_i)$), which reflects the function's curvature or non-linearity over the interval.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for the global error $E_n$ of the composite trapezoidal rule for approximating $\\int_a^b f(x) dx$ using $n$ subintervals.",
+      "back": "The global error for the composite trapezoidal rule is given by:\n$$E_n = -\\frac{(b-a)h^2}{12} f''(\\xi)$$\nfor some $\\xi \\in [a, b]$. Since $h = \\frac{b-a}{n}$, this can also be expressed as:\n$$E_n = -\\frac{(b-a)^3}{12n^2} f''(\\xi)$$\nwhere $f''(\\xi)$ is a value of the second derivative of $f$ within the interval $[a,b]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the order of accuracy of the composite trapezoidal rule, and what does it imply about error reduction?",
+      "back": "The composite trapezoidal rule has an order of accuracy of $O(h^2)$. This implies that if the step size $h$ is halved (i.e., the number of subintervals $n$ is doubled), the global error is approximately reduced by a factor of $2^2 = 4$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Besides reducing the step size $h$, what other factor significantly influences the error in the composite trapezoidal rule, and how can it be understood?",
+      "back": "The error is also significantly influenced by the magnitude of the second derivative of the function, $f''(\\xi)$. Functions with larger absolute values of $f''(\\xi)$ (i.e., greater curvature or non-linearity) will generally have larger errors for a given step size $h$. This is because the trapezoidal rule approximates the curve with straight lines, and the error arises from the difference between the curve and the line segment, which is more pronounced for highly curved functions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To approximate $\\int_0^1 e^{-x^2} dx$ using the composite trapezoidal rule with $n=4$, what are the $x_i$ values and the general form of the sum?",
+      "back": "Here $a=0, b=1, n=4$. So the step size $h = \\frac{1-0}{4} = 0.25$.\nThe $x_i$ values are $x_0=0, x_1=0.25, x_2=0.5, x_3=0.75, x_4=1$.\nThe general form of the sum is:\n$$T_4 = \\frac{0.25}{2} [f(0) + 2f(0.25) + 2f(0.5) + 2f(0.75) + f(1)]$$\nSubstituting $f(x) = e^{-x^2}$:\n$$T_4 = 0.125 [e^0 + 2e^{-0.25^2} + 2e^{-0.5^2} + 2e^{-0.75^2} + e^{-1^2}]$$",
+      "difficulty": "medium"
+    }
+  ]
+}

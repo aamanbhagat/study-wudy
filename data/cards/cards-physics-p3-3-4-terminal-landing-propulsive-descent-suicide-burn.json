@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-4-terminal-landing-propulsive-descent-suicide-burn",
+  "subtopicTitle": "Terminal landing — propulsive descent, suicide burn",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:35.957Z",
+  "cards": [
+    {
+      "front": "What is the primary method rockets use for a controlled terminal landing on celestial bodies without significant atmospheres?",
+      "back": "Propulsive descent, where engines are fired against the direction of motion to reduce velocity and achieve a soft landing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the colloquial term for a propulsive descent strategy where the engines are ignited as late as possible to decelerate from high speed to zero at landing altitude?",
+      "back": "Suicide burn. It's characterized by igniting engines only once, very close to the surface, and burning continuously until touchdown.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the propulsive descent strategy of igniting engines as late as possible colloquially known as a \"suicide burn\"?",
+      "back": "It's called a \"suicide burn\" because there is very little margin for error. If the burn starts too late, the rocket crashes. If the engines fail during the burn, the rocket crashes. It's a high-risk, high-reward maneuver.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary objective of a \"suicide burn\" in terms of fuel efficiency and mission profile?",
+      "back": "The primary objective is to minimize fuel consumption by performing the deceleration burn as late and as quickly as possible. This maximizes the payload mass that can be delivered to the surface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a constant thrust $T$ providing a constant deceleration $a$, derive the maximum altitude $h$ from which a rocket can initiate a suicide burn to land with zero velocity, given an initial vertical velocity $v_0$. Assume constant gravity $g$ and neglect drag.",
+      "back": "The net upward acceleration (deceleration) is $a_{net} = \\frac{T}{m} - g$. For a suicide burn, we want to achieve zero final velocity ($v_f = 0$) at $h=0$. Using the kinematic equation $v_f^2 = v_0^2 + 2 a_{net} \\Delta y$: \n$0^2 = v_0^2 - 2 a_{net} h$ (where $v_0$ is the initial downward velocity, and $a_{net}$ is the magnitude of the upward deceleration).\n$2 a_{net} h = v_0^2$\n$h = \\frac{v_0^2}{2 a_{net}}$\nSubstituting $a_{net} = \\frac{T}{m} - g$:\n$$h = \\frac{v_0^2}{2 \\left(\\frac{T}{m} - g\\right)}$$\nThis is the maximum altitude to start the burn.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a rocket to successfully execute a propulsive descent (suicide burn) against gravity, what must be true about its engine's thrust-to-weight ratio (TWR) relative to the local gravitational acceleration?",
+      "back": "The engine's thrust-to-weight ratio (TWR) must be greater than 1 (i.e., $T > mg$) to provide a net upward acceleration (deceleration). Specifically, the thrust $T$ must be greater than the instantaneous weight $mg$ throughout the burn. The net acceleration $a = \\frac{T}{m} - g$. If $T/m \\le g$, the rocket cannot decelerate against gravity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the ability to throttle rocket engines affect the execution and safety margin of a suicide burn compared to a fixed-thrust engine?",
+      "back": "Throttling allows for a more flexible and safer suicide burn. A fixed-thrust engine requires precise timing and a single, continuous burn. Throttling enables:\n1.  **Variable Deceleration**: Maintaining a desired deceleration (e.g., constant G-forces) or adjusting to real-time sensor data.\n2.  **Hover Capability**: Reducing thrust to match weight ($T=mg$) allows for hovering, providing a margin for error and precise final positioning.\n3.  **Reduced Peak G-forces**: A fixed-thrust engine might require very high thrust for a short duration, leading to high G-forces. Throttling can spread this out.\nEssentially, throttling transforms a \"suicide burn\" into a more controlled \"propulsive landing.\"",
+      "difficulty": "hard"
+    }
+  ]
+}

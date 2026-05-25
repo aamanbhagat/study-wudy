@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-uml-use-case-class-sequence-activity-state-machine-component-diagrams",
+  "subtopicTitle": "UML — use case, class, sequence, activity, state machine, component diagrams",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:55.797Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a UML Use Case Diagram?",
+      "back": "To describe the functional requirements of a system from the user's perspective, showing how different actors interact with the system to achieve specific goals (use cases). It focuses on 'what' the system does, not 'how'.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three main sections of a UML Class box and explain what each represents.",
+      "back": "1.  **Class Name**: Identifies the class (e.g., `User`).\n2.  **Attributes**: Data members or properties of the class, typically with visibility (e.g., `- userId: int` for private, `+ username: String` for public).\n3.  **Operations (Methods)**: Functions or behaviors the class can perform, also with visibility and parameters (e.g., `+ login(password: String): boolean`).\n```\n+-----------------+\n|     User        |\n+-----------------+\n| - userId: int   |\n| - username: str |\n+-----------------+\n| + login(): bool |\n| + logout(): void|\n+-----------------+\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between Aggregation and Composition in UML Class Diagrams, providing an example for each.",
+      "back": "Both are forms of 'has-a' relationships (associations):\n*   **Aggregation (weak 'has-a')**: Represents a whole-part relationship where parts can exist independently of the whole. The whole doesn't exclusively own the parts.\n    *   Notation: Hollow diamond on the whole's side.\n    *   Example: A `Library` aggregates `Book`s. A book can exist without being in a specific library.\n*   **Composition (strong 'has-a')**: Represents a whole-part relationship where parts cannot exist independently of the whole. The whole exclusively owns the parts; if the whole is destroyed, its parts are also destroyed.\n    *   Notation: Filled diamond on the whole's side.\n    *   Example: A `Car` is composed of an `Engine` and `Wheel`s. An engine or wheel typically doesn't exist independently once part of a specific car, and if the car is scrapped, its specific engine/wheels are also gone.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What do a vertical dashed line and a narrow rectangle on it represent in a UML Sequence Diagram?",
+      "back": "The vertical dashed line below an object is its **lifeline**, representing its existence over time during the interaction. The narrow rectangle on the lifeline is an **activation (or execution occurrence)**, indicating the period during which an object is performing an action directly or indirectly (e.g., executing a method, waiting for a reply).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a UML Activity Diagram, what do 'fork' and 'join' nodes represent, and how are they typically drawn?",
+      "back": "A **fork node** (a thick bar with one incoming and multiple outgoing flows) represents the splitting of a single control flow into multiple concurrent flows of activity. A **join node** (a thick bar with multiple incoming and one outgoing flow) represents the synchronization of multiple concurrent flows, requiring all incoming flows to complete before the outgoing flow can proceed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the key elements of a UML State Machine Diagram used to model an object's lifecycle.",
+      "back": "1.  **States**: Conditions or situations during the object's life (e.g., `Idle`, `Active`). Drawn as rounded rectangles.\n2.  **Transitions**: Arrows indicating movement from one state to another, triggered by an event. Labeled with `event [guard] / action`.\n3.  **Events**: Occurrences that trigger a transition.\n4.  **Actions**: Activities performed during a transition or upon entering/exiting a state.\n5.  **Initial State**: A filled circle indicating the starting point.\n6.  **Final State**: A filled circle within another circle indicating the end point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary purpose of a UML Component Diagram, and what do 'provided' and 'required' interfaces signify?",
+      "back": "A Component Diagram models the physical structure of a system, showing how components (modular, replaceable parts with well-defined interfaces) are organized and wired together. It focuses on the implementation view.\n*   **Provided Interface**: A 'lollipop' symbol indicating a service or functionality that the component offers to other components.\n*   **Required Interface**: A 'socket' symbol indicating a service or functionality that the component needs from other components to function correctly.",
+      "difficulty": "medium"
+    }
+  ]
+}

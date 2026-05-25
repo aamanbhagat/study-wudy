@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-pointer-to-pointer",
+  "subtopicTitle": "Pointer to pointer",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:29.009Z",
+  "cards": [
+    {
+      "front": "How is a pointer to a pointer declared in C, and what fundamental type of information does it store?",
+      "back": "A pointer to a pointer is declared using two asterisks, e.g., `int** ptr_to_ptr;`. It stores the memory address of another pointer variable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `int x = 10; int *p = &x; int **pp = &p;`, what are the values of `*pp` and `**pp`?",
+      "back": "`*pp` evaluates to the value stored in `pp`, which is the address of `p` (i.e., `&p`). `**pp` evaluates to the value pointed to by `*pp` (which is `p`), so it's the value of `x` (i.e., `10`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Visualize the memory: If `int x = 5; int *p = &x; int **pp = &p;` and their addresses are `&x = 0x100`, `&p = 0x200`, `&pp = 0x300`, what values are stored at `0x100`, `0x200`, and `0x300` respectively?",
+      "back": "At `0x100` (address of `x`): `5`\nAt `0x200` (address of `p`): `0x100` (the address of `x`)\nAt `0x300` (address of `pp`): `0x200` (the address of `p`)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is a `char**` (pointer to a char pointer) often used when passing a `char*` (string) to a function that needs to modify where the original `char*` points?",
+      "back": "To modify the *original pointer itself* in the calling function's scope. If `char*` were passed by value, the function would receive a copy, and modifying that copy wouldn't affect the caller's pointer. Passing `char**` allows the function to dereference it (`*ptr_to_str`) to access and change the original `char*`'s value (the memory address it holds).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a C snippet to dynamically allocate a $3 \\times 4$ integer matrix using a pointer to a pointer, where each row is allocated separately.",
+      "back": "```c\nint rows = 3, cols = 4;\nint **matrix = (int**) malloc(rows * sizeof(int*));\nif (matrix == NULL) { /* handle error */ }\n\nfor (int i = 0; i < rows; i++) {\n    matrix[i] = (int*) malloc(cols * sizeof(int));\n    if (matrix[i] == NULL) { /* handle error & free previous rows */ }\n}\n// Don't forget to free memory later:\n// for (int i = 0; i < rows; i++) { free(matrix[i]); }\n// free(matrix);\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the difference in meaning between `const int** pp;`, `int* const* pp;`, and `int** const pp;`.",
+      "back": "1. `const int** pp;`: The *value* pointed to by `*pp` (i.e., `**pp`) is constant. You cannot change `**pp`.\n2. `int* const* pp;`: The *pointer* `*pp` itself is constant. You cannot change which `int` `*pp` points to (i.e., you cannot change `*pp`).\n3. `int** const pp;`: The *pointer to pointer* `pp` itself is constant. You cannot change which `int*` `pp` points to (i.e., you cannot change `pp`).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is `void**` generally disallowed for generic pointer-to-pointer operations in C, unlike `void*` for generic single pointers?",
+      "back": "While `void*` can implicitly convert to/from any data pointer type, `void**` does *not* implicitly convert to/from `int**`, `char**`, etc. This is because C does not guarantee that pointers to different types have the same representation, and thus a `void**` might not correctly dereference to a `T*` if `T` is a different type. Explicit casting is required, which can hide potential issues and is generally discouraged for generic `void**` usage.",
+      "difficulty": "hard"
+    }
+  ]
+}

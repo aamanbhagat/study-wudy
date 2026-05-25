@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-5-angular-displacement-angular-velocity-angular-acceleration",
+  "subtopicTitle": "Angular displacement θ, angular velocity ω, angular acceleration α",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:18.065Z",
+  "cards": [
+    {
+      "front": "Define angular displacement ($\\theta$) and state its standard SI unit.",
+      "back": "Angular displacement ($\\theta$) is the angle swept out by a rotating object or line segment. While it has magnitude and direction, finite angular displacements do not commute under addition, meaning they are not true vectors. However, infinitesimal angular displacements $d\\vec{\\theta}$ *are* vectors. Its standard SI unit is the radian (rad).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the arc length $s$ traversed by a point on a rotating object related to its radius $r$ and angular displacement $\\theta$?",
+      "back": "The arc length $s$ is given by $s = r\\theta$, where $\\theta$ *must* be expressed in radians.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define instantaneous angular velocity ($\\omega$) and provide its relationship to frequency ($f$) and period ($T$).",
+      "back": "Instantaneous angular velocity $\\omega = \\frac{d\\theta}{dt}$ (the rate of change of angular displacement). Its SI unit is radians per second (rad/s). It's related to frequency $f$ and period $T$ by $\\omega = 2\\pi f = \\frac{2\\pi}{T}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A point on a rotating disk moves with linear speed $v$. How is $v$ related to the disk's angular speed $\\omega$ and the point's distance $r$ from the axis?",
+      "back": "The linear speed $v$ of a point at radius $r$ from the axis of rotation is given by $v = r\\omega$. The direction of the linear velocity vector $\\vec{v}$ is tangential to the circular path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define instantaneous angular acceleration ($\\alpha$) and state its standard SI unit.",
+      "back": "Instantaneous angular acceleration $\\alpha = \\frac{d\\omega}{dt} = \\frac{d^2\\theta}{dt^2}$ (the rate of change of angular velocity). Its standard SI unit is radians per second squared (rad/s$^2$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship between tangential acceleration ($a_t$) of a point on a rotating object and the object's angular acceleration ($\\alpha$).",
+      "back": "The linear speed $v$ of a point at radius $r$ from the axis of rotation is $v = r\\omega$. Tangential acceleration $a_t$ is the rate of change of linear speed:\n$$a_t = \\frac{dv}{dt} = \\frac{d(r\\omega)}{dt}$$\nSince $r$ is constant for a point on a rigid body:\n$$a_t = r\\frac{d\\omega}{dt}$$\nAnd by definition, angular acceleration $\\alpha = \\frac{d\\omega}{dt}$:\n$$a_t = r\\alpha$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the vector nature of angular velocity ($\\vec{\\omega}$) and angular acceleration ($\\vec{\\alpha}$), including how their directions are determined.",
+      "back": "Angular velocity ($\\vec{\\omega}$) and angular acceleration ($\\vec{\\alpha}$) are axial vectors. Their direction is perpendicular to the plane of rotation, determined by the right-hand rule:\n1.  **$\\vec{\\omega}$**: Curl the fingers of your right hand in the direction of rotation; your thumb points in the direction of $\\vec{\\omega}$.\n2.  **$\\vec{\\alpha}$**: If the angular speed is increasing, $\\vec{\\alpha}$ is in the same direction as $\\vec{\\omega}$. If the angular speed is decreasing, $\\vec{\\alpha}$ is in the opposite direction to $\\vec{\\omega}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the rotational kinematic equation that relates final angular velocity ($\\omega$), initial angular velocity ($\\omega_0$), angular acceleration ($\\alpha$), and time ($t$).",
+      "back": "The rotational kinematic equation is $\\omega = \\omega_0 + \\alpha t$. This equation is valid when the angular acceleration ($\\alpha$) is constant.",
+      "difficulty": "medium"
+    }
+  ]
+}

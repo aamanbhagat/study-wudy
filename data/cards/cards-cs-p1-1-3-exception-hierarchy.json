@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-3-exception-hierarchy",
+  "subtopicTitle": "Exception hierarchy",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:16.462Z",
+  "cards": [
+    {
+      "front": "In Python's exception hierarchy, what is the ultimate base class from which *all* exceptions (including system exit exceptions) directly or indirectly inherit?",
+      "back": "`BaseException`. It's the root of the entire exception hierarchy. Exceptions like `SystemExit`, `KeyboardInterrupt`, and `GeneratorExit` inherit directly from `BaseException`, while `Exception` (the base for most user-defined and standard errors) also inherits from it.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the base class for *most non-system-exiting* errors and exceptions that application code should typically catch?",
+      "back": "`Exception`. This class inherits from `BaseException` and is the recommended base for custom exceptions and the target for general `except` blocks in application code, as it avoids catching critical system-exiting signals like `SystemExit` or `KeyboardInterrupt`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `MySpecificError` inherits from `MyGeneralError`, which inherits from `Exception`, how should `except` blocks be ordered to handle both types correctly?",
+      "back": "The more specific exception must be caught first, followed by the more general one.\n```python\ntry:\n    # code that might raise MySpecificError or MyGeneralError\nexcept MySpecificError:\n    # handle specific error\nexcept MyGeneralError:\n    # handle general error\n```\nIf `MyGeneralError` were caught first, `MySpecificError` would never be reached because `MySpecificError` *is a* `MyGeneralError`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Python class definition for a custom exception named `InvalidInputError` that inherits from `ValueError`.",
+      "back": "```python\nclass InvalidInputError(ValueError):\n    \"\"\"Custom exception for invalid input values.\"\"\"\n    pass\n```\nThis ensures `InvalidInputError` can be caught specifically, or generally by catching `ValueError` or `Exception`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it generally considered bad practice to use a bare `except:` or `except Exception:` block without careful consideration or re-raising?",
+      "back": "A bare `except:` catches *all* `BaseException` derivatives (including `SystemExit`, `KeyboardInterrupt`). `except Exception:` catches all *non-system-exiting* exceptions. Both can mask unexpected errors, making debugging difficult, and prevent critical signals from terminating the program appropriately. It's better to catch specific exceptions or re-raise if you can't handle them.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If `FileNotFoundError` inherits from `OSError`, which inherits from `Exception`, explain why the `except FileNotFoundError` block below will never execute if `file.txt` doesn't exist.\n```python\ntry:\n    with open(\"file.txt\", \"r\") as f:\n        pass\nexcept OSError:\n    print(\"Caught OSError\")\nexcept FileNotFoundError:\n    print(\"Caught FileNotFoundError\")\n```",
+      "back": "When `file.txt` doesn't exist, a `FileNotFoundError` is raised. Since `FileNotFoundError` is a subclass of `OSError`, it *is also* an `OSError`. The Python interpreter checks `except` blocks in order. The first matching `except OSError:` block catches the `FileNotFoundError` (because it's an `OSError`), and the subsequent `except FileNotFoundError:` block is never reached.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which specific built-in exception would be raised if you tried to access a non-existent key in a Python dictionary like `my_dict[\"non_existent_key\"]`?",
+      "back": "`KeyError`. This exception inherits from `LookupError`, which in turn inherits from `Exception`. It indicates that a mapping (dictionary) key was not found.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does Python's exception hierarchy facilitate more robust and flexible error handling through polymorphism?",
+      "back": "Polymorphism allows an `except` block catching a base exception class (e.g., `Exception`, `OSError`) to also catch any of its derived exception classes (e.g., `ValueError`, `FileNotFoundError`). This means you can write general handlers for broad categories of errors, while still allowing for more specific handlers for particular error types higher up in the `except` chain. It simplifies code by avoiding redundant checks for every possible specific error.",
+      "difficulty": "hard"
+    }
+  ]
+}

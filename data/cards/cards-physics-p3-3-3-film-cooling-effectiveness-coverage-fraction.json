@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-3-film-cooling-effectiveness-coverage-fraction",
+  "subtopicTitle": "Film cooling — effectiveness, coverage fraction",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:02.473Z",
+  "cards": [
+    {
+      "front": "Define film cooling in the context of rocket engine combustion chambers and nozzles.",
+      "back": "Film cooling is a thermal protection technique where a thin layer of relatively cool fluid (coolant) is injected along the inner surface of a combustion chamber or nozzle wall. This layer acts as a barrier, isolating the hot combustion gases from the structural wall, thereby reducing heat transfer and preventing thermal damage.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the primary physical mechanisms by which film cooling protects rocket engine walls from hot combustion gases.",
+      "back": "Film cooling protects the wall primarily through two mechanisms:\n1.  **Convective Heat Transfer Reduction:** The cool film acts as a buffer, reducing the temperature gradient between the hot gas and the wall, thus lowering convective heat transfer to the wall.\n2.  **Radiative Heat Transfer Blocking:** The film, especially if it contains soot or is opaque, can absorb or reflect some of the radiative heat flux from the combustion products, further shielding the wall.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define film cooling effectiveness, $\\eta$, and state its common mathematical expression.",
+      "back": "Film cooling effectiveness ($\\eta$) is a dimensionless parameter that quantifies the degree to which the injected coolant protects the wall from the hot gas stream. It represents the ratio of the actual temperature reduction at the wall to the maximum possible temperature reduction.\n$$ \\eta = \\frac{T_{aw} - T_g}{T_c - T_g} $$\nWhere:\n$T_{aw}$ = adiabatic wall temperature (temperature the wall would reach without heat transfer, if perfectly insulated)\n$T_g$ = hot gas temperature\n$T_c$ = coolant temperature at injection",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify and briefly explain the key dimensionless parameters that govern film cooling effectiveness.",
+      "back": "Key dimensionless parameters influencing film cooling effectiveness include:\n1.  **Blowing Ratio ($M$):** $M = \\frac{\\rho_c U_c}{\\rho_g U_g}$. Ratio of coolant to hot gas mass flux. Higher $M$ generally increases $\\eta$ initially, but too high can cause film lift-off.\n2.  **Density Ratio ($DR$):** $DR = \\frac{\\rho_c}{\\rho_g}$. Higher $DR$ can improve effectiveness.\n3.  **Momentum Flux Ratio ($I$):** $I = \\frac{\\rho_c U_c^2}{\\rho_g U_g^2}$.\n4.  **Geometry:** Hole shape, angle, spacing, and location.\n5.  **Distance from Injection ($x/D$):** Effectiveness decreases with distance downstream from the injection point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the coverage fraction ($\\phi$) in film cooling, and why is it important for design?",
+      "back": "The coverage fraction ($\\phi$) represents the percentage of the wall surface area that is effectively covered and protected by the injected coolant film. It's a measure of how uniformly the coolant spreads over the surface.\nIt is significant because:\n1.  **Preventing Hot Spots:** Insufficient coverage means unprotected areas are exposed to hot gases, leading to localized overheating and potential structural failure.\n2.  **Optimizing Coolant Use:** Designers aim for high coverage with minimal coolant flow to maximize engine performance and minimize propellant consumption.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Discuss the relationship between film cooling effectiveness ($\\eta$) and coverage fraction ($\\phi$). Can one be high while the other is low, and what are the implications for wall protection?",
+      "back": "While related, $\\eta$ and $\\phi$ are distinct. $\\eta$ measures the *degree* of temperature reduction *wherever* the film is present, while $\\phi$ measures the *extent* of the surface covered by the film.\n*   **High $\\eta$, Low $\\phi$:** Coolant is very effective in covered areas, but large portions of the wall are unprotected. This is highly undesirable, leading to severe localized hot spots and potential wall failure.\n*   **Low $\\eta$, High $\\phi$:** Coolant covers most of the surface, but its protective capacity is weak. The entire wall might be warmer than desired, but without critical hot spots. This is generally safer than high $\\eta$/low $\\phi$, but indicates inefficient cooling. Optimal design seeks both high $\\eta$ and high $\\phi$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify two significant drawbacks or limitations of employing film cooling in high-performance rocket engines.",
+      "back": "Primary drawbacks of film cooling include:\n1.  **Performance Penalty:** The injected coolant (often fuel) does not participate fully or efficiently in the main combustion process, leading to a slight reduction in overall engine thrust or specific impulse.\n2.  **Mixing and Instability:** The injected film can interact with the main hot gas flow, potentially causing flow instabilities, increased turbulence, or premature mixing that degrades cooling effectiveness downstream.",
+      "difficulty": "medium"
+    }
+  ]
+}

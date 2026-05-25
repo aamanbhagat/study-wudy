@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-simultaneity-relativity-of-simultaneity",
+  "subtopicTitle": "Simultaneity — relativity of simultaneity",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:23.636Z",
+  "cards": [
+    {
+      "front": "In classical (Newtonian) mechanics, two events are simultaneous if...",
+      "back": "...they occur at the same instant in time, regardless of the observer's motion or location. Time is considered absolute and universal.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the core principle of the relativity of simultaneity in special relativity.",
+      "back": "Events that are simultaneous in one inertial reference frame are generally *not* simultaneous in another inertial reference frame that is moving relative to the first.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the classic 'train and lightning' thought experiment used to illustrate the relativity of simultaneity.",
+      "back": "A train moves past a stationary observer (on the ground). Two lightning bolts strike the front and rear ends of the train simultaneously for the stationary observer. Due to the finite speed of light and the train's motion, an observer on the train will see the light from the front strike first (as they are moving towards it) and the light from the rear strike later (as they are moving away from it), concluding the events were *not* simultaneous.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific condition can two events be simultaneous in *all* inertial reference frames?",
+      "back": "Two events can be simultaneous in all inertial reference frames *only if* they occur at the same spatial location ($ \\Delta x = 0 $) in that frame. Otherwise, their simultaneity is relative.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given two events $(t_1, x_1)$ and $(t_2, x_2)$ simultaneous in frame S (i.e., $t_1=t_2$), use Lorentz transformations to find the time difference $\\Delta t'$ in a frame S' moving with velocity $v$ relative to S.",
+      "back": "Let $t_1 = t_2 = t$. The Lorentz transformation for time is $t' = \\gamma(t - vx/c^2)$.\nFor event 1: $t'_1 = \\gamma(t - vx_1/c^2)$\nFor event 2: $t'_2 = \\gamma(t - vx_2/c^2)$\nThe time difference in S' is:\n$$ \\Delta t' = t'_2 - t'_1 = \\gamma(t - vx_2/c^2) - \\gamma(t - vx_1/c^2) $$\n$$ \\Delta t' = \\gamma(t - vx_2/c^2 - t + vx_1/c^2) $$\n$$ \\Delta t' = \\gamma(-vx_2/c^2 + vx_1/c^2) = -\\frac{\\gamma v}{c^2} (x_2 - x_1) $$\nSince $\\gamma \\ge 1$, $v \\ne 0$, and if $x_1 \\ne x_2$, then $\\Delta t' \\ne 0$. This mathematically shows that events simultaneous in S (i.e., $\\Delta t = 0$) are generally not simultaneous in S' unless they occur at the same location ($\\Delta x = 0$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the relativity of simultaneity imply about the concept of an absolute 'now' across the universe?",
+      "back": "It implies that there is no universal, absolute 'now.' Different observers in relative motion will define different sets of events as simultaneous, meaning there's no single cosmic present moment that all observers agree upon.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the relativity of simultaneity *does not* violate the principle of causality (cause preceding effect).",
+      "back": "Causality is preserved because for any two events (A and B) where A *causes* B, event A must always be in the past light cone of B. This means that for *all* inertial observers, A will occur before B, even if the exact time difference $\\Delta t'$ varies. The order of causally connected events is an invariant. The relativity of simultaneity only applies to events that are *spacelike separated* or *lightlike separated* and not causally connected in a way that would allow one to influence the other.",
+      "difficulty": "hard"
+    }
+  ]
+}

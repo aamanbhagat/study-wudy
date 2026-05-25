@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-system-calls-user-mode-vs-kernel-mode-trap-mechanism",
+  "subtopicTitle": "System calls — user mode vs kernel mode, trap mechanism",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:51.595Z",
+  "cards": [
+    {
+      "front": "Define a \"system call\" in the context of an operating system.",
+      "back": "A system call is the programmatic way in which a computer program requests a service from the kernel of the operating system it is executed on. This includes hardware-related services (e.g., accessing a hard disk) or creating new processes, which user-mode programs cannot perform directly.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two distinct CPU execution modes that an operating system typically utilizes to manage access to system resources?",
+      "back": "User mode and Kernel mode (also known as supervisor mode or privileged mode).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the fundamental difference in privileges between \"user mode\" and \"kernel mode\" for a running process.",
+      "back": "In **user mode**, processes have restricted access to system resources and privileged CPU instructions. They can only access their own memory space. In **kernel mode**, processes (or the OS kernel itself) have full, unrestricted access to all hardware, memory, and privileged CPU instructions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary reason operating systems employ distinct \"user mode\" and \"kernel mode.\"",
+      "back": "The primary reason is **protection and security**. It prevents user applications from directly accessing or corrupting critical OS data, hardware, or other processes' memory. This isolation enhances system stability and security by confining errors or malicious actions to the user process itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general sequence of events for a process to transition from user mode to kernel mode to execute a system call.",
+      "back": "1. User program executes a special **trap instruction** (e.g., `syscall` or `int 0x80`).\n2. This instruction causes a **software interrupt** (trap).\n3. The CPU hardware automatically:\n   - Switches the CPU from user mode to **kernel mode**.\n   - Saves the current process's context (registers, program counter).\n   - Jumps to a predefined address in the **interrupt vector table**.\n   - The address points to the specific **system call handler** (trap handler) in the kernel.\n4. The kernel handler executes the requested service.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the specific function of a \"trap instruction\" (e.g., `syscall`, `int`) in the context of a system call?",
+      "back": "A trap instruction is a special CPU instruction executed by a user-mode program to intentionally generate a software interrupt (or trap). This interrupt signals the CPU to transfer control to the operating system kernel, thereby initiating the user-to-kernel mode transition required to handle a system call.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When a system call is made, what essential information is typically passed from the user process to the kernel, and by what common mechanism?",
+      "back": "1.  **System Call Number**: Identifies the specific service requested (e.g., `read`, `write`, `fork`).\n2.  **Arguments/Parameters**: Data required by the system call (e.g., file descriptor, buffer address, size for `read`).\nThis information is usually passed via **CPU registers** or by placing it on the **stack** before the trap instruction is executed. The kernel's trap handler then retrieves these values.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A user-mode program attempts to directly execute an instruction to write to a hardware control register. What is the expected outcome, and why?",
+      "back": "The CPU will generate a **protection fault** (or general protection fault). This happens because writing to hardware control registers is a **privileged operation** that can only be performed in kernel mode. The CPU hardware detects the attempt by a user-mode process and prevents it, protecting system integrity.",
+      "difficulty": "medium"
+    }
+  ]
+}

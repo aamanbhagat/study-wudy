@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-7-solving-wave-equation-separation-of-variables",
+  "subtopicTitle": "Solving wave equation — separation of variables",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:02:19.585Z",
+  "cards": [
+    {
+      "front": "State the one-dimensional homogeneous wave equation.",
+      "back": "The one-dimensional homogeneous wave equation is given by: $$ \\frac{\\partial^2 u}{\\partial t^2} = c^2 \\frac{\\partial^2 u}{\\partial x^2} $$ where $u(x,t)$ is the displacement, $x$ is position, $t$ is time, and $c$ is the wave speed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When applying separation of variables to $u(x,t)$ for the wave equation, what form is assumed for the solution?",
+      "back": "The assumed form for the solution is $u(x,t) = X(x)T(t)$, where $X(x)$ is a function solely of $x$ and $T(t)$ is a function solely of $t$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Substitute $u(x,t) = X(x)T(t)$ into the 1D wave equation and separate variables. What are the two resulting ODEs?",
+      "back": "Substituting $u(x,t) = X(x)T(t)$ into $\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\frac{\\partial^2 u}{\\partial x^2}$ yields $X(x)T''(t) = c^2 X''(x)T(t)$. Dividing by $c^2 X(x)T(t)$ gives: $$ \\frac{1}{c^2 T(t)} \\frac{d^2 T}{d t^2} = \\frac{1}{X(x)} \\frac{d^2 X}{d x^2} = -\\lambda $$ Setting both sides equal to a separation constant $-\\lambda$ (for oscillatory solutions), the two resulting ODEs are:\n1. $X''(x) + \\lambda X(x) = 0$\n2. $T''(t) + \\lambda c^2 T(t) = 0$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a wave on a string fixed at $x=0$ and $x=L$, what are the boundary conditions for $X(x)$ and the resulting eigenvalues $\\lambda_n$ and eigenfunctions $X_n(x)$?",
+      "back": "The boundary conditions (BCs) for $X(x)$ are $X(0)=0$ and $X(L)=0$. Solving $X''(x) + \\lambda X(x) = 0$ with these BCs leads to:\nEigenvalues: $\\lambda_n = \\left(\\frac{n\\pi}{L}\\right)^2$ for $n=1, 2, 3, \\dots$\nEigenfunctions: $X_n(x) = \\sin\\left(\\frac{n\\pi x}{L}\\right)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "With $\\lambda_n = \\left(\\frac{n\\pi}{L}\right)^2$, what is the general solution for $T_n(t)$ from $T''(t) + \\lambda c^2 T(t) = 0$?",
+      "back": "Substituting $\\lambda_n$ into $T''(t) + \\lambda c^2 T(t) = 0$ gives $T''(t) + \\left(\\frac{n\\pi c}{L}\\right)^2 T(t) = 0$. The general solution for $T_n(t)$ is:\n$$ T_n(t) = A_n \\cos\\left(\\frac{n\\pi c t}{L}\\right) + B_n \\sin\\left(\\frac{n\\pi c t}{L}\\right) $$ where $A_n$ and $B_n$ are constants determined by initial conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the general solution $u(x,t)$ for the 1D wave equation on a string fixed at $x=0, L$, using superposition of $X_n(x)$ and $T_n(t)$.",
+      "back": "By the principle of superposition, the general solution for $u(x,t)$ is a sum of all possible solutions $X_n(x)T_n(t)$: $$ u(x,t) = \\sum_{n=1}^{\\infty} \\left[ A_n \\cos\\left(\\frac{n\\pi c t}{L}\\right) + B_n \\sin\\left(\\frac{n\\pi c t}{L}\\right) \\right] \\sin\\left(\\frac{n\\pi x}{L}\\right) $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are $A_n$ and $B_n$ in the general solution determined using initial conditions $u(x,0)=f(x)$ and $\\frac{\\partial u}{\\partial t}(x,0)=g(x)$?",
+      "back": "The coefficients $A_n$ and $B_n$ are determined using Fourier series:\n1.  **Initial Displacement** $u(x,0) = f(x)$:\n    $f(x) = \\sum_{n=1}^{\\infty} A_n \\sin\\left(\\frac{n\\pi x}{L}\\right)$\n    Thus, $A_n = \\frac{2}{L} \\int_0^L f(x) \\sin\\left(\\frac{n\\pi x}{L}\\right) dx$\n2.  **Initial Velocity** $\\frac{\\partial u}{\\partial t}(x,0) = g(x)$:\n    First, differentiate $u(x,t)$ with respect to $t$:\n    $\\frac{\\partial u}{\\partial t}(x,t) = \\sum_{n=1}^{\\infty} \\left[ -A_n \\frac{n\\pi c}{L} \\sin\\left(\\frac{n\\pi c t}{L}\\right) + B_n \\frac{n\\pi c}{L} \\cos\\left(\\frac{n\\pi c t}{L}\\right) \\right] \\sin\\left(\\frac{n\\pi x}{L}\\right)$\n    Then, set $t=0$:\n    $g(x) = \\sum_{n=1}^{\\infty} B_n \\frac{n\\pi c}{L} \\sin\\left(\\frac{n\\pi x}{L}\\right)$\n    Thus, $B_n \\frac{n\\pi c}{L} = \\frac{2}{L} \\int_0^L g(x) \\sin\\left(\\frac{n\\pi x}{L}\\right) dx$\n    And $B_n = \\frac{2}{n\\pi c} \\int_0^L g(x) \\sin\\left(\\frac{n\\pi x}{L}\\right) dx$",
+      "difficulty": "hard"
+    }
+  ]
+}

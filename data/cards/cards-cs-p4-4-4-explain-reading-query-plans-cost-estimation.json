@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-4-explain-reading-query-plans-cost-estimation",
+  "subtopicTitle": "EXPLAIN — reading query plans, cost estimation",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:49.945Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `EXPLAIN` command in database systems?",
+      "back": "The `EXPLAIN` command is used to show the execution plan of a SQL statement. Its primary purpose is to help users understand how the database system will execute a query, identify potential performance bottlenecks, and optimize query performance by revealing the chosen access methods, join orders, and other operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an `EXPLAIN` output, what are the three most critical pieces of information provided for each operation node?",
+      "back": "For each operation node, the most critical pieces of information are:\n1.  **`Node Type`**: The specific operation performed (e.g., `Seq Scan`, `Index Scan`, `Hash Join`).\n2.  **`Cost`**: A numerical estimate of the query's execution cost, typically represented as `{startup_cost}..{total_cost}`. This is an arbitrary unit, not time, but higher cost generally means slower execution.\n3.  **`Rows`**: The estimated number of rows that the operation will produce.\n4.  **`Width`**: The estimated average width (in bytes) of the rows produced by the operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the meaning of `cost={startup_cost}..{total_cost}` in an `EXPLAIN` plan. What factors contribute to these costs?",
+      "back": "`cost={startup_cost}..{total_cost}` represents the estimated execution cost.\n*   `startup_cost`: The cost incurred to produce the *first* row of output from this node. This includes setup time (e.g., sorting, building a hash table).\n*   `total_cost`: The estimated total cost to produce *all* rows of output from this node.\nDatabase optimizers calculate costs based on factors like:\n*   **I/O operations**: Disk reads (sequential vs. random).\n*   **CPU operations**: Processing rows, comparisons, function calls.\n*   **Memory usage**: For operations like sorting or hashing.\nThese costs are relative units, not absolute time, and are derived from statistical information about tables and indexes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key difference between `EXPLAIN` and `EXPLAIN ANALYZE`, and when would you use each?",
+      "back": "*   `EXPLAIN`: Shows the *estimated* execution plan without actually running the query. It relies on the optimizer's cost model and statistics. Use it for initial plan inspection, comparing potential plans, or when you don't want to execute a costly query.\n*   `EXPLAIN ANALYZE`: *Executes* the query and then shows the *actual* execution plan, including actual runtimes, rows returned, and other statistics for each node. Use it to verify the optimizer's estimates, identify discrepancies between estimated and actual performance, and pinpoint bottlenecks with real-world data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When analyzing an `EXPLAIN` plan, what typically indicates that an index is *not* being used for a `WHERE` clause filter, and what operation would suggest it *is* being used?",
+      "back": "If an index is *not* being used for a `WHERE` clause filter, you will typically see a `Seq Scan` (Sequential Scan) operation on the table. This means the database is reading every row of the table to find the matching ones.\nIf an index *is* being used, you would typically see an `Index Scan` or `Bitmap Index Scan` operation. This indicates the database is using an index to quickly locate the relevant rows without scanning the entire table.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a multi-node `EXPLAIN` plan, how do you determine the order in which operations are executed?",
+      "back": "`EXPLAIN` plans are read from the *bottom up* and *right to left* (for nested operations). Each child node provides input to its parent node. The outermost node (top-level) represents the final result of the query.\nFor example, in a join plan:\n```\n-> Hash Join\n    -> Seq Scan on tableA\n    -> Hash\n        -> Seq Scan on tableB\n```\n1. `Seq Scan on tableA` executes.\n2. `Seq Scan on tableB` executes.\n3. `Hash` builds a hash table from `tableB`.\n4. `Hash Join` then joins `tableA` (probe) with the hash table (build).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can outdated or missing database statistics significantly impact the `EXPLAIN` plan and query performance?",
+      "back": "Outdated or missing statistics can lead to the query optimizer making poor cardinality (row count) estimations. If the optimizer incorrectly estimates the number of rows an operation will produce, it might:\n1.  Choose an inefficient access path (e.g., `Seq Scan` instead of `Index Scan`).\n2.  Select a suboptimal join algorithm (e.g., `Nested Loop Join` when `Hash Join` would be faster).\n3.  Allocate insufficient or excessive memory for operations.\nThese misestimations result in a suboptimal execution plan, leading to significantly slower query performance than necessary. Regular `ANALYZE` (or `VACUUM ANALYZE`) is crucial.",
+      "difficulty": "medium"
+    }
+  ]
+}

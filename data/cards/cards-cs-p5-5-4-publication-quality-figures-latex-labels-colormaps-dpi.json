@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-publication-quality-figures-latex-labels-colormaps-dpi",
+  "subtopicTitle": "Publication-quality figures — LaTeX labels, colormaps, DPI",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:46.708Z",
+  "cards": [
+    {
+      "front": "What is the primary advantage of using LaTeX for text and labels in scientific plots generated with Matplotlib?",
+      "back": "LaTeX provides high-quality typesetting, consistent font rendering, and robust support for complex mathematical expressions (e.g., superscripts, subscripts, Greek letters, integrals) that are essential for scientific publications. It ensures figures match the document's aesthetic and readability standards.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you enable LaTeX rendering for text in a Matplotlib figure, and provide a code snippet for a plot with a LaTeX-formatted y-axis label?",
+      "back": "To enable LaTeX rendering for all text, set `matplotlib.rcParams['text.usetex'] = True`. It's also good practice to specify a LaTeX font.\n```python\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nplt.rcParams['text.usetex'] = True\nplt.rcParams['font.family'] = 'serif'\nplt.rcParams['font.serif'] = ['Computer Modern Roman'] # Or another LaTeX font\n\nfig, ax = plt.subplots()\nax.plot(np.sin(np.linspace(0, 2*np.pi, 100)))\nax.set_ylabel(r'Amplitude ($\\sin(\\theta)$)') # Use r'' for raw string, $...$ for math mode\nplt.show()\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does DPI stand for, and what specific metric does it represent in the context of saving publication-quality figures?",
+      "back": "DPI stands for **Dots Per Inch**. It measures the spatial resolution of an image, indicating how many individual dots (pixels) are printed or displayed within a linear inch. For publication, a higher DPI (e.g., 300-600) ensures sharp, non-pixelated figures when printed or viewed at high magnification.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a Matplotlib figure with `figsize=(width, height)` in inches and a `dpi` setting, derive the total pixel dimensions (width_px, height_px) of the saved image.",
+      "back": "The `figsize` parameter in Matplotlib specifies the figure's dimensions in inches. `width` (inches) and `height` (inches).\nDPI (Dots Per Inch) specifies the number of pixels per inch.\n\nTherefore, to find the total pixel dimensions:\n$$ \\text{width\\_px} = \\text{width} \\times \\text{dpi} $$\n$$ \\text{height\\_px} = \\text{height} \\times \\text{dpi} $$\n\nFor example, a `figsize=(6, 4)` and `dpi=300` would result in an image of `(6 * 300, 4 * 300) = (1800, 1200)` pixels.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write a Python code snippet using Matplotlib to create a simple plot and save it to a file named `my_plot.png` with a resolution suitable for publication (e.g., 300 DPI) and a tight layout.",
+      "back": "```python\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig, ax = plt.subplots(figsize=(6, 4)) # Figure size in inches\nax.plot(np.linspace(0, 10, 100), np.sin(np.linspace(0, 10, 100)))\nax.set_title(\"Sine Wave\")\nax.set_xlabel(\"X-axis\")\nax.set_ylabel(\"Y-axis\")\n\nplt.savefig('my_plot.png', dpi=300, bbox_inches='tight')\nplt.close(fig) # Close the figure to free memory\n```\n`dpi=300` sets the resolution, and `bbox_inches='tight'` automatically adjusts the figure margins to prevent labels or titles from being cut off.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the three primary categories of colormaps used in data visualization, and briefly describe when each is typically appropriate?",
+      "back": "1.  **Sequential**: Used for data that progresses from low to high values (e.g., temperature, density). They typically vary smoothly in lightness and hue.\n2.  **Diverging**: Used for data that deviates around a critical central value (e.g., positive/negative differences, above/below average). They use distinct colors for values above and below the center, with a neutral color at the midpoint.\n3.  **Qualitative (or Categorical)**: Used for discrete, non-ordered categories where distinctness is key, not magnitude. Colors are chosen to be easily distinguishable from each other.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why perceptually uniform colormaps are generally preferred for scientific data visualization, and name two such colormaps built into Matplotlib.",
+      "back": "Perceptually uniform colormaps are preferred because changes in data values correspond to perceptually uniform changes in color and lightness. This means that a given change in the data always appears as the same amount of change to the human eye, preventing misinterpretation of features or artificial gradients. They are also often designed to be more colorblind-friendly.\n\nTwo examples in Matplotlib are: `viridis`, `plasma`, `inferno`, `magma`, `cividis`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You are visualizing climate model output showing temperature anomalies (deviations from a baseline), which can be both positive and negative. Which type of colormap would be most appropriate, and how would you apply it in Matplotlib to a `contourf` plot?",
+      "back": "A **diverging** colormap is most appropriate. This type of colormap is designed to highlight deviations from a central value (in this case, zero anomaly), using distinct colors for values above and below the center, and a neutral color at the center.\n\nExample application:\n```python\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Simulate temperature anomalies\nX, Y = np.meshgrid(np.linspace(-2, 2, 100), np.linspace(-2, 2, 100))\nZ = np.sin(X**2 + Y**2) * np.exp(-(X**2 + Y**2)/2) # Data with positive and negative values\n\nfig, ax = plt.subplots(figsize=(7, 6))\n# Use 'coolwarm' or 'RdBu' for diverging data\ncontour = ax.contourf(X, Y, Z, levels=20, cmap='coolwarm', vmin=-1, vmax=1) # Symmetrical vmin/vmax\nfig.colorbar(contour, ax=ax, label='Temperature Anomaly ($^\\circ$C)')\nax.set_title('Temperature Anomaly Map')\nplt.show()\n```\nSetting `vmin` and `vmax` symmetrically around zero ensures the colormap's neutral point aligns with the data's zero anomaly.",
+      "difficulty": "hard"
+    }
+  ]
+}

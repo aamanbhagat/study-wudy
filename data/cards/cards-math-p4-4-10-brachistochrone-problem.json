@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-brachistochrone-problem",
+  "subtopicTitle": "Brachistochrone problem",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:10.554Z",
+  "cards": [
+    {
+      "front": "Define the Brachistochrone problem and state its objective.",
+      "back": "The Brachistochrone problem (from Greek \"brachistos\" shortest, \"chronos\" time) asks for the curve between two points, A and B, such that a particle (e.g., a bead) sliding along it under gravity, starting from rest at A, reaches B in the shortest possible time. It was posed by Johann Bernoulli in 1696.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the integral expression for the time $T$ taken for a particle to slide along a curve $y(x)$ from $(x_1, y_1)$ to $(x_2, y_2)$ under gravity, starting from rest at $y=0$.",
+      "back": "By conservation of energy, $mgh = \\frac{1}{2}mv^2$, so $v = \\sqrt{2gy}$. The infinitesimal distance $ds = \\sqrt{dx^2 + dy^2} = \\sqrt{1 + (dy/dx)^2} dx$. Thus, $dT = \\frac{ds}{v} = \\frac{\\sqrt{1 + (y')^2}}{\\sqrt{2gy}} dx$. The total time functional is: $$T = \\int_{x_1}^{x_2} \\frac{\\sqrt{1 + (y')^2}}{\\sqrt{2gy}} dx$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the Lagrangian $L(y, y') = \\frac{\\sqrt{1 + (y')^2}}{\\sqrt{2gy}}$ for the Brachistochrone, apply the Euler-Lagrange equation (or Beltrami identity) to find the differential equation.",
+      "back": "Since $L$ does not explicitly depend on $x$, we use the Beltrami identity: $L - y'\\frac{\\partial L}{\\partial y'} = C$. First, $\\frac{\\partial L}{\\partial y'} = \\frac{1}{\\sqrt{2gy}} \\frac{2y'}{2\\sqrt{1+(y')^2}} = \\frac{y'}{\\sqrt{2gy}\\sqrt{1+(y')^2}}$. Substituting: $$\\frac{\\sqrt{1 + (y')^2}}{\\sqrt{2gy}} - y'\\frac{y'}{\\sqrt{2gy}\\sqrt{1+(y')^2}} = C$$ $$\\frac{1 + (y')^2 - (y')^2}{\\sqrt{2gy}\\sqrt{1+(y')^2}} = C \\implies \\frac{1}{\\sqrt{2gy}\\sqrt{1+(y')^2}} = C$$ Squaring and rearranging: $1 = C^2 (2gy)(1+(y')^2)$. Let $k = \\frac{1}{2gC^2}$. Then, the differential equation is: $$y(1+(y')^2) = k$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Solve the differential equation $y(1+(y')^2) = k$ for the Brachistochrone curve by parameterizing $y' = \\cot \\theta$. Assume the curve starts at $(0,0)$.",
+      "back": "Let $y' = \\frac{dy}{dx} = \\cot \\theta$. Then $1+(y')^2 = 1+\\cot^2\\theta = \\csc^2\\theta$. Substituting into the equation: $y \\csc^2\\theta = k \\implies y = k \\sin^2\\theta = \\frac{k}{2}(1-\\cos(2\\theta))$. Now, $dx = \\frac{dy}{y'} = \\frac{d(k \\sin^2\\theta)}{\\cot\\theta} = \\frac{2k \\sin\\theta \\cos\\theta d\\theta}{\\cos\\theta/\\sin\\theta} = 2k \\sin^2\\theta d\\theta$. Integrating $dx$: $x = \\int 2k \\sin^2\\theta d\\theta = \\int k(1-\\cos(2\\theta)) d\\theta = k(\\theta - \\frac{1}{2}\\sin(2\\theta)) + C_1$. Let $\\phi = 2\\theta$. Then $x = \\frac{k}{2}(\\phi - \\sin\\phi) + C_1$ and $y = \\frac{k}{2}(1-\\cos\\phi)$. Since the curve starts at $(0,0)$, $C_1=0$. These are the parametric equations of a cycloid.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What specific curve is the solution to the Brachistochrone problem, and what are its standard parametric equations (assuming it starts at the origin)?",
+      "back": "The solution is a **cycloid**. Its standard parametric equations, starting from the origin, are: $$x(\\phi) = R(\\phi - \\sin\\phi)$$ $$y(\\phi) = R(1 - \\cos\\phi)$$ where $R$ is the radius of the generating circle and $\\phi$ is the angle of rotation of that circle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why is a straight line not the path of shortest time for the Brachistochrone problem?",
+      "back": "While a straight line offers the shortest distance, it doesn't allow the particle to gain speed quickly enough. A steeper initial descent, as provided by the cycloid, accelerates the particle to higher velocities earlier. This higher average velocity over the path more than compensates for the slightly longer distance, resulting in a shorter total travel time compared to the straight line.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Besides being the Brachistochrone, what other famous property related to time does the cycloid possess? Briefly explain.",
+      "back": "The cycloid is also the **Tautochrone curve** (from Greek \"tauto\" same, \"chronos\" time). This means that a particle sliding without friction along an inverted cycloid will reach the lowest point in the same amount of time, regardless of its starting position on the curve. This property was discovered by Christiaan Huygens.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Johann Bernoulli posed the Brachistochrone problem as a challenge in 1696. Name at least three mathematicians who successfully solved it, and describe the notable speed of one of the solutions.",
+      "back": "Key solvers include: Johann Bernoulli, Jacob Bernoulli, Isaac Newton, Gottfried Wilhelm Leibniz, and Guillaume de l'Hôpital. Isaac Newton famously solved the problem overnight after receiving it, sending his anonymous solution which Johann Bernoulli recognized as the work of a master, exclaiming, \"I recognize the lion by his paw.\"",
+      "difficulty": "hard"
+    }
+  ]
+}

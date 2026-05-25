@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-7-binomial-theorem-expansion-general-term",
+  "subtopicTitle": "Binomial theorem — expansion, general term",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:50.647Z",
+  "cards": [
+    {
+      "front": "State the Binomial Theorem for $(a+b)^n$.",
+      "back": "The Binomial Theorem states that for any non-negative integer $n$, the expansion of $(a+b)^n$ is given by:\n$$ (a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k} b^k $$\nwhere $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ are the binomial coefficients.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Expand $(2x - y)^3$ using the Binomial Theorem.",
+      "back": "Using the Binomial Theorem with $a=2x$, $b=-y$, and $n=3$:\n$$ (2x - y)^3 = \\binom{3}{0}(2x)^3(-y)^0 + \\binom{3}{1}(2x)^2(-y)^1 + \\binom{3}{2}(2x)^1(-y)^2 + \\binom{3}{3}(2x)^0(-y)^3 $$\n$$ = 1(8x^3)(1) + 3(4x^2)(-y) + 3(2x)(y^2) + 1(1)(-y^3) $$\n$$ = 8x^3 - 12x^2y + 6xy^2 - y^3 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the formula for the $(r+1)$-th term in the expansion of $(a+b)^n$?",
+      "back": "The $(r+1)$-th term, often denoted $T_{r+1}$, in the expansion of $(a+b)^n$ is given by:\n$$ T_{r+1} = \\binom{n}{r} a^{n-r} b^r $$\nwhere $r$ ranges from $0$ to $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the 4th term in the expansion of $(x + 2y)^5$.",
+      "back": "For the 4th term, we have $r+1=4$, so $r=3$.\nHere, $n=5$, $a=x$, $b=2y$.\nUsing the formula $T_{r+1} = \\binom{n}{r} a^{n-r} b^r$:\n$$ T_4 = \\binom{5}{3} (x)^{5-3} (2y)^3 $$\n$$ T_4 = \\frac{5!}{3!2!} x^2 (8y^3) $$\n$$ T_4 = 10 x^2 (8y^3) $$\n$$ T_4 = 80x^2y^3 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the coefficient of $x^3$ in the expansion of $(2x - \\frac{1}{x})^7$.",
+      "back": "Let the general term be $T_{r+1}$. Here $n=7$, $a=2x$, $b=-x^{-1}$.\n$$ T_{r+1} = \\binom{7}{r} (2x)^{7-r} (-x^{-1})^r $$\n$$ T_{r+1} = \\binom{7}{r} 2^{7-r} x^{7-r} (-1)^r x^{-r} $$\n$$ T_{r+1} = \\binom{7}{r} 2^{7-r} (-1)^r x^{7-2r} $$\nFor the coefficient of $x^3$, we set the power of $x$ to 3:\n$7 - 2r = 3 \\implies 2r = 4 \\implies r = 2$.\nSubstitute $r=2$ into the coefficient part:\nCoefficient $= \\binom{7}{2} 2^{7-2} (-1)^2 = \\binom{7}{2} 2^5 (1)$\nCoefficient $= \\frac{7 \\times 6}{2 \\times 1} \\times 32 = 21 \\times 32 = 672$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the sum of the coefficients in the expansion of $(3x - 2y)^4$?",
+      "back": "To find the sum of the coefficients in any polynomial expansion, substitute all variables with $1$.\nFor $(3x - 2y)^4$, set $x=1$ and $y=1$:\nSum of coefficients $= (3(1) - 2(1))^4$\nSum of coefficients $= (3 - 2)^4$\nSum of coefficients $= (1)^4 = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many terms are there in the expansion of $(a+b)^n$?",
+      "back": "The expansion of $(a+b)^n$ has $n+1$ terms. For example, $(a+b)^2 = a^2 + 2ab + b^2$ has $2+1=3$ terms.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how to find the middle term(s) in the expansion of $(a+b)^n$.",
+      "back": "The number of terms in the expansion is $N = n+1$.\n1.  **If $n$ is even:** $N$ is odd. There is one middle term. Its position is $\\frac{N+1}{2} = \\frac{(n+1)+1}{2} = \\frac{n+2}{2}$. So, the middle term is $T_{\\frac{n}{2}+1}$.\n2.  **If $n$ is odd:** $N$ is even. There are two middle terms. Their positions are $\\frac{N}{2}$ and $\\frac{N}{2}+1$. So, the middle terms are $T_{\\frac{n+1}{2}}$ and $T_{\\frac{n+1}{2}+1}$.\nIn both cases, you then use the general term formula $T_{r+1} = \\binom{n}{r} a^{n-r} b^r$ with the appropriate $r$ value (where $r$ is one less than the term position).",
+      "difficulty": "hard"
+    }
+  ]
+}

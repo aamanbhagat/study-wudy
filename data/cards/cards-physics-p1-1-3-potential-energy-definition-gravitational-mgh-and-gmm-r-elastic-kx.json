@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-3-potential-energy-definition-gravitational-mgh-and-gmm-r-elastic-kx",
+  "subtopicTitle": "Potential energy — definition, gravitational (mgh and -GMm/r), elastic (½kx²)",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:46.854Z",
+  "cards": [
+    {
+      "front": "What is potential energy, and what type of forces is it associated with?",
+      "back": "Potential energy is the energy stored within a system due to its position or configuration. It is associated exclusively with conservative forces (e.g., gravity, elastic force), meaning the work done by these forces is independent of the path taken.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for gravitational potential energy near Earth's surface and explain its typical reference point.",
+      "back": "$U_g = mgh$. Here, $m$ is mass, $g$ is acceleration due to gravity, and $h$ is height. The reference point ($U_g=0$) is typically chosen at ground level or any convenient height, as only *changes* in potential energy are physically significant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the general formula for gravitational potential energy between two masses $M$ and $m$, and what is its standard reference point?",
+      "back": "$U_g = -\\frac{GMm}{r}$. Here, $G$ is the gravitational constant, $M$ and $m$ are the masses, and $r$ is the distance between their centers. The standard reference point ($U_g=0$) is at infinite separation ($r \\to \\infty$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between $U_g = mgh$ and $U_g = -GMm/r$, and when each is appropriate to use.",
+      "back": "$mgh$ is a simplification of $-GMm/r$ valid for small changes in height near a massive body's surface. If we define $r = R_E + h$ (where $R_E$ is Earth's radius) and consider $\\Delta U_g = U_g(R_E+h) - U_g(R_E)$, a Taylor expansion shows $\\Delta U_g \\approx mgh$ where $g = GM/R_E^2$. $mgh$ is used for local, constant-$g$ fields; $-GMm/r$ is for large distances or varying $g$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for elastic potential energy stored in a spring and define its variables.",
+      "back": "$U_s = \\frac{1}{2}kx^2$. Here, $k$ is the spring constant (a measure of stiffness), and $x$ is the displacement from the spring's equilibrium position (stretch or compression).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for elastic potential energy stored in a spring, starting from Hooke's Law.",
+      "back": "Hooke's Law states that the restoring force exerted by a spring is $F_s = -kx$. The applied force required to stretch or compress the spring is $F_{applied} = kx$. The work done to stretch the spring from $x=0$ to $x$ is:\n$$W = \\int_0^x F_{applied} dx = \\int_0^x (kx) dx$$\n$$W = \\left[ \\frac{1}{2}kx^2 \\right]_0^x = \\frac{1}{2}kx^2$$\nThis work done is stored as elastic potential energy, so $U_s = \\frac{1}{2}kx^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A 10 kg object is lifted from the ground to a height of 5 m. Calculate the change in its gravitational potential energy (use $g=9.8 \\text{ m/s}^2$).",
+      "back": "The change in gravitational potential energy is $\\Delta U_g = mgh_{final} - mgh_{initial}$.\nAssuming the ground is $h=0$, $U_{g,initial} = 0$.\n$$\\Delta U_g = (10 \\text{ kg})(9.8 \\text{ m/s}^2)(5 \\text{ m})$$\n$$\\Delta U_g = 490 \\text{ J}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A spring with a spring constant $k=200 \\text{ N/m}$ is compressed by $0.15 \\text{ m}$. How much elastic potential energy is stored in it?",
+      "back": "The elastic potential energy stored in a spring is given by $U_s = \\frac{1}{2}kx^2$.\n$$U_s = \\frac{1}{2}(200 \\text{ N/m})(0.15 \\text{ m})^2$$\n$$U_s = (100 \\text{ N/m})(0.0225 \\text{ m}^2)$$\n$$U_s = 2.25 \\text{ J}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the general gravitational potential energy formula $U_g = -GMm/r$ negative?",
+      "back": "The negative sign arises because the reference point for zero potential energy is chosen at infinite separation ($r \\to \\infty$). Since gravity is an attractive force, work must be done *against* gravity to increase the separation of masses. As masses get closer ($r$ decreases), their potential energy becomes more negative, indicating a stronger bound state and that energy would be released if they moved closer from infinity.",
+      "difficulty": "hard"
+    }
+  ]
+}

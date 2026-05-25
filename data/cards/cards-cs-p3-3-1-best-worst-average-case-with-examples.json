@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-1-best-worst-average-case-with-examples",
+  "subtopicTitle": "Best, worst, average case — with examples",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:36.927Z",
+  "cards": [
+    {
+      "front": "In algorithm analysis, what does \"Best Case Complexity\" signify?",
+      "back": "It describes the scenario where an algorithm performs the minimum possible number of operations for a given input size $n$. It represents the most favorable input, often $O(1)$ for many algorithms.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does \"Worst Case Complexity\" represent in algorithm analysis, and why is it often the most critical metric?",
+      "back": "It describes the scenario where an algorithm performs the maximum possible number of operations for a given input size $n$. It's critical because it provides a guaranteed upper bound on performance, ensuring the algorithm will never exceed this time, which is vital for reliable system design.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"Average Case Complexity.\" What key assumption is typically made when calculating it?",
+      "back": "It's the expected performance of an algorithm over all possible inputs of a given size $n$. The key assumption is a specific probability distribution of inputs (e.g., uniform distribution), making it harder to calculate and potentially less universally applicable than best/worst cases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a linear search for `target` in an array `arr` of size $n$. Provide the Python code snippet and state its best-case time complexity.",
+      "back": "```python\ndef linear_search(arr, target):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i\n    return -1\n```\nBest Case: $O(1)$. This occurs if `target` is the very first element `arr[0]`, requiring only one comparison.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the linear search algorithm from the previous card, what is its worst-case time complexity?",
+      "back": "Worst Case: $O(n)$. This occurs if `target` is the very last element in `arr`, or if `target` is not present in `arr` at all. In both scenarios, the algorithm must iterate through all $n$ elements, performing $n$ comparisons.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Assuming a linear search `target` is present and equally likely to be at any position in an array of size $n$, derive its average-case time complexity.",
+      "back": "If `target` is at position $i$ (1-indexed), it takes $i$ comparisons. With uniform probability $1/n$ for each position:\n$$ \\text{Average Comparisons} = \\sum_{i=1}^{n} \\left( i \\times \\frac{1}{n} \\right) = \\frac{1}{n} \\sum_{i=1}^{n} i = \\frac{1}{n} \\frac{n(n+1)}{2} = \\frac{n+1}{2} $$\nThus, the average case time complexity is $O(n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Quicksort typically has an average-case time complexity of $O(n \\log n)$. Describe an input scenario that leads to its worst-case time complexity, and state that complexity.",
+      "back": "Quicksort's worst-case occurs when the pivot selection consistently results in highly unbalanced partitions (e.g., one partition with $n-1$ elements and the other with 0). This happens if the pivot is always the smallest or largest element.\nExample: An already sorted array (ascending or descending) if the first or last element is always chosen as the pivot.\nThe worst-case time complexity is $O(n^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When might an algorithm's average-case complexity be a more practical or representative performance indicator than its worst-case complexity?",
+      "back": "Average-case complexity is more practical when the worst-case scenario is extremely rare or statistically improbable in typical real-world usage. For instance, hash tables have a worst-case $O(n)$ for lookups, but their average-case $O(1)$ is far more representative of their performance in practice.",
+      "difficulty": "medium"
+    }
+  ]
+}

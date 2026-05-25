@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-2-physical-meaning-of-each-orbital-element",
+  "subtopicTitle": "Physical meaning of each orbital element",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:10.796Z",
+  "cards": [
+    {
+      "front": "What physical characteristic of an orbit is primarily determined by the semi-major axis $a$? How does it relate to orbital energy and period?",
+      "back": "The semi-major axis $a$ primarily determines the **size** of the orbit and, crucially, the **orbital energy** ($E = -\\frac{\\mu}{2a}$ for a two-body system). For a given central body with gravitational parameter $\\mu$, the orbital period $T$ is given by Kepler's Third Law: $T = 2\\pi\\sqrt{\\frac{a^3}{\\mu}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the physical meaning of orbital eccentricity $e$. What shapes do orbits take for $e=0$, $0 < e < 1$, $e=1$, and $e > 1$?",
+      "back": "Eccentricity $e$ determines the **shape** of the orbit, indicating its deviation from a perfect circle.\n*   $e=0$: Circle\n*   $0 < e < 1$: Ellipse\n*   $e=1$: Parabola (escape trajectory)\n*   $e > 1$: Hyperbola (escape trajectory)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does orbital inclination $i$ physically represent? Give implications for ground track coverage for $i=0^\\circ$, $i=90^\\circ$, and $i \\approx 98^\\circ$.",
+      "back": "Inclination $i$ represents the **tilt of the orbital plane** relative to a reference plane (e.g., Earth's equatorial plane).\n*   $i=0^\\circ$: Equatorial orbit (stays over equator).\n*   $i=90^\\circ$: Polar orbit (passes over both poles, covers all latitudes).\n*   $i \\approx 98^\\circ$: Sun-synchronous orbit (orbital plane precesses to maintain constant local time of day for ground passes).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Right Ascension of the Ascending Node ($\\Omega$). How does it orient the orbital plane in 3D space?",
+      "back": "$\\Omega$ specifies the **orientation of the orbital plane** in space by defining the angle from the vernal equinox direction (or inertial X-axis) to the **ascending node**. The ascending node is where the satellite crosses the reference plane from south to north. It's measured in the reference plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What physical aspect of an elliptical orbit does the argument of periapsis ($\\omega$) describe? From what point is it measured, and in which plane?",
+      "back": "$\\omega$ describes the **orientation of the ellipse within its orbital plane**. It is the angle from the **ascending node** to the **periapsis** (point of closest approach to the central body), measured in the direction of motion within the orbital plane. It aligns the major axis of the ellipse.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical meaning of the true anomaly ($\\nu$). How does it relate to the satellite's position at a specific time?",
+      "back": "True anomaly $\\nu$ is the **angular position of the satellite along its orbit** at a given instant. It is the angle from the **periapsis** to the current position of the satellite, measured in the direction of motion within the orbital plane. It directly specifies the satellite's current location on the elliptical path.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are the six classical orbital elements ($a, e, i, \\Omega, \\omega, \\nu$) collectively sufficient to uniquely define an orbit and satellite position at an epoch?",
+      "back": "These six elements correspond to the six independent constants of motion in the two-body problem.\n*   $a$ and $e$: Define the **size and shape** of the conic section.\n*   $i$, $\\Omega$, and $\\omega$: Define the **orientation of the orbital plane and the ellipse within it** in 3D space.\n*   $\\nu$: Defines the **position of the satellite along the path** at a specific time (epoch).\nTogether, they provide all necessary information to describe the trajectory and the object's location on it.",
+      "difficulty": "hard"
+    }
+  ]
+}

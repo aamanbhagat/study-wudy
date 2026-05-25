@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-1-law-of-cosines-proof-and-applications",
+  "subtopicTitle": "Law of cosines — proof and applications",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:39.985Z",
+  "cards": [
+    {
+      "front": "State the Law of Cosines for a triangle with sides $a, b, c$ and angle $C$ opposite side $c$.",
+      "back": "The Law of Cosines states: $c^2 = a^2 + b^2 - 2ab \\cos C$. \\n\\nThis formula can be permuted for other sides and angles: \\n$a^2 = b^2 + c^2 - 2bc \\cos A$ \\n$b^2 = a^2 + c^2 - 2ac \\cos B$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In what two primary scenarios is the Law of Cosines most useful for solving triangles?",
+      "back": "The Law of Cosines is most useful in these two scenarios:\\n1.  **Side-Angle-Side (SAS):** When two sides and the included angle are known, to find the third side.\\n2.  **Side-Side-Side (SSS):** When all three sides are known, to find any of the angles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A triangle has sides $a=5$, $b=7$, and the included angle $C=60^\\circ$. Find the length of side $c$.",
+      "back": "Using the Law of Cosines $c^2 = a^2 + b^2 - 2ab \\cos C$:\\n$c^2 = 5^2 + 7^2 - 2(5)(7) \\cos 60^\\circ$\\n$c^2 = 25 + 49 - 70(0.5)$\\n$c^2 = 74 - 35$\\n$c^2 = 39$\\n$c = \\sqrt{39}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A triangle has sides $a=3$, $b=4$, $c=5$. Find the angle $C$ opposite side $c$.",
+      "back": "Using the Law of Cosines $c^2 = a^2 + b^2 - 2ab \\cos C$:\\n$5^2 = 3^2 + 4^2 - 2(3)(4) \\cos C$\\n$25 = 9 + 16 - 24 \\cos C$\\n$25 = 25 - 24 \\cos C$\\n$0 = -24 \\cos C$\\n$\\cos C = 0$\\nTherefore, $C = 90^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove the Law of Cosines, $c^2 = a^2 + b^2 - 2ab \\cos C$, using coordinate geometry.",
+      "back": "1. Place vertex $C$ at the origin $(0,0)$.\\n2. Place vertex $B$ on the positive x-axis at $(a,0)$.\\n3. Place vertex $A$ at $(b \\cos C, b \\sin C)$.\\n\\nSide $c$ is the distance between $A$ and $B$. Using the distance formula:\\n$c^2 = (b \\cos C - a)^2 + (b \\sin C - 0)^2$\\n$c^2 = (b^2 \\cos^2 C - 2ab \\cos C + a^2) + (b^2 \\sin^2 C)$\\n$c^2 = a^2 + b^2 (\\cos^2 C + \\sin^2 C) - 2ab \\cos C$\\nSince the Pythagorean identity states $\\cos^2 C + \\sin^2 C = 1$:\\n$c^2 = a^2 + b^2(1) - 2ab \\cos C$\\n$c^2 = a^2 + b^2 - 2ab \\cos C$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Law of Cosines generalize or relate to the Pythagorean Theorem?",
+      "back": "The Pythagorean Theorem is a special case of the Law of Cosines.\\n\\nIf the angle $C$ in a triangle is a right angle ($90^\\circ$), then $\\cos C = \\cos 90^\\circ = 0$. \\n\\nSubstituting this into the Law of Cosines, $c^2 = a^2 + b^2 - 2ab \\cos C$, gives:\\n$c^2 = a^2 + b^2 - 2ab(0)$ \\n$c^2 = a^2 + b^2$ \\nThis is exactly the Pythagorean Theorem, meaning the Law of Cosines extends it to non-right triangles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain the role of the term $-2ab \\cos C$ in the Law of Cosines, $c^2 = a^2 + b^2 - 2ab \\cos C$.",
+      "back": "The term $-2ab \\cos C$ acts as a \"correction factor\" to the Pythagorean sum $a^2+b^2$ for non-right triangles.\\n\\n*   If $C < 90^\\circ$ (acute), $\\cos C > 0$, so we subtract a positive value. This makes $c^2$ smaller than $a^2+b^2$, reflecting that acute angles \"pull\" sides $a$ and $b$ closer, shortening $c$.\\n*   If $C = 90^\\circ$ (right), $\\cos C = 0$, so the term vanishes, leaving $c^2 = a^2+b^2$.\\n*   If $C > 90^\\circ$ (obtuse), $\\cos C < 0$, so we subtract a negative value (effectively adding a positive value). This makes $c^2$ larger than $a^2+b^2$, reflecting that obtuse angles \"push\" sides $a$ and $b$ further apart, lengthening $c$.",
+      "difficulty": "medium"
+    }
+  ]
+}

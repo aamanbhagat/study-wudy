@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p1-1-8-lc-circuit-oscillations-electrical-analog-of-shm",
+  "subtopicTitle": "LC circuit — oscillations (electrical analog of SHM)",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:18.732Z",
+  "cards": [
+    {
+      "front": "Define an ideal LC circuit and its primary function.",
+      "back": "An ideal LC circuit consists of an inductor (L) and a capacitor (C) connected in series or parallel, without any resistance. Its primary function is to store and oscillate electrical energy between the magnetic field of the inductor and the electric field of the capacitor.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The oscillations in an ideal LC circuit are an electrical analog to what mechanical system? Identify the corresponding electrical and mechanical quantities for mass, spring constant, position, and velocity.",
+      "back": "The oscillations in an ideal LC circuit are an electrical analog to a simple harmonic oscillator (mass-spring system).\n\n*   Mass ($m$) $\\leftrightarrow$ Inductance ($L$)\n*   Spring constant ($k$) $\\leftrightarrow$ Reciprocal of Capacitance ($1/C$)\n*   Position ($x$) $\\leftrightarrow$ Charge ($Q$)\n*   Velocity ($v = dx/dt$) $\\leftrightarrow$ Current ($I = dQ/dt$)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using Kirchhoff's loop rule for a series LC circuit, derive the second-order differential equation governing the charge $Q(t)$ on the capacitor.",
+      "back": "For a series LC circuit, Kirchhoff's loop rule states that the sum of voltage drops around the loop is zero:\n$$V_L + V_C = 0$$\nThe voltage across the inductor is $V_L = L \\frac{dI}{dt}$, and the voltage across the capacitor is $V_C = \\frac{Q}{C}$. Since $I = \\frac{dQ}{dt}$, we have $\\frac{dI}{dt} = \\frac{d^2Q}{dt^2}$.\nSubstituting these into the loop rule:\n$$L \\frac{d^2Q}{dt^2} + \\frac{Q}{C} = 0$$\n$$\\frac{d^2Q}{dt^2} + \\frac{1}{LC} Q = 0$$\nThis is the differential equation for charge $Q(t)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the natural angular frequency ($\\omega_0$) of oscillation in an ideal LC circuit and explain what it represents.",
+      "back": "The natural angular frequency of oscillation for an ideal LC circuit is given by:\n$$\\omega_0 = \\frac{1}{\\sqrt{LC}}$$\nIt represents the angular speed (in radians per second) at which the charge, current, and voltages in the circuit oscillate when there is no damping. This frequency is solely determined by the values of inductance ($L$) and capacitance ($C$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an LC circuit, the charge $Q(t)$ satisfies $\\frac{d^2Q}{dt^2} + \\omega_0^2 Q = 0$, where $\\omega_0 = 1/\\sqrt{LC}$. Provide the general solution for $Q(t)$ and derive the corresponding expression for the current $I(t)$.",
+      "back": "The general solution for the differential equation $\\frac{d^2Q}{dt^2} + \\omega_0^2 Q = 0$ is:\n$$Q(t) = Q_{max} \\cos(\\omega_0 t + \\phi)$$\nwhere $Q_{max}$ is the maximum charge on the capacitor, $\\omega_0$ is the angular frequency, and $\\phi$ is the phase constant, determined by initial conditions.\nThe current $I(t)$ is the time derivative of the charge:\n$$I(t) = \\frac{dQ}{dt} = \\frac{d}{dt} [Q_{max} \\cos(\\omega_0 t + \\phi)]$$\n$$I(t) = -Q_{max} \\omega_0 \\sin(\\omega_0 t + \\phi)$$\nThis can also be written as $I(t) = I_{max} \\cos(\\omega_0 t + \\phi + \\pi/2)$, where $I_{max} = Q_{max} \\omega_0$, showing that current leads charge by $90^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the energy transformations that occur between the inductor and capacitor in an ideal LC circuit over one complete oscillation cycle, starting from maximum charge on the capacitor.",
+      "back": "1.  **Max Charge on C, I=0:** All energy is stored in the capacitor's electric field ($U_E = \\frac{1}{2}\\frac{Q_{max}^2}{C}$). Inductor has no energy ($U_B = 0$).\n2.  **C discharging, I increasing:** Capacitor discharges, current flows, building a magnetic field in the inductor. Electric energy decreases, magnetic energy increases.\n3.  **Q=0 on C, I=Max:** All energy is stored in the inductor's magnetic field ($U_B = \\frac{1}{2}LI_{max}^2$). Capacitor has no energy ($U_E = 0$).\n4.  **C charging (opposite polarity), I decreasing:** Inductor's magnetic field collapses, inducing current that charges the capacitor with opposite polarity. Magnetic energy decreases, electric energy increases.\n5.  **Max Charge on C (opposite polarity), I=0:** All energy is back in the capacitor's electric field, but with opposite polarity. This completes half a cycle. The process then reverses to return to the initial state, completing a full cycle. Total energy $U_{total} = U_E + U_B$ remains constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In an ideal LC circuit, describe the phase relationship between the charge $Q(t)$ on the capacitor and the current $I(t)$ flowing through the inductor.",
+      "back": "The charge $Q(t)$ on the capacitor and the current $I(t)$ through the inductor are $90^\\circ$ (or $\\pi/2$ radians) out of phase with each other.\nIf $Q(t) = Q_{max} \\cos(\\omega_0 t + \\phi)$, then $I(t) = \\frac{dQ}{dt} = -Q_{max}\\omega_0 \\sin(\\omega_0 t + \\phi)$.\nSince $-\\sin(x) = \\cos(x + \\pi/2)$, we can write:\n$$I(t) = Q_{max}\\omega_0 \\cos(\\omega_0 t + \\phi + \\pi/2)$$\nThis shows that the current *leads* the charge by $90^\\circ$. When the charge on the capacitor is maximum (or minimum), the current is zero. When the charge is zero, the current is at its maximum (or minimum).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the key assumptions made when analyzing the oscillations of an \"ideal\" LC circuit.",
+      "back": "The key assumptions for an ideal LC circuit are:\n1.  **Zero Resistance:** The inductor's wire and connecting wires have no electrical resistance ($R=0$). This means no energy is dissipated as heat.\n2.  **Ideal Inductor:** The inductor has no internal resistance and its inductance is constant.\n3.  **Ideal Capacitor:** The capacitor has no leakage current (infinite resistance) and its capacitance is constant.\n4.  **No Radiation:** No electromagnetic energy is radiated away from the circuit.\nThese assumptions ensure that the total energy in the circuit remains constant, leading to undamped, perpetual oscillations.",
+      "difficulty": "medium"
+    }
+  ]
+}

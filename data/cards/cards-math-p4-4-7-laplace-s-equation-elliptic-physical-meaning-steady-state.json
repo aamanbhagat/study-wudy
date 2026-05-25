@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-7-laplace-s-equation-elliptic-physical-meaning-steady-state",
+  "subtopicTitle": "Laplace's equation (elliptic) — physical meaning (steady-state)",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:32.812Z",
+  "cards": [
+    {
+      "front": "State Laplace's equation in $\\mathbb{R}^3$ for a scalar function $u(x,y,z)$.",
+      "back": "Laplace's equation is given by $\\nabla^2 u = 0$ or $\\Delta u = 0$. In Cartesian coordinates, this expands to: $$\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2} + \\frac{\\partial^2 u}{\\partial z^2} = 0$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Laplace's equation typically describes physical phenomena in a __________ state.",
+      "back": "Laplace's equation typically describes physical phenomena in a **steady-state**. This means the system's properties (like temperature or potential) do not change over time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of heat conduction, what does a solution $u(x,y,z)$ to Laplace's equation represent physically?",
+      "back": "$u(x,y,z)$ represents the **steady-state temperature distribution**. At steady-state, there is no net heat accumulation or depletion at any point within the domain, meaning the rate of heat flow into a region precisely equals the rate of heat flow out.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe what \"elliptic\" means in the classification of Partial Differential Equations, specifically for Laplace's equation.",
+      "back": "Elliptic PDEs are associated with steady-state or equilibrium problems. Mathematically, for a second-order PDE like $A u_{xx} + B u_{xy} + C u_{yy} + \\dots = 0$, it is elliptic if the discriminant $B^2 - 4AC < 0$. For Laplace's equation $u_{xx} + u_{yy} = 0$, $A=1, B=0, C=1$, so $B^2 - 4AC = 0 - 4(1)(1) = -4 < 0$. This implies that information propagates instantaneously throughout the domain, and solutions are typically smooth and determined by boundary conditions over the entire closed boundary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Starting from the general heat equation, explain the mathematical step that leads to Laplace's equation under steady-state conditions.",
+      "back": "The general heat equation (without internal sources) is $\\frac{\\partial u}{\\partial t} = k \\nabla^2 u$, where $u$ is temperature and $k$ is thermal diffusivity. For **steady-state conditions**, the temperature distribution does not change with time. This means the time derivative is zero: $\\frac{\\partial u}{\\partial t} = 0$. Substituting this into the heat equation yields $0 = k \\nabla^2 u$. Since $k$ is a non-zero constant, we must have $\\nabla^2 u = 0$, which is Laplace's equation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify two physical fields, other than temperature, whose steady-state potential is governed by Laplace's equation.",
+      "back": "1.  **Electrostatics:** The electric potential $\\Phi$ in a charge-free region ($\\nabla^2 \\Phi = 0$).\n2.  **Fluid Dynamics:** The velocity potential $\\phi$ for incompressible, irrotational (potential) flow ($\\nabla^2 \\phi = 0$).\n3.  **Gravitation:** The gravitational potential $\\Psi$ in a mass-free region ($\\nabla^2 \\Psi = 0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A solution $u$ to Laplace's equation in a domain $\\Omega$ cannot attain its maximum or minimum value in the interior of $\\Omega$. Explain the physical intuition for this.",
+      "back": "For a steady-state phenomenon (like temperature or potential), if a local maximum existed in the interior, it would imply that the value at that point is higher than all its immediate neighbors. Physically, this would cause a net 'flow' (e.g., heat flow, charge movement) *away* from that point, which would cause the value to decrease, contradicting the steady-state assumption. Similarly, a local minimum would imply a net 'flow' *towards* that point, causing the value to increase. Thus, extrema must occur on the boundaries where external conditions are imposed, as these are the only places where the 'flow' can be sustained or dissipated.",
+      "difficulty": "hard"
+    }
+  ]
+}

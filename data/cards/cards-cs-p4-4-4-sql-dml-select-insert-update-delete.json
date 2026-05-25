@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-sql-dml-select-insert-update-delete",
+  "subtopicTitle": "SQL DML — SELECT, INSERT, UPDATE, DELETE",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:41.795Z",
+  "cards": [
+    {
+      "front": "What does DML stand for in SQL, and what is its primary purpose?",
+      "back": "DML stands for **Data Manipulation Language**. Its primary purpose is to manage and manipulate data within database objects (like tables), rather than managing the objects themselves. It includes commands for querying, inserting, updating, and deleting data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the SQL query to retrieve all columns for all rows from a table named `Products`.",
+      "back": "```sql\nSELECT *\nFROM Products;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You have a `Customers` table with `CustomerID`, `FirstName`, `LastName`. Write a query to add a new customer: ID 101, John, Doe.",
+      "back": "```sql\nINSERT INTO Customers (CustomerID, FirstName, LastName)\nVALUES (101, 'John', 'Doe');\n```\nAlternatively, if inserting values for all columns in their defined order:\n```sql\nINSERT INTO Customers VALUES (101, 'John', 'Doe');\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A customer with `CustomerID` 101 changed their `LastName` to 'Smith'. Write the SQL to reflect this change in the `Customers` table.",
+      "back": "```sql\nUPDATE Customers\nSET LastName = 'Smith'\nWHERE CustomerID = 101;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The customer with `CustomerID` 101 is no longer active. Write the SQL to remove their record from the `Customers` table.",
+      "back": "```sql\nDELETE FROM Customers\nWHERE CustomerID = 101;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "From an `Orders` table (columns: `OrderID`, `CustomerID`, `OrderDate`, `TotalAmount`), retrieve `OrderID` and `TotalAmount` for orders by `CustomerID` 5, ordered by `TotalAmount` descending.",
+      "back": "```sql\nSELECT OrderID, TotalAmount\nFROM Orders\nWHERE CustomerID = 5\nORDER BY TotalAmount DESC;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You need to archive all `Orders` from 2023 into an existing table `ArchivedOrders2023` (same structure). Write the SQL to populate it.",
+      "back": "```sql\nINSERT INTO ArchivedOrders2023\nSELECT *\nFROM Orders\nWHERE OrderDate >= '2023-01-01' AND OrderDate <= '2023-12-31';\n```\n(Assumes `OrderDate` is a date/datetime type. Date format may vary by DBMS.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the SQL statement to remove *all* rows from the `Products` table, and what is a crucial caution when using it?",
+      "back": "```sql\nDELETE FROM Products;\n```\n**Caution:** This statement will remove *every single row* from the `Products` table without any `WHERE` clause, making it a highly destructive operation. It is typically irreversible without a backup or transaction rollback. Always ensure you intend to delete all data before executing this command.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-1-law-of-sines-proof-and-applications-ambiguous-case",
+  "subtopicTitle": "Law of sines — proof and applications (ambiguous case)",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:27.623Z",
+  "cards": [
+    {
+      "front": "State the Law of Sines for a triangle with angles $A, B, C$ and opposite sides $a, b, c$.",
+      "back": "The Law of Sines states: $$\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$$ This ratio is also equal to $2R$, where $R$ is the circumradius of the triangle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove the Law of Sines for an acute triangle $\\triangle ABC$ by drawing an altitude from one vertex.",
+      "back": "Draw an altitude $h$ from vertex $C$ to side $AB$ (or its extension). Let the foot of the altitude be $D$. In right triangle $\\triangle ADC$, $h = b \\sin A$. In right triangle $\\triangle BDC$, $h = a \\sin B$. Equating the expressions for $h$: $b \\sin A = a \\sin B$. Dividing both sides by $\\sin A \\sin B$ gives $\\frac{b}{\\sin B} = \\frac{a}{\\sin A}$. Repeating this process with an altitude from $A$ to $BC$ (or $B$ to $AC$) yields $\\frac{b}{\\sin B} = \\frac{c}{\\sin C}$. Thus, $$\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In $\\triangle ABC$, if $A=45^\\circ$, $C=60^\\circ$, and side $c=12$, find side $a$.",
+      "back": "First, find angle $B$: $B = 180^\\circ - A - C = 180^\\circ - 45^\\circ - 60^\\circ = 75^\\circ$. Using the Law of Sines: $$\\frac{a}{\\sin A} = \\frac{c}{\\sin C}$$ $$\\frac{a}{\\sin 45^\\circ} = \\frac{12}{\\sin 60^\\circ}$$ $$a = \\frac{12 \\sin 45^\\circ}{\\sin 60^\\circ} = \\frac{12 (\\sqrt{2}/2)}{(\\sqrt{3}/2)} = \\frac{12\\sqrt{2}}{\\sqrt{3}} = \\frac{12\\sqrt{6}}{3} = 4\\sqrt{6}$$ So, $a = 4\\sqrt{6} \\approx 9.798$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the 'ambiguous case' (SSA) in trigonometry, and why is it called ambiguous?",
+      "back": "The ambiguous case (SSA) arises when two sides and a non-included angle are given (e.g., sides $a, b$ and angle $A$). It's called 'ambiguous' because, unlike ASA, AAS, or SAS, this combination of information does not always uniquely determine a triangle. There can be zero, one, or two possible triangles that satisfy the given conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For $\\triangle ABC$ with given sides $a, b$ and an acute angle $A$, describe the conditions that determine 0, 1, or 2 possible triangles.",
+      "back": "Let $h = b \\sin A$ be the altitude from $C$ to side $AB$. The conditions are:\n*   **0 triangles:** If $a < h$ (side $a$ is too short to reach the base).\n*   **1 triangle:** If $a = h$ (a right-angled triangle) OR if $a \\ge b$ (side $a$ is long enough to form only one triangle, as the second possible position for $B$ would result in $A+B > 180^\\circ$).\n*   **2 triangles:** If $h < a < b$ (side $a$ is long enough to reach the base in two distinct points, and shorter than side $b$, allowing for two valid triangles).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $\\triangle ABC$ with given sides $a, b$ and an obtuse or right angle $A$, describe the conditions that determine 0 or 1 possible triangle.",
+      "back": "If angle $A$ is obtuse or right:\n*   **0 triangles:** If $a \\le b$ (side $a$ is too short or equal to side $b$. With an obtuse/right angle $A$, side $a$ must be the longest side to form a triangle, since $A$ would be the largest angle).\n*   **1 triangle:** If $a > b$ (side $a$ is longer than side $b$, forming exactly one triangle).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $\\triangle ABC$ with $a=7$, $b=10$, and $A=40^\\circ$. Find all possible values for angle $B$.",
+      "back": "Using the Law of Sines: $$\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$$ $$\\frac{7}{\\sin 40^\\circ} = \\frac{10}{\\sin B}$$ $$\\sin B = \\frac{10 \\sin 40^\\circ}{7} \\approx \\frac{10 \\times 0.6428}{7} \\approx 0.9183$$ Since $\\sin B \\approx 0.9183$, there are two possible angles for $B$ in $[0^\\circ, 180^\\circ]$:\n1.  $B_1 = \\arcsin(0.9183) \\approx 66.69^\\circ$.\n2.  $B_2 = 180^\\circ - B_1 \\approx 180^\\circ - 66.69^\\circ = 113.31^\\circ$.\nCheck validity for each:\n*   For $B_1 \\approx 66.69^\\circ$: $A+B_1 = 40^\\circ + 66.69^\\circ = 106.69^\\circ < 180^\\circ$. This is a valid triangle.\n*   For $B_2 \\approx 113.31^\\circ$: $A+B_2 = 40^\\circ + 113.31^\\circ = 153.31^\\circ < 180^\\circ$. This is also a valid triangle.\nThus, there are two possible values for $B$: approximately $66.69^\\circ$ and $113.31^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $\\triangle ABC$ with $a=5$, $b=12$, and $A=30^\\circ$. Determine the number of possible triangles.",
+      "back": "We are given $a=5$, $b=12$, and $A=30^\\circ$. Angle $A$ is acute.\nFirst, calculate the height $h = b \\sin A$:\n$$h = 12 \\sin 30^\\circ = 12 \\times 0.5 = 6$$ Now, compare $a$ with $h$:\nWe have $a=5$ and $h=6$. Since $a < h$ ($5 < 6$), side $a$ is too short to reach the base. Therefore, **0 possible triangles** can be formed with these dimensions.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-nat-why-how-types-snat-dnat-pat",
+  "subtopicTitle": "NAT — why, how, types (SNAT, DNAT, PAT)",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:26.549Z",
+  "cards": [
+    {
+      "front": "What primary problem does NAT (Network Address Translation) solve in the context of IPv4?",
+      "back": "NAT primarily solves the problem of IPv4 address exhaustion by allowing multiple devices on a private network to share a single public IP address for internet access, thus conserving public IPv4 addresses.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the fundamental operation of a NAT device when a packet from a private network host needs to reach an external public server.",
+      "back": "When an internal host sends a packet to an external server, the NAT device intercepts it. It replaces the packet's private source IP address and source port with its own public IP address and a unique public port number. It then forwards the modified packet and maintains a mapping of the original private IP/port to the new public IP/port in its translation table.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does SNAT stand for, and what is its primary use case?",
+      "back": "SNAT stands for Source Network Address Translation. Its primary use case is to change the source IP address of packets originating from a private network when they are sent to a public network, allowing internal hosts to access external resources.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A host with private IP $192.168.1.10$ and source port $12345$ sends a packet to an external web server. If the NAT device's public IP is $203.0.113.5$, what will be the source IP and port of the packet after SNAT?",
+      "back": "After SNAT, the packet's source IP will be $203.0.113.5$. The source port will be a new, unique public port number chosen by the NAT device (e.g., $50000$), which is then mapped back to $192.168.1.10:12345$ in the NAT table for return traffic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does DNAT stand for, and what is its primary use case?",
+      "back": "DNAT stands for Destination Network Address Translation. Its primary use case is to change the destination IP address of incoming packets from a public network to a private IP address, typically used for 'port forwarding' to make internal servers accessible from the internet.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A public user tries to access a web server on a private network via a NAT device's public IP $203.0.113.5$ on port $80$. If the internal web server's private IP is $192.168.1.100$, what will be the destination IP and port of the packet after DNAT?",
+      "back": "After DNAT, the packet's destination IP will be $192.168.1.100$ and the destination port will be $80$. The NAT device uses its pre-configured DNAT rule to map incoming public traffic for $203.0.113.5:80$ to the internal server at $192.168.1.100:80$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Port Address Translation (PAT), also known as NAPT, allow multiple internal hosts to share a single public IP address for outbound internet access, and what information does the NAT device use to distinguish between these hosts?",
+      "back": "PAT/NAPT allows multiple internal hosts to share one public IP by translating not only the source IP but also the source port. The NAT device assigns a unique *public port number* to each outbound connection from an internal host. It distinguishes between hosts by maintaining a translation table that maps the combination of *private IP address and private port* to the *public IP address and unique public port* for each active connection.\n\nExample mapping in NAT table:\n```\nPrivate IP:Port    -> Public IP:Port\n192.168.1.10:12345 -> 203.0.113.5:50000\n192.168.1.11:23456 -> 203.0.113.5:50001\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond IPv4 address conservation, how does NAT inherently contribute to network security?",
+      "back": "NAT inherently contributes to network security by hiding the internal network's topology and private IP addresses from the outside world. External hosts cannot directly initiate connections to internal hosts unless specific port forwarding (DNAT) rules are explicitly configured, thus acting as a basic firewall and making it harder for attackers to discover and target internal devices.",
+      "difficulty": "medium"
+    }
+  ]
+}

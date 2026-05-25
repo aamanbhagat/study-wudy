@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-composite-materials-fiber-matrix-ply-properties-laminate-theory",
+  "subtopicTitle": "Composite materials — fiber-matrix, ply properties, laminate theory",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:48.596Z",
+  "cards": [
+    {
+      "front": "Define a composite material and state its two primary constituents.",
+      "back": "A composite material is made from two or more constituent materials with significantly different physical or chemical properties that remain separate and distinct at the macroscopic or microscopic level within the finished structure. Its primary constituents are the **reinforcement (fibers)** and the **matrix**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a fiber-reinforced composite, what are the primary roles of the fibers and the matrix?",
+      "back": "**Fibers** provide strength and stiffness, carrying most of the load. They are typically stiff and strong but brittle. The **matrix** binds the fibers together, protects them from environmental damage, transfers load between fibers, and provides toughness and impact resistance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the four independent engineering constants required to characterize the in-plane elastic behavior of an orthotropic unidirectional (UD) composite ply.",
+      "back": "For an orthotropic UD ply, the four independent in-plane engineering constants are:\n1.  Longitudinal Young's Modulus ($E_1$)\n2.  Transverse Young's Modulus ($E_2$)\n3.  In-plane Shear Modulus ($G_{12}$)\n4.  Major Poisson's Ratio ($\nu_{12}$)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a stress state $(\\sigma_x, \\sigma_y, \\tau_{xy})$ in the global $(x, y)$ coordinate system, write the transformation equations to find the stresses $(\\sigma_1, \\sigma_2, \\tau_{12})$ in the material $(1, 2)$ coordinate system for a ply oriented at angle $\\theta$.",
+      "back": "The stress transformation equations are:\n$$\n\\begin{pmatrix} \\sigma_1 \\\\ \\sigma_2 \\\\ \\tau_{12} \\end{pmatrix} = \\begin{pmatrix} \\cos^2\\theta & \\sin^2\\theta & 2\\sin\\theta\\cos\\theta \\\\ \\sin^2\\theta & \\cos^2\\theta & -2\\sin\\theta\\cos\\theta \\\\ -\\sin\\theta\\cos\\theta & \\sin\\theta\\cos\\theta & \\cos^2\\theta - \\sin^2\\theta \\end{pmatrix} \\begin{pmatrix} \\sigma_x \\\\ \\sigma_y \\\\ \\tau_{xy} \\end{pmatrix}\n$$\nThis can be compactly written as $\\{\\sigma\\}_{12} = [T]\\{\\sigma\\}_{xy}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the reduced stiffness matrix ($\\bar{Q}$) relating in-plane stresses to in-plane strains for an orthotropic ply in its material coordinate system $(1,2)$, assuming plane stress.",
+      "back": "For an orthotropic ply under plane stress in its material coordinate system, the constitutive relationship is:\n$$\n\\begin{pmatrix} \\sigma_1 \\\\ \\sigma_2 \\\\ \\tau_{12} \\end{pmatrix} = \\begin{pmatrix} Q_{11} & Q_{12} & 0 \\\\ Q_{12} & Q_{22} & 0 \\\\ 0 & 0 & Q_{66} \\end{pmatrix} \\begin{pmatrix} \\epsilon_1 \\\\ \\epsilon_2 \\\\ \\gamma_{12} \\end{pmatrix}\n$$\nWhere:\n$Q_{11} = \\frac{E_1}{1-\\nu_{12}\\nu_{21}}$\n$Q_{22} = \\frac{E_2}{1-\\nu_{12}\\nu_{21}}$\n$Q_{12} = \\frac{\\nu_{12}E_2}{1-\\nu_{12}\\nu_{21}} = \\frac{\\nu_{21}E_1}{1-\\nu_{12}\\nu_{21}}$\n$Q_{66} = G_{12}$\nNote: $\\nu_{21} = \\nu_{12} \\frac{E_2}{E_1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Classical Lamination Theory (CLT), what do the [A], [B], and [D] matrices represent in the laminate constitutive equation?\n$$ \\begin{pmatrix} N \\\\ M \\end{pmatrix} = \\begin{pmatrix} A & B \\\\ B & D \\end{pmatrix} \\begin{pmatrix} \\epsilon^0 \\\\ \\kappa \\end{pmatrix} $$",
+      "back": "\n*   **[A] (Extensional Stiffness Matrix)**: Relates in-plane forces ($N$) to mid-plane strains ($\\epsilon^0$). Governs the membrane (stretching) response of the laminate.\n*   **[B] (Coupling Stiffness Matrix)**: Relates in-plane forces ($N$) to curvatures ($\\kappa$) AND moments ($M$) to mid-plane strains ($\\epsilon^0$). It describes the coupling between stretching and bending. For symmetric laminates, [B] is zero.\n*   **[D] (Bending Stiffness Matrix)**: Relates moments ($M$) to curvatures ($\\kappa$). Governs the bending and twisting response of the laminate.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the physical significance of a non-zero [B] matrix in Classical Lamination Theory. How can it be minimized or eliminated?",
+      "back": "A non-zero [B] matrix indicates **extension-bending coupling**. This means that applying an in-plane force (stretching) will induce bending, and applying a pure bending moment will induce in-plane strains (stretching/contraction). It can be minimized or eliminated by designing a **symmetric laminate**, where plies are stacked symmetrically about the laminate mid-plane (e.g., $[0/90/90/0]$ or $[45/-45/-45/45]$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a \"quasi-isotropic\" laminate, and why is it desirable in certain spacecraft applications?",
+      "back": "A **quasi-isotropic laminate** is a laminate designed such that its in-plane extensional stiffness (A matrix) is effectively isotropic, meaning it exhibits the same stiffness properties regardless of the in-plane direction. This is achieved by having a sufficient number of plies at specific angles (e.g., $[0/ \\pm 45/90]_s$ or $[0/60/-60]_s$).\nIt is desirable because it simplifies design and analysis by providing uniform in-plane mechanical properties, reducing the risk of localized stress concentrations due to anisotropic behavior, and improving structural stability under multi-axial loading, which is common in spacecraft.",
+      "difficulty": "hard"
+    }
+  ]
+}

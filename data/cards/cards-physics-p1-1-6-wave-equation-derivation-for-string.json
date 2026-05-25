@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-6-wave-equation-derivation-for-string",
+  "subtopicTitle": "Wave equation — derivation for string",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:54.874Z",
+  "cards": [
+    {
+      "front": "List the primary idealizing assumptions made when deriving the 1D wave equation for a string.",
+      "back": "1.  **Small transverse displacement:** $y(x,t)$ is much smaller than the string length.\n2.  **Small slope:** $\\frac{\\partial y}{\\partial x} \\ll 1$.\n3.  **Uniform tension:** The tension $T$ is constant along the string.\n4.  **Uniform linear mass density:** $\\mu$ is constant.\n5.  **Perfectly flexible string:** No resistance to bending.\n6.  **Negligible gravity:** Gravity's effect on transverse motion is ignored.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider a small segment of a string under tension $T$. What is the expression for the vertical component of the tension force at an end where the string makes an angle $\\theta$ with the horizontal?",
+      "back": "The vertical component of tension is $T \\sin \\theta$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For small transverse displacements of a string, how is the slope $\\frac{\\partial y}{\\partial x}$ related to the angle $\\theta$ the string makes with the horizontal? What approximation is used?",
+      "back": "For small angles $\\theta$ (in radians), we use the small angle approximation: $\\sin \\theta \\approx \\tan \\theta \\approx \\theta$. Since $\\tan \\theta = \\frac{\\partial y}{\\partial x}$ (the slope), we can approximate the vertical component of tension as $T \\sin \\theta \\approx T \\tan \\theta = T \\frac{\\partial y}{\\x}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a small segment of string of length $\\Delta x$ with tension $T$, derive the net vertical force $F_y$ acting on it, assuming small angles and slopes $\\frac{\\partial y}{\\partial x}$ at $x$ and $x+\\Delta x$.",
+      "back": "Let $\\theta_1$ be the angle at $x$ and $\\theta_2$ at $x+\\Delta x$.\nThe vertical force at $x$ (acting downwards if $\\theta_1 > 0$) is $-T \\sin \\theta_1$.\nThe vertical force at $x+\\Delta x$ (acting upwards if $\\theta_2 > 0$) is $T \\sin \\theta_2$.\nNet vertical force: $F_y = T \\sin \\theta_2 - T \\sin \\theta_1$.\nUsing the small angle approximation $\\sin \\theta \\approx \\tan \\theta = \\frac{\\partial y}{\\partial x}$:\n$$F_y \\approx T \\left( \\left.\\frac{\\partial y}{\\partial x}\\right|_{x+\\Delta x} - \\left.\\frac{\\partial y}{\\partial x}\\right|_x \\right)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the 1D wave equation for a string, starting from Newton's second law applied to a small segment of mass $\\mu \\Delta x$.",
+      "back": "Consider a segment of string of length $\\Delta x$ and linear mass density $\\mu$. Its mass is $m = \\mu \\Delta x$.\nFrom Newton's second law, $F_y = m a_y = (\\mu \\Delta x) \\frac{\\partial^2 y}{\\partial t^2}$.\nEquating this to the net vertical force derived previously:\n$$T \\left( \\left.\\frac{\\partial y}{\\partial x}\\right|_{x+\\Delta x} - \\left.\\frac{\\partial y}{\\partial x}\\right|_x \\right) = \\mu \\Delta x \\frac{\\partial^2 y}{\\partial t^2}$$\nDivide by $\\Delta x$:\n$$T \\frac{\\left.\\frac{\\partial y}{\\partial x}\\right|_{x+\\Delta x} - \\left.\\frac{\\partial y}{\\partial x}\\right|_x}{\\Delta x} = \\mu \\frac{\\partial^2 y}{\\partial t^2}$$\nTaking the limit as $\\Delta x \\to 0$, the left side becomes the definition of the second partial derivative with respect to $x$:\n$$T \\frac{\\partial^2 y}{\\partial x^2} = \\mu \\frac{\\partial^2 y}{\\partial t^2}$$\nRearranging gives the 1D wave equation:\n$$\\frac{\\partial^2 y}{\\partial x^2} = \\frac{\\mu}{T} \\frac{\\partial^2 y}{\\partial t^2}$$\nThis is often written as $\\frac{\\partial^2 y}{\\partial x^2} = \\frac{1}{v^2} \\frac{\\partial^2 y}{\\partial t^2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the 1D wave equation for a string, $\\frac{\\partial^2 y}{\\partial x^2} = \\frac{1}{v^2} \\frac{\\partial^2 y}{\\partial t^2}$, what physical quantity does $v$ represent, and how is it expressed in terms of the string's properties?",
+      "back": "$v$ represents the **speed of the transverse wave** propagating along the string.\nIts formula in terms of string properties is:\n$$v = \\sqrt{\\frac{T}{\\mu}}$$\nwhere $T$ is the tension in the string and $\\mu$ is its linear mass density (mass per unit length).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "During the derivation of the 1D wave equation for a string, why are the horizontal components of the tension forces typically ignored or assumed to cancel out?",
+      "back": "The horizontal components of tension are $T \\cos \\theta$ at each end of the segment.\nFor small displacements and angles, $\\cos \\theta \\approx 1$.\nTherefore, the horizontal tension at $x$ is approximately $T$ (to the left), and at $x+\\Delta x$ is approximately $T$ (to the right).\nThese horizontal forces approximately cancel each other out, resulting in a negligible net horizontal force. This implies that the horizontal motion of the string segment is negligible, and the tension $T$ remains essentially constant horizontally.",
+      "difficulty": "hard"
+    }
+  ]
+}

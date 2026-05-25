@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-segmentation-segment-table-protection",
+  "subtopicTitle": "Segmentation — segment table, protection",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:12.294Z",
+  "cards": [
+    {
+      "front": "Define memory segmentation in the context of operating systems.",
+      "back": "Memory segmentation is a memory management technique that divides a program's memory into logically meaningful, variable-sized units called segments. Each segment corresponds to a logical entity of the program (e.g., code, data, stack, heap). It provides a programmer's view of memory, aligning with how software is structured.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What primary advantage does segmentation offer over a flat, contiguous memory model or simple paging for a programmer?",
+      "back": "Segmentation allows a program's memory to be viewed as a collection of logically independent segments (code, data, stack, heap, etc.), rather than a single linear address space. This aligns with how programmers structure their code, simplifying sharing of code/data between processes and providing better protection granularity based on these logical units.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the essential fields typically found in a segment table entry for a given segment.",
+      "back": "A typical segment table entry includes:\n1.  **Segment Base Address**: The physical starting address of the segment in main memory.\n2.  **Segment Limit (or Length)**: The size of the segment.\n3.  **Protection Bits**: Permissions (e.g., read, write, execute).\n4.  **Present/Valid Bit**: Indicates if the segment is currently in main memory.\n5.  **Modified (Dirty) Bit**: Indicates if the segment has been written to (relevant for swapping).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a logical address $(s, o)$ where $s$ is the segment number and $o$ is the offset, describe the steps an MMU takes to translate it into a physical address, including potential error conditions.",
+      "back": "1.  **Segment Number Check**: Verify $s$ is within the bounds of the Segment Table Length Register (STLR). If $s \\ge \\text{STLR}$, a segment fault occurs.\n2.  **Offset Check**: Retrieve the segment's limit $L$ from the segment table entry for $s$. If $o \\ge L$, an offset (bounds) fault occurs.\n3.  **Protection Check**: Retrieve protection bits $P$ from the segment table entry. If the requested operation (read/write/execute) violates $P$, a protection fault occurs.\n4.  **Physical Address Calculation**: Retrieve the segment's base address $B$ from the segment table entry. The physical address is $B + o$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the 'limit' field in a segment table entry contribute to memory protection and prevent unauthorized memory access?",
+      "back": "The 'limit' field specifies the maximum valid offset within a segment. During address translation, the MMU checks if the requested offset $o$ is less than the segment's limit $L$ ($o < L$). If $o \\ge L$, it indicates an attempt to access memory outside the bounds of the allocated segment. This triggers an offset (bounds) fault, thus protecting adjacent segments or the OS from unauthorized reads or writes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how read, write, and execute permissions are enforced in a segmented memory system, and where these permissions are stored.",
+      "back": "Each segment table entry contains **protection bits** (e.g., R, W, X). When a process attempts a memory operation (e.g., a write instruction), the MMU checks the requested operation against the segment's protection bits. If a write is attempted on a read-only segment (W bit not set), or an execute on a non-executable data segment (X bit not set), a protection fault is generated, preventing unauthorized operations and maintaining system integrity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the susceptibility of segmentation and pure paging to external fragmentation. Justify your answer.",
+      "back": "Segmentation is highly susceptible to **external fragmentation**. Segments are variable-sized, and when processes load and unload, they leave behind varying-sized holes in physical memory. Over time, these holes become too small to accommodate new segments, even if the total free space is sufficient. Pure paging, on the other hand, virtually eliminates external fragmentation because it allocates fixed-size pages. Any free page can be used, regardless of its location, as long as it's available, as there are no 'holes' of unusable size.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write pseudocode for an MMU's address translation and protection check for a logical address $(s, o)$ given a segment table `ST` and the desired `operation` (READ, WRITE, EXECUTE).",
+      "back": "```\nfunction translate_address(s, o, operation):\n    // Assume STLR is Segment Table Length Register\n    if s >= STLR:\n        raise SegmentFault(\"Segment number out of bounds\")\n\n    entry = ST[s] // Get segment table entry for segment s\n\n    if not entry.valid_bit:\n        raise InvalidSegmentFault(\"Segment not present in memory\")\n\n    if o >= entry.limit:\n        raise OffsetFault(\"Offset out of segment bounds\")\n\n    // Protection check\n    if operation == WRITE and not entry.write_permission:\n        raise ProtectionFault(\"No write permission for segment\")\n    if operation == READ and not entry.read_permission:\n        raise ProtectionFault(\"No read permission for segment\")\n    if operation == EXECUTE and not entry.execute_permission:\n        raise ProtectionFault(\"No execute permission for segment\")\n\n    physical_address = entry.base_address + o\n    return physical_address\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

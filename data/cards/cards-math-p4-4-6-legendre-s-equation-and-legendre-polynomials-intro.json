@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-legendre-s-equation-and-legendre-polynomials-intro",
+  "subtopicTitle": "Legendre's equation and Legendre polynomials (intro)",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:01.885Z",
+  "cards": [
+    {
+      "front": "State the standard form of Legendre's differential equation.",
+      "back": "$(1-x^2)\\frac{d^2y}{dx^2} - 2x\\frac{dy}{dx} + n(n+1)y = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In what common mathematical physics contexts does Legendre's equation frequently arise?",
+      "back": "It appears when solving Laplace's equation in spherical coordinates (e.g., for gravitational or electrostatic potentials), in quantum mechanics (angular momentum operator), and in other problems exhibiting spherical symmetry.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are Legendre polynomials, $P_n(x)$, in relation to Legendre's equation?",
+      "back": "They are a set of orthogonal polynomial solutions to Legendre's differential equation, $(1-x^2)y'' - 2xy' + n(n+1)y = 0$, when $n$ is a non-negative integer. They form a complete orthogonal basis for functions on the interval $[-1, 1]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Rodrigues' formula, which defines the Legendre polynomials $P_n(x)$.",
+      "back": "$P_n(x) = \\frac{1}{2^n n!} \\frac{d^n}{dx^n} (x^2-1)^n$. This formula is useful for generating the polynomials.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the first three Legendre polynomials: $P_0(x)$, $P_1(x)$, and $P_2(x)$.",
+      "back": "$P_0(x) = 1$\n$P_1(x) = x$\n$P_2(x) = \\frac{1}{2}(3x^2-1)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the orthogonality relation for Legendre polynomials $P_n(x)$ and $P_m(x)$ over the interval $[-1, 1]$.",
+      "back": "$\\int_{-1}^{1} P_n(x) P_m(x) dx = \\frac{2}{2n+1} \\delta_{nm}$, where $\\delta_{nm}$ is the Kronecker delta (equal to 1 if $n=m$, and 0 if $n \\neq m$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the three-term recurrence relation for Legendre polynomials, which allows calculation of higher-order polynomials from lower ones.",
+      "back": "$(n+1)P_{n+1}(x) = (2n+1)xP_n(x) - nP_{n-1}(x)$ for $n \\ge 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the parity (symmetry) property of Legendre polynomials, i.e., what is $P_n(-x)$?",
+      "back": "$P_n(-x) = (-1)^n P_n(x)$. This means $P_n(x)$ is an even function when $n$ is an even integer, and an odd function when $n$ is an odd integer.",
+      "difficulty": "easy"
+    }
+  ]
+}

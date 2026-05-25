@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-schr-dinger-equation-time-dependent-time-independent",
+  "subtopicTitle": "Schrödinger equation — time-dependent, time-independent",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:11.509Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of the Schrödinger equation in quantum mechanics?",
+      "back": "The Schrödinger equation describes how the quantum state of a physical system (represented by its wave function) evolves over time. It is analogous to Newton's second law in classical mechanics, providing the framework to calculate the behavior of quantum particles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general form of the time-dependent Schrödinger equation (TDSE) for a particle in a potential $V(\\mathbf{r}, t)$.",
+      "back": "The time-dependent Schrödinger equation (TDSE) is given by:\n$$i\\hbar \\frac{\\partial}{\\partial t} \\Psi(\\mathbf{r}, t) = \\hat{H} \\Psi(\\mathbf{r}, t)$$\nwhere $\\Psi(\\mathbf{r}, t)$ is the wave function, $\\hbar$ is the reduced Planck constant, and $\\hat{H}$ is the Hamiltonian operator.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the TDSE, $i\\hbar \\frac{\\partial}{\\partial t} \\Psi(\\mathbf{r}, t) = \\hat{H} \\Psi(\\mathbf{r}, t)$, what does $\\hat{H}$ represent, and how is it typically expressed for a single particle of mass $m$ in a potential $V(\\mathbf{r}, t)$?",
+      "back": "$\\hat{H}$ is the Hamiltonian operator, which represents the total energy (kinetic + potential) of the system. For a single particle of mass $m$ in a potential $V(\\mathbf{r}, t)$, the Hamiltonian operator is:\n$$\\hat{H} = -\\frac{\\hbar^2}{2m} \\nabla^2 + V(\\mathbf{r}, t)$$\nwhere $\\nabla^2$ is the Laplacian operator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical interpretation of the square of the magnitude of the wave function, $|\\Psi(\\mathbf{r}, t)|^2$?",
+      "back": "The quantity $|\\Psi(\\mathbf{r}, t)|^2$ represents the probability density of finding the particle at position $\\mathbf{r}$ at time $t$. Integrating this probability density over all space must yield 1 (normalization condition), meaning the particle must be found somewhere.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific condition can the time-dependent Schrödinger equation be separated into a time-independent form, and what is the general form of the resulting time-independent Schrödinger equation (TISE)?",
+      "back": "The TDSE can be separated into the TISE when the potential energy $V(\\mathbf{r}, t)$ is independent of time, i.e., $V(\\mathbf{r}, t) = V(\\mathbf{r})$. The general form of the time-independent Schrödinger equation (TISE) is:\n$$\\hat{H} \\psi(\\mathbf{r}) = E \\psi(\\mathbf{r})$$\nwhere $\\hat{H} = -\\frac{\\hbar^2}{2m} \\nabla^2 + V(\\mathbf{r})$, $\\psi(\\mathbf{r})$ is the time-independent wave function, and $E$ is the energy eigenvalue.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the time-independent Schrödinger equation (TISE) from the time-dependent Schrödinger equation (TDSE) by assuming a separable solution of the form $\\Psi(\\mathbf{r}, t) = \\psi(\\mathbf{r}) \\phi(t)$ for a time-independent potential $V(\\mathbf{r})$.",
+      "back": "Given the TDSE: $i\\hbar \\frac{\\partial}{\\partial t} \\Psi(\\mathbf{r}, t) = \\left( -\\frac{\\hbar^2}{2m} \\nabla^2 + V(\\mathbf{r}) \\right) \\Psi(\\mathbf{r}, t)$\nSubstitute $\\Psi(\\mathbf{r}, t) = \\psi(\\mathbf{r}) \\phi(t)$:\n$i\\hbar \\psi(\\mathbf{r}) \\frac{d}{dt} \\phi(t) = \\phi(t) \\left( -\\frac{\\hbar^2}{2m} \\nabla^2 + V(\\mathbf{r}) \\right) \\psi(\\mathbf{r})$\nDivide both sides by $\\psi(\\mathbf{r}) \\phi(t)$:\n$\\frac{i\\hbar}{\\phi(t)} \\frac{d}{dt} \\phi(t) = \\frac{1}{\\psi(\\mathbf{r})} \\left( -\\frac{\\hbar^2}{2m} \\nabla^2 + V(\\mathbf{r}) \\right) \\psi(\\mathbf{r})$\nThe left side depends only on $t$, and the right side depends only on $\\mathbf{r}$. For this equality to hold for all $t$ and $\\mathbf{r}$, both sides must be equal to a constant, which we define as $E$ (the total energy).\nThus, we get two separate equations:\n1. $i\\hbar \\frac{d}{dt} \\phi(t) = E \\phi(t)$ (time-dependent part)\n2. $\\left( -\\frac{\\hbar^2}{2m} \\nabla^2 + V(\\mathbf{r}) \\right) \\psi(\\mathbf{r}) = E \\psi(\\mathbf{r})$ (time-independent part)\nThe second equation is the time-independent Schrödinger equation (TISE), which can be written as $\\hat{H} \\psi(\\mathbf{r}) = E \\psi(\\mathbf{r})$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the constant $E$ represent in the time-independent Schrödinger equation $\\hat{H} \\psi(\\mathbf{r}) = E \\psi(\\mathbf{r})$, and what is the physical significance of the solutions $\\psi(\\mathbf{r})$ for these specific values of $E$?",
+      "back": "In the TISE, $E$ represents the allowed energy eigenvalues (quantized energy levels) of the system. For many systems, these energies are discrete, leading to energy quantization. The corresponding solutions $\\psi(\\mathbf{r})$ are the energy eigenfunctions (or stationary states). For these states, the probability density $|\\Psi(\\mathbf{r}, t)|^2 = |\\psi(\\mathbf{r})|^2 |\\phi(t)|^2 = |\\psi(\\mathbf{r})|^2$ (since $|\\phi(t)|^2=1$) is constant in time, meaning the system's observable properties (like probability distribution) do not change over time.",
+      "difficulty": "medium"
+    }
+  ]
+}

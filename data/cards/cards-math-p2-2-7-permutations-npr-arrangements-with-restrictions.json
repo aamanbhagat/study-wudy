@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-7-permutations-npr-arrangements-with-restrictions",
+  "subtopicTitle": "Permutations — nPr, arrangements with restrictions",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:24.346Z",
+  "cards": [
+    {
+      "front": "Define a permutation.",
+      "back": "A permutation is an arrangement of objects in a specific order. The order of selection or arrangement matters.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for $P(n, r)$, the number of permutations of $r$ items chosen from a set of $n$ distinct items, and explain $n$ and $r$.",
+      "back": "The formula is $P(n, r) = \\frac{n!}{(n-r)!}$.\n$n$ represents the total number of distinct items available.\n$r$ represents the number of items being selected and arranged.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for $P(n, r)$ using the multiplication principle.",
+      "back": "To choose and arrange $r$ items from $n$ distinct items:\n- For the 1st position, there are $n$ choices.\n- For the 2nd position, there are $n-1$ choices.\n- ...\n- For the $r$-th position, there are $n-(r-1) = n-r+1$ choices.\n\nBy the multiplication principle, the total number of permutations is $P(n, r) = n \\times (n-1) \\times \\dots \\times (n-r+1)$.\n\nTo express this using factorials, we multiply and divide by $(n-r)!$:\n$P(n, r) = \\frac{n \\times (n-1) \\times \\dots \\times (n-r+1) \\times (n-r)!}{(n-r)!} = \\frac{n!}{(n-r)!}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How many distinct ways can a president, vice-president, and treasurer be chosen from a club of 10 members?",
+      "back": "This is a permutation because the order of selection matters (each role is distinct).\n$n=10$ (total members), $r=3$ (positions to fill).\n$P(10, 3) = \\frac{10!}{(10-3)!} = \\frac{10!}{7!} = 10 \\times 9 \\times 8 = 720$ ways.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the number of distinct permutations of $n$ items where there are $n_1$ identical items of type 1, $n_2$ identical items of type 2, ..., $n_k$ identical items of type $k$.",
+      "back": "The number of distinct permutations is given by the formula:\n$$ \\frac{n!}{n_1! n_2! \\dots n_k!} $$ \nwhere $n$ is the total number of items, and $n = n_1 + n_2 + \\dots + n_k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many distinct arrangements are there of the letters in the word \"MATHEMATICS\"?",
+      "back": "The word \"MATHEMATICS\" has 11 letters.\nCounts of repeated letters:\n- M: 2 times\n- A: 2 times\n- T: 2 times\n- H, E, I, C, S: 1 time each\n\nUsing the formula for permutations with repeated items:\n$$ \\frac{11!}{2! \\times 2! \\times 2! \\times 1! \\times 1! \\times 1! \\times 1! \\times 1!} = \\frac{11!}{2!2!2!} = \\frac{39,916,800}{8} = 4,989,600 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In how many ways can the letters A, B, C, D, E be arranged if A and B must always be next to each other?",
+      "back": "Treat the letters A and B as a single block (AB). Now we are arranging the items (AB), C, D, E. This is a total of 4 items.\n\n1.  Number of ways to arrange these 4 items: $4! = 24$.\n2.  Within the (AB) block, A and B can be arranged in $2!$ ways (either AB or BA).\n\nTotal arrangements = (Arrangements of blocks) $\\times$ (Arrangements within the block)\nTotal arrangements = $4! \\times 2! = 24 \\times 2 = 48$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In how many ways can 3 boys and 2 girls be arranged in a row such that the 2 girls are never together?",
+      "back": "This problem uses the complementary counting principle:\n(Total arrangements) - (Arrangements where girls ARE together) = (Arrangements where girls are NEVER together).\n\n1.  **Total arrangements of 5 people:** $5! = 120$ ways.\n\n2.  **Arrangements where the 2 girls ARE together:** Treat the 2 girls (G1, G2) as a single block. Now we arrange (G1G2), B1, B2, B3. This is 4 items.\n    - Number of ways to arrange these 4 items: $4! = 24$.\n    - Within the (G1G2) block, the girls can be arranged in $2!$ ways (G1G2 or G2G1).\n    - Arrangements where girls are together = $4! \\times 2! = 24 \\times 2 = 48$.\n\n3.  **Arrangements where the 2 girls are NEVER together:**\n    $120 - 48 = 72$ ways.",
+      "difficulty": "hard"
+    }
+  ]
+}

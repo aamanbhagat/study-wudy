@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-3-udp-header-use-cases-checksum",
+  "subtopicTitle": "UDP — header, use cases, checksum",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:32.321Z",
+  "cards": [
+    {
+      "front": "List the four main fields found in a standard UDP header.",
+      "back": "The four main fields in a UDP header are:\n1. Source Port (16 bits)\n2. Destination Port (16 bits)\n3. Length (16 bits)\n4. Checksum (16 bits)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fixed size of a UDP header, and what does the 'Length' field represent?",
+      "back": "The fixed size of a UDP header is **8 bytes**. The 'Length' field specifies the length in bytes of the entire UDP datagram, which includes the 8-byte UDP header *and* the UDP data (payload).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name at least three types of applications or protocols that commonly use UDP.",
+      "back": "Common applications or protocols that use UDP include:\n1.  **DNS** (Domain Name System) for quick queries.\n2.  **DHCP** (Dynamic Host Configuration Protocol) for IP address assignment.\n3.  **VoIP** (Voice over IP) and real-time video streaming.\n4.  **Online Gaming** where low latency is critical.\n5.  **SNMP** (Simple Network Management Protocol) for network device management.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For what key characteristics is UDP preferred in applications like real-time video streaming or online gaming, even with potential packet loss?",
+      "back": "UDP is preferred for its **connectionless nature**, **minimal overhead**, and **lack of retransmission, flow, or congestion control**. This results in lower latency and higher speed, which is crucial for real-time applications where occasional packet loss is acceptable or preferred over the delays introduced by TCP's reliability mechanisms (e.g., retransmissions of lost frames in a video stream would cause noticeable lag).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of the UDP checksum, and what special meaning does a checksum value of $0x0000$ have when transmitted by the sender?",
+      "back": "The primary purpose of the UDP checksum is to **detect errors (corruption)** in the UDP header and data segment during transmission. If the sender calculates a checksum of all zeros ($0x0000$), it transmits $0x0000$ to indicate that the checksum was **not computed** (i.e., it's optional for IPv4). If the checksum *was* computed and resulted in $0x0000$, it would be transmitted as $0xFFFF$ to distinguish it from the 'not computed' case.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe all the components included in the UDP checksum calculation, emphasizing the role of the \"pseudo-header.\"",
+      "back": "The UDP checksum is calculated over three main components:\n1.  The entire **UDP header** (8 bytes).\n2.  The entire **UDP data** (payload).\n3.  A **\"pseudo-header\"** (12 bytes for IPv4, 40 bytes for IPv6). This is a conceptual header, not transmitted, but includes crucial fields from the IP header: Source IP address, Destination IP address, Protocol (set to 17 for UDP), and UDP Length. The pseudo-header helps ensure that the UDP datagram has not been misdelivered to the wrong destination or corrupted at the IP layer.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly describe the algorithm used to calculate the UDP checksum.",
+      "back": "The UDP checksum uses a **16-bit one's complement sum**. All 16-bit words of the UDP header, UDP data, and the pseudo-header are added together using one's complement arithmetic. If the total number of bytes is odd, a zero-padded byte is appended to make it an even number of bytes for 16-bit word processing. Any carries generated during the sum are wrapped around and added back into the sum. Finally, the one's complement of this total sum is taken to produce the 16-bit checksum value.\n\nMathematically, if $M_i$ are the 16-bit words (including pseudo-header, header, and data), the checksum $C$ is:\n$$C = \\sim\\left(\\sum_{i} M_i\\right)$$\nwhere $\\sim$ denotes the one's complement.",
+      "difficulty": "hard"
+    }
+  ]
+}

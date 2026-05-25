@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-pointer-arithmetic-adding-integers-to-pointers",
+  "subtopicTitle": "Pointer arithmetic — adding integers to pointers",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:34.391Z",
+  "cards": [
+    {
+      "front": "In C, what does the expression `ptr + n` mean when `ptr` is a pointer to a data type `T` and `n` is an integer?",
+      "back": "It means the address of the memory location `n` *elements* past the memory location pointed to by `ptr`. The actual byte address is calculated as: $$(address\\_of\\_ptr) + (n \\times \\text{sizeof}(T))$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an `int* p` pointing to memory address `0x1000` and `sizeof(int)` is 4 bytes, what memory address does `p + 3` evaluate to?",
+      "back": "The expression `p + 3` evaluates to `0x1000 + (3 * sizeof(int))`. Since `sizeof(int)` is 4 bytes, this is `0x1000 + (3 * 4) = 0x1000 + 12 = 0x100C`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an array `int arr[10];` and an `int* p = arr;`, what is the relationship between `*(p + i)` and `arr[i]`?",
+      "back": "They are equivalent. Both `*(p + i)` and `arr[i]` access the `i`-th element of the array `arr`. This is because array indexing `arr[i]` is internally translated by the compiler into pointer arithmetic: `*(arr + i)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which of the following operations are *invalid* in standard C pointer arithmetic: `ptr + 5.0`, `ptr + another_ptr`, `ptr + 'a'`, `ptr + 1L`?",
+      "back": "<ul><li>`ptr + 5.0`: Invalid. You cannot add a `float` or `double` to a pointer.</li><li>`ptr + another_ptr`: Invalid. You cannot add two pointers together.</li><li>`ptr + 'a'`: Valid. Character literals ('a') are implicitly converted to `int` (their ASCII value) in C expressions, so this is equivalent to `ptr + 97`.</li><li>`ptr + 1L`: Valid. `1L` is a `long int`, which is an integer type, so it can be added to a pointer.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can you directly perform pointer arithmetic (e.g., `void_ptr + 1`) on a `void*` in standard C? If not, how can you achieve a similar effect?",
+      "back": "No, you cannot directly perform pointer arithmetic on a `void*` in standard C. The `sizeof` an element is unknown for `void*`, which is essential for scaling. To achieve a similar effect, you must first cast the `void*` to a pointer to a specific data type (e.g., `char*`) before performing arithmetic.\n```c\nvoid* v_ptr = some_address;\nchar* c_ptr = (char*)v_ptr;\nc_ptr = c_ptr + 10; // Moves 10 bytes forward\nv_ptr = (void*)c_ptr;\n```\n(Note: Some compilers allow `void*` arithmetic as an extension, treating `sizeof(void)` as 1, but it's not standard C.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the consequence of forming a pointer that points \"one past the end\" of an array, and what happens if you try to dereference it?",
+      "back": "Forming a pointer that points \"one past the end\" of an array (e.g., `arr + N` for `arr[N]`) is *valid* in C. This pointer can be used for comparison (e.g., in loops).\nHowever, attempting to *dereference* such a pointer (e.g., `*(arr + N)`) results in **undefined behavior**. The program might crash, access garbage data, or behave unpredictably, as it's trying to access memory outside the allocated array bounds.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given `int** pp;` where `pp` points to an `int*`, and `sizeof(int*)` is 8 bytes. If `pp` holds address `0x2000`, what address does `pp + 2` point to?",
+      "back": "Pointer arithmetic scales by the `sizeof` the type the pointer points *to*. Here, `pp` points to an `int*`.\nSo, `pp + 2` evaluates to `0x2000 + (2 * sizeof(int*))`.\nGiven `sizeof(int*)` is 8 bytes, this is `0x2000 + (2 * 8) = 0x2000 + 16 = 0x2010`.",
+      "difficulty": "medium"
+    }
+  ]
+}

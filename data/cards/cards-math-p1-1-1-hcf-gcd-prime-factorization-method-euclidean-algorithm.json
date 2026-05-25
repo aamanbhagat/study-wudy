@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p1-1-1-hcf-gcd-prime-factorization-method-euclidean-algorithm",
+  "subtopicTitle": "HCF (GCD) — prime factorization method, Euclidean algorithm",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:39.586Z",
+  "cards": [
+    {
+      "front": "Define the Highest Common Factor (HCF) of two or more integers.",
+      "back": "The HCF (also known as the Greatest Common Divisor, GCD) of two or more integers is the largest positive integer that divides each of the integers without leaving a remainder.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the steps to find the HCF of two positive integers using the prime factorization method.",
+      "back": "1. Find the prime factorization of each integer.\n2. Identify all common prime factors.\n3. For each common prime factor, take the lowest power that appears in either factorization.\n4. Multiply these lowest powers together to get the HCF.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the HCF of $72$ and $108$ using the prime factorization method.",
+      "back": "$72 = 2^3 \\times 3^2$\n$108 = 2^2 \\times 3^3$\nCommon prime factors are $2$ and $3$.\nLowest power of $2$ is $2^2$.\nLowest power of $3$ is $3^2$.\nHCF$(72, 108) = 2^2 \\times 3^2 = 4 \\times 9 = 36$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the fundamental property that allows the Euclidean algorithm to find the HCF of two positive integers $a$ and $b$ (where $a > b$).",
+      "back": "If $a = bq + r$, where $q$ is the quotient and $r$ is the remainder ($0 \\le r < b$), then HCF$(a, b) = \\text{HCF}(b, r)$. This property holds because any common divisor of $a$ and $b$ must also divide $r = a - bq$, and conversely, any common divisor of $b$ and $r$ must also divide $a = bq + r$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Use the Euclidean algorithm to find the HCF of $252$ and $198$.",
+      "back": "$252 = 1 \\times 198 + 54$\n$198 = 3 \\times 54 + 36$\n$54 = 1 \\times 36 + 18$\n$36 = 2 \\times 18 + 0$\nThe last non-zero remainder is $18$.\nTherefore, HCF$(252, 198) = 18$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is HCF$(a, 0)$ for any positive integer $a$? Explain why.",
+      "back": "HCF$(a, 0) = a$.\nThis is because every positive integer divides $0$ (since $0 = k \\times n$ for any $n$, if $k=0$). The common divisors of $a$ and $0$ are precisely all the divisors of $a$. The largest among these is $a$ itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the HCF of two distinct prime numbers, $p$ and $q$? What about two numbers that are coprime?",
+      "back": "For distinct prime numbers $p$ and $q$, HCF$(p, q) = 1$. This is because their only positive divisors are $1, p$ and $1, q$ respectively, with $1$ being the only common divisor.\nFor any two numbers that are coprime (meaning they share no common prime factors), their HCF is also $1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For two positive integers $a$ and $b$, what is the relationship between their HCF, LCM, and the product of the numbers?",
+      "back": "For any two positive integers $a$ and $b$,\n$$ \\text{HCF}(a, b) \\times \\text{LCM}(a, b) = a \\times b $$\nThis means that the product of the HCF and LCM of two numbers is equal to the product of the numbers themselves.",
+      "difficulty": "medium"
+    }
+  ]
+}

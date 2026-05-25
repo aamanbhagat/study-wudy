@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-heap-fragmentation",
+  "subtopicTitle": "Heap fragmentation",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:40.125Z",
+  "cards": [
+    {
+      "front": "Define \"heap fragmentation\" in the context of C programming memory management.",
+      "back": "Heap fragmentation occurs when the available free memory on the heap is broken into many small, non-contiguous blocks. Even if the total amount of free memory is large enough to satisfy a request, `malloc` might fail because no single contiguous block is large enough.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between \"internal fragmentation\" and \"external fragmentation\" on the heap.",
+      "back": "<ul><li><b>Internal Fragmentation:</b> Occurs when memory is allocated in fixed-size blocks, and the allocated block is larger than the requested size. The unused portion within the allocated block is wasted. E.g., requesting 10 bytes, but `malloc` allocates 16 bytes.</li><li><b>External Fragmentation:</b> Occurs when there is enough total free memory to satisfy a request, but it is scattered in non-contiguous blocks, so no single block is large enough. This is the more common concern with `malloc`/`free` patterns.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a sequence of `malloc` and `free` calls can lead to external fragmentation.",
+      "back": "Consider a large block of free memory. If `malloc(A)`, `malloc(B)`, `malloc(C)` are called, followed by `free(B)`, the memory layout becomes `[A][FREE_B][C]`. If a subsequent `malloc(D)` request requires a block larger than `FREE_B`, it will fail even though $A+C$ (or other free space) might be available, because `FREE_B` is not large enough and is surrounded by allocated blocks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the primary negative consequences of severe heap fragmentation in a long-running C application?",
+      "back": "Severe heap fragmentation leads to:\n1.  <b>Reduced memory efficiency:</b> Wasted memory due to unusable small free blocks.\n2.  <b>Performance degradation:</b> Increased time for `malloc` to find a suitable block, potential cache misses if related data is scattered.\n3.  <b>Memory exhaustion:</b> `malloc` calls can fail prematurely, even when significant total free memory exists, leading to application crashes or incorrect behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can a memory allocator mitigate external heap fragmentation?",
+      "back": "Memory allocators often mitigate external fragmentation through:\n1.  <b>Coalescing:</b> Merging adjacent free blocks into a single larger free block when a `free` operation occurs.\n2.  <b>Allocation strategies:</b> Using algorithms like best-fit (finds smallest suitable block) or first-fit (finds first suitable block) with varying success. Some advanced allocators (e.g., `jemalloc`, `tcmalloc`) use segregated free lists for different sizes to reduce fragmentation.\n3.  <b>Memory compaction:</b> (Less common for general-purpose heaps) Rearranging allocated blocks to consolidate free space, often expensive.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You are writing a C application that frequently allocates and deallocates many small, fixed-size objects. What application-level strategy can reduce heap fragmentation?",
+      "back": "An effective application-level strategy is to implement a <b>memory pool</b> (or object pool). Instead of calling `malloc` and `free` for each object, allocate a large contiguous block of memory once (the pool). Then, manage the allocation and deallocation of fixed-size objects within this pool using a custom allocator. This avoids frequent `malloc`/`free` calls to the system allocator, reducing external fragmentation and improving performance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a `malloc` implementation that always allocates memory in multiples of 16 bytes. If you request `malloc(25)` bytes, how much internal fragmentation occurs?",
+      "back": "The `malloc` implementation allocates in multiples of 16 bytes. For a request of 25 bytes, the smallest multiple of 16 that can satisfy it is $2 \times 16 = 32$ bytes.\n\nInternal fragmentation = Allocated size - Requested size\nInternal fragmentation = $32 - 25 = 7$ bytes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What tools or techniques can a C programmer use to detect and analyze heap fragmentation in a running application?",
+      "back": "Programmers can use:\n1.  <b>Memory Profilers:</b> Tools like Valgrind's Massif or gperftools' `tcmalloc` profiler can track heap usage, show allocation patterns, and visualize heap layout over time, helping identify fragmentation.\n2.  <b>Custom `malloc` wrappers:</b> Overloading `malloc` and `free` to log allocation sizes, addresses, and free block information can provide insights into fragmentation patterns.\n3.  <b>System-level monitoring:</b> Observing `sbrk` or `mmap` calls (which `malloc` uses) can show how much memory the OS is providing to the process, but won't directly show internal heap structure.\n4.  <b>Debugging `malloc` internals:</b> Some `malloc` implementations (e.g., `glibc`'s `malloc`) provide debug hooks or internal data structures that can be inspected.",
+      "difficulty": "hard"
+    }
+  ]
+}

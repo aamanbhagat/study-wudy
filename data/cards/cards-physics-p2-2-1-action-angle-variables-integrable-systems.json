@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-action-angle-variables-integrable-systems",
+  "subtopicTitle": "Action-angle variables — integrable systems",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:05.780Z",
+  "cards": [
+    {
+      "front": "In Hamiltonian mechanics, an $N$-degree-of-freedom system is called integrable if it possesses $N$ independent, globally defined functions that are in ____________________ with each other and are conserved quantities.",
+      "back": "involution (i.e., their Poisson brackets vanish). These $N$ conserved quantities allow the system's motion to be completely determined.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary advantage of transforming to action-angle variables $(J_k, \\theta_k)$ for an integrable Hamiltonian system?",
+      "back": "The transformed Hamiltonian $H(J_1, ..., J_N, \\theta_1, ..., \\theta_N)$ becomes dependent only on the action variables, $H(J_1, ..., J_N)$. This simplifies the equations of motion such that $J_k$ are constants and $\\theta_k$ evolve linearly in time, making the system's dynamics trivial to solve.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the action variable $J_k$ for a periodic motion in an integrable system with generalized coordinates $q_k$ and momenta $p_k$.",
+      "back": "The action variable $J_k$ is defined as $J_k = \\frac{1}{2\\pi} \\oint p_k dq_k$, where the integral is taken over one complete period of the motion for the $k$-th degree of freedom, with all other action variables $J_j$ held constant. It represents the phase space area enclosed by the trajectory projected onto the $(q_k, p_k)$ plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the concept of a canonical transformation from $(q,p)$ to $(J,\\theta)$, explain why the Hamiltonian in action-angle variables, $H(J,\\theta)$, must be independent of the angle variables $\\theta$.",
+      "back": "Action-angle variables $(J,\\theta)$ are obtained via a canonical transformation. By definition, the action variables $J_k$ are constants of motion. From Hamilton's equations in the new variables, $\\dot{J}_k = -\\frac{\\partial H}{\\partial \\theta_k}$. For $J_k$ to be constant, $\\dot{J}_k = 0$, which implies that $\\frac{\\partial H}{\\partial \\theta_k} = 0$ for all $k$. Therefore, the Hamiltonian $H$ must be independent of all angle variables $\\theta_k$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For an integrable system with Hamiltonian $H(J_1, ..., J_N)$, how do the angle variables $\\theta_k$ evolve in time, and what is the physical meaning of the constants $\\omega_k$?",
+      "back": "The equations of motion for the angle variables are $\\dot{\\theta}_k = \\frac{\\partial H}{\\partial J_k}$. Since $H$ depends only on $J_k$ (which are constants), $\\frac{\\partial H}{\\partial J_k}$ are also constants, denoted as $\\omega_k$. Thus, $\\dot{\\theta}_k = \\omega_k$, which integrates to $\\theta_k(t) = \\omega_k t + \\beta_k$. The constants $\\omega_k$ are the fundamental frequencies of the periodic or quasi-periodic motion for each degree of freedom.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of an \"adiabatic invariant\" in the context of action variables $J_k$.",
+      "back": "An action variable $J_k$ is an adiabatic invariant if, when the parameters of the system change very slowly (adiabatically) compared to the characteristic period of the motion, $J_k$ remains approximately constant. This means that even if the Hamiltonian itself slowly changes with time, the action variables are preserved to a high degree of accuracy. This property is crucial in areas like plasma physics (e.g., magnetic moment of a charged particle) and the old quantum theory.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a 1D simple harmonic oscillator with mass $m$ and angular frequency $\\omega_0$, derive its action variable $J$ in terms of its energy $E$.",
+      "back": "The Hamiltonian is $H = \\frac{p^2}{2m} + \\frac{1}{2}m\\omega_0^2 q^2$. For a given energy $E$, the trajectory in phase space $(q,p)$ is an ellipse. The action variable is $J = \\frac{1}{2\\pi} \\oint p dq$. From $H=E$, we have $p = \\pm \\sqrt{2mE - m^2\\omega_0^2 q^2}$. The integral $\\oint p dq$ represents the area of this ellipse, which is $\\pi a b$, where $a = \\sqrt{\\frac{2E}{m\\omega_0^2}}$ (semi-major axis along $q$) and $b = \\sqrt{2mE}$ (semi-major axis along $p$).\nThus, $J = \\frac{1}{2\\pi} (\\pi \\sqrt{\\frac{2E}{m\\omega_0^2}} \\sqrt{2mE}) = \\frac{1}{2\\pi} (\\pi \\frac{2E}{\\omega_0}) = \\frac{E}{\\omega_0}$. Therefore, $H = \\omega_0 J$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Liouville-Arnold theorem relate to the existence and properties of action-angle variables for an integrable system?",
+      "back": "The Liouville-Arnold theorem states that for an $N$-degree-of-freedom Hamiltonian system with $N$ independent, Poisson-commuting conserved quantities (i.e., an integrable system), the phase space trajectories are confined to $N$-dimensional invariant tori. On these invariant tori, it is possible to define canonical action-angle variables $(J_k, \\theta_k)$ such that the action variables $J_k$ label the tori (they are constants on each torus), and the angle variables $\\theta_k$ describe uniform motion around the tori. This theorem provides the rigorous foundation for the existence and utility of action-angle variables.",
+      "difficulty": "hard"
+    }
+  ]
+}

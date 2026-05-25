@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-3-modules-import-from-import-as-aliasing",
+  "subtopicTitle": "Modules — import, from...import, as aliasing",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:13.432Z",
+  "cards": [
+    {
+      "front": "In Python, what is a \"module\" at its most basic level, and what is its primary purpose?",
+      "back": "A Python module is a file containing Python code (definitions, statements, functions, classes). Its name is the filename with the `.py` extension. Its primary purpose is to organize code, promote reusability, and maintain a clear namespace by encapsulating related functionalities.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the Python code to import the standard `math` module and then calculate the square root of `25` using its `sqrt` function.",
+      "back": "```python\nimport math\nresult = math.sqrt(25)\n# result will be 5.0\n```\nThis approach imports the entire `math` module, requiring you to prefix its members with `math.` to access them.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can you import only the `pi` constant from the `math` module so that you can use it directly without the `math.` prefix? Provide the import statement and an example usage.",
+      "back": "```python\nfrom math import pi\nprint(f\"The value of pi is: {pi}\")\n```\nThis `from...import` statement brings `pi` directly into the current namespace, allowing direct access.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When importing a module with a long name (e.g., `matplotlib.pyplot`), how can you create a shorter alias for convenience and readability? Provide an example for `matplotlib.pyplot` as `plt`.",
+      "back": "You can use the `as` keyword to create an alias for the module:\n```python\nimport matplotlib.pyplot as plt\n\n# Now you can refer to matplotlib.pyplot as plt\nplt.plot([1, 2, 3])\nplt.show()\n```\nThis is a common practice for many popular libraries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you import the `DataFrame` class from the `pandas` module and give it a custom alias `DF` to avoid potential name conflicts or for brevity?",
+      "back": "```python\nfrom pandas import DataFrame as DF\n\n# Now you can use DF directly\nmy_data = {'col1': [1, 2], 'col2': [3, 4]}\nmy_df = DF(my_data)\nprint(my_df)\n```\nThis imports `DataFrame` into the current namespace under the name `DF`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary drawback of using `from module import *` (wildcard import). Provide a simple example demonstrating a potential issue.",
+      "back": "The primary drawback is that it imports *all* public names from the module directly into the current namespace. This can lead to name collisions, where imported names overwrite existing local names (or vice-versa), making code harder to read, debug, and maintain. It's generally discouraged.\n\nExample:\n```python\n# my_module.py\nmessage = \"Hello from module!\"\n\n# main.py\nmessage = \"Hello from main!\"\nfrom my_module import * # This overwrites the local 'message'\nprint(message) # Output: Hello from module!\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When Python executes an `import` statement (e.g., `import my_module`), what is the order of locations it searches to find `my_module.py`?",
+      "back": "Python searches for modules in the following order:\n1.  The directory containing the input script (or the current working directory when running interactively).\n2.  The directories listed in the `PYTHONPATH` environment variable.\n3.  Standard library directories (e.g., `site-packages` for third-party modules).\nThese paths are collectively stored in `sys.path`, which is a list of strings.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain when you would generally prefer `import module_name` over `from module_name import item_name`, and vice-versa.",
+      "back": "You would prefer:\n*   `import module_name`: When you need many items from the module, or to avoid name collisions by explicitly prefixing `module_name.item`. It keeps the current namespace cleaner.\n*   `from module_name import item_name`: When you only need a few specific items from a module, or when the module name is very long and you want to use the item frequently without prefixing. Use with caution to avoid name clashes.",
+      "difficulty": "medium"
+    }
+  ]
+}

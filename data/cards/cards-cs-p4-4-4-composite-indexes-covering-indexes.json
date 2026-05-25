@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-4-composite-indexes-covering-indexes",
+  "subtopicTitle": "Composite indexes, covering indexes",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:52.985Z",
+  "cards": [
+    {
+      "front": "What is a **composite index** in a database, and why might you create one?",
+      "back": "A composite index (or multicolumn index) is an index created on two or more columns of a table. It's used to optimize queries that filter, join, or sort by multiple columns together, improving performance by allowing the database to scan fewer rows or avoid expensive sorting operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When creating a composite index `(colA, colB, colC)`, does the order of columns matter? Explain why.",
+      "back": "Yes, the order of columns absolutely matters. The database stores the index entries sorted first by `colA`, then by `colB` within `colA`'s values, and finally by `colC` within `colB`'s values. This specific sorting order is crucial for the \"leftmost prefix rule\" and determines which queries can efficiently use the index.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the **leftmost prefix rule** for composite indexes. Given `INDEX (A, B, C)`, which of these queries can use the index for filtering?\n1. `WHERE A = 1`\n2. `WHERE B = 2`\n3. `WHERE A = 1 AND B = 2`\n4. `WHERE B = 2 AND C = 3`\n5. `WHERE A = 1 AND C = 3`",
+      "back": "The leftmost prefix rule states that a composite index can be used for queries that involve the leftmost column(s) of the index. The database can efficiently scan the index as long as the query starts with the first column(s) of the index.\n1. `WHERE A = 1`: YES (uses `A`)\n2. `WHERE B = 2`: NO (doesn't start with `A`)\n3. `WHERE A = 1 AND B = 2`: YES (uses `A, B`)\n4. `WHERE B = 2 AND C = 3`: NO (doesn't start with `A`)\n5. `WHERE A = 1 AND C = 3`: YES (uses `A` for filtering, but `C` might not be used efficiently for range or sorting without `B` in between, potentially requiring a partial scan or additional filtering)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If you frequently query `SELECT * FROM products WHERE category = 'Electronics' ORDER BY price DESC, rating DESC`, how would you design a composite index to optimize both filtering and sorting?",
+      "back": "You should create a composite index on `(category, price DESC, rating DESC)`:\n```sql\nCREATE INDEX idx_products_category_price_rating\nON products (category, price DESC, rating DESC);\n```\nThis index allows the database to:\n1. Quickly find rows for `category = 'Electronics'`.\n2. Retrieve these rows already sorted by `price DESC` and then `rating DESC`, avoiding an expensive in-memory sort operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a **covering index** (also known as an index-only scan)?",
+      "back": "A covering index is an index that includes all the columns required by a specific query, either as part of the index key or as non-key 'included' columns (e.g., using `INCLUDE` in PostgreSQL or SQL Server). This allows the database to retrieve all necessary data directly from the index without needing to access the actual table rows (a \"table lookup\" or \"heap fetch\"), significantly speeding up the query.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider a table `users(id, name, email, created_at)`. How would you create a covering index to optimize `SELECT name, email FROM users WHERE created_at > '2023-01-01' ORDER BY created_at DESC`?",
+      "back": "You would create an index that includes `created_at` for the `WHERE` clause and `ORDER BY`, and `name`, `email` as additional columns to cover the `SELECT` list. For example, in PostgreSQL:\n```sql\nCREATE INDEX idx_users_created_at_name_email\nON users (created_at DESC) INCLUDE (name, email);\n```\nThis index covers all columns needed by the `SELECT` and `WHERE/ORDER BY` clauses, avoiding a table lookup and potentially a sort.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You have a query `SELECT colB, colC FROM myTable WHERE colA = 'value'`. Which index is generally better: `INDEX (colA, colB, colC)` or `INDEX (colA) INCLUDE (colB, colC)`? Explain trade-offs.",
+      "back": "Both can be covering indexes for this query, but they have different trade-offs:\n\n1.  **`INDEX (colA, colB, colC)` (Composite Index):**\n    *   **Pros:** All columns are part of the sorted key, making it highly efficient for queries involving `colA`, `colA, colB`, or `colA, colB, colC` in `WHERE` or `ORDER BY` clauses (due to leftmost prefix rule).\n    *   **Cons:** Potentially larger index size if `colB` and `colC` are large, as they are fully sorted. Updates to `colB` or `colC` might be more expensive as they affect the sorted key structure.\n\n2.  **`INDEX (colA) INCLUDE (colB, colC)` (Covering Index with Included Columns):**\n    *   **Pros:** Smaller key size (`colA` only), potentially lower storage and maintenance overhead for `colB` and `colC` as they are not part of the primary sort order. Updates to `colB` or `colC` are generally cheaper as they don't impact the key's sort order.\n    *   **Cons:** `colB` and `colC` can only be used for covering (retrieval), not for filtering or sorting *as part of the index key* (only `colA` can). This index is less versatile for queries involving `colB` or `colC` in `WHERE` or `ORDER BY` clauses after `colA`.\n\n**Conclusion:** For the given query `SELECT colB, colC FROM myTable WHERE colA = 'value'`, the `INCLUDE` variant is often preferred. It provides covering benefits with a smaller, more maintainable key. However, if `colB` or `colC` are frequently used in `WHERE` or `ORDER BY` clauses *in conjunction with `colA`*, the composite index `(colA, colB, colC)` would be more versatile and potentially more performant for those specific patterns.",
+      "difficulty": "hard"
+    }
+  ]
+}

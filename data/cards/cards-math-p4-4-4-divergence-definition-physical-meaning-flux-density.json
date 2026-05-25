@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-divergence-definition-physical-meaning-flux-density",
+  "subtopicTitle": "Divergence — definition, physical meaning (flux density)",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:31.904Z",
+  "cards": [
+    {
+      "front": "Define the divergence of a 3D vector field $\\mathbf{F}(x,y,z) = P(x,y,z)\\mathbf{i} + Q(x,y,z)\\mathbf{j} + R(x,y,z)\\mathbf{k}$ using the $\\nabla \\cdot$ operator.",
+      "back": "The divergence of $\\mathbf{F}$ is given by:\n$$ \\nabla \\cdot \\mathbf{F} = \\frac{\\partial P}{\\partial x} + \\frac{\\partial Q}{\\partial y} + \\frac{\\partial R}{\\partial z} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity does the divergence of a vector field $\\mathbf{F}$ represent at a point, and what is its intuitive interpretation?",
+      "back": "It represents the **flux density** (or net outflow per unit volume) at that point. Intuitively, it measures the tendency of the vector field to \"diverge\" or \"spread out\" from that point, acting as a source or sink.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $\\nabla \\cdot \\mathbf{F} > 0$ at a point $P$, what does this imply about the behavior of the vector field $\\mathbf{F}$ near $P$?",
+      "back": "A positive divergence indicates that $P$ is a **source** for the vector field. There is a net outflow of flux away from $P$, meaning more \"stuff\" is leaving an infinitesimal volume around $P$ than entering it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the divergence of the vector field $\\mathbf{F}(x,y,z) = x^2y\\mathbf{i} + yz^2\\mathbf{j} + xz\\mathbf{k}$.",
+      "back": "Given $\\mathbf{F}(x,y,z) = x^2y\\mathbf{i} + yz^2\\mathbf{j} + xz\\mathbf{k}$, we have $P = x^2y$, $Q = yz^2$, and $R = xz$.\n\n$\\frac{\\partial P}{\\partial x} = 2xy$\n$\\frac{\\partial Q}{\\partial y} = z^2$\n$\\frac{\\partial R}{\\partial z} = x$\n\nTherefore, $\\nabla \\cdot \\mathbf{F} = 2xy + z^2 + x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the divergence of a vector field $\\mathbf{F}$ at a point $(x,y,z)$ can be defined as the limit of the net outward flux per unit volume as the volume shrinks to that point.",
+      "back": "The divergence of $\\mathbf{F}$ at a point $P$ is fundamentally defined as:\n$$ \\nabla \\cdot \\mathbf{F}(P) = \\lim_{\\Delta V \\to 0} \\frac{1}{\\Delta V} \\iint_S \\mathbf{F} \\cdot d\\mathbf{S} $$\nwhere $S$ is a closed surface enclosing a small volume $\\Delta V$ containing $P$. This definition precisely captures the idea of flux density: the net outflow of the vector field per unit volume.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A vector field $\\mathbf{F}$ is called **solenoidal** if its divergence is zero everywhere, i.e., $\\nabla \\cdot \\mathbf{F} = 0$. What does this physically imply about the flow represented by $\\mathbf{F}$?",
+      "back": "If $\\nabla \\cdot \\mathbf{F} = 0$, it means there are no net sources or sinks within any region. The flow is incompressible and source-free. For any closed surface, the total flux entering equals the total flux leaving, implying the \"stuff\" is neither created nor destroyed within the volume.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the relationship between the divergence of a vector field and the flux through a closed surface, as given by Gauss's Divergence Theorem.",
+      "back": "Gauss's Divergence Theorem states that for a vector field $\\mathbf{F}$ and a solid region $E$ bounded by a closed surface $S$ with outward orientation:\n$$ \\iint_S \\mathbf{F} \\cdot d\\mathbf{S} = \\iiint_E \\nabla \\cdot \\mathbf{F} \\, dV $$\nIt relates the total outward flux across a closed surface to the volume integral of the divergence inside the region, essentially stating that the total flux out of a volume is the sum of the sources minus the sinks within that volume.",
+      "difficulty": "hard"
+    }
+  ]
+}

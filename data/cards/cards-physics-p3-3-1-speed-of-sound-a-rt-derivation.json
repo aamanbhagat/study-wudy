@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-speed-of-sound-a-rt-derivation",
+  "subtopicTitle": "Speed of sound — a = √(γRT) — derivation",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:08.939Z",
+  "cards": [
+    {
+      "front": "Conceptually, what phenomenon does the 'speed of sound' describe in a fluid medium?",
+      "back": "The speed at which an infinitesimally small pressure disturbance (or acoustic wave) propagates through a compressible fluid. It represents the rate at which information can travel locally within the fluid.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the primary assumptions made when deriving the speed of sound for an ideal gas from first principles.",
+      "back": "1. The disturbance is infinitesimally small (linear acoustics). 2. The process is adiabatic (no heat transfer). 3. The process is reversible (isentropic). 4. The fluid is inviscid (no friction). 5. The fluid behaves as an ideal gas.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "From the linearized 1D continuity and momentum equations, the square of the speed of sound ($a^2$) is fundamentally defined by what partial derivative?",
+      "back": "The square of the speed of sound is fundamentally defined as: $$a^2 = \\left(\\frac{\\partial P}{\\partial \\rho}\\right)_s$$ where $P$ is pressure, $\\rho$ is density, and the subscript $s$ indicates that the derivative is taken along an isentropic path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an ideal gas undergoing an isentropic process, what is the mathematical relationship between pressure ($P$) and density ($\\rho$)?",
+      "back": "For an ideal gas, an isentropic process follows the relation: $$P\\rho^{-\\gamma} = \\text{constant} \\quad \\text{or} \\quad P = C\\rho^\\gamma$$ where $\\gamma$ is the ratio of specific heats ($c_p/c_v$) and $C$ is a constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the speed of sound formula $a = \\sqrt{\\gamma RT}$ starting from the fundamental definition $a^2 = (\\partial P / \\partial \\rho)_s$ and the isentropic relation for an ideal gas ($P = C\\rho^\\gamma$). Show all steps.",
+      "back": "Given:\n1.  $a^2 = \\left(\\frac{\\partial P}{\\partial \\rho}\\right)_s$\n2.  For an ideal gas undergoing an isentropic process, $P = C\\rho^\\gamma$, where $C$ is a constant.\n\nFirst, differentiate $P$ with respect to $\\rho$:\n$$\\frac{\\partial P}{\\partial \\rho} = \\frac{\\partial}{\\partial \\rho}(C\\rho^\\gamma) = C\\gamma\\rho^{\\gamma-1}$$\n\nNext, substitute $C = P/\\rho^\\gamma$ (from the isentropic relation) back into the derivative:\n$$C\\gamma\\rho^{\\gamma-1} = \\left(\\frac{P}{\\rho^\\gamma}\\right)\\gamma\\rho^{\\gamma-1} = \\frac{P\\gamma\\rho^{\\gamma-1}}{\\rho^\\gamma} = \\frac{\\gamma P}{\\rho}$$\n\nSo, we have $a^2 = \\frac{\\gamma P}{\\rho}$.\n\nFinally, use the ideal gas law, $P = \\rho RT$, which implies $\\frac{P}{\\rho} = RT$. Substitute this into the expression for $a^2$:\n$$a^2 = \\gamma \\left(\\frac{P}{\\rho}\\right) = \\gamma RT$$\n\nTaking the square root yields the speed of sound:\n$$a = \\sqrt{\\gamma RT}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the speed of sound formula $a = \\sqrt{\\gamma RT}$, what does $\\gamma$ represent, and what is its physical significance?",
+      "back": "$\\gamma$ is the ratio of specific heats at constant pressure ($c_p$) to constant volume ($c_v$), i.e., $\\gamma = c_p/c_v$. Physically, it indicates how much a gas heats up when compressed (or cools when expanded) adiabatically. A higher $\\gamma$ means the gas is 'stiffer' or less compressible, leading to a faster propagation of pressure disturbances.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why the speed of sound in an ideal gas increases with temperature, based on the molecular behavior of the gas.",
+      "back": "Temperature is a direct measure of the average translational kinetic energy of gas molecules. At higher temperatures, molecules move faster on average. Since sound propagates through the transfer of momentum via molecular collisions, faster-moving molecules can transmit the pressure disturbance more quickly, resulting in a higher speed of sound.",
+      "difficulty": "medium"
+    }
+  ]
+}

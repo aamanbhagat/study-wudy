@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-controllability-matrix-rank-test",
+  "subtopicTitle": "Controllability matrix — rank test",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:16.939Z",
+  "cards": [
+    {
+      "front": "Define \"complete state controllability\" for a linear time-invariant (LTI) system.",
+      "back": "An LTI system is completely state controllable if, for any initial state $\\mathbf{x}(t_0)$ and any desired final state $\\mathbf{x}(t_f)$, there exists a control input $\\mathbf{u}(t)$ that can steer the system from $\\mathbf{x}(t_0)$ to $\\mathbf{x}(t_f)$ in a finite time interval $t_f - t_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an LTI system $\\dot{\\mathbf{x}} = A\\mathbf{x} + B\\mathbf{u}$ where $\\mathbf{x} \\in \\mathbb{R}^n$ and $\\mathbf{u} \\in \\mathbb{R}^m$, what is the formula for the controllability matrix $\\mathcal{C}$?",
+      "back": "The controllability matrix $\\mathcal{C}$ is given by:\n$$ \\mathcal{C} = \\begin{bmatrix} B & AB & A^2B & \\dots & A^{n-1}B \\end{bmatrix} $$\nwhere $A$ is the $n \\times n$ system matrix and $B$ is the $n \\times m$ input matrix.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the necessary and sufficient condition for an LTI system to be completely state controllable, based on its controllability matrix $\\mathcal{C}$.",
+      "back": "A linear time-invariant system is completely state controllable if and only if the rank of its controllability matrix $\\mathcal{C}$ is equal to the dimension of the state space, $n$. That is, $\\text{rank}(\\mathcal{C}) = n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If the controllability matrix $\\mathcal{C}$ of an $n$-dimensional system has a rank less than $n$, what does this physically imply about the system's behavior?",
+      "back": "It implies that the system is not completely state controllable. There exist certain states or combinations of states that cannot be reached or influenced by any admissible control input $\\mathbf{u}$. The reachable subspace, which is spanned by the columns of $\\mathcal{C}$, has a dimension less than $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a 2D LTI system with $A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$ and $B = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix}$. Form its controllability matrix $\\mathcal{C}$ and determine if the system is completely controllable.",
+      "back": "For $n=2$, $\\mathcal{C} = \\begin{bmatrix} B & AB \\end{bmatrix}$.\nFirst, calculate $AB$:\n$$ AB = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix} \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} (0)(0) + (1)(1) \\\\ (0)(0) + (0)(1) \\end{bmatrix} = \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} $$\nNow, form $\\mathcal{C}$:\n$$ \\mathcal{C} = \\begin{bmatrix} 0 & 1 \\\\ 1 & 0 \\end{bmatrix} $$\nTo find the rank, calculate the determinant: $\\text{det}(\\mathcal{C}) = (0)(0) - (1)(1) = -1$.\nSince $\\text{det}(\\mathcal{C}) \\neq 0$, the columns are linearly independent, so $\\text{rank}(\\mathcal{C}) = 2$.\nAs $\\text{rank}(\\mathcal{C}) = n = 2$, the system is completely controllable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the controllability matrix $\\mathcal{C}$ only need to include terms up to $A^{n-1}B$ and not higher powers of $A$?",
+      "back": "This is due to the Cayley-Hamilton Theorem. It states that every square matrix satisfies its own characteristic polynomial. Consequently, any matrix power $A^k$ for $k \\ge n$ can be expressed as a linear combination of $I, A, A^2, \\dots, A^{n-1}$. Therefore, any column $A^k B$ for $k \\ge n$ would be linearly dependent on the preceding columns $B, AB, \\dots, A^{n-1}B$, and would not increase the rank of the controllability matrix.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the context of rocket attitude control, what is a practical implication if the system's controllability matrix indicates it is NOT completely controllable?",
+      "back": "If a rocket's attitude control system is not completely controllable, it means there are certain orientations (e.g., specific combinations of pitch, yaw, and roll angles) or angular rates that the rocket cannot achieve or maintain, regardless of the thruster commands. This could lead to an inability to follow a desired trajectory, stabilize against disturbances, or precisely point its payload, potentially causing mission failure.",
+      "difficulty": "medium"
+    }
+  ]
+}

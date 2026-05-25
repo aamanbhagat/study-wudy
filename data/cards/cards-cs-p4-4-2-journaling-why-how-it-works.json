@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-journaling-why-how-it-works",
+  "subtopicTitle": "Journaling — why, how it works",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:18.700Z",
+  "cards": [
+    {
+      "front": "What primary problem does journaling solve in modern file systems?",
+      "back": "Journaling addresses file system inconsistency and potential data loss that can occur after unexpected system crashes or power failures, ensuring data integrity and faster recovery times.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental principle or technique is journaling based on to ensure file system consistency?",
+      "back": "Journaling is based on the **Write-Ahead Logging (WAL)** principle. All changes intended for the file system are first recorded in a sequential log (the journal) before they are applied to the actual data blocks or metadata structures on disk.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the three distinct phases a file system operation undergoes when journaling is active.",
+      "back": "1.  **Journal Write:** The intended changes (metadata and/or data) are first written to the journal on disk.\n2.  **Journal Commit:** A special \"commit record\" is written to the journal, marking the transaction as complete and atomic.\n3.  **Data Write (Checkpointing):** The actual changes are applied from the journal to their final locations in the file system's data and metadata blocks on disk.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a journaling file system recover from a crash that occurs *after* a transaction is committed to the journal but *before* all changes are written to the main file system data blocks?",
+      "back": "Upon reboot, the file system performs a recovery scan of the journal. For any transaction found with a commit record but whose corresponding data writes haven't been fully applied to the main file system, the system will **redo** those operations from the journal to complete them, ensuring consistency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare \"data journaling\" and \"ordered journaling\" in terms of what they log and their respective trade-offs for data integrity and performance.",
+      "back": "**Data Journaling (Full Journaling):** Logs *both* metadata and file data. Offers the highest data integrity (no data loss or corruption possible for committed transactions) but suffers the lowest performance due to double-writing data.\n**Ordered Journaling (Metadata Journaling with Ordering):** Logs *only* metadata. It ensures data blocks are written to disk *before* their corresponding metadata updates are committed to the journal. This provides a good balance: metadata is always consistent, and while data written just before a crash might be lost, it won't corrupt the file system structure. It offers better performance than data journaling.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In journaling, what is the significance of a \"commit record\" in the journal?",
+      "back": "A \"commit record\" in the journal signifies that a specific file system transaction (a group of related changes) has been successfully and atomically completed from the perspective of the journal. Its presence indicates that all preceding operations for that transaction in the journal are valid and should be applied (redone) during recovery if the system crashes before the changes are written to the main file system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider an \"ordered journaling\" file system. A crash occurs *after* new file data blocks are written to disk but *before* the corresponding metadata update (e.g., inode link) is committed to the journal. What is the state upon recovery?",
+      "back": "Upon recovery, the file system will be consistent. Since the metadata update was not committed to the journal, the transaction is considered incomplete. The data blocks that were written to disk will be present but *unreferenced* by any file metadata. They are effectively \"lost data\" but do not cause file system corruption. These blocks may eventually be reclaimed by a file system check utility (`fsck`).",
+      "difficulty": "hard"
+    }
+  ]
+}

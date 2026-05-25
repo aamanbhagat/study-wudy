@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-state-space-representation-x-ax-bu-y-cx-du",
+  "subtopicTitle": "State-space representation — x' = Ax + Bu, y = Cx + Du",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:11.214Z",
+  "cards": [
+    {
+      "front": "State the two fundamental equations that define a linear time-invariant (LTI) state-space system.",
+      "back": "The state equation: $\\dot{x} = Ax + Bu$. The output equation: $y = Cx + Du$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the state-space representation, what do the vectors $x$, $u$, and $y$ physically represent?",
+      "back": "$x$ is the state vector (internal variables describing system memory/energy), $u$ is the input vector (external influences), and $y$ is the output vector (measurable quantities).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the specific roles of the matrices $A$, $B$, $C$, and $D$ in a state-space model.",
+      "back": "$A$ (state matrix) governs internal system dynamics. $B$ (input matrix) maps inputs to state changes. $C$ (output matrix) maps states to measured outputs. $D$ (feedthrough matrix) maps inputs directly to outputs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert the ODE $\\ddot{q}(t) + 2\\zeta\\omega_n\\dot{q}(t) + \\omega_n^2 q(t) = K f(t)$ into state-space form, assuming $y=q(t)$.",
+      "back": "Let $x_1 = q(t)$ and $x_2 = \\dot{q}(t)$. Then $\\dot{x}_1 = x_2$ and $\\dot{x}_2 = -\\omega_n^2 x_1 - 2\\zeta\\omega_n x_2 + K f(t)$.\n$$ \\dot{x} = \\begin{bmatrix} 0 & 1 \\\\ -\\omega_n^2 & -2\\zeta\\omega_n \\end{bmatrix} x + \\begin{bmatrix} 0 \\\\ K \\end{bmatrix} f(t) $$\n$$ y = \\begin{bmatrix} 1 & 0 \\end{bmatrix} x + \\begin{bmatrix} 0 \\end{bmatrix} f(t) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a rocket's pitch control, if $x = \\begin{bmatrix} \\theta \\\\ \\dot{\\theta} \\end{bmatrix}$ (pitch angle, pitch rate), what physical interactions could $A_{12}$ and $A_{21}$ represent?",
+      "back": "$A_{12}$ (coefficient for $\\dot{\\theta}$ in $\\dot{\\theta}$'s equation) would typically be 1, representing that pitch rate directly contributes to the change in pitch angle (i.e., $\\dot{\\theta} = \\dot{\\theta}$). $A_{21}$ (coefficient for $\\theta$ in $\\ddot{\\theta}$'s equation) would represent restoring moments or destabilizing moments proportional to pitch angle, influencing the change in pitch rate.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a key advantage of using state-space representation compared to transfer functions for complex or modern control systems?",
+      "back": "State-space models can handle Multiple-Input, Multiple-Output (MIMO) systems naturally, provide insight into internal system states, and are more suitable for time-varying and nonlinear systems (after linearization) than single-input, single-output (SISO) transfer functions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are equilibrium points found for an unforced LTI system $x' = Ax$, and what does their existence imply about $A$?",
+      "back": "Equilibrium points are found by setting $\\dot{x}=0$, so $Ax=0$. If $A$ is invertible, the unique equilibrium point is $x=0$. If $A$ is singular (non-invertible), there exists a subspace of equilibrium points (the null space of $A$), meaning multiple states can be maintained without external input.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain when the feedthrough matrix $D$ is typically zero in physical systems and what a non-zero $D$ physically implies.",
+      "back": "$D$ is zero when the output does not instantaneously depend on the input, which is common in systems with inertia or energy storage (e.g., mechanical, thermal, most chemical processes). A non-zero $D$ implies a direct, instantaneous, and un-delayed coupling from input to output, often seen in purely resistive electrical circuits or direct sensor measurements.",
+      "difficulty": "medium"
+    }
+  ]
+}

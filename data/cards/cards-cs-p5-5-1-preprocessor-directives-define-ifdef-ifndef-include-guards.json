@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-preprocessor-directives-define-ifdef-ifndef-include-guards",
+  "subtopicTitle": "Preprocessor directives — #define, #ifdef, #ifndef, #include guards",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:49.903Z",
+  "cards": [
+    {
+      "front": "What is the primary role of the C preprocessor in the compilation process?",
+      "back": "The C preprocessor is the first phase of compilation. It processes the source code *before* the actual compiler sees it. Its main tasks include macro expansion (text substitution), file inclusion (inserting content of header files), and conditional compilation (including or excluding code blocks based on conditions).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the key differences between using `#define PI 3.14159` and `const double PI = 3.14159;` in C.",
+      "back": "`#define PI 3.14159` is a preprocessor directive that performs a direct text substitution of `PI` with `3.14159` throughout the code *before* compilation. It has no type, no memory allocation, and no scope. `const double PI = 3.14159;` declares a read-only variable of type `double` during compilation. It occupies memory, has a specific scope, and is subject to type checking, offering better type safety and debugging capabilities.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the `#ifdef` preprocessor directive control which parts of the code are compiled? Provide a minimal code example.",
+      "back": "`#ifdef MACRO` checks if `MACRO` has been defined (e.g., by `#define` or a compiler flag). If `MACRO` is defined, the code block between `#ifdef` and the corresponding `#endif` is included in the compilation. Otherwise, it is completely ignored by the compiler.\n```c\n#define DEBUG_MESSAGES\n\nvoid log_message(const char* msg) {\n    #ifdef DEBUG_MESSAGES\n        printf(\"DEBUG: %s\\n\", msg);\n    #endif\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What problem do 'include guards' solve, and demonstrate their typical implementation using preprocessor directives.",
+      "back": "Include guards prevent the same header file from being included multiple times within a single compilation unit. Multiple inclusions can lead to redefinition errors for types, functions, or variables declared in the header. They are implemented using `#ifndef`, `#define`, and `#endif`.\n```c\n// my_header.h\n#ifndef MY_HEADER_H\n#define MY_HEADER_H\n\n// All declarations (structs, functions, etc.) go here\nstruct MyData { int value; };\nvoid my_function();\n\n#endif // MY_HEADER_H\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain two significant pitfalls of using function-like macros (e.g., `#define SQUARE(x) x*x`) and how to mitigate them.",
+      "back": "1.  **Operator Precedence Issues:** Without proper parenthesization, macro expansion can lead to unexpected results due to operator precedence. `SQUARE(a + b)` expands to `a + b * a + b`, not `(a + b) * (a + b)`. Mitigation: Parenthesize arguments and the entire macro body: `#define SQUARE(x) ((x)*(x))`. \n2.  **Side Effects in Arguments:** Arguments with side effects (e.g., `x++`) can be evaluated multiple times. `SQUARE(i++)` expands to `((i++)*(i++))`, incrementing `i` twice and potentially yielding an incorrect result. Mitigation: Avoid using arguments with side effects in macros, or use `inline` functions instead for type safety and single evaluation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When is `#ifndef` typically preferred over `#ifdef` for conditional compilation, beyond just include guards?",
+      "back": "`#ifndef MACRO` (if not defined) is preferred when you want to define a macro or include a code block *only if* that macro has not already been defined. This is useful for providing default values or configurations that can be overridden by external definitions (e.g., via compiler flags).\n\nExample:\n```c\n#ifndef MAX_BUFFER_SIZE\n#define MAX_BUFFER_SIZE 1024 // Default size if not specified elsewhere\n#endif\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the exact sequence of preprocessor actions when `#include \"my_header.h\"` is encountered for the first time, assuming `my_header.h` uses standard include guards.",
+      "back": "1.  The preprocessor opens `my_header.h`. \n2.  It reads the first line: `#ifndef MY_HEADER_H_GUARD`. \n3.  It checks if `MY_HEADER_H_GUARD` has been defined. Since this is the first inclusion, it has not, so the condition is true. \n4.  It then reads `#define MY_HEADER_H_GUARD`, and the macro `MY_HEADER_H_GUARD` is now defined. \n5.  The preprocessor continues to process all subsequent lines in `my_header.h` (inserting declarations, etc.) into the current source file. \n6.  Finally, it encounters `#endif // MY_HEADER_H_GUARD`, marking the end of the conditionally included block. \n\nIf `my_header.h` were included again in the same compilation unit, the `#ifndef` check would find `MY_HEADER_H_GUARD` defined, and the entire content of the header (between `#ifndef` and `#endif`) would be skipped.",
+      "difficulty": "hard"
+    }
+  ]
+}

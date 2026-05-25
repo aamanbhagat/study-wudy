@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-memory-mapped-files",
+  "subtopicTitle": "Memory-mapped files",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:11.156Z",
+  "cards": [
+    {
+      "front": "Define \"memory-mapped file\" and explain its fundamental concept.",
+      "back": "A memory-mapped file is a segment of virtual memory that has been assigned a direct byte-for-byte correlation with a file or file-like resource on disk. This allows applications to treat file I/O operations as memory access operations, directly reading from and writing to memory, which the operating system then handles for disk persistence.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the operating system leverage its virtual memory system to implement memory-mapped files?",
+      "back": "The OS maps a file's contents into a process's virtual address space. When a process accesses a memory-mapped region, the virtual memory manager translates the virtual address. If the corresponding page isn't in physical RAM (a page fault occurs), the OS loads the required block of the file from disk into a physical page and updates the page table. Subsequent accesses to that page are then direct memory reads/writes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify two significant performance advantages of using memory-mapped files over traditional `read()`/`write()` system calls.",
+      "back": "1.  **Reduced System Calls & Context Switches**: Data is accessed directly in memory, avoiding explicit `read()`/`write()` calls and the associated overhead of kernel-user mode switches.\n2.  **Elimination of Double Buffering**: Data is loaded directly from disk into the page cache, which is then mapped into the process's address space. Traditional I/O often involves copying data from the kernel's buffer cache to a user-space buffer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how memory-mapped files can be used as an efficient mechanism for Inter-Process Communication (IPC).",
+      "back": "Multiple processes can map the *same* file (or a named anonymous memory region) into their respective virtual address spaces using `MAP_SHARED`. Since they are all mapping the same underlying physical pages (backed by the file), changes made by one process to its mapped region are immediately visible to other processes mapping the same region. This provides a highly efficient shared memory mechanism.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When using memory-mapped files, what system call explicitly ensures modified data is written to disk, and what potential issues arise with concurrent writes from multiple processes?",
+      "back": "The `msync()` (Unix-like) or `FlushViewOfFile()` (Windows) system call ensures that modified pages in the memory-mapped region are written back to the underlying file on disk.\nConcurrent writes from multiple processes can lead to **race conditions** and **data corruption** if not properly synchronized. Standard synchronization primitives like mutexes or semaphores must be used to protect critical sections of the memory-mapped region from simultaneous access.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do I/O errors (e.g., disk full, hardware failure) manifest when performing operations on a memory-mapped file, and what is the typical consequence?",
+      "back": "Unlike traditional `read()`/`write()` calls which return an error code, I/O errors with memory-mapped files typically manifest as **signals** (e.g., `SIGBUS` on Unix-like systems) or **structured exceptions** (e.g., `STATUS_IN_PAGE_ERROR` on Windows) when a process attempts to access the problematic memory region. This can lead to program termination if not handled with appropriate signal/exception handlers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a scenario where memory-mapped files are particularly advantageous for processing a file significantly larger than available physical RAM.",
+      "back": "Memory-mapped files are ideal for processing files larger than RAM because they leverage the operating system's virtual memory system. The OS only loads the necessary pages of the file into physical memory *on demand* (lazy loading) when they are accessed. This allows a program to \"virtually\" access the entire file as if it were in memory, without needing to load the whole file at once, efficiently handling very large datasets by letting the OS manage page-in/page-out operations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary Unix-like system call for creating a memory mapping, and what are its key parameters?",
+      "back": "The primary system call is `mmap()`.\n```c\nvoid *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset);\n```\n- `addr`: Desired starting address (usually `NULL`).\n- `length`: Number of bytes to map.\n- `prot`: Protection flags (e.g., `PROT_READ`, `PROT_WRITE`).\n- `flags`: Mapping type and options (e.g., `MAP_SHARED`, `MAP_PRIVATE`, `MAP_ANONYMOUS`).\n- `fd`: File descriptor of the file to map (or -1 for anonymous mapping).\n- `offset`: Offset within the file to start mapping from.",
+      "difficulty": "medium"
+    }
+  ]
+}

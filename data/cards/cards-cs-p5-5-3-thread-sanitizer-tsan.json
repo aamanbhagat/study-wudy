@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-thread-sanitizer-tsan",
+  "subtopicTitle": "Thread Sanitizer (TSan)",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:28.244Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Thread Sanitizer (TSan)?",
+      "back": "TSan is a dynamic analysis tool that detects data races and other concurrency bugs in C, C++, and Go programs at runtime. Its main goal is to help developers find threading issues that are often hard to reproduce and debug.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List at least three specific types of concurrency bugs that Thread Sanitizer (TSan) is designed to detect.",
+      "back": "TSan detects:\n1.  **Data Races:** Unprotected concurrent accesses to the same memory location where at least one access is a write.\n2.  **Use-after-free on threads:** Accessing memory after it has been freed, especially when different threads are involved in allocation/deallocation and access.\n3.  **Misuse of mutexes and condition variables:** Such as unlocking an unlocked mutex or signaling a condition variable without holding its associated mutex.\n4.  **Unjoined threads:** Threads that are created but never explicitly joined, leading to resource leaks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core mechanism TSan uses to detect data races, specifically mentioning \"shadow memory\" and \"happens-before\" tracking.",
+      "back": "TSan detects data races by instrumenting memory accesses and synchronization operations. For each byte of application memory, TSan maintains \"shadow memory\" that stores metadata (e.g., access history, thread IDs, timestamps). When a memory access occurs, TSan checks its shadow memory. It uses a \"happens-before\" relation, often implemented with a form of vector clocks or logical timestamps, to determine if two conflicting accesses (at least one write) to the same memory location are causally ordered by synchronization. If they are not ordered, a data race is reported.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would you enable Thread Sanitizer (TSan) during compilation and linking for a C++ program using GCC or Clang?",
+      "back": "To enable TSan, you typically add the `-fsanitize=thread` flag to both the compilation and linking steps:\n```cpp\ng++ -fsanitize=thread -g -O1 my_program.cpp -o my_program\n```\nIt's recommended to compile with `-O1` (or higher) to ensure effective instrumentation, and `-g` for debug symbols.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the typical runtime performance overhead and memory overhead when running a program instrumented with Thread Sanitizer (TSan)?",
+      "back": "TSan introduces significant overhead:\n*   **Runtime Overhead:** Typically $2\\times$ to $15\\times$ slower than an uninstrumented build, depending on memory access patterns and synchronization frequency.\n*   **Memory Overhead:** Typically $5\\times$ to $10\\times$ larger memory consumption, primarily due to the \"shadow memory\" required to track metadata for each application memory byte.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a scenario where TSan might produce a false positive or a false negative related to concurrency.",
+      "back": "A **false positive** might occur if TSan reports a data race on memory that is *logically* protected by a custom synchronization primitive (e.g., a lock-free algorithm using atomic operations) that TSan doesn't explicitly recognize as a synchronization point. If the atomic operations aren't explicitly instrumented to provide happens-before ordering, it might incorrectly flag concurrent accesses.\nA **false negative** might occur if the specific execution path that triggers a race never manifests during the test run. As a dynamic analysis tool, TSan can only detect issues that occur during execution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When TSan reports a data race, what are the three most critical pieces of information it typically provides to help debug the issue?",
+      "back": "A TSan data race report typically highlights:\n1.  **Conflicting Accesses:** The exact memory address involved and the stack traces for *both* the first access (e.g., a write) and the second conflicting access (e.g., a read or another write) that constitute the race.\n2.  **Thread IDs:** The IDs of the threads involved in the conflicting accesses.\n3.  **Operation Type:** Whether each access was a read or a write, and the size of the access, to identify if it's a read-write or write-write race.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you suppress a specific TSan warning for a known benign race or a custom synchronization primitive without disabling TSan entirely?",
+      "back": "You can suppress TSan warnings using:\n1.  **`__attribute__((no_sanitize_thread))`**: Apply this attribute to functions containing known benign races or custom synchronization logic that TSan shouldn't instrument.\n2.  **`ANNOTATE_BENIGN_RACE`**: Use this macro (from `<sanitizer/tsan_interface.h>`) around specific memory accesses that are known to be benign races, providing granular suppression.\n3.  **TSAN_OPTIONS environment variable**: Use `TSAN_OPTIONS='suppressions=/path/to/suppressions.txt'` to specify a file containing regular expressions for stack frames or memory addresses to ignore.",
+      "difficulty": "medium"
+    }
+  ]
+}

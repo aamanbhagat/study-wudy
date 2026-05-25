@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-inertia-tensor-principal-axes-principal-moments",
+  "subtopicTitle": "Inertia tensor — principal axes, principal moments",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:19.812Z",
+  "cards": [
+    {
+      "front": "Why is the scalar moment of inertia $I$ insufficient for a general rigid body? What mathematical object is needed instead?",
+      "back": "For a general rigid body, the angular momentum $\\vec{L}$ is not necessarily parallel to the angular velocity $\\vec{\\omega}$. A single scalar $I$ cannot describe this relationship. The **inertia tensor** $\\mathbf{I}$ (a rank-2 tensor or $3 \\times 3$ matrix) is needed to relate them via $\\vec{L} = \\mathbf{I} \\vec{\\omega}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the general components $I_{ij}$ of the inertia tensor for a continuous body with mass density $\\rho(\\vec{r})$.",
+      "back": "The diagonal components (moments of inertia) are:\n$$I_{xx} = \\int_V (y^2 + z^2) \\rho(\\vec{r}) dV$$\n$$I_{yy} = \\int_V (x^2 + z^2) \\rho(\\vec{r}) dV$$\n$$I_{zz} = \\int_V (x^2 + y^2) \\rho(\\vec{r}) dV$$\nThe off-diagonal components (products of inertia) are:\n$$I_{xy} = I_{yx} = -\\int_V xy \\rho(\\vec{r}) dV$$\n$$I_{xz} = I_{zx} = -\\int_V xz \\rho(\\vec{r}) dV$$\n$$I_{yz} = I_{zy} = -\\int_V yz \\rho(\\vec{r}) dV$$\nNote the negative sign convention for products of inertia.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the **principal axes** of a rigid body, and what is their key property regarding angular momentum?",
+      "back": "The principal axes are a special set of orthogonal axes fixed in the body. Their key property is that if the body rotates about one of these axes, its angular momentum vector $\\vec{L}$ is parallel to its angular velocity vector $\\vec{\\omega}$. That is, $\\vec{L} = I \\vec{\\omega}$ holds for a scalar $I$ when $\\vec{\\omega}$ is aligned with a principal axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are the **principal moments of inertia** defined, and what do they represent in the context of the inertia tensor?",
+      "back": "The principal moments of inertia are the scalar values $I_1, I_2, I_3$ that correspond to the moments of inertia about the principal axes. When the coordinate system is aligned with these principal axes, the inertia tensor becomes diagonal:\n$$ \\mathbf{I}_{\\text{principal}} = \\begin{pmatrix} I_1 & 0 & 0 \\\\ 0 & I_2 & 0 \\\\ 0 & 0 & I_3 \\end{pmatrix} $$\nIn this special frame, the off-diagonal products of inertia are zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how to mathematically determine the principal moments of inertia and their corresponding principal axes for a given inertia tensor $\\mathbf{I}$.",
+      "back": "The principal moments of inertia are the **eigenvalues** of the inertia tensor matrix $\\mathbf{I}$, and the corresponding principal axes are its **eigenvectors**. To find them, solve the eigenvalue problem:\n$$ \\mathbf{I} \\vec{e} = I \\vec{e} $$\nThis can be rewritten as $(\\mathbf{I} - I\\mathbf{U}) \\vec{e} = \\vec{0}$, where $\\mathbf{U}$ is the identity matrix. For non-trivial solutions $\\vec{e} \\neq \\vec{0}$, the determinant must be zero:\n$$ \\det(\\mathbf{I} - I\\mathbf{U}) = 0 $$\nSolving this cubic characteristic equation yields the three principal moments $I_1, I_2, I_3$. Substituting each $I_k$ back into $(\\mathbf{I} - I_k\\mathbf{U}) \\vec{e}_k = \\vec{0}$ gives the direction of the principal axis $\\vec{e}_k$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the physical significance of the principal moments of inertia $I_1, I_2, I_3$ for a rigid body?",
+      "back": "The principal moments of inertia represent the 'pure' rotational inertias of the body about its principal axes. They are the maximum, minimum, and intermediate moments of inertia that a body can have about any axis passing through the origin (or center of mass, if the tensor is calculated there). They quantify the body's resistance to angular acceleration when rotating about these specific, special axes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can knowledge of a body's geometric symmetry simplify the identification of its principal axes? Provide an example.",
+      "back": "If a rigid body possesses an axis of rotational symmetry (e.g., a cylinder, sphere, or rectangular prism), that axis is always a principal axis. Furthermore, if a body has a plane of symmetry, any two principal axes lie within that plane, and the third principal axis is normal to it.\n*Example:* For a right circular cylinder, its central longitudinal axis is a principal axis. Any two orthogonal axes passing through its center of mass and lying in the plane perpendicular to the longitudinal axis will also be principal axes (with equal principal moments).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the rotational kinetic energy $T$ in terms of general inertia tensor components $I_{ij}$. How does this simplify in the principal axes frame?",
+      "back": "The general expression for rotational kinetic energy is:\n$$ T = \\frac{1}{2} \\sum_{i,j} I_{ij} \\omega_i \\omega_j $$\nWhen the coordinate system is aligned with the principal axes, the inertia tensor is diagonal ($I_{ij} = 0$ for $i \\neq j$, and $I_{ii}$ are the principal moments $I_1, I_2, I_3$). The expression simplifies to:\n$$ T = \\frac{1}{2} (I_1 \\omega_1^2 + I_2 \\omega_2^2 + I_3 \\omega_3^2) $$\nwhere $\\omega_1, \\omega_2, \\omega_3$ are the components of angular velocity along the principal axes.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-socket-programming-tcp-server-client-udp-server-client-in-python",
+  "subtopicTitle": "Socket programming — TCP server/client, UDP server/client in Python",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:02.532Z",
+  "cards": [
+    {
+      "front": "In network programming, what is the fundamental role of a 'socket'?",
+      "back": "A socket serves as an endpoint for sending or receiving data across a network. It's an abstraction that allows applications to communicate, typically identified by a combination of an IP address and a port number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the key distinction between `socket.SOCK_STREAM` and `socket.SOCK_DGRAM`?",
+      "back": "`socket.SOCK_STREAM` specifies a connection-oriented, reliable, byte-stream protocol (like TCP). `socket.SOCK_DGRAM` specifies a connectionless, unreliable, datagram-oriented protocol (like UDP).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the sequence of Python `socket` module calls for a TCP server to accept a single client connection, send data, and close.",
+      "back": "1. `socket.socket()`: Create the socket.\n2. `socket.bind()`: Associate the socket with a specific IP address and port.\n3. `socket.listen()`: Put the server socket into listening mode for incoming connections.\n4. `socket.accept()`: Accept an incoming connection, returning a new client socket and its address.\n5. `client_socket.recv()`: Receive data from the client.\n6. `client_socket.sendall()`: Send data back to the client.\n7. `client_socket.close()`: Close the client socket.\n8. `server_socket.close()`: Close the server listening socket.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the sequence of Python `socket` module calls for a TCP client to connect, send data, receive a response, and close.",
+      "back": "1. `socket.socket()`: Create the socket.\n2. `socket.connect()`: Establish a connection to the server's IP address and port.\n3. `socket.sendall()`: Send data to the connected server.\n4. `socket.recv()`: Receive data from the server.\n5. `socket.close()`: Close the client socket.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a minimal Python UDP server code snippet to receive one datagram.",
+      "back": "```python\nimport socket\n\nHOST = '127.0.0.1'  # Or '0.0.0.0' to listen on all interfaces\nPORT = 12345\n\nwith socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:\n    s.bind((HOST, PORT))\n    print(f\"UDP server listening on {HOST}:{PORT}\")\n    data, addr = s.recvfrom(1024) # Buffer size 1024 bytes\n    print(f\"Received {data.decode()} from {addr}\")\n    # No explicit close needed with 'with' statement\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a minimal Python UDP client code snippet to send one datagram to a server.",
+      "back": "```python\nimport socket\n\nHOST = '127.0.0.1'\nPORT = 12345\nMESSAGE = b\"Hello from UDP client!\"\n\nwith socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:\n    s.sendto(MESSAGE, (HOST, PORT))\n    print(f\"Sent '{MESSAGE.decode()}' to {HOST}:{PORT}\")\n    # No explicit close needed with 'with' statement\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are `listen()` and `accept()` crucial for TCP servers but absent in UDP server implementations?",
+      "back": "TCP is connection-oriented. `listen()` prepares the server to accept incoming connection requests, creating a queue for pending connections. `accept()` then extracts the first connection request from this queue, establishing a *new*, dedicated socket for communication with that specific client. UDP is connectionless; it doesn't establish persistent connections. A UDP server simply binds to a port and uses `recvfrom()` to receive datagrams from any sender, and `sendto()` to send datagrams to any destination, without needing to `listen()` or `accept()` a connection.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When sending data over a TCP socket in Python, why is `socket.sendall()` generally preferred over `socket.send()`?",
+      "back": "`socket.send()` might not send all the bytes you provide in a single call; it returns the number of bytes actually sent, and you'd need to loop to send the rest. This requires careful error handling and tracking of remaining data. `socket.sendall()`, on the other hand, guarantees that all data is sent (or raises an exception if an error occurs), by internally looping and calling `send()` until the entire buffer is transmitted. This simplifies reliable data transmission for the programmer.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-recursion-depth-limit-stack-overflow",
+  "subtopicTitle": "Recursion depth limit — stack overflow",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:09.974Z",
+  "cards": [
+    {
+      "front": "What is Python's default recursion depth limit?",
+      "back": "Python's default recursion depth limit is typically 1000. This limit is a safety mechanism to prevent infinite recursion from consuming all available memory and crashing the program or system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What specific error does Python raise when a recursive function exceeds its maximum allowed depth?",
+      "back": "Python raises a `RecursionError` with a message like `maximum recursion depth exceeded in comparison`. This error is Python's way of indicating that a stack overflow has occurred due to excessive recursion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain what a \"stack overflow\" means in the context of recursive function calls.",
+      "back": "A stack overflow occurs when the program's call stack, which stores information about active function calls (like local variables, parameters, and return addresses), runs out of allocated memory. Each recursive call pushes a new 'stack frame' onto the call stack. If the recursion is too deep, the stack grows beyond its maximum size, leading to an overflow and program termination.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you check the current recursion limit in Python, and how can you temporarily change it?",
+      "back": "To check the limit:\n```python\nimport sys\nprint(sys.getrecursionlimit())\n```\nTo change the limit (use with caution):\n```python\nimport sys\nsys.setrecursionlimit(2000) # Sets a new limit, e.g., 2000\n```\nIncreasing it too much can lead to actual memory exhaustion or system crashes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a simple Python recursive function that would cause a `RecursionError` if called, and briefly explain why.",
+      "back": "```python\ndef cause_recursion_error(n):\n    # This function lacks a proper base case that is eventually reached\n    # or the recursive step moves away from the base case.\n    if n == 0:\n        return\n    cause_recursion_error(n + 1) # Recursively calls itself with an increasing 'n'\n\n# Calling cause_recursion_error(1) would quickly hit the recursion limit.\n```\n**Explanation:** Each call `cause_recursion_error(n + 1)` adds a new frame to the call stack without ever reaching a condition that stops the recursion (or the condition `n == 0` is never met if starting with `n > 0`). This continuously grows the stack until the limit is exceeded.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When might it be appropriate to increase Python's recursion limit, and what are the primary risks involved?",
+      "back": "**Appropriate:**\n1.  For specific algorithms (e.g., some graph traversals, parsers) where the theoretical recursion depth is known to be slightly higher than the default, and an iterative solution is significantly more complex or less readable.\n2.  When working with data structures that naturally lead to deep recursion (e.g., deeply nested trees) and the depth is manageable.\n\n**Risks:**\n1.  **Memory Exhaustion:** Each stack frame consumes memory. A very deep recursion can exhaust available RAM, leading to a system crash.\n2.  **Performance Degradation:** Deep stacks can sometimes be slower due to memory access patterns.\n3.  **Masking Bugs:** It might hide a bug in the recursive logic (e.g., an unintended infinite recursion) that would otherwise be caught by the default limit.\n4.  **Platform Dependence:** The actual physical stack size can vary, so a limit that works on one machine might fail on another with less memory.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are common alternatives to deep recursion in Python to avoid hitting the recursion depth limit?",
+      "back": "Common alternatives to deep recursion include:\n1.  **Iteration:** Rewriting the recursive function using loops (e.g., `while` or `for` loops) to achieve the same result. This is often the most straightforward solution.\n2.  **Stack-based Iteration:** Manually managing a stack data structure (e.g., a list) to simulate the call stack, pushing and popping states as needed.\n3.  **Dynamic Programming/Memoization:** For problems with overlapping subproblems, storing results of subproblems to avoid recomputing them, which can reduce the effective recursion depth or transform the problem into an iterative one.\n4.  **Tail Call Optimization (TCO):** While some languages support TCO to convert certain recursive calls into iterative ones, Python does *not* natively support TCO, so it's not an automatic solution in Python.",
+      "difficulty": "hard"
+    }
+  ]
+}

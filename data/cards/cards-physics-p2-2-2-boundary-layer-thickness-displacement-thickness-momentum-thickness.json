@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-boundary-layer-thickness-displacement-thickness-momentum-thickness",
+  "subtopicTitle": "Boundary layer thickness, displacement thickness, momentum thickness",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:44.215Z",
+  "cards": [
+    {
+      "front": "Define boundary layer thickness, $\\delta$.",
+      "back": "The boundary layer thickness, $\\delta$, is the distance from the solid surface to the point where the flow velocity, $u(y)$, reaches approximately 99% (or sometimes 99.5%) of the free-stream velocity, $U_\\infty$. It delineates the region where viscous effects are significant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the physical significance of the displacement thickness, $\\delta^*$.",
+      "back": "The displacement thickness, $\\delta^*$, represents the distance by which the external potential flow streamlines are displaced outwards due to the presence of the boundary layer. It is the thickness of a hypothetical layer of fluid, moving at the free-stream velocity $U_\\infty$, that would have the same mass flow deficit as the actual boundary layer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the integral formula for displacement thickness, $\\delta^*$.",
+      "back": "$$\\delta^* = \\int_0^\\delta \\left(1 - \\frac{u(y)}{U_\\infty}\\right) dy$$ where $u(y)$ is the velocity profile within the boundary layer and $U_\\infty$ is the free-stream velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the physical significance of the momentum thickness, $\\theta$.",
+      "back": "The momentum thickness, $\\theta$, represents the thickness of a hypothetical layer of fluid, moving at the free-stream velocity $U_\\infty$, that would have the same momentum deficit as the actual boundary layer. It quantifies the loss of momentum due to viscous drag within the boundary layer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the integral formula for momentum thickness, $\\theta$.",
+      "back": "$$\\theta = \\int_0^\\delta \\frac{u(y)}{U_\\infty}\\left(1 - \\frac{u(y)}{U_\\infty}\\right) dy$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do $\\delta$, $\\delta^*$, and $\\theta$ generally compare in magnitude for a typical laminar boundary layer, and why?",
+      "back": "Generally, $\\delta > \\delta^* > \\theta$.\n*   $\\delta$ is the overall viscous region.\n*   $\\delta^*$ quantifies the mass flow deficit. Since $0 \\le u(y)/U_\\infty \\le 1$, the integrand $(1 - u/U_\\infty)$ is always positive.\n*   $\\theta$ quantifies the momentum deficit. Its integrand, $(u/U_\\infty)(1 - u/U_\\infty)$, is always less than or equal to the integrand for $\\delta^*$ for $0 \\le u/U_\\infty \\le 1$. Thus, $\\theta < \\delta^*$.\nFor common laminar profiles (e.g., Blasius), $\\delta^* \\approx \\delta/3$ and $\\theta \\approx \\delta/7$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are displacement thickness and momentum thickness more useful than $\\delta$ for engineering calculations?",
+      "back": "While $\\delta$ gives a general idea of the boundary layer extent, its definition (e.g., 99% $U_\\infty$) is somewhat arbitrary and hard to measure precisely. $\\delta^*$ and $\\theta$ are integral quantities that directly quantify the effects of the boundary layer:\n*   $\\delta^*$ quantifies the effective displacement of the external flow, crucial for coupling with potential flow theory.\n*   $\\theta$ quantifies the momentum loss due to drag, directly relating to skin friction.\nThese integral parameters are fundamental in integral boundary layer equations (e.g., von Kármán momentum integral equation) for predicting drag, flow separation, and overall flow behavior more robustly.",
+      "difficulty": "medium"
+    }
+  ]
+}

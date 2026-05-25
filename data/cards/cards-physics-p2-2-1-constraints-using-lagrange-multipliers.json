@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-1-constraints-using-lagrange-multipliers",
+  "subtopicTitle": "Constraints using Lagrange multipliers",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:09.848Z",
+  "cards": [
+    {
+      "front": "Define a holonomic constraint and provide a typical example in analytical mechanics.",
+      "back": "A holonomic constraint is a constraint that can be expressed as an algebraic equation relating the generalized coordinates $q_i$ and possibly time $t$, in the form $f(q_1, q_2, ..., q_n, t) = 0$. These constraints are integrable and reduce the number of independent generalized coordinates. An example is a particle constrained to move on the surface of a sphere of radius $R$, centered at the origin: $x^2 + y^2 + z^2 - R^2 = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Lagrangian mechanics, what is the primary purpose of introducing Lagrange multipliers when dealing with holonomic constraints?",
+      "back": "The primary purpose of introducing Lagrange multipliers is to incorporate constraint equations directly into the Euler-Lagrange equations without explicitly reducing the number of generalized coordinates. This approach allows us to treat all coordinates as independent, simplifies the derivation of equations of motion for complex constraints, and provides a direct method to calculate the forces of constraint.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a system with an unconstrained Lagrangian $L(q_i, \\dot{q}_i, t)$ and a single holonomic constraint $f(q_i, t) = 0$, write down the augmented Lagrangian $\\mathcal{L}$.",
+      "back": "The augmented Lagrangian $\\mathcal{L}$ is constructed by adding the constraint equation, multiplied by a Lagrange multiplier $\\lambda$, to the original Lagrangian $L$: $$\\mathcal{L}(q_i, \\dot{q}_i, \\lambda, t) = L(q_i, \\dot{q}_i, t) + \\lambda f(q_i, t)$$ where $q_i$ are the generalized coordinates, $\\dot{q}_i$ are their time derivatives, and $\\lambda$ is the Lagrange multiplier.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a system described by the augmented Lagrangian $\\mathcal{L} = L + \\lambda f$, write down the complete set of Euler-Lagrange equations, including the equation for the Lagrange multiplier.",
+      "back": "The equations of motion are derived by applying the Euler-Lagrange equation to each generalized coordinate $q_i$ and to the Lagrange multiplier $\\lambda$: \n1. For each generalized coordinate $q_i$: $$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_i}\\right) - \\frac{\\partial L}{\\partial q_i} = \\lambda \\frac{\\partial f}{\\partial q_i}$$\n2. For the Lagrange multiplier $\\lambda$: $$\\frac{\\partial \\mathcal{L}}{\\partial \\lambda} = f(q_i, t) = 0$$ The second equation simply recovers the original constraint.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical interpretation of the Lagrange multiplier $\\lambda$ for a holonomic constraint $f(q_i, t) = 0$?",
+      "back": "The Lagrange multiplier $\\lambda$ is directly related to the magnitude of the generalized force of constraint. Specifically, the term $\\lambda \\frac{\\partial f}{\\partial q_i}$ in the Euler-Lagrange equation for $q_i$ represents the $i$-th component of the generalized constraint force. Thus, $\\lambda$ itself is a measure of how strongly the constraint acts on the system. If there are multiple constraints, each constraint has its own Lagrange multiplier.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a particle constrained to move on a surface defined by $f(x,y,z)=0$, derive the relationship between the constraint force $\\mathbf{F}_c$ and the gradient of the constraint function.",
+      "back": "The Euler-Lagrange equations for Cartesian coordinates $(x,y,z)$ with a constraint $f(x,y,z)=0$ are:\n$$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{x}}\\right) - \\frac{\\partial L}{\\partial x} = \\lambda \\frac{\\partial f}{\\partial x}$$\n$$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{y}}\\right) - \\frac{\\partial L}{\\partial y} = \\lambda \\frac{\\partial f}{\\partial y}$$\n$$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{z}}\\right) - \\frac{\\partial L}{\\partial z} = \\lambda \\frac{\\partial f}{\\partial z}$$\nThe left-hand side of each equation represents the components of the net force *excluding* the constraint force. Therefore, the components of the constraint force $\\mathbf{F}_c = (F_{c,x}, F_{c,y}, F_{c,z})$ are:\n$$F_{c,x} = \\lambda \\frac{\\partial f}{\\partial x}$$\n$$F_{c,y} = \\lambda \\frac{\\partial f}{\\partial y}$$\n$$F_{c,z} = \\lambda \\frac{\\partial f}{\\partial z}$$\nCombining these into a vector, we get $\\mathbf{F}_c = \\lambda \\left(\\frac{\\partial f}{\\partial x}\\hat{\\mathbf{i}} + \\frac{\\partial f}{\\partial y}\\hat{\\mathbf{j}} + \\frac{\\partial f}{\\partial z}\\hat{\\mathbf{k}}\\right) = \\lambda \\nabla f$. This shows that the constraint force is always normal to the constraint surface.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name two distinct advantages of using Lagrange multipliers over explicitly eliminating constrained coordinates to reduce the degrees of freedom.",
+      "back": "Two distinct advantages are:\n1.  **Direct Calculation of Constraint Forces:** Lagrange multipliers directly provide the forces of constraint, which are often of physical interest. If coordinates are eliminated, these forces must be found through other means (e.g., by transforming back to the original coordinates and using Newton's laws).\n2.  **Simplified Problem Setup:** For complex constraints or multiple constraints, explicitly eliminating coordinates can lead to very complicated expressions for the kinetic and potential energies, making the Lagrangian cumbersome. Lagrange multipliers maintain the original set of coordinates, often preserving the symmetry of the problem and simplifying the setup of the equations, even if the resulting system of equations is larger.",
+      "difficulty": "medium"
+    }
+  ]
+}

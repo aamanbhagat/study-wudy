@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-displacement-current-maxwell-s-addition-to-ampere-s-law",
+  "subtopicTitle": "Displacement current — Maxwell's addition to Ampere's law",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:19.662Z",
+  "cards": [
+    {
+      "front": "Define \"displacement current\" ($I_D$) conceptually.",
+      "back": "Displacement current is a term introduced by Maxwell to account for a changing electric flux, which acts as a source of magnetic field, analogous to a conduction current. It ensures the consistency of Ampere's law with the principle of charge conservation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the mathematical formula for displacement current ($I_D$) in terms of electric flux?",
+      "back": "The displacement current is given by $I_D = \\epsilon_0 \\frac{d\\Phi_E}{dt}$, where $\\epsilon_0$ is the permittivity of free space and $\\Phi_E = \\int \\vec{E} \\cdot d\\vec{A}$ is the electric flux through a surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the inconsistency of Ampere's original law, $\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc}$, when applied to a charging capacitor.",
+      "back": "When applying Ampere's original law to a charging capacitor, if an Amperian loop encloses the wire leading to the capacitor, $I_{enc}$ is non-zero. However, if the same loop bounds a surface passing *between* the capacitor plates, $I_{enc}$ is zero (no conduction current). This implies $\\oint \\vec{B} \\cdot d\\vec{l}$ changes depending on the chosen surface, which contradicts Stokes' theorem for a well-defined magnetic field and violates charge conservation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the complete Ampere-Maxwell law in both integral and differential forms.",
+      "back": "Integral form: $\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 (I_{enc} + I_D) = \\mu_0 I_{enc} + \\mu_0 \\epsilon_0 \\frac{d\\Phi_E}{dt}$.\nDifferential form: $\\nabla \\times \\vec{B} = \\mu_0 \\vec{J} + \\mu_0 \\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the displacement current term resolve the inconsistency of Ampere's law for a charging capacitor?",
+      "back": "For a charging capacitor, while the conduction current $I_{enc}$ is zero between the plates, the electric field $\\vec{E}$ between the plates is changing. This changing $\\vec{E}$ field creates a non-zero displacement current $I_D = \\epsilon_0 \\frac{d\\Phi_E}{dt}$. This $I_D$ exactly matches the conduction current flowing into the capacitor plates, ensuring that the total current ($I_{enc} + I_D$) is conserved across any surface bounded by the Amperian loop, thus making Ampere's law consistent.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical significance of displacement current as a source of magnetic fields?",
+      "back": "The displacement current term $\\mu_0 \\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}$ in the Ampere-Maxwell law signifies that a *changing electric field* generates a magnetic field, just as a moving electric charge (conduction current) does. This mutual generation of electric and magnetic fields is fundamental to the existence and propagation of electromagnetic waves, even in a vacuum.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A parallel-plate capacitor with plate area $A$ is charging. If the rate of change of electric field between the plates is $\\frac{dE}{dt}$, what is the displacement current $I_D$ between the plates?",
+      "back": "The electric flux through the capacitor plates is $\\Phi_E = E \\cdot A$. Therefore, the displacement current is $I_D = \\epsilon_0 \\frac{d\\Phi_E}{dt} = \\epsilon_0 A \\frac{dE}{dt}$. This displacement current is equal to the conduction current flowing into the capacitor plates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show how the need for the displacement current term arises from the continuity equation and Gauss's law for electricity.",
+      "back": "1. **Continuity Equation:** $\\nabla \\cdot \\vec{J} = -\\frac{\\partial \\rho}{\\partial t}$.\n2. **Gauss's Law:** $\\nabla \\cdot \\vec{E} = \\frac{\\rho}{\\epsilon_0} \\implies \\rho = \\epsilon_0 \\nabla \\cdot \\vec{E}$.\nSubstitute $\\rho$ into the continuity equation: $\\nabla \\cdot \\vec{J} = -\\frac{\\partial}{\\partial t} (\\epsilon_0 \\nabla \\cdot \\vec{E}) = -\\epsilon_0 \\nabla \\cdot \\left(\\frac{\\partial \\vec{E}}{\\partial t}\\right)$.\nRearranging gives: $\\nabla \\cdot \\left(\\vec{J} + \\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}\\right) = 0$.\nAmpere's original law is $\\nabla \\times \\vec{B} = \\mu_0 \\vec{J}$. Taking the divergence: $\\nabla \\cdot (\\nabla \\times \\vec{B}) = \\mu_0 \\nabla \\cdot \\vec{J}$. Since $\\nabla \\cdot (\\nabla \\times \\vec{B}) = 0$, this implies $\\nabla \\cdot \\vec{J} = 0$, which contradicts the continuity equation for time-varying charge densities. To resolve this, Maxwell added the displacement current density term, making the complete law $\\nabla \\times \\vec{B} = \\mu_0 \\vec{J} + \\mu_0 \\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}$. Now, taking the divergence yields $\\nabla \\cdot (\\mu_0 \\vec{J} + \\mu_0 \\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}) = \\mu_0 \\left(\\nabla \\cdot \\vec{J} + \\epsilon_0 \\frac{\\partial}{\\partial t}(\\nabla \\cdot \\vec{E})\\right) = \\mu_0 \\left(\\nabla \\cdot \\vec{J} + \\frac{\\partial \\rho}{\\partial t}\\right) = 0$, consistent with charge conservation.",
+      "difficulty": "hard"
+    }
+  ]
+}

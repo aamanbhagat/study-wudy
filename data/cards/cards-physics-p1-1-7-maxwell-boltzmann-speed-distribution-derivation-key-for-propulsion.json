@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-maxwell-boltzmann-speed-distribution-derivation-key-for-propulsion",
+  "subtopicTitle": "Maxwell-Boltzmann speed distribution — derivation (key for propulsion)",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:10.890Z",
+  "cards": [
+    {
+      "front": "What fundamental aspect of an ideal gas does the Maxwell-Boltzmann speed distribution describe?",
+      "back": "It describes the probability distribution of molecular speeds for particles in an ideal gas that is in thermal equilibrium at a specific absolute temperature $T$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the primary assumptions required for the derivation of the Maxwell-Boltzmann speed distribution.",
+      "back": "The key assumptions are: 1) The gas is ideal (point particles, no intermolecular forces except elastic collisions). 2) The system is in thermal equilibrium. 3) Classical mechanics applies (not quantum). 4) No external forces or fields are acting on the particles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the Boltzmann factor $e^{-E/k_B T}$ relate to the probability of finding a particle with energy $E$ in a system at temperature $T$?",
+      "back": "The Boltzmann factor states that the probability of a particle being in a state with energy $E$ is proportional to $e^{-E/k_B T}$. This means higher energy states are exponentially less probable at a given temperature $T$, where $k_B$ is Boltzmann's constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When transforming from velocity components $(v_x, v_y, v_z)$ to speed $v$ in the Maxwell-Boltzmann derivation, explain the origin of the $v^2$ term.",
+      "back": "The $v^2$ term arises from the phase space volume element. In 3D velocity space, the number of states with speeds between $v$ and $v+dv$ corresponds to the volume of a spherical shell of radius $v$ and thickness $dv$. This volume is $4\\pi v^2 dv$. Thus, the factor $v^2$ accounts for the increasing number of available velocity states (directions) as speed increases.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the unnormalized Maxwell-Boltzmann speed distribution $f(v) \\propto v^2 e^{-\\frac{mv^2}{2k_B T}}$ starting from the Boltzmann distribution for energy.",
+      "back": "The Boltzmann distribution gives the probability of a particle having energy $E$: $P(E) \\propto e^{-E/k_B T}$. For a particle of mass $m$ and speed $v$, kinetic energy is $E = \\frac{1}{2}mv^2$. Thus, the probability density in velocity space is $P(v_x, v_y, v_z) \\propto e^{-\\frac{m(v_x^2+v_y^2+v_z^2)}{2k_B T}}$. To find the speed distribution, we transform to spherical coordinates $(v, \\theta, \\phi)$. The volume element $dv_x dv_y dv_z$ becomes $v^2 \\sin\\theta dv d\\theta d\\phi$. Integrating over all angles ($\\int_0^{2\\pi} d\\phi \\int_0^{\\pi} \\sin\\theta d\\theta = 4\\pi$) gives the speed distribution:\n$$f(v)dv \\propto 4\\pi v^2 e^{-\\frac{mv^2}{2k_B T}} dv$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the full normalized Maxwell-Boltzmann speed distribution function $f(v)$.",
+      "back": "The normalized Maxwell-Boltzmann speed distribution function is given by:\n$$f(v) = 4\\pi \\left(\\frac{m}{2\\pi k_B T}\\right)^{3/2} v^2 e^{-\\frac{mv^2}{2k_B T}}$$\nwhere $m$ is the mass of a particle, $k_B$ is Boltzmann's constant, $T$ is the absolute temperature, and $v$ is the particle speed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does an increase in temperature $T$ affect the Maxwell-Boltzmann speed distribution curve, and what is its significance for rocket propulsion?",
+      "back": "An increase in temperature $T$ shifts the peak of the Maxwell-Boltzmann distribution to higher speeds and broadens the curve, indicating that a larger fraction of particles possess higher speeds. In rocket propulsion, this means that higher propellant temperatures lead to higher average exhaust velocities, which directly translates to greater thrust and a higher specific impulse ($I_{sp}$), crucial for efficient space travel.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the most probable speed ($v_p$) from the Maxwell-Boltzmann speed distribution $f(v)$.",
+      "back": "To find the most probable speed, we set the first derivative of $f(v)$ with respect to $v$ to zero:\n$$\\frac{df(v)}{dv} = 0$$\nIgnoring the constant pre-factor, we differentiate $v^2 e^{-\\frac{mv^2}{2k_B T}}$:\n$$\\frac{d}{dv} \\left( v^2 e^{-\\frac{mv^2}{2k_B T}} \\right) = 2v e^{-\\frac{mv^2}{2k_B T}} + v^2 \\left(-\\frac{mv}{k_B T}\\right) e^{-\\frac{mv^2}{2k_B T}} = 0$$\nDivide by $v e^{-\\frac{mv^2}{2k_B T}}$ (since $v \\neq 0$ and the exponential is never zero):\n$$2 - \\frac{mv^2}{k_B T} = 0$$\n$$v_p^2 = \\frac{2k_B T}{m}$$\n$$v_p = \\sqrt{\\frac{2k_B T}{m}}$$",
+      "difficulty": "hard"
+    }
+  ]
+}

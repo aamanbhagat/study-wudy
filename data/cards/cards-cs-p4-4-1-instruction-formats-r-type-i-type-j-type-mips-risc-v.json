@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-instruction-formats-r-type-i-type-j-type-mips-risc-v",
+  "subtopicTitle": "Instruction formats — R-type, I-type, J-type (MIPS/RISC-V)",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:32.243Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of an instruction format in computer architecture?",
+      "back": "An instruction format defines the layout and interpretation of bits within a machine instruction. It specifies how fields like opcode, register operands, and immediate values are arranged, allowing the CPU to decode and execute instructions correctly.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the MIPS R-type instruction format, listing its fields and their typical bit lengths.",
+      "back": "R-type (Register-type) is used for register-to-register arithmetic and logical operations. Its fields are:\n`Opcode (6 bits)`: Always `0` for R-type instructions.\n`rs (5 bits)`: First source register.\n`rt (5 bits)`: Second source register.\n`rd (5 bits)`: Destination register.\n`shamt (5 bits)`: Shift amount (for shift operations).\n`funct (6 bits)`: Function code, specifies the exact operation (e.g., `add`, `sub`) when `Opcode` is `0`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the MIPS I-type instruction format, listing its fields and their typical bit lengths.",
+      "back": "I-type (Immediate-type) is used for data transfer (load/store), conditional branches, and operations involving an immediate (constant) value. Its fields are:\n`Opcode (6 bits)`: Specifies the basic operation (e.g., `lw`, `sw`, `addi`, `beq`).\n`rs (5 bits)`: Source register or base register for memory access.\n`rt (5 bits)`: Destination register for loads, or source register for stores/branches.\n`Immediate (16 bits)`: A signed constant value or an offset for memory/branching.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the MIPS J-type instruction format, listing its fields and their typical bit lengths.",
+      "back": "J-type (Jump-type) is used for unconditional jumps. Its fields are:\n`Opcode (6 bits)`: Specifies the jump operation (e.g., `j`, `jal`).\n`Address (26 bits)`: A target address for the jump.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In any instruction format (R, I, J), what is the fundamental role of the `Opcode` field?",
+      "back": "The `Opcode` field is the most crucial part of an instruction format. It specifies the basic operation to be performed by the CPU (e.g., add, load, jump) and determines which instruction format (R-type, I-type, or J-type) the rest of the instruction follows, guiding the CPU's decoding logic.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why do instructions like `add $t1, $t2, $t3` use R-type, while `addi $t1, $t2, 100` uses I-type, despite both being additions?",
+      "back": "R-type instructions operate exclusively on values stored in registers, requiring fields for two source registers (`rs`, `rt`) and a destination register (`rd`), plus a `funct` code. I-type instructions, like `addi`, include an immediate (constant) value as an operand. This 16-bit immediate value occupies the bit positions that would otherwise be used for `rd`, `shamt`, and `funct` in an R-type instruction, making it impossible to combine both an immediate and full R-type register/function fields in a fixed 32-bit instruction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the range of signed 16-bit immediate values that can be directly encoded in a MIPS I-type instruction?",
+      "back": "A signed 16-bit immediate value uses two's complement representation. The range is from $-(2^{15})$ to $(2^{15}-1)$. This translates to $-32,768$ to $32,767$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A MIPS J-type instruction has a 26-bit `Address` field. How is the final 32-bit target address calculated, assuming word alignment?",
+      "back": "The 26-bit `Address` field is first shifted left by 2 bits (effectively multiplying by 4) to form a 28-bit word address. This 28-bit value is then concatenated with the upper 4 bits of the Program Counter (PC) of the *next* instruction ($PC+4$) to form the full 32-bit jump target address. This allows jumps to any word-aligned address within the current 256MB segment of memory.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which MIPS instruction format and its specific fields are typically used for load and store operations, such as `lw $t0, 8($sp)`?",
+      "back": "Load and store operations like `lw $t0, 8($sp)` use the I-type format.\n- The `Opcode` field specifies `lw` (load word).\n- `rs` holds the base register (`$sp`).\n- `rt` holds the destination register (`$t0`).\n- The `Immediate` field holds the 16-bit offset (`8`).\nThe effective memory address is calculated as `($sp + 8)`.",
+      "difficulty": "medium"
+    }
+  ]
+}

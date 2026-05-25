@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-1-dimensional-analysis-checking-equations-deriving-relations",
+  "subtopicTitle": "Dimensional analysis — checking equations, deriving relations",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:41.653Z",
+  "cards": [
+    {
+      "front": "Define dimensional analysis and state its two primary applications in physics.",
+      "back": "Dimensional analysis is a tool used to analyze the relationships between different physical quantities by identifying their fundamental dimensions (e.g., Mass, Length, Time). Its primary applications are: 1. Checking the dimensional consistency of physical equations. 2. Deriving relationships between physical quantities.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Principle of Homogeneity for physical equations.",
+      "back": "The Principle of Homogeneity states that every term in a valid physical equation must have the same dimensions. Consequently, quantities can only be added or subtracted if they possess identical dimensions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Is the equation $v^2 = u^2 + 2as$ dimensionally consistent, where $v, u$ are velocities, $a$ is acceleration, and $s$ is displacement?",
+      "back": "Yes, it is dimensionally consistent.\n$[v^2] = (L/T)^2 = L^2/T^2$\n$[u^2] = (L/T)^2 = L^2/T^2$\n$[2as] = [a][s] = (L/T^2)(L) = L^2/T^2$\nAll terms have the same dimensions ($L^2/T^2$), so the equation is dimensionally consistent.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A student writes $E = mv + \\frac{1}{2}at^2$. Identify the dimensional error, given $E$ is energy, $m$ is mass, $v$ is velocity, $a$ is acceleration, $t$ is time.",
+      "back": "Let's check the dimensions of each term:\n$[E] = ML^2T^{-2}$ (standard dimension for energy)\n$[mv] = M(LT^{-1}) = MLT^{-1}$\n$[\\frac{1}{2}at^2] = [a][t^2] = (LT^{-2})(T^2) = L$\nThe terms $mv$ and $\\frac{1}{2}at^2$ do not have the same dimensions as each other, nor do they have the dimensions of energy. The equation is dimensionally inconsistent.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The period $T$ of a simple pendulum depends on its length $l$ and the acceleration due to gravity $g$. Use dimensional analysis to find the relationship.",
+      "back": "Assume $T \\propto l^a g^b$.\nDimensions: $[T] = T$, $[l] = L$, $[g] = LT^{-2}$.\nSo, $T^1 = (L)^a (LT^{-2})^b = L^{a+b} T^{-2b}$.\nComparing powers of fundamental dimensions:\nFor $L$: $0 = a+b \\implies a = -b$\nFor $T$: $1 = -2b \\implies b = -1/2$\nSubstituting $b$ into the $L$ equation: $a = -(-1/2) = 1/2$.\nThus, $T \\propto l^{1/2} g^{-1/2} = \\sqrt{l/g}$. (The constant of proportionality is $2\\pi$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two significant limitations of dimensional analysis.",
+      "back": "1.  **Cannot determine dimensionless constants:** Dimensional analysis cannot determine numerical factors or dimensionless constants (e.g., $2\\pi$, $1/2$) in an equation. These must be found experimentally or through more rigorous theoretical derivations.\n2.  **Limited to power laws:** It typically assumes a product of powers relationship between variables and cannot derive complex functional forms (e.g., sums, exponentials, trigonometric functions) unless the argument of such functions is dimensionless.\n3.  **Requires knowledge of all relevant variables:** If any relevant physical quantity is omitted from consideration, the derived relationship will be incorrect.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "The viscous drag force $F$ on a sphere moving through a fluid depends on its radius $r$, velocity $v$, and fluid viscosity $\\eta$. Derive the relationship using dimensional analysis. (Dimensions of viscosity $\\eta$ are $ML^{-1}T^{-1}$).",
+      "back": "Assume $F \\propto r^a v^b \\eta^c$.\nDimensions:\n$[F] = MLT^{-2}$\n$[r] = L$\n$[v] = LT^{-1}$\n$[\\eta] = ML^{-1}T^{-1}$\n\nEquating dimensions:\n$MLT^{-2} = (L)^a (LT^{-1})^b (ML^{-1}T^{-1})^c$\n$MLT^{-2} = M^c L^{a+b-c} T^{-b-c}$\n\nComparing powers of fundamental dimensions:\nFor $M$: $1 = c$\nFor $L$: $1 = a+b-c \\implies 1 = a+b-1 \\implies a+b=2$\nFor $T$: $-2 = -b-c \\implies -2 = -b-1 \\implies b=1$\n\nSubstitute $b=1$ into $a+b=2$: $a+1=2 \\implies a=1$.\n\nThus, $F \\propto r^1 v^1 \\eta^1 = \\eta r v$. (The constant of proportionality for Stokes' Law is $6\\pi$).",
+      "difficulty": "hard"
+    }
+  ]
+}

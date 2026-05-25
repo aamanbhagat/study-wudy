@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-5-resolving-power-rayleigh-criterion",
+  "subtopicTitle": "Resolving power — Rayleigh criterion",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:01.285Z",
+  "cards": [
+    {
+      "front": "What fundamental physical phenomenon limits the ability of any optical instrument to perfectly resolve two closely spaced point sources, even with ideal lenses?",
+      "back": "Diffraction. Light waves spread out as they pass through an aperture, creating a diffraction pattern (e.g., an Airy disk for a circular aperture), rather than a perfect point image.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Rayleigh criterion for the resolution of two closely spaced point sources.",
+      "back": "Two point sources are just resolvable when the central maximum of the diffraction pattern of one source is located directly over the first minimum of the diffraction pattern of the other source.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "According to the Rayleigh criterion, what is the minimum angular separation $\\theta_{min}$ (in radians) for two point sources to be just resolved by a circular aperture of diameter $D$ using light of wavelength $\\lambda$?",
+      "back": "$$\\theta_{min} = 1.22 \\frac{\\lambda}{D}$$Where $\\lambda$ is the wavelength of light and $D$ is the diameter of the circular aperture.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a single slit of width $a$, what is the minimum angular separation $\\theta_{min}$ (in radians) for two point sources to be just resolved by the Rayleigh criterion?",
+      "back": "$$\\theta_{min} = \\frac{\\lambda}{a}$$Where $\\lambda$ is the wavelength of light and $a$ is the width of the single slit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To maximize the resolving power of an optical instrument (i.e., minimize the resolvable angular separation), how should the wavelength of light ($\\lambda$) and the aperture size ($D$ or $a$) be chosen?",
+      "back": "To maximize resolving power (minimize $\\theta_{min}$):\n1. Use a shorter wavelength of light ($\\lambda$ should be *decreased*).\n2. Use a larger aperture size ($D$ or $a$ should be *increased*).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical origin of the factor $1.22$ in the Rayleigh criterion for a circular aperture, differentiating it from a single slit.",
+      "back": "The factor $1.22$ arises because the diffraction pattern from a circular aperture is an Airy disk, described by Bessel functions, whereas a single slit produces a Fraunhofer diffraction pattern described by sinc functions. The first minimum for a circular aperture occurs at an angle where $J_1(kR\\sin\\theta) = 0$, which corresponds to $kR\\sin\\theta \\approx 3.8317$, leading to $\\sin\\theta \\approx 1.22 \\frac{\\lambda}{D}$. For a slit, the first minimum is at $\\sin\\theta = \\frac{\\lambda}{a}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A student observes two distant stars through a telescope with an objective lens diameter of $20 \\text{ cm}$. If they use a filter that transmits light with an average wavelength of $600 \\text{ nm}$, what is the smallest angular separation (in arcseconds) at which the stars can be just resolved?",
+      "back": "Using the Rayleigh criterion for a circular aperture:\n$$\\theta_{min} = 1.22 \\frac{\\lambda}{D}$$\nGiven $\\lambda = 600 \\text{ nm} = 600 \\times 10^{-9} \\text{ m}$ and $D = 20 \\text{ cm} = 0.20 \\text{ m}$.\n$$\\theta_{min} = 1.22 \\frac{600 \\times 10^{-9} \\text{ m}}{0.20 \\text{ m}} = 3.66 \\times 10^{-6} \\text{ radians}$$\nTo convert to arcseconds: $1 \\text{ radian} = \\frac{180}{\\pi} \\text{ degrees} = \\frac{180}{\\pi} \\times 3600 \\text{ arcseconds}$.\n$$\\theta_{min} = (3.66 \\times 10^{-6} \\text{ rad}) \\times \\frac{180}{\\pi} \\times 3600 \\frac{\\text{arcsec}}{\\text{rad}} \\approx 0.755 \\text{ arcseconds}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If two point sources are separated by an angular distance significantly *less* than the Rayleigh criterion, how would their images typically appear through an optical instrument, and why?",
+      "back": "They would appear as a single, blurred, elongated, or slightly broadened image. This is because their individual diffraction patterns would overlap to such an extent that their central maxima are not distinguishable from each other, and the combined intensity profile would not show two distinct peaks, making them irresolvable.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-derivatives-of-sin-x-cos-x-proofs-from-first-principles",
+  "subtopicTitle": "Derivatives of sin x, cos x — proofs from first principles",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:55.844Z",
+  "cards": [
+    {
+      "front": "State the definition of the derivative of a function $f(x)$ from first principles.",
+      "back": "The derivative $f'(x)$ of a function $f(x)$ is defined as: $$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the two fundamental trigonometric limits required for deriving the derivatives of $\\sin x$ and $\\cos x$.",
+      "back": "The two fundamental limits are: $$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$$ and $$\\lim_{x \\to 0} \\frac{\\cos x - 1}{x} = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What trigonometric identity is crucial for expanding $\\sin(x+h)$ in the first principles derivation of $\\frac{d}{dx}(\\sin x)$?",
+      "back": "The sum identity for sine: $\\sin(A+B) = \\sin A \\cos B + \\cos A \\sin B$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive $\\frac{d}{dx}(\\sin x)$ from first principles, showing all steps.",
+      "back": "Let $f(x) = \\sin x$. Using the definition of the derivative:\n$$f'(x) = \\lim_{h \\to 0} \\frac{\\sin(x+h) - \\sin x}{h}$$\nExpand $\\sin(x+h)$ using $\\sin(A+B) = \\sin A \\cos B + \\cos A \\sin B$:\n$$= \\lim_{h \\to 0} \\frac{(\\sin x \\cos h + \\cos x \\sin h) - \\sin x}{h}$$\nRearrange terms:\n$$= \\lim_{h \\to 0} \\frac{\\sin x (\\cos h - 1) + \\cos x \\sin h}{h}$$\nSeparate into two limits:\n$$= \\sin x \\lim_{h \\to 0} \\frac{\\cos h - 1}{h} + \\cos x \\lim_{h \\to 0} \\frac{\\sin h}{h}$$\nApply the fundamental trigonometric limits ($\\lim_{h \\to 0} \\frac{\\cos h - 1}{h} = 0$ and $\\lim_{h \\to 0} \\frac{\\sin h}{h} = 1$):\n$$= \\sin x (0) + \\cos x (1) = \\cos x$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What trigonometric identity is crucial for expanding $\\cos(x+h)$ in the first principles derivation of $\\frac{d}{dx}(\\cos x)$?",
+      "back": "The sum identity for cosine: $\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive $\\frac{d}{dx}(\\cos x)$ from first principles, showing all steps.",
+      "back": "Let $f(x) = \\cos x$. Using the definition of the derivative:\n$$f'(x) = \\lim_{h \\to 0} \\frac{\\cos(x+h) - \\cos x}{h}$$\nExpand $\\cos(x+h)$ using $\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B$:\n$$= \\lim_{h \\to 0} \\frac{(\\cos x \\cos h - \\sin x \\sin h) - \\cos x}{h}$$\nRearrange terms:\n$$= \\lim_{h \\to 0} \\frac{\\cos x (\\cos h - 1) - \\sin x \\sin h}{h}$$\nSeparate into two limits:\n$$= \\cos x \\lim_{h \\to 0} \\frac{\\cos h - 1}{h} - \\sin x \\lim_{h \\to 0} \\frac{\\sin h}{h}$$\nApply the fundamental trigonometric limits ($\\lim_{h \\to 0} \\frac{\\cos h - 1}{h} = 0$ and $\\lim_{h \\to 0} \\frac{\\sin h}{h} = 1$):\n$$= \\cos x (0) - \\sin x (1) = -\\sin x$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the derivative of $\\sin x$?",
+      "back": "$\\frac{d}{dx}(\\sin x) = \\cos x$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the derivative of $\\cos x$?",
+      "back": "$\\frac{d}{dx}(\\cos x) = -\\sin x$",
+      "difficulty": "easy"
+    }
+  ]
+}

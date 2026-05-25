@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-1-derivative-from-first-principles-difference-quotient-definition",
+  "subtopicTitle": "Derivative from first principles — difference quotient definition",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:46.935Z",
+  "cards": [
+    {
+      "front": "State the formal definition of the derivative of a function $f(x)$ at a point $x$ using the limit of the difference quotient.",
+      "back": "The derivative of $f(x)$ at a point $x$ is defined as:\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$\nprovided this limit exists.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, what does the derivative $f'(a)$ represent at a point $x=a$?",
+      "back": "The derivative $f'(a)$ represents the slope of the tangent line to the graph of $y=f(x)$ at the point $(a, f(a))$. It also represents the instantaneous rate of change of $f(x)$ with respect to $x$ at $x=a$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the alternative definition of the derivative of $f(x)$ at a point $x=a$ using the limit as $x \\to a$.",
+      "back": "The alternative definition of the derivative of $f(x)$ at a point $x=a$ is:\n$$f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x - a}$$\nprovided this limit exists.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the definition of the derivative to find $f'(x)$ for $f(x) = x^2$.",
+      "back": "Using the definition $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$:\n$$f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h}$$\n$$= \\lim_{h \\to 0} \\frac{(x^2 + 2xh + h^2) - x^2}{h}$$\n$$= \\lim_{h \\to 0} \\frac{2xh + h^2}{h}$$\n$$= \\lim_{h \\to 0} (2x + h)$$\n$$= 2x + 0 = 2x$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the definition of the derivative to find $f'(x)$ for $f(x) = c$, where $c$ is a constant.",
+      "back": "Using the definition $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$:\n$$f'(x) = \\lim_{h \\to 0} \\frac{c - c}{h}$$\n$$= \\lim_{h \\to 0} \\frac{0}{h}$$\n$$= \\lim_{h \\to 0} 0 = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the definition of the derivative to find $f'(x)$ for $f(x) = \\frac{1}{x}$.",
+      "back": "Using the definition $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$:\n$$f'(x) = \\lim_{h \\to 0} \\frac{\\frac{1}{x+h} - \\frac{1}{x}}{h}$$\n$$= \\lim_{h \\to 0} \\frac{\\frac{x - (x+h)}{x(x+h)}}{h}$$\n$$= \\lim_{h \\to 0} \\frac{-h}{h \\cdot x(x+h)}$$\n$$= \\lim_{h \\to 0} \\frac{-1}{x(x+h)}$$\n$$= \\frac{-1}{x(x+0)} = -\\frac{1}{x^2}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List three common scenarios where a function $f(x)$ might *not* be differentiable at a point $x=a$.",
+      "back": "A function $f(x)$ might not be differentiable at $x=a$ if:\n1.  **Corners or Cusps:** The left-hand and right-hand derivatives are not equal (e.g., $f(x) = |x|$ at $x=0$).\n2.  **Vertical Tangents:** The limit of the difference quotient approaches $\\pm \\infty$ (e.g., $f(x) = x^{1/3}$ at $x=0$).\n3.  **Discontinuities:** If a function is discontinuous at $x=a$, it cannot be differentiable at $x=a$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is a function that is differentiable at a point $a$ necessarily continuous at $a$? Is the converse true?",
+      "back": "Yes, if a function $f(x)$ is differentiable at a point $a$, then it is necessarily continuous at $a$.\n\nHowever, the converse is *not* true. A function can be continuous at a point but not differentiable there (e.g., $f(x) = |x|$ at $x=0$ is continuous but has a sharp corner, making it non-differentiable).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the \"difference quotient\" for a function $f(x)$ between $x$ and $x+h$, and what does it represent geometrically *before* taking the limit?",
+      "back": "The difference quotient for a function $f(x)$ between $x$ and $x+h$ is $\\frac{f(x+h) - f(x)}{h}$.\n\nGeometrically, before taking the limit, it represents the slope of the secant line connecting the two points $(x, f(x))$ and $(x+h, f(x+h))$ on the graph of $f(x)$.",
+      "difficulty": "easy"
+    }
+  ]
+}

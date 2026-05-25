@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-gps-pseudorange-trilateration-dilution-of-precision",
+  "subtopicTitle": "GPS — pseudorange, trilateration, dilution of precision",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:59.021Z",
+  "cards": [
+    {
+      "front": "What is a GPS \"pseudorange,\" and why is it called \"pseudo\"?",
+      "back": "A pseudorange is the measured distance between a GPS receiver and a satellite, calculated by multiplying the speed of light by the time delay between signal transmission and reception. It's called \"pseudo\" because it includes an unknown error due to the receiver's less precise clock being unsynchronized with the highly accurate atomic clocks on GPS satellites.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the fundamental formula for calculating a GPS pseudorange ($\\rho$) from a satellite, identifying the key variables.",
+      "back": "The pseudorange $\\rho$ is calculated as $\\rho = c \\cdot (t_{rx} - t_{tx})$, where:\n*   $c$ is the speed of light.\n*   $t_{rx}$ is the time the signal is received by the receiver (according to the receiver's clock).\n*   $t_{tx}$ is the time the signal was transmitted by the satellite (as encoded in the signal).\nThis formula inherently includes the receiver clock bias.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does GPS require signals from at least four satellites to determine a receiver's 3D position, even though geometric trilateration typically only needs three known points?",
+      "back": "Geometric trilateration assumes known distances to three points to find a 3D position $(x, y, z)$. GPS, however, has an additional unknown: the receiver's clock bias ($\\delta t_{rx}$). Since the receiver's clock is not perfectly synchronized with the satellites' atomic clocks, each pseudorange measurement is biased by $c \\cdot \\delta t_{rx}$. Therefore, four unknowns ($x, y, z, \\delta t_{rx}$) require at least four independent pseudorange measurements (and thus four satellites) to solve the system of equations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write down the system of non-linear equations a GPS receiver solves to determine its 3D position $(x_{rx}, y_{rx}, z_{rx})$ and receiver clock bias $\\delta t_{rx}$ using pseudoranges from $N$ satellites.",
+      "back": "For each satellite $i$ (with known position $(x_i, y_i, z_i)$), the measured pseudorange $\\rho_i$ relates to the true geometric range $R_i$ and receiver clock bias $\\delta t_{rx}$ by:\n$$ \\rho_i = R_i + c \\cdot \\delta t_{rx} $$\nwhere $R_i = \\sqrt{(x_i - x_{rx})^2 + (y_i - y_{rx})^2 + (z_i - z_{rx})^2}$.\nThus, for $N$ satellites, the system of equations is:\n$$ \\rho_i = \\sqrt{(x_i - x_{rx})^2 + (y_i - y_{rx})^2 + (z_i - z_{rx})^2} + c \\cdot \\delta t_{rx} \\quad \\text{for } i = 1, \\dots, N $$\nThis non-linear system is typically solved iteratively using methods like the Newton-Raphson method.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"Dilution of Precision\" (DOP) in the context of GPS.",
+      "back": "Dilution of Precision (DOP) is a dimensionless factor that quantifies the multiplicative effect of satellite geometry on the precision of a GPS position or time fix. A higher DOP value indicates poorer satellite geometry, which amplifies the inherent measurement errors (e.g., pseudorange errors) and results in a less precise position or time solution. Conversely, a lower DOP value indicates better geometry and higher precision.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain intuitively how satellite geometry influences the Dilution of Precision (DOP) and thus the accuracy of a GPS fix.",
+      "back": "DOP is minimized when satellites are widely spread across the sky, ideally with some near the horizon and some overhead. This \"good\" geometry means the lines of position (or error spheres) intersect at sharp angles, leading to a smaller, more precisely defined intersection region for the receiver's estimated position. If satellites are clustered together in a small part of the sky (\"poor\" geometry), their lines of position intersect at shallow angles, resulting in a much larger, less precise intersection region, and thus a higher DOP value and lower accuracy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List and briefly describe at least four common types of Dilution of Precision (DOP) used in GPS.",
+      "back": "*   **GDOP (Geometric DOP):** Overall dilution of precision for 3D position and time.\n*   **PDOP (Positional DOP):** Dilution of precision for 3D position only ($x, y, z$).\n*   **HDOP (Horizontal DOP):** Dilution of precision for horizontal position ($x, y$).\n*   **VDOP (Vertical DOP):** Dilution of precision for vertical position ($z$).\n*   **TDOP (Time DOP):** Dilution of precision for time ($t$).\nThese values are derived from the geometry matrix of the satellite constellation.",
+      "difficulty": "medium"
+    }
+  ]
+}

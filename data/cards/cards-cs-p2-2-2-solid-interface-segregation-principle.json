@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-2-solid-interface-segregation-principle",
+  "subtopicTitle": "SOLID — Interface Segregation Principle",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:31.287Z",
+  "cards": [
+    {
+      "front": "What is the core statement of the Interface Segregation Principle (ISP)?",
+      "back": "The Interface Segregation Principle states: \"Clients should not be forced to depend on interfaces they do not use.\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What common design anti-pattern often indicates a violation of the Interface Segregation Principle (ISP)?",
+      "back": "A \"fat interface\" (or \"polluted interface\") often indicates an ISP violation. This is an interface that includes too many methods, forcing implementing classes or clients to depend on methods they don't need or use.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You have an interface `IMachine` with `start()`, `stop()`, `print()`, and `scan()` methods. A `BasicPrinter` class only needs `start()`, `stop()`, and `print()`. How would you refactor `IMachine` to adhere to ISP?",
+      "back": "Split `IMachine` into smaller, role-specific interfaces. For example:\n```java\ninterface IStartStoppable { void start(); void stop(); }\ninterface IPrintable { void print(); }\ninterface IScannable { void scan(); }\n\n// BasicPrinter only implements what it needs\nclass BasicPrinter implements IStartStoppable, IPrintable {\n    public void start() { /* ... */ }\n    public void stop() { /* ... */ }\n    public void print() { /* ... */ }\n}\n\n// A MultifunctionDevice could implement all three\nclass MultifunctionDevice implements IStartStoppable, IPrintable, IScannable {\n    // ... implementations ...\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does adhering to the Interface Segregation Principle (ISP) contribute to a more maintainable and robust software system?",
+      "back": "ISP improves maintainability and robustness by: \n1.  **Reducing coupling:** Clients only depend on the specific methods they need, minimizing the impact of changes in other parts of the interface.\n2.  **Enhancing reusability:** Smaller, focused interfaces are easier to combine and reuse in different contexts.\n3.  **Preventing unwanted dependencies:** Classes are not forced to implement methods irrelevant to their purpose, reducing the risk of `UnsupportedOperationException` or empty implementations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between the Interface Segregation Principle (ISP) and the Single Responsibility Principle (SRP). Are they mutually exclusive or complementary?",
+      "back": "ISP and SRP are complementary. SRP applies to classes/modules, stating a class should have only one reason to change. ISP applies to interfaces, ensuring clients don't depend on methods they don't use.\n\nAn interface designed with SRP in mind (e.g., `IOrderProcessor` vs. `IOrderProcessorAndLogger`) will often naturally be smaller and more segregated, aiding ISP compliance. However, an interface can be SRP-compliant (each method has a single responsibility) but still violate ISP if it serves multiple distinct client roles, forcing some clients to depend on methods relevant only to others. ISP focuses on the *client's perspective* of the interface, while SRP focuses on the *interface's own responsibilities*.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a direct negative consequence for a class that implements a \"fat interface\" and doesn't utilize all of its methods?",
+      "back": "The class is forced to provide either empty implementations for the unused methods or throw an `UnsupportedOperationException`. This adds unnecessary boilerplate code, increases the class's complexity, makes it harder to understand its true purpose, and can lead to runtime errors if an unused method is inadvertently called by a client expecting full functionality.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a banking system, an `IAccount` interface has `deposit()`, `withdraw()`, `calculateInterest()`, and `viewTransactionHistory()`. A `SavingsAccount` needs all, but a `CheckingAccount` does not calculate interest. Design ISP-compliant interfaces.",
+      "back": "```java\ninterface IDepositable {\n    void deposit(double amount);\n}\n\ninterface IWithdrawable {\n    void withdraw(double amount);\n}\n\ninterface IInterestCalculable {\n    double calculateInterest();\n}\n\ninterface ITransactionHistoryViewable {\n    List<Transaction> viewTransactionHistory();\n}\n\n// SavingsAccount implements all necessary interfaces\nclass SavingsAccount implements IDepositable, IWithdrawable, IInterestCalculable, ITransactionHistoryViewable {\n    // ... implementations ...\n}\n\n// CheckingAccount implements only what it needs\nclass CheckingAccount implements IDepositable, IWithdrawable, ITransactionHistoryViewable {\n    // ... implementations ...\n}\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

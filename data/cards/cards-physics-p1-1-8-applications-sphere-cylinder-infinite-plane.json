@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-applications-sphere-cylinder-infinite-plane",
+  "subtopicTitle": "Applications — sphere, cylinder, infinite plane",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:35.756Z",
+  "cards": [
+    {
+      "front": "What characteristic of charge distribution is essential for simplifying electric field calculations using Gauss's Law?",
+      "back": "A high degree of symmetry (spherical, cylindrical, or planar) is essential. This allows for the construction of a Gaussian surface where the electric field is either constant in magnitude and perpendicular to the surface (for non-zero flux) or parallel to the surface (for zero flux).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the electric field magnitude *outside* a uniformly charged insulating sphere of radius $R$ and total charge $Q$.",
+      "back": "For $r > R$, the electric field magnitude is $E = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r^2}$. This is identical to the field of a point charge $Q$ located at the sphere's center.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the electric field magnitude *inside* a uniformly charged insulating sphere of radius $R$ with total charge $Q$.",
+      "back": "Assume uniform volume charge density $\\rho = \\frac{Q}{(4/3)\\pi R^3}$. For $r < R$, choose a spherical Gaussian surface of radius $r$. The charge enclosed is $Q_{enc} = \\rho \\cdot (4/3)\\pi r^3 = Q \\frac{r^3}{R^3}$. By Gauss's Law, $\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{enc}}{\\epsilon_0}$. Due to spherical symmetry, $E \\cdot (4\\pi r^2) = \\frac{Q}{\\epsilon_0} \\frac{r^3}{R^3}$. Solving for $E$, we get $E = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q r}{R^3}$. The field increases linearly with $r$ inside the sphere.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the electric field magnitude *outside* an infinitely long conducting cylinder of radius $R$ with linear charge density $\\lambda$?",
+      "back": "For $r > R$, the electric field magnitude is $E = \\frac{\\lambda}{2\\pi\\epsilon_0 r}$. Inside the conductor ($r < R$), the electric field is $E=0$, as all excess charge resides on the surface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the electric field magnitude due to an infinite non-conducting plane with uniform surface charge density $\\sigma$.",
+      "back": "Choose a cylindrical Gaussian surface with its axis perpendicular to the plane, passing through it. Let the ends of the cylinder have area $A$. The electric field is perpendicular to the plane and uniform in magnitude on either side. The flux through the side walls is zero. The flux through the two end caps is $\\Phi_E = E \\cdot A + E \\cdot A = 2EA$. The charge enclosed is $Q_{enc} = \\sigma A$. By Gauss's Law, $2EA = \\frac{\\sigma A}{\\epsilon_0}$. Solving for $E$, we get $E = \\frac{\\sigma}{2\\epsilon_0}$. The field is uniform and independent of distance from the plane.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the electric field magnitude *inside* any solid conductor in electrostatic equilibrium, and why?",
+      "back": "The electric field magnitude *inside* any solid conductor in electrostatic equilibrium is always $E=0$. If there were an electric field, free charges within the conductor would move to neutralize it, violating the condition of electrostatic equilibrium. All excess charge resides on the surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the electric field magnitude *between* two large, parallel, oppositely charged conducting plates with surface charge densities $+\\sigma$ and $-\\sigma$?",
+      "back": "Each infinite conducting plate creates an electric field $E = \\frac{\\sigma}{\\epsilon_0}$ *just outside* its surface. Between the plates, the fields from each plate add constructively, both pointing from the positive to the negative plate. Thus, $E_{total} = E_{plate1} + E_{plate2} = \\frac{\\sigma}{\\epsilon_0}$. Outside the plates, the fields cancel.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the electric field magnitude *inside* an infinitely long insulating cylinder of radius $R$ with uniform volume charge density $\\rho$.",
+      "back": "For $r < R$, choose a cylindrical Gaussian surface of radius $r$ and length $L$. The charge enclosed is $Q_{enc} = \\rho \\cdot (\\pi r^2 L)$. By Gauss's Law, $\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{enc}}{\\epsilon_0}$. Due to cylindrical symmetry, $\\vec{E}$ is radial and constant on the Gaussian surface. The flux through the end caps is zero. So, $E \\cdot (2\\pi r L) = \\frac{\\rho \\pi r^2 L}{\\epsilon_0}$. Solving for $E$, we get $E = \\frac{\\rho r}{2\\epsilon_0}$. The field increases linearly with $r$ inside the cylinder.",
+      "difficulty": "hard"
+    }
+  ]
+}

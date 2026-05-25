@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-rtos-concepts-task-scheduler-preemption-context-switch",
+  "subtopicTitle": "RTOS concepts — task, scheduler, preemption, context switch",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:50.206Z",
+  "cards": [
+    {
+      "front": "In an RTOS, what does the term \"task\" refer to?",
+      "back": "An independent thread of execution, managed by the RTOS, that performs a specific function. Each task typically has its own stack, program counter, and CPU register set, allowing it to be scheduled and run independently.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary function of the 'scheduler' in an RTOS?",
+      "back": "The scheduler is the core component responsible for determining which task gets to execute on the CPU at any given moment. It manages task states (e.g., running, ready, blocked) and uses a scheduling algorithm (e.g., priority-based, round-robin) to select the next task for execution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define 'preemption' in the context of an RTOS.",
+      "back": "Preemption is the act of interrupting a currently running task to allow a higher-priority task that has become ready to execute immediately. This mechanism ensures that time-critical operations are handled promptly and deterministically.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the sequence of events that constitute a 'context switch'.",
+      "back": "A context switch involves two main steps:\n1.  **Saving Context:** The complete execution state (context) of the currently running task (e.g., CPU registers, program counter, stack pointer, status register) is saved to its Task Control Block (TCB) or stack.\n2.  **Loading Context:** The saved context of the next task chosen by the scheduler is then loaded into the CPU's registers, allowing it to resume execution from its last interruption point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is preemption considered a fundamental requirement for most real-time operating systems?",
+      "back": "Preemption is fundamental because it guarantees deterministic and timely responses for high-priority tasks. Without it, a lower-priority task could monopolize the CPU, leading to missed deadlines, unpredictable behavior, and potential system failure in time-critical applications where responsiveness is paramount.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the key pieces of information that are typically saved as part of a task's context during a context switch.",
+      "back": "The key information saved includes:\n*   General-purpose CPU registers\n*   Program Counter (PC)\n*   Stack Pointer (SP)\n*   Processor Status Word (PSW) or Status Register\n*   Floating-point registers (if used and task-specific)\n*   Memory Management Unit (MMU) state (if applicable and task-specific)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain 'context switch overhead' and its significance in RTOS performance.",
+      "back": "Context switch overhead refers to the CPU time and cycles consumed by the RTOS to perform a context switch (saving one task's state and loading another's). It's significant because frequent context switches, common in highly dynamic or interrupt-driven systems, can consume a substantial portion of CPU time, reducing the time available for application logic and potentially causing tasks to miss their deadlines. Minimizing this overhead is a crucial design goal for RTOS developers.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider an RTOS where higher numbers indicate higher priority. If `Task_A` (priority 5) is running and `Task_B` (priority 10) becomes ready, what immediate action will the scheduler take?",
+      "back": "The scheduler will immediately preempt `Task_A`. It will perform a context switch, saving `Task_A`'s state and then loading `Task_B`'s state, allowing `Task_B` to begin or resume execution. This occurs because `Task_B` has a higher priority and is now ready to run.",
+      "difficulty": "medium"
+    }
+  ]
+}

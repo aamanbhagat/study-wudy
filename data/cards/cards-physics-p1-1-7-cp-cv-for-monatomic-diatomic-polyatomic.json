@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-cp-cv-for-monatomic-diatomic-polyatomic",
+  "subtopicTitle": "γ = Cp/Cv — for monatomic, diatomic, polyatomic",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:16.986Z",
+  "cards": [
+    {
+      "front": "What is the adiabatic index, $\\gamma$, also known as the heat capacity ratio?",
+      "back": "The adiabatic index, $\\gamma$, is the ratio of the molar heat capacity at constant pressure ($C_p$) to the molar heat capacity at constant volume ($C_v$). Mathematically, $\\gamma = \\frac{C_p}{C_v}$. It is a dimensionless quantity crucial in adiabatic processes, indicating how much the temperature changes for a given change in volume during an adiabatic expansion or compression.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Mayer's relation and explain its significance for ideal gases.",
+      "back": "Mayer's relation states that for an ideal gas, $C_p - C_v = R$, where $R$ is the ideal gas constant. This relation is significant because it connects the two principal molar heat capacities and shows that $C_p$ is always greater than $C_v$. At constant pressure, heat added not only increases the internal energy but also does work on the surroundings, requiring more energy input than at constant volume where no work is done.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to the equipartition theorem, what is the average energy associated with each degree of freedom for a molecule in thermal equilibrium at temperature $T$?",
+      "back": "The equipartition theorem states that for a system in thermal equilibrium at temperature $T$, each quadratic degree of freedom contributes an average energy of $\\frac{1}{2}k_BT$ per molecule, or $\\frac{1}{2}RT$ per mole, to the internal energy, where $k_B$ is Boltzmann's constant and $R$ is the ideal gas constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the molar heat capacity at constant volume, $C_v$, for an ideal monatomic gas using the equipartition theorem.",
+      "back": "A monatomic gas molecule has 3 translational degrees of freedom (motion along x, y, z axes). Vibrational and rotational degrees of freedom are absent.\n*   Total degrees of freedom, $f = 3$.\n*   Internal energy per mole: $U = f \\cdot \\frac{1}{2}RT = 3 \\cdot \\frac{1}{2}RT = \\frac{3}{2}RT$.\n*   Molar heat capacity at constant volume: $C_v = \\left(\\frac{\\partial U}{\\partial T}\\right)_V = \\frac{\\partial}{\\partial T}\\left(\\frac{3}{2}RT\\right) = \\frac{3}{2}R$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Calculate the adiabatic index $\\gamma$ for an ideal monatomic gas.",
+      "back": "For a monatomic gas:\n*   Molar heat capacity at constant volume: $C_v = \\frac{3}{2}R$.\n*   Using Mayer's relation ($C_p = C_v + R$):\n    $C_p = \\frac{3}{2}R + R = \\frac{5}{2}R$.\n*   Adiabatic index: $\\gamma = \\frac{C_p}{C_v} = \\frac{\\frac{5}{2}R}{\\frac{3}{2}R} = \\frac{5}{3} \\approx 1.67$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the molar heat capacity at constant volume, $C_v$, for an ideal diatomic gas at moderate temperatures, considering its degrees of freedom.",
+      "back": "At moderate temperatures, a diatomic molecule has:\n*   3 translational degrees of freedom.\n*   2 rotational degrees of freedom (rotation about two axes perpendicular to the molecular axis). Vibrational modes are generally \"frozen out\" at moderate temperatures.\n*   Total degrees of freedom, $f = 3 + 2 = 5$.\n*   Internal energy per mole: $U = f \\cdot \\frac{1}{2}RT = 5 \\cdot \\frac{1}{2}RT = \\frac{5}{2}RT$.\n*   Molar heat capacity at constant volume: $C_v = \\left(\\frac{\\partial U}{\\partial T}\\right)_V = \\frac{\\partial}{\\partial T}\\left(\\frac{5}{2}RT\\right) = \\frac{5}{2}R$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Calculate the adiabatic index $\\gamma$ for an ideal diatomic gas at moderate temperatures.",
+      "back": "For a diatomic gas at moderate temperatures:\n*   Molar heat capacity at constant volume: $C_v = \\frac{5}{2}R$.\n*   Using Mayer's relation ($C_p = C_v + R$):\n    $C_p = \\frac{5}{2}R + R = \\frac{7}{2}R$.\n*   Adiabatic index: $\\gamma = \\frac{C_p}{C_v} = \\frac{\\frac{7}{2}R}{\\frac{5}{2}R} = \\frac{7}{5} = 1.4$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the degrees of freedom and thus $\\gamma$ differ between linear and non-linear polyatomic molecules at moderate temperatures?",
+      "back": "At moderate temperatures (where vibrational modes are frozen out):\n*   **Translational:** Both linear and non-linear polyatomic molecules have 3 translational degrees of freedom.\n*   **Rotational:**\n    *   **Linear polyatomic** (e.g., CO$_2$): Has 2 rotational degrees of freedom (like a diatomic molecule).\n    *   **Non-linear polyatomic** (e.g., H$_2$O): Has 3 rotational degrees of freedom (rotation about x, y, z axes).\n*   **Total degrees of freedom ($f$):**\n    *   Linear: $f = 3 \\text{ (trans)} + 2 \\text{ (rot)} = 5 \\Rightarrow C_v = \\frac{5}{2}R \\Rightarrow \\gamma = \\frac{C_p}{C_v} = \\frac{7/2 R}{5/2 R} = \\frac{7}{5} = 1.4$.\n    *   Non-linear: $f = 3 \\text{ (trans)} + 3 \\text{ (rot)} = 6 \\Rightarrow C_v = \\frac{6}{2}R = 3R \\Rightarrow C_p = 4R \\Rightarrow \\gamma = \\frac{4R}{3R} = \\frac{4}{3} \\approx 1.33$.",
+      "difficulty": "hard"
+    }
+  ]
+}

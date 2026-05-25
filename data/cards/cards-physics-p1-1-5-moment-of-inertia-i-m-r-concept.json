@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-moment-of-inertia-i-m-r-concept",
+  "subtopicTitle": "Moment of inertia I = Σmᵢrᵢ² — concept",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:17.447Z",
+  "cards": [
+    {
+      "front": "Define \"moment of inertia\" ($I$) in the context of rotational mechanics.",
+      "back": "Moment of inertia is a measure of an object's resistance to changes in its state of rotational motion (i.e., its resistance to angular acceleration). It is the rotational analogue of mass in linear motion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the moment of inertia ($I$) of a system of discrete particles and explain each term.",
+      "back": "The formula is $I = \\Sigma m_i r_i^2$.\n- $m_i$: The mass of the $i$-th particle in the system.\n- $r_i$: The perpendicular distance of the $i$-th particle from the axis of rotation.\n- $\\Sigma$: Represents the sum over all particles in the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the SI units for moment of inertia?",
+      "back": "The SI units for moment of inertia are kilogram-meter squared ($kg \\cdot m^2$). This is derived directly from the formula $I = \\Sigma m_i r_i^2$, where mass ($m$) is in kilograms and distance ($r$) is in meters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of moment of inertia by drawing an analogy to a linear motion concept.",
+      "back": "Moment of inertia is the rotational analogue of mass. Just as mass quantifies an object's resistance to changes in its linear velocity (linear inertia), moment of inertia quantifies an object's resistance to changes in its angular velocity (rotational inertia). A larger $I$ means it's harder to start or stop rotation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the primary factors that determine a body's moment of inertia.",
+      "back": "The moment of inertia of a body depends on three primary factors:\n1.  **Total mass** of the body.\n2.  **Distribution of that mass** relative to the axis of rotation (how far the mass is from the axis).\n3.  The specific **axis of rotation** chosen. The same body can have different moments of inertia about different axes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the moment of inertia formula include the square of the distance ($r^2$) from the axis, rather than just $r$?",
+      "back": "The $r^2$ term arises because distance affects rotational inertia in two ways:\n1.  **Lever Arm for Torque**: A particle at distance $r$ requires a torque $\\tau = rF$ to produce a force $F$. So, for a given force, a larger $r$ means a larger torque.\n2.  **Linear Acceleration**: For a given angular acceleration $\\alpha$, a particle at distance $r$ experiences a linear acceleration $a = r\\alpha$. Since $F = ma$, the force required is $F = m(r\\alpha)$.\nCombining these: $\\tau = rF = r(mr\\alpha) = mr^2\\alpha$. Comparing this to the rotational equivalent of Newton's second law, $\\tau = I\\alpha$, we see that $I = mr^2$. The $r^2$ accounts for the increased 'leverage' and increased linear motion for mass further out.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A uniform rod has a moment of inertia $I_1$ when rotated about its center, and $I_2$ when rotated about one end. Without calculating, explain why $I_2 > I_1$.",
+      "back": "Moment of inertia depends on the distribution of mass relative to the axis of rotation, specifically on $r^2$. When the rod is rotated about one end, a significantly larger portion of its mass is distributed further away from the axis of rotation compared to when it's rotated about its center. Since mass further out contributes much more due to the $r^2$ factor, the moment of inertia about one end ($I_2$) will be greater than about its center ($I_1$).",
+      "difficulty": "hard"
+    }
+  ]
+}

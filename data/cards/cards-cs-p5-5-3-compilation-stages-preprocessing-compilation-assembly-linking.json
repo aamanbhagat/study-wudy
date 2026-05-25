@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-compilation-stages-preprocessing-compilation-assembly-linking",
+  "subtopicTitle": "Compilation stages — preprocessing, compilation, assembly, linking",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:19.469Z",
+  "cards": [
+    {
+      "front": "What is the primary role of the preprocessor in the compilation pipeline?",
+      "back": "The preprocessor handles directives like `#include`, `#define`, and conditional compilation (`#ifdef`, `#ifndef`). It performs textual modifications to the source code, expanding macros and inserting the content of header files before the main compilation phase begins.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given this C snippet, what would be the key changes to the code after the preprocessing stage?",
+      "back": "The `#include <stdio.h>` line would be replaced by the entire content of the `stdio.h` header file. The `#define PI 3.14159` line would be removed, and all occurrences of `PI` in the code would be textually replaced by `3.14159`.\n```c\n// ... extensive content of stdio.h ...\nint main() {\n    printf(\"PI is %f\\n\", 3.14159);\n    return 0;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the direct output of the \"compilation\" stage (after preprocessing, before assembly) and what language is it in?",
+      "back": "The direct output of the compilation stage is **assembly language code**. This is a human-readable, low-level representation of machine instructions specific to the target CPU architecture, but it is not yet in a binary executable format.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core transformation performed by the compiler during the \"compilation\" stage, specifically in terms of language abstraction.",
+      "back": "The compiler transforms the high-level source code (e.g., C, C++) into architecture-specific assembly language. This process involves multiple sub-stages: lexical analysis, parsing, semantic analysis, intermediate code generation, optimization, and finally, target code generation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the specific task of the \"assembler\" in the compilation process?",
+      "back": "The assembler translates assembly language code (e.g., `MOV EAX, 5`) into machine code (binary instructions, e.g., `B8 05 00 00 00`). This machine code is then stored in an object file (`.o` on Linux/macOS, `.obj` on Windows).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is an \"object file\" (e.g., `main.o`) and which stage of the compilation process typically produces it?",
+      "back": "An object file contains machine code, data, and a symbol table. It's the compiled output of a single source file, but its references to external functions or global variables are unresolved. It is typically produced by the **assembler** stage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare and contrast static linking and dynamic linking, detailing their impact on executable size, memory usage, and updateability.",
+      "back": "<ul><li><b>Static Linking</b>: All necessary library code is copied directly into the final executable.<ul><li><b>Pros</b>: Self-contained, no runtime dependencies, potentially faster startup.</li><li><b>Cons</b>: Larger executable size, higher memory usage if multiple programs load the same static library, requires recompilation for library updates.</li></ul></li><li><b>Dynamic Linking</b>: Library code is not copied; instead, the executable contains references to shared libraries (DLLs on Windows, SOs on Linux) that are loaded at runtime.<ul><li><b>Pros</b>: Smaller executable size, reduced memory usage (shared libraries loaded once), easier library updates (replace DLL/SO).</li><li><b>Cons</b>: Runtime dependencies (\"DLL Hell\"), potential performance overhead for runtime symbol resolution.</li></ul></li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What crucial problem does the \"linker\" stage solve when a program is built from multiple source files that reference each other?",
+      "back": "The linker resolves **undefined symbols**. When one object file (`file1.o`) calls a function `foo()` defined in another object file (`file2.o`), `file1.o` will have an unresolved reference to `foo`. The linker finds `foo`'s definition in `file2.o` (or a library) and assigns final memory addresses to all functions and variables, combining the object files into a single executable.",
+      "difficulty": "medium"
+    }
+  ]
+}

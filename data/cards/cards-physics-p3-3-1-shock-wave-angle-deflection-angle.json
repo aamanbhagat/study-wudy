@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-shock-wave-angle-deflection-angle",
+  "subtopicTitle": "Shock wave angle, deflection angle",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:19.769Z",
+  "cards": [
+    {
+      "front": "Define the shock wave angle ($\\beta$) and the flow deflection angle ($\\theta$) in the context of oblique shock waves.",
+      "back": "The shock wave angle ($\\beta$) is the angle between the upstream flow velocity vector and the shock wave itself. The flow deflection angle ($\\theta$) is the angle between the upstream and downstream flow velocity vectors, representing the change in flow direction caused by the shock.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental relationship, often called the $\\theta-\\beta-M$ relation, that connects the flow deflection angle ($\\theta$), the shock wave angle ($\\beta$), and the upstream Mach number ($M_1$).",
+      "back": "The $\\theta-\\beta-M$ relation is given by: $$\\tan\\theta = 2\\cot\\beta \\frac{M_1^2\\sin^2\\beta - 1}{M_1^2(\\gamma + \\cos2\\beta) + 2}$$ where $\\gamma$ is the ratio of specific heats.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a fixed flow deflection angle $\\theta$, how does increasing the upstream Mach number $M_1$ affect the possible range of shock wave angles ($\\beta$)?",
+      "back": "As $M_1$ increases, the range of possible $\\beta$ values for a given $\\theta$ generally narrows. The weak shock solution's $\\beta$ approaches the Mach angle $\\mu_1 = \\arcsin(1/M_1)$, and the strong shock solution's $\\beta$ approaches $90^\\circ$. The maximum deflection angle $\\theta_{max}$ also increases with $M_1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a given upstream Mach number $M_1$ and flow deflection angle $\\theta$, explain the physical difference between the \"weak shock\" and \"strong shock\" solutions in terms of $\\beta$ and downstream Mach number ($M_2$).",
+      "back": "The weak shock solution corresponds to a smaller $\\beta$ and results in a higher $M_2$ (often still supersonic). The strong shock solution corresponds to a larger $\\beta$ and results in a lower $M_2$ (typically subsonic). The weak shock is usually observed in practice due to lower entropy generation and less severe flow changes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of the maximum deflection angle ($\\theta_{max}$) for an oblique shock wave. What happens if the physical deflection required by an obstacle exceeds this value?",
+      "back": "For a given $M_1$, there is a maximum flow deflection angle $\\theta_{max}$ that an oblique shock can produce. This occurs at a specific $\\beta$ where $d\\theta/d\\beta = 0$. If the physical angle of an obstacle (e.g., a wedge) exceeds $\\theta_{max}$, an attached oblique shock is impossible. Instead, a detached normal shock wave forms upstream of the obstacle, causing the flow to turn subsonically around the body.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides the upstream Mach number $M_1$, what other thermodynamic property of the gas significantly influences the $\\theta-\\beta-M$ relationship for oblique shock waves?",
+      "back": "The ratio of specific heats ($\\gamma = c_p/c_v$) of the gas is a crucial parameter. It appears directly in the $\\theta-\\beta-M$ equation. Different gases (e.g., air with $\\gamma \\approx 1.4$, helium with $\\gamma \\approx 1.66$) will have different $\\gamma$ values, leading to different shock characteristics and different ranges of possible $\\beta$ and $\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a small, fixed flow deflection angle $\\theta$, explain why the shock wave angle $\\beta$ tends to decrease as the upstream Mach number $M_1$ increases.",
+      "back": "As $M_1$ increases, the flow becomes \"more supersonic,\" and disturbances propagate at a shallower angle relative to the flow. The Mach angle $\\mu = \\arcsin(1/M)$ decreases. For a given small deflection $\\theta$, the shock wave, which is a stronger form of a Mach wave, must also become shallower (i.e., $\\beta$ decreases) to accommodate the higher upstream speed and remain efficient in turning the flow.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the theoretical minimum and maximum possible values for the shock wave angle ($\\beta$) for an oblique shock wave?",
+      "back": "The theoretical minimum value for $\\beta$ is the Mach angle $\\mu_1 = \\arcsin(1/M_1)$, which occurs for an infinitesimally weak shock (i.e., a Mach wave, where $\\theta \\to 0$). The theoretical maximum value for $\\beta$ is $90^\\circ$, which corresponds to a normal shock wave (where $\\theta = 0$ but there is a significant pressure jump). For any $\\theta > 0$, $\\beta$ must be strictly between $\\mu_1$ and $90^\\circ$.",
+      "difficulty": "medium"
+    }
+  ]
+}

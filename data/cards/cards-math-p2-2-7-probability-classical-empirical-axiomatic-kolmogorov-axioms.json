@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-7-probability-classical-empirical-axiomatic-kolmogorov-axioms",
+  "subtopicTitle": "Probability — classical, empirical, axiomatic (Kolmogorov axioms)",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:20.637Z",
+  "cards": [
+    {
+      "front": "Define classical probability and state its formula.",
+      "back": "Classical probability applies when all outcomes in a finite sample space are equally likely. The formula is: $$P(A) = \\frac{\\text{Number of favorable outcomes for A}}{\\text{Total number of possible outcomes}}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A single fair die is rolled. What is the classical probability of rolling an even number?",
+      "back": "The sample space is $S = \\{1, 2, 3, 4, 5, 6\\}$. The event $A = \\{\\text{rolling an even number}\\} = \\{2, 4, 6\\}$. The number of favorable outcomes is 3. The total number of possible outcomes is 6. Therefore, $P(A) = \\frac{3}{6} = \\frac{1}{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define empirical probability and state its formula.",
+      "back": "Empirical probability (or relative frequency probability) is based on observations from experiments. The formula is: $$P(A) = \\frac{\\text{Number of times event A occurred}}{\\text{Total number of trials}}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A basketball player made 75 out of 100 free throws in practice. What is the empirical probability of making the next free throw? How does this relate to the Law of Large Numbers?",
+      "back": "The empirical probability of making a free throw is $P(\\text{made free throw}) = \\frac{75}{100} = 0.75$. The Law of Large Numbers states that as the number of trials increases, the empirical probability will converge to the true (theoretical) probability of the event. Thus, with more practice shots, this observed $0.75$ would get closer to the player's true underlying free throw probability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What three fundamental components define a probability space $(\\Omega, \\mathcal{F}, P)$ in Kolmogorov's axiomatic framework?",
+      "back": "1.  **Sample Space ($\\Omega$):** The set of all possible outcomes of a random experiment.\n2.  **Event Space ($\\mathcal{F}$ or Sigma-algebra):** A collection of subsets of $\\Omega$ (called events) that satisfies certain properties (e.g., contains $\\Omega$, closed under complementation, closed under countable unions).\n3.  **Probability Measure ($P$):** A function that assigns a real number between 0 and 1 to each event in $\\mathcal{F}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Kolmogorov's three axioms of probability for a probability space $(\\Omega, \\mathcal{F}, P)$.",
+      "back": "For any event $A \\in \\mathcal{F}$:\n1.  **Non-negativity:** $P(A) \\ge 0$.\n2.  **Normalization:** $P(\\Omega) = 1$.\n3.  **Countable Additivity:** For any sequence of pairwise mutually exclusive events $A_1, A_2, \\dots \\in \\mathcal{F}$ (i.e., $A_i \\cap A_j = \\emptyset$ for $i \\ne j$), $P(\\bigcup_{i=1}^{\\infty} A_i) = \\sum_{i=1}^{\\infty} P(A_i)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using Kolmogorov's axioms, prove that for any event $A$, $P(A^c) = 1 - P(A)$.",
+      "back": "1.  Events $A$ and $A^c$ (the complement of $A$) are mutually exclusive, meaning $A \\cap A^c = \\emptyset$.\n2.  Their union covers the entire sample space: $A \\cup A^c = \\Omega$.\n3.  By Axiom 3 (countable additivity), since $A$ and $A^c$ are mutually exclusive, we have $P(A \\cup A^c) = P(A) + P(A^c)$.\n4.  Since $A \\cup A^c = \\Omega$, we can substitute to get $P(\\Omega) = P(A) + P(A^c)$.\n5.  By Axiom 2 (normalization), $P(\\Omega) = 1$.\n6.  Combining these, $1 = P(A) + P(A^c)$.\n7.  Rearranging the equation yields $P(A^c) = 1 - P(A)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how the classical definition of probability is a special case that satisfies Kolmogorov's axioms.",
+      "back": "In classical probability, the sample space $\\Omega$ is finite and consists of $N$ equally likely outcomes. Each elementary outcome $\\omega_i$ has a probability $P(\\{\\omega_i\\}) = 1/N$. An event $A$ containing $k$ outcomes has $P(A) = k/N$.\n1.  **Axiom 1 ($P(A) \\ge 0$):** Since $k \\ge 0$ and $N > 0$, $P(A) = k/N \\ge 0$.\n2.  **Axiom 2 ($P(\\Omega) = 1$):** $\\Omega$ contains all $N$ outcomes, so $P(\\Omega) = N/N = 1$.\n3.  **Axiom 3 (Countable Additivity):** For a finite set of pairwise mutually exclusive events $A_1, \\dots, A_m$, where $A_j$ has $k_j$ outcomes, $P(\\bigcup_{j=1}^{m} A_j) = \\frac{\\sum_{j=1}^{m} k_j}{N} = \\sum_{j=1}^{m} \\frac{k_j}{N} = \\sum_{j=1}^{m} P(A_j)$. This extends to countable additivity by considering events with zero outcomes for infinite sequences.",
+      "difficulty": "hard"
+    }
+  ]
+}

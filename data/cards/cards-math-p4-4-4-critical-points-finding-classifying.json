@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-critical-points-finding-classifying",
+  "subtopicTitle": "Critical points — finding, classifying",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:31.263Z",
+  "cards": [
+    {
+      "front": "Define a critical point for a function $f(x, y)$.",
+      "back": "A point $(a, b)$ in the domain of $f$ is a critical point if $\\nabla f(a, b) = \\mathbf{0}$ (i.e., $f_x(a,b)=0$ and $f_y(a,b)=0$) or if $\\nabla f(a, b)$ is undefined.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two main conditions to check when finding critical points of $f(x, y)$?",
+      "back": "1. Find points $(x, y)$ where both first partial derivatives are zero: $\\frac{\\partial f}{\\partial x}(x, y) = 0$ AND $\\frac{\\partial f}{\\partial y}(x, y) = 0$. 2. Find points where either $\\frac{\\partial f}{\\partial x}(x, y)$ or $\\frac{\\partial f}{\\partial y}(x, y)$ (or both) are undefined.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary tool used to classify critical points of $f(x, y)$ (as local max, min, or saddle)?",
+      "back": "The Second Derivative Test, which uses the discriminant $D(x, y) = f_{xx}(x, y)f_{yy}(x, y) - [f_{xy}(x, y)]^2$ (which is also the determinant of the Hessian matrix).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a critical point $(a, b)$ and $D(a, b)$, how do you classify it using the Second Derivative Test?",
+      "back": "<ul><li>If $D(a, b) > 0$ and $f_{xx}(a, b) > 0$, then $(a, b)$ is a local minimum.</li><li>If $D(a, b) > 0$ and $f_{xx}(a, b) < 0$, then $(a, b)$ is a local maximum.</li><li>If $D(a, b) < 0$, then $(a, b)$ is a saddle point.</li><li>If $D(a, b) = 0$, the test is inconclusive.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write down the Hessian matrix $H_f(x, y)$ for a function $f(x, y)$ and explain its relation to the discriminant $D(x,y)$.",
+      "back": "The Hessian matrix is: $$H_f(x, y) = \\begin{pmatrix} f_{xx}(x, y) & f_{xy}(x, y) \\\\ f_{yx}(x, y) & f_{yy}(x, y) \\end{pmatrix}$$ Assuming the mixed partials are equal ($f_{xy} = f_{yx}$ by Clairaut's Theorem for continuous second partials), the discriminant is $D(x, y) = \\det(H_f(x, y)) = f_{xx}f_{yy} - f_{xy}^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why $D(a, b) < 0$ at a critical point implies a saddle point.",
+      "back": "If $D(a, b) < 0$, it means $f_{xx}(a, b)f_{yy}(a, b) < [f_{xy}(a, b)]^2$. This condition often implies that $f_{xx}$ and $f_{yy}$ have opposite signs (e.g., $f_{xx}>0$ and $f_{yy}<0$). If $f_{xx}>0$, the function is concave up in the $x$-direction, while if $f_{yy}<0$, it's concave down in the $y$-direction. This creates a shape like a saddle, where the point is a minimum along one cross-section and a maximum along another. The mixed partial $f_{xy}$ accounts for rotations of these principal directions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an example of a function $f(x, y)$ where the Second Derivative Test is inconclusive at a critical point, and state the actual classification.",
+      "back": "Consider $f(x, y) = x^4 + y^4$.<br/>1. $\\nabla f = (4x^3, 4y^3)$, so $(0, 0)$ is the only critical point.<br/>2. $f_{xx} = 12x^2$, $f_{yy} = 12y^2$, $f_{xy} = 0$.<br/>3. At $(0, 0)$: $f_{xx}(0, 0) = 0$, $f_{yy}(0, 0) = 0$, $f_{xy}(0, 0) = 0$.<br/>4. $D(0, 0) = (0)(0) - (0)^2 = 0$. The test is inconclusive.<br/>However, by inspection, $f(x, y) = x^4 + y^4 \\ge 0$ for all $(x, y)$, and $f(0, 0) = 0$. Thus, $(0, 0)$ is clearly a local minimum.",
+      "difficulty": "hard"
+    }
+  ]
+}

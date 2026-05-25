@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-3-context-managers-with-statement-enter-exit",
+  "subtopicTitle": "Context managers — with statement, __enter__ / __exit__",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:16.947Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Python's `with` statement?",
+      "back": "The `with` statement ensures that setup actions (e.g., opening a file, acquiring a lock) are performed and corresponding teardown actions (e.g., closing a file, releasing a lock) are *always* executed, even if errors occur within the `with` block. It simplifies resource management by guaranteeing proper cleanup.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the two special methods a class must implement to become a context manager, and what each method is responsible for.",
+      "back": "A class must implement:\n1.  `__enter__(self)`: Called when the `with` block is entered. It performs setup operations and typically returns an object to be bound to the `as` variable.\n2.  `__exit__(self, exc_type, exc_val, exc_tb)`: Called when the `with` block is exited (either normally or due to an exception). It performs teardown operations. The `exc_type`, `exc_val`, `exc_tb` parameters contain exception details if an exception occurred.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a `with open('file.txt', 'w') as f:` statement, what value is bound to `f`, and which context manager method is responsible for returning it?",
+      "back": "The value bound to `f` is the file object itself (returned by `open()`). This object is returned by the `__enter__` method of the context manager (which `open()` internally provides). For example, if you had `with MyContext() as obj:`, `obj` would be the return value of `MyContext().__enter__()`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement a basic Python context manager class named `FileHandler` that opens a file in its `__enter__` method and closes it in its `__exit__` method.",
+      "back": "```python\nclass FileHandler:\n    def __init__(self, filename, mode):\n        self.filename = filename\n        self.mode = mode\n        self.file = None\n\n    def __enter__(self):\n        self.file = open(self.filename, self.mode)\n        return self.file\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if self.file:\n            self.file.close()\n        # Returning False (or None) propagates exceptions\n        # Returning True suppresses them\n        return False\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If an exception occurs inside a `with` block, how can the `__exit__` method prevent the exception from propagating further after cleanup?",
+      "back": "The `__exit__` method receives the exception type (`exc_type`), value (`exc_val`), and traceback (`exc_tb`) as arguments. If `__exit__` returns a *truthy* value (e.g., `True`), it indicates that the exception has been handled, and it will be suppressed (not re-raised) after `__exit__` completes. If `__exit__` returns a *falsy* value (e.g., `False` or `None`), the exception will be re-raised.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you create a context manager using a generator function and the `contextlib` module, without defining a class?",
+      "back": "You can use the `@contextlib.contextmanager` decorator. A generator function decorated with `@contextmanager` should `yield` exactly once. Code before `yield` acts as `__enter__`, and code after `yield` acts as `__exit__`. The yielded value becomes the `as` target.\n```python\nimport contextlib\n\n@contextlib.contextmanager\ndef managed_resource(name):\n    print(f\"Entering: {name}\")\n    try:\n        yield name.upper() # Value yielded becomes the 'as' target\n    finally:\n        print(f\"Exiting: {name}\")\n\nwith managed_resource(\"my_resource\") as r:\n    print(f\"Using: {r}\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain a key advantage of using a `with` statement over a `try...finally` block for resource management.",
+      "back": "While `try...finally` can ensure cleanup, the `with` statement provides a more concise, readable, and less error-prone way to manage resources. It automatically handles the setup and teardown logic, including proper exception propagation or suppression, without requiring the user to explicitly write `try...finally` blocks for every resource. It abstracts away the boilerplate code.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a simple example of how a context manager could be used to manage a threading lock, ensuring the lock is always released.",
+      "back": "```python\nimport threading\n\nclass ThreadSafeResource:\n    def __init__(self):\n        self._lock = threading.Lock()\n        self._data = []\n\n    def add_item(self, item):\n        with self._lock: # The lock itself is a context manager\n            self._data.append(item)\n            print(f\"Added: {item}. Current data: {self._data}\")\n\n# Usage:\nresource = ThreadSafeResource()\nresource.add_item(\"item1\")\nresource.add_item(\"item2\")\n```\nThe `threading.Lock` object implements `__enter__` (acquires the lock) and `__exit__` (releases the lock), making it a context manager. This guarantees the lock is released even if an error occurs within the `with` block.",
+      "difficulty": "medium"
+    }
+  ]
+}

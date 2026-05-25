@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-linear-approximation-and-differentials",
+  "subtopicTitle": "Linear approximation and differentials",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:40.805Z",
+  "cards": [
+    {
+      "front": "What is the fundamental idea behind linear approximation (or linearization) of a function $f(x)$?",
+      "back": "The fundamental idea is to approximate a function $f(x)$ near a specific point $x=a$ with its tangent line at that point. The tangent line provides the 'best linear approximation' of the function's behavior in the immediate vicinity of $x=a$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the linear approximation (or linearization) $L(x)$ of a function $f(x)$ at $x=a$.",
+      "back": "The formula for the linear approximation $L(x)$ of a function $f(x)$ at $x=a$ is given by: $$L(x) = f(a) + f'(a)(x-a)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use linear approximation to estimate the value of $\\sqrt{4.02}$.",
+      "back": "Let $f(x) = \\sqrt{x}$. We choose $a=4$ because it's close to $4.02$ and $f(4)$ is easy to compute.\n\n1.  Find $f(a)$: $f(4) = \\sqrt{4} = 2$.\n2.  Find $f'(x)$: $f'(x) = \\frac{d}{dx}(x^{1/2}) = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$.\n3.  Find $f'(a)$: $f'(4) = \\frac{1}{2\\sqrt{4}} = \\frac{1}{2 \\cdot 2} = \\frac{1}{4}$.\n4.  Apply the linear approximation formula $L(x) = f(a) + f'(a)(x-a)$:\n    $L(x) = 2 + \\frac{1}{4}(x-4)$.\n5.  Estimate for $x=4.02$: $L(4.02) = 2 + \\frac{1}{4}(4.02-4) = 2 + \\frac{1}{4}(0.02) = 2 + 0.005 = 2.005$.\n\nThus, $\\sqrt{4.02} \\approx 2.005$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a function $y=f(x)$, define the differential $dy$ in terms of $dx$ and $f'(x)$.",
+      "back": "The differential $dy$ is defined as $dy = f'(x)dx$. Here, $dx$ is an independent variable that represents an arbitrary (usually small) change in $x$, often taken to be equal to $\\Delta x$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, what do $dy$ and $\\Delta y$ represent when $x$ changes by $dx = \\Delta x$ for a function $y=f(x)$ at a point $x$?",
+      "back": "Let $x$ change by $dx = \\Delta x$.\n*   $\\Delta y = f(x+\\Delta x) - f(x)$ represents the actual change in the function's value (the vertical distance between the points $(x, f(x))$ and $(x+\\Delta x, f(x+\\Delta x))$ on the curve).\n*   $dy = f'(x)dx$ represents the change in the $y$-value along the tangent line to the curve at $x$ when $x$ changes by $dx$. It's the vertical distance along the tangent line corresponding to a horizontal change of $dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between $dy$ and $\\Delta y$ for small $dx$, and how this connects to linear approximation.",
+      "back": "From the definition of the derivative, $f'(x) = \\lim_{\\Delta x \\to 0} \\frac{f(x+\\Delta x) - f(x)}{\\Delta x} = \\lim_{\\Delta x \\to 0} \\frac{\\Delta y}{\\Delta x}$.\nFor small (non-zero) $\\Delta x$, we can approximate this limit: $f'(x) \\approx \\frac{\\Delta y}{\\Delta x}$.\nRearranging gives $\\Delta y \\approx f'(x)\\Delta x$. Since we define $dx = \\Delta x$, we have $\\Delta y \\approx f'(x)dx$. By definition, $dy = f'(x)dx$.\nTherefore, for small $dx$, $dy \\approx \\Delta y$. This means the change along the tangent line ($dy$) is a good approximation for the actual change in the function ($\\Delta y$), which is the essence of linear approximation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A sphere's radius is measured as $10 \\text{ cm}$ with a possible error of $\\pm 0.1 \\text{ cm}$. Use differentials to approximate the maximum error in its calculated volume.",
+      "back": "The volume of a sphere is given by the formula $V = \\frac{4}{3}\\pi r^3$.\n\n1.  Find the derivative of $V$ with respect to $r$: $\\frac{dV}{dr} = \\frac{d}{dr}(\\frac{4}{3}\\pi r^3) = 4\\pi r^2$.\n2.  Write the differential $dV$: $dV = \\frac{dV}{dr} dr = 4\\pi r^2 dr$.\n3.  Substitute the given values: $r = 10 \\text{ cm}$ and $dr = \\pm 0.1 \\text{ cm}$.\n    $dV = 4\\pi (10)^2 (\\pm 0.1) = 4\\pi (100) (\\pm 0.1) = \\pm 40\\pi \\text{ cm}^3$.\n\nThe maximum approximate error in the calculated volume is $40\\pi \\text{ cm}^3$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition (related to concavity) will a linear approximation $L(x)$ of $f(x)$ at $x=a$ be an overestimate or an underestimate?",
+      "back": "The concavity of $f(x)$ at $x=a$ determines whether the linear approximation is an overestimate or an underestimate:\n*   If $f''(a) > 0$ (i.e., $f(x)$ is concave up at $x=a$), the tangent line lies below the curve, so $L(x)$ will be an **underestimate** of $f(x)$.\n*   If $f''(a) < 0$ (i.e., $f(x)$ is concave down at $x=a$), the tangent line lies above the curve, so $L(x)$ will be an **overestimate** of $f(x)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

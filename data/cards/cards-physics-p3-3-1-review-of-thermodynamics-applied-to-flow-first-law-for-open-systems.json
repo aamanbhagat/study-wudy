@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-review-of-thermodynamics-applied-to-flow-first-law-for-open-systems",
+  "subtopicTitle": "Review of thermodynamics applied to flow — first law for open systems",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:09.149Z",
+  "cards": [
+    {
+      "front": "What is the primary difference in how the First Law of Thermodynamics is formulated for an open system compared to a closed system?",
+      "back": "For an open system (control volume), the First Law accounts for mass crossing the system boundary, which carries energy with it, in addition to heat and work interactions. For a closed system, only heat and work cross the boundary.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general form of the Steady Flow Energy Equation (SFEE) for a single-inlet, single-outlet control volume, defining all terms.",
+      "back": "$$ \\dot{Q} - \\dot{W}_s = \\dot{m} \\left[ (h_2 - h_1) + \\frac{1}{2}(V_2^2 - V_1^2) + g(z_2 - z_1) \\right] $$ where $\\dot{Q}$ is heat transfer rate to the system, $\\dot{W}_s$ is shaft work done by the system, $\\dot{m}$ is mass flow rate, $h$ is specific enthalpy, $V$ is velocity, $g$ is gravitational acceleration, and $z$ is elevation. Subscripts 1 and 2 denote inlet and outlet, respectively.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the SFEE, the specific enthalpy $h = u + Pv$ combines internal energy ($u$) with what other form of energy associated with flow? Explain its physical meaning.",
+      "back": "The term $Pv$ represents \"flow work\" or \"flow energy.\" It is the work required to push a unit mass of fluid across the control volume boundary against the pressure $P$. It's the energy associated with the bulk movement of fluid into or out of the control volume, distinct from the internal energy of the fluid itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an adiabatic nozzle, what simplifications can be made to the SFEE, and what does the simplified equation imply about the relationship between enthalpy and kinetic energy?",
+      "back": "For an adiabatic nozzle: 1. $\\dot{Q} = 0$ (adiabatic). 2. $\\dot{W}_s = 0$ (no shaft work). 3. $\\Delta z \\approx 0$ (negligible change in elevation). The SFEE simplifies to: $0 = \\dot{m} \\left[ (h_2 - h_1) + \\frac{1}{2}(V_2^2 - V_1^2) \\right]$. Rearranging: $h_1 + \\frac{1}{2}V_1^2 = h_2 + \\frac{1}{2}V_2^2$. This implies that the sum of specific enthalpy and specific kinetic energy remains constant. An increase in kinetic energy (velocity) comes at the expense of enthalpy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the specific stagnation enthalpy $h_0$ from the SFEE for an adiabatic flow through a control volume where no shaft work is done and potential energy changes are negligible.",
+      "back": "Start with the simplified SFEE for adiabatic, no shaft work, negligible potential energy change: $$ 0 = \\dot{m} \\left[ (h_2 - h_1) + \\frac{1}{2}(V_2^2 - V_1^2) \\right] $$ Dividing by $\\dot{m}$ gives: $$ (h_2 - h_1) + \\frac{1}{2}(V_2^2 - V_1^2) = 0 $$ Rearranging: $$ h_1 + \\frac{1}{2}V_1^2 = h_2 + \\frac{1}{2}V_2^2 $$ This shows that the quantity $h + \\frac{1}{2}V^2$ is constant along a streamline for such a flow. This constant quantity is defined as the specific stagnation enthalpy, $h_0$: $$ h_0 = h + \\frac{1}{2}V^2 $$ It represents the total energy per unit mass if the flow were brought isentropically to rest.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why the First Law for open systems is often called the \"Steady Flow Energy Equation\" in many engineering contexts.",
+      "back": "It's called the Steady Flow Energy Equation because it's most frequently applied to systems operating under steady-state conditions, where properties at any point within the control volume do not change with time. This simplifies the energy balance significantly, as accumulation terms become zero, allowing for a direct comparison of energy entering versus energy leaving the system boundaries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific circumstances would the potential energy term $g(z_2 - z_1)$ be significant in the SFEE for an aerospace application?",
+      "back": "While often neglected in high-speed compressible flow due to kinetic energy dominating, the potential energy term becomes significant if: 1. **Large Altitude Changes:** For rockets or high-altitude aircraft traversing substantial vertical distances (e.g., hundreds or thousands of kilometers for orbital mechanics). 2. **Low Velocity Flows at High Altitude:** If the flow velocities are relatively low, and the altitude changes are large, the $g\\Delta z$ term can become comparable to or even exceed the kinetic energy term $\\frac{1}{2}\\Delta V^2$.",
+      "difficulty": "hard"
+    }
+  ]
+}

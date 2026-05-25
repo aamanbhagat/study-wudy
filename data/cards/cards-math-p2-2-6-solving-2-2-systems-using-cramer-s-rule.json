@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-6-solving-2-2-systems-using-cramer-s-rule",
+  "subtopicTitle": "Solving 2×2 systems using Cramer's rule",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:12.229Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Cramer's Rule in linear algebra?",
+      "back": "Cramer's Rule is primarily used to solve systems of linear equations by utilizing determinants.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the determinant of a $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$.",
+      "back": "The determinant of a $2 \\times 2$ matrix $A$ is given by $\\det(A) = ad - bc$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the system $\\begin{cases} a_1x + b_1y = c_1 \\\\ a_2x + b_2y = c_2 \\end{cases}$, write the coefficient determinant $D$ in matrix form.",
+      "back": "The coefficient determinant $D$ is $D = \\det \\begin{pmatrix} a_1 & b_1 \\\\ a_2 & b_2 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the system $\\begin{cases} a_1x + b_1y = c_1 \\\\ a_2x + b_2y = c_2 \\end{cases}$, write the determinant $D_x$ used to find $x$.",
+      "back": "The determinant $D_x$ is formed by replacing the $x$-coefficients with the constant terms: $D_x = \\det \\begin{pmatrix} c_1 & b_1 \\\\ c_2 & b_2 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the system $\\begin{cases} a_1x + b_1y = c_1 \\\\ a_2x + b_2y = c_2 \\end{cases}$, write the determinant $D_y$ used to find $y$.",
+      "back": "The determinant $D_y$ is formed by replacing the $y$-coefficients with the constant terms: $D_y = \\det \\begin{pmatrix} a_1 & c_1 \\\\ a_2 & c_2 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the system $\\begin{cases} 2x + y = 5 \\\\ 3x - 2y = 4 \\end{cases}$, calculate the value of $D_x$.",
+      "back": "First, form $D_x$ by replacing the $x$-coefficients with the constants:\n$$D_x = \\det \\begin{pmatrix} 5 & 1 \\\\ 4 & -2 \\end{pmatrix}$$\nThen, calculate the determinant:\n$$D_x = (5)(-2) - (1)(4) = -10 - 4 = -14$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve for $y$ using Cramer's Rule for the system: $\\begin{cases} 4x - y = 10 \\\\ 2x + 3y = 8 \\end{cases}$.",
+      "back": "First, calculate $D$ and $D_y$:\n$$D = \\det \\begin{pmatrix} 4 & -1 \\\\ 2 & 3 \\end{pmatrix} = (4)(3) - (-1)(2) = 12 - (-2) = 14$$\n$$D_y = \\det \\begin{pmatrix} 4 & 10 \\\\ 2 & 8 \\end{pmatrix} = (4)(8) - (10)(2) = 32 - 20 = 12$$\nNow, use Cramer's Rule formula for $y$:\n$$y = \\frac{D_y}{D} = \\frac{12}{14} = \\frac{6}{7}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens if the determinant $D$ (of the coefficient matrix) is zero when applying Cramer's Rule to a $2 \\times 2$ system?",
+      "back": "If $D=0$, Cramer's Rule fails to provide a unique solution. This implies the system is either:\n1.  **Inconsistent (No Solution):** If $D_x \\neq 0$ or $D_y \\neq 0$. Geometrically, the lines are parallel and distinct.\n2.  **Dependent (Infinitely Many Solutions):** If $D_x = 0$ AND $D_y = 0$. Geometrically, the lines are coincident (the same line).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-3-mathematical-induction-principle-steps-problems",
+  "subtopicTitle": "Mathematical induction — principle, steps, problems",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:23.965Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Principle of Mathematical Induction (PMI)?",
+      "back": "The Principle of Mathematical Induction (PMI) is a powerful proof technique used to demonstrate that a statement $P(n)$ is true for all natural numbers $n \\ge n_0$, where $n_0$ is some initial integer (often 1). It's a method for verifying the truth of a statement over an infinite set of integers, not for discovering the statement itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three essential steps required to prove a statement $P(n)$ by mathematical induction.",
+      "back": "1.  **Base Case:** Show that $P(n_0)$ is true for the initial value $n_0$.\n2.  **Inductive Hypothesis:** Assume that $P(k)$ is true for some arbitrary integer $k \\ge n_0$.\n3.  **Inductive Step:** Show that if $P(k)$ is true (as per the inductive hypothesis), then $P(k+1)$ must also be true.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuitive idea behind mathematical induction using a domino analogy.",
+      "back": "Imagine an infinitely long line of dominoes:\n1.  **Base Case:** You push the first domino ($P(n_0)$ is true).\n2.  **Inductive Step:** You ensure that if any domino falls ($P(k)$ is true), then the next domino will also fall ($P(k+1)$ is true).\nIf both conditions are met, all dominoes will eventually fall, proving the statement for all $n \\ge n_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove by induction that the sum of the first $n$ odd positive integers is $n^2$.",
+      "back": "Let $P(n)$ be the statement $1 + 3 + 5 + \\dots + (2n-1) = n^2$.\n1.  **Base Case ($n=1$):** $P(1): 1 = 1^2$, which is true.\n2.  **Inductive Hypothesis:** Assume $P(k)$ is true for some $k \\ge 1$: $1 + 3 + \\dots + (2k-1) = k^2$.\n3.  **Inductive Step:** We want to show $P(k+1)$ is true, i.e., $1 + 3 + \\dots + (2(k+1)-1) = (k+1)^2$.\n    LHS of $P(k+1)$:\n    $1 + 3 + \\dots + (2k-1) + (2(k+1)-1)$\n    $= k^2 + (2k+2-1)$ (by Inductive Hypothesis)\n    $= k^2 + 2k + 1$\n    $= (k+1)^2$\n    This is the RHS of $P(k+1)$. Thus, $P(k+1)$ is true.\nBy PMI, $P(n)$ is true for all $n \\ge 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove by induction that $n^3 - n$ is divisible by 3 for all integers $n \\ge 1$.",
+      "back": "Let $P(n)$ be the statement \"$n^3 - n$ is divisible by 3\".\n1.  **Base Case ($n=1$):** $P(1): 1^3 - 1 = 0$, which is divisible by 3. True.\n2.  **Inductive Hypothesis:** Assume $P(k)$ is true for some $k \\ge 1$: $k^3 - k = 3m$ for some integer $m$.\n3.  **Inductive Step:** We want to show $P(k+1)$ is true, i.e., $(k+1)^3 - (k+1)$ is divisible by 3.\n    $(k+1)^3 - (k+1) = (k^3 + 3k^2 + 3k + 1) - (k+1)$\n    $= k^3 + 3k^2 + 3k + 1 - k - 1$\n    $= (k^3 - k) + 3k^2 + 3k$\n    $= 3m + 3k^2 + 3k$ (by Inductive Hypothesis)\n    $= 3(m + k^2 + k)$\n    Since $(m + k^2 + k)$ is an integer, $(k+1)^3 - (k+1)$ is divisible by 3.\nBy PMI, $P(n)$ is true for all $n \\ge 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove by induction that $2^n > n$ for all integers $n \\ge 1$.",
+      "back": "Let $P(n)$ be the statement $2^n > n$.\n1.  **Base Case ($n=1$):** $P(1): 2^1 > 1 \\implies 2 > 1$, which is true.\n2.  **Inductive Hypothesis:** Assume $P(k)$ is true for some $k \\ge 1$: $2^k > k$.\n3.  **Inductive Step:** We want to show $P(k+1)$ is true, i.e., $2^{k+1} > k+1$.\n    Starting with the LHS of $P(k+1)$:\n    $2^{k+1} = 2 \\cdot 2^k$\n    Since $2^k > k$ (by Inductive Hypothesis), we have:\n    $2 \\cdot 2^k > 2k$\n    Now we need to show $2k \\ge k+1$ for $k \\ge 1$. This simplifies to $k \\ge 1$, which is true.\n    Therefore, $2^{k+1} > 2k \\ge k+1$.\n    So, $2^{k+1} > k+1$.\nBy PMI, $P(n)$ is true for all $n \\ge 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Inductive Hypothesis in Strong Mathematical Induction differ from that in standard Mathematical Induction?",
+      "back": "In standard induction, the inductive hypothesis assumes $P(k)$ is true for a single arbitrary integer $k$. In **Strong Induction**, the inductive hypothesis assumes that $P(j)$ is true for *all* integers $j$ such that $n_0 \\le j \\le k$. This stronger assumption is useful when proving $P(k+1)$ requires the truth of $P(j)$ for values of $j$ other than just $k$ (e.g., $P(k-1)$, $P(k-2)$, etc.).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify a common pitfall or error when applying mathematical induction.",
+      "back": "A common pitfall is failing to establish the correct base case, especially when the inductive step's logic implicitly requires $n_0 > 1$. Another error is assuming $P(k+1)$ is true and working backwards, rather than starting with the truth of $P(k)$ and logically deriving $P(k+1)$. Also, ensuring the inductive step holds for *all* $k \\ge n_0$ is crucial; sometimes it only holds for $k$ large enough, requiring multiple base cases.",
+      "difficulty": "hard"
+    }
+  ]
+}

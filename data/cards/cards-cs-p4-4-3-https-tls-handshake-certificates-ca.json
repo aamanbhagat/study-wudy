@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-https-tls-handshake-certificates-ca",
+  "subtopicTitle": "HTTPS — TLS handshake, certificates, CA",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:39.308Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of HTTPS over HTTP?",
+      "back": "HTTPS (Hypertext Transfer Protocol Secure) provides secure communication over a network by encrypting data, authenticating the server's identity, and ensuring data integrity. It prevents eavesdropping, tampering, and impersonation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What cryptographic protocol does HTTPS use to secure communication?",
+      "back": "HTTPS uses the Transport Layer Security (TLS) protocol, which is the successor to Secure Sockets Layer (SSL). TLS operates on top of TCP and provides encryption, authentication, and data integrity for application-layer protocols.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the first three messages exchanged during a TLS handshake, identifying sender and content.",
+      "back": "1. **Client Hello**: Client sends its supported TLS versions, cipher suites, compression methods, and a client-generated random number.\n2. **Server Hello**: Server selects the optimal TLS version, cipher suite, and compression method, and sends a server-generated random number.\n3. **Server Certificate**: Server sends its digital certificate to the client for authentication.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What critical information does a server's digital certificate contain, and what is its primary role in the TLS handshake?",
+      "back": "A server's digital certificate contains its public key, domain name, issuer (Certificate Authority), validity period, and a digital signature. Its primary role is to allow the client to verify the server's identity and securely obtain the server's public key for key exchange.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a client verify the authenticity of a server's digital certificate during the TLS handshake?",
+      "back": "The client verifies the certificate by:\n1. Checking if the issuing Certificate Authority (CA) is trusted (i.e., its root certificate is in the client's trust store).\n2. Validating the CA's digital signature on the server's certificate using the CA's public key.\n3. Checking the certificate's validity period and ensuring it hasn't been revoked (e.g., via CRL or OCSP).\n4. Confirming the domain name in the certificate matches the domain being accessed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a shared symmetric encryption key is established between a client and server during a TLS handshake, using RSA key exchange.",
+      "back": "1. **Client Hello**: Client sends a random number $R_C$.\n2. **Server Hello**: Server sends a random number $R_S$ and its certificate (containing its public key $P_{pub}$). \n3. **Client Key Exchange**: Client generates a pre-master secret $PMS$, encrypts it using the server's public key $P_{pub}$, and sends the encrypted $PMS$ to the server.\n4. **Server Decryption**: Server uses its private key $P_{priv}$ to decrypt the $PMS$.\n5. **Shared Master Secret**: Both client and server independently compute the master secret $MS$ from $R_C$, $R_S$, and $PMS$.\n6. **Session Keys**: Both derive symmetric session keys (for encryption and MAC) from the $MS$. This ensures only the server can decrypt the $PMS$, establishing a shared secret.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the role of a Certificate Authority (CA) in the TLS ecosystem, and what happens if a CA is compromised?",
+      "back": "A CA is a trusted third party that issues and digitally signs digital certificates, vouching for the identity of websites and other entities. It forms the foundation of the Public Key Infrastructure (PKI). If a CA is compromised, an attacker could issue fraudulent certificates for any domain, impersonating legitimate websites. This would undermine the entire trust model of TLS, as clients would unknowingly trust malicious sites. Browsers would need to revoke trust in the compromised CA's root certificate globally.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is a new symmetric session key generated for each TLS connection, rather than using the server's public/private key pair for all data encryption?",
+      "back": "Symmetric encryption is significantly faster and more efficient than asymmetric (public-key) encryption, making it practical for encrypting large amounts of application data. Asymmetric encryption is computationally intensive and primarily used during the handshake for secure key exchange and authentication. Additionally, generating a new session key for each connection (especially with Diffie-Hellman) provides perfect forward secrecy, meaning compromise of the server's long-term private key won't compromise past session data.",
+      "difficulty": "medium"
+    }
+  ]
+}

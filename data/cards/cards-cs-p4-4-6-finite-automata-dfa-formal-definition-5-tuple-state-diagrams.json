@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-finite-automata-dfa-formal-definition-5-tuple-state-diagrams",
+  "subtopicTitle": "Finite automata — DFA: formal definition (5-tuple), state diagrams",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:15.611Z",
+  "cards": [
+    {
+      "front": "What does DFA stand for, and what is its fundamental purpose in Theory of Computation?",
+      "back": "DFA stands for **Deterministic Finite Automaton**. Its fundamental purpose is to recognize **regular languages** by providing a mathematical model of computation that has a finite amount of memory and processes input symbols one by one, making a deterministic transition for each symbol.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the five components of a Deterministic Finite Automaton (DFA) as defined formally by a 5-tuple.",
+      "back": "A DFA is formally defined as a 5-tuple $(Q, \\Sigma, \\delta, q_0, F)$, where:\n1.  $Q$: Finite set of states.\n2.  $\\Sigma$: Finite set of input symbols (alphabet).\n3.  $\\delta$: Transition function ($Q \\times \\Sigma \\to Q$).\n4.  $q_0$: Start state ($q_0 \\in Q$).\n5.  $F$: Set of accept states ($F \\subseteq Q$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the formal definition of a DFA, explain the role and signature of the transition function $\\delta$.",
+      "back": "The transition function $\\delta$ dictates how the DFA moves from one state to another based on the input symbol. Its signature is $\\delta: Q \\times \\Sigma \\to Q$. This means for any given state $q \\in Q$ and any input symbol $a \\in \\Sigma$, $\\delta(q, a)$ will deterministically yield exactly one next state $q' \\in Q$. It represents all possible transitions in the automaton.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a DFA state diagram, how are the start state and accept states visually represented?",
+      "back": "The **start state** is indicated by an arrow pointing to it from nowhere (or sometimes labeled 'start'). **Accept states** (or final states) are represented by double circles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider a DFA with two states, $q_0$ and $q_1$. $q_0$ is the start state. $q_1$ is an accept state. On input 'a', $q_0$ goes to $q_1$, and $q_1$ goes to $q_1$. On input 'b', $q_0$ goes to $q_0$, and $q_1$ goes to $q_0$. Write its 5-tuple.",
+      "back": "Given the description:\n*   $Q = \\{q_0, q_1\\}$\n*   $\\Sigma = \\{a, b\\}$\n*   $q_0 = q_0$\n*   $F = \\{q_1\\}$\n*   $\\delta$:\n    *   $\\delta(q_0, a) = q_1$\n    *   $\\delta(q_0, b) = q_0$\n    *   $\\delta(q_1, a) = q_1$\n    *   $\\delta(q_1, b) = q_0$\nSo, the 5-tuple is $(\\{q_0, q_1\\}, \\{a, b\\}, \\delta, q_0, \\{q_1\\})$, where $\\delta$ is defined as above.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A DFA has states $q_0, q_1, q_2$. $q_0$ is start. $q_2$ is accept. $\\Sigma=\\{0,1\\}$. Transitions: $\\delta(q_0,0)=q_1, \\delta(q_0,1)=q_0$; $\\delta(q_1,0)=q_1, \\delta(q_1,1)=q_2$; $\\delta(q_2,0)=q_2, \\delta(q_2,1)=q_2$. Does this DFA accept the string '010'?",
+      "back": "Let's trace '010':\n1.  Start at $q_0$.\n2.  Read '0': $\\delta(q_0, 0) = q_1$. Current state: $q_1$.\n3.  Read '1': $\\delta(q_1, 1) = q_2$. Current state: $q_2$.\n4.  Read '0': $\\delta(q_2, 0) = q_2$. Current state: $q_2$.\nSince the final state $q_2$ is an accept state, the DFA **accepts** the string '010'.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What property of a DFA's transition function makes it 'deterministic', and why is this important?",
+      "back": "A DFA is 'deterministic' because for every state $q \\in Q$ and every input symbol $a \\in \\Sigma$, there is **exactly one** transition defined by $\\delta(q, a)$ to a single next state. There are no choices or ambiguities. This is important because it means the computation path for any given input string is unique and predictable, simplifying analysis and implementation. Contrast this with Non-deterministic Finite Automata (NFAs) where multiple transitions or no transitions might be possible for a given state and symbol.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the 5-tuple for a DFA that accepts all strings over $\\Sigma=\\{a, b\\}$ that contain an even number of 'a's.",
+      "back": "Let's define the 5-tuple:\n*   $Q = \\{q_{even}, q_{odd}\\}$ (states represent parity of 'a's encountered)\n*   $\\Sigma = \\{a, b\\}$\n*   $q_0 = q_{even}$ (start with an even count of 'a's)\n*   $F = \\{q_{even}\\}$ (accept if an even number of 'a's)\n*   $\\delta$:\n    *   $\\delta(q_{even}, a) = q_{odd}$ (an 'a' flips parity)\n    *   $\\delta(q_{even}, b) = q_{even}$ (a 'b' doesn't change parity)\n    *   $\\delta(q_{odd}, a) = q_{even}$ (an 'a' flips parity)\n    *   $\\delta(q_{odd}, b) = q_{odd}$ (a 'b' doesn't change parity)\nThis DFA will accept strings like '', 'b', 'bb', 'aa', 'bab', 'abaa', etc.",
+      "difficulty": "hard"
+    }
+  ]
+}

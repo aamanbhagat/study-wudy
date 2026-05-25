@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-hexadecimal-and-octal-conversions-why-they-re-used",
+  "subtopicTitle": "Hexadecimal and octal — conversions, why they're used",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:24.308Z",
+  "cards": [
+    {
+      "front": "What are the bases for hexadecimal and octal number systems, respectively?",
+      "back": "Hexadecimal (hex) uses base 16. Octal uses base 8.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are hexadecimal and octal commonly used in CS, given computers use binary?",
+      "back": "They provide a human-readable, compact representation of binary data. Each hex digit represents 4 binary bits, and each octal digit represents 3 binary bits. This makes conversions straightforward and significantly reduces the string length compared to pure binary, aiding readability and debugging.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Convert the binary number $11010110_2$ to its hexadecimal equivalent.",
+      "back": "Group binary digits into sets of 4 from the right: $1101 \\ 0110_2$.\n$1101_2 = 8+4+0+1 = 13_{10} = D_{16}$\n$0110_2 = 0+4+2+0 = 6_{10} = 6_{16}$\nSo, $11010110_2 = D6_{16}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert the binary number $11010110_2$ to its octal equivalent.",
+      "back": "Group binary digits into sets of 3 from the right, padding with leading zeros if necessary: $011 \\ 010 \\ 110_2$.\n$011_2 = 0+2+1 = 3_{10} = 3_8$\n$010_2 = 0+2+0 = 2_{10} = 2_8$\n$110_2 = 4+2+0 = 6_{10} = 6_8$\nSo, $11010110_2 = 326_8$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert the hexadecimal number $2A5_{16}$ to its decimal equivalent.",
+      "back": "$2A5_{16} = (2 \\times 16^2) + (A \\times 16^1) + (5 \\times 16^0)$\nRecall $A_{16} = 10_{10}$.\n$= (2 \\times 256) + (10 \\times 16) + (5 \\times 1)$\n$= 512 + 160 + 5$\n$= 677_{10}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert the decimal number $453_{10}$ to its hexadecimal equivalent.",
+      "back": "Use repeated division by 16 and collect remainders from bottom up:\n$453 \\div 16 = 28$ remainder $5$\n$28 \\div 16 = 1$ remainder $12$ (which is $C_{16}$)\n$1 \\div 16 = 0$ remainder $1$ (which is $1_{16}$)\nReading remainders from bottom to top, $453_{10} = 1C5_{16}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a common example of hexadecimal usage in programming or computer science.",
+      "back": "Hexadecimal is widely used for: \n1.  **Memory Addresses**: e.g., `0x7FFC38B0` in C/C++.\n2.  **Color Codes**: RGB values like `#FF00FF` (magenta), where each pair of hex digits represents a red, green, or blue component (FF = 255).\n3.  **MAC Addresses**: e.g., `00:1A:2B:3C:4D:5E`.\n4.  **Representing Raw Byte Data**: In debuggers or file dumps, hex provides a compact view of binary data.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is hexadecimal generally preferred over octal in modern computing contexts?",
+      "back": "Modern computer architectures are typically byte-addressable, with a byte consisting of 8 bits. Hexadecimal digits conveniently map to 4 bits (a nibble), meaning two hex digits perfectly represent one 8-bit byte. Octal digits, however, map to 3 bits, which does not align cleanly with 8-bit bytes ($8 \\div 3$ is not an integer), making hex a more natural and efficient fit for representing byte-oriented data.",
+      "difficulty": "medium"
+    }
+  ]
+}

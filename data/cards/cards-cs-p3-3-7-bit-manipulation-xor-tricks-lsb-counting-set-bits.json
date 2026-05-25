@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-7-bit-manipulation-xor-tricks-lsb-counting-set-bits",
+  "subtopicTitle": "Bit manipulation — XOR tricks, LSB, counting set bits",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:08.897Z",
+  "cards": [
+    {
+      "front": "State the results of $A \\oplus 0$ and $A \\oplus A$.",
+      "back": "The fundamental properties of the XOR operation are:\n- $A \\oplus 0 = A$ (Identity property)\n- $A \\oplus A = 0$ (Self-inverse property)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how XOR can swap two numbers $A$ and $B$ without a temporary variable, and name another common use case.",
+      "back": "XOR swapping sequence:\n```c\nA = A ^ B;\nB = A ^ B; // B now holds original A\nA = A ^ B; // A now holds original B\n```\nThis works because $A \\oplus B \\oplus B = A$ and $A \\oplus B \\oplus A = B$. Another common use case is to find the single unique element in an array where all other elements appear an even number of times, by XORing all elements together.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you isolate the least significant bit (LSB) of an integer $x$ using bitwise operations? Explain the logic.",
+      "back": "The LSB can be isolated using $x \\ \\&\\ (-x)$.\nAlternatively, $x \\ \\&\\ (\\sim x + 1)$.\n\n**Logic:** In two's complement, $-x$ is equivalent to $\\sim x + 1$. If $x = (\\dots b_k 1 0 \\dots 0)_2$, then $\\sim x$ flips all bits. Adding 1 to $\\sim x$ flips the trailing ones back to zeros and the first zero to a one, resulting in a number like $(\\dots \\bar{b_k} 1 0 \\dots 0)_2$. When $x$ is ANDed with this result, all bits cancel out except the LSB of $x$, which is the unique bit that is 1 in both $x$ and $-x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the result of $x \\ \\&\\ (-x)$ intuitively represent in terms of powers of two?",
+      "back": "The result of $x \\ \\&\\ (-x)$ represents the *lowest power of two* that divides $x$. For example, if $x=12 (1100_2)$, its LSB is $4 (0100_2)$. Indeed, $12 \\ \\&\\ (-12) = 4$. This is because $12 = 3 \\times 2^2$, and $2^2=4$ is the lowest power of two that divides 12.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you clear (set to 0) the least significant bit (LSB) of an integer $x$? What is this operation commonly used for?",
+      "back": "The LSB can be cleared using $x \\ \\&\\ (x-1)$.\n\n**Logic:** If $x = (\\dots b_k 1 0 \\dots 0)_2$, then $x-1 = (\\dots b_k 0 1 \\dots 1)_2$. Performing $x \\ \\&\\ (x-1)$ will result in $( \\dots b_k 0 0 \\dots 0)_2$, effectively clearing the LSB and all trailing zeros.\n\nThis operation is fundamental to Brian Kernighan's algorithm for counting set bits and for navigating Fenwick trees (Binary Indexed Trees).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe Brian Kernighan's algorithm for counting set bits. Explain its efficiency compared to a simple right-shift loop.",
+      "back": "Brian Kernighan's algorithm:\n```c\nint countSetBits(int n) {\n    int count = 0;\n    while (n > 0) {\n        n &= (n - 1); // Clears the LSB\n        count++;\n    }\n    return count;\n}\n```\nEach iteration of the loop clears the least significant set bit of `n`. The loop runs exactly `k` times, where `k` is the number of set bits in `n`.\n\n**Efficiency:** This algorithm is more efficient than a simple right-shift loop (`n >>= 1; count += n & 1;`) which runs `log2(n)` times (for all bits). Kernighan's algorithm only iterates for each set bit, not for every bit position. For sparse numbers (few set bits), it's significantly faster.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can XOR operations be used to efficiently determine the parity (even or odd) of the number of set bits in an integer?",
+      "back": "The parity of the number of set bits (also known as the population count parity) can be found by repeatedly XORing halves of the number until only one bit remains. This works because XORing bits effectively sums them modulo 2.\n\nFor a 32-bit integer `x`:\n```c\nx ^= x >> 16;\nx ^= x >> 8;\nx ^= x >> 4;\nx ^= x >> 2;\nx ^= x >> 1;\nreturn x & 1; // The LSB holds the parity\n```\nThe final result `x & 1` will be 1 if the number of set bits was odd, and 0 if it was even.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-5-priority-inversion-problem-and-solutions-priority-inheritance-priority-ceiling",
+  "subtopicTitle": "Priority inversion — problem and solutions (priority inheritance, priority ceiling)",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:57.818Z",
+  "cards": [
+    {
+      "front": "Define priority inversion in the context of real-time operating systems.",
+      "back": "Priority inversion occurs when a high-priority task is indirectly blocked by a lower-priority task. This happens when the low-priority task holds a shared resource needed by the high-priority task, and then an intermediate-priority task preempts the low-priority task, thereby delaying the release of the resource and, consequently, the high-priority task.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a scenario with tasks $T_H$ (high priority), $T_M$ (medium), $T_L$ (low), and a shared resource $S_1$ that leads to priority inversion.",
+      "back": "1. $T_L$ starts and acquires $S_1$. 2. $T_H$ becomes ready, preempts $T_L$, and attempts to acquire $S_1$. Since $S_1$ is held by $T_L$, $T_H$ blocks. 3. $T_M$ becomes ready and preempts $T_L$ (which is still holding $S_1$ but is now runnable). 4. $T_M$ executes, delaying $T_L$'s completion of its critical section. Consequently, $T_H$ remains blocked, effectively by $T_M$, a lower-priority task.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is priority inversion a critical problem in real-time systems?",
+      "back": "It violates the fundamental principle of real-time scheduling that higher-priority tasks should execute preferentially. By allowing a high-priority task to be delayed by a medium-priority task (indirectly via a low-priority task), it can lead to missed deadlines, unpredictable system behavior, and potential system failures, especially in safety-critical applications.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the core mechanism of the Priority Inheritance Protocol (PIP) to prevent priority inversion?",
+      "back": "PIP temporarily raises the priority of a low-priority task to that of the highest-priority task waiting for a resource it holds. This 'inherited' priority ensures that the low-priority task can complete its critical section without being preempted by intermediate-priority tasks, thus releasing the resource quicker and unblocking the high-priority task.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider tasks $T_H$ (priority 3), $T_M$ (priority 2), $T_L$ (priority 1) and mutex $S_1$. $T_L$ acquires $S_1$. $T_H$ attempts $S_1$ and blocks. $T_M$ becomes ready. How does PIP resolve this?",
+      "back": "1. $T_L$ (P=1) acquires $S_1$. 2. $T_H$ (P=3) preempts $T_L$, tries to acquire $S_1$, and blocks. 3. Due to PIP, $T_L$'s effective priority is *inherited* and raised to P=3 (the priority of $T_H$, the highest-priority task blocked on $S_1$). 4. $T_M$ (P=2) becomes ready but cannot preempt $T_L$ because $T_L$'s effective priority is now P=3. 5. $T_L$ executes at P=3, releases $S_1$, and its priority reverts to P=1. 6. $T_H$ acquires $S_1$ and executes. $T_M$ runs only after $T_H$ completes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify two significant drawbacks or limitations of the Priority Inheritance Protocol (PIP).",
+      "back": "1.  **Chained Blocking:** A high-priority task might be blocked by multiple lower-priority tasks, each holding a different resource needed by the high-priority task, leading to unpredictable blocking times. 2.  **Deadlock:** PIP alone does not prevent deadlocks if tasks acquire multiple resources in different orders. 3.  **Transitive Inheritance:** Inheritance can propagate through multiple tasks, making the system state and schedulability analysis more complex.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary goal of the Priority Ceiling Protocol (PCP), and how does it fundamentally differ from PIP?",
+      "back": "PCP's primary goal is to prevent priority inversion and *deadlock*. It differs from PIP by preventing blocking *before it occurs* rather than resolving it reactively. PCP achieves this by assigning a 'priority ceiling' to each resource and imposing strict rules for resource acquisition based on this ceiling.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the 'priority ceiling' of a semaphore and the rule for acquiring a semaphore under the Priority Ceiling Protocol.",
+      "back": "The **priority ceiling** of a semaphore $S$ is defined as the priority of the highest-priority task that can *ever* lock $S$. Under PCP, a task $T_i$ can acquire a semaphore $S$ only if its current priority is strictly greater than the **system ceiling**, which is the maximum of the priority ceilings of all semaphores currently locked by *any* task (excluding $S$ if $T_i$ already holds it). If $T_i$'s priority is not higher than the system ceiling, it is blocked, even if $S$ is free.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the key advantages of the Priority Ceiling Protocol over the Priority Inheritance Protocol?",
+      "back": "1.  **Prevents Deadlock:** PCP guarantees freedom from deadlocks. 2.  **Bounded Blocking:** A task can be blocked for at most one critical section of a lower-priority task (direct blocking), preventing chained blocking. 3.  **Simpler Analysis:** The predictable and bounded blocking behavior simplifies schedulability analysis. 4.  **No Transitive Inheritance:** While it uses priority inheritance, its application is more controlled, avoiding complex transitive chains.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which protocol, PIP or PCP, is generally preferred for safety-critical real-time systems, and why?",
+      "back": "The Priority Ceiling Protocol (PCP) is generally preferred for safety-critical real-time systems. PCP offers stronger guarantees: it prevents deadlocks and ensures that a high-priority task is blocked for at most one critical section of a lower-priority task (the single-blocking property). This predictability and stronger guarantee against complex blocking scenarios are crucial for meeting strict deadlines and ensuring reliability in safety-critical applications, despite its potentially higher overhead in some implementations.",
+      "difficulty": "medium"
+    }
+  ]
+}

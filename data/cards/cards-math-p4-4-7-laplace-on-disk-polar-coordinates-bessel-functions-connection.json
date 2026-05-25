@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-laplace-on-disk-polar-coordinates-bessel-functions-connection",
+  "subtopicTitle": "Laplace on disk — polar coordinates, Bessel functions connection",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:00.443Z",
+  "cards": [
+    {
+      "front": "Write down Laplace's equation $\\nabla^2 u = 0$ in polar coordinates $(r, \\theta)$.",
+      "back": "Laplace's equation in polar coordinates is: $$\\frac{\\partial^2 u}{\\partial r^2} + \\frac{1}{r} \\frac{\\partial u}{\\partial r} + \\frac{1}{r^2} \\frac{\\partial^2 u}{\\partial \\theta^2} = 0$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Assume a solution of the form $u(r, \\theta) = R(r)\\Theta(\\theta)$ for Laplace's equation in polar coordinates. Derive the two ordinary differential equations for $R(r)$ and $\\Theta(\\theta)$.",
+      "back": "Substituting $u(r, \\theta) = R(r)\\Theta(\\theta)$ into Laplace's equation: $$\\Theta(r^2 R'' + r R') + R\\Theta'' = 0$$ Dividing by $R\\Theta$ and separating variables yields: $$\\frac{r^2 R'' + r R'}{R} = -\\frac{\\Theta''}{\\Theta} = \\lambda$$ This gives the two ODEs:\n1.  Radial Equation: $r^2 R''(r) + r R'(r) - \\lambda R(r) = 0$\n2.  Angular Equation: $\\Theta''(\\theta) + \\lambda \\Theta(\\theta) = 0$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the general solutions to the angular ODE $\\Theta''(\\theta) + \\lambda \\Theta(\\theta) = 0$ with periodic boundary conditions $\\Theta(\\theta) = \\Theta(\\theta + 2\\pi)$?",
+      "back": "For periodic solutions, $\\lambda$ must be non-negative. If $\\lambda < 0$, solutions are exponentials, not periodic. If $\\lambda = 0$, $\\Theta(\\theta) = C_1\\theta + C_2$, which is periodic only if $C_1=0$. If $\\lambda > 0$, let $\\lambda = n^2$ for $n \\in \\mathbb{Z}^+$. The general solution is:\n*   For $\\lambda = 0$: $\\Theta_0(\\theta) = A_0$\n*   For $\\lambda = n^2$ ($n=1, 2, \\dots$): $\\Theta_n(\\theta) = A_n \\cos(n\\theta) + B_n \\sin(n\\theta)$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For Laplace's equation on a disk, the radial equation for $\\lambda = n^2 > 0$ is $r^2 R''(r) + r R'(r) - n^2 R(r) = 0$. What is its general solution? Which part is typically discarded for solutions bounded at the origin?",
+      "back": "This is a Cauchy-Euler equation. Assuming $R(r) = r^p$, we get $p(p-1) + p - n^2 = 0 \\implies p^2 - n^2 = 0 \\implies p = \\pm n$. The general solution is $R_n(r) = C_1 r^n + C_2 r^{-n}$. For solutions to be bounded at the origin ($r=0$), the $r^{-n}$ term must be discarded, so $C_2 = 0$. Thus, $R_n(r) = C_1 r^n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the general solution to the radial ODE when $\\lambda = 0$ (i.e., $r^2 R''(r) + r R'(r) = 0$)? Which part is typically discarded for solutions bounded at the origin?",
+      "back": "This is also a Cauchy-Euler equation. Assuming $R(r) = r^p$, we get $p(p-1) + p = 0 \\implies p^2 = 0 \\implies p=0$ (repeated root). The general solution is $R_0(r) = C_1 r^0 + C_2 r^0 \\ln r = C_1 + C_2 \\ln r$. For solutions to be bounded at the origin ($r=0$), the $\\ln r$ term must be discarded, so $C_2 = 0$. Thus, $R_0(r) = C_1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "While solving Laplace's equation on a disk in polar coordinates, the radial equation is a Cauchy-Euler type. Explain why Bessel functions are *not* directly involved in the standard solution, and in what common PDE contexts (still in polar coordinates) they *do* typically arise.",
+      "back": "Bessel functions are solutions to Bessel's differential equation, which typically arises from the radial part of PDEs like the Helmholtz equation ($\\nabla^2 u + k^2 u = 0$) or the wave/heat equations when solved via separation of variables in polar or cylindrical coordinates. For Laplace's equation ($\\nabla^2 u = 0$), the radial equation $r^2 R''(r) + r R'(r) - n^2 R(r) = 0$ is a Cauchy-Euler equation, whose solutions are simple powers of $r$ ($r^n, r^{-n}$), not Bessel functions. The 'connection' to Bessel functions often refers to a broader understanding of PDEs in polar coordinates, where Bessel functions are a common family of solutions for *other* important equations that include a time-dependent term or a source/sink term, making the radial equation more complex than for Laplace's equation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Combine the separated solutions to write the general series solution for Laplace's equation on a disk, bounded at the origin.",
+      "back": "Combining $R_0(r) = A_0$ with $\\Theta_0(\\theta) = 1$ (by convention, absorbing $A_0$) and $R_n(r) = r^n$ with $\\Theta_n(\\theta) = (A_n \\cos(n\\theta) + B_n \\sin(n\\theta))$, the general solution for $u(r, \\theta)$ bounded at the origin is: $$u(r, \\theta) = A_0 + \\sum_{n=1}^{\\infty} r^n (A_n \\cos(n\\theta) + B_n \\sin(n\\theta))$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the general solution for Laplace's equation on a disk $u(r, \\theta) = A_0 + \\sum_{n=1}^{\\infty} r^n (A_n \\cos(n\\theta) + B_n \\sin(n\\theta))$, how are the coefficients $A_0, A_n, B_n$ determined by a Dirichlet boundary condition $u(a, \\theta) = f(\\theta)$ on the disk of radius $a$?",
+      "back": "At the boundary $r=a$, we have $f(\\theta) = u(a, \\theta) = A_0 + \\sum_{n=1}^{\\infty} a^n (A_n \\cos(n\\theta) + B_n \\sin(n\\theta))$. This is a Fourier series for $f(\\theta)$. The coefficients are determined by the Euler-Fourier formulas:\n*   $A_0 = \\frac{1}{2\\pi} \\int_0^{2\\pi} f(\\theta) d\\theta$\n*   $A_n = \\frac{1}{\\pi a^n} \\int_0^{2\\pi} f(\\theta) \\cos(n\\theta) d\\theta$ for $n \\ge 1$\n*   $B_n = \\frac{1}{\\pi a^n} \\int_0^{2\\pi} f(\\theta) \\sin(n\\theta) d\\theta$ for $n \\ge 1$",
+      "difficulty": "hard"
+    }
+  ]
+}

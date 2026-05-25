@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-multi-level-feedback-queue-mlfq-promotion-demotion-rules",
+  "subtopicTitle": "Multi-level feedback queue (MLFQ) — promotion, demotion rules",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:01.177Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of a Multi-level Feedback Queue (MLFQ) scheduler?",
+      "back": "The primary goal of an MLFQ scheduler is to achieve both responsiveness for interactive jobs and efficiency for CPU-bound jobs, without requiring prior knowledge of job types. It dynamically adjusts job priorities based on observed behavior.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In MLFQ, how are priorities generally represented, and which queue typically has the highest priority and shortest time slice?",
+      "back": "Priorities are represented by different queues. Queue 0 (or the lowest numbered queue) typically has the highest priority and the shortest time slice (quantum). Lower priority queues generally have progressively longer time slices.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When a new job enters the MLFQ system, which queue is it initially placed into?",
+      "back": "New jobs are typically placed into the highest priority queue (e.g., Queue 0). This gives them an initial chance to demonstrate if they are interactive (will yield CPU quickly) or CPU-bound (will use their full time slice).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the primary rule for demotion in MLFQ based on a process's CPU usage.",
+      "back": "If a process uses its entire time slice (quantum) in a given queue, it is demoted to the next lower priority queue. This rule identifies CPU-bound jobs that require significant CPU time and moves them to queues with longer quanta.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does MLFQ typically handle a process that yields the CPU before its time slice expires (e.g., due to I/O)?",
+      "back": "Such a process usually remains in its current queue, or in some MLFQ implementations, might even be promoted to a higher priority queue. This rule ensures interactive jobs maintain responsiveness by not being unfairly demoted for performing I/O.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To prevent starvation of long-running, CPU-bound jobs stuck in low-priority queues, what periodic promotion rule (often called a 'priority boost') does MLFQ commonly employ?",
+      "back": "After a certain time interval $T$ (e.g., 1 second, or after all jobs have been processed), all processes are moved to the highest priority queue. This 'priority boost' ensures every job eventually gets a chance to run at a high priority, preventing starvation and allowing the scheduler to re-evaluate their behavior.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An MLFQ has Q0 (10ms), Q1 (20ms), Q2 (40ms). Process $P_A$ arrives in Q0. It runs for 10ms, then 20ms, then 15ms. Describe $P_A$'s queue transitions.",
+      "back": "1. $P_A$ starts in Q0.\n2. After 10ms in Q0, it uses its full time slice. It is demoted to Q1.\n3. After 20ms in Q1, it uses its full time slice. It is demoted to Q2.\n4. After 15ms in Q2, it uses only part of its time slice (15ms < 40ms). It remains in Q2.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An MLFQ has Q0 (10ms), Q1 (20ms). Process $P_B$ arrives in Q0. It runs for 5ms, then blocks for I/O. When it becomes runnable again, what queue is $P_B$ in, assuming no global promotion and the rule for I/O-bound jobs is 'stays in current queue'?",
+      "back": "$P_B$ remains in Q0. Since it did not use its entire time slice (5ms < 10ms) before yielding for I/O, it is not demoted. It resumes in its current queue (Q0) when its I/O completes, maintaining its high priority for responsiveness.",
+      "difficulty": "hard"
+    }
+  ]
+}

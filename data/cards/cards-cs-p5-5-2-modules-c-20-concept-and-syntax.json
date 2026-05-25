@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-modules-c-20-concept-and-syntax",
+  "subtopicTitle": "Modules (C++20) — concept and syntax",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:16.336Z",
+  "cards": [
+    {
+      "front": "C++20 Modules primarily address issues related to traditional header files, such as slow compilation times and _________.",
+      "back": "C++20 Modules primarily address issues related to traditional header files, such as slow compilation times and **macro collisions and violations of the One Definition Rule (ODR) due to textual inclusion**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you declare the primary interface unit for a module named `MyModule`?",
+      "back": "```cpp\nexport module MyModule;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To use declarations exported by `MyModule` in another translation unit, what keyword is used?",
+      "back": "```cpp\nimport MyModule;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Show how to export a function `int add(int a, int b);` and a class `MyClass` from a module interface.",
+      "back": "```cpp\nexport module MyModule;\n\nexport int add(int a, int b);\n\nexport class MyClass {\n    // ... members ...\n};\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of a global module fragment and how is it syntactically initiated?",
+      "back": "The global module fragment allows a module to include traditional header files (e.g., `<iostream>`, `<vector>`) whose declarations are processed *before* the module's own declarations. It's initiated by `module;` followed by `#include` directives.\n```cpp\nmodule;\n#include <iostream>\n#include <vector>\n\nexport module MyModule; // Module declarations begin here\n// ...\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do C++20 Modules handle macros defined within a module interface unit, specifically regarding their visibility to importing translation units?",
+      "back": "Macros defined within a module interface unit are *not* automatically exported or visible to translation units that `import` that module. They are confined to the module's own compilation units. This helps prevent macro collisions, a common issue with traditional header files.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain module partitions. How do they help structure a large module, and how are they declared and imported internally?",
+      "back": "Module partitions (or submodules) allow a large module to be split into multiple compilation units, improving build times and organization. They are internal to a module and do not create separate modules visible externally.\n\nDeclaration:\n- Interface partition: `export module MyModule:PartitionName;`\n- Implementation partition: `module MyModule:PartitionName;`\n\nInternal Import: `import :PartitionName;` within `MyModule`'s other units. Only the primary module interface (`export module MyModule;`) can export declarations from its partitions to external consumers.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the purpose of a private module fragment, and where is it placed within a module unit?",
+      "back": "A private module fragment (`module : private;`) contains declarations and definitions that are part of the module's implementation but are *not* visible to other module units (even other partitions of the same module) or external importers. It must appear *after* all `export` declarations and `import` directives in a module interface unit, and *before* any module implementation unit declarations. It effectively seals the module's public interface.\n```cpp\nexport module MyModule;\nexport void public_func(); // Public interface\n\nmodule : private; // Private fragment begins\nvoid private_helper(); // Only visible within this TU\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-ohm-s-law-microscopic-origin-resistivity",
+  "subtopicTitle": "Ohm's law — microscopic origin, resistivity",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:43.579Z",
+  "cards": [
+    {
+      "front": "State Ohm's Law in its macroscopic form, defining each variable.",
+      "back": "$V=IR$, where $V$ is the potential difference (voltage) across the conductor (in volts, V), $I$ is the current flowing through it (in amperes, A), and $R$ is the resistance of the conductor (in ohms, $\\Omega$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define resistivity ($\\rho$) and conductivity ($\\sigma$), and state their mathematical relationship.",
+      "back": "Resistivity ($\\rho$) is a material's intrinsic opposition to electric current flow. Conductivity ($\\sigma$) is a material's intrinsic ability to conduct electric current. They are reciprocals: $\\sigma = 1/\\rho$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the microscopic mechanism by which an electric field causes a net current in a conductor, leading to drift velocity.",
+      "back": "In a conductor, free electrons move randomly. An applied electric field $\\vec{E}$ exerts a force on these electrons, causing them to accelerate. However, they frequently collide with the lattice ions, losing their acquired kinetic energy. This results in a net average velocity in the direction opposite to $\\vec{E}$ (for electrons), known as the drift velocity $\\vec{v}_d$, which constitutes the electric current.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Ohm's Law in its microscopic form, defining all variables and their vector nature.",
+      "back": "The microscopic form of Ohm's Law is $\\vec{J} = \\sigma \\vec{E}$, or equivalently $\\vec{E} = \\rho \\vec{J}$. Here, $\\vec{J}$ is the current density vector (current per unit area, $A/m^2$), $\\sigma$ is the electrical conductivity ($(\\Omega \\cdot m)^{-1}$), $\\vec{E}$ is the electric field vector ($V/m$), and $\\rho$ is the electrical resistivity ($\\Omega \\cdot m$). $\\vec{J}$ and $\\vec{E}$ are in the same direction for ohmic materials.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for resistivity $\\rho$ in terms of microscopic parameters: electron density ($n$), electron charge ($e$), electron mass ($m_e$), and mean free time ($\\tau$). Assume a classical model.",
+      "back": "When an electric field $\\vec{E}$ is applied, an electron experiences a force $\\vec{F} = -e\\vec{E}$. This causes an acceleration $\\vec{a} = \\vec{F}/m_e = -e\\vec{E}/m_e$. Due to collisions, electrons acquire an average drift velocity $\\vec{v}_d = \\vec{a}\\tau = (-e\\vec{E}/m_e)\\tau$. The current density is $\\vec{J} = n(-e)\\vec{v}_d = n(-e)((-e\\vec{E}/m_e)\\tau) = (ne^2\\tau/m_e)\\vec{E}$. Comparing this with the microscopic Ohm's Law $\\vec{J} = \\sigma \\vec{E}$, we find the conductivity $\\sigma = ne^2\\tau/m_e$. Therefore, the resistivity is $\\rho = 1/\\sigma = \\frac{m_e}{ne^2\\tau}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What defines an 'ohmic' material, and what is the primary physical condition under which Ohm's Law holds true for such materials?",
+      "back": "An 'ohmic' material is one whose resistance (and thus resistivity) remains constant, independent of the applied voltage or current. The primary physical condition for Ohm's Law to hold true is that the material's temperature must remain constant. Changes in temperature significantly alter resistivity by affecting the mean free time of charge carriers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the resistivity $\\rho$ of a material calculated from its resistance $R$, length $L$, and cross-sectional area $A$? State the SI units for $\\rho$.",
+      "back": "The resistance $R$ of a conductor is related to its resistivity $\\rho$ by the formula $R = \\rho \\frac{L}{A}$. Rearranging for $\\rho$, we get $\\rho = \\frac{RA}{L}$. The SI unit for resistivity is ohm-meter ($\\Omega \\cdot m$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the general temperature dependence of resistivity for (a) metals and (b) semiconductors, providing a brief microscopic reason for each.",
+      "back": "(a) **Metals:** Resistivity generally *increases* with increasing temperature. At higher temperatures, the thermal vibrations of the lattice ions become more vigorous, leading to a higher frequency of collisions between conduction electrons and the lattice. This reduces the mean free time ($\\tau$) between collisions, thus increasing resistivity ($\\rho \\propto 1/\\tau$).\n(b) **Semiconductors:** Resistivity generally *decreases* with increasing temperature. For semiconductors, increasing temperature provides more thermal energy, which can break more covalent bonds, thereby significantly increasing the number of free charge carriers ($n$, both electrons and holes). This increase in $n$ typically outweighs the decrease in mean free time, leading to lower resistivity ($\\rho \\propto 1/n$).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-combustion-thermodynamics-stoichiometry-adiabatic-flame-temperature",
+  "subtopicTitle": "Combustion thermodynamics — stoichiometry, adiabatic flame temperature",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:52.044Z",
+  "cards": [
+    {
+      "front": "In combustion, what does \"stoichiometry\" refer to?",
+      "back": "Stoichiometry is the quantitative relationship between reactants and products in a chemical reaction. For combustion, it determines the exact proportions of fuel and oxidizer needed for complete reaction without excess of either.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the equivalence ratio ($\\phi$) in combustion and what $\\phi < 1$, $\\phi = 1$, and $\\phi > 1$ indicate.",
+      "back": "The equivalence ratio $\\phi$ is the actual fuel-to-oxidizer ratio divided by the stoichiometric fuel-to-oxidizer ratio.\n*   $\\phi < 1$: Lean mixture (excess oxidizer).\n*   $\\phi = 1$: Stoichiometric mixture (ideal, no excess).\n*   $\\phi > 1$: Rich mixture (excess fuel).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the combustion of liquid hydrogen (LH2) with liquid oxygen (LOX), write the balanced stoichiometric reaction and calculate the oxidizer-to-fuel (O/F) mass ratio.",
+      "back": "The balanced stoichiometric reaction is:\n$$2\\text{H}_2 + \\text{O}_2 \\rightarrow 2\\text{H}_2\\text{O}$$\nMolar masses: H = 1.008 g/mol, O = 15.999 g/mol.\nMass of 2 moles H$_2$ = $2 \\times (2 \\times 1.008) = 4.032$ g.\nMass of 1 mole O$_2$ = $1 \\times (2 \\times 15.999) = 31.998$ g.\nStoichiometric O/F mass ratio = $\\frac{\\text{Mass of O}_2}{\\text{Mass of H}_2} = \\frac{31.998 \\text{ g}}{4.032 \\text{ g}} \\approx 7.936$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the Adiabatic Flame Temperature (AFT) and what are its two primary assumptions?",
+      "back": "The Adiabatic Flame Temperature (AFT) is the theoretical maximum temperature that combustion products can reach if the reaction occurs perfectly and all the chemical energy released is used to raise the temperature of the products.\nThe two primary assumptions are:\n1.  The combustion process is adiabatic (no heat transfer to or from the surroundings, $Q=0$).\n2.  The combustion process is complete (all reactants converted to products, or to equilibrium products if dissociation is considered).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the fundamental thermodynamic principle and its mathematical expression used to calculate the adiabatic flame temperature for a constant-pressure combustion process.",
+      "back": "The fundamental thermodynamic principle is the First Law of Thermodynamics for a closed system under constant pressure, which simplifies to the conservation of enthalpy. For an adiabatic process ($Q=0$) and no work ($W=0$), the total enthalpy of the reactants at their initial temperature must equal the total enthalpy of the products at the adiabatic flame temperature:\n$$\\sum (n_R \\bar{h}_{f,R}^\\circ + n_R \\Delta \\bar{h}_R)_{\\text{reactants}} = \\sum (n_P \\bar{h}_{f,P}^\\circ + n_P \\Delta \\bar{h}_P)_{\\text{products}}$$\nWhere $\\bar{h}_{f}^\\circ$ is the molar enthalpy of formation and $\\Delta \\bar{h}$ is the sensible enthalpy change from a reference temperature.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When calculating AFT, what two types of enthalpy contributions are accounted for in both reactants and products?",
+      "back": "The two main types of enthalpy contributions are:\n1.  **Enthalpy of Formation ($\\Delta H_f^\\circ$)**: The energy associated with the formation of a compound from its elements in their standard states. This accounts for the chemical energy stored in the bonds.\n2.  **Sensible Enthalpy ($\\Delta H_{\\text{sensible}}$)**: The energy associated with the change in temperature of a substance from a reference temperature. This accounts for the thermal energy.\nThe total enthalpy of a substance at a given temperature $T$ is $H(T) = H_f^\\circ + (H(T) - H(T_{\\text{ref}}))$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List and briefly explain three primary factors that significantly influence the adiabatic flame temperature of a propellant mixture.",
+      "back": "Three primary factors are:\n1.  **Heating Value of the Fuel**: Fuels with higher heats of combustion (more chemical energy released per unit mass) will generally result in higher AFT.\n2.  **Reactant Initial Temperature**: Higher initial temperatures of the fuel and oxidizer mean they possess more sensible enthalpy, leading to a higher AFT.\n3.  **Specific Heat Capacity of Products**: Products with lower average specific heat capacities ($C_p$) will experience a larger temperature rise for a given amount of heat released, leading to a higher AFT. Dissociation of products also absorbs energy, effectively lowering AFT.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is calculating the adiabatic flame temperature (AFT) crucial for designing rocket engines?",
+      "back": "AFT is crucial for rocket engine design because:\n1.  **Performance Prediction**: Higher AFT generally correlates with higher exhaust velocities and specific impulse ($I_{sp}$).\n2.  **Material Selection**: Extreme temperatures predicted by AFT dictate the selection of high-temperature resistant materials for combustion chambers and nozzles, and the design of cooling systems.\n3.  **Nozzle Design**: The temperature of the gas entering the nozzle (often approximated by AFT) is a critical parameter for calculating gas properties and designing the optimal nozzle expansion ratio.",
+      "difficulty": "medium"
+    }
+  ]
+}

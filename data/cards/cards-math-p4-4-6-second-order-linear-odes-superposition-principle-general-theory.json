@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-second-order-linear-odes-superposition-principle-general-theory",
+  "subtopicTitle": "Second-order linear ODEs — superposition principle, general theory",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:42.430Z",
+  "cards": [
+    {
+      "front": "Define a general second-order linear ODE, specifying its form and the conditions for it to be homogeneous.",
+      "back": "A general second-order linear ODE has the form $P(x)y'' + Q(x)y' + R(x)y = G(x)$, where $P(x)$, $Q(x)$, $R(x)$, and $G(x)$ are continuous functions on some interval, and $P(x) \\neq 0$. It is homogeneous if $G(x) = 0$ for all $x$ in the interval; otherwise, it is non-homogeneous.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Superposition Principle for a homogeneous second-order linear ODE and briefly explain why it holds.",
+      "back": "For a homogeneous second-order linear ODE $P(x)y'' + Q(x)y' + R(x)y = 0$, if $y_1(x)$ and $y_2(x)$ are two solutions, then any linear combination $y(x) = c_1y_1(x) + c_2y_2(x)$ is also a solution. This holds due to the linearity of the differential operator: $L[c_1y_1 + c_2y_2] = c_1L[y_1] + c_2L[y_2] = c_1(0) + c_2(0) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean for two solutions $y_1(x)$ and $y_2(x)$ of a second-order linear ODE to be linearly independent? Why is this crucial?",
+      "back": "Two solutions $y_1(x)$ and $y_2(x)$ are linearly independent on an interval if the only constants $c_1, c_2$ that satisfy $c_1y_1(x) + c_2y_2(x) = 0$ for all $x$ in the interval are $c_1=0$ and $c_2=0$. This is crucial because a linearly independent pair forms a fundamental set of solutions, which is necessary to construct the general solution of a homogeneous ODE.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Wronskian $W(y_1, y_2)(x)$ for two differentiable functions $y_1(x), y_2(x)$. How is it used to test for linear independence of solutions to an ODE?",
+      "back": "The Wronskian is defined as the determinant: $$W(y_1, y_2)(x) = \\begin{vmatrix} y_1(x) & y_2(x) \\\\ y_1'(x) & y_2'(x) \\end{vmatrix} = y_1(x)y_2'(x) - y_2(x)y_1'(x).$$ For two solutions $y_1, y_2$ of a second-order linear homogeneous ODE, they are linearly independent on an interval if and only if $W(y_1, y_2)(x) \\neq 0$ for at least one point in the interval (which implies it's non-zero everywhere in the interval).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Abel's Formula for the Wronskian of two solutions $y_1, y_2$ to the homogeneous ODE $y'' + p(x)y' + q(x)y = 0$. What key property of the Wronskian does it reveal?",
+      "back": "Abel's Formula states that $W(y_1, y_2)(x) = C \\exp\\left(-\\int p(x) dx\\right)$, where $C$ is a constant that depends on $y_1$ and $y_2$. This formula reveals that the Wronskian of two solutions to a homogeneous linear ODE is either identically zero or never zero on any interval where $p(x)$ is continuous. It cannot change its sign or become zero at an isolated point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a fundamental set of solutions $y_1(x)$ and $y_2(x)$ for a homogeneous second-order linear ODE, write down its general solution.",
+      "back": "The general solution for the homogeneous second-order linear ODE is $y_h(x) = c_1y_1(x) + c_2y_2(x)$, where $c_1$ and $c_2$ are arbitrary constants determined by initial conditions. This solution encompasses all possible solutions to the homogeneous equation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the structure of the general solution $y(x)$ for a non-homogeneous second-order linear ODE: $P(x)y'' + Q(x)y' + R(x)y = G(x)$.",
+      "back": "The general solution $y(x)$ of a non-homogeneous second-order linear ODE is the sum of two parts: $y(x) = y_c(x) + y_p(x)$. Here, $y_c(x)$ is the general solution of the associated homogeneous equation ($P(x)y'' + Q(x)y' + R(x)y = 0$), and $y_p(x)$ is any particular solution of the non-homogeneous equation itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the superposition principle applies to finding a particular solution $y_p(x)$ for a non-homogeneous ODE when the forcing term $G(x)$ is a sum of functions, e.g., $G(x) = G_1(x) + G_2(x)$.",
+      "back": "If the non-homogeneous term $G(x)$ can be expressed as a sum $G_1(x) + G_2(x)$, and if $y_{p1}(x)$ is a particular solution for $P(x)y'' + Q(x)y' + R(x)y = G_1(x)$, and $y_{p2}(x)$ is a particular solution for $P(x)y'' + Q(x)y' + R(x)y = G_2(x)$, then a particular solution for the original ODE with $G(x)$ is $y_p(x) = y_{p1}(x) + y_{p2}(x)$. This simplifies finding $y_p$ when $G(x)$ is complex.",
+      "difficulty": "hard"
+    }
+  ]
+}

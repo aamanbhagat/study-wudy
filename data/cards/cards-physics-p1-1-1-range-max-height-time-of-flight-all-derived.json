@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-range-max-height-time-of-flight-all-derived",
+  "subtopicTitle": "Range, max height, time of flight — all derived",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:37.647Z",
+  "cards": [
+    {
+      "front": "How are the initial velocity components, $v_{0x}$ and $v_{0y}$, expressed for a projectile launched with initial speed $v_0$ at an angle $\theta$ above the horizontal?",
+      "back": "The initial horizontal velocity component is $v_{0x} = v_0 \\cos \\theta$. The initial vertical velocity component is $v_{0y} = v_0 \\sin \\theta$. These components allow for independent analysis of horizontal and vertical motion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the time of flight $T$ of a projectile launched from level ground with initial speed $v_0$ at an angle $\theta$.",
+      "back": "For vertical motion, we use $y = v_{0y}t - \\frac{1}{2}gt^2$. Since the projectile starts and ends at $y=0$, we set $y=0$ and $t=T$: $0 = (v_0 \\sin \\theta)T - \\frac{1}{2}gT^2$. Since $T \\neq 0$ (for non-zero flight), we can divide by $T$: $0 = v_0 \\sin \\theta - \\frac{1}{2}gT$. Solving for $T$: $T = \\frac{2v_0 \\sin \\theta}{g}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the maximum height $H$ reached by a projectile launched from level ground with initial speed $v_0$ at an angle $\theta$.",
+      "back": "At the maximum height, the vertical velocity $v_y = 0$. Using the kinematic equation $v_y^2 = v_{0y}^2 - 2gy$: $0^2 = (v_0 \\sin \\theta)^2 - 2gH$. Solving for $H$: $H = \\frac{(v_0 \\sin \\theta)^2}{2g}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the horizontal range $R$ of a projectile launched from level ground with initial speed $v_0$ at an angle $\theta$.",
+      "back": "Horizontal motion is uniform: $x = v_{0x}t$. The range $R$ is the horizontal distance when $t=T$. So, $R = (v_0 \\cos \\theta)T$. Substitute the time of flight $T = \\frac{2v_0 \\sin \\theta}{g}$: $R = (v_0 \\cos \\theta)\\left(\\frac{2v_0 \\sin \\theta}{g}\\right) = \\frac{2v_0^2 \\sin \\theta \\cos \\theta}{g}$. Using the trigonometric identity $\\sin(2\\theta) = 2 \\sin \\theta \\cos \\theta$: $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formulas for time of flight ($T$), maximum height ($H$), and horizontal range ($R$) for a projectile on level ground.",
+      "back": "The formulas are:\n*   Time of flight: $T = \\frac{2v_0 \\sin \\theta}{g}$\n*   Maximum height: $H = \\frac{(v_0 \\sin \\theta)^2}{2g}$\n*   Horizontal range: $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a fixed initial speed $v_0$, what launch angle $\\theta$ maximizes the horizontal range $R$ of a projectile on level ground? Explain why.",
+      "back": "The horizontal range is given by $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$. For a fixed $v_0$ and $g$, $R$ is maximized when $\\sin(2\\theta)$ is maximized. The maximum value of the sine function is 1, which occurs when its argument is $90^\\circ$. So, $2\\theta = 90^\\circ$, which means $\\theta = 45^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a projectile launched at $15^\\circ$ has the same horizontal range as one launched at $75^\\circ$ (assuming same $v_0$ and level ground).",
+      "back": "The range formula is $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$. For $\\theta_1 = 15^\\circ$, $2\\theta_1 = 30^\\circ$. For $\\theta_2 = 75^\\circ$, $2\\theta_2 = 150^\\circ$. Since $\\sin(30^\\circ) = 0.5$ and $\\sin(150^\\circ) = 0.5$ (because $\\sin(x) = \\sin(180^\\circ - x)$), both launch angles result in the same value for $\\sin(2\\theta)$ and thus the same horizontal range. This holds for any pair of complementary angles ($\\theta$ and $90^\\circ - \\theta$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the primary assumptions made when deriving the standard projectile motion formulas for range, max height, and time of flight?",
+      "back": "The primary assumptions are:\n1.  Air resistance is negligible.\n2.  The acceleration due to gravity ($g$) is constant in magnitude and direction throughout the flight.\n3.  The Earth's curvature is negligible, meaning the motion occurs over a flat surface.\n4.  The projectile is launched from and lands at the same vertical height (level ground).",
+      "difficulty": "medium"
+    }
+  ]
+}

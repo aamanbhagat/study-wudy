@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-10-gradient-descent-and-variants-convergence-analysis",
+  "subtopicTitle": "Gradient descent and variants — convergence analysis",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:12:13.264Z",
+  "cards": [
+    {
+      "front": "Define an L-smooth function $f: \\mathbb{R}^d \\to \\mathbb{R}$ and state the condition for its gradient.",
+      "back": "A function $f$ is L-smooth if its gradient $\\nabla f$ is L-Lipschitz continuous. This means there exists a constant $L > 0$ such that for all $x, y \\in \\mathbb{R}^d$: $$\\|\\nabla f(x) - \\nabla f(y)\\| \\le L \\|x - y\\|$$ This implies that the change in the gradient is bounded, preventing it from changing too rapidly. For twice-differentiable functions, it means the Hessian's eigenvalues are bounded by $L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a $\\mu$-strongly convex function $f: \\mathbb{R}^d \\to \\mathbb{R}$.",
+      "back": "A function $f$ is $\\mu$-strongly convex if there exists a constant $\\mu > 0$ such that for all $x, y \\in \\mathbb{R}^d$: $$f(y) \\ge f(x) + \\nabla f(x)^T(y-x) + \\frac{\\mu}{2}\\|y-x\\|^2$$ This means the function grows at least quadratically, ensuring it has a unique global minimum and is \"well-conditioned.\" For twice-differentiable functions, it means the Hessian's eigenvalues are bounded below by $\\mu$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an L-smooth, convex function $f$, what is the convergence rate of Gradient Descent to the optimal value $f^*$ when using a fixed learning rate $\\eta \\le 1/L$?",
+      "back": "Gradient Descent with a fixed learning rate $\\eta \\le 1/L$ converges to the optimal function value $f^*$ at a rate of $O(1/k)$, where $k$ is the number of iterations. Specifically, if $x_k$ is the iterate at step $k$: $$f(x_k) - f^* \\le \\frac{\\|x_0 - x^*\\|^2}{2\\eta k}$$ where $x_0$ is the initial point and $x^*$ is an optimal solution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an L-smooth, $\\mu$-strongly convex function $f$, what is the convergence rate of Gradient Descent to the optimal solution $x^*$ with a fixed learning rate $\\eta \\in (0, 2/(L+\\mu)]$?",
+      "back": "Gradient Descent with a fixed learning rate $\\eta \\in (0, 2/(L+\\mu)]$ converges linearly (or exponentially) to the optimal solution $x^*$. The convergence rate is $O((1-\\eta\\mu)^k)$ or $O(e^{-k})$, specifically: $$\\|x_k - x^*\\|^2 \\le (1 - \\eta\\mu)^k \\|x_0 - x^*\\|^2$$ This is a much faster rate than for general convex functions, due to the stronger curvature guarantee.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why choosing a learning rate $\\eta > 2/L$ for Gradient Descent on an L-smooth function can lead to divergence or oscillations.",
+      "back": "For an L-smooth function, the gradient doesn't change too rapidly. A learning rate $\\eta > 2/L$ means the step size is too large. Each step $x_{k+1} = x_k - \\eta \\nabla f(x_k)$ might overshoot the minimum significantly. If $\\eta > 2/L$, the term $(1 - \\eta L)$ can become negative and have magnitude greater than 1, causing the iterates to oscillate with increasing amplitude (diverge) or jump back and forth without converging to the minimum. The optimal step size for quadratic functions is $1/L$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the convergence behavior of Stochastic Gradient Descent (SGD) differ from Gradient Descent (GD) for convex functions, particularly regarding noise and learning rates?",
+      "back": "<ul><li><b>Noise:</b> SGD uses noisy gradient estimates (from mini-batches), causing its iterates to fluctuate around the minimum, even with a small learning rate. GD uses the true gradient, allowing it to converge smoothly.</li><li><b>Fixed Learning Rate:</b> With a fixed learning rate, SGD typically converges to a neighborhood of the minimum, not necessarily the exact minimum, due to persistent noise. GD can converge to the exact minimum.</li><li><b>Decaying Learning Rate:</b> To converge to the exact minimum with SGD, a decaying learning rate schedule (e.g., $O(1/k)$ or $O(1/\\sqrt{k})$) is often required to reduce the impact of noise over time.</li><li><b>Convergence Rate:</b> For convex functions, SGD with a decaying learning rate typically achieves a convergence rate of $O(1/\\sqrt{k})$ for $||x_k - x^*||^2$ or $O(1/k)$ for $f(x_k) - f^*$ (under specific conditions), which is slower than GD's $O(1/k)$ for $f(x_k) - f^*$.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For non-convex, L-smooth functions, what does Gradient Descent typically converge to, and what is its convergence rate for finding a stationary point?",
+      "back": "For non-convex, L-smooth functions, Gradient Descent typically converges to a <i>stationary point</i>, which could be a local minimum, a local maximum, or a saddle point. It is not guaranteed to find a global minimum. The convergence rate for finding an $\\epsilon$-stationary point (i.e., a point $x_k$ such that $||\\nabla f(x_k)|| \\le \\epsilon$) is generally $O(1/\\epsilon^2)$ iterations. More precisely, to find a point such that $||\\nabla f(x_k)||^2 \\le \\epsilon$, it takes $O(1/\\epsilon)$ iterations on average.",
+      "difficulty": "hard"
+    }
+  ]
+}

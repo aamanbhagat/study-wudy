@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-multi-level-page-tables-why-overhead",
+  "subtopicTitle": "Multi-level page tables — why, overhead",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:36.402Z",
+  "cards": [
+    {
+      "front": "What problem do multi-level page tables primarily solve that single-level page tables struggle with, especially for large, sparse virtual address spaces?",
+      "back": "Single-level page tables require a contiguous block of physical memory to store the entire page table. For large virtual address spaces (e.g., 64-bit) and small page sizes, this table becomes excessively large, consuming vast amounts of physical memory even if most of the virtual address space is unused (sparse address space). Multi-level page tables address this by only allocating page table pages for portions of the virtual address space that are actually in use.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the maximum size of a single-level page table for a 32-bit virtual address space with 4 KB pages and 4-byte page table entries (PTEs).",
+      "back": "1.  Virtual Address Space Size: $2^{32}$ bytes\n2.  Page Size: $4 \\text{ KB} = 2^{12}$ bytes\n3.  Number of Pages: $2^{32} / 2^{12} = 2^{20}$ pages\n4.  Page Table Entry (PTE) Size: 4 bytes\n5.  Total Page Table Size: $2^{20} \\times 4 \\text{ bytes} = 2^{22} \\text{ bytes} = 4 \\text{ MB}$.\nThis 4 MB must be contiguous in physical memory, which can be problematic and wasteful if the address space is sparse.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the core idea behind a two-level page table structure for translating a virtual address to a physical address.",
+      "back": "A two-level page table divides the virtual address into three parts: an outer page table index (P1), an inner page table index (P2), and an offset. The P1 index points to an entry in the *outer page table*, which contains the physical address of a *second-level page table*. The P2 index then points to an entry in this second-level page table, which contains the physical frame number (PFN) of the desired physical page. Finally, the offset is added to the PFN to get the exact physical address.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how multi-level page tables reduce physical memory consumption compared to single-level tables, despite introducing more tables.",
+      "back": "Multi-level page tables reduce physical memory consumption by allowing the page table itself to be paged. If a section of the virtual address space is not in use, the corresponding second-level (or lower) page table does not need to be allocated in physical memory. Only the top-level page table and the necessary lower-level tables for active regions are loaded, making the overall memory footprint much smaller for sparse virtual address spaces.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary performance overhead introduced by multi-level page tables during a virtual-to-physical address translation? How many memory accesses are typically required for a 2-level page table without a TLB hit?",
+      "back": "The primary performance overhead is increased memory access latency. Each level of the page table hierarchy requires a separate memory access to fetch the next-level page table entry. For a 2-level page table, without a Translation Lookaside Buffer (TLB) hit, the translation process typically requires:\n1.  One memory access for the outer page table entry.\n2.  One memory access for the inner page table entry.\n3.  One memory access for the actual data/instruction.\nThis totals 3 memory accesses per memory operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a 32-bit virtual address space, 4 KB pages, and 4-byte PTEs, design a two-level page table structure. Specify the number of bits for the outer page table index, inner page table index, and page offset.",
+      "back": "1.  Virtual Address Size: 32 bits\n2.  Page Size: $4 \\text{ KB} = 2^{12}$ bytes. Thus, Page Offset = 12 bits.\n3.  Remaining bits for page number: $32 - 12 = 20$ bits.\n4.  PTE Size: 4 bytes. A page can hold $4 \\text{ KB} / 4 \\text{ bytes/PTE} = 1024 = 2^{10}$ PTEs. This means each page table (at any level) can hold $2^{10}$ entries, so an index into a page table requires 10 bits.\n5.  Therefore, for a two-level structure:\n    *   Outer Page Table Index (P1): 10 bits\n    *   Inner Page Table Index (P2): 10 bits\n    *   Page Offset: 12 bits\n    Total: $10 + 10 + 12 = 32$ bits.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do operating systems and hardware mitigate the significant time overhead introduced by multi-level page tables, especially given the multiple memory accesses required per translation?",
+      "back": "The primary mitigation is the Translation Lookaside Buffer (TLB). The TLB is a small, fast, hardware cache that stores recent virtual-to-physical address translations. When a virtual address needs to be translated, the CPU first checks the TLB. If there's a \"TLB hit,\" the physical address is retrieved almost instantly, avoiding the multiple memory accesses to the page tables. If there's a \"TLB miss,\" the CPU or OS performs the full page table walk, and the newly found translation is then added to the TLB for future use.",
+      "difficulty": "hard"
+    }
+  ]
+}

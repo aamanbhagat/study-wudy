@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-adiabatic-relations-pv-const-tv-1-const-derivation",
+  "subtopicTitle": "Adiabatic relations — PV^γ = const, TV^(γ-1) = const (derivation)",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:08.641Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of an adiabatic process in thermodynamics?",
+      "back": "An adiabatic process is one where there is no heat exchange between the system and its surroundings. Mathematically, this means $dQ = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the First Law of Thermodynamics, $dU = dQ - dW$, simplify for an adiabatic process?",
+      "back": "For an adiabatic process, $dQ = 0$. Therefore, the First Law simplifies to $dU = -dW$. Since work done by the gas is $dW = P dV$, we have $dU = -P dV$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In adiabatic relations, what does the symbol $\\gamma$ (gamma) represent, and how is it defined for an ideal gas?",
+      "back": "$\\gamma$ is the **adiabatic index** (also known as the heat capacity ratio or Poisson constant). It is defined as the ratio of the molar heat capacity at constant pressure ($C_P$) to the molar heat capacity at constant volume ($C_V$):\n$$\\gamma = \\frac{C_P}{C_V}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the adiabatic relation $PV^\\gamma = \\text{const}$ for an ideal gas, starting from $dU = -P dV$ and $dU = nC_V dT$.",
+      "back": "1. Equate the two expressions for $dU$: $nC_V dT = -P dV$.\n2. From the ideal gas law, $PV = nRT$. Differentiating: $P dV + V dP = nR dT$. So, $dT = \\frac{P dV + V dP}{nR}$.\n3. Substitute $dT$ into the first equation: $nC_V \\left(\\frac{P dV + V dP}{nR}\\right) = -P dV$.\n4. Simplify: $C_V (P dV + V dP) = -R P dV$.\n5. Expand: $C_V P dV + C_V V dP = -R P dV$.\n6. Rearrange terms: $C_V V dP = -(R + C_V) P dV$.\n7. Using Mayer's relation, $R = C_P - C_V$, so $R + C_V = C_P$.\n8. Substitute $C_P$: $C_V V dP = -C_P P dV$.\n9. Divide by $C_V PV$: $\\frac{dP}{P} = -\\frac{C_P}{C_V} \\frac{dV}{V}$.\n10. Substitute $\\gamma = C_P/C_V$: $\\frac{dP}{P} = -\\gamma \\frac{dV}{V}$.\n11. Integrate both sides: $\\int \\frac{dP}{P} = -\\gamma \\int \\frac{dV}{V}$.\n12. $\\ln P = -\\gamma \\ln V + \\text{const}$.\n13. $\\ln P = \\ln V^{-\\gamma} + \\text{const}$.\n14. $\\ln (P V^\\gamma) = \\text{const}$.\n15. Exponentiate both sides: $P V^\\gamma = \\text{const}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the adiabatic relation $TV^{\\gamma-1} = \\text{const}$ using $PV^\\gamma = \\text{const}$ and the ideal gas law $PV=nRT$.",
+      "back": "1. Start with the adiabatic relation: $PV^\\gamma = \\text{const}$.\n2. From the ideal gas law, $PV=nRT$, we can express pressure as $P = \\frac{nRT}{V}$.\n3. Substitute this expression for $P$ into the adiabatic relation:\n   $$\\left(\\frac{nRT}{V}\\right) V^\\gamma = \\text{const}$$\n4. Simplify:\n   $$nRT V^{\\gamma-1} = \\text{const}$$\n5. Since $n$ (number of moles) and $R$ (ideal gas constant) are constants, their product $nR$ is also a constant. Therefore, we can absorb $nR$ into the overall constant:\n   $$T V^{\\gamma-1} = \\text{const}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why the temperature of a gas decreases during an adiabatic expansion.",
+      "back": "During an adiabatic expansion, the gas does work on its surroundings as it expands ($dW > 0$). Since no heat is exchanged with the surroundings ($dQ = 0$), the First Law of Thermodynamics ($dU = dQ - dW$) dictates that the internal energy of the gas must decrease ($dU = -dW < 0$). For an ideal gas, internal energy is directly proportional to its temperature ($U \\propto T$), so a decrease in internal energy directly corresponds to a decrease in temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the adiabatic relation $TP^{(1-\\gamma)/\\gamma} = \\text{const}$ using $PV^\\gamma = \\text{const}$ and the ideal gas law $PV=nRT$.",
+      "back": "1. Start with the adiabatic relation: $PV^\\gamma = \\text{const}$.\n2. From the ideal gas law, $PV=nRT$, we can express volume as $V = \\frac{nRT}{P}$.\n3. Substitute this expression for $V$ into the adiabatic relation:\n   $$P \\left(\\frac{nRT}{P}\\right)^\\gamma = \\text{const}$$\n4. Distribute the exponent:\n   $$P \\frac{(nR)^\\gamma T^\\gamma}{P^\\gamma} = \\text{const}$$\n5. Combine the pressure terms:\n   $$P^{1-\\gamma} (nR)^\\gamma T^\\gamma = \\text{const}$$\n6. Since $(nR)^\\gamma$ is a constant, absorb it into the overall constant:\n   $$P^{1-\\gamma} T^\\gamma = \\text{const}$$\n7. To isolate $T$, raise both sides to the power of $1/\\gamma$:\n   $$(P^{1-\\gamma} T^\\gamma)^{1/\\gamma} = (\\text{const})^{1/\\gamma}$$\n8. Simplify:\n   $$P^{(1-\\gamma)/\\gamma} T = \\text{const}$$\n9. This can also be written as $T P^{(1-\\gamma)/\\gamma} = \\text{const}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide two distinct real-world examples or applications where adiabatic processes play a significant role.",
+      "back": "1.  **Diesel Engines:** The rapid compression of air in a diesel engine cylinder is nearly adiabatic. This compression causes the air's temperature to rise significantly, hot enough to ignite the injected fuel without a spark plug.\n2.  **Atmospheric Processes (Cloud Formation):** As parcels of air rise in the atmosphere, the external pressure decreases. The air expands adiabatically, doing work on its surroundings. With no heat exchange, its internal energy (and thus temperature) drops, often leading to condensation and cloud formation.",
+      "difficulty": "medium"
+    }
+  ]
+}

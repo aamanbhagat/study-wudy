@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-8-polynomial-interpolation-lagrange-form-newton-s-divided-differences",
+  "subtopicTitle": "Polynomial interpolation — Lagrange form, Newton's divided differences",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:51.351Z",
+  "cards": [
+    {
+      "front": "What is the fundamental goal of polynomial interpolation given a set of $n+1$ distinct data points $(x_i, y_i)$?",
+      "back": "The primary goal is to find a unique polynomial $P(x)$ of degree at most $n$ such that $P(x_i) = y_i$ for all $i=0, 1, \\ldots, n$. This polynomial can then be used to approximate values between the given points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the $k$-th Lagrange basis polynomial $L_k(x)$ for a set of $n+1$ distinct points $x_0, x_1, \\ldots, x_n$.",
+      "back": "The $k$-th Lagrange basis polynomial is given by: $$L_k(x) = \\prod_{j=0, j \\neq k}^{n} \\frac{x - x_j}{x_k - x_j}$$ It has the property that $L_k(x_k) = 1$ and $L_k(x_j) = 0$ for $j \\neq k$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Lagrange form of the interpolating polynomial $P(x)$ for $n+1$ data points $(x_i, y_i)$.",
+      "back": "The Lagrange form of the interpolating polynomial is: $$P(x) = \\sum_{k=0}^{n} y_k L_k(x) = \\sum_{k=0}^{n} y_k \\prod_{j=0, j \\neq k}^{n} \\frac{x - x_j}{x_k - x_j}$$ where $y_k = f(x_k)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant computational drawback of Lagrange interpolation if a new data point is added to the existing set?",
+      "back": "If a new data point $(x_{n+1}, y_{n+1})$ is added, all existing Lagrange basis polynomials $L_k(x)$ must be recomputed from scratch. This is because each $L_k(x)$ depends on all $x_j$ values, and adding a new $x_j$ changes the product terms in every $L_k(x)$. This makes it inefficient for incremental updates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the first-order divided difference $f[x_i, x_j]$ for distinct points $x_i, x_j$.",
+      "back": "The first-order divided difference is defined as: $$f[x_i, x_j] = \\frac{f(x_j) - f(x_i)}{x_j - x_i}$$ This represents the slope of the secant line connecting the points $(x_i, f(x_i))$ and $(x_j, f(x_j))$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the recursive definition for the $k$-th order divided difference $f[x_0, x_1, \\ldots, x_k]$.",
+      "back": "The recursive definition is: $$f[x_0, x_1, \\ldots, x_k] = \\frac{f[x_1, x_2, \\ldots, x_k] - f[x_0, x_1, \\ldots, x_{k-1}]}{x_k - x_0}$$ The base case for the recursion is $f[x_i] = f(x_i)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Newton's divided difference form of the interpolating polynomial $P(x)$ for $n+1$ points $(x_i, y_i)$.",
+      "back": "Newton's divided difference form is: $$P(x) = f[x_0] + f[x_0, x_1](x - x_0) + f[x_0, x_1, x_2](x - x_0)(x - x_1) + \\ldots + f[x_0, \\ldots, x_n](x - x_0)\\ldots(x - x_{n-1})$$ This can be written compactly as $P(x) = \\sum_{k=0}^{n} f[x_0, \\ldots, x_k] \\prod_{j=0}^{k-1} (x - x_j)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the computational advantage of Newton's divided difference form when adding a new data point $(x_{n+1}, y_{n+1})$.",
+      "back": "When a new point is added, the existing interpolating polynomial $P_n(x)$ (of degree $n$) does not need to be recomputed. We only need to calculate one new divided difference coefficient, $f[x_0, \\ldots, x_{n+1}]$, and then add the new term $f[x_0, \\ldots, x_{n+1}] \\prod_{j=0}^{n} (x - x_j)$ to $P_n(x)$ to obtain $P_{n+1}(x)$. This makes it very efficient for sequential updates.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the error term $E(x)$ for an interpolating polynomial $P(x)$ approximating a function $f(x)$ using $n+1$ distinct points $x_0, \\ldots, x_n$.",
+      "back": "If $f$ has $n+1$ continuous derivatives on an interval containing $x_0, \\ldots, x_n$ and $x$, then for any $x$ in that interval, there exists some $\\xi$ within the interval such that: $$E(x) = f(x) - P(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!} \\prod_{i=0}^{n} (x - x_i)$$ This shows the error depends on a high-order derivative of $f$ and the product of distances from $x$ to the interpolation nodes.",
+      "difficulty": "hard"
+    }
+  ]
+}

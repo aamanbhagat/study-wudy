@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-break-continue-pass-when-and-why",
+  "subtopicTitle": "break, continue, pass — when and why",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:58.224Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the `break` statement in Python loops?",
+      "back": "The `break` statement is used to terminate the loop *immediately*. When `break` is encountered, the loop's execution stops, and control flows to the statement immediately following the loop.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a Python code snippet that uses `break` to stop searching for the number 5 in a list once it's found.",
+      "back": "```python\nnumbers = [1, 2, 3, 4, 5, 6, 7]\nfound = False\nfor num in numbers:\n    if num == 5:\n        print(f\"Found {num}!\")\n        found = True\n        break\nif not found:\n    print(\"5 not found in the list.\")\n# Expected Output: Found 5!\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the `continue` statement within a Python loop.",
+      "back": "The `continue` statement is used to skip the *rest of the current iteration* of the loop and proceed to the next iteration. It does not terminate the loop entirely, but rather moves to the next item or condition check.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide a Python code snippet that uses `continue` to skip processing negative numbers in a list, only printing positive ones.",
+      "back": "```python\nnumbers = [1, -2, 3, -4, 5, 0, 7]\nfor num in numbers:\n    if num <= 0: # Skip non-positive numbers\n        continue\n    print(f\"Positive number: {num}\")\n# Expected Output:\n# Positive number: 1\n# Positive number: 3\n# Positive number: 5\n# Positive number: 7\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the role of the `pass` statement in Python?",
+      "back": "The `pass` statement is a null operation; it does nothing. It's used as a placeholder where a statement is syntactically required but you don't want any code to execute. It allows you to create an empty block of code without causing an `IndentationError`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Demonstrate a practical use case for `pass` in Python, specifically related to function or class definitions.",
+      "back": "```python\n# Placeholder for a function that will be implemented later\ndef future_feature():\n    pass\n\n# Placeholder for a class that will be defined later\nclass MyAbstractClass:\n    def __init__(self):\n        pass # Constructor does nothing for now\n\n    def required_method(self):\n        raise NotImplementedError(\"Subclasses must implement this method\")\n\n# Example usage (won't do anything)\nfuture_feature()\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Predict the output of the following two code blocks.\n```python\n# Block A\nfor i in range(5):\n    if i == 2:\n        break\n    print(i)\n\n# Block B\nfor i in range(5):\n    if i == 2:\n        continue\n    print(i)\n```",
+      "back": "*   **Block A Output:**\n    ```\n    0\n    1\n    ```\n    (The loop terminates when `i` is 2 due to `break`.)\n*   **Block B Output:**\n    ```\n    0\n    1\n    3\n    4\n    ```\n    (The iteration where `i` is 2 is skipped due to `continue`, but the loop proceeds.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe how the `break` statement behaves when encountered within an inner loop of a nested loop structure.",
+      "back": "When `break` is executed inside an inner loop, it *only terminates that specific inner loop*. The outer loop continues its execution from the next iteration (or completes if the inner loop was the last part of its current iteration). `break` does not affect any outer loops.\n```python\nfor i in range(3):\n    for j in range(3):\n        if j == 1:\n            break # This breaks only the inner loop\n        print(f\"i={i}, j={j}\")\n# Expected Output:\n# i=0, j=0\n# i=1, j=0\n# i=2, j=0\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

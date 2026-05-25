@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-basis-definition-uniqueness-of-representation",
+  "subtopicTitle": "Basis — definition, uniqueness of representation",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:10.408Z",
+  "cards": [
+    {
+      "front": "Define a basis $\\mathcal{B}$ for a vector space $V$.",
+      "back": "A set of vectors $\\mathcal{B} = \\{v_1, v_2, \\dots, v_n\\}$ is a basis for a vector space $V$ if it satisfies two conditions:\n1.  $\\mathcal{B}$ is linearly independent.\n2.  $\\mathcal{B}$ spans $V$ (i.e., $\\text{span}(\\mathcal{B}) = V$).\nThis implies that every vector in $V$ can be written as a unique linear combination of the vectors in $\\mathcal{B}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Uniqueness of Representation Theorem for a basis.",
+      "back": "If $\\mathcal{B} = \\{v_1, v_2, \\dots, v_n\\}$ is a basis for a vector space $V$, then for every vector $v \\in V$, there exists a unique set of scalars $c_1, c_2, \\dots, c_n$ such that $v = c_1 v_1 + c_2 v_2 + \\dots + c_n v_n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that if $\\mathcal{B} = \\{v_1, \\dots, v_n\\}$ is a basis for $V$, the representation of any $v \\in V$ as a linear combination of basis vectors is unique.",
+      "back": "Assume $v \\in V$ has two representations:\n$v = c_1 v_1 + \\dots + c_n v_n$\n$v = d_1 v_1 + \\dots + d_n v_n$\nSubtracting the second from the first gives:\n$0 = (c_1 - d_1)v_1 + \\dots + (c_n - d_n)v_n$\nSince $\\mathcal{B}$ is a basis, it is linearly independent. By the definition of linear independence, the only way for this linear combination to equal the zero vector is if all the coefficients are zero:\n$c_1 - d_1 = 0 \\implies c_1 = d_1$\n$\\dots$\n$c_n - d_n = 0 \\implies c_n = d_n$\nThus, the coefficients are unique.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a basis $\\mathcal{B} = \\{v_1, v_2\\}$ for $\\mathbb{R}^2$ where $v_1 = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$ and $v_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$, find the coordinates of $x = \\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix}$ with respect to $\\mathcal{B}$.",
+      "back": "We need to find scalars $c_1, c_2$ such that $x = c_1 v_1 + c_2 v_2$.\n$\\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix} = c_1 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + c_2 \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$\nThis forms a system of linear equations:\n$c_1 + c_2 = 3$\n$c_1 - c_2 = 5$\nAdding the two equations: $2c_1 = 8 \\implies c_1 = 4$.\nSubstituting $c_1 = 4$ into the first equation: $4 + c_2 = 3 \\implies c_2 = -1$.\nThe coordinates of $x$ with respect to $\\mathcal{B}$ are $[x]_{\\mathcal{B}} = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the standard basis for $\\mathbb{R}^n$? Give an example for $\\mathbb{R}^3$.",
+      "back": "The standard basis for $\\mathbb{R}^n$ is the set of column vectors $e_1, e_2, \\dots, e_n$, where $e_i$ is a vector with a $1$ in the $i$-th position and $0$s elsewhere.\nFor $\\mathbb{R}^3$, the standard basis is:\n$\\mathcal{E} = \\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the linear independence of a set of vectors essential for the *uniqueness* of representation of vectors in its span?",
+      "back": "If a set of vectors $\\mathcal{S} = \\{v_1, \\dots, v_k\\}$ is linearly dependent, then there exist scalars $c_1, \\dots, c_k$, not all zero, such that $c_1 v_1 + \\dots + c_k v_k = 0$.\nIf a vector $v$ can be represented as $v = a_1 v_1 + \\dots + a_k v_k$, then we can add the zero linear combination to it:\n$v = (a_1+c_1)v_1 + \\dots + (a_k+c_k)v_k$.\nSince not all $c_i$ are zero, this provides a *different* set of coefficients for $v$, meaning the representation is not unique. Linear independence guarantees that the only way to form the zero vector is with all zero coefficients, thus forcing uniqueness.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the set $\\mathcal{S} = \\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix} \\right\\}$ in $\\mathbb{R}^2$. Is $\\mathcal{S}$ a basis for $\\mathbb{R}^2$? If not, why does it violate the uniqueness of representation?",
+      "back": "No, $\\mathcal{S}$ is not a basis for $\\mathbb{R}^2$. It spans $\\mathbb{R}^2$ but is not linearly independent because it contains more vectors than the dimension of the space. Specifically, $2 \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} + 2 \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix} - 1 \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}$, showing linear dependence.\nFor example, consider the vector $v = \\begin{pmatrix} 4 \\\\ 4 \\end{pmatrix}$.\nOne representation is $v = 4 \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} + 4 \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix} + 0 \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix}$.\nAnother representation is $v = 0 \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} + 0 \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix} + 2 \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix}$.\nSince the coefficients are different, the representation is not unique, which is a direct consequence of the set not being linearly independent.",
+      "difficulty": "medium"
+    }
+  ]
+}

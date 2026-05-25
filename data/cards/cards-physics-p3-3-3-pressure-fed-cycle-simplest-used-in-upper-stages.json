@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-pressure-fed-cycle-simplest-used-in-upper-stages",
+  "subtopicTitle": "Pressure-fed cycle — simplest, used in upper stages",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:59.318Z",
+  "cards": [
+    {
+      "front": "What is the fundamental mechanism by which propellants are delivered to the combustion chamber in a pressure-fed rocket engine cycle?",
+      "back": "In a pressure-fed cycle, propellants are forced from their tanks into the combustion chamber by a high-pressure inert gas (e.g., helium or nitrogen) that is stored in a separate tank and then fed into the propellant tanks, pressurizing them.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the three primary functional components required for a pressure-fed rocket engine cycle.",
+      "back": "1. Propellant Tanks (for fuel and oxidizer)\n2. Pressurant Gas Tank (containing high-pressure inert gas like helium or nitrogen)\n3. Thrust Chamber Assembly (combustion chamber, injectors, and nozzle)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify two key advantages of the pressure-fed cycle that make it suitable for applications prioritizing reliability and simplicity.",
+      "back": "1.  **Simplicity:** Eliminates complex turbomachinery (pumps, turbines), reducing the number of moving parts and potential failure points.\n2.  **Reliability:** Fewer components lead to fewer failure modes, making it inherently more reliable for critical applications like Reaction Control Systems (RCS) or Orbital Maneuvering Systems (OMS).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary limitation that restricts pressure-fed cycles from being used in large, high-thrust main engines for first stages.",
+      "back": "The primary limitation is the **excessive tank mass** required. To maintain high pressure in the propellant tanks throughout the burn, the tanks must be structurally robust to withstand these pressures, making them heavy. For large engines requiring high propellant flow rates and long burn times, this tank mass penalty becomes prohibitive compared to pump-fed cycles, which operate with much lower tank pressures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are pressure-fed engines commonly employed in upper stages of rockets and for small thrusters, despite their inherent limitations?",
+      "back": "Pressure-fed engines are ideal for upper stages and small thrusters due to:\n1.  **Lower Thrust Requirements:** These applications typically need less thrust than first stages.\n2.  **Shorter Burn Durations:** Shorter burns mean less total propellant, mitigating the mass penalty of heavy tanks.\n3.  **Simplicity & Reliability:** Crucial for orbital insertion, maneuvering, and attitude control where failure is unacceptable.\n4.  **Lower Chamber Pressures:** Often operate at lower chamber pressures, aligning with lower thrust and reducing tank pressure requirements compared to a first stage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the minimum required propellant tank pressure, $P_{tank}$, in terms of combustion chamber pressure, $P_c$, and total pressure losses, $\\Delta P_{losses}$, for a pressure-fed system.",
+      "back": "For propellants to flow from the tanks into the combustion chamber, the tank pressure must overcome the chamber pressure plus any pressure losses in the feed lines, valves, and injectors.\nLet $P_{tank}$ be the tank pressure, $P_c$ be the combustion chamber pressure, and $\\Delta P_{losses}$ represent the sum of all pressure drops between the tank and the chamber.\nThe condition for flow is:\n$$P_{tank} > P_c + \\Delta P_{losses}$$\nTherefore, the minimum required tank pressure is:\n$$P_{tank, min} = P_c + \\Delta P_{losses}$$\nThis relationship directly shows why high tank pressures are needed, contributing to the heavy tank structure.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary challenge associated with managing the pressurant gas supply over a long burn duration in a pressure-fed rocket engine?",
+      "back": "The primary challenge is storing and maintaining sufficient pressurant gas (e.g., helium) at high pressure and appropriate temperature to ensure adequate propellant tank pressure throughout the entire burn. As propellants are consumed, the ullage volume (empty space) in the tanks increases, requiring a larger volume of pressurant gas to fill it while maintaining the desired pressure. The mass and volume of the pressurant gas and its dedicated tank can become a significant mass penalty for longer duration burns.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the choice of propellant (e.g., cryogenic vs. storable) significantly influence the design considerations for a pressure-fed engine?",
+      "back": "The choice of propellant significantly impacts design:\n*   **Cryogenic Propellants (e.g., LH2/LOX):** Require heavily insulated tanks to minimize boil-off. The pressurant gas must also be carefully managed (e.g., pre-cooled) to prevent excessive heat transfer to the propellants, which can lead to increased boil-off or phase changes.\n*   **Storable Propellants (e.g., MMH/NTO):** Generally simplify tank design as insulation is less critical. However, many are hypergolic or highly corrosive/toxic, necessitating careful material selection for tanks, lines, and seals to ensure compatibility and safety.",
+      "difficulty": "medium"
+    }
+  ]
+}

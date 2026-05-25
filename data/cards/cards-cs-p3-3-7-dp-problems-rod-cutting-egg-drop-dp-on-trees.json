@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-7-dp-problems-rod-cutting-egg-drop-dp-on-trees",
+  "subtopicTitle": "DP problems — rod cutting, egg drop, DP on trees",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:14.950Z",
+  "cards": [
+    {
+      "front": "What is the objective of the classic Rod Cutting problem?",
+      "back": "Given a rod of length $n$ and a table of prices $p_i$ for rods of length $i$ ($1 \\le i \\le n$), the objective is to find the maximum revenue obtainable by cutting the rod into pieces and selling them. Pieces can have any integer length, and multiple pieces of the same length are allowed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the recurrence relation for the Rod Cutting problem, where $R(n)$ is the maximum revenue for a rod of length $n$.",
+      "back": "The recurrence relation is $R(n) = \\max_{1 \\le i \\le n} (p_i + R(n-i))$. The base case is $R(0) = 0$. This considers making the first cut to produce a piece of length $i$ (selling for $p_i$) and then optimally cutting the remaining rod of length $n-i$ (yielding $R(n-i)$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the classic Egg Drop problem, including its goal and constraints.",
+      "back": "Given $k$ identical eggs and an $n$-story building, the goal is to find the minimum number of trials (drops) in the worst case to determine the highest floor $F$ from which an egg will not break when dropped. An egg that doesn't break can be reused.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the recurrence for $dp[k][n]$ in the Egg Drop problem, representing minimum trials for $k$ eggs and $n$ floors.",
+      "back": "Let $dp[k][n]$ be the minimum trials. If we drop an egg from floor $x$:\\n1.  **Breaks:** We have $k-1$ eggs and must check floors $1$ to $x-1$. Trials: $dp[k-1][x-1]$.\\n2.  **Doesn't Break:** We have $k$ eggs and must check floors $x+1$ to $n$. Trials: $dp[k][n-x]$.\\nWe take the worst case of these two outcomes, plus 1 for the current drop: $1 + \\max(dp[k-1][x-1], dp[k][n-x])$.\\nTo find the minimum trials, we try all possible floors $x$ ($1 \\le x \\le n$):\\n$$dp[k][n] = 1 + \\min_{1 \\le x \\le n} (\\max(dp[k-1][x-1], dp[k][n-x]))$$\\nBase cases: $dp[k][0] = 0$, $dp[1][n] = n$, $dp[k][1] = 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the general principle behind Dynamic Programming on Trees.",
+      "back": "DP on Trees leverages the hierarchical structure of a tree. It typically involves computing optimal solutions for subtrees and combining these solutions to solve the problem for their parent nodes. A common approach is a post-order DFS traversal, ensuring that values for children are computed before their parent, thus avoiding redundant computations and solving overlapping subproblems efficiently.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are common ways to define the DP state for a node $u$ in a tree, especially when a node's inclusion/exclusion matters?",
+      "back": "Common DP state definitions for a node $u$ often involve:\\n*   $dp[u]$: The optimal solution for the subtree rooted at $u$.\\n*   $dp[u][0]$: Optimal solution for subtree $u$ where node $u$ is *not* included (or has a specific property).\\n*   $dp[u][1]$: Optimal solution for subtree $u$ where node $u$ *is* included (or has another specific property).\\nThese states are then updated by aggregating values from $u$'s children, often using a DFS traversal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the Maximum Independent Set on a tree, define $dp[u][0]$ and $dp[u][1]$ and their recurrence relations.",
+      "back": "An independent set is a set of vertices where no two are adjacent.\\n*   $dp[u][0]$: Max independent set size in $u$'s subtree, *excluding* $u$.\\n*   $dp[u][1]$: Max independent set size in $u$'s subtree, *including* $u$.\\n\\nRecurrences (for children $v$ of $u$):\\n$$dp[u][0] = \\sum_{v \\in children(u)} \\max(dp[v][0], dp[v][1])$$ (If $u$ is excluded, its children can be included or not.)\\n$$dp[u][1] = 1 + \\sum_{v \\in children(u)} dp[v][0]$$ (If $u$ is included, its children *must* be excluded.)\\nThe final answer is $\\max(dp[root][0], dp[root][1])$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-a-algorithm-heuristic-admissibility-consistency-important-for-gnc",
+  "subtopicTitle": "A* algorithm — heuristic, admissibility, consistency — important for GNC",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:17.943Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of the A* search algorithm?",
+      "back": "To find the shortest (or lowest-cost) path from a starting node to a goal node in a graph, while minimizing the number of nodes expanded, by using an informed search strategy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The A* algorithm evaluates nodes using the function $f(n) = g(n) + h(n)$. Define each term.",
+      "back": "<ul><li>$g(n)$: The actual cost of the path from the start node to node $n$.</li><li>$h(n)$: The estimated cost (heuristic) of the cheapest path from node $n$ to the goal node.</li><li>$f(n)$: The estimated total cost of the cheapest path from the start node through node $n$ to the goal.</li></ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an _admissible_ heuristic function $h(n)$ for A*. Why is this property crucial for A*?",
+      "back": "An heuristic $h(n)$ is _admissible_ if, for every node $n$, it never overestimates the actual cost to reach the goal. That is, $h(n) \\le h^*(n)$, where $h^*(n)$ is the true cost from $n$ to the goal. Admissibility guarantees that A* will find an optimal (shortest) path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For pathfinding on a grid where movement is restricted to 4-directional (up, down, left, right) and each step costs 1, provide an admissible heuristic.",
+      "back": "The Manhattan distance heuristic is admissible. For a node $(x, y)$ and a goal $(x_g, y_g)$, it's calculated as $h(n) = |x - x_g| + |y - y_g|$. This is admissible because it represents the minimum number of steps required to reach the goal if diagonal movement were not allowed and no obstacles existed, thus never overestimating the true cost.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a _consistent_ (or monotonic) heuristic function $h(n)$ for A*. How does consistency relate to admissibility?",
+      "back": "A heuristic $h(n)$ is _consistent_ if for every node $n$ and every successor $n'$ of $n$, the estimated cost from $n$ to the goal is no greater than the cost of moving from $n$ to $n'$ plus the estimated cost from $n'$ to the goal. Mathematically: $h(n) \\le \\text{cost}(n, n') + h(n')$. A consistent heuristic is always admissible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that if a heuristic $h(n)$ is consistent, then it is also admissible.",
+      "back": "To prove $h(n)$ is admissible, we need to show $h(n) \\le h^*(n)$ for all $n$. Let the optimal path from $n$ to the goal $G$ be $n \\to n_1 \\to n_2 \\to \\dots \\to n_k \\to G$. From consistency:\n$$h(n) \\le \\text{cost}(n, n_1) + h(n_1)$$\n$$h(n_1) \\le \\text{cost}(n_1, n_2) + h(n_2)$$\n$$\\dots$$\n$$h(n_k) \\le \\text{cost}(n_k, G) + h(G)$$\nAssuming $h(G) = 0$ (standard for admissible heuristics at the goal), we can substitute backwards:\n$$h(n) \\le \\text{cost}(n, n_1) + \\text{cost}(n_1, n_2) + \\dots + \\text{cost}(n_k, G)$$\nThe right side is exactly $h^*(n)$, the true cost of the optimal path from $n$ to $G$. Therefore, $h(n) \\le h^*(n)$, which means $h(n)$ is admissible.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the property of a _consistent_ heuristic simplify the A* algorithm's implementation, particularly regarding the handling of nodes already visited?",
+      "back": "With a consistent heuristic, when a node is extracted from the `open_list` (priority queue), it is guaranteed that the path found to it is the shortest possible path from the start node. This means:\n1. A node never needs to be re-opened from the `closed_list` (visited nodes) if a shorter path is found later.\n2. The `closed_list` can simply store nodes for which the optimal path has already been found.\nThis simplifies the algorithm and ensures optimality without extra checks for shorter paths to already-processed nodes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why A* with admissible/consistent heuristics is particularly valuable in Guidance, Navigation, and Control (GNC) systems for applications like robotics or autonomous vehicles.",
+      "back": "In GNC systems, finding optimal (shortest/safest) paths is critical for efficiency, energy consumption, and mission success. A* guarantees optimality with an admissible heuristic. Furthermore, the ability to incorporate domain-specific knowledge through the heuristic function allows for efficient search in large, complex environments. Consistency simplifies implementation and ensures that once a path to a location is found, it's the best one, which is vital for real-time decision-making and avoiding redundant computations in dynamic environments.",
+      "difficulty": "medium"
+    }
+  ]
+}

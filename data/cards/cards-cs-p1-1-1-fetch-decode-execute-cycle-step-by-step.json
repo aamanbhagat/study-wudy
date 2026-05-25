@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-fetch-decode-execute-cycle-step-by-step",
+  "subtopicTitle": "Fetch-decode-execute cycle — step by step",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:41.999Z",
+  "cards": [
+    {
+      "front": "What is the fundamental cycle that all CPUs repeatedly perform to process instructions?",
+      "back": "The Fetch-Decode-Execute (FDE) cycle, also known as the instruction cycle, is the basic operation sequence a computer's Central Processing Unit (CPU) performs to execute each program instruction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "During the Fetch phase, what is the initial role of the Program Counter (PC) and which register does it interact with first?",
+      "back": "The Program Counter (PC) holds the memory address of the *next* instruction to be fetched. This address is then copied from the PC to the Memory Address Register (MAR).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After the MAR receives an address during Fetch, how does the instruction get from main memory into the CPU?",
+      "back": "The MAR sends the address to main memory (RAM) via the address bus. The instruction located at that address is then retrieved from RAM via the data bus and stored in the Memory Data Register (MDR) (or Memory Buffer Register).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Once an instruction is in the MDR, where does it go next within the CPU, and what happens to the Program Counter?",
+      "back": "From the MDR, the instruction is copied into the Current Instruction Register (CIR). Simultaneously, the Program Counter (PC) is incremented to point to the memory address of the *next* instruction to be fetched in the sequence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary function of the Decode phase and identify the CPU component responsible.",
+      "back": "In the Decode phase, the Control Unit (CU) interprets the instruction held in the CIR. It determines the operation to be performed (e.g., ADD, LOAD) and identifies any operands or memory addresses required for that operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the main activities performed by the CPU during the Execute phase, and which key component is central to arithmetic/logic operations?",
+      "back": "The Execute phase performs the operation specified by the decoded instruction. This can involve:\n*   Performing calculations or logical operations using the Arithmetic Logic Unit (ALU).\n*   Moving data between registers, memory, or I/O devices.\n*   Updating status flags (e.g., Zero, Carry) in the Status Register.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a \"jump\" or \"branch\" instruction, like `JMP 0x1000`, alter the normal sequential flow of the Fetch-Decode-Execute cycle?",
+      "back": "A jump instruction changes the value of the Program Counter (PC) to a new address (e.g., `0x1000`). This overrides the normal PC incrementation. Consequently, in the *next* Fetch cycle, the CPU will fetch the instruction from the new address specified by the jump, altering the program's execution path.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Trace the journey of an instruction from its initial location in RAM to its execution, naming the key registers and units involved in sequence.",
+      "back": "1.  **PC** holds address of next instruction.\n2.  Address copied to **MAR**.\n3.  **MAR** sends address to **RAM** via address bus.\n4.  Instruction retrieved from **RAM** via data bus, stored in **MDR**.\n5.  Instruction copied from **MDR** to **CIR**. **PC** increments.\n6.  **CU** decodes instruction in **CIR**.\n7.  **CU** directs **ALU** (and other components) to perform the operation.\n8.  Results stored in registers (e.g., **ACC**) or memory.",
+      "difficulty": "hard"
+    }
+  ]
+}

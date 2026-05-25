@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-solving-nonlinear-systems-newton-s-method-in-n-dimensions",
+  "subtopicTitle": "Solving nonlinear systems — Newton's method in n dimensions",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:27.004Z",
+  "cards": [
+    {
+      "front": "What type of mathematical problem does Newton's method in $n$ dimensions aim to solve?",
+      "back": "It solves systems of $n$ nonlinear equations in $n$ variables, represented as $\\mathbf{F}(\\mathbf{x}) = \\mathbf{0}$, where $\\mathbf{F}: \\mathbb{R}^n \\to \\mathbb{R}^n$ and $\\mathbf{x} \\in \\mathbb{R}^n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Newton's method for $\\mathbf{F}(\\mathbf{x}) = \\mathbf{0}$, which matrix generalizes the concept of the derivative for a scalar function?",
+      "back": "The Jacobian matrix, denoted $\\mathbf{J}(\\mathbf{x})$, whose elements are partial derivatives: $J_{ij}(\\mathbf{x}) = \\frac{\\partial F_i}{\\partial x_j}(\\mathbf{x})$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the first-order Taylor expansion of a vector function $\\mathbf{F}(\\mathbf{x})$ around a point $\\mathbf{x}_k$.",
+      "back": "$$ \\mathbf{F}(\\mathbf{x}) \\approx \\mathbf{F}(\\mathbf{x}_k) + \\mathbf{J}(\\mathbf{x}_k)(\\mathbf{x} - \\mathbf{x}_k) $$ where $\\mathbf{J}(\\mathbf{x}_k)$ is the Jacobian matrix evaluated at $\\mathbf{x}_k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the iterative formula for Newton's method in $n$ dimensions from the first-order Taylor expansion.",
+      "back": "Starting from $\\mathbf{F}(\\mathbf{x}) \\approx \\mathbf{F}(\\mathbf{x}_k) + \\mathbf{J}(\\mathbf{x}_k)(\\mathbf{x} - \\mathbf{x}_k)$, we set $\\mathbf{F}(\\mathbf{x}) = \\mathbf{0}$ for the next iterate $\\mathbf{x}_{k+1}$:\n$$ \\mathbf{0} = \\mathbf{F}(\\mathbf{x}_k) + \\mathbf{J}(\\mathbf{x}_k)(\\mathbf{x}_{k+1} - \\mathbf{x}_k) $$\n$$ \\mathbf{J}(\\mathbf{x}_k)(\\mathbf{x}_{k+1} - \\mathbf{x}_k) = -\\mathbf{F}(\\mathbf{x}_k) $$\n$$ \\mathbf{x}_{k+1} - \\mathbf{x}_k = -\\mathbf{J}(\\mathbf{x}_k)^{-1} \\mathbf{F}(\\mathbf{x}_k) $$\n$$ \\mathbf{x}_{k+1} = \\mathbf{x}_k - \\mathbf{J}(\\mathbf{x}_k)^{-1} \\mathbf{F}(\\mathbf{x}_k) $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write down the final iterative formula for Newton's method in $n$ dimensions.",
+      "back": "$$ \\mathbf{x}_{k+1} = \\mathbf{x}_k - \\mathbf{J}(\\mathbf{x}_k)^{-1} \\mathbf{F}(\\mathbf{x}_k) $$\nwhere $\\mathbf{x}_k$ is the current guess, $\\mathbf{F}(\\mathbf{x}_k)$ is the function vector, and $\\mathbf{J}(\\mathbf{x}_k)$ is the Jacobian matrix at $\\mathbf{x}_k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In practice, how is the update step $\\Delta \\mathbf{x}_k = \\mathbf{x}_{k+1} - \\mathbf{x}_k$ computed for Newton's method in $n$ dimensions, avoiding direct matrix inversion?",
+      "back": "The update $\\Delta \\mathbf{x}_k$ is found by solving the linear system:\n$$ \\mathbf{J}(\\mathbf{x}_k) \\Delta \\mathbf{x}_k = -\\mathbf{F}(\\mathbf{x}_k) $$\nThen, the next iterate is $\\mathbf{x}_{k+1} = \\mathbf{x}_k + \\Delta \\mathbf{x}_k$. This is typically done using efficient linear algebra methods like LU decomposition.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the typical convergence rate of Newton's method in $n$ dimensions, assuming a sufficiently good initial guess and smooth functions?",
+      "back": "Quadratic convergence. This means that if the error at step $k$ is $e_k$, then $e_{k+1} \\approx C e_k^2$ for some constant $C$. The number of correct digits approximately doubles with each iteration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What critical issue can arise with the Jacobian matrix during Newton's method in $n$ dimensions, and how does it impact the iteration?",
+      "back": "If the Jacobian matrix $\\mathbf{J}(\\mathbf{x}_k)$ becomes singular (i.e., its determinant is zero) or nearly singular at some iteration, the linear system $\\mathbf{J}(\\mathbf{x}_k) \\Delta \\mathbf{x}_k = -\\mathbf{F}(\\mathbf{x}_k)$ cannot be solved uniquely or becomes ill-conditioned. This leads to failure or divergence of the method.",
+      "difficulty": "hard"
+    }
+  ]
+}

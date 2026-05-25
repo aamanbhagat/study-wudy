@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-curl-definition-physical-meaning-rotation",
+  "subtopicTitle": "Curl — definition, physical meaning (rotation)",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:25.974Z",
+  "cards": [
+    {
+      "front": "Define the curl of a 3D vector field $\\mathbf{F} = \\langle P, Q, R \\rangle$ using the $\\nabla$ operator.",
+      "back": "The curl of $\\mathbf{F}$ is defined as $\\text{curl } \\mathbf{F} = \\nabla \\times \\mathbf{F}$, which can be computed as the determinant:\n$$\\nabla \\times \\mathbf{F} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\ P & Q & R \\end{vmatrix}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical property of a vector field does the curl vector quantify?",
+      "back": "The curl quantifies the \"rotation\" or \"swirliness\" of a vector field at a given point. More precisely, it measures the maximum circulation per unit area at that point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write out the component form of $\\text{curl } \\mathbf{F} = \\nabla \\times \\mathbf{F}$ for $\\mathbf{F} = \\langle P, Q, R \\rangle$.",
+      "back": "The component form is:\n$$\\text{curl } \\mathbf{F} = \\left( \\frac{\\partial R}{\\partial y} - \\frac{\\partial Q}{\\partial z} \\right)\\mathbf{i} + \\left( \\frac{\\partial P}{\\partial z} - \\frac{\\partial R}{\\partial x} \\right)\\mathbf{j} + \\left( \\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y} \\right)\\mathbf{k}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate $\\text{curl } \\mathbf{F}$ for the vector field $\\mathbf{F}(x,y,z) = \\langle yz, xz, xy \\rangle$.",
+      "back": "Given $\\mathbf{F} = \\langle P, Q, R \\rangle = \\langle yz, xz, xy \\rangle$. We compute the partial derivatives:\n$\\frac{\\partial R}{\\partial y} = x$, $\\frac{\\partial Q}{\\partial z} = x \\implies \\frac{\\partial R}{\\partial y} - \\frac{\\partial Q}{\\partial z} = x-x=0$\n$\\frac{\\partial P}{\\partial z} = y$, $\\frac{\\partial R}{\\partial x} = y \\implies \\frac{\\partial P}{\\partial z} - \\frac{\\partial R}{\\partial x} = y-y=0$\n$\\frac{\\partial Q}{\\partial x} = z$, $\\frac{\\partial P}{\\partial y} = z \\implies \\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y} = z-z=0$\nThus, $\\text{curl } \\mathbf{F} = \\langle 0,0,0 \\rangle = \\mathbf{0}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the direction of the curl vector $\\text{curl } \\mathbf{F}$ relate to the axis of rotation of the fluid?",
+      "back": "The direction of the curl vector indicates the axis about which the rotation (or circulation) of the fluid is greatest at that point. Its direction is determined by the right-hand rule: if you curl the fingers of your right hand in the direction of the rotation, your thumb points in the direction of the curl vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean for a vector field $\\mathbf{F}$ to be \"irrotational,\" and what is its mathematical condition?",
+      "back": "A vector field $\\mathbf{F}$ is \"irrotational\" if its curl is the zero vector everywhere, i.e., $\\text{curl } \\mathbf{F} = \\mathbf{0}$. In simply connected domains, an irrotational vector field is also a conservative field, meaning it can be expressed as the gradient of some scalar potential function, $\\mathbf{F} = \\nabla f$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Stokes' Theorem and explain how it connects the curl to circulation.",
+      "back": "Stokes' Theorem states: $\\oint_C \\mathbf{F} \\cdot d\\mathbf{r} = \\iint_S (\\text{curl } \\mathbf{F}) \\cdot d\\mathbf{S}$. It relates the circulation of a vector field $\\mathbf{F}$ around a closed curve $C$ to the flux of the curl of $\\mathbf{F}$ through any surface $S$ bounded by $C$. This means the curl can be interpreted as the \"circulation density\" or \"infinitesimal circulation per unit area\" at a point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "The magnitude of $\\text{curl } \\mathbf{F}$ at a point represents what specific property related to rotation?",
+      "back": "The magnitude $|\\text{curl } \\mathbf{F}|$ at a point represents the maximum circulation per unit area (or maximum angular speed) at that point. The direction of the vector $\\text{curl } \\mathbf{F}$ indicates the axis of this maximum rotation.",
+      "difficulty": "hard"
+    }
+  ]
+}

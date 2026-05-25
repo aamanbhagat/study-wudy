@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-5-euclidean-algorithm-gcd-computation",
+  "subtopicTitle": "Euclidean algorithm — GCD computation",
+  "topicId": "math-p2-2-5-number-theory-intermediate",
+  "topicTitle": "Number Theory (Intermediate)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:56.255Z",
+  "cards": [
+    {
+      "front": "Define the greatest common divisor (GCD) of two integers $a$ and $b$.",
+      "back": "The greatest common divisor (GCD) of two integers $a$ and $b$, denoted $gcd(a, b)$, is the largest positive integer that divides both $a$ and $b$ without leaving a remainder. If $a=b=0$, $gcd(0,0)$ is usually undefined or taken as $0$. For $a \\neq 0$ or $b \\neq 0$, $gcd(a,b)$ is always positive.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental property that forms the basis of the Euclidean algorithm for $a, b \\in \\mathbb{Z}^+$.",
+      "back": "For any two positive integers $a$ and $b$, where $a > b$, the greatest common divisor of $a$ and $b$ is the same as the greatest common divisor of $b$ and the remainder when $a$ is divided by $b$. Mathematically: $gcd(a, b) = gcd(b, a \\pmod b)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compute $gcd(252, 198)$ using the Euclidean algorithm.",
+      "back": "1. $252 = 1 \\cdot 198 + 54$\n2. $198 = 3 \\cdot 54 + 36$\n3. $54 = 1 \\cdot 36 + 18$\n4. $36 = 2 \\cdot 18 + 0$\nThe last non-zero remainder is $18$. So, $gcd(252, 198) = 18$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the recursive structure of the Euclidean algorithm for $gcd(a, b)$ in pseudocode.",
+      "back": "```\nfunction gcd(a, b):\n    if b == 0:\n        return a\n    else:\n        return gcd(b, a % b)\n```\nThis shows that the problem $gcd(a, b)$ is reduced to a smaller, similar problem $gcd(b, a \\pmod b)$ until the second argument becomes $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that for positive integers $a$ and $b$, $gcd(a, b) = gcd(b, a \\pmod b)$.",
+      "back": "Let $a = qb + r$, where $r = a \\pmod b$.\nWe need to show that the set of common divisors of $(a, b)$ is the same as the set of common divisors of $(b, r)$.\n1. Let $d$ be a common divisor of $a$ and $b$. Then $d|a$ and $d|b$. Since $r = a - qb$, it follows that $d|(a - qb)$, so $d|r$. Thus, $d$ is a common divisor of $b$ and $r$.\n2. Let $d'$ be a common divisor of $b$ and $r$. Then $d'|b$ and $d'|r$. Since $a = qb + r$, it follows that $d'|(qb + r)$, so $d'|a$. Thus, $d'$ is a common divisor of $a$ and $b$.\nSince the set of common divisors for $(a, b)$ is identical to the set of common divisors for $(b, r)$, their greatest elements must also be equal. Therefore, $gcd(a, b) = gcd(b, r) = gcd(b, a \\pmod b)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the Euclidean algorithm is guaranteed to terminate and why it's considered efficient.",
+      "back": "**Termination:** In each step, the second argument ($b$) is replaced by the remainder ($a \\pmod b$). Since $0 \\le a \\pmod b < b$, the second argument strictly decreases in each step until it reaches $0$. Once the second argument is $0$, the algorithm terminates.\n**Efficiency:** The number of steps is logarithmic with respect to the smaller of the two input numbers. This is due to Lamé's Theorem, which shows the number of steps is proportional to the number of digits in the smaller number. This makes it very fast even for large numbers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is $gcd(a, 0)$ for any positive integer $a$? Justify your answer.",
+      "back": "$gcd(a, 0) = a$.\n**Justification:**\n1. Any integer divides $0$ (since $0 = k \\cdot d$ for any $d$). So, $a$ divides $0$.\n2. $a$ also divides $a$.\n3. Thus, $a$ is a common divisor of $a$ and $0$.\n4. Furthermore, any common divisor $d$ of $a$ and $0$ must divide $a$. Therefore, $d \\le a$.\nSince $a$ is a common divisor and no common divisor can be greater than $a$, $a$ is the greatest common divisor. The Euclidean algorithm's base case $gcd(a, 0) = a$ also confirms this.",
+      "difficulty": "hard"
+    }
+  ]
+}

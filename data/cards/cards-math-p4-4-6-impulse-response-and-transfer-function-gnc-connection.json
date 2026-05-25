@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-impulse-response-and-transfer-function-gnc-connection",
+  "subtopicTitle": "Impulse response and transfer function (GNC connection)",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:18.712Z",
+  "cards": [
+    {
+      "front": "Define the impulse response $h(t)$ of a linear time-invariant (LTI) system.",
+      "back": "The output of an LTI system when the input is a Dirac delta function $\\delta(t)$, assuming zero initial conditions. It completely characterizes the system's dynamic behavior.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you find the impulse response $h(t)$ for $ay''(t) + by'(t) + cy(t) = f(t)$?",
+      "back": "Solve the ODE $ay''(t) + by'(t) + cy(t) = \\delta(t)$ with initial conditions $y(0^-)=0$ and $y'(0^-)=0$. The solution $y(t)$ is $h(t)$. Alternatively, find the transfer function $H(s) = \\frac{1}{as^2+bs+c}$ and then $h(t) = \\mathcal{L}^{-1}\\{H(s)\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the transfer function $H(s)$ of an LTI system.",
+      "back": "The Laplace transform of the impulse response $h(t)$, i.e., $H(s) = \\mathcal{L}\\{h(t)\\}$. It's also the ratio of the Laplace transform of the output $Y(s)$ to the Laplace transform of the input $F(s)$, assuming zero initial conditions: $H(s) = Y(s)/F(s)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the output $y(t)$ for an input $f(t)$ related to the impulse response $h(t)$?",
+      "back": "The output $y(t)$ is the convolution of the input $f(t)$ with the impulse response $h(t)$: $y(t) = (f * h)(t) = \\int_{-\\infty}^{\\infty} f(\\tau)h(t-\\tau)d\\tau$. For causal systems, this simplifies to $y(t) = \\int_{0}^{t} f(\\tau)h(t-\\tau)d\\tau$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive $H(s)$ for $ay''(t) + by'(t) + cy(t) = f(t)$ using Laplace transforms.",
+      "back": "Taking the Laplace transform with zero initial conditions ($y(0)=0, y'(0)=0$):\n$a\\mathcal{L}\\{y''(t)\\} + b\\mathcal{L}\\{y'(t)\\} + c\\mathcal{L}\\{y(t)\\} = \\mathcal{L}\\{f(t)\\}$\n$a(s^2Y(s)) + b(sY(s)) + cY(s) = F(s)$\n$Y(s)(as^2 + bs + c) = F(s)$\nThus, the transfer function $H(s) = \\frac{Y(s)}{F(s)} = \\frac{1}{as^2 + bs + c}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the connection between impulse response $h(t)$ and Green's function $G(t, \\tau)$ for LTI systems.",
+      "back": "For an LTI system, the impulse response $h(t)$ *is* the Green's function $G(t, \\tau)$ with the impulse applied at $\\tau=0$, i.e., $G(t, 0) = h(t)$. More generally, due to time-invariance, $G(t, \\tau) = h(t-\\tau)$. The Green's function represents the system's response at time $t$ to a unit impulse applied at time $\\tau$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What do the poles of the transfer function $H(s)$ indicate about system behavior?",
+      "back": "The poles of $H(s)$ are the roots of the characteristic equation of the homogeneous ODE. They determine the system's natural frequencies and damping. Their locations in the complex plane dictate stability: if any pole has a positive real part, the system is unstable; if all poles have negative real parts, the system is stable.",
+      "difficulty": "medium"
+    }
+  ]
+}

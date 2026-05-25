@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-safe-alternatives-strncpy-snprintf-strlcpy",
+  "subtopicTitle": "Safe alternatives — strncpy, snprintf, strlcpy",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:45.159Z",
+  "cards": [
+    {
+      "front": "What is the primary security vulnerability that `strcpy` and `strcat` introduce in C programs, necessitating \"safe alternatives\"?",
+      "back": "The primary vulnerability is **buffer overflow**. This occurs when these functions attempt to write more data than the allocated buffer can hold, overwriting adjacent memory, which can lead to program crashes, data corruption, or even arbitrary code execution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the purpose of `strncpy(char *dest, const char *src, size_t n)` and its key safety feature.",
+      "back": "`strncpy` copies at most `n` characters from the source string `src` to the destination buffer `dest`. Its key safety feature is limiting the number of bytes copied to `n`, thereby preventing `dest` from overflowing if `src` is longer than `n`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What critical detail about null termination must a programmer remember when using `strncpy` to prevent potential security issues or bugs? Provide a code example to ensure safe null termination.",
+      "back": "A critical detail is that `strncpy` does **not** guarantee null termination if the source string's length is greater than or equal to `n`. If `src` is too long, `dest` might not be null-terminated, leading to potential buffer over-reads in subsequent string operations. To ensure safe null termination:\n```c\nchar buffer[10];\nconst char *long_str = \"Hello World\";\n\nstrncpy(buffer, long_str, sizeof(buffer));\nbuffer[sizeof(buffer) - 1] = '\\0'; // Guarantee null termination\n\n// Example: if long_str was \"Hi\", buffer would be \"Hi\\0\\0\\0\\0\\0\\0\\0\"\n// but if long_str was \"0123456789ABC\", buffer would be \"012345678\\0\" after the fix.\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the primary use case and safety mechanism of `snprintf(char *str, size_t size, const char *format, ...)` in C.",
+      "back": "`snprintf`'s primary use case is to write formatted output to a string buffer `str`. Its safety mechanism is that it writes at most `size-1` characters to `str` and always null-terminates the result (if `size > 0`). This prevents buffer overflows by ensuring the output never exceeds the specified buffer size.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what scenario would `snprintf` be a better choice than `strncpy` for copying a string, and why?",
+      "back": "`snprintf` is generally preferred for simple string copying when you need **guaranteed null termination** and want to avoid `strncpy`'s padding behavior. For example:\n```c\nchar dest[10];\nconst char *src = \"hello\";\nsnprintf(dest, sizeof(dest), \"%s\", src);\n// dest is guaranteed to be \"hello\\0\\0\\0\\0\"\n```\n`snprintf` always null-terminates (if `size > 0` and there's space), and it doesn't pad the rest of the buffer with null bytes if the source is shorter, which can be more efficient and predictable than `strncpy`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does `strlcpy(char *dst, const char *src, size_t size)` improve upon `strncpy` regarding null termination and its return value?",
+      "back": "`strlcpy` improves upon `strncpy` in two key ways:\n1.  **Guaranteed Null Termination:** It always null-terminates the destination buffer `dst` (provided `size > 0` and there's space for at least one character), addressing a common pitfall of `strncpy`.\n2.  **Informative Return Value:** It returns the total length of the source string (`strlen(src)`), which is useful for detecting if the string was truncated (if the return value $\\ge$ `size`). `strncpy` returns the destination pointer, which offers less information about truncation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Although not part of the C standard, `strlcpy` is widely adopted in some environments. What are its two main advantages that make it a \"safer\" and more convenient alternative for string copying compared to `strncpy`?",
+      "back": "The two main advantages of `strlcpy` are:\n1.  **Guaranteed Null Termination:** It simplifies safe string handling by always ensuring the destination buffer is null-terminated (if `size > 0` and there's space), eliminating the need for manual null-termination checks or assignments required with `strncpy`.\n2.  **Intuitive Truncation Detection:** Its return value, which is the length of the source string, directly indicates if truncation occurred. If the returned value is $\\ge$ `size`, the string was truncated. This makes error handling and buffer sizing decisions much clearer than with `strncpy`'s return value.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-7-carnot-cycle-full-derivation-efficiency-1-t-c-t-h",
+  "subtopicTitle": "Carnot cycle — full derivation, efficiency = 1 - T_C/T_H",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:22.594Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Carnot cycle in thermodynamics?",
+      "back": "The Carnot cycle is a theoretical, reversible thermodynamic cycle that describes the most efficient possible heat engine operating between two given temperature reservoirs. It serves as an upper limit for the efficiency of all heat engines.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the four reversible processes that constitute the Carnot cycle, in order.",
+      "back": "1. Isothermal expansion (absorbs heat $Q_H$ from hot reservoir $T_H$)\n2. Adiabatic expansion (temperature drops from $T_H$ to $T_C$)\n3. Isothermal compression (rejects heat $Q_C$ to cold reservoir $T_C$)\n4. Adiabatic compression (temperature rises from $T_C$ to $T_H$)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In which two processes of the Carnot cycle does heat exchange occur, and with which temperature reservoirs?",
+      "back": "Heat exchange occurs during:\n1. Isothermal expansion (A to B): Heat $Q_H$ is absorbed from the hot reservoir at temperature $T_H$.\n2. Isothermal compression (C to D): Heat $Q_C$ is rejected to the cold reservoir at temperature $T_C$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an ideal gas undergoing a reversible isothermal process, what is the heat exchanged $Q$ in terms of $n, R, T,$ and initial/final volumes?",
+      "back": "For an isothermal process, $\\Delta U = 0$, so $Q = W$. For an ideal gas, the work done is:\n$$Q = W = nRT \\ln\\left(\\frac{V_{final}}{V_{initial}}\\right)$$\nwhere $n$ is moles, $R$ is the ideal gas constant, and $T$ is the constant temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are the volumes and temperatures related during the two adiabatic processes (B-C and D-A) in a Carnot cycle for an ideal gas?",
+      "back": "For an adiabatic process involving an ideal gas, $TV^{\\gamma-1} = \\text{constant}$.\nFor B $\\to$ C (adiabatic expansion): $T_H V_B^{\\gamma-1} = T_C V_C^{\\gamma-1}$\nFor D $\\to$ A (adiabatic compression): $T_C V_D^{\\gamma-1} = T_H V_A^{\\gamma-1}$\nwhere $\\gamma = C_p/C_v$ is the heat capacity ratio.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the relationship between the volume ratios for the isothermal processes ($V_B/V_A$ and $V_C/V_D$) using the adiabatic relations from the Carnot cycle.",
+      "back": "From adiabatic process B $\\to$ C: $T_H V_B^{\\gamma-1} = T_C V_C^{\\gamma-1} \\implies \\frac{V_B}{V_C} = \\left(\\frac{T_C}{T_H}\\right)^{1/(\\gamma-1)}$ (1)\nFrom adiabatic process D $\\to$ A: $T_C V_D^{\\gamma-1} = T_H V_A^{\\gamma-1} \\implies \\frac{V_A}{V_D} = \\left(\\frac{T_C}{T_H}\\right)^{1/(\\gamma-1)}$ (2)\nEquating (1) and (2): $\\frac{V_B}{V_C} = \\frac{V_A}{V_D}$\nRearranging gives the key relationship: $\\frac{V_B}{V_A} = \\frac{V_C}{V_D}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the Carnot efficiency formula $\\eta = 1 - T_C/T_H$ starting from $\\eta = 1 - |Q_C|/Q_H$.",
+      "back": "Efficiency is $\\eta = 1 - \\frac{|Q_C|}{Q_H}$.\nFor isothermal expansion (A $\\to$ B): $Q_H = nRT_H \\ln\\left(\\frac{V_B}{V_A}\\right)$.\nFor isothermal compression (C $\\to$ D): $Q_C = nRT_C \\ln\\left(\\frac{V_D}{V_C}\\right)$.\nThe magnitude of heat rejected is $|Q_C| = nRT_C \\ln\\left(\\frac{V_C}{V_D}\\right)$.\nNow, form the ratio:\n$$\\frac{|Q_C|}{Q_H} = \\frac{nRT_C \\ln\\left(\\frac{V_C}{V_D}\\right)}{nRT_H \\ln\\left(\\frac{V_B}{V_A}\\right)}$$\nFrom the adiabatic relations, we derived $\\frac{V_B}{V_A} = \\frac{V_C}{V_D}$.\nTherefore, the logarithmic terms are equal: $\\ln\\left(\\frac{V_C}{V_D}\\right) = \\ln\\left(\\frac{V_B}{V_A}\\right)$.\nSubstituting this into the ratio:\n$$\\frac{|Q_C|}{Q_H} = \\frac{T_C}{T_H}$$\nFinally, substitute this back into the efficiency definition:\n$$\\eta = 1 - \\frac{T_C}{T_H}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State Carnot's Theorem regarding the efficiency of heat engines.",
+      "back": "Carnot's Theorem states that no heat engine operating between two given temperature reservoirs can be more efficient than a reversible engine (a Carnot engine) operating between the same two reservoirs. Furthermore, all reversible engines operating between the same two reservoirs have the same efficiency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is a true Carnot engine impossible to build in practice?",
+      "back": "A true Carnot engine requires perfectly reversible processes, which are idealizations. This implies:\n1. Infinitely slow processes (quasi-static) to maintain thermal equilibrium and avoid friction.\n2. Perfect thermal insulation for adiabatic steps (no heat loss).\n3. Perfect thermal contact for isothermal steps (instantaneous heat transfer).\n4. Absence of any dissipative effects like friction or turbulence.\nThese conditions cannot be met in real-world engineering.",
+      "difficulty": "medium"
+    }
+  ]
+}

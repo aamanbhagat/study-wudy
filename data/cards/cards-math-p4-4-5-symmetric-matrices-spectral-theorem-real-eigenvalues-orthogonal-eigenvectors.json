@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-symmetric-matrices-spectral-theorem-real-eigenvalues-orthogonal-eigenvectors",
+  "subtopicTitle": "Symmetric matrices — spectral theorem (real eigenvalues, orthogonal eigenvectors)",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:27.222Z",
+  "cards": [
+    {
+      "front": "Define a symmetric matrix $A$.",
+      "back": "A square matrix $A$ is symmetric if it is equal to its transpose, i.e., $A = A^T$. This implies that its entries satisfy $a_{ij} = a_{ji}$ for all $i, j$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental property holds for the eigenvalues of any real symmetric matrix?",
+      "back": "All eigenvalues of a real symmetric matrix are real numbers. They are never complex if the matrix itself is real and symmetric.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a symmetric matrix $A$, if $\\lambda_1 \\neq \\lambda_2$ are distinct eigenvalues, what is the relationship between their corresponding eigenvectors $v_1$ and $v_2$?",
+      "back": "The eigenvectors $v_1$ and $v_2$ corresponding to distinct eigenvalues of a symmetric matrix are orthogonal. That is, their dot product (or inner product) is zero: $v_1^T v_2 = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Spectral Theorem for real symmetric matrices.",
+      "back": "The Spectral Theorem states that a real symmetric matrix $A$ is orthogonally diagonalizable. This means there exists an orthogonal matrix $P$ (whose columns form an orthonormal basis of eigenvectors for $A$) and a diagonal matrix $D$ (whose diagonal entries are the corresponding eigenvalues) such that $A = PDP^T = PDP^{-1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the key steps to orthogonally diagonalize a given symmetric matrix $A$.",
+      "back": "1. Find all eigenvalues of $A$. 2. For each eigenvalue, find a basis for its corresponding eigenspace. 3. Apply the Gram-Schmidt process to any eigenspace with dimension greater than one to obtain an orthonormal basis for that eigenspace. 4. Form the matrix $P$ whose columns are these orthonormal eigenvectors. 5. Form the diagonal matrix $D$ with the eigenvalues on the diagonal, ordered to match the eigenvectors in $P$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a symmetric matrix $A \\in M_n(\\mathbb{R})$ always has $n$ linearly independent eigenvectors.",
+      "back": "For a symmetric matrix, the algebraic multiplicity of each eigenvalue always equals its geometric multiplicity. This property guarantees that the sum of the dimensions of all eigenspaces is $n$, thus providing $n$ linearly independent eigenvectors that form a basis for $\\mathbb{R}^n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that all eigenvalues of a real symmetric matrix $A$ are real.",
+      "back": "Let $\\lambda$ be an eigenvalue of $A$ with eigenvector $v$. Then $Av = \\lambda v$. Consider the quantity $v^* A v$. Since $A$ is real and symmetric, $A = A^T = A^*$. We have $v^* A v = v^* (\\lambda v) = \\lambda (v^* v)$. Also, $(v^* A v)^* = v^* A^* (v^*)^* = v^* A v$, which means $v^* A v$ is a real number. Since $v^* v = ||v||^2$ is a positive real number (as $v \\neq 0$), and $\\lambda = \\frac{v^* A v}{v^* v}$, it follows that $\\lambda$ must be real.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-multi-dimensional-arrays",
+  "subtopicTitle": "Multi-dimensional arrays",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:59.865Z",
+  "cards": [
+    {
+      "front": "Declare a $3 \\times 4$ integer array named `matrix` in C.",
+      "back": "```c\nint matrix[3][4];\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe how a 2D array `int arr[R][C];` is stored in memory in C.",
+      "back": "C stores multi-dimensional arrays in **row-major order**. This means all elements of the first row are stored contiguously, followed by all elements of the second row, and so on. The entire array occupies a single contiguous block of memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `int arr[R][C];` and its base address `B`, what is the memory address of `arr[i][j]`? Assume `sizeof(int)` is `S`.",
+      "back": "The memory address of `arr[i][j]` is $B + (i \\times C + j) \\times S$. This formula reflects row-major storage, where each row occupies $C \\times S$ bytes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a C function signature `printMatrix` that accepts `rows` and `cols` for a 2D integer matrix. Explain why the column dimension (`cols`) is mandatory.",
+      "back": "```c\nvoid printMatrix(int rows, int cols, int matrix[rows][cols]) {\n    // Or: void printMatrix(int rows, int cols, int matrix[][cols])\n    // Or: void printMatrix(int rows, int cols, int (*matrix)[cols])\n    // ... function body ...\n}\n```\nThe column dimension (`cols`) is mandatory because the compiler needs it to correctly calculate the memory address of elements in subsequent rows. For `matrix[i][j]`, the compiler calculates the offset for the `i`-th row as `i * cols * sizeof(int)`. Without `cols`, it cannot perform this pointer arithmetic to find the start of each row.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Initialize a $2 \\times 3$ integer array `grid` with values `1,2,3` for the first row and `4,5,6` for the second row.",
+      "back": "```c\nint grid[2][3] = {{1, 2, 3}, {4, 5, 6}};\n// Alternatively, without inner braces (compiler infers rows):\n// int grid[2][3] = {1, 2, 3, 4, 5, 6};\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write C code to dynamically allocate an $R \\times C$ integer 2D array using `malloc`, and then free the memory.",
+      "back": "```c\nint R = 3, C = 4;\n// Allocate an array of R pointers to int\nint **matrix = (int **)malloc(R * sizeof(int *));\nif (matrix == NULL) { /* handle allocation error */ }\n\n// For each pointer, allocate an array of C ints\nfor (int i = 0; i < R; i++) {\n    matrix[i] = (int *)malloc(C * sizeof(int));\n    if (matrix[i] == NULL) { /* handle error, free previously allocated rows */ }\n}\n\n// To free the memory:\nfor (int i = 0; i < R; i++) {\n    free(matrix[i]); // Free each row\n}\nfree(matrix); // Free the array of pointers\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the fundamental difference between `int (*ptr)[COL];` and `int **ptr;` when used with 2D arrays in C.",
+      "back": "*   `int (*ptr)[COL];` declares `ptr` as a **pointer to an array of `COL` integers**. It is used to point to a contiguous block of memory representing a true 2D array (e.g., `int arr[ROW][COL];`). When you use `ptr[i]`, it advances `i * COL * sizeof(int)` bytes. This maintains the row-major memory layout.\n*   `int **ptr;` declares `ptr` as a **pointer to a pointer to an integer**. It is typically used for dynamically allocated \"jagged\" arrays, where `ptr` points to an array of `int*`, and each `int*` in turn points to a separate row. The rows are not necessarily contiguous in memory. When you use `ptr[i]`, it advances `i * sizeof(int*)` bytes.",
+      "difficulty": "hard"
+    }
+  ]
+}

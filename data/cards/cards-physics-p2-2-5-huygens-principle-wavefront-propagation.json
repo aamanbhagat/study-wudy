@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-5-huygens-principle-wavefront-propagation",
+  "subtopicTitle": "Huygens' principle — wavefront propagation",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:55.035Z",
+  "cards": [
+    {
+      "front": "State Huygens' Principle in your own words.",
+      "back": "Every point on a wavefront acts as a source of secondary spherical wavelets that propagate outwards with the speed of the wave. The new wavefront at a later time is the envelope (tangent surface) of these wavelets.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"secondary wavelets\" as used in Huygens' Principle.",
+      "back": "Secondary wavelets are hypothetical spherical waves originating from each point on an existing wavefront. They are conceptual constructs whose collective envelope forms the new wavefront at a subsequent moment in time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why Huygens' Principle predicts forward wave propagation only, not backward.",
+      "back": "The envelope of the secondary wavelets forms a surface that touches them only on their forward side, corresponding to the direction of wave propagation. While mathematically a backward envelope could be constructed, it would represent a wave propagating backward in time, which is not physically observed for typical waves. Kirchhoff's diffraction theory later provided a more rigorous mathematical justification for this observation by including an obliquity factor.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Sketch and explain how Huygens' Principle demonstrates the Law of Reflection.",
+      "back": "Consider a plane wavefront incident on a reflecting surface. As each point on the wavefront reaches the surface, it acts as a source of secondary wavelets. These wavelets expand into the same medium. Since the speed of the wave is constant, the wavelets originating from points that hit the surface earlier will have expanded further. The envelope of these reflected wavelets forms the new reflected wavefront, which geometrically demonstrates that the angle of incidence equals the angle of reflection ($\\theta_i = \\theta_r$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Snell's Law ($n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$) using Huygens' Principle for a plane wave incident on an interface.",
+      "back": "Consider a plane wavefront incident at an angle $\\theta_1$ on an interface between two media with refractive indices $n_1$ and $n_2$ (and wave speeds $v_1 = c/n_1$, $v_2 = c/n_2$). Let the wavefront segment AB reach the interface. In time $\\Delta t$, the wavelet from point A (first to reach interface) travels a distance $v_2 \\Delta t$ in the second medium, forming a new arc. Simultaneously, the wavelet from point B (last to reach interface) travels $v_1 \\Delta t$ in the first medium. By drawing tangents from B to the arc from A, and from A to the arc from B, we form the new wavefront. From the geometry (right triangles formed by the incident and refracted wavefronts with the interface):<br/>$\\sin\\theta_1 = \\frac{v_1 \\Delta t}{L}$ (where $L$ is the length of the interface segment AB)<br/>$\\sin\\theta_2 = \\frac{v_2 \\Delta t}{L}$<br/>Dividing the equations: $\\frac{\\sin\\theta_1}{\\sin\\theta_2} = \\frac{v_1}{v_2}$.<br/>Since $v_1 = c/n_1$ and $v_2 = c/n_2$, we get: $\\frac{\\sin\\theta_1}{\\sin\\theta_2} = \\frac{c/n_1}{c/n_2} = \\frac{n_2}{n_1}$.<br/>Therefore, $n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does Huygens' Principle qualitatively explain the phenomenon of diffraction?",
+      "back": "When a wavefront encounters an obstacle or an aperture, the points on the wavefront that pass through the opening or along the edge of the obstacle act as new sources of secondary wavelets. These wavelets expand into the region beyond the obstacle or aperture, including the geometric shadow. This expansion and subsequent interference of wavelets cause the wave to bend around the obstacle or spread out after passing through the opening, which is the essence of diffraction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a key limitation of Huygens' original principle, and what refinement addressed it?",
+      "back": "Huygens' original principle did not explain the varying intensity (amplitude) and phase of the secondary wavelets, nor did it rigorously account for why waves propagate only forward. Fresnel later refined it by introducing the concept of interference among the secondary wavelets. Kirchhoff then provided a more rigorous mathematical formulation (Kirchhoff's diffraction formula) that included an obliquity factor to correctly describe the amplitude and phase distribution, and naturally explained forward propagation.",
+      "difficulty": "hard"
+    }
+  ]
+}

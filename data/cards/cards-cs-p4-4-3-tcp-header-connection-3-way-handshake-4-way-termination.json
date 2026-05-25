@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-3-tcp-header-connection-3-way-handshake-4-way-termination",
+  "subtopicTitle": "TCP — header, connection (3-way handshake, 4-way termination)",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:33.691Z",
+  "cards": [
+    {
+      "front": "What is TCP's primary role in the transport layer?",
+      "back": "TCP (Transmission Control Protocol) provides reliable, ordered, and error-checked delivery of a stream of bytes between applications running on hosts communicating over an IP network. It is connection-oriented.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the mandatory fields in a TCP header and their fixed size in bytes.",
+      "back": "Source Port (2), Destination Port (2), Sequence Number (4), Acknowledgment Number (4), Data Offset (4 bits), Reserved (6 bits), Flags (6 bits), Window Size (2), Checksum (2), Urgent Pointer (2). Total: 20 bytes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the SYN, ACK, and FIN flags in the TCP header.",
+      "back": "SYN (Synchronize): Initiates a connection. ACK (Acknowledgement): Acknowledges received data/segments. FIN (Finish): Indicates the sender has no more data to send and wishes to close the connection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do TCP's Sequence Number and Acknowledgment Number fields ensure reliable data transfer?",
+      "back": "The Sequence Number identifies the first byte of data in the current segment. The Acknowledgment Number indicates the sequence number of the *next* byte the sender *expects* to receive. This cumulative ACK mechanism, combined with retransmissions, ensures all data is received in order and without loss.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the TCP 3-way handshake steps, including flags set by each party.",
+      "back": "1. Client $\\rightarrow$ Server: SYN (Client_ISN)\n2. Server $\\rightarrow$ Client: SYN-ACK (Server_ISN, Client_ISN + 1)\n3. Client $\\rightarrow$ Server: ACK (Server_ISN + 1)\nThis establishes initial sequence numbers and confirms readiness for data transfer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Client ISN is $X$, server ISN is $Y$. What's the Acknowledgment Number in the client's final ACK of the 3-way handshake?",
+      "back": "In the second step, the server sends SYN-ACK with its ISN ($Y$) and an Acknowledgment Number of $X+1$. The client then sends its final ACK with a Sequence Number of $X+1$ and an Acknowledgment Number of $Y+1$. So, the Acknowledgment Number in the client's final ACK is $Y+1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the four segments exchanged during a normal TCP 4-way connection termination, mentioning flags.",
+      "back": "1. Host A $\\rightarrow$ Host B: FIN, ACK (A wants to close)\n2. Host B $\\rightarrow$ Host A: ACK (B acknowledges A's FIN)\n3. Host B $\\rightarrow$ Host A: FIN, ACK (B wants to close)\n4. Host A $\\rightarrow$ Host B: ACK (A acknowledges B's FIN)\nThis allows each side to close its sending half independently.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose and importance of the `TIME_WAIT` state in TCP connection termination.",
+      "back": "The `TIME_WAIT` state (lasting for $2 \\times \\text{MSL}$, Maximum Segment Lifetime) ensures that:\n1. The last ACK sent by the client reaches the server. If it's lost, the server retransmits its final FIN, and the client in `TIME_WAIT` can re-ACK it.\n2. All delayed or duplicate segments from the previous connection incarnation have expired in the network, preventing them from being misinterpreted by a new connection using the same port pair.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the minimum and maximum size of a TCP header in bytes?",
+      "back": "Minimum: 20 bytes (without options). Maximum: 60 bytes (when the Options field is fully utilized, as Data Offset is 4 bits, indicating header length in 4-byte words, so $15 \\times 4 = 60$ bytes).",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-6-heap-sort-o-n-log-n-in-place-not-stable",
+  "subtopicTitle": "Heap sort — O(n log n), in-place, not stable",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:23.932Z",
+  "cards": [
+    {
+      "front": "Define Heap Sort and state its core data structure.",
+      "back": "Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It sorts an array by first building a max-heap from the data and then repeatedly extracting the maximum element (the root) and placing it at the end of the array, then restoring the heap property.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the two main phases of the Heap Sort algorithm.",
+      "back": "The two main phases are:\n1.  **Build Max-Heap:** Transform the input array into a max-heap. This is typically done by calling the `heapify` procedure on all non-leaf nodes, starting from the last non-leaf node and moving upwards.\n2.  **Sort:** Repeatedly extract the maximum element (the root of the heap), swap it with the last element of the current heap, decrease the heap size by one, and then call `heapify` on the new root to restore the max-heap property for the reduced heap. The extracted elements accumulate in sorted order at the end of the array.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the time complexity, space complexity, and stability characteristic of Heap Sort.",
+      "back": "<ul>\n<li>**Time Complexity:** $O(n \\log n)$ in all cases (best, average, worst).</li>\n<li>**Space Complexity:** $O(1)$ (in-place).</li>\n<li>**Stability:** Not stable.</li>\n</ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the purpose of the `heapify` procedure in Heap Sort and its basic operation.",
+      "back": "The `heapify` procedure's purpose is to maintain the max-heap property. Given a node at index $i$ in a (sub)array that might violate the max-heap property (assuming its children's subtrees are already max-heaps), `heapify` compares the element at $i$ with its children. If a child is larger, it swaps the element at $i$ with the largest child and recursively calls `heapify` on the child's new position. This process continues downwards until the max-heap property is restored or the element reaches a leaf node.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Justify why Heap Sort has an $O(n \\log n)$ time complexity in all cases.",
+      "back": "Heap Sort's $O(n \\log n)$ complexity comes from its two phases:\n1.  **Build Max-Heap:** Building a max-heap from an unsorted array of $n$ elements takes $O(n)$ time. Although it involves calling `heapify` $n/2$ times, each `heapify` operation's cost decreases as we move up the tree, leading to a tighter $O(n)$ bound.\n2.  **Sort Phase:** This phase involves $n-1$ extractions of the maximum element. Each extraction requires swapping the root with the last element of the current heap and then calling `heapify` on the new root. A `heapify` operation on a heap of size $k$ takes $O(\\log k)$ time. Since $k$ decreases from $n$ down to $2$, the total time for this phase is $\\sum_{i=2}^{n} O(\\log i) = O(n \\log n)$.\nCombining both phases, $O(n) + O(n \\log n) = O(n \\log n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why Heap Sort is classified as an \"in-place\" sorting algorithm.",
+      "back": "Heap Sort is in-place because it sorts the elements directly within the original array without requiring significant additional memory. The binary heap is implicitly represented using the array itself, and all operations (building the heap, swapping elements, and heapifying) are performed by manipulating elements within this array. The auxiliary space complexity is $O(1)$, as only a few temporary variables are needed for swaps.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the reason why Heap Sort is not a stable sorting algorithm.",
+      "back": "Heap Sort is not stable because it does not preserve the relative order of equal elements. The `heapify` operation and the swapping of elements (especially when the root is swapped with the last element during extraction) can change the original relative order of identical elements. For example, if you have elements `[A_1, B, A_2]` where $A_1 = A_2$ and $A_1$ appears before $A_2$, a swap might occur that places $A_2$ before $A_1$ in the sorted output, thus violating stability.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the array representation of a binary heap facilitate Heap Sort's in-place nature?",
+      "back": "In an array-based binary heap, if an element is at index $i$ (0-indexed), its left child is at $2i+1$ and its right child at $2i+2$. This mapping allows the heap structure to be maintained directly within the input array. During the sort phase, as elements are extracted from the heap (the root) and placed at the end of the array, the 'sorted' portion grows from the end of the array, while the 'unsorted' heap portion shrinks from the end, all within the same contiguous memory block, making it $O(1)$ space.",
+      "difficulty": "medium"
+    }
+  ]
+}

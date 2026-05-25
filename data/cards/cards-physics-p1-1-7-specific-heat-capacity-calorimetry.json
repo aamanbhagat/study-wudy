@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p1-1-7-specific-heat-capacity-calorimetry",
+  "subtopicTitle": "Specific heat capacity — calorimetry",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:36.968Z",
+  "cards": [
+    {
+      "front": "Define specific heat capacity ($c$) and state its SI unit.",
+      "back": "Specific heat capacity ($c$) is the amount of heat energy required to raise the temperature of 1 kilogram of a substance by 1 Kelvin (or 1 degree Celsius). Its SI unit is Joules per kilogram Kelvin ($\\text{J kg}^{-1} \\text{K}^{-1}$ or $\\text{J/(kg}\\cdot\\text{K)}$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the formula relating heat transferred ($Q$), mass ($m$), specific heat capacity ($c$), and temperature change ($\\Delta T$). Explain each term.",
+      "back": "$$Q = mc\\Delta T$$ $Q$ is the heat energy transferred (Joules), $m$ is the mass of the substance (kilograms), $c$ is the specific heat capacity of the substance ($\\text{J kg}^{-1} \\text{K}^{-1}$), and $\\Delta T$ is the change in temperature (Kelvin or Celsius).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Distinguish between 'specific heat capacity' ($c$) and 'heat capacity' ($C$) of an object. How are they related?",
+      "back": "Specific heat capacity ($c$) is an intensive property, specific to the material, defining heat per unit mass per unit temperature change ($\\text{J kg}^{-1} \\text{K}^{-1}$). Heat capacity ($C$) is an extensive property, specific to an object, defining heat per unit temperature change ($\\text{J K}^{-1}$). They are related by $C = mc$, where $m$ is the mass of the object.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the fundamental principle of calorimetry when two substances at different temperatures are mixed in an isolated system.",
+      "back": "The fundamental principle of calorimetry states that in an isolated system, the total heat lost by the hotter bodies equals the total heat gained by the colder bodies. Mathematically, $\\sum Q_{\\text{lost}} = \\sum Q_{\\text{gained}}$, or equivalently, the net heat transfer in the system is zero: $\\sum Q = 0$ (if heat lost is negative and heat gained is positive).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A 0.5 kg iron block at $100^\\circ\\text{C}$ is placed in 1 kg of water at $20^\\circ\\text{C}$. Set up the equation to find the final equilibrium temperature, given $c_{\\text{iron}}$ and $c_{\\text{water}}$.",
+      "back": "Assuming an ideal calorimeter (no heat loss to surroundings or calorimeter itself):\nHeat lost by iron = Heat gained by water\n$$m_{\\text{iron}} c_{\\text{iron}} (T_{\\text{initial, iron}} - T_{\\text{final}}) = m_{\\text{water}} c_{\\text{water}} (T_{\\text{final}} - T_{\\text{initial, water}})$$ \nSubstituting values:\n$$(0.5 \\text{ kg}) c_{\\text{iron}} (100^\\circ\\text{C} - T_{\\text{final}}) = (1 \\text{ kg}) c_{\\text{water}} (T_{\\text{final}} - 20^\\circ\\text{C})$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the 'heat capacity of the calorimeter' factor into calorimetry calculations for a non-ideal calorimeter? Write the modified energy balance equation.",
+      "back": "For a non-ideal calorimeter, the calorimeter itself absorbs or releases heat. Its heat capacity ($C_{\\text{cal}}$) must be included. If a hot object is placed in water inside a calorimeter, the heat lost by the object is gained by both the water and the calorimeter.\n$$Q_{\\text{lost by hot object}} = Q_{\\text{gained by water}} + Q_{\\text{gained by calorimeter}}$$ \n$$m_{\\text{object}} c_{\\text{object}} (T_{\\text{object,i}} - T_f) = m_{\\text{water}} c_{\\text{water}} (T_f - T_{\\text{water,i}}) + C_{\\text{cal}} (T_f - T_{\\text{cal,i}})$$ \nNote: $T_{\\text{water,i}}$ and $T_{\\text{cal,i}}$ are usually the same (initial temperature of the calorimeter and its contents).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why water has an unusually high specific heat capacity compared to many other common substances and describe one significant implication of this property.",
+      "back": "Water's high specific heat capacity is due to strong intermolecular hydrogen bonds. A significant amount of energy is required to break these bonds and increase the kinetic energy of water molecules, thus raising its temperature.\nOne significant implication is its role in climate regulation: large bodies of water (oceans) absorb vast amounts of solar energy during the day/summer without drastic temperature changes, moderating global and coastal temperatures and preventing extreme temperature fluctuations.",
+      "difficulty": "hard"
+    }
+  ]
+}

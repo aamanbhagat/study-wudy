@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-9-common-discrete-distributions-bernoulli-binomial-poisson-geometric-negative-binomial",
+  "subtopicTitle": "Common discrete distributions — Bernoulli, Binomial, Poisson, Geometric, Negative Binomial",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:01.382Z",
+  "cards": [
+    {
+      "front": "Define the Bernoulli distribution for a random variable $X$. State its Probability Mass Function (PMF), mean, and variance.",
+      "back": "$X \\sim \\text{Bernoulli}(p)$ if $X$ takes value 1 (success) with probability $p$ and 0 (failure) with probability $1-p$.\n*   PMF: $P(X=x) = p^x (1-p)^{1-x}$ for $x \\in \\{0, 1\\}$.\n*   Mean $E[X] = p$.\n*   Variance $\\text{Var}(X) = p(1-p)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the four key conditions for a random variable $X$ to follow a Binomial distribution? Provide its PMF.",
+      "back": "$X \\sim \\text{Binomial}(n, p)$ if it counts the number of successes in $n$ independent Bernoulli trials.\n1.  Fixed number of trials, $n$.\n2.  Each trial is independent.\n3.  Each trial has only two outcomes (success/failure).\n4.  Probability of success, $p$, is constant for each trial.\n*   PMF: $P(X=k) = \\binom{n}{k} p^k (1-p)^{n-k}$ for $k \\in \\{0, 1, \\dots, n\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A call center averages 10 calls/hour. What is the probability of receiving exactly 7 calls in a 30-minute period? Which distribution applies?",
+      "back": "The Poisson distribution applies here, as it models the number of events in a fixed interval of time or space, given an average rate.\n*   Average rate $\\lambda$ for 1 hour = 10 calls.\n*   Average rate $\\lambda$ for 30 minutes (0.5 hours) = $10 \\times 0.5 = 5$ calls.\n*   PMF: $P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$.\n*   $P(X=7) = \\frac{5^7 e^{-5}}{7!} \\approx 0.1044$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what conditions can a Binomial distribution $B(n, p)$ be approximated by a Poisson distribution? What is the parameter of the approximating Poisson distribution?",
+      "back": "A Binomial distribution $B(n, p)$ can be approximated by a Poisson distribution when:\n1.  $n$ is very large ($n \\to \\infty$).\n2.  $p$ is very small ($p \\to 0$).\n3.  The product $np$ remains constant and finite.\n*   The parameter of the approximating Poisson distribution is $\\lambda = np$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the Geometric distribution (number of trials until the first success). State its PMF, mean, and explain its unique \"memoryless property\".",
+      "back": "A random variable $X \\sim \\text{Geometric}(p)$ counts the number of Bernoulli trials required to get the first success, where $p$ is the probability of success on any given trial.\n*   PMF: $P(X=k) = (1-p)^{k-1} p$ for $k \\in \\{1, 2, 3, \\dots\\}$.\n*   Mean $E[X] = \\frac{1}{p}$.\n*   Memoryless Property: $P(X > m+k \\mid X > m) = P(X > k)$. This means the probability of needing $k$ more trials for a success, given that $m$ trials have already failed, is the same as the probability of needing $k$ trials from the start. \"The process doesn't remember past failures.\"",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Probability Mass Function (PMF) for a Negative Binomial random variable $X$ that counts the number of failures before the $r$-th success, given success probability $p$.",
+      "back": "Let $X$ be the number of failures before the $r$-th success. This implies that the $r$-th success occurs on the $(X+r)$-th trial.\n*   For the $r$-th success to happen on the $(X+r)$-th trial, we must have exactly $r-1$ successes in the first $X+r-1$ trials, and the $(X+r)$-th trial must be a success.\n*   The number of ways to choose the positions of the $r-1$ successes among the $X+r-1$ trials is $\\binom{X+r-1}{r-1}$.\n*   The probability of $r-1$ successes is $p^{r-1}$.\n*   The probability of $X$ failures is $(1-p)^X$.\n*   The probability of the $(X+r)$-th trial being a success is $p$.\n*   So, $P(X=k) = \\binom{k+r-1}{r-1} p^{r-1} (1-p)^k \\cdot p = \\binom{k+r-1}{r-1} p^r (1-p)^k$ for $k \\in \\{0, 1, 2, \\dots\\}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly differentiate between the Binomial, Geometric, and Negative Binomial distributions based on what they count and their stopping criteria.",
+      "back": "*   **Binomial:** Counts the number of successes in a *fixed number of trials* ($n$). The number of trials is predetermined.\n*   **Geometric:** Counts the number of trials (or failures) *until the first success*. It stops when the first success occurs.\n*   **Negative Binomial:** Counts the number of trials (or failures) *until the $r$-th success*. It stops when a predetermined number of successes ($r$) is achieved.",
+      "difficulty": "medium"
+    }
+  ]
+}

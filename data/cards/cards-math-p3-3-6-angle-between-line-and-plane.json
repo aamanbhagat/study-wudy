@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-6-angle-between-line-and-plane",
+  "subtopicTitle": "Angle between line and plane",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:58.472Z",
+  "cards": [
+    {
+      "front": "Define the angle between a line and a plane.",
+      "back": "The angle $\\theta$ between a line $L$ and a plane $P$ is defined as the acute angle between the line $L$ and its orthogonal projection onto the plane $P$. This angle is always in the range $0^\\circ \\le \\theta \\le 90^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What geometric concept is crucial for defining the angle between a line and a plane?",
+      "back": "The orthogonal projection of the line onto the plane. The angle is then the acute angle between the original line and its projected image on the plane.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the angle $\\theta$ between a line with direction vector $\\vec{l}$ and a plane with normal vector $\\vec{n}$.",
+      "back": "The angle $\\theta$ is given by:\n$$ \\sin \\theta = \\frac{|\\vec{l} \\cdot \\vec{n}|}{|\\vec{l}|| \\cdot ||\\vec{n}||} $$\nwhere $0^\\circ \\le \\theta \\le 90^\\circ$. The absolute value ensures $\\theta$ is acute.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the formula for the angle $\\theta$ between a line and a plane uses $\\sin \\theta$ with the normal vector, instead of $\\cos \\theta$.",
+      "back": "Let $\\vec{l}$ be the direction vector of the line and $\\vec{n}$ be the normal vector of the plane. Let $\\phi$ be the acute angle between $\\vec{l}$ and $\\vec{n}$. The angle $\\theta$ between the line and the plane is the complement of $\\phi$, i.e., $\\theta = 90^\\circ - \\phi$.\nTherefore, $\\sin \\theta = \\sin(90^\\circ - \\phi) = \\cos \\phi$.\nSince $\\cos \\phi = \\frac{|\\vec{l} \\cdot \\vec{n}|}{|\\vec{l}|| \\cdot ||\\vec{n}||}$ (using absolute value to ensure $\\phi$ is acute), we have $\\sin \\theta = \\frac{|\\vec{l} \\cdot \\vec{n}|}{|\\vec{l}|| \\cdot ||\\vec{n}||}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Calculate the angle between the line $L: \\vec{r} = (1,2,3) + t(1,1,0)$ and the plane $P: x+y+z=1$.",
+      "back": "The line's direction vector is $\\vec{l} = (1,1,0)$.\nThe plane's normal vector is $\\vec{n} = (1,1,1)$.\n$\\vec{l} \\cdot \\vec{n} = (1)(1) + (1)(1) + (0)(1) = 2$.\n$||\\vec{l}|| = \\sqrt{1^2+1^2+0^2} = \\sqrt{2}$.\n$||\\vec{n}|| = \\sqrt{1^2+1^2+1^2} = \\sqrt{3}$.\nUsing the formula $\\sin \\theta = \\frac{|\\vec{l} \\cdot \\vec{n}|}{|\\vec{l}|| \\cdot ||\\vec{n}||}$:\n$\\sin \\theta = \\frac{|2|}{\\sqrt{2}\\sqrt{3}} = \\frac{2}{\\sqrt{6}} = \\frac{2\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{3}$.\n$\\theta = \\arcsin\\left(\\frac{\\sqrt{6}}{3}\\right) \\approx 54.74^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the angle between a line and a plane if the line is parallel to the plane? How does the vector formula reflect this?",
+      "back": "If a line is parallel to a plane, the angle between them is $0^\\circ$. In this case, the line's direction vector $\\vec{l}$ is perpendicular to the plane's normal vector $\\vec{n}$. Thus, $\\vec{l} \\cdot \\vec{n} = 0$. The formula $\\sin \\theta = \\frac{|\\vec{l} \\cdot \\vec{n}|}{|\\vec{l}|| \\cdot ||\\vec{n}||}$ becomes $\\sin \\theta = \\frac{0}{|\\vec{l}|| \\cdot ||\\vec{n}||} = 0$, which gives $\\theta = \\arcsin(0) = 0^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the angle between a line and a plane if the line is perpendicular to the plane? How does the vector formula reflect this?",
+      "back": "If a line is perpendicular to a plane, the angle between them is $90^\\circ$. In this case, the line's direction vector $\\vec{l}$ is parallel to the plane's normal vector $\\vec{n}$. Thus, $\\vec{l} \\cdot \\vec{n} = \\pm ||\\vec{l}|| \\cdot ||\\vec{n}||$. The formula $\\sin \\theta = \\frac{|\\vec{l} \\cdot \\vec{n}|}{|\\vec{l}|| \\cdot ||\\vec{n}||}$ becomes $\\sin \\theta = \\frac{|\\pm ||\\vec{l}|| \\cdot ||\\vec{n}|||}{|\\vec{l}|| \\cdot ||\\vec{n}||} = 1$, which gives $\\theta = \\arcsin(1) = 90^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Geometrically, what does the projection of a line onto a plane represent in the context of finding the angle?",
+      "back": "The projection of the line onto the plane represents the 'shadow' the line casts on the plane when light rays are perpendicular to the plane. The angle between the original line and this projected 'shadow' is precisely the defined angle between the line and the plane. It is the smallest angle the line makes with any line lying within the plane.",
+      "difficulty": "medium"
+    }
+  ]
+}

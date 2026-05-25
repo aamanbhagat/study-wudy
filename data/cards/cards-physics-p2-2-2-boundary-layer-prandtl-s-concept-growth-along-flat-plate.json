@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-boundary-layer-prandtl-s-concept-growth-along-flat-plate",
+  "subtopicTitle": "Boundary layer — Prandtl's concept, growth along flat plate",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:48.106Z",
+  "cards": [
+    {
+      "front": "What fundamental simplification does Prandtl's boundary layer concept introduce for analyzing fluid flow?",
+      "back": "Prandtl's concept simplifies fluid flow analysis by dividing the flow field into two regions:\n1.  **Boundary Layer:** A thin layer near solid surfaces where viscous effects are significant, and velocity changes rapidly from zero at the surface to the free-stream velocity.\n2.  **Outer Flow:** The region outside the boundary layer where viscous effects are negligible, and the flow can be approximated as inviscid (potential flow).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the \"no-slip condition\" and explain its importance in the context of boundary layers.",
+      "back": "The \"no-slip condition\" states that a viscous fluid in contact with a solid surface will have zero relative velocity with respect to that surface. Within a boundary layer, this means the fluid velocity at the solid wall ($y=0$) is $u(x, 0) = 0$. It's crucial because it's the fundamental origin of shear stress and the boundary layer itself, as the fluid must accelerate from zero to the free-stream velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the typical velocity profile within a laminar boundary layer over a flat plate and how it evolves along the plate.",
+      "back": "Within a laminar boundary layer, the velocity profile $u(y)$ (velocity parallel to the plate at height $y$) smoothly increases from $u=0$ at the wall ($y=0$) to approximately $u=U_\\infty$ (free-stream velocity) at the edge of the boundary layer ($y=\\delta$). As the flow moves downstream ($x$ increases), the boundary layer thickens, meaning the velocity profile stretches out, and the velocity gradient $\\partial u / \\partial y$ at the wall generally decreases, reducing wall shear stress.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a laminar boundary layer over a flat plate, how does the boundary layer thickness $\\delta$ scale with the distance $x$ from the leading edge? Provide the approximate formula.",
+      "back": "For a laminar boundary layer over a flat plate, the thickness $\\delta$ scales with the square root of the distance $x$ from the leading edge.\nThe approximate formula (from Blasius solution) is:\n$$ \\delta \\approx 5.0 \\sqrt{\\frac{\\nu x}{U_\\infty}} = \\frac{5.0 x}{\\sqrt{Re_x}} $$\nwhere $\\nu$ is the kinematic viscosity, $U_\\infty$ is the free-stream velocity, and $Re_x = \\frac{U_\\infty x}{\\nu}$ is the local Reynolds number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define displacement thickness ($\\delta^*$) and momentum thickness ($\\theta$) for a boundary layer, explaining their physical significance.",
+      "back": "*   **Displacement Thickness ($\\delta^*$):** The distance by which the external potential flow streamlines are displaced outwards due to the presence of the boundary layer. It represents the hypothetical reduction in flow area if the entire flow had uniform free-stream velocity.\n    $$ \\delta^* = \\int_0^\\delta \\left(1 - \\frac{u}{U_\\infty}\\right) dy $$\n*   **Momentum Thickness ($\\theta$):** The thickness of a layer of fluid with free-stream velocity $U_\\infty$ that has the same momentum defect as the actual boundary layer. It's related to the drag force on the body.\n    $$ \\theta = \\int_0^\\delta \\frac{u}{U_\\infty}\\left(1 - \\frac{u}{U_\\infty}\\right) dy $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical critical Reynolds number for transition from laminar to turbulent flow over a flat plate, and what factors influence this value?",
+      "back": "The typical critical Reynolds number ($Re_{crit}$) for transition from laminar to turbulent flow over a flat plate is approximately $Re_x = \\frac{U_\\infty x}{\\nu} \\approx 5 \\times 10^5$.\nFactors influencing this value include:\n*   **Free-stream turbulence intensity:** Higher turbulence reduces $Re_{crit}$.\n*   **Surface roughness:** Rougher surfaces reduce $Re_{crit}$.\n*   **Pressure gradient:** Favorable pressure gradients (decreasing pressure, accelerating flow) increase $Re_{crit}$, while adverse pressure gradients (increasing pressure, decelerating flow) decrease it.\n*   **Heat transfer:** Cooling the wall can stabilize laminar flow, increasing $Re_{crit}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the growth of a turbulent boundary layer differ qualitatively and in terms of its thickness scaling from a laminar one over a flat plate?",
+      "back": "Qualitatively, a turbulent boundary layer grows much faster and is thicker than a laminar one at the same $Re_x$. It features chaotic, unsteady eddies that lead to more efficient momentum transfer across the layer, resulting in a fuller velocity profile near the wall (higher velocity gradient at the wall, thus higher skin friction) and a less defined outer edge.\nIn terms of scaling, a turbulent boundary layer thickness $\\delta$ scales approximately with $x^{4/5}$ (or $x^{0.8}$), which is a stronger dependence than the $x^{1/2}$ for laminar flow.\nA common empirical formula is:\n$$ \\delta \\approx 0.38 x \\left(Re_x\\right)^{-1/5} $$",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-bst-inorder-gives-sorted-order",
+  "subtopicTitle": "BST — inorder gives sorted order",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:59.903Z",
+  "cards": [
+    {
+      "front": "Define \"inorder traversal\" for a binary tree.",
+      "back": "An inorder traversal visits nodes in the following recursive sequence:\n1. Traverse the left subtree.\n2. Visit (process) the root node.\n3. Traverse the right subtree.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental property of a Binary Search Tree (BST) ensures its inorder traversal yields sorted elements?",
+      "back": "For any node $N$ in a BST:\n1. All keys in $N$'s left subtree are less than $N$'s key.\n2. All keys in $N$'s right subtree are greater than $N$'s key.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain *why* an inorder traversal of a BST always produces its elements in non-decreasing (sorted) order.",
+      "back": "Consider a node $N$. By definition of inorder, its entire left subtree is processed first. Due to BST properties, all elements in the left subtree are smaller than $N$. Then $N$ is processed. Finally, its entire right subtree is processed, and all elements there are larger than $N$. This recursive application ensures the sorted order is maintained at every step, from the smallest element (leftmost leaf) to the largest (rightmost leaf).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a recursive Python function `inorder_traversal(node)` that prints the values of a BST in sorted order.",
+      "back": "```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n\ndef inorder_traversal(node):\n    if node:\n        inorder_traversal(node.left)\n        print(node.key, end=\" \")\n        inorder_traversal(node.right)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement an iterative Python function `inorder_traversal_iterative(root)` to return a list of BST values in sorted order.",
+      "back": "```python\nclass Node: # Assuming Node class is defined as in previous card\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n\ndef inorder_traversal_iterative(root):\n    result = []\n    stack = []\n    current = root\n    while current or stack:\n        # Go as far left as possible, pushing nodes onto stack\n        while current:\n            stack.append(current)\n            current = current.left\n        # Current is now None, meaning we've hit the leftmost node\n        current = stack.pop() # Pop the node\n        result.append(current.key) # Visit it (add to result)\n        current = current.right # Move to its right subtree\n    return result\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can the \"inorder gives sorted order\" property be used to verify if an arbitrary binary tree is a valid BST?",
+      "back": "Perform an inorder traversal on the binary tree and collect all node values into a list. Then, check if this list is sorted in strictly non-decreasing order. If it is, the tree is a valid BST. Alternatively, during the traversal, keep track of the `prev` visited node and ensure that `current.key > prev.key` (or `current.key >= prev.key` if duplicates are allowed and handled consistently).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a BST allows duplicate keys (e.g., duplicates go to the right subtree), how does inorder traversal present these duplicates?",
+      "back": "An inorder traversal will still produce a non-decreasing sequence of keys. If a node $N$ has key $K$, and its right child also has key $K$, the traversal sequence will be $..., K_{N}, K_{child}, ...$. The sorted property holds because $K_{N} \\le K_{child}$. The exact order of duplicates (which $K$ appears first) depends on the specific rule for placing them (e.g., duplicates always go to the left vs. always to the right).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What intuitive analogy helps explain why inorder traversal of a BST yields elements in sorted order?",
+      "back": "Imagine each node in the BST casting a shadow onto a horizontal line directly below the tree. The inorder traversal visits nodes in the exact order their shadows appear from left to right on that line. Since BST properties ensure smaller values are to the left and larger to the right, this left-to-right \"sweep\" naturally collects values in sorted order.",
+      "difficulty": "medium"
+    }
+  ]
+}

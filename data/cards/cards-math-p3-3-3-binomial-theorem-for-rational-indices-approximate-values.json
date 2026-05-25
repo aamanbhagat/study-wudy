@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-3-binomial-theorem-for-rational-indices-approximate-values",
+  "subtopicTitle": "Binomial theorem for rational indices (approximate values)",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:04.408Z",
+  "cards": [
+    {
+      "front": "State the Binomial Theorem for $(1+x)^n$ when $n$ is a rational number, including its condition for validity.",
+      "back": "The Binomial Theorem for rational indices states:\n$$(1+x)^n = 1 + nx + \\frac{n(n-1)}{2!}x^2 + \\frac{n(n-1)(n-2)}{3!}x^3 + \\dots$$\nThis expansion is an infinite series (unless $n$ is a positive integer) and is valid only for the condition $|x| < 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the key difference in the binomial expansion of $(1+x)^n$ when $n$ is a rational number compared to when $n$ is a positive integer?",
+      "back": "When $n$ is a positive integer, the binomial expansion is a finite polynomial with $(n+1)$ terms. When $n$ is a rational number (and not a positive integer), the expansion is an infinite series, which converges to $(1+x)^n$ only if $|x| < 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To apply the binomial theorem for rational indices to $(a+x)^n$, how must it be rewritten, and what condition must be met for the new 'x' term?",
+      "back": "It must be rewritten as $a^n \\left(1 + \\frac{x}{a}\\right)^n$. The condition for the validity of the expansion is that the magnitude of the new 'x' term, $\\left|\\frac{x}{a}\\right|$, must be less than 1, i.e., $|x| < |a|$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the first three terms of the binomial expansion to approximate $\\sqrt{1.02}$.",
+      "back": "We need to approximate $(1+0.02)^{1/2}$. Here, $n=1/2$ and $x=0.02$. Using the first three terms:\n$$(1+x)^n \\approx 1 + nx + \\frac{n(n-1)}{2!}x^2$$\nSubstituting the values:\n$$1 + \\left(\\frac{1}{2}\\right)(0.02) + \\frac{\\frac{1}{2}\\left(\\frac{1}{2}-1\\right)}{2!}(0.02)^2$$\n$$= 1 + 0.01 + \\frac{\\frac{1}{2}\\left(-\\frac{1}{2}\\right)}{2}(0.0004)$$\n$$= 1 + 0.01 - \\frac{1}{8}(0.0004)$$\n$$= 1 + 0.01 - 0.00005 = 1.00995$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For approximating $(1+x)^n$ using the binomial theorem, what two factors primarily determine the accuracy of the approximation when using a finite number of terms?",
+      "back": "The two primary factors determining the accuracy of the approximation are:\n1.  **The magnitude of $x$**: The smaller $|x|$ is (closer to 0), the faster the terms of the series decrease in magnitude, leading to a more accurate approximation with fewer terms.\n2.  **The number of terms used**: Generally, using more terms from the series results in a more accurate approximation, provided $|x|<1$. The error of the approximation is typically of the order of the first neglected term.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Approximate $(0.99)^{-2}$ using the first three terms of the binomial expansion.",
+      "back": "We need to approximate $(1-0.01)^{-2}$. Here, $n=-2$ and $x=-0.01$. Using the first three terms:\n$$(1+x)^n \\approx 1 + nx + \\frac{n(n-1)}{2!}x^2$$\nSubstituting the values:\n$$1 + (-2)(-0.01) + \\frac{(-2)(-2-1)}{2!}(-0.01)^2$$\n$$= 1 + 0.02 + \\frac{(-2)(-3)}{2}(0.0001)$$\n$$= 1 + 0.02 + 3(0.0001)$$\n$$= 1 + 0.02 + 0.0003 = 1.0203$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the condition $|x|<1$ is crucial for the convergence of the binomial series $(1+x)^n$ when $n$ is a rational number (and not a positive integer).",
+      "back": "When $n$ is a rational number (and not a positive integer), the binomial expansion is an infinite series. For an infinite series to converge to a finite value, the magnitudes of its terms must eventually decrease to zero. The terms of the binomial series involve powers of $x$, i.e., $x^k$. If $|x| \\ge 1$, the terms $x^k$ either do not tend to zero (if $|x|>1$) or oscillate/remain constant (if $|x|=1$), preventing the overall terms of the series from necessarily tending to zero. For $|x|<1$, $x^k \\to 0$ as $k \\to \\infty$, ensuring the terms eventually become small enough for the series to converge.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "To approximate $\\frac{1}{\\sqrt{99}}$, explain the most effective way to rewrite it to apply the binomial theorem for rational indices.",
+      "back": "The most effective way is to rewrite $\\frac{1}{\\sqrt{99}}$ as $(99)^{-1/2}$. Then, factor out a number close to 99 that makes the remaining term small:\n$$(99)^{-1/2} = (100-1)^{-1/2} = \\left[100\\left(1 - \\frac{1}{100}\\right)\\right]^{-1/2}$$\n$$= (100)^{-1/2}\\left(1 - \\frac{1}{100}\\right)^{-1/2} = \\frac{1}{10}(1 - 0.01)^{-1/2}$$\nThis form, $\\frac{1}{10}(1 - 0.01)^{-1/2}$, is ideal because the 'x' term is $-0.01$, which is small and satisfies $|x|<1$, allowing for a very accurate approximation with few terms.",
+      "difficulty": "medium"
+    }
+  ]
+}

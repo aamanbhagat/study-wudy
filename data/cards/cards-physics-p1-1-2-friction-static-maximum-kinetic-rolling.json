@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-2-friction-static-maximum-kinetic-rolling",
+  "subtopicTitle": "Friction — static (maximum), kinetic, rolling",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:40.463Z",
+  "cards": [
+    {
+      "front": "Define friction and explain its fundamental microscopic origin.",
+      "back": "Friction is a force that opposes the relative motion or tendency of relative motion between two surfaces in contact. Its fundamental microscopic origin lies in the interlocking of microscopic irregularities (asperities) on the surfaces and the adhesive forces (intermolecular attractions) between the atoms and molecules of the contacting materials.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is static friction ($f_s$), and why is its magnitude variable up to a maximum value?",
+      "back": "Static friction is the friction force that opposes the *initiation* of relative motion between two surfaces that are currently at rest relative to each other. Its magnitude is variable because it adjusts itself to match the applied external force, preventing motion, up to a maximum limit ($f_{s,max}$). Once the applied force exceeds this maximum, motion begins.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the maximum static friction force, $f_{s,max}$, and define each term.",
+      "back": "The formula for the maximum static friction force is: $$f_{s,max} = \\mu_s N$$Where:\n*   $f_{s,max}$ is the maximum static friction force.\n*   $\\mu_s$ (mu-sub-s) is the coefficient of static friction, a dimensionless constant specific to the pair of surfaces in contact.\n*   $N$ is the magnitude of the normal force, the force exerted by a surface perpendicular to the other surface in contact.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for kinetic friction, $f_k$, and define each term. How does its magnitude typically behave during motion?",
+      "back": "The formula for kinetic friction is: $$f_k = \\mu_k N$$Where:\n*   $f_k$ is the kinetic friction force.\n*   $\\mu_k$ (mu-sub-k) is the coefficient of kinetic friction, a dimensionless constant specific to the pair of surfaces in contact.\n*   $N$ is the magnitude of the normal force.\nDuring motion, the magnitude of kinetic friction is typically constant for a given pair of surfaces and normal force, and it acts opposite to the direction of motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the force required to *start* an object moving is typically greater than the force required to *keep* it moving at a constant velocity.",
+      "back": "This phenomenon occurs because the coefficient of static friction ($\\mu_s$) is generally greater than the coefficient of kinetic friction ($\\mu_k$) for the same pair of surfaces. To initiate motion, the applied force must overcome the maximum static friction, $f_{s,max} = \\mu_s N$. To maintain constant velocity (zero net force), the applied force only needs to overcome the kinetic friction, $f_k = \\mu_k N$. Since $\\mu_s > \\mu_k$, it follows that $f_{s,max} > f_k$, making it harder to start an object moving than to keep it moving.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define rolling friction and describe its primary cause and typical magnitude compared to sliding friction.",
+      "back": "Rolling friction is the resistive force that opposes the motion of a rolling object (e.g., a wheel, ball) over a surface. Its primary cause is the deformation of the rolling object and/or the surface it rolls on, creating a small 'dent' or 'plow' effect that must be continuously overcome. It also involves some microscopic sliding at the contact patch. Rolling friction is typically much smaller in magnitude than static or kinetic sliding friction for comparable loads, which is why wheels are so effective for transport.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A block rests on a rough inclined plane. Derive the minimum angle of inclination, $\\theta_{min}$, at which the block just begins to slide down, in terms of the coefficient of static friction, $\\mu_s$.",
+      "back": "When the block is at the point of just beginning to slide, the static friction force has reached its maximum value, $f_{s,max} = \\mu_s N$. We resolve forces parallel and perpendicular to the incline.\n\n1.  **Perpendicular to incline (no acceleration):**\n    $N - mg \\cos\\theta = 0 \\implies N = mg \\cos\\theta$\n\n2.  **Parallel to incline (at impending motion, net force is zero):**\n    The component of gravity pulling it down is $mg \\sin\\theta$. The maximum static friction opposes this motion.\n    $mg \\sin\\theta - f_{s,max} = 0$\n    Substitute $f_{s,max} = \\mu_s N$:\n    $mg \\sin\\theta - \\mu_s N = 0$\n\n3.  **Substitute $N$ from step 1:**\n    $mg \\sin\\theta - \\mu_s (mg \\cos\\theta) = 0$\n\n4.  **Solve for $\\theta$:**\n    Divide by $mg \\cos\\theta$ (assuming $mg \\cos\\theta \\neq 0$):\n    $\\frac{mg \\sin\\theta}{mg \\cos\\theta} - \\mu_s = 0$\n    $\\tan\\theta - \\mu_s = 0$\n    $\\tan\\theta_{min} = \\mu_s$\n    Therefore, $\\theta_{min} = \\arctan(\\mu_s)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

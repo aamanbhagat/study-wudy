@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-fourier-series-motivation-from-periodic-functions",
+  "subtopicTitle": "Fourier series — motivation from periodic functions",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:42.622Z",
+  "cards": [
+    {
+      "front": "Define a periodic function $f(x)$ with period $T$.",
+      "back": "A function $f(x)$ is periodic with period $T > 0$ if $f(x+T) = f(x)$ for all $x$ in the domain of $f$. The smallest positive $T$ for which this holds is called the fundamental period.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Give two common examples of periodic functions and state their fundamental periods.",
+      "back": "1. $\\sin(x)$ has a fundamental period of $2\\pi$. \n2. $\\cos(x)$ has a fundamental period of $2\\pi$. \nMore generally, $\\sin(kx)$ and $\\cos(kx)$ have fundamental periods of $2\\pi/k$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do periodic functions arise naturally in the context of Partial Differential Equations (PDEs)?",
+      "back": "Periodic functions are crucial in PDEs when dealing with problems on **finite domains** with **periodic boundary conditions** or when modeling **oscillatory phenomena**. Examples include: \n*   Vibrations of a string fixed at both ends (wave equation).\n*   Heat flow in a ring (heat equation).\n*   Steady-state solutions to wave equations. \nThey allow us to represent complex phenomena as superpositions of simpler, fundamental modes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental idea behind Fourier series for representing a periodic function?",
+      "back": "The fundamental idea is to represent any \"well-behaved\" periodic function as an **infinite sum (superposition)** of simple sine and cosine functions. These sines and cosines are themselves periodic and have periods that are integer submultiples of the original function's period.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What unique mathematical properties make sine and cosine functions ideal building blocks for Fourier series?",
+      "back": "1.  **Periodicity:** They are inherently periodic, matching the nature of the functions we want to represent.\n2.  **Orthogonality:** Over an interval of length $2L$ (or generally a period $T$), sine and cosine functions with different frequencies are orthogonal. This property is key to easily determining the coefficients of the series.\n3.  **Smoothness:** They are infinitely differentiable, allowing us to represent functions with varying degrees of smoothness.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write down the general form of the Fourier series for a periodic function $f(x)$ with period $2L$.",
+      "back": "The general form of the Fourier series for a function $f(x)$ with period $2L$ is:\n$$f(x) = a_0 + \\sum_{n=1}^{\\infty} \\left( a_n \\cos\\left(\\frac{n\\pi x}{L}\\right) + b_n \\sin\\left(\\frac{n\\pi x}{L}\\right) \\right)$$\nwhere $a_0, a_n, b_n$ are the Fourier coefficients.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a periodic function $f(x)$ has a fundamental period $T$, what are the periods and angular frequencies of the sine and cosine terms in its Fourier series?",
+      "back": "If $f(x)$ has period $T$, then in its Fourier series representation, the sine and cosine terms will have periods $T/n$ for $n=1, 2, 3, \\dots$. \nThe corresponding angular frequencies are $\\omega_n = n \\omega_0 = n \\frac{2\\pi}{T}$. \nThe fundamental (lowest) frequency term corresponds to $n=1$, with period $T$ and frequency $2\\pi/T$. Higher harmonics ($n>1$) have periods that are integer fractions of $T$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively how a complex periodic wave can be \"decomposed\" into its constituent sine and cosine waves.",
+      "back": "Imagine a complex sound wave, like music from an orchestra. Your ear (or a spectrum analyzer) can distinguish individual notes (frequencies) played by different instruments, even though they combine into one complex sound. Similarly, Fourier series \"decomposes\" a complex periodic function into its fundamental frequency (the base note) and its harmonics (overtones). Each sine/cosine term represents a simple, pure tone (a specific frequency component) that, when added together with appropriate amplitudes, reconstructs the original complex wave. This process is like finding the \"recipe\" of pure tones that make up the complex sound.",
+      "difficulty": "hard"
+    }
+  ]
+}

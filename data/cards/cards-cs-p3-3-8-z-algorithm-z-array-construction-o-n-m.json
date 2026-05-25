@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-8-z-algorithm-z-array-construction-o-n-m",
+  "subtopicTitle": "Z-algorithm — Z-array construction, O(n+m)",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:25.921Z",
+  "cards": [
+    {
+      "front": "Define the Z-value $Z[i]$ for a string $S$ of length $N$. What is $Z[0]$?",
+      "back": "$Z[i]$ is the length of the longest substring starting at $S[i]$ that is also a prefix of $S$. For example, if $S = \\text{ababa}$, $Z[1]=0$, $Z[2]=3$ (for $\\text{aba}$). $Z[0]$ is typically defined as $N$ (the length of the string itself) or sometimes left undefined/ignored as it trivially matches the whole string.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary application of the Z-algorithm in string matching, and how is it used?",
+      "back": "The Z-algorithm is primarily used to find all occurrences of a pattern $P$ in a text $T$. This is achieved by constructing a new string $S = P + \\text{separator} + T$ (where the separator is a character not present in $P$ or $T$, e.g., '#') and then computing the Z-array for $S$. Any $Z[i]$ value in this combined string that is equal to $|P|$ indicates an occurrence of $P$ starting at $S[i]$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the naive approach to compute $Z[i]$ for a string $S$ of length $N$ and state its worst-case time complexity.",
+      "back": "For each index $i$ from $1$ to $N-1$, we compare characters $S[i+k]$ with $S[k]$ starting from $k=0$. We increment $k$ as long as they match and $i+k < N$. The final value of $k$ is $Z[i]$. This process is repeated for all $i$. The worst-case time complexity is $O(N^2)$, occurring for strings like \"aaaaa...\" where many comparisons are needed for each $Z[i]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the core idea behind the $O(N)$ optimized Z-algorithm for string $S$?",
+      "back": "The core idea is to reuse information from previously computed Z-values to avoid redundant character comparisons. It maintains a 'Z-box' (or 'matching segment') defined by $[L, R]$, which represents the rightmost substring $S[L \\dots R]$ that matches a prefix of $S$. When computing $Z[i]$, if $i$ falls within this current Z-box ($i \\le R$), we can often infer $Z[i]$ from a previously computed $Z[i-L]$ without explicit character comparisons, or at least reduce the number of comparisons needed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the optimized Z-algorithm, explain the roles of the $L$ and $R$ pointers and how they are updated.",
+      "back": "$L$ and $R$ define the current 'Z-box' $[L, R]$, where $S[L \\dots R]$ is the longest substring starting at $L$ that matches a prefix of $S$, and $R$ is its rightmost endpoint. Initially, $L=R=0$. When computing $Z[i]$:\n1. If $i > R$: A new Z-box must be established. We set $L=i$, perform naive character comparisons to find $Z[i]$, and then update $R = i + Z[i] - 1$.\n2. If $i \\le R$: We try to use previously computed $Z[i-L]$. If $Z[i]$ extends beyond the current $R$ (i.e., $i + Z[i] - 1 > R$), then $L$ is updated to $i$, and $R$ is updated to the new extended right boundary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When computing $Z[i]$ in the optimized Z-algorithm, if $i \\le R$, describe the two sub-cases based on $Z[i-L]$ and how $Z[i]$ is determined.",
+      "back": "Let $k = i-L$. Since $S[L \\dots R]$ matches $S[0 \\dots R-L]$, $S[i \\dots]$ corresponds to $S[k \\dots]$ within this match.\n1.  **Case 1: $Z[k] < R-i+1$** (The match starting at $S[k]$ is fully contained within $S[0 \\dots R-L]$). In this case, $Z[i]$ is simply $Z[k]$. No new comparisons are needed.\n2.  **Case 2: $Z[k] \\ge R-i+1$** (The match starting at $S[k]$ extends to or beyond $S[0 \\dots R-L]$). We know $S[i \\dots R]$ matches $S[0 \\dots R-i]$. We then perform character comparisons starting from $S[R+1]$ and $S[R-i+1]$ to extend the match as far as possible, finding the true $Z[i]$. The $L$ and $R$ pointers are updated if this new $Z[i]$ creates a Z-box that extends further to the right.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the optimized Z-algorithm has a time complexity of $O(N)$ for a string of length $N$.",
+      "back": "The $R$ pointer (the rightmost boundary of the current Z-box) only ever moves forward or stays in place. Each character comparison performed either contributes to extending $R$ by at least one position (when $i > R$ or when extending an existing Z-box) or is part of the initial 'naive' matching phase. Since $R$ can increase at most $N$ times (from $0$ to $N-1$), and each comparison effectively advances $R$ or is part of a bounded number of comparisons for each $i$ that doesn't extend $R$, the total number of character comparisons is bounded by $2N$. Thus, the overall time complexity is $O(N)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the space complexity of the Z-algorithm?",
+      "back": "The space complexity of the Z-algorithm is $O(N)$, primarily for storing the Z-array itself, which has $N$ elements for a string of length $N$.",
+      "difficulty": "easy"
+    }
+  ]
+}

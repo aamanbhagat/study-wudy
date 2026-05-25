@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-lqg-lqr-kalman-filter-separation-principle",
+  "subtopicTitle": "LQG — LQR + Kalman filter, separation principle",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:15.799Z",
+  "cards": [
+    {
+      "front": "What does the acronym LQG stand for in control theory, and what two primary components does it combine?",
+      "back": "LQG stands for **Linear-Quadratic-Gaussian**. It combines the **Linear-Quadratic Regulator (LQR)** and the **Kalman Filter**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of LQG, what is the primary objective of the Linear-Quadratic Regulator (LQR)?",
+      "back": "The LQR's primary objective is to design an optimal state-feedback control law $u(t) = -Kx(t)$ that minimizes a quadratic cost function, typically penalizing state deviations and control effort, for a linear system with *known* full state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is a Kalman Filter necessary in an LQG control system, given that LQR requires full state information?",
+      "back": "The Kalman Filter is necessary because, in real-world systems, the full state $x(t)$ is often not directly measurable. It provides an optimal estimate $\\hat{x}(t)$ of the system's state by fusing noisy sensor measurements with a model of the system dynamics and process/measurement noise statistics.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the **Separation Principle** in the context of LQG control.",
+      "back": "The Separation Principle states that for linear systems with Gaussian noise and quadratic cost functions, the problem of optimal control can be **separated** into two independent parts:\n1. Designing an optimal state estimator (Kalman Filter).\n2. Designing an optimal state-feedback controller (LQR) using the *estimated* state $\\hat{x}(t)$ instead of the true state $x(t)$.\nThe optimality of each component is preserved when they are combined.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the functional structure of an LQG controller, showing the interaction between the plant, LQR, and Kalman Filter.",
+      "back": "The LQG controller uses the Kalman Filter to estimate the system state $\\hat{x}$ from noisy measurements $y$. This estimated state $\\hat{x}$ is then fed into the LQR controller, which computes the optimal control input $u = -K\\hat{x}$. This control input $u$ is then applied to the plant.\n\n$\\text{Plant} \\xrightarrow{u} \\text{Plant Dynamics} \\xrightarrow{x} \\text{Measurement Model} \\xrightarrow{y} \\text{Kalman Filter} \\xrightarrow{\\hat{x}} \\text{LQR Controller} \\xrightarrow{u}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write down the continuous-time quadratic cost function $J$ that an LQG controller aims to minimize.",
+      "back": "The LQG cost function to minimize is:\n$$ J = E \\left[ \\int_{0}^{T} (x^T Q x + u^T R u) dt + x(T)^T Q_f x(T) \\right] $$\nwhere $E[\\cdot]$ denotes the expected value (due to stochastic noise), $Q \\ge 0$ and $R > 0$ are weighting matrices for state deviation and control effort, respectively, and $Q_f \\ge 0$ is the terminal state weighting matrix.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List two scenarios where the Separation Principle might *not* hold, meaning LQR and Kalman Filter design cannot be independently optimized.",
+      "back": "The Separation Principle relies on linearity, quadratic cost, and Gaussian noise. It might fail if:\n1. The system dynamics or cost function are **nonlinear**.\n2. The noise is **non-Gaussian**.\n3. There are **state-dependent noise** terms (e.g., control input directly affects noise characteristics).\n4. The controller has **hard constraints** (e.g., actuator saturation).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When would you use a pure LQR controller versus an LQG controller for a linear system?",
+      "back": "You would use a pure **LQR controller** when the full state $x(t)$ of the system is **directly and perfectly measurable** (or can be accurately reconstructed without an estimator). You would use an **LQG controller** when the full state $x(t)$ is **not directly measurable** and must be estimated from noisy sensor measurements, or when the system is subject to process and measurement noise.",
+      "difficulty": "medium"
+    }
+  ]
+}

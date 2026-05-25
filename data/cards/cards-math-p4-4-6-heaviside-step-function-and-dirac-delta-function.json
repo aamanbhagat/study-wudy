@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-heaviside-step-function-and-dirac-delta-function",
+  "subtopicTitle": "Heaviside step function and Dirac delta function",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:14.436Z",
+  "cards": [
+    {
+      "front": "Define the Heaviside step function, $H(t)$, mathematically.",
+      "back": "The Heaviside step function is defined as:\n$$ H(t) = \\begin{cases} 0 & \\text{if } t < 0 \\\\ 1 & \\text{if } t \\ge 0 \\end{cases} $$\nIt is also often denoted as $u(t)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the graph of $H(t-a)$ differ from $H(t)$ for $a>0$?",
+      "back": "The graph of $H(t-a)$ is identical to $H(t)$ but shifted $a$ units to the right along the t-axis. It \"turns on\" (switches from 0 to 1) at $t=a$ instead of $t=0$.\n$$ H(t-a) = \\begin{cases} 0 & \\text{if } t < a \\\\ 1 & \\text{if } t \\ge a \\end{cases} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the Dirac delta function, $\\delta(t)$, intuitively. What is its defining integral property?",
+      "back": "Intuitively, $\\delta(t)$ is a \"function\" that is zero everywhere except at $t=0$, where it is infinitely large, such that its total integral is 1. It represents an idealized impulse of unit strength.\nIts defining integral property is:\n$$ \\int_{-\\infty}^{\\infty} \\delta(t) \\, dt = 1 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the relationship between the Heaviside step function $H(t)$ and the Dirac delta function $\\delta(t)$ through differentiation and integration?",
+      "back": "The Dirac delta function is the derivative of the Heaviside step function:\n$$ \\delta(t) = \\frac{d}{dt} H(t) $$\nConversely, the Heaviside step function is the integral of the Dirac delta function:\n$$ H(t) = \\int_{-\\infty}^{t} \\delta(\\tau) \\, d\\tau $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Laplace transform of the shifted Heaviside step function, $H(t-a)$, for $a \\ge 0$.",
+      "back": "The Laplace transform of the shifted Heaviside step function is:\n$$ \\mathcal{L}\\{H(t-a)\\} = \\frac{e^{-as}}{s} \\quad \\text{for } s > 0 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Laplace transform of the shifted Dirac delta function, $\\delta(t-a)$, for $a \\ge 0$.",
+      "back": "The Laplace transform of the shifted Dirac delta function is:\n$$ \\mathcal{L}\\{\\delta(t-a)\\} = e^{-as} \\quad \\text{for } s > 0 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the sifting (or sampling) property of the Dirac delta function. Evaluate $\\int_{-\\infty}^{\\infty} e^{-t^2} \\delta(t-2) \\, dt$.",
+      "back": "The sifting property states that for any continuous function $f(t)$ and constant $a$:\n$$ \\int_{-\\infty}^{\\infty} f(t) \\delta(t-a) \\, dt = f(a) $$\nApplying this to the given integral:\n$$ \\int_{-\\infty}^{\\infty} e^{-t^2} \\delta(t-2) \\, dt = e^{-(2)^2} = e^{-4} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Express a rectangular pulse function $f(t)$ that is $0$ for $t<a$, $k$ for $a \\le t < b$, and $0$ for $t \\ge b$ using Heaviside step functions. Assume $a<b$.",
+      "back": "The function can be expressed as:\n$$ f(t) = k [H(t-a) - H(t-b)] $$\nThis works because $H(t-a)$ \"turns on\" the value $k$ at $t=a$, and subtracting $H(t-b)$ effectively \"turns off\" the value $k$ at $t=b$, returning the function to $0$.",
+      "difficulty": "hard"
+    }
+  ]
+}

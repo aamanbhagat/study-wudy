@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-7-tabulation-bottom-up-dp-iterative",
+  "subtopicTitle": "Tabulation (bottom-up DP) — iterative",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:39.793Z",
+  "cards": [
+    {
+      "front": "What is the core characteristic that defines the Tabulation (bottom-up) approach in Dynamic Programming?",
+      "back": "Tabulation iteratively computes and stores solutions for all subproblems, starting from the simplest base cases and systematically building up to the final solution. It fills a DP table in a predetermined order without explicit recursion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the general flow of computation when implementing a Tabulation DP solution.",
+      "back": "The computation flow starts by initializing the DP table with known base case values. Then, it iterates through the table, typically in a nested loop structure, to compute each subsequent state $dp[i]$ (or $dp[i][j]$) by referencing already computed values from smaller subproblems. This continues until the state representing the original problem is filled.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement the Fibonacci sequence using Tabulation for $n \\ge 0$. Provide the Python code.",
+      "back": "```python\ndef fib_tabulation(n: int) -> int:\n    if n <= 1:\n        return n\n    dp = [0] * (n + 1)\n    dp[0] = 0\n    dp[1] = 1\n    for i in range(2, n + 1):\n        dp[i] = dp[i-1] + dp[i-2]\n    return dp[n]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the key steps involved in deriving and implementing a Tabulation (bottom-up DP) solution for a given problem.",
+      "back": "1. **Identify DP State:** Define what $dp[i]$ or $dp[i][j]$ represents (the solution to a subproblem).\n2. **Base Cases:** Determine the initial values for the smallest subproblems and populate them in the DP table.\n3. **Recurrence Relation:** Formulate the mathematical relationship to compute a current state from previously computed states.\n4. **Iteration Order:** Establish the order in which the DP table must be filled to ensure all dependencies are met (e.g., $i$ from $0$ to $N$, then $j$ from $0$ to $M$).\n5. **Final Answer:** Identify which cell in the DP table holds the solution to the original problem.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how space complexity can be optimized from $O(N)$ to $O(1)$ in Tabulation DP problems where $dp[i]$ only depends on a constant number of previous states (e.g., $dp[i-1], dp[i-2]$).",
+      "back": "When $dp[i]$ only relies on a fixed, small number of preceding states (e.g., $dp[i-1]$ and $dp[i-2]$), we don't need to store the entire $O(N)$ DP array. Instead, we can use a few constant-sized variables (e.g., `prev2`, `prev1`, `current`) to hold only the necessary previous values. In each iteration, we compute the `current` value, then update `prev2` to `prev1` and `prev1` to `current`, effectively 'sliding' our window of relevant states. This reduces space complexity to $O(1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the time complexity of a Tabulation DP solution typically determined?",
+      "back": "The time complexity is generally determined by the total number of states in the DP table multiplied by the time taken to compute each individual state. If the DP table has $N$ states and each state takes $O(K)$ time to compute (where $K$ is often constant or logarithmic), the total time complexity is $O(N \\cdot K)$. For a 2D DP table of size $N \\times M$, it would be $O(N \\cdot M \\cdot K)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two distinct advantages of Tabulation over Memoization, and when might Memoization be preferred?",
+      "back": "Advantages of Tabulation: 1. Avoids recursion overhead and potential stack overflow issues. 2. Often easier to reason about space optimization as the table filling order is explicit. Memoization is preferred when: 1. Not all subproblems necessarily need to be computed (e.g., in sparse dependency graphs). 2. The problem's recursive structure is more intuitive or complex to convert to an iterative loop order.",
+      "difficulty": "medium"
+    }
+  ]
+}

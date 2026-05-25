@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-lagrange-points-l1-l5-derivation-stability",
+  "subtopicTitle": "Lagrange points L1–L5 — derivation, stability",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:33.842Z",
+  "cards": [
+    {
+      "front": "Define Lagrange points in the context of the circular restricted three-body problem (CR3BP).",
+      "back": "Lagrange points are five specific positions in space relative to two large co-orbiting bodies (primaries) where a small third body (negligible mass) can maintain a stable (or semi-stable) position relative to the primaries. At these points, the gravitational forces of the two large bodies and the centrifugal force in a rotating frame balance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the rotating frame co-rotating with two primary masses $M_1$ and $M_2$, what three forces must balance for a small third body to be at a Lagrange point?",
+      "back": "For a small third body to be at a Lagrange point in the rotating frame, the following three forces must balance:\n1.  Gravitational force from $M_1$\n2.  Gravitational force from $M_2$\n3.  Centrifugal force (due to the rotation of the frame)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the CR3BP, how is the effective potential $\\Phi_{eff}$ defined in the rotating frame, and what condition must be met for a small body to be at a Lagrange point?",
+      "back": "The effective potential $\\Phi_{eff}$ is given by:\n$$ \\Phi_{eff}(x,y) = -\\frac{GM_1}{r_1} - \\frac{GM_2}{r_2} - \\frac{1}{2}\\omega^2(x^2+y^2) $$\nwhere $r_1, r_2$ are distances to $M_1, M_2$, and $\\omega$ is the angular velocity of the rotating frame.\nLagrange points are the critical points (equilibria) of this potential, found by setting the gradient to zero:\n$$ \\nabla \\Phi_{eff} = \\vec{0} $$\nThis means $\\frac{\\partial \\Phi_{eff}}{\\partial x} = 0$ and $\\frac{\\partial \\Phi_{eff}}{\\partial y} = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the approximate locations of the collinear Lagrange points L1, L2, and L3 relative to the two primary bodies $M_1$ and $M_2$ (assuming $M_1 > M_2$).",
+      "back": "*   **L1:** Between $M_1$ and $M_2$, closer to the smaller mass $M_2$.\n*   **L2:** Beyond the smaller mass $M_2$, on the line extending from $M_1$ through $M_2$.\n*   **L3:** Beyond the larger mass $M_1$, on the line extending from $M_2$ through $M_1$. (Slightly offset due to $M_2$'s gravity).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What geometric configuration do the triangular Lagrange points L4 and L5 form with the two primary bodies $M_1$ and $M_2$?",
+      "back": "L4 and L5 form equilateral triangles with the two primary bodies $M_1$ and $M_2$. L4 is located $60^\\circ$ ahead of $M_2$ in its orbit around $M_1$, and L5 is $60^\\circ$ behind $M_2$. The distances from L4/L5 to $M_1$ and $M_2$ are equal to the distance between $M_1$ and $M_2$ ($r_{12}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the collinear Lagrange points L1, L2, and L3 are inherently unstable.",
+      "back": "The collinear Lagrange points (L1, L2, L3) are saddle points in the effective potential. Any small perturbation away from these points will experience a net force that pushes the object further away. For example, a slight displacement along the line connecting the primaries will cause the gravitational and centrifugal forces to become unbalanced in a way that accelerates the object away from the point. This instability means objects at these points require active station-keeping.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition are the triangular Lagrange points L4 and L5 stable, and what is the nature of this stability?",
+      "back": "L4 and L5 are stable if the mass ratio $\\mu = M_2 / (M_1 + M_2)$ is less than approximately $0.0385$ (or $M_1/M_2 > 24.96$). This condition is met for most astronomical systems (e.g., Sun-Jupiter, Earth-Moon). The stability is not absolute but rather 'orbital stability' — objects perturbed from L4/L5 will oscillate around these points in large, stable orbits called tadpole or horseshoe orbits, rather than drifting away. They are maxima in the effective potential, which corresponds to stable equilibrium in a rotating frame.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name one natural phenomenon or space mission that utilizes or is associated with a specific Lagrange point.",
+      "back": "Examples include:\n*   **L1 (Sun-Earth):** DSCOVR, SOHO missions.\n*   **L2 (Sun-Earth):** James Webb Space Telescope (JWST), Planck, Gaia missions.\n*   **L4/L5 (Sun-Jupiter):** Trojan asteroids (e.g., Jupiter Trojans).\n*   **L4/L5 (Earth-Moon):** Kordylewski clouds (dust clouds).",
+      "difficulty": "medium"
+    }
+  ]
+}

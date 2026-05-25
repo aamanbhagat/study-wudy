@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-8-palindrome-algorithms-manacher-s-algorithm",
+  "subtopicTitle": "Palindrome algorithms — Manacher's algorithm",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:53.954Z",
+  "cards": [
+    {
+      "front": "What problem does Manacher's algorithm solve, and what is its optimal time complexity?",
+      "back": "Manacher's algorithm solves the problem of finding the longest palindromic substring within a given string. It achieves this in optimal $O(N)$ time complexity, where $N$ is the length of the input string.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the preprocessing step in Manacher's algorithm and its primary purpose.",
+      "back": "The preprocessing step transforms the input string $S$ into a new string $T$ by inserting a special character (e.g., '#') between every character of $S$, and at both ends, often with unique start/end sentinels (e.g., `^` and `$`).\nExample: $S = \\text{\"aba\"} \\rightarrow T = \\text{\"^#a#b#a#$\"}$.\nIts purpose is to unify the handling of odd-length and even-length palindromes. After transformation, all palindromes in $T$ will effectively have odd length, simplifying the core algorithm.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Manacher's algorithm, what does $P[i]$ represent for the transformed string $T$?",
+      "back": "$P[i]$ represents the radius of the longest palindrome centered at $T[i]$. Specifically, it's the number of characters to the left (or right) of $T[i]$ that are part of the palindrome. The total length of the palindrome in $T$ is $2 \\cdot P[i] + 1$. For example, if $T = \\text{\"^#a#b#a#$\"}$ and $T[3]=\\text{'b'}$, the palindrome is `#a#b#a#`, so $P[3]=3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of `i_mirror` and its significance in Manacher's algorithm's efficiency.",
+      "back": "`i_mirror` is the symmetric index of `i` with respect to the current palindrome's center `C`. It's calculated as `i_mirror = 2*C - i`. Its significance lies in leveraging the palindromic property of the segment centered at `C`. The palindrome centered at `i` can often be partially or fully derived from the palindrome centered at `i_mirror` due to this symmetry, allowing for $O(1)$ initial estimations of $P[i]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When $i$ is within the current largest palindrome's right boundary $R$ ($i < R$), how is the initial value for $P[i]$ determined, and what are the two main cases?",
+      "back": "The initial value for $P[i]$ is set to $\\min(P[i_{\\text{mirror}}], R-i)$.\n1.  **Case 1 ($P[i_{\\text{mirror}}] < R-i$):** The palindrome at $i_{\\text{mirror}}$ is fully contained within the `C`-centered palindrome. By symmetry, the palindrome at $i$ will have the same radius as $P[i_{\\text{mirror}}]$. So, $P[i] = P[i_{\\text{mirror}}]$.\n2.  **Case 2 ($P[i_{\\text{mirror}}] \\ge R-i$):** The palindrome at $i_{\\text{mirror}}$ extends to or beyond the left boundary of the `C`-centered palindrome. Symmetry only guarantees a palindrome at $i$ up to the boundary $R-i$. So, $P[i] = R-i$. \nThis minimum ensures we use the most information available from symmetry without going out of bounds.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After setting an initial $P[i]$ based on symmetry, how does Manacher's algorithm determine the *true* maximal $P[i]$?",
+      "back": "After the initial estimate (e.g., using $\\min(P[i_{\\text{mirror}}], R-i)$), the algorithm performs an expansion step. It incrementally checks if characters symmetric to $T[i]$ match, extending $P[i]$ as long as they do. This is typically a `while` loop:\n```python\n# T is the transformed string\n# P is the array storing palindrome radii\nwhile (i - (P[i] + 1) >= 0 and \\\n       i + (P[i] + 1) < len(T) and \\\n       T[i - (P[i] + 1)] == T[i + (P[i] + 1)]):\n    P[i] += 1\n```\nThis loop finds the maximal palindrome centered at $T[i]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When and how are the `C` (center) and `R` (right boundary) variables updated in Manacher's algorithm?",
+      "back": "The `C` and `R` variables track the center and rightmost boundary of the palindrome that extends furthest to the right *so far*. They are updated whenever a newly calculated palindrome centered at $T[i]$ extends beyond the current `R`. Specifically, if the current palindrome's right boundary ($i + P[i]$) is greater than the current `R`:\n```python\nif i + P[i] > R:\n    C = i\n    R = i + P[i]\n```\nThis ensures `C` and `R` always define the most expansive palindrome found up to the current `i`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Justify why Manacher's algorithm achieves $O(N)$ time complexity, despite the inner expansion loop.",
+      "back": "Manacher's algorithm achieves $O(N)$ time complexity due to the amortized analysis of its operations. The algorithm iterates through the transformed string $T$ once ($O(N)$).\n1.  **Initial $P[i]$ calculation:** This step (using $\\min(P[i_{\\text{mirror}}], R-i)$) is $O(1)$ for each $i$.\n2.  **Expansion step:** The `while` loop `P[i]++` seems like it could be $O(N)$ per $i$. However, the key is that the rightmost boundary `R` only ever increases. Each time `P[i]` is incremented, it means `R` is also effectively expanding or being set to a new, larger value. The total number of times `P[i]` can be incremented across all $i$ is bounded by the length of the string $N$, because `R` can increase at most $N$ times. Therefore, the total work done by all expansion steps combined is amortized $O(N)$.\nSince both parts are $O(N)$ in total, the overall complexity is $O(N)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

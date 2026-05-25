@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-properties-property-setter-deleter-for-controlled-access",
+  "subtopicTitle": "Properties — @property, @setter, @deleter for controlled access",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:24.711Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Python's `@property` decorator when applied to a method?",
+      "back": "It allows a method to be accessed like an attribute, effectively turning it into a \"getter\". This provides controlled access to an instance attribute, supporting encapsulation by abstracting internal implementation details.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you define a read-only property `full_name` for a `Person` class, derived from `first_name` and `last_name`?",
+      "back": "```python\nclass Person:\n    def __init__(self, first, last):\n        self._first_name = first\n        self._last_name = last\n\n    @property\n    def full_name(self):\n        return f\"{self._first_name} {self._last_name}\"\n# No @full_name.setter means it's read-only\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement a `Circle` class with a `radius` property that prevents assignment of negative values, raising a `ValueError` if attempted.",
+      "back": "```python\nclass Circle:\n    def __init__(self, radius):\n        self._radius = 0 # Initialize to default or validate via setter\n        self.radius = radius # Use setter for initial validation\n\n    @property\n    def radius(self):\n        return self._radius\n\n    @radius.setter\n    def radius(self, value):\n        if not isinstance(value, (int, float)):\n            raise TypeError(\"Radius must be a number.\")\n        if value < 0:\n            raise ValueError(\"Radius cannot be negative.\")\n        self._radius = value\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the specific function of the `@property.setter` decorator in Python?",
+      "back": "It defines the \"setter\" method for a property. This method is automatically called when an attempt is made to assign a new value to the property, allowing for validation, transformation, or other logic before the internal attribute is updated.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain a key benefit of using properties (e.g., `@property`, `@setter`) over direct public attribute access (e.g., `obj.attribute = value`) in terms of class design.",
+      "back": "Properties allow you to change the internal implementation of how an attribute is managed (e.g., adding validation, logging, or computation) *without altering the external interface* of the class. This means client code using `obj.attribute` doesn't need to be modified, enhancing maintainability and encapsulation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Demonstrate the use of `@property.deleter` for a `User` class's `username` property. Provide a practical scenario for its utility.",
+      "back": "```python\nclass User:\n    def __init__(self, username):\n        self._username = username\n\n    @property\n    def username(self):\n        return self._username\n\n    @username.setter\n    def username(self, value):\n        if not value:\n            raise ValueError(\"Username cannot be empty.\")\n        self._username = value\n\n    @username.deleter\n    def username(self):\n        print(f\"Deleting username for {self._username}...\")\n        del self._username\n        # Or set to None, log, etc.\n\n# Scenario: When a user account needs to be anonymized or deleted, the deleter can handle\n# associated cleanup, logging, or GDPR compliance by removing sensitive data like the username.\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If you define a property using `@property` but omit the `@property.setter`, what specific error occurs when you try to assign a value to that property?",
+      "back": "An `AttributeError` occurs. For example, if `my_obj.my_property` is a read-only property, `my_obj.my_property = new_value` will raise `AttributeError: can't set attribute 'my_property'`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Python's `@property` mechanism contribute to the principle of encapsulation in Object-Oriented Programming?",
+      "back": "It allows internal data (`_attribute`) to be accessed and modified through public methods (the property's getter/setter/deleter) that appear as direct attribute access. This hides the internal representation and logic, preventing direct manipulation and enabling controlled access, validation, and future changes without affecting external code.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p1-1-2-nested-data-structures-list-of-dicts-dict-of-lists",
+  "subtopicTitle": "Nested data structures — list of dicts, dict of lists",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:29.852Z",
+  "cards": [
+    {
+      "front": "Define a 'nested data structure' in Python and explain its purpose.",
+      "back": "A nested data structure is a data structure (like a list or dictionary) whose elements are themselves other data structures. Its purpose is to represent complex, hierarchical, or tabular data efficiently, allowing for more organized and structured information storage.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide an example of a 'list of dictionaries' representing two students with 'name' and 'grade'.",
+      "back": "```python\nstudents = [\n    {'name': 'Alice', 'grade': 'A'},\n    {'name': 'Bob', 'grade': 'B'}\n]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `data = [{'id': 1, 'val': 'A'}, {'id': 2, 'val': 'B'}]`, how do you access the 'val' of the second item?",
+      "back": "`data[1]['val']`.\n\nFirst, `data[1]` accesses the second dictionary `{'id': 2, 'val': 'B'}`. Then `['val']` accesses the value associated with the 'val' key within that dictionary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an example of a 'dictionary of lists' representing programming languages grouped by type ('scripting', 'compiled').",
+      "back": "```python\nlanguages = {\n    'scripting': ['Python', 'JavaScript', 'Ruby'],\n    'compiled': ['Java', 'C++', 'Go']\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `products = {'fruit': ['apple', 'banana'], 'dairy': ['milk', 'cheese']}`, how do you access 'banana'?",
+      "back": "`products['fruit'][1]`.\n\nFirst, `products['fruit']` accesses the list `['apple', 'banana']`. Then `[1]` accesses the element at index 1 (which is 'banana') within that list.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you typically use a 'list of dictionaries' vs. a 'dictionary of lists'?",
+      "back": "-   **List of Dictionaries:** Best for collections of records where each record has a consistent set of attributes (e.g., a database table, a list of users, products). The order might matter, or you might want to iterate through all records sequentially.\n-   **Dictionary of Lists:** Best for grouping items by a specific category or key (e.g., products by type, students by grade, search results by tag). You often want to quickly access all items belonging to a particular group.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write Python code to print the name of every student who scored 'A' from a `students` list of dictionaries.",
+      "back": "```python\nstudents = [\n    {'name': 'Alice', 'grade': 'A'},\n    {'name': 'Bob', 'grade': 'B'},\n    {'name': 'Charlie', 'grade': 'A'}\n]\n\nfor student in students:\n    if student['grade'] == 'A':\n        print(student['name'])\n# Expected Output:\n# Alice\n# Charlie\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write Python code to print all 'compiled' languages from a `languages` dictionary of lists, each on a new line.",
+      "back": "```python\nlanguages = {\n    'scripting': ['Python', 'JavaScript', 'Ruby'],\n    'compiled': ['Java', 'C++', 'Go']\n}\n\nfor lang in languages['compiled']:\n    print(lang)\n# Expected Output:\n# Java\n# C++\n# Go\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What error occurs if you try to access `data[0]['age']` on `data = [{'name': 'Alice'}]`? How can you safely check for the 'age' key?",
+      "back": "A `KeyError` occurs because the dictionary at index 0 does not have an 'age' key.\n\nTo safely check for the 'age' key:\n```python\ndata = [{'name': 'Alice'}]\n\n# Method 1: Using 'in' operator\nif 'age' in data[0]:\n    print(data[0]['age'])\nelse:\n    print(\"Age key not found.\") # Output: Age key not found.\n\n# Method 2: Using .get() method (returns None or a default value if key not found)\nage = data[0].get('age', 'N/A')\nprint(age) # Output: N/A\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

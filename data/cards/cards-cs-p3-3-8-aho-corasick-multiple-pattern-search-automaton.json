@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-8-aho-corasick-multiple-pattern-search-automaton",
+  "subtopicTitle": "Aho-Corasick — multiple pattern search, automaton",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:25.989Z",
+  "cards": [
+    {
+      "front": "What fundamental string matching problem does the Aho-Corasick algorithm efficiently solve?",
+      "back": "Aho-Corasick efficiently solves the problem of **multiple pattern matching**, finding all occurrences of a *finite set of patterns* within a *given text*.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The first step in constructing an Aho-Corasick automaton is to build a _________ from the set of patterns.",
+      "back": "The first step in constructing an Aho-Corasick automaton is to build a **trie (prefix tree)** from the set of patterns. Each node in the trie represents a prefix of one or more patterns, and nodes are marked if they correspond to the end of a pattern.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an Aho-Corasick automaton, what is the purpose of a 'failure link' from node $u$ to node $v$?",
+      "back": "A failure link from node $u$ to node $v$ indicates that if no match is found for the current character from node $u$, the algorithm should transition to node $v$. Node $v$ represents the **longest proper suffix of the string corresponding to node $u$ that is also a prefix of some pattern**. This allows efficient backtracking without re-scanning text characters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the BFS-based process for constructing failure links in an Aho-Corasick automaton, starting from the root.",
+      "back": "1. Initialize a queue and add all children of the root (level 1 nodes), setting their failure links to the root.\n2. While the queue is not empty:\n   a. Dequeue node $u$.\n   b. For each child $v$ of $u$ (representing character $c$):\n      i. Set $curr = u$'s failure link.\n      ii. While $curr$ is not the root and $curr$ has no child for character $c$: $curr = curr$'s failure link.\n      iii. If $curr$ has a child for $c$, set $v$'s failure link to that child. Else, set $v$'s failure link to the root.\n      iv. Enqueue $v$.\nThis ensures that failure links are correctly established for shorter prefixes before longer ones.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is an 'output link' (or 'dictionary link') in an Aho-Corasick automaton, and why is it useful during pattern matching?",
+      "back": "An output link from node $u$ points to the nearest ancestor node $v$ (reachable via failure links) that represents the end of a pattern. It's useful because when a match is found at node $u$, we can quickly traverse output links to discover all *other* patterns that end at the *same position* in the text (i.e., patterns that are suffixes of the string represented by $u$) without having to repeatedly follow failure links.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the steps for searching a text $T$ using a pre-built Aho-Corasick automaton.",
+      "back": "1. Start at the root of the automaton.\n2. For each character $c$ in text $T$:\n   a. While the current node has no transition for $c$ and is not the root, follow its failure link.\n   b. If the current node has a transition for $c$, follow it. Else, stay at the root.\n   c. The new current node represents a prefix ending at the current text position.\n   d. From this node, follow its output links (and potentially its failure links if output links aren't precomputed) to identify all patterns that end at the current text position.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $N$ patterns with total length $M$, and a text of length $L$, what is the time complexity of the Aho-Corasick algorithm for building the automaton and for searching?",
+      "back": "The time complexity is:\n*   **Building the automaton:** $O(M)$\n    *   Trie construction: $O(M)$\n    *   Failure link construction (BFS): Each character transition and failure link traversal is processed at most a constant number of times in an amortized sense. Total $O(M)$.\n*   **Searching the text:** $O(L + K)$, where $K$ is the total number of pattern occurrences found.\n    *   Each character in the text is processed once. Each failure link traversal reduces the current state's depth, but the total depth increase over the entire text is $O(L)$, so total failure link traversals are also $O(L)$.\n    *   Outputting matches adds $O(K)$.\nOverall, it's highly efficient for multiple pattern matching.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If patterns 'CAT' and 'AT' are searched in 'THECAT', how does Aho-Corasick report matches, specifically regarding overlapping patterns?",
+      "back": "Aho-Corasick will report both 'CAT' and 'AT' as matches ending at the same position (the 'T' in 'THECAT'). This is because 'AT' is a suffix of 'CAT'. The algorithm identifies all patterns that end at the current text position by following output links (or failure links) from the current state, thus naturally handling and reporting all such overlapping matches.",
+      "difficulty": "medium"
+    }
+  ]
+}

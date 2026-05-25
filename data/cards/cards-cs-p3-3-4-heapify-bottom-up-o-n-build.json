@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-4-heapify-bottom-up-o-n-build",
+  "subtopicTitle": "Heapify — bottom-up O(n) build",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:01.419Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of the \"bottom-up heapify\" algorithm for building a heap?",
+      "back": "The primary goal is to transform an arbitrary array into a valid heap (either max-heap or min-heap) in $O(N)$ time complexity. It achieves this by iteratively ensuring the heap property for subtrees, starting from the last non-leaf node and moving up to the root.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the `heapify_down` (or `sift_down`) operation used at each step of bottom-up heapify.",
+      "back": "`heapify_down(array, index, heap_size)` ensures the heap property for the subtree rooted at `index`. It compares the node at `index` with its children. If a child violates the heap property (e.g., larger than parent in a min-heap), it swaps them and recursively calls `heapify_down` on the child's new position. This process continues until the node is in its correct position or becomes a leaf.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a 0-indexed array of size $N$, what is the index of the *first non-leaf node* from which the bottom-up heapify process begins?",
+      "back": "The first non-leaf node is at index $\\lfloor \\frac{N}{2} \\rfloor - 1$. All nodes from this index down to $0$ (the root) must be heapified. Nodes from $\\lfloor \\frac{N}{2} \\rfloor$ to $N-1$ are leaves and are already considered valid heaps of size 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the high-level steps for building a max-heap using the bottom-up heapify approach on a 0-indexed array `A` of size `N`.",
+      "back": "1. The core operation is `heapify_down(array, index, heap_size)`, which ensures the max-heap property for the subtree rooted at `index`.\n2. Start iterating from the last non-leaf node: `i = floor(N/2) - 1`.\n3. Loop downwards: For each `i` from `floor(N/2) - 1` down to `0`:\n    * Call `heapify_down(A, i, N)`.\n```python\ndef build_max_heap(arr):\n    n = len(arr)\n    # Start from the last non-leaf node and go up to the root\n    for i in range(n // 2 - 1, -1, -1):\n        heapify_down(arr, i, n) # Assuming heapify_down is defined elsewhere\n    return arr\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why the bottom-up heapify build operation is $O(N)$ and not $O(N \\log N)$.",
+      "back": "While `heapify_down` can take $O(\\log N)$ time for a node near the root, not all nodes are near the root. Most nodes are leaves or close to leaves, meaning their `heapify_down` operations are very fast (constant time or small constant). Specifically, there are about $N/2$ leaves (cost $O(1)$), $N/4$ nodes at height 1 (cost $O(1)$), $N/8$ nodes at height 2 (cost $O(2)$), etc. The sum of costs for all nodes is $\\sum_{h=0}^{\\log N} \\frac{N}{2^{h+1}} \\cdot h$, which evaluates to $O(N)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the `heapify_down` logic differ when building a max-heap versus a min-heap?",
+      "back": "For a **Max-Heap**, the parent node must be *greater than or equal to* its children. `heapify_down` finds the *largest* among the parent and its children, then swaps the parent with the largest child if that child is larger.\n\nFor a **Min-Heap**, the parent node must be *less than or equal to* its children. `heapify_down` finds the *smallest* among the parent and its children, then swaps the parent with the smallest child if that child is smaller.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given the array `[1, 5, 3, 8, 2, 7]`, show the first two `heapify_down` steps when building a max-heap using bottom-up heapify.",
+      "back": "Array size $N=6$. The first non-leaf node index is $\\lfloor 6/2 \\rfloor - 1 = 3 - 1 = 2$.\n\n1.  **Start with `i = 2` (value `3`):**\n    *   Node at index 2 (`3`). Its only child is at index 5 (`7`).\n    *   Since `7 > 3`, swap `3` and `7`. Array becomes `[1, 5, 7, 8, 2, 3]`.\n    *   `heapify_down` on index 2 is complete (new value `7` is now a leaf).\n\n2.  **Next, `i = 1` (value `5`):**\n    *   Node at index 1 (`5`). Its children are at index 3 (`8`) and index 4 (`2`).\n    *   The largest child is `8`. Since `8 > 5`, swap `5` and `8`. Array becomes `[1, 8, 7, 5, 2, 3]`.\n    *   Now, `heapify_down` continues on index 3 (where `5` moved). Node at index 3 (`5`) has no children (it's a leaf). `heapify_down` on index 1 is complete.\n\n(The next step would be `i = 0` for the root `1`.)",
+      "difficulty": "hard"
+    }
+  ]
+}

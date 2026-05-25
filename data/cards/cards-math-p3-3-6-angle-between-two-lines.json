@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p3-3-6-angle-between-two-lines",
+  "subtopicTitle": "Angle between two lines",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:01:14.539Z",
+  "cards": [
+    {
+      "front": "Define the angle between two lines in 3D space.",
+      "back": "The angle between two lines in 3D space is defined as the acute angle formed by their direction vectors. If the lines are skew, it is the acute angle between two lines that are parallel to the given lines and pass through a common point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given two lines with direction vectors $\\vec{d_1}$ and $\\vec{d_2}$, what is the formula for the angle $\\theta$ between them?",
+      "back": "The formula for the angle $\\theta$ between two lines with direction vectors $\\vec{d_1}$ and $\\vec{d_2}$ is: $$\\cos \\theta = \\frac{|\\vec{d_1} \\cdot \\vec{d_2}|}{||\\vec{d_1}|| \\cdot ||\\vec{d_2}||}$$ where $0 \\le \\theta \\le \\frac{\\pi}{2}$. The absolute value ensures that the resulting angle is acute.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A line is given by the parametric equation $\\vec{r}(t) = \\langle 1+2t, 3-t, 4+5t \\rangle$. What is its direction vector?",
+      "back": "The direction vector of the line $\\vec{r}(t) = \\langle 1+2t, 3-t, 4+5t \\rangle$ is $\\vec{d} = \\langle 2, -1, 5 \\rangle$. These are the coefficients of the parameter $t$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the angle $\\theta$ between two lines using their direction vectors $\\vec{d_1}$ and $\\vec{d_2}$.",
+      "back": "Let $\\vec{d_1}$ and $\\vec{d_2}$ be the direction vectors of the two lines. The angle $\\alpha$ between these two vectors is given by the dot product formula: $$\\cos \\alpha = \\frac{\\vec{d_1} \\cdot \\vec{d_2}}{||\\vec{d_1}|| \\cdot ||\\vec{d_2}||}$$ The angle $\\theta$ between the lines is conventionally defined as the acute angle. If $0 \\le \\alpha \\le \\frac{\\pi}{2}$, then $\\theta = \\alpha$. If $\\frac{\\pi}{2} < \\alpha \\le \\pi$, then the acute angle is $\\pi - \\alpha$. In both cases, $\\cos \\theta = |\\cos \\alpha|$. Therefore, the formula for the angle between the lines is: $$\\cos \\theta = \\frac{|\\vec{d_1} \\cdot \\vec{d_2}|}{||\\vec{d_1}|| \\cdot ||\\vec{d_2}||}$$ where $0 \\le \\theta \\le \\frac{\\pi}{2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the condition for two lines with direction vectors $\\vec{d_1}$ and $\\vec{d_2}$ to be perpendicular?",
+      "back": "Two lines with direction vectors $\\vec{d_1}$ and $\\vec{d_2}$ are perpendicular if and only if their direction vectors are orthogonal. This means their dot product is zero: $\\vec{d_1} \\cdot \\vec{d_2} = 0$. This corresponds to $\\cos \\theta = 0$, so $\\theta = \\frac{\\pi}{2}$ (or $90^\\circ$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the condition for two lines with direction vectors $\\vec{d_1}$ and $\\vec{d_2}$ to be parallel?",
+      "back": "Two lines with direction vectors $\\vec{d_1}$ and $\\vec{d_2}$ are parallel if and only if their direction vectors are parallel. This means one vector is a scalar multiple of the other: $\\vec{d_1} = k \\vec{d_2}$ for some non-zero scalar $k$. This corresponds to $\\cos \\theta = 1$, so $\\theta = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the angle between lines $L_1: \\vec{r}(t) = \\langle 1+t, 2-t, 3+2t \\rangle$ and $L_2: \\vec{r}(s) = \\langle 4-2s, 5+s, 6-s \\rangle$.",
+      "back": "The direction vector for $L_1$ is $\\vec{d_1} = \\langle 1, -1, 2 \\rangle$.\nThe direction vector for $L_2$ is $\\vec{d_2} = \\langle -2, 1, -1 \\rangle$.\n\nCalculate the dot product: $\\vec{d_1} \\cdot \\vec{d_2} = (1)(-2) + (-1)(1) + (2)(-1) = -2 - 1 - 2 = -5$.\n\nCalculate the magnitudes:\n$||\\vec{d_1}|| = \\sqrt{1^2 + (-1)^2 + 2^2} = \\sqrt{1+1+4} = \\sqrt{6}$.\n$||\\vec{d_2}|| = \\sqrt{(-2)^2 + 1^2 + (-1)^2} = \\sqrt{4+1+1} = \\sqrt{6}$.\n\nUsing the formula for the angle $\\theta$:\n$$\\cos \\theta = \\frac{|\\vec{d_1} \\cdot \\vec{d_2}|}{||\\vec{d_1}|| \\cdot ||\\vec{d_2}||} = \\frac{|-5|}{\\sqrt{6} \\cdot \\sqrt{6}} = \\frac{5}{6}$$ Therefore, $\\theta = \\arccos\\left(\\frac{5}{6}\\right)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

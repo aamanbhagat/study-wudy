@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-5-imaginary-unit-i-1-i-1-powers-of-i-cycle",
+  "subtopicTitle": "Imaginary unit i = √(-1), i² = -1, powers of i cycle",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:10.394Z",
+  "cards": [
+    {
+      "front": "What is the imaginary unit $i$ defined as?",
+      "back": "The imaginary unit $i$ is defined as the number whose square is $-1$. Symbolically, $i = \\sqrt{-1}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental value of $i^2$?",
+      "back": "$i^2 = -1$. This is a direct consequence of the definition of $i = \\sqrt{-1}$, as squaring both sides yields $i^2 = (\\sqrt{-1})^2 = -1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the value of $i^3$ using the definition of $i$ and $i^2$.",
+      "back": "$i^3 = i^2 \\cdot i$. Since $i^2 = -1$, we have $i^3 = (-1) \\cdot i = -i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the value of $i^4$ using previously established powers of $i$.",
+      "back": "$i^4 = i^2 \\cdot i^2$. Since $i^2 = -1$, we have $i^4 = (-1) \\cdot (-1) = 1$. Alternatively, $i^4 = i^3 \\cdot i = (-i) \\cdot i = -i^2 = -(-1) = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the cycle of positive integer powers of $i$ ($i^1, i^2, i^3, i^4, i^5, \\dots$).",
+      "back": "The powers of $i$ follow a cycle of 4: \n$i^1 = i$\n$i^2 = -1$\n$i^3 = -i$\n$i^4 = 1$\nThis pattern repeats every four powers. For example, $i^5 = i^4 \\cdot i = 1 \\cdot i = i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a general formula for $i^n$ for any positive integer $n$, based on the remainder when $n$ is divided by 4.",
+      "back": "For any positive integer $n$, let $n = 4q + r$, where $q$ is the quotient and $r$ is the remainder ($0 \\le r < 4$). Then $i^n = i^{4q+r} = (i^4)^q \\cdot i^r = (1)^q \\cdot i^r = i^r$. \nSo, $i^n$ equals:\n$i$ if $r=1$ (i.e., $n \\equiv 1 \\pmod 4$)\n$-1$ if $r=2$ (i.e., $n \\equiv 2 \\pmod 4$)\n$-i$ if $r=3$ (i.e., $n \\equiv 3 \\pmod 4$)\n$1$ if $r=0$ (i.e., $n \\equiv 0 \\pmod 4$)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Calculate the value of $i^{2023}$.",
+      "back": "To find $i^{2023}$, divide the exponent 2023 by 4:\n$2023 \\div 4 = 505$ with a remainder of $3$.\nSo, $2023 = 4 \\times 505 + 3$.\nTherefore, $i^{2023} = i^3 = -i$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the value of $i^0$ and why?",
+      "back": "$i^0 = 1$. This follows the general rule for any non-zero number raised to the power of zero. In the context of the cycle of powers of $i$, $i^0$ aligns with $i^4, i^8, \\dots$, which all equal 1 (i.e., $n \\equiv 0 \\pmod 4$).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-6-thermal-control-multi-layer-insulation-mli-heaters-heat-pipes-radiators",
+  "subtopicTitle": "Thermal control — multi-layer insulation (MLI), heaters, heat pipes, radiators",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:01.771Z",
+  "cards": [
+    {
+      "front": "What is the primary function of Multi-Layer Insulation (MLI) on a spacecraft?",
+      "back": "The primary function of MLI is to reduce heat transfer, predominantly via radiation, between the spacecraft and its environment, or between internal components. It acts as a passive thermal barrier.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the physical principle by which MLI significantly reduces radiative heat transfer.",
+      "back": "MLI reduces radiative heat transfer by using multiple thin, highly reflective layers (e.g., aluminized Mylar or Kapton) separated by vacuum or low-conductivity spacers. Each reflective layer intercepts and re-emits only a fraction of the incident thermal radiation, acting as a radiation shield. This drastically reduces the net radiative heat flux across the stack, effectively lowering the overall emissivity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the three main sections of a typical heat pipe and state the role of the working fluid.",
+      "back": "The three main sections are: 1. **Evaporator** (heat input zone), 2. **Adiabatic Section** (heat transport zone), and 3. **Condenser** (heat rejection zone). The working fluid (e.g., ammonia, water) undergoes a phase change: it evaporates in the evaporator, absorbing latent heat, and condenses in the condenser, releasing latent heat, thus efficiently transferring heat.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A spacecraft radiator with an effective emissivity $\\epsilon$ and surface area $A$ radiates heat into space. State the formula for the power $P$ radiated, assuming the radiator is at a uniform temperature $T$.",
+      "back": "The power $P$ radiated is given by the Stefan-Boltzmann law for thermal radiation: $P = \\epsilon \\sigma A T^4$, where $\\sigma$ is the Stefan-Boltzmann constant ($5.67 \\times 10^{-8} \\text{ W m}^{-2} \\text{ K}^{-4}$). The temperature $T$ must be in Kelvin.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why might a spacecraft designer choose a Variable Conductance Heat Pipe (VCHP) over a Constant Conductance Heat Pipe (CCHP) for an instrument requiring precise temperature control despite varying heat loads?",
+      "back": "A VCHP offers precise temperature control by using a non-condensable gas (NCG) reservoir to vary the active condenser length. As the heat load from the instrument decreases, the NCG expands, blocking more of the condenser and reducing the effective radiating area. This self-regulating mechanism maintains the evaporator (instrument) temperature relatively constant, whereas a CCHP would simply cool down further with reduced heat load, leading to larger temperature fluctuations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a common scenario where resistive heaters are crucial for spacecraft thermal control and how they are typically activated.",
+      "back": "Resistive heaters are crucial for maintaining critical components (e.g., batteries, propellant lines, sensitive electronics, thrusters) above their minimum operating temperatures, especially during cold orbital phases (e.g., eclipse) or low-power modes. They are typically activated by thermostats (bimetallic switches or thermistor-based controllers) that sense when a component's temperature drops below a predefined set point, or by commands from the spacecraft's flight software.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why a spacecraft radiator designed to reject heat from internal electronics would ideally be oriented away from both the Sun and the Earth.",
+      "back": "Radiators function by emitting thermal radiation into the cold vacuum of space. If oriented towards the Sun, they would absorb significant solar flux (a parasitic heat load), reducing their net heat rejection. Similarly, if oriented towards Earth, they would absorb Earth's albedo (reflected solar radiation) and Earth's infrared emission, also hindering their cooling efficiency. Orienting them away from these heat sources maximizes the effective temperature difference for radiation, thereby maximizing net heat rejection.",
+      "difficulty": "hard"
+    }
+  ]
+}

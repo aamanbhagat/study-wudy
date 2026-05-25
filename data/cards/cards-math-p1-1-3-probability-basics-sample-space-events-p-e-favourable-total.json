@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p1-1-3-probability-basics-sample-space-events-p-e-favourable-total",
+  "subtopicTitle": "Probability basics — sample space, events, P(E) = favourable/total",
+  "topicId": "math-p1-1-3-basic-data-probability",
+  "topicTitle": "Basic Data & Probability",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:14.062Z",
+  "cards": [
+    {
+      "front": "Define the \"sample space\" ($\\Omega$) of a random experiment.",
+      "back": "The sample space ($\\Omega$) is the set of all possible outcomes of a random experiment.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In probability, what is an \"event\" ($E$)?",
+      "back": "An event ($E$) is any subset of the sample space ($\\Omega$). It represents a collection of one or more outcomes from the experiment.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "An experiment involves rolling two fair six-sided dice. Describe the sample space, $\\Omega$, of all possible outcomes as ordered pairs $(d_1, d_2)$.",
+      "back": "The sample space is the set of all possible ordered pairs where $d_1$ is the outcome of the first die and $d_2$ is the outcome of the second die.\n$$ \\Omega = \\{ (d_1, d_2) \\mid d_1, d_2 \\in \\{1, 2, 3, 4, 5, 6\\} \\} $$\nThis set contains $6 \\times 6 = 36$ distinct outcomes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the two-dice experiment from the previous card, define the event $E$ that \"the sum of the two dice is 7\".",
+      "back": "The event $E$ is a subset of $\\Omega$ where the sum $d_1 + d_2 = 7$.\n$$ E = \\{ (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) \\} $$\nThere are 6 favourable outcomes in this event.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the fundamental formula for the probability of an event $E$, $P(E)$, assuming all outcomes in the sample space are equally likely.",
+      "back": "The probability of an event $E$ is given by:\n$$ P(E) = \\frac{\\text{Number of favourable outcomes in } E}{\\text{Total number of outcomes in the sample space } \\Omega} = \\frac{|E|}{|\\Omega|} $$\nThis formula applies when all outcomes in the sample space are equiprobable (equally likely).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the experiment of rolling two fair six-sided dice, what is the probability that the sum of the two dice is 7?",
+      "back": "From previous cards:\nTotal number of outcomes in the sample space $|\\Omega| = 36$ (all $6 \\times 6$ pairs).\nThe event $E$ (sum is 7) is $E = \\{ (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) \\}$.\nNumber of favourable outcomes $|E| = 6$.\n$$ P(\\text{sum is 7}) = \\frac{|E|}{|\\Omega|} = \\frac{6}{36} = \\frac{1}{6} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A bag contains 3 red balls and 2 blue balls. If two balls are drawn randomly without replacement, what is the probability that both balls are red?",
+      "back": "Total number of balls = 5.\nTotal number of ways to choose 2 balls from 5 (order doesn't matter, so combinations):\n$$ |\\Omega| = \\binom{5}{2} = \\frac{5!}{2!(5-2)!} = \\frac{5 \\times 4}{2 \\times 1} = 10 $$\nNumber of ways to choose 2 red balls from the 3 red balls:\n$$ |E| = \\binom{3}{2} = \\frac{3!}{2!(3-2)!} = \\frac{3 \\times 2}{2 \\times 1} = 3 $$\nProbability $P(\\text{both red}) = \\frac{|E|}{|\\Omega|} = \\frac{3}{10}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the range of possible values for the probability of any event $E$, i.e., $P(E)$?",
+      "back": "The probability of any event $E$ must be between 0 and 1, inclusive.\n$$ 0 \\le P(E) \\le 1 $$\n$P(E)=0$ indicates an impossible event, and $P(E)=1$ indicates a certain event.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $\\emptyset$ represents an impossible event and $\\Omega$ represents a certain event (the entire sample space), what are their probabilities $P(\\emptyset)$ and $P(\\Omega)$?",
+      "back": "For an impossible event $\\emptyset$ (containing no outcomes):\n$$ P(\\emptyset) = \\frac{|\\emptyset|}{|\\Omega|} = \\frac{0}{|\\Omega|} = 0 $$\nFor a certain event $\\Omega$ (containing all outcomes):\n$$ P(\\Omega) = \\frac{|\\Omega|}{|\\Omega|} = 1 $$\nThese values align with the fundamental property $0 \\le P(E) \\le 1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

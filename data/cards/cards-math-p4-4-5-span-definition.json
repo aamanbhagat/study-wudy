@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-span-definition",
+  "subtopicTitle": "Span — definition",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:03.721Z",
+  "cards": [
+    {
+      "front": "Define the span of a set of vectors $S = \\{\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_k\\}$.",
+      "back": "The span of a set of vectors $S$, denoted as $\\text{span}(S)$ or $\\text{span}(\\mathbf{v}_1, \\ldots, \\mathbf{v}_k)$, is the set of all possible linear combinations of those vectors.\nMathematically, $\\text{span}(S) = \\{c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 + \\ldots + c_k\\mathbf{v}_k \\mid c_1, c_2, \\ldots, c_k \\in \\mathbb{R}\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a linear combination of vectors $\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_k$.",
+      "back": "A linear combination of vectors $\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_k$ is an expression of the form $c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 + \\ldots + c_k\\mathbf{v}_k$, where $c_1, c_2, \\ldots, c_k$ are scalars (usually real numbers).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, what does $\\text{span}(\\mathbf{v}_1, \\mathbf{v}_2)$ represent if $\\mathbf{v}_1, \\mathbf{v}_2 \\in \\mathbb{R}^3$ and are not parallel?",
+      "back": "The span of two non-parallel vectors $\\mathbf{v}_1, \\mathbf{v}_2$ in $\\mathbb{R}^3$ represents the unique plane passing through the origin that contains both vectors. Any point on this plane can be reached by scaling and adding $\\mathbf{v}_1$ and $\\mathbf{v}_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you check if $\\mathbf{w} \\in \\text{span}(\\mathbf{v}_1, \\ldots, \\mathbf{v}_k)$?",
+      "back": "To check if $\\mathbf{w} \\in \\text{span}(\\mathbf{v}_1, \\ldots, \\mathbf{v}_k)$, you must determine if $\\mathbf{w}$ can be written as a linear combination of $\\mathbf{v}_1, \\ldots, \\mathbf{v}_k$. This means finding scalars $c_1, \\ldots, c_k$ such that:\n$$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 + \\ldots + c_k\\mathbf{v}_k = \\mathbf{w}$$\nThis equation can be rewritten as a system of linear equations (often in matrix form $A\\mathbf{c} = \\mathbf{w}$, where $A$ has columns $\\mathbf{v}_i$). If the system is consistent (has at least one solution), then $\\mathbf{w}$ is in the span.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that $\\mathbf{0} \\in \\text{span}(\\mathbf{v}_1, \\ldots, \\mathbf{v}_k)$ for any non-empty set of vectors.",
+      "back": "By definition, the span of a set of vectors is the set of all possible linear combinations. We can form a linear combination where all scalars are zero:\n$$0\\mathbf{v}_1 + 0\\mathbf{v}_2 + \\ldots + 0\\mathbf{v}_k = \\mathbf{0}$$\nSince the zero vector can be expressed as a linear combination of the vectors in $S$, it is by definition an element of $\\text{span}(S)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe $\\text{span}(\\mathbf{v})$ for a single non-zero vector $\\mathbf{v} \\in \\mathbb{R}^n$.",
+      "back": "The span of a single non-zero vector $\\mathbf{v}$ is the set of all scalar multiples of $\\mathbf{v}$. Geometrically, this represents a line passing through the origin in the direction of $\\mathbf{v}$.\nMathematically, $\\text{span}(\\mathbf{v}) = \\{c\\mathbf{v} \\mid c \\in \\mathbb{R}\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why $\\text{span}(S)$ is always a subspace of the vector space it belongs to.",
+      "back": "A set $W$ is a subspace if it satisfies three conditions:\n1.  **Contains the zero vector:** As shown previously, $\\mathbf{0} \\in \\text{span}(S)$ by taking all scalars to be zero.\n2.  **Closed under vector addition:** If $\\mathbf{u}, \\mathbf{w} \\in \\text{span}(S)$, then $\\mathbf{u} = \\sum c_i\\mathbf{v}_i$ and $\\mathbf{w} = \\sum d_i\\mathbf{v}_i$. Their sum is $\\mathbf{u} + \\mathbf{w} = \\sum (c_i+d_i)\\mathbf{v}_i$, which is also a linear combination of vectors in $S$, so $\\mathbf{u} + \\mathbf{w} \\in \\text{span}(S)$.\n3.  **Closed under scalar multiplication:** If $\\mathbf{u} \\in \\text{span}(S)$ and $k$ is a scalar, then $\\mathbf{u} = \\sum c_i\\mathbf{v}_i$. Then $k\\mathbf{u} = k(\\sum c_i\\mathbf{v}_i) = \\sum (kc_i)\\mathbf{v}_i$, which is also a linear combination of vectors in $S$, so $k\\mathbf{u} \\in \\text{span}(S)$.\nSince all three conditions are met, $\\text{span}(S)$ is a subspace.",
+      "difficulty": "hard"
+    }
+  ]
+}

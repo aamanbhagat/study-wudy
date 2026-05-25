@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-7-memoization-top-down-dp-recursive-memo-dict",
+  "subtopicTitle": "Memoization (top-down DP) — recursive + memo dict",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:36.309Z",
+  "cards": [
+    {
+      "front": "Memoization is an optimization technique used primarily in dynamic programming. It involves storing the results of expensive function calls and returning the cached result when the same inputs occur again. This approach is typically associated with __________ DP.",
+      "back": "...top-down.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For Memoization to be applicable and effective, a problem must exhibit two key properties: 1. __________ and 2. __________.",
+      "back": "1. **Overlapping Subproblems**: The problem can be broken down into subproblems that are reused multiple times. 2. **Optimal Substructure**: An optimal solution to the problem can be constructed from optimal solutions of its subproblems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the three essential steps taken inside a typical recursive function to implement memoization using a dictionary (e.g., `memo = {}`).",
+      "back": "1.  **Check Cache**: Before any computation, check if the result for the current input(s) is already in `memo`. If `memo[input]` exists, return it immediately.\n2.  **Compute Result**: If not cached, compute the result recursively.\n3.  **Store Result**: Store the computed result in `memo[input]` before returning it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the naive recursive Fibonacci function:\n```python\ndef fib_naive(n):\n    if n <= 1:\n        return n\n    return fib_naive(n-1) + fib_naive(n-2)\n```\nModify it to use memoization with a dictionary `memo`.",
+      "back": "```python\ndef fib_memo(n, memo={}):\n    if n in memo:\n        return memo[n]\n    if n <= 1:\n        return n\n    \n    result = fib_memo(n-1, memo) + fib_memo(n-2, memo)\n    memo[n] = result\n    return result\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the time complexity of the naive recursive Fibonacci function, $F(n)$, with its memoized counterpart, $F_{memo}(n)$. Explain the improvement.",
+      "back": "The naive recursive Fibonacci $F(n)$ has a time complexity of $O(2^n)$ due to redundant recomputations of subproblems, leading to an exponentially branching recursion tree.\n\nThe memoized version $F_{memo}(n)$ has a time complexity of $O(n)$. Each `fib_memo(k)` for $k \\in [0, n]$ is computed only once. Subsequent calls retrieve the result from the `memo` dictionary in $O(1)$ time. There are $n$ distinct subproblems, and each takes constant time (after its first computation) plus the cost of its recursive calls to smaller, uncomputed subproblems.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary benefit of memoization in terms of computational resources, and how does it achieve this?",
+      "back": "The primary benefit is a significant reduction in **time complexity** (and often, **CPU cycles**). It achieves this by avoiding redundant computations of identical subproblems. Once a subproblem's result is calculated, it's stored in a cache (memo dictionary) and retrieved in $O(1)$ time for all subsequent calls with the same inputs, rather than recomputing it from scratch.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Even if a problem exhibits overlapping subproblems, when might memoization (using a dictionary) become impractical or less efficient?",
+      "back": "Memoization can become impractical or less efficient if:\n1.  **The state space (number of unique subproblems) is extremely large**: The `memo` dictionary could consume excessive memory, leading to a `MemoryError` or cache misses becoming too frequent.\n2.  **The 'key' for the memoization is complex or mutable**: Using mutable objects (like lists) directly as dictionary keys in Python is not allowed (they are not hashable). Complex keys might require custom hashing or tuple conversion, adding overhead.\n3.  **The overhead of dictionary lookups/insertions outweighs the recomputation cost**: For very simple, fast-to-compute subproblems, the constant factor overhead of dictionary operations might be greater than just recomputing the result (though this is rare for problems where DP is typically applied).\n4.  **No actual overlapping subproblems**: If subproblems are unique, memoization just adds overhead without benefit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Memoization is often referred to as 'top-down' dynamic programming. Explain what 'top-down' signifies in this context, and name its alternative DP approach.",
+      "back": "'Top-down' signifies that the solution starts from the main problem and recursively breaks it down into smaller subproblems. When a subproblem is encountered, its solution is computed and stored if not already present. This approach naturally follows the recursion tree.\n\nThe alternative is **bottom-up dynamic programming** (also known as tabulation), where solutions to smaller subproblems are computed first, typically iteratively, and then used to build up solutions for larger problems.",
+      "difficulty": "medium"
+    }
+  ]
+}

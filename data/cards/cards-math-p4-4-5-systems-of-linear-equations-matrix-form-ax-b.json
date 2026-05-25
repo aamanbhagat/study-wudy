@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-systems-of-linear-equations-matrix-form-ax-b",
+  "subtopicTitle": "Systems of linear equations — matrix form Ax = b",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:52.625Z",
+  "cards": [
+    {
+      "front": "What is a system of linear equations?",
+      "back": "A collection of one or more linear equations involving the same set of variables. A linear equation is an algebraic equation in which each term is either a constant or the product of a constant and a single variable (to the first power).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Convert the system below into the matrix form $Ax=b$:\n$2x_1 - 3x_2 + x_3 = 7$\n$x_1 + 4x_2 - 2x_3 = -1$",
+      "back": "The matrix form is:\n$$A = \\begin{pmatrix} 2 & -3 & 1 \\\\ 1 & 4 & -2 \\end{pmatrix}, \\quad x = \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix}, \\quad b = \\begin{pmatrix} 7 \\\\ -1 \\end{pmatrix}$$\nSo, the complete matrix equation is:\n$$\\begin{pmatrix} 2 & -3 & 1 \\\\ 1 & 4 & -2 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 7 \\\\ -1 \\end{pmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the matrix equation $Ax=b$, what do $A$, $x$, and $b$ represent?",
+      "back": "<ul>\n<li>$A$ is the <b>coefficient matrix</b>, containing the coefficients of the variables.</li>\n<li>$x$ is the <b>variable vector</b> (or solution vector), containing the variables of the system.</li>\n<li>$b$ is the <b>constant vector</b> (or right-hand side vector), containing the constants from the right-hand side of the equations.</li>\n</ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A vector $x_0$ is a solution to $Ax=b$ if...",
+      "back": "...when $x_0$ is substituted into the matrix equation, the equality holds true. That is, $A x_0 = b$. This means that $x_0$ is a vector of values for the variables that simultaneously satisfies all equations in the system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does each row of $Ax=b$ represent in 2D or 3D space?",
+      "back": "Each row of the matrix equation $Ax=b$ corresponds to a single linear equation. In 2D, each equation represents a line. In 3D, each equation represents a plane. A solution $x$ (if one exists) is the point (or line/plane) of intersection of all these lines/planes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the matrix equation $Ax=b$ from the perspective of linear combinations of column vectors of $A$.",
+      "back": "If $A = \\begin{pmatrix} a_1 & a_2 & \\dots & a_n \\end{pmatrix}$ where $a_i$ are the column vectors of $A$, and $x = \\begin{pmatrix} x_1 \\\\ x_2 \\\\ \\vdots \\\\ x_n \\end{pmatrix}$, then $Ax=b$ can be written as:\n$$x_1 a_1 + x_2 a_2 + \\dots + x_n a_n = b$$\nThis means that $b$ must be a linear combination of the column vectors of $A$. A solution $x$ exists if and only if $b$ lies within the span of the column vectors of $A$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is an augmented matrix $[A|b]$ and what is its primary purpose in solving $Ax=b$?",
+      "back": "An augmented matrix $[A|b]$ is formed by appending the constant vector $b$ to the coefficient matrix $A$ as an additional column. For example, if $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $b = \\begin{pmatrix} 5 \\\\ 6 \\end{pmatrix}$, then $[A|b] = \\begin{pmatrix} 1 & 2 & | & 5 \\\\ 3 & 4 & | & 6 \\end{pmatrix}$.\nIts primary purpose is to provide a compact notation for performing row operations (like Gaussian elimination) on the entire system of equations simultaneously, making it easier to find the solution(s) for $x$.",
+      "difficulty": "medium"
+    }
+  ]
+}

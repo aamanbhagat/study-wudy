@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-alphabet-string-language-formal-definitions",
+  "subtopicTitle": "Alphabet, string, language — formal definitions",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:12.558Z",
+  "cards": [
+    {
+      "front": "Formally define an alphabet $\\Sigma$ in the context of Theory of Computation.",
+      "back": "An alphabet $\\Sigma$ is a finite, non-empty set of symbols (or characters).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a string (or word) over an alphabet $\\Sigma$? What is the empty string and its notation?",
+      "back": "A string (or word) over $\\Sigma$ is a finite sequence of symbols chosen from $\\Sigma$. The empty string, denoted by $\\epsilon$ (epsilon) or $\\lambda$ (lambda), is the unique string of length 0.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given strings $x, y \\in \\Sigma^*$, what are the lengths $|x|$, $|\\epsilon|$, and $|xy|$?",
+      "back": "$\\bullet$ $|x|$: The number of symbols (characters) in string $x$.\n$\\bullet$ $|\\epsilon| = 0$.\n$\\bullet$ $|xy| = |x| + |y|$ (the length of the concatenation is the sum of their individual lengths).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Formally define $\\Sigma^*$ (Kleene closure) and $\\Sigma^+$ (positive closure) for an alphabet $\\Sigma$.",
+      "back": "$\\bullet$ $\\Sigma^*$ (Kleene closure) is the set of all possible strings over $\\Sigma$, including the empty string $\\epsilon$. Formally, $\\Sigma^* = \\bigcup_{k=0}^{\\infty} \\Sigma^k$, where $\\Sigma^k$ is the set of all strings of length $k$.\n$\\bullet$ $\\Sigma^+$ (positive closure) is the set of all non-empty strings over $\\Sigma$. Formally, $\\Sigma^+ = \\bigcup_{k=1}^{\\infty} \\Sigma^k = \\Sigma^* \\setminus \\{\\epsilon\\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Formally define a language $L$ in the context of Theory of Computation.",
+      "back": "A language $L$ over an alphabet $\\Sigma$ is any subset of $\\Sigma^*$. That is, $L \\subseteq \\Sigma^*$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $\\Sigma = \\{a, b\\}$, construct a language $L$ of all strings with an even number of 'a's. List 3 shortest strings in $L$.",
+      "back": "$L = \\{w \\in \\{a, b\\}^* \\mid \\text{the number of 'a's in } w \\text{ is even}\\}$.\nThe 3 shortest strings in $L$ are:\n1. $\\epsilon$ (0 'a's)\n2. $b$ (0 'a's)\n3. $aa$ (2 'a's)\n(Other examples of length 2: $bb$. Other examples of length 3: $aba, bab, baa, aab$.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For string $w = \\text{\"banana\"}$, identify a non-empty proper prefix, a non-empty proper suffix, and a substring that is neither.",
+      "back": "Given $w = \\text{\"banana\"}$:\n$\\bullet$ Proper prefix: \"ban\" (or \"b\", \"ba\", \"bana\", \"banan\"). A string $u$ is a proper prefix of $w$ if $w = uv$ for some string $v \\neq \\epsilon$.\n$\\bullet$ Proper suffix: \"ana\" (or \"a\", \"na\", \"nana\"). A string $v$ is a proper suffix of $w$ if $w = uv$ for some string $u \\neq \\epsilon$.\n$\\bullet$ Substring (neither a prefix nor a suffix): \"nan\" (or \"an\", \"na\"). A string $x$ is a substring of $w$ if $w = uxv$ for some strings $u, v$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given languages $L_1 = \\{ab, c\\}$ and $L_2 = \\{d, \\epsilon\\}$, what are $L_1L_2$ and the first 3 shortest strings in $L_2^*$?",
+      "back": "$\\bullet$ $L_1L_2 = \\{xy \\mid x \\in L_1, y \\in L_2\\}$\n$L_1L_2 = \\{ab d, ab \\epsilon, c d, c \\epsilon\\} = \\{abd, ab, cd, c\\}$\n$\\bullet$ $L_2^* = \\{\\epsilon\\} \\cup L_2 \\cup L_2L_2 \\cup \\dots$\nThe first 3 shortest strings in $L_2^*$ are:\n1. $\\epsilon$ (from $L_2^0$)\n2. $d$ (from $L_2^1$)\n3. $dd$ (from $L_2^2$)",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-torque-free-rotation-euler-s-equations-asymmetric-top",
+  "subtopicTitle": "Torque-free rotation — Euler's equations, asymmetric top",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:08.940Z",
+  "cards": [
+    {
+      "front": "In torque-free rotation, what is the net external torque acting on the rigid body, and what physical quantity is conserved?",
+      "back": "The net external torque $\\mathbf{N}$ is zero ($\\mathbf{N} = \\frac{d\\mathbf{L}}{dt} = 0$). Consequently, the angular momentum $\\mathbf{L}$ of the rigid body is conserved (constant in magnitude and direction in an inertial frame).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Euler's equations of motion for a rigid body in the body-fixed principal axes frame.",
+      "back": "Euler's equations of motion are:\n$$I_1 \\dot{\\omega}_1 - (I_2 - I_3)\\omega_2 \\omega_3 = N_1$$\n$$I_2 \\dot{\\omega}_2 - (I_3 - I_1)\\omega_3 \\omega_1 = N_2$$\n$$I_3 \\dot{\\omega}_3 - (I_1 - I_2)\\omega_1 \\omega_2 = N_3$$\nWhere $I_i$ are the principal moments of inertia, $\\omega_i$ are the components of the angular velocity in the body frame, and $N_i$ are the components of the external torque in the body frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Simplify Euler's equations for a rigid body undergoing torque-free rotation, assuming principal axes.",
+      "back": "For torque-free rotation, the net external torque $\\mathbf{N} = 0$, which means $N_1=N_2=N_3=0$. The equations simplify to:\n$$I_1 \\dot{\\omega}_1 = (I_2 - I_3)\\omega_2 \\omega_3$$\n$$I_2 \\dot{\\omega}_2 = (I_3 - I_1)\\omega_3 \\omega_1$$\n$$I_3 \\dot{\\omega}_3 = (I_1 - I_2)\\omega_1 \\omega_2$$\nThese are a set of coupled, non-linear differential equations describing the evolution of the angular velocity components in the body frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are Euler's equations formulated in a body-fixed frame, specifically one aligned with the principal axes of inertia?",
+      "back": "Euler's equations are formulated in a body-fixed frame because the moments and products of inertia ($I_{ij}$) are constant in this frame. If an inertial frame were used, the inertia tensor would be time-dependent due to the body's rotation, making the equations much more complex. Using principal axes further simplifies the inertia tensor to a diagonal matrix, eliminating products of inertia and simplifying the equations to their standard form.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define an \"asymmetric top\" in terms of its principal moments of inertia.",
+      "back": "An asymmetric top is a rigid body for which all three principal moments of inertia are distinct from each other: $I_1 \\neq I_2 \\neq I_3$. A common example is a rectangular brick or a general irregularly shaped object.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an asymmetric top undergoing torque-free rotation, discuss the stability of rotation about each of its three principal axes.",
+      "back": "Rotation about the principal axes corresponding to the *largest* ($I_{max}$) and *smallest* ($I_{min}$) moments of inertia is stable. Small perturbations will cause the body to wobble slightly around these axes but will not lead to tumbling. However, rotation about the *intermediate* principal axis ($I_{int}$) is unstable. Even a tiny perturbation will cause the body to tumble chaotically, eventually settling into rotation about one of the stable axes. This phenomenon is often demonstrated with a tennis racket or a book.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides the total angular momentum $\\mathbf{L}$, what other scalar quantity is conserved during torque-free rotation of a rigid body?",
+      "back": "The rotational kinetic energy ($T_{rot}$) is also conserved during torque-free rotation. This is because the net external torque is zero, meaning no external work is done on the system, and thus the rotational energy remains constant:\n$$T_{rot} = \\frac{1}{2} \\mathbf{\\omega} \\cdot \\mathbf{L} = \\frac{1}{2} (I_1 \\omega_1^2 + I_2 \\omega_2^2 + I_3 \\omega_3^2) = \\text{constant}$$\nThis conservation, along with the conservation of angular momentum magnitude, is crucial for analyzing the motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the motion of the angular velocity vector $\\mathbf{\\omega}$ in the body-fixed frame for an asymmetric top under torque-free rotation.",
+      "back": "In the body-fixed frame, the angular velocity vector $\\mathbf{\\omega}$ precesses around the constant angular momentum vector $\\mathbf{L}$. For an asymmetric top, the tip of the $\\mathbf{\\omega}$ vector traces out a complex path on the surface of the 'energy ellipsoid' (defined by constant rotational kinetic energy) and the 'angular momentum sphere' (defined by constant angular momentum magnitude). The intersection of these two surfaces defines the trajectory of $\\mathbf{\\omega}$. This geometric interpretation is known as Poinsot's construction. If the rotation is near the intermediate axis, the path can be very intricate, leading to the characteristic tumbling motion.",
+      "difficulty": "hard"
+    }
+  ]
+}

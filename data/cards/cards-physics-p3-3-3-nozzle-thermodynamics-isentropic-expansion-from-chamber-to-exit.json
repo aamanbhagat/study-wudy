@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-3-nozzle-thermodynamics-isentropic-expansion-from-chamber-to-exit",
+  "subtopicTitle": "Nozzle thermodynamics — isentropic expansion from chamber to exit",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:38.038Z",
+  "cards": [
+    {
+      "front": "In the context of rocket nozzle flow, what does the assumption of \"isentropic expansion\" imply about the gas properties?",
+      "back": "Isentropic flow is both **adiabatic** (no heat transfer, $dQ=0$) and **reversible** (no friction or dissipative effects, $dS=0$). This means the entropy of the gas remains constant during expansion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key assumptions made when analyzing ideal, one-dimensional, isentropic flow through a rocket nozzle.",
+      "back": "1. Steady flow. 2. One-dimensional flow. 3. Isentropic (adiabatic and reversible). 4. Ideal gas behavior. 5. No friction. 6. No heat transfer. 7. Negligible inlet velocity in the combustion chamber.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an ideal gas undergoing isentropic expansion, state the relationship between absolute temperature $T$ and absolute pressure $P$.",
+      "back": "The relationship is given by: $$ \\frac{T_2}{T_1} = \\left(\\frac{P_2}{P_1}\\right)^{(\\gamma-1)/\\gamma} $$ where $\\gamma$ is the ratio of specific heats ($c_p/c_v$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the exhaust velocity $v_e$ from an ideal rocket nozzle, assuming isentropic expansion from chamber stagnation conditions ($T_0, P_0$) to an exit pressure $P_e$.",
+      "back": "From the Steady Flow Energy Equation for an adiabatic nozzle, with negligible inlet velocity ($v_c \\approx 0$):\n$h_0 = h_e + \\frac{v_e^2}{2}$\nFor an ideal gas, $h = c_p T$, so $c_p T_0 = c_p T_e + \\frac{v_e^2}{2}$.\n$v_e = \\sqrt{2c_p(T_0 - T_e)}$.\nUsing $c_p = \\frac{\\gamma R}{\\gamma-1}$ and the isentropic relation $T_e = T_0 \\left(\\frac{P_e}{P_0}\\right)^{(\\gamma-1)/\\gamma}$:\n$$ v_e = \\sqrt{\\frac{2\\gamma R T_0}{\\gamma-1} \\left[1 - \\left(\\frac{P_e}{P_0}\\right)^{(\\gamma-1)/\\gamma}\\right]} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why the temperature of the gas drops significantly as it expands through a rocket nozzle, despite the process being adiabatic (no heat loss).",
+      "back": "The gas expands and accelerates, converting its internal thermal energy into macroscopic kinetic energy. In an an adiabatic process, the total energy is conserved. As the gas molecules increase their bulk velocity (kinetic energy of the flow), their random molecular motion (which defines temperature, i.e., internal energy) must decrease. The gas does work on itself to accelerate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the critical pressure ratio $P^*/P_0$ for an ideal gas in an isentropic nozzle, and what condition does it represent?",
+      "back": "The critical pressure ratio is the ratio of static pressure at the nozzle throat ($P^*$) to the stagnation pressure in the chamber ($P_0$) when the flow is choked (Mach number $M=1$ at the throat).\n$$ \\frac{P^*}{P_0} = \\left(\\frac{2}{\\gamma+1}\\right)^{\\gamma/(\\gamma-1)} $$\nFor $\\gamma=1.4$ (approx. for air), $P^*/P_0 \\approx 0.528$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the qualitative relationship between flow area and Mach number in an isentropic nozzle. Why is a converging-diverging (de Laval) nozzle required for supersonic exhaust?",
+      "back": "For **subsonic flow ($M < 1$)**: To increase Mach number, the flow area must *decrease* (converging section).\nFor **supersonic flow ($M > 1$)**: To increase Mach number, the flow area must *increase* (diverging section).\nA de Laval nozzle is required because rocket exhaust must be accelerated from subsonic speeds in the chamber to sonic speed at the throat (converging section) and then to supersonic speeds at the exit (diverging section) to maximize thrust.",
+      "difficulty": "hard"
+    }
+  ]
+}

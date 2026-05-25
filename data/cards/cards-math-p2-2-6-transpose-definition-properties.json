@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p2-2-6-transpose-definition-properties",
+  "subtopicTitle": "Transpose — definition, properties",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:12.471Z",
+  "cards": [
+    {
+      "front": "Define the transpose of a matrix $A$ of order $m \\times n$.",
+      "back": "The transpose of a matrix $A = [a_{ij}]$ is denoted by $A^T$ (or $A'$) and is obtained by interchanging its rows and columns. If $A$ is $m \\times n$, then $A^T$ is $n \\times m$. Formally, if $A^T = [b_{ij}]$, then $b_{ij} = a_{ji}$ for all $i, j$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Find the transpose of the matrix $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}$.",
+      "back": "$$A^T = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the property for $(A^T)^T$ and provide a brief justification.",
+      "back": "The property is $(A^T)^T = A$.<br>Justification: Let $A = [a_{ij}]$. Then $A^T = [b_{ij}]$ where $b_{ij} = a_{ji}$. Now, $(A^T)^T = [c_{ij}]$ where $c_{ij} = b_{ji}$. Substituting $b_{ji} = a_{ij}$, we get $c_{ij} = a_{ij}$. Thus, $(A^T)^T$ has the same elements as $A$ in the same positions, so $(A^T)^T = A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For two matrices $A$ and $B$ of the same order, what is $(A+B)^T$?",
+      "back": "$(A+B)^T = A^T + B^T$.<br>This property holds because transposing involves swapping indices, and addition is element-wise. If $A=[a_{ij}]$ and $B=[b_{ij}]$, then $(A+B)_{ij} = a_{ij} + b_{ij}$. So, $((A+B)^T)_{ij} = (A+B)_{ji} = a_{ji} + b_{ji} = (A^T)_{ij} + (B^T)_{ij} = (A^T + B^T)_{ij}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a scalar $k$ and matrix $A$, what is $(kA)^T$?",
+      "back": "$(kA)^T = kA^T$.<br>This property holds because scalar multiplication is element-wise, and transposing swaps indices. If $A=[a_{ij}]$, then $(kA)_{ij} = k \\cdot a_{ij}$. So, $((kA)^T)_{ij} = (kA)_{ji} = k \\cdot a_{ji} = k \\cdot (A^T)_{ij} = (kA^T)_{ij}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the property for $(AB)^T$. Why is it not $A^T B^T$?",
+      "back": "The property is $(AB)^T = B^T A^T$.<br>It is not $A^T B^T$ because matrix multiplication is generally not commutative, and the dimensions for multiplication would be incorrect unless specific conditions are met. For $A$ ($m \\times n$) and $B$ ($n \\times p$), $AB$ is $m \\times p$. Then $(AB)^T$ is $p \\times m$. $B^T$ is $p \\times n$ and $A^T$ is $n \\times m$. Thus $B^T A^T$ is $p \\times m$, which is dimensionally consistent. $A^T B^T$ would be $n \\times m$ multiplied by $p \\times n$, which is generally not possible.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is a symmetric matrix defined using the concept of transpose?",
+      "back": "A square matrix $A$ is called symmetric if it is equal to its transpose, i.e., $A^T = A$. This implies that $a_{ij} = a_{ji}$ for all $i, j$. Example: $\\begin{pmatrix} 1 & 2 \\\\ 2 & 3 \\end{pmatrix}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is a skew-symmetric matrix defined using the concept of transpose?",
+      "back": "A square matrix $A$ is called skew-symmetric if it is equal to the negative of its transpose, i.e., $A^T = -A$. This implies that $a_{ij} = -a_{ji}$ for all $i, j$. For diagonal elements, $a_{ii} = -a_{ii} \\implies 2a_{ii} = 0 \\implies a_{ii} = 0$. Thus, all diagonal elements of a skew-symmetric matrix must be zero. Example: $\\begin{pmatrix} 0 & 2 \\\\ -2 & 0 \\end{pmatrix}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show that any square matrix $A$ can be uniquely expressed as the sum of a symmetric matrix $P$ and a skew-symmetric matrix $Q$.",
+      "back": "Let $A = P + Q$, where $P$ is symmetric ($P^T = P$) and $Q$ is skew-symmetric ($Q^T = -Q$). Taking the transpose of $A$: $A^T = (P+Q)^T = P^T + Q^T = P - Q$. We now have a system:<br>1) $A = P + Q$<br>2) $A^T = P - Q$<br>Adding (1) and (2): $A + A^T = 2P \\implies P = \\frac{1}{2}(A + A^T)$.<br>Subtracting (2) from (1): $A - A^T = 2Q \\implies Q = \\frac{1}{2}(A - A^T)$.<br>We can verify $P^T = P$ and $Q^T = -Q$. Thus, any square matrix $A$ can be expressed as $A = \\frac{1}{2}(A + A^T) + \\frac{1}{2}(A - A^T)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

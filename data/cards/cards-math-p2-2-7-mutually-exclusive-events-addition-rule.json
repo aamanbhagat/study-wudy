@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-7-mutually-exclusive-events-addition-rule",
+  "subtopicTitle": "Mutually exclusive events — addition rule",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:21.044Z",
+  "cards": [
+    {
+      "front": "Define \"mutually exclusive events\" $A$ and $B$.",
+      "back": "Events $A$ and $B$ are mutually exclusive if they cannot occur at the same time. This means their intersection is empty: $A \\cap B = \\emptyset$. Consequently, the probability of their intersection is $P(A \\cap B) = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Addition Rule for probability when events $A$ and $B$ are mutually exclusive.",
+      "back": "If $A$ and $B$ are mutually exclusive events, then the probability of $A$ or $B$ occurring is given by: $$P(A \\cup B) = P(A) + P(B)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why the general Addition Rule $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$ simplifies for mutually exclusive events.",
+      "back": "For mutually exclusive events, the intersection $A \\cap B$ is empty, which means the probability of their intersection is $P(A \\cap B) = 0$. Therefore, the term $-P(A \\cap B)$ in the general Addition Rule becomes $-0$, simplifying the rule to $P(A \\cup B) = P(A) + P(B)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A standard die is rolled. What is the probability of rolling an even number OR a 5? Are these events mutually exclusive?",
+      "back": "Let $E$ be the event of rolling an even number ($E=\\{2,4,6\\}$) and $F$ be the event of rolling a 5 ($F=\\{5\\}$). These events ARE mutually exclusive because $E \\cap F = \\emptyset$. \n$P(E) = 3/6 = 1/2$. $P(F) = 1/6$.\nUsing the Addition Rule for mutually exclusive events:\n$P(E \\cup F) = P(E) + P(F) = 1/2 + 1/6 = 3/6 + 1/6 = 4/6 = 2/3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "From a standard 52-card deck, what is the probability of drawing a King OR a Queen?",
+      "back": "Let $K$ be the event of drawing a King and $Q$ be the event of drawing a Queen. These events are mutually exclusive (a single card cannot be both a King and a Queen).\n$P(K) = 4/52$ (4 Kings in 52 cards).\n$P(Q) = 4/52$ (4 Queens in 52 cards).\nUsing the Addition Rule for mutually exclusive events:\n$P(K \\cup Q) = P(K) + P(Q) = 4/52 + 4/52 = 8/52 = 2/13$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Let $A$ be a Math major and $B$ be a CS major. If $P(A)=0.4$, $P(B)=0.3$, and $P(A \\cap B)=0.1$, are $A$ and $B$ mutually exclusive? Calculate $P(A \\cup B)$.",
+      "back": "No, $A$ and $B$ are NOT mutually exclusive because $P(A \\cap B) = 0.1 \\neq 0$. This indicates that 10% of students are double majors in Math and CS.\nTo calculate $P(A \\cup B)$, we must use the general Addition Rule:\n$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0.4 + 0.3 - 0.1 = 0.6$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Addition Rule for three *pairwise* mutually exclusive events $A, B, C$.",
+      "back": "If events $A, B,$ and $C$ are *pairwise* mutually exclusive (meaning that no two events can occur at the same time, i.e., $A \\cap B = \\emptyset$, $A \\cap C = \\emptyset$, and $B \\cap C = \\emptyset$), then the Addition Rule is: $$P(A \\cup B \\cup C) = P(A) + P(B) + P(C)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a group, 30% study French, 40% study Spanish, and no student studies both. What is $P(\\text{French OR Spanish})$?",
+      "back": "Let $F$ be the event that a student studies French, and $S$ be the event that a student studies Spanish.\n\"No student studies both\" implies that $F$ and $S$ are mutually exclusive events, so $P(F \\cap S) = 0$.\nGiven: $P(F) = 0.30$ and $P(S) = 0.40$.\nUsing the Addition Rule for mutually exclusive events:\n$P(F \\cup S) = P(F) + P(S) = 0.30 + 0.40 = 0.70$.",
+      "difficulty": "medium"
+    }
+  ]
+}

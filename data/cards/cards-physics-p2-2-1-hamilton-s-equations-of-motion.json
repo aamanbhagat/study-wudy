@@ -1,0 +1,56 @@
+{
+  "subtopicId": "physics-p2-2-1-hamilton-s-equations-of-motion",
+  "subtopicTitle": "Hamilton's equations of motion",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:12.018Z",
+  "cards": [
+    {
+      "front": "State Hamilton's canonical equations of motion for a system with $N$ degrees of freedom.",
+      "back": "Hamilton's equations describe the evolution of a system in terms of canonical coordinates $q_i$ and canonical momenta $p_i$:\n$$\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$$\n$$\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$$\nwhere $H(q_i, p_i, t)$ is the Hamiltonian of the system, and $i = 1, \\dots, N$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define canonical coordinates $q_i$ and canonical momenta $p_i$ in Hamiltonian mechanics.",
+      "back": "Canonical coordinates $q_i$ are the generalized coordinates from Lagrangian mechanics. Canonical momenta $p_i$ are the generalized momenta, defined as the partial derivative of the Lagrangian $L$ with respect to the generalized velocities $\\dot{q}_i$:\n$$p_i = \\frac{\\partial L}{\\partial \\dot{q}_i}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the Hamiltonian $H$ defined in terms of the Lagrangian $L$ and canonical variables?",
+      "back": "The Hamiltonian $H$ is defined via a Legendre transformation from the Lagrangian $L$:\n$$H(q_i, p_i, t) = \\sum_i p_i \\dot{q}_i - L(q_i, \\dot{q}_i, t)$$\nIt is crucial that $H$ is expressed as a function of $q_i$, $p_i$, and $t$, not $\\dot{q}_i$. This requires inverting the definition of $p_i$ to express $\\dot{q}_i$ in terms of $p_i$ and $q_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Hamilton's first canonical equation, $\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$, from the definition of $H$ and the total differential $dH$.",
+      "back": "Given $H = \\sum_j p_j \\dot{q}_j - L$. The total differential is:\n$$dH = \\sum_j \\left( \\dot{q}_j dp_j + p_j d\\dot{q}_j \\right) - \\sum_j \\left( \\frac{\\partial L}{\\partial q_j} dq_j + \\frac{\\partial L}{\\partial \\dot{q}_j} d\\dot{q}_j \\right) - \\frac{\\partial L}{\\partial t} dt$$\nSince $p_j = \\frac{\\partial L}{\\partial \\dot{q}_j}$, the terms $p_j d\\dot{q}_j$ and $-\\frac{\\partial L}{\\partial \\dot{q}_j} d\\dot{q}_j$ cancel:\n$$dH = \\sum_j \\left( \\dot{q}_j dp_j - \\frac{\\partial L}{\\partial q_j} dq_j \\right) - \\frac{\\partial L}{\\partial t} dt$$\nAlso, by definition, $dH = \\sum_j \\left( \\frac{\\partial H}{\\partial q_j} dq_j + \\frac{\\partial H}{\\partial p_j} dp_j \\right) + \\frac{\\partial H}{\\partial t} dt$.\nComparing the coefficients of $dp_j$, we get:\n$$\\dot{q}_j = \\frac{\\partial H}{\\partial p_j}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive Hamilton's second canonical equation, $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$, using the Euler-Lagrange equations and the derivation of $dH$.",
+      "back": "From the derivation of $dH$ (see previous card), we have:\n$$dH = \\sum_j \\left( \\dot{q}_j dp_j - \\frac{\\partial L}{\\partial q_j} dq_j \\right) - \\frac{\\partial L}{\\partial t} dt$$\nWe also know the Euler-Lagrange equation: $\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_j}\\right) - \\frac{\\partial L}{\\partial q_j} = 0$.\nSince $p_j = \\frac{\\partial L}{\\partial \\dot{q}_j}$, the Euler-Lagrange equation becomes $\\dot{p}_j = \\frac{\\partial L}{\\partial q_j}$.\nSubstituting this into the $dH$ expression:\n$$dH = \\sum_j \\left( \\dot{q}_j dp_j - \\dot{p}_j dq_j \\right) - \\frac{\\partial L}{\\partial t} dt$$\nComparing the coefficient of $dq_j$ with the general form $dH = \\sum_j \\left( \\frac{\\partial H}{\\partial q_j} dq_j + \\frac{\\partial H}{\\partial p_j} dp_j \\right) + \\frac{\\partial H}{\\partial t} dt$, we get:\n$$\\frac{\\partial H}{\\partial q_j} = -\\dot{p}_j \\implies \\dot{p}_j = -\\frac{\\partial H}{\\partial q_j}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What physical insight do Hamilton's equations provide regarding the evolution of a system in phase space?",
+      "back": "Hamilton's equations describe the flow of a system's state point in phase space (a space spanned by canonical coordinates $q_i$ and momenta $p_i$). They show how $q_i$ and $p_i$ evolve over time, essentially mapping out the trajectory of the system. The equations highlight the symmetry between position and momentum, treating them as equally fundamental variables for describing the system's state and dynamics.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what condition is a canonical momentum $p_k$ a conserved quantity, according to Hamilton's equations?",
+      "back": "A canonical momentum $p_k$ is conserved if its corresponding canonical coordinate $q_k$ is cyclic (or ignorable), meaning the Hamiltonian $H$ does not explicitly depend on $q_k$. From Hamilton's second equation, $\\dot{p}_k = -\\frac{\\partial H}{\\partial q_k}$, if $\\frac{\\partial H}{\\partial q_k} = 0$, then $\\dot{p}_k = 0$, implying $p_k$ is a constant of motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name one significant advantage of using Hamilton's equations over Lagrange's equations in advanced theoretical physics.",
+      "back": "One significant advantage is the inherent symmetry between coordinates ($q_i$) and momenta ($p_i$), which simplifies the study of canonical transformations. This symmetry is crucial for developing advanced theories like statistical mechanics and quantum mechanics, where canonical quantization directly translates classical Hamiltonian variables into quantum operators.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a system with Hamiltonian $H = \\frac{p^2}{2m} + V(q)$, write down Hamilton's equations of motion.",
+      "back": "Given $H = \\frac{p^2}{2m} + V(q)$:\n1.  $\\dot{q} = \\frac{\\partial H}{\\partial p} = \\frac{\\partial}{\\partial p}\\left(\\frac{p^2}{2m} + V(q)\\right) = \\frac{2p}{2m} = \\frac{p}{m}$\n2.  $\\dot{p} = -\\frac{\\partial H}{\\partial q} = -\\frac{\\partial}{\\partial q}\\left(\\frac{p^2}{2m} + V(q)\\right) = -\\frac{\\partial V}{\\partial q}$\nThese equations recover Newton's second law: $\\dot{q} = p/m \\implies p = m\\dot{q}$, so $\\dot{p} = m\\ddot{q}$. Thus, $m\\ddot{q} = -\\frac{\\partial V}{\\partial q} = F(q)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

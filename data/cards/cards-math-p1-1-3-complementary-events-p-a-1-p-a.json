@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p1-1-3-complementary-events-p-a-1-p-a",
+  "subtopicTitle": "Complementary events — P(A') = 1 - P(A)",
+  "topicId": "math-p1-1-3-basic-data-probability",
+  "topicTitle": "Basic Data & Probability",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:57.154Z",
+  "cards": [
+    {
+      "front": "In probability, what is the complementary event of event $A$?",
+      "back": "The complementary event of $A$, denoted $A'$, $A^c$, or $\\bar{A}$, is the event that $A$ does *not* occur. It includes all outcomes in the sample space $S$ that are not in $A$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental formula relating the probability of an event $A$ to the probability of its complementary event $A'$.",
+      "back": "The fundamental formula is $P(A') = 1 - P(A)$. Alternatively, $P(A) + P(A') = 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If the probability of a student passing an exam, $P(P)$, is $0.88$, what is the probability that the student will *not* pass the exam, $P(P')$?",
+      "back": "Using the formula $P(P') = 1 - P(P)$, we get $P(P') = 1 - 0.88 = 0.12$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why $P(A') = 1 - P(A)$ holds, referencing the sample space.",
+      "back": "The sample space $S$ represents all possible outcomes, so $P(S) = 1$. Event $A$ and its complement $A'$ are mutually exclusive (disjoint, $A \\cap A' = \\emptyset$) and collectively exhaustive ($A \\cup A' = S$). Since they cover the entire sample space without overlap, their probabilities must sum to the total probability of the sample space: $P(A) + P(A') = P(S) = 1$. Rearranging gives $P(A') = 1 - P(A)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A standard six-sided die is rolled once. What is the probability of *not* rolling a 3?",
+      "back": "Let $A$ be the event of rolling a 3. $P(A) = 1/6$. The event of *not* rolling a 3 is $A'$. Using the complementary event formula: $P(A') = 1 - P(A) = 1 - 1/6 = 5/6$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A fair coin is tossed 4 times. What is the probability of getting *at least one* head?",
+      "back": "Let $A$ be the event of getting at least one head. It's easier to calculate the probability of its complement, $A'$, which is the event of getting *no* heads (i.e., all tails). There are $2^4 = 16$ total possible outcomes. Only one outcome is 'all tails' (TTTT). So, $P(A') = P(\\text{TTTT}) = 1/16$. Therefore, $P(A) = 1 - P(A') = 1 - 1/16 = 15/16$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a sample space $S$ and an event $A \\subseteq S$, express the relationship between $A$, its complement $A'$, and $S$ using set operations relevant to probability.",
+      "back": "The key relationships are:\n1. $A \\cup A' = S$ (A and A' are collectively exhaustive; their union covers the entire sample space).\n2. $A \\cap A' = \\emptyset$ (A and A' are mutually exclusive; they have no outcomes in common).\nThese properties are fundamental to the derivation $P(A) + P(A') = P(A \\cup A') = P(S) = 1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

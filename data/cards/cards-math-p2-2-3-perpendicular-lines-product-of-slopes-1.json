@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-3-perpendicular-lines-product-of-slopes-1",
+  "subtopicTitle": "Perpendicular lines — product of slopes = -1",
+  "topicId": "math-p2-2-3-coordinate-geometry",
+  "topicTitle": "Coordinate Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:38.314Z",
+  "cards": [
+    {
+      "front": "For two non-vertical lines with slopes $m_1$ and $m_2$ to be perpendicular, what must be true about their slopes?",
+      "back": "Their slopes must satisfy the condition $m_1 m_2 = -1$. This can also be written as $m_2 = -\\frac{1}{m_1}$ (if $m_1 \\neq 0$), meaning the slopes are negative reciprocals of each other.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a line has a slope of $m = \\frac{3}{4}$, what is the slope of any line perpendicular to it?",
+      "back": "Let the perpendicular slope be $m_\\perp$. Using the condition $m \\cdot m_\\perp = -1$, we have $\\frac{3}{4} \\cdot m_\\perp = -1$. Solving for $m_\\perp$, we get $m_\\perp = -\\frac{4}{3}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the condition $m_1 m_2 = -1$ for two non-vertical perpendicular lines using the concept of angles of inclination.",
+      "back": "Let $L_1$ have an angle of inclination $\\theta_1$ with the positive x-axis, so $m_1 = \\tan \\theta_1$. If $L_2$ is perpendicular to $L_1$, its angle of inclination $\\theta_2$ will be $\\theta_1 + 90^\\circ$ (or $\\theta_1 - 90^\\circ$). Thus, $m_2 = \\tan \\theta_2 = \\tan(\\theta_1 + 90^\\circ)$. Using the trigonometric identity $\\tan(A + 90^\\circ) = -\\cot A = -\\frac{1}{\\tan A}$, we get $m_2 = -\\frac{1}{\\tan \\theta_1}$. Since $m_1 = \\tan \\theta_1$, this simplifies to $m_2 = -\\frac{1}{m_1}$. Multiplying both sides by $m_1$ (assuming $m_1 \\neq 0$), we obtain $m_1 m_2 = -1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Are the lines $3x - 2y = 5$ and $2x + 3y = 10$ perpendicular?",
+      "back": "First, find the slopes of both lines by converting them to slope-intercept form ($y=mx+b$):\nFor $L_1: 3x - 2y = 5 \\implies -2y = -3x + 5 \\implies y = \\frac{3}{2}x - \\frac{5}{2}$. So, $m_1 = \\frac{3}{2}$.\nFor $L_2: 2x + 3y = 10 \\implies 3y = -2x + 10 \\implies y = -\\frac{2}{3}x + \\frac{10}{3}$. So, $m_2 = -\\frac{2}{3}$.\nNow, check the product of their slopes: $m_1 m_2 = \\left(\\frac{3}{2}\\right) \\cdot \\left(-\\frac{2}{3}\\right) = -1$.\nSince $m_1 m_2 = -1$, the lines are indeed perpendicular.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the relationship between a vertical line and a horizontal line in terms of perpendicularity and their slopes?",
+      "back": "A vertical line has an undefined slope (e.g., $x=c$). A horizontal line has a slope of $0$ (e.g., $y=d$). Vertical and horizontal lines are always perpendicular to each other. The product of slopes condition $m_1 m_2 = -1$ does not directly apply here because one slope is undefined. This is a special case where perpendicularity is defined by their orientation relative to the axes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the equation of the line perpendicular to $y = -2x + 7$ and passing through the point $(4, -1)$.",
+      "back": "The given line $y = -2x + 7$ has a slope $m_1 = -2$. The slope of a line perpendicular to it, $m_2$, must satisfy $m_1 m_2 = -1$, so $(-2)m_2 = -1 \\implies m_2 = \\frac{1}{2}$.\nNow, use the point-slope form $y - y_1 = m(x - x_1)$ with $m_2 = \\frac{1}{2}$ and $(x_1, y_1) = (4, -1)$:\n$y - (-1) = \\frac{1}{2}(x - 4)$\n$y + 1 = \\frac{1}{2}x - 2$\n$y = \\frac{1}{2}x - 3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does the condition $m_1 m_2 = -1$ imply about the transformation from one line to another?",
+      "back": "The condition $m_1 m_2 = -1$ implies that one line can be obtained by rotating the other line by $90^\\circ$ (either clockwise or counter-clockwise) around their point of intersection. This is the fundamental geometric meaning of perpendicularity in the Cartesian plane.",
+      "difficulty": "easy"
+    }
+  ]
+}

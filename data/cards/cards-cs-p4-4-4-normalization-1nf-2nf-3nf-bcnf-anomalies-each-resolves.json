@@ -1,0 +1,46 @@
+{
+  "subtopicId": "cs-p4-4-4-normalization-1nf-2nf-3nf-bcnf-anomalies-each-resolves",
+  "subtopicTitle": "Normalization — 1NF, 2NF, 3NF, BCNF — anomalies each resolves",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:35.576Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of database normalization?",
+      "back": "The primary goal of database normalization is to reduce data redundancy and improve data integrity. It organizes columns and tables in a relational database to ensure that dependencies are properly enforced and anomalies are minimized.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three main types of data anomalies that normalization aims to prevent.",
+      "back": "1.  **Insertion Anomaly:** Cannot insert data about one entity without also inserting data about another entity.\n2.  **Deletion Anomaly:** Deleting data about one entity unintentionally removes related data about another entity.\n3.  **Update Anomaly:** Updating data requires multiple changes across various records, leading to inconsistencies if not all instances are updated.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two fundamental requirements for a relation (table) to be in First Normal Form (1NF)?",
+      "back": "1.  **Atomic Values:** Each column must contain only atomic (indivisible) values. There should be no multi-valued attributes.\n2.  **No Repeating Groups:** There should be no repeating groups of columns within a row. Each row must be unique and identified by a primary key.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a table `(OrderID, ProductID, ProductName, ProductPrice)` with a composite primary key `(OrderID, ProductID)`. If `ProductID -> ProductName` and `ProductID -> ProductPrice`, is this table in 2NF? Why or why not?",
+      "back": "No, this table is not in Second Normal Form (2NF).\n`ProductName` and `ProductPrice` are non-key attributes that are partially dependent on `ProductID`, which is only a part of the composite primary key `(OrderID, ProductID)`. For 2NF, all non-key attributes must be fully functionally dependent on the *entire* primary key.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A table `(StudentID, StudentName, DeptName, DeptHead)` has `StudentID` as its primary key. We know `StudentID -> StudentName` and `DeptName -> DeptHead`. Is this table in 3NF? If not, what anomaly is possible?",
+      "back": "No, this table is not in Third Normal Form (3NF).\n`DeptHead` is transitively dependent on `StudentID` via `DeptName` (i.e., `StudentID -> DeptName -> DeptHead`). This violates 3NF, which states no non-key attribute can be transitively dependent on the primary key. An **Update Anomaly** can occur: if a department's head changes, multiple student records for that department would need to be updated, potentially leading to inconsistencies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the condition for Boyce-Codd Normal Form (BCNF). How does it strengthen 3NF, and when might a 3NF relation fail to be in BCNF?",
+      "back": "A relation is in BCNF if and only if for every non-trivial functional dependency $X \\to Y$, $X$ is a superkey.\nBCNF is a stricter form of 3NF. A 3NF relation might fail to be in BCNF when:\n1.  The relation has multiple overlapping candidate keys.\n2.  There is a non-key attribute that determines part of a candidate key.\n3.  There is a non-prime attribute that determines a prime attribute (where a prime attribute is part of *any* candidate key).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a table `(Student, Course, Instructor)` where `(Student, Course)` is a candidate key, and `(Instructor, Course)` is also a candidate key. Additionally, assume `Instructor \\to Course` (an instructor teaches only one course). Is this table in BCNF? Why or why not, and what anomaly is resolved by decomposing it?",
+      "back": "No, this table is not in BCNF.\nThe functional dependency `Instructor \\to Course` exists, but `Instructor` is not a superkey for the relation `(Student, Course, Instructor)`. (It's not `(Student, Course)` or `(Instructor, Course)`).\n\nThis violates BCNF. Decomposing this into `(Student, Instructor)` and `(Instructor, Course)` resolves **Update Anomalies** (e.g., if an instructor changes the course they teach, only one record in `(Instructor, Course)` needs updating) and **Insertion Anomalies** (e.g., you can record an instructor and their course without needing a student to be enrolled).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-const-correctness-const-variables-const-pointers-const-member-functions",
+  "subtopicTitle": "const correctness — const variables, const pointers, const member functions",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:02.145Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `const` keyword in C++?",
+      "back": "The `const` keyword signifies that a value or object cannot be modified after its initialization. It enforces \"read-only\" access, allowing the compiler to perform compile-time checks for accidental modifications, thus improving code safety, clarity, and sometimes enabling optimizations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between `const int* p` and `int* const p` in C++.",
+      "back": "`const int* p`:\n\"Pointer to `const` int\". The data pointed to by `p` cannot be modified through `p`, but `p` itself can be reassigned to point to a different `int` (or `const int`).\n\n`int* const p`:\n\"`const` pointer to int\". The pointer `p` itself cannot be reassigned to point to a different memory location, but the data it points to *can* be modified through `p`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When should a member function be declared `const`? What does this declaration imply about the function's behavior?",
+      "back": "A member function should be declared `const` when it does not modify the state (member variables) of the object it operates on.\n\nThe `const` declaration (e.g., `void func() const;`) implies:\n1.  It cannot modify any non-`mutable` member variables of the object.\n2.  It cannot call any non-`const` member functions of the same object.\n3.  It can be called on both `const` and non-`const` objects.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `const MyClass obj;`, which types of member functions can be called on `obj`?",
+      "back": "Only `const` member functions can be called on a `const` object (`obj`). This is because a `const` object guarantees that its state will not change. Allowing non-`const` member functions (which are permitted to modify the object's state) to be called would violate this guarantee, leading to a compile-time error.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Inside a `const` member function, if you need to modify a specific member variable (e.g., a cache hit counter) without violating `const` correctness for the object's observable state, what keyword can be used?",
+      "back": "The `mutable` keyword. Declaring a member variable `mutable` allows it to be modified even within a `const` member function. This is typically used for internal, non-observable state (like caching, logging, or counters) that doesn't change the logical state of the object as perceived by its users.\n```cpp\nclass MyClass {\n    int value;\n    mutable int accessCount; // Can be modified in const functions\npublic:\n    int getValue() const {\n        accessCount++; // OK, accessCount is mutable\n        return value;\n    }\n};\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the \"read right-to-left\" rule for `const` pointer declarations. Apply it to `const char* const ptr`.",
+      "back": "The \"read right-to-left\" rule helps interpret complex declarations: start from the variable name, then read right, then left.\n\nFor `const char* const ptr`:\n1.  `ptr`: `ptr` is a variable.\n2.  `const` (right of `ptr`): `ptr` is `const`. (This means `ptr` itself cannot be changed; it's a `const` pointer).\n3.  `*`: `ptr` is a pointer to...\n4.  `char`: ...a `char`.\n5.  `const` (left of `char`): ...that `char` is `const`. (This means the `char` pointed to cannot be changed via `ptr`).\n\nTherefore, `const char* const ptr` means \"a `const` pointer to a `const` character.\" Neither the pointer nor the data it points to can be modified.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is passing objects by `const` reference (`const MyClass& obj`) generally preferred over pass-by-value for large objects in C++?",
+      "back": "Passing by `const` reference offers two main advantages:\n1.  **Efficiency:** It avoids the overhead of copying the entire object, which can be significant for large objects. Only the address of the object is passed.\n2.  **Safety (const correctness):** The `const` keyword guarantees that the function cannot modify the original object. This prevents unintended side effects and makes the function's contract clearer, contributing to robust code.\n\nPass-by-value creates a copy, which is inefficient and doesn't prevent modifications to the *original* object. Pass-by-`const` reference achieves both efficiency and protection of the original object.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can a `const` member function call another non-`const` member function of the same object? Justify your answer.",
+      "back": "No, a `const` member function cannot call a non-`const` member function of the same object.\n\nInside a `const` member function, the `this` pointer has the type `const MyClass*` (for a class `MyClass`). This means the object itself is treated as `const`. Since non-`const` member functions require a non-`const` object (or `MyClass* this` pointer) to operate on, calling them from a `const` context would imply attempting to modify a `const` object, which is disallowed by the compiler. This ensures `const` correctness is maintained.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-fatigue-s-n-curves-miner-s-rule",
+  "subtopicTitle": "Fatigue — S-N curves, Miner's rule",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:47.406Z",
+  "cards": [
+    {
+      "front": "Define \"fatigue\" in the context of materials science and engineering.",
+      "back": "Fatigue is the progressive, localized, and permanent structural damage that occurs when a material is subjected to cyclic or fluctuating stresses or strains. It can lead to sudden, brittle-like fracture even in ductile materials, often at stress levels well below the material's yield strength.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does an S-N curve graphically represent, and what are its axes?",
+      "back": "An S-N curve (Stress-Number of cycles curve) graphically represents the relationship between the stress amplitude ($S$) and the number of cycles to failure ($N$) for a material under cyclic loading. The vertical axis typically shows stress amplitude (or maximum stress), and the horizontal axis shows the number of cycles to failure, often on a logarithmic scale.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the concept of an \"endurance limit\" (or fatigue limit) as observed on an S-N curve.",
+      "back": "The endurance limit is a stress level below which a material (primarily ferrous metals like steel and some titanium alloys) can theoretically withstand an infinite number of load cycles without experiencing fatigue failure. Below this stress, the S-N curve becomes horizontal, indicating no fatigue failure regardless of the number of cycles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is Miner's Rule (also known as Miner's Linear Damage Rule) used for in fatigue analysis?",
+      "back": "Miner's Rule is used to estimate the fatigue life of a component subjected to variable amplitude or multi-level cyclic loading. It provides a method to sum the damage accumulated from different stress levels to predict when failure will occur under complex loading histories.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the mathematical formula for Miner's Rule and define each term.",
+      "back": "Miner's Rule states that failure occurs when the sum of damage fractions equals a critical value, typically 1:\n$$\\sum_{i=1}^{k} \\frac{n_i}{N_i} = C$$ \nWhere:\n- $n_i$: The number of cycles applied at a specific stress level $i$.\n- $N_i$: The number of cycles to failure at that same stress level $i$ (obtained from the S-N curve).\n- $k$: The total number of different stress levels in the loading history.\n- $C$: The damage sum, typically assumed to be 1 for failure (though experimental values can vary).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A structural component experiences 50,000 cycles at a stress where $N_i = 10^6$ and then 20,000 cycles at a stress where $N_i = 2 \\times 10^5$. Calculate the total accumulated damage fraction using Miner's Rule.",
+      "back": "Using Miner's Rule: $D = \\frac{n_1}{N_1} + \\frac{n_2}{N_2}$\n$D = \\frac{50,000}{10^6} + \\frac{20,000}{2 \\times 10^5}$\n$D = 0.05 + 0.10$\n$D = 0.15$\nThe total accumulated damage fraction is 0.15. This means 15% of the component's fatigue life has been consumed.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify two significant limitations or assumptions of Miner's Rule that can lead to inaccuracies in fatigue life predictions.",
+      "back": "Two significant limitations of Miner's Rule are:\n1.  **Order of Loading:** It assumes that the order in which different stress levels are applied does not affect the total fatigue life, which is often not true. For example, high-stress cycles followed by low-stress cycles can yield different results than the reverse order.\n2.  **Interaction Effects:** It does not account for interaction effects between different stress levels, such as crack initiation at high stress levels influencing crack propagation at subsequent lower stress levels, or the effects of mean stress changes during the loading history.\n3.  **Damage Sum Variation:** The assumption that failure occurs exactly when the damage sum $C=1$ is an approximation; experimental values for $C$ can range from 0.7 to 2.2 for various materials and loading conditions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do factors like surface finish, mean stress, and corrosive environments generally influence the fatigue life of a material as reflected by its S-N curve?",
+      "back": "1.  **Surface Finish:** Rougher surfaces introduce stress concentrations, acting as crack initiation sites, thus reducing fatigue life (shifting the S-N curve downwards and to the left). Polishing or shot peening improves fatigue life.\n2.  **Mean Stress:** A tensile mean stress generally reduces fatigue life (shifts S-N curve downwards/left), while a compressive mean stress can increase it (shifts S-N curve upwards/right) by closing potential cracks.\n3.  **Corrosive Environment:** Corrosive environments accelerate crack initiation and propagation (corrosion fatigue), significantly reducing fatigue life and often eliminating the endurance limit (shifts S-N curve dramatically downwards and to the left).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-f-strings-embedding-expressions",
+  "subtopicTitle": "f-strings — embedding expressions",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:00.868Z",
+  "cards": [
+    {
+      "front": "What is an f-string in Python, and how do you embed a variable named `name` into a string 'Hello, [name]!'?",
+      "back": "An f-string (formatted string literal) is a way to embed expressions inside string literals by prefixing the string with `f` or `F`. Variables and expressions are placed inside curly braces `{}`.\n```python\nname = 'Alice'\ngreeting = f\"Hello, {name}!\"\nprint(greeting) # Output: Hello, Alice!\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do f-strings support embedding arbitrary Python expressions? Provide an example calculating $2 \\times 3$ and calling `len('Python')`.",
+      "back": "F-strings allow embedding any valid Python expression inside the curly braces `{}`. This includes arithmetic operations, function calls, method calls, and more.\n```python\nresult = f\"The product of 2 and 3 is {2 * 3}. The length of 'Python' is {len('Python')}.\"\nprint(result) # Output: The product of 2 and 3 is 6. The length of 'Python' is 6.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using an f-string, format the number `pi = 3.14159` to two decimal places, right-aligned within a field of 10 characters.",
+      "back": "You can use format specifiers after a colon `:` inside the curly braces. For two decimal places, use `.2f`. For right-alignment within 10 characters, use `10`.\n```python\npi = 3.14159\nformatted_pi = f\"Pi: {pi:10.2f}\"\nprint(formatted_pi) # Output: Pi:       3.14\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the `=` specifier within an f-string can assist in debugging. Show an example for a variable `x = 10`.",
+      "back": "The `=` specifier (e.g., `{expression=}`) prints both the expression text and its evaluated result, making it very useful for quick debugging.\n```python\nx = 10\ny = 20\ndebug_output = f\"The value of x is {x=}. The sum is {x + y=}.\"\nprint(debug_output)\n# Output: The value of x is x=10. The sum is x + y=30.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you embed literal curly braces `{}` within an f-string, for example, to produce the string '`{key: value}`'?",
+      "back": "To include literal curly braces within an f-string, you must double them up: `{{` for an opening brace and `}}` for a closing brace.\n```python\nliteral_braces = f\"This is a literal {{key: value}} pair.\"\nprint(literal_braces) # Output: This is a literal {key: value} pair.\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can a multiline expression (e.g., a complex conditional) be directly embedded within a single pair of curly braces `{}` in an f-string? Explain why.",
+      "back": "No, expressions embedded within f-string curly braces `{}` must be single-line. Python's parser expects a single, complete expression on one line. For complex or multiline logic, you should compute the value outside the f-string and then embed the resulting variable.\n```python\n# This would cause a SyntaxError if 'if' was on a new line:\n# f\"Result: {\n#   'Even' if x % 2 == 0\n#   else 'Odd'\n# }\"\n\n# Correct approach:\nx = 7\nstatus = 'Even' if x % 2 == 0 else 'Odd'\nresult = f\"The number {x} is {status}.\"\nprint(result) # Output: The number 7 is Odd.\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the key advantages of using f-strings over `str.format()` or the `%` operator for embedding expressions in Python?",
+      "back": "F-strings offer several advantages:\n1.  **Readability:** More concise and easier to read as expressions are directly embedded.\n2.  **Conciseness:** Less boilerplate code compared to `str.format()`'s positional/keyword arguments.\n3.  **Performance:** Generally faster than `str.format()` and the `%` operator.\n4.  **Direct Access:** Can directly access variables in the surrounding scope without needing to pass them explicitly.\n5.  **Debugging:** The `=` specifier provides a convenient way to print expressions and their values for debugging.",
+      "difficulty": "medium"
+    }
+  ]
+}

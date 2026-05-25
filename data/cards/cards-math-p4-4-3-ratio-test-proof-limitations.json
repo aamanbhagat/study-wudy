@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-3-ratio-test-proof-limitations",
+  "subtopicTitle": "Ratio test — proof, limitations",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:47.845Z",
+  "cards": [
+    {
+      "front": "State the Ratio Test for a series $\\sum a_n$ with $a_n \\neq 0$ for large $n$.",
+      "back": "Let $L = \\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right|$.\n1.  If $L < 1$, the series $\\sum a_n$ converges absolutely.\n2.  If $L > 1$ or $L = \\infty$, the series $\\sum a_n$ diverges.\n3.  If $L = 1$, the Ratio Test is inconclusive.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use the Ratio Test to determine the convergence of $\\sum_{n=1}^\\infty \\frac{n^2}{2^n}$.",
+      "back": "Let $a_n = \\frac{n^2}{2^n}$.\n$L = \\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| = \\lim_{n \\to \\infty} \\left| \\frac{(n+1)^2 / 2^{n+1}}{n^2 / 2^n} \\right|$\n$L = \\lim_{n \\to \\infty} \\frac{(n+1)^2}{2^{n+1}} \\cdot \\frac{2^n}{n^2} = \\lim_{n \\to \\infty} \\left( \\frac{n+1}{n} \\right)^2 \\cdot \\frac{1}{2}$\n$L = \\lim_{n \\to \\infty} \\left( 1 + \\frac{1}{n} \\right)^2 \\cdot \\frac{1}{2} = (1)^2 \\cdot \\frac{1}{2} = \\frac{1}{2}$.\nSince $L = \\frac{1}{2} < 1$, the series converges absolutely by the Ratio Test.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the intuition behind why the Ratio Test works, especially for $L<1$ and $L>1$.",
+      "back": "The Ratio Test essentially compares the given series to a geometric series.\nIf $\\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| = L < 1$, then for sufficiently large $n$, $|a_{n+1}| \\approx L |a_n|$. This means the terms eventually decrease in magnitude like a geometric series with common ratio $L < 1$, which converges.\nIf $L > 1$, then $|a_{n+1}| \\approx L |a_n|$, meaning terms eventually increase in magnitude, so $\\lim_{n \\to \\infty} a_n \\neq 0$. This implies divergence by the Test for Divergence.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean if the Ratio Test yields $L=1$? Give examples of series where this occurs.",
+      "back": "If $L=1$, the Ratio Test is inconclusive. This means the test provides no information about the convergence or divergence of the series. The series could converge or diverge.\nExamples:\n1.  $\\sum_{n=1}^\\infty \\frac{1}{n}$ (harmonic series, diverges). For this, $L = \\lim_{n \\to \\infty} \\frac{1/(n+1)}{1/n} = 1$.\n2.  $\\sum_{n=1}^\\infty \\frac{1}{n^2}$ (p-series with $p=2 > 1$, converges). For this, $L = \\lim_{n \\to \\infty} \\frac{1/(n+1)^2}{1/n^2} = 1$.\nIn both cases, $L=1$, but one diverges and one converges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a crucial condition on the terms $a_n$ for the Ratio Test to be applicable?",
+      "back": "The Ratio Test requires that $a_n \\neq 0$ for sufficiently large $n$. If $a_n = 0$ for infinitely many $n$, or if it's zero for all $n$ beyond some point, the ratio $\\frac{a_{n+1}}{a_n}$ would be undefined or zero, making the limit calculation problematic or trivial. If $a_n=0$ for all $n>N$, the series is a finite sum and trivially converges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the Ratio Test, if $L = \\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| < 1$, rigorously show how this implies convergence using a comparison.",
+      "back": "Let $L < 1$. Choose $r$ such that $L < r < 1$. Since $\\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| = L$, by definition of a limit, there exists an integer $N$ such that for all $n \\ge N$, we have $\\left| \\frac{a_{n+1}}{a_n} \\right| < r$. This implies:\n$|a_{N+1}| < r|a_N|$\n$|a_{N+2}| < r|a_{N+1}| < r(r|a_N|) = r^2|a_N|$\n$|a_{N+3}| < r|a_{N+2}| < r(r^2|a_N|) = r^3|a_N|$\nIn general, for $k \\ge 1$, $|a_{N+k}| < r^k|a_N|$. The series $\\sum_{k=1}^\\infty r^k|a_N| = |a_N| \\sum_{k=1}^\\infty r^k$ is a convergent geometric series because $0 < r < 1$. By the Comparison Test, since $|a_{N+k}| < r^k|a_N|$ and $\\sum r^k|a_N|$ converges, the series $\\sum_{k=1}^\\infty |a_{N+k}|$ converges. This implies $\\sum_{n=N+1}^\\infty |a_n|$ converges, and thus $\\sum_{n=1}^\\infty |a_n|$ converges. Therefore, $\\sum a_n$ converges absolutely.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When might the Ratio Test be preferred over the Root Test, and vice-versa?",
+      "back": "The Ratio Test is generally preferred when the series terms $a_n$ involve factorials ($n!$) or products (e.g., $k^n$ where $k$ is a constant), as the ratio $\\frac{a_{n+1}}{a_n}$ often simplifies nicely.\nThe Root Test is generally preferred when the series terms $a_n$ involve $n$-th powers (e.g., $(f(n))^n$), as taking the $n$-th root simplifies these expressions. Both tests are inconclusive if $L=1$ (though $L$ is defined differently for each).",
+      "difficulty": "medium"
+    }
+  ]
+}

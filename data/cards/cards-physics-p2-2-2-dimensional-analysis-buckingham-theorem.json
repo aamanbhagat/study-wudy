@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p2-2-2-dimensional-analysis-buckingham-theorem",
+  "subtopicTitle": "Dimensional analysis — Buckingham π theorem",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:19.587Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Buckingham $\\pi$ theorem in dimensional analysis?",
+      "back": "The primary purpose is to reduce the number of variables in a physical problem by grouping them into a smaller number of dimensionless products ($\\pi$ groups). This simplifies experimentation, analysis, and the presentation of results, making them more general.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Buckingham $\\pi$ theorem formula relating the number of $\\pi$ groups, variables, and fundamental dimensions.",
+      "back": "If a physical process involves $n$ variables ($q_1, q_2, ..., q_n$) and these variables can be expressed using $k$ fundamental dimensions (e.g., M, L, T), then the variables can be grouped into $n-k$ independent dimensionless products ($\\pi$ groups). Mathematically, if $f(q_1, q_2, ..., q_n) = 0$, it can be rewritten as $\\Phi(\\pi_1, \\pi_2, ..., \\pi_{n-k}) = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When applying the Buckingham $\\pi$ theorem, how do you typically select \"repeating variables,\" and what criteria should they meet?",
+      "back": "You select $k$ repeating variables (where $k$ is the number of fundamental dimensions). They must:\n1.  Collectively include all fundamental dimensions (e.g., M, L, T).\n2.  Not form a dimensionless group among themselves.\n3.  Represent the \"core\" physics of the problem (e.g., a characteristic length, velocity, and density for fluid flow).\n4.  Often chosen from the independent variables.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider fluid flow over a sphere. The drag force $F_D$ depends on diameter $D$, velocity $V$, fluid density $\\rho$, and fluid viscosity $\\mu$. Identify the variables and fundamental dimensions.",
+      "back": "Variables ($n=5$):\n*   $F_D$ (force): $[MLT^{-2}]$\n*   $D$ (length): $[L]$\n*   $V$ (velocity): $[LT^{-1}]$\n*   $\\rho$ (density): $[ML^{-3}]$\n*   $\\mu$ (viscosity): $[ML^{-1}T^{-1}]$\nFundamental dimensions ($k=3$): Mass (M), Length (L), Time (T).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the fluid flow over a sphere problem (variables: $F_D, D, V, \\rho, \\mu$), derive one of the dimensionless $\\pi$ groups using the repeating variables $D, V, \\rho$ and the variable $F_D$.",
+      "back": "We expect $n-k = 5-3 = 2$ $\\pi$ groups. Let's form $\\pi_1$ with $F_D$:\n$\\pi_1 = D^a V^b \\rho^c F_D$\n$[L]^a [LT^{-1}]^b [ML^{-3}]^c [MLT^{-2}] = M^0 L^0 T^0$\nEquating powers:\n*   M: $c+1 = 0 \\Rightarrow c = -1$\n*   T: $-b-2 = 0 \\Rightarrow b = -2$\n*   L: $a+b-3c+1 = 0 \\Rightarrow a-2-3(-1)+1 = 0 \\Rightarrow a-2+3+1 = 0 \\Rightarrow a = -2$\nSo, $\\pi_1 = D^{-2} V^{-2} \\rho^{-1} F_D = \\frac{F_D}{\\rho V^2 D^2}$. This is proportional to the Drag Coefficient ($C_D$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the same fluid flow problem, derive the second dimensionless $\\pi$ group using the repeating variables $D, V, \\rho$ and the remaining variable $\\mu$.",
+      "back": "Let's form $\\pi_2$ with $\\mu$:\n$\\pi_2 = D^a V^b \\rho^c \\mu$\n$[L]^a [LT^{-1}]^b [ML^{-3}]^c [ML^{-1}T^{-1}] = M^0 L^0 T^0$\nEquating powers:\n*   M: $c+1 = 0 \\Rightarrow c = -1$\n*   T: $-b-1 = 0 \\Rightarrow b = -1$\n*   L: $a+b-3c-1 = 0 \\Rightarrow a-1-3(-1)-1 = 0 \\Rightarrow a-1+3-1 = 0 \\Rightarrow a = -1$\nSo, $\\pi_2 = D^{-1} V^{-1} \\rho^{-1} \\mu = \\frac{\\mu}{\\rho V D}$. The inverse of this is the Reynolds number ($Re = \\frac{\\rho V D}{\\mu}$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it advantageous to express physical relationships in terms of dimensionless $\\pi$ groups rather than original variables?",
+      "back": "Advantages include:\n1.  **Reduced Complexity:** Fewer variables simplify experimentation and data analysis.\n2.  **Generality:** Results apply to geometrically similar systems regardless of scale or specific units, as long as the $\\pi$ groups are matched.\n3.  **Unit Consistency:** Ensures all equations are dimensionally homogeneous.\n4.  **Physical Insight:** Dimensionless groups often represent ratios of competing physical effects (e.g., Reynolds number is a ratio of inertial to viscous forces).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a potential pitfall or limitation when determining the number of fundamental dimensions ($k$) for the Buckingham $\\pi$ theorem?",
+      "back": "A key pitfall is incorrectly identifying the *minimum* number of fundamental dimensions required. All variables must be expressible using these $k$ dimensions, and the repeating variables must span all $k$ dimensions. If some variables are already dimensionless, they are directly a $\\pi$ group. An incorrect $k$ leads to an incorrect number of $\\pi$ groups, or an inability to form valid groups.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which famous dimensionless number, crucial in fluid dynamics, can be derived using the Buckingham $\\pi$ theorem from variables like density, velocity, characteristic length, and viscosity?",
+      "back": "The Reynolds number ($Re = \\frac{\\rho V L}{\\mu}$). It is a critical parameter in fluid dynamics, representing the ratio of inertial forces to viscous forces, and is used to predict flow patterns in different fluid situations.",
+      "difficulty": "easy"
+    }
+  ]
+}

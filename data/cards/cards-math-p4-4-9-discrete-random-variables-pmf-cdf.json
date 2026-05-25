@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-discrete-random-variables-pmf-cdf",
+  "subtopicTitle": "Discrete random variables — PMF, CDF",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:34.551Z",
+  "cards": [
+    {
+      "front": "Define a discrete random variable (DRV).",
+      "back": "A random variable $X$ is discrete if its set of possible values (its support) is finite or countably infinite. These values can typically be listed, like integers or a subset of integers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Probability Mass Function (PMF) for a discrete random variable $X$.",
+      "back": "The PMF of a discrete random variable $X$, denoted by $p_X(x)$ or $P(X=x)$, gives the probability that $X$ takes on a specific value $x$. Formally, $p_X(x) = P(X=x)$ for all $x$ in the support of $X$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the two essential properties that any valid Probability Mass Function (PMF) $p_X(x)$ must satisfy.",
+      "back": "For any valid PMF $p_X(x)$ for a discrete random variable $X$ with support $S$: \n1. $p_X(x) \\ge 0$ for all $x \\in S$. (Probabilities must be non-negative)\n2. $\\sum_{x \\in S} p_X(x) = 1$. (The sum of all probabilities over the entire support must equal 1)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Cumulative Distribution Function (CDF) for a discrete random variable $X$.",
+      "back": "The CDF of a discrete random variable $X$, denoted by $F_X(x)$, gives the probability that $X$ takes on a value less than or equal to $x$. Formally, $F_X(x) = P(X \\le x) = \\sum_{t \\le x} p_X(t)$ for all real numbers $x$, where the sum is over all $t$ in the support of $X$ such that $t \\le x$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given the PMF $p_X(x)$ for a discrete random variable $X$, how is its CDF $F_X(x)$ calculated?",
+      "back": "The CDF $F_X(x)$ is calculated by summing the probabilities from the PMF for all values less than or equal to $x$: \n$$F_X(x) = P(X \\le x) = \\sum_{t \\le x} p_X(t)$$\nThe sum is over all values $t$ in the support of $X$ such that $t \\le x$. For values of $x$ not in the support, $F_X(x)$ remains constant until the next value in the support is reached.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the CDF $F_X(x)$ for a discrete random variable $X$, how is its PMF $p_X(x)$ calculated for a specific value $x$?",
+      "back": "For a discrete random variable, the PMF $p_X(x)$ for a specific value $x$ (which must be a point of jump in the CDF) can be found by: \n$$p_X(x) = F_X(x) - F_X(x^-)$$\nwhere $F_X(x^-)$ represents the limit of $F_X(t)$ as $t$ approaches $x$ from the left. If $x_i$ are the ordered values in the support, then $p_X(x_i) = F_X(x_i) - F_X(x_{i-1})$ for $i > 0$, and $p_X(x_0) = F_X(x_0)$ (assuming $x_0$ is the smallest value).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A discrete RV $X$ has PMF $p_X(0)=0.2, p_X(1)=0.5, p_X(2)=0.3$. What is $P(X > 1)$?",
+      "back": "We want to find $P(X > 1)$.\nUsing the PMF directly: $P(X > 1) = p_X(2) = 0.3$.\nAlternatively, using the CDF relationship: $P(X > 1) = 1 - P(X \\le 1) = 1 - F_X(1)$.\n$F_X(1) = p_X(0) + p_X(1) = 0.2 + 0.5 = 0.7$.\nSo, $P(X > 1) = 1 - 0.7 = 0.3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three fundamental properties that any valid Cumulative Distribution Function (CDF) $F_X(x)$ must satisfy.",
+      "back": "For any valid CDF $F_X(x)$:\n1. $0 \\le F_X(x) \\le 1$ for all $x \\in \\mathbb{R}$.\n2. $F_X(x)$ is non-decreasing: if $a < b$, then $F_X(a) \\le F_X(b)$.\n3. $\\lim_{x \\to -\\infty} F_X(x) = 0$ and $\\lim_{x \\to \\infty} F_X(x) = 1$.\n(For discrete RVs, the CDF is also a right-continuous step function.)",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-3-gdb-debugging-breakpoints-watchpoints-step-next-backtrace",
+  "subtopicTitle": "GDB debugging — breakpoints, watchpoints, step, next, backtrace",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:22.069Z",
+  "cards": [
+    {
+      "front": "In GDB, what is the primary purpose of a breakpoint, and what is the basic command to set one at line 10 of `main.c`?",
+      "back": "A breakpoint pauses program execution at a specified point. The basic command to set one at line 10 of `main.c` is: `b main.c:10` or `break main.c:10`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You want to pause execution in GDB only when variable `i` is greater than 50. What command would you use to set this conditional breakpoint at line 25 of the current file?",
+      "back": "Command: `b 25 if i > 50` or `break 25 if i > 50`. The program will only stop at line 25 if the condition `i > 50` evaluates to true at that point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the fundamental difference between a GDB breakpoint and a watchpoint. How would you set a watchpoint on a variable `my_var`?",
+      "back": "A **breakpoint** pauses execution at a specific code location (e.g., a line number or function entry). A **watchpoint** pauses execution when the value of a variable or memory location changes (or is accessed). To set a watchpoint on `my_var`: `watch my_var`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider the following C code snippet. If GDB is paused on line 3 and you execute `step`, then `next`, what will be the next line executed after each command?",
+      "back": "```c\n1 int func_a() { return 1; }\n2 int main() {\n3   int x = func_a();\n4   int y = 2;\n5   return 0;\n6 }\n```\nIf GDB is on line 3:\n- `step` will execute line 3, then *enter* `func_a()`, pausing at line 1.\n- `next` will execute line 3, *stepping over* `func_a()`, and pause at line 4.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Your program crashed with a segmentation fault. You've loaded the core dump into GDB. What GDB command would you use to see the sequence of function calls that led to the crash, and what information does it typically provide for each frame?",
+      "back": "Command: `backtrace` (or `bt`). It shows the **call stack** or **stack trace**. For each frame, it typically provides:\n1. Frame number (e.g., `#0`, `#1`)\n2. Function name\n3. Source file and line number\n4. Arguments passed to the function (if available)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You have multiple breakpoints set. How would you specifically disable breakpoint number 3 without deleting it, and then later re-enable it? How would you delete *all* breakpoints?",
+      "back": "To disable breakpoint 3: `disable 3`.\nTo re-enable breakpoint 3: `enable 3`.\nTo delete all breakpoints: `delete` (GDB will prompt for confirmation, type `y` and press Enter). To delete a specific breakpoint: `delete 3`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You suspect a variable `config_val` is being read unexpectedly, leading to an issue. How would you set a watchpoint in GDB to pause execution *only when `config_val` is read* (not written to)?",
+      "back": "Command: `rwatch config_val` (read watchpoint). This will pause execution when the value of `config_val` is read. To watch for *any* access (read or write), you would use `awatch config_val`.",
+      "difficulty": "medium"
+    }
+  ]
+}

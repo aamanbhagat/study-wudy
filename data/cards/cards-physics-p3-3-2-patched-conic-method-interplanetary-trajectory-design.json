@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-patched-conic-method-interplanetary-trajectory-design",
+  "subtopicTitle": "Patched conic method — interplanetary trajectory design",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:59.907Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the \"Patched Conic Method\" in interplanetary trajectory design?",
+      "back": "The Patched Conic Method simplifies the complex N-body problem of interplanetary travel into a series of two-body problems, allowing for approximate calculation of trajectories and $\\Delta V$ requirements. It's used for preliminary mission design and analysis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two fundamental simplifying assumptions that define the \"Patched Conic Method\"?",
+      "back": "1. The trajectory is divided into distinct two-body regions (e.g., planet-centric, heliocentric). 2. The gravitational influence of only one dominant body is considered within each region, neglecting all other gravitational forces.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the three distinct gravitational \"regions\" a spacecraft typically traverses when traveling from Earth to Mars using the Patched Conic Method.",
+      "back": "1. **Departure Sphere of Influence (SOI)**: Earth-centric hyperbolic trajectory.\n2. **Heliocentric Transfer**: Sun-centric elliptical (or hyperbolic) trajectory.\n3. **Arrival Sphere of Influence (SOI)**: Mars-centric hyperbolic trajectory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the formula for the radius of a planet's Sphere of Influence (SOI) with respect to the Sun, and define its variables.",
+      "back": "The radius of the Sphere of Influence (SOI) for a planet orbiting the Sun is given by:\n$$r_{SOI} = R_{planet} \\left( \\frac{m_{planet}}{m_{Sun}} \\right)^{2/5}$$\nWhere:\n*   $R_{planet}$ is the orbital radius of the planet around the Sun.\n*   $m_{planet}$ is the mass of the planet.\n*   $m_{Sun}$ is the mass of the Sun.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how velocities are matched at the boundary of a planet's Sphere of Influence (SOI) during a departure maneuver.",
+      "back": "At the SOI boundary, the spacecraft's velocity relative to the planet ($v_{SC/planet}$) when leaving the SOI must be equal in magnitude and direction to the spacecraft's velocity relative to the Sun ($v_{SC/Sun}$) minus the planet's velocity relative to the Sun ($v_{planet/Sun}$). This is expressed as $v_{SC/planet} = v_{SC/Sun} - v_{planet/Sun}$, ensuring a smooth transition between the planet-centric and heliocentric frames.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is \"hyperbolic excess velocity\" ($v_\\infty$) and how does it relate to the Patched Conic Method?",
+      "back": "Hyperbolic excess velocity ($v_\\infty$) is the velocity a spacecraft would have relative to a central body (e.g., a planet) if it were infinitely far away, after escaping that body's gravitational pull. In the Patched Conic Method, $v_\\infty$ is the velocity vector that connects the planet-centric hyperbolic trajectory to the heliocentric transfer trajectory at the SOI boundary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the $\\Delta V$ required to depart from a circular parking orbit around Earth with radius $r_p$ onto a hyperbolic escape trajectory with a given $v_\\infty$.",
+      "back": "1.  Velocity in circular parking orbit: $v_c = \\sqrt{\\frac{\\mu_{Earth}}{r_p}}$\n2.  Velocity at periapsis of escape hyperbola: $v_p = \\sqrt{v_\\infty^2 + \\frac{2\\mu_{Earth}}{r_p}}$\n3.  The $\\Delta V$ required is the difference between the hyperbolic periapsis velocity and the circular parking orbit velocity:\n    $$\\Delta V = v_p - v_c = \\sqrt{v_\\infty^2 + \\frac{2\\mu_{Earth}}{r_p}} - \\sqrt{\\frac{\\mu_{Earth}}{r_p}}$$This is the $\\Delta V$ for the trans-injection burn.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary limitation or drawback of the Patched Conic Method for highly accurate trajectory design?",
+      "back": "The primary limitation is its neglect of the gravitational perturbations from other bodies when outside their respective Spheres of Influence. For instance, during a heliocentric transfer, it ignores the gravitational pull of planets other than the Sun and the departure/arrival planets, leading to inaccuracies, especially for long-duration missions or close planetary encounters.",
+      "difficulty": "medium"
+    }
+  ]
+}

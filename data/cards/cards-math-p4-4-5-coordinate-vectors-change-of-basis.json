@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-coordinate-vectors-change-of-basis",
+  "subtopicTitle": "Coordinate vectors — change of basis",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:47.167Z",
+  "cards": [
+    {
+      "front": "Define the coordinate vector of a vector $v$ with respect to a basis $B = \\{b_1, \\dots, b_n\\}$.",
+      "back": "The coordinate vector $[v]_B$ is the unique column vector of scalars $\\begin{bmatrix} c_1 \\\\ \\vdots \\\\ c_n \\end{bmatrix}$ such that $v = c_1 b_1 + \\dots + c_n b_n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $v = \\begin{bmatrix} 7 \\\\ 4 \\end{bmatrix}$ and basis $B = \\left\\{ \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}, \\begin{bmatrix} 3 \\\\ 1 \\end{bmatrix} \\right\\}$, find $[v]_B$.",
+      "back": "We need to find $c_1, c_2$ such that $c_1 \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} + c_2 \\begin{bmatrix} 3 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 7 \\\\ 4 \\end{bmatrix}$. This forms the system:\n$$ \\begin{cases} c_1 + 3c_2 = 7 \\\\ 2c_1 + c_2 = 4 \\end{cases} $$\nSolving, we get $c_1 = 1$ and $c_2 = 2$. Thus, $[v]_B = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the change-of-basis matrix $P_{C \\leftarrow B}$ and how are its columns formed?",
+      "back": "The change-of-basis matrix $P_{C \\leftarrow B}$ transforms coordinate vectors from basis $B$ to basis $C$. If $B = \\{b_1, \\dots, b_n\\}$ and $C = \\{c_1, \\dots, c_n\\}$, its columns are the coordinate vectors of the basis vectors of $B$ with respect to basis $C$: \n$$ P_{C \\leftarrow B} = \\left[ [b_1]_C \\ [b_2]_C \\ \\dots \\ [b_n]_C \\right] $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula relating $[v]_C$ to $[v]_B$ using the change-of-basis matrix $P_{C \\leftarrow B}$.",
+      "back": "$$[v]_C = P_{C \\leftarrow B} [v]_B$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Let $B = \\{b_1, \\dots, b_n\\}$ and $C = \\{c_1, \\dots, c_n\\}$ be bases. Express $P_{C \\leftarrow B}$ in terms of $P_B$ and $P_C$, where $P_B$ maps from $B$ to the standard basis $E$.",
+      "back": "Let $E$ be the standard basis. We know that $[v]_E = P_B [v]_B$ and $[v]_E = P_C [v]_C$. \nFrom the first equation, $[v]_B = P_B^{-1} [v]_E$ (if $P_B$ is invertible, which it is for a basis). \nSubstitute $[v]_E$ from the second equation into the first: $P_C [v]_C = P_B [v]_B$. \nMultiplying by $P_C^{-1}$ on the left, we get: $[v]_C = P_C^{-1} P_B [v]_B$. \nBy definition, $P_{C \\leftarrow B}$ is the matrix such that $[v]_C = P_{C \\leftarrow B} [v]_B$. \nTherefore, $P_{C \\leftarrow B} = P_C^{-1} P_B$. (Here $P_B = [b_1 \\dots b_n]$ and $P_C = [c_1 \\dots c_n]$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are the change-of-basis matrices $P_{C \\leftarrow B}$ and $P_{B \\leftarrow C}$ related?",
+      "back": "They are inverses of each other: $P_{B \\leftarrow C} = (P_{C \\leftarrow B})^{-1}$.\nThis is because if you transform coordinates from $B$ to $C$ using $P_{C \\leftarrow B}$, then transforming them back from $C$ to $B$ using $P_{B \\leftarrow C}$ must restore the original coordinates. So, $P_{B \\leftarrow C} P_{C \\leftarrow B} = I$ (the identity matrix).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $B = \\left\\{ \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}, \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix} \\right\\}$ and $C = \\left\\{ \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix}, \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} \\right\\}$, find $P_{C \\leftarrow B}$.",
+      "back": "Let $b_1 = \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}$ and $b_2 = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}$. We need to find $[b_1]_C$ and $[b_2]_C$.\nFor $[b_1]_C$: Solve $c_1 \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix} + c_2 \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}$. This gives $c_1 = 1$ and $c_1+c_2=0 \\Rightarrow 1+c_2=0 \\Rightarrow c_2=-1$. So $[b_1]_C = \\begin{bmatrix} 1 \\\\ -1 \\end{bmatrix}$.\nFor $[b_2]_C$: Solve $c_1 \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix} + c_2 \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}$. This gives $c_1 = 1$ and $c_1+c_2=2 \\Rightarrow 1+c_2=2 \\Rightarrow c_2=1$. So $[b_2]_C = \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix}$.\nTherefore, $P_{C \\leftarrow B} = \\left[ [b_1]_C \\ [b_2]_C \\right] = \\begin{bmatrix} 1 & 1 \\\\ -1 & 1 \\end{bmatrix}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

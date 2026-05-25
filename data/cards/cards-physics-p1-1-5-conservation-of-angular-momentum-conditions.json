@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-5-conservation-of-angular-momentum-conditions",
+  "subtopicTitle": "Conservation of angular momentum — conditions",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:30.686Z",
+  "cards": [
+    {
+      "front": "What is the rotational analogue of linear momentum, and how is it mathematically defined for a point particle?",
+      "back": "The rotational analogue of linear momentum is **angular momentum** ($\\vec{L}$). For a point particle with position vector $\\vec{r}$ and linear momentum $\\vec{p}$, it is defined as $\\vec{L} = \\vec{r} \\times \\vec{p}$. For a rigid body rotating about a fixed axis, it can often be expressed as $\\vec{L} = I\\vec{\\omega}$, where $I$ is the moment of inertia and $\\vec{\\omega}$ is the angular velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the principle of conservation of angular momentum.",
+      "back": "The principle of conservation of angular momentum states that the total angular momentum of a system remains constant (is conserved) if the net external torque acting on the system is zero. Mathematically, if $\\vec{\\tau}_{\\text{net, ext}} = 0$, then $\\vec{L}_{\\text{total}} = \\text{constant}$. This means both the magnitude and direction of the total angular momentum vector are conserved.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the *necessary and sufficient condition* for the total angular momentum of a system to be conserved?",
+      "back": "The necessary and sufficient condition for the total angular momentum of a system to be conserved is that the **net external torque** acting on the system must be zero ($\\vec{\\tau}_{\\text{net, ext}} = 0$). Internal torques (torques between components within the system) do not affect the total angular momentum because they cancel out in pairs due to Newton's third law.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between internal and external torques with respect to a defined system, and why only external torques matter for total angular momentum conservation.",
+      "back": "**External torques** are caused by forces originating *outside* the defined system. **Internal torques** are caused by forces *between* particles or components *within* the system. Internal forces occur in action-reaction pairs (Newton's third law). If these forces are collinear, the torques they produce are equal in magnitude and opposite in direction, thus cancelling each other out. Therefore, internal torques have no net effect on the total angular momentum of the system, only external torques can change it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the condition for angular momentum conservation starting from Newton's second law for rotation.",
+      "back": "Newton's second law for rotation states that the net torque acting on a system is equal to the rate of change of its total angular momentum:\n$$ \\vec{\\tau}_{\\text{net}} = \\frac{d\\vec{L}}{dt} $$\nHere, $\\vec{\\tau}_{\\text{net}}$ refers specifically to the net *external* torque, as internal torques cancel out. For angular momentum $\\vec{L}$ to be conserved, it must be constant over time. If $\\vec{L}$ is constant, its time derivative must be zero:\n$$ \\frac{d\\vec{L}}{dt} = 0 $$\nSubstituting this into the rotational second law equation, we get:\n$$ \\vec{\\tau}_{\\text{net, ext}} = 0 $$\nThis derivation shows that the necessary and sufficient condition for the conservation of angular momentum is that the net external torque acting on the system must be zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a system experiences a non-zero net external torque, what happens to its angular momentum? Provide an example.",
+      "back": "If a system experiences a non-zero net external torque ($\\vec{\\tau}_{\\text{net, ext}} \\neq 0$), its total angular momentum will **change** over time. Specifically, the rate of change of angular momentum is equal to the net external torque ($\\frac{d\\vec{L}}{dt} = \\vec{\\tau}_{\\text{net, ext}}$). This means the angular momentum will either increase, decrease, or change direction, or a combination thereof.\nExample: When you apply the brakes to a spinning bicycle wheel, the friction force from the brake pads exerts an external torque on the wheel, causing its angular momentum to decrease (it slows down).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A figure skater pulls her arms in while spinning. Her angular speed increases dramatically. Is angular momentum conserved in this scenario? Explain why, considering internal vs. external forces.",
+      "back": "Yes, angular momentum *is* conserved in this scenario. The forces the skater exerts to pull her arms in are **internal forces** within her body. These internal forces cause a redistribution of her mass, which significantly reduces her moment of inertia ($I$). Since there is negligible net external torque acting on the skater (assuming ideal conditions with minimal friction from the ice or air resistance), her total angular momentum ($L = I\\omega$) must remain constant. As her moment of inertia ($I$) decreases, her angular speed ($\\omega$) must increase proportionally to maintain the constant total angular momentum.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If angular momentum is conserved, does its *direction* also remain constant? Explain.",
+      "back": "Yes, if angular momentum is conserved, both its **magnitude** and its **direction** remain constant. Angular momentum is a vector quantity ($\\vec{L}$). For $\\vec{L}$ to be constant, its time derivative $\\frac{d\\vec{L}}{dt}$ must be zero. Since $\\vec{\\tau}_{\\text{net, ext}} = \\frac{d\\vec{L}}{dt}$, this implies that the net external torque $\\vec{\\tau}_{\\text{net, ext}}$ must be zero. A non-zero external torque would not only change the magnitude of $\\vec{L}$ but could also change its direction (e.g., causing precession in a gyroscope).",
+      "difficulty": "medium"
+    }
+  ]
+}

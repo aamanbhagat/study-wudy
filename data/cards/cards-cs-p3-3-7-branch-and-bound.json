@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-7-branch-and-bound",
+  "subtopicTitle": "Branch and bound",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:14.639Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of the Branch and Bound algorithm?",
+      "back": "To find an optimal solution (minimum or maximum) for optimization problems by systematically exploring the solution space, while using bounds to prune branches that cannot lead to a better solution than the current best.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the two main operations, \"branching\" and \"bounding,\" in a Branch and Bound algorithm.",
+      "back": "<ul><li><b>Branching:</b> The process of dividing a problem into smaller, mutually exclusive subproblems, forming a search tree. Each node in the tree represents a subproblem.</li><li><b>Bounding:</b> The process of calculating an estimated upper or lower bound for the optimal solution of a given subproblem. This bound helps determine if the subproblem is worth exploring further.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the \"bounding\" step enable pruning in a minimization Branch and Bound algorithm?",
+      "back": "For a minimization problem, if the lower bound of a subproblem is greater than or equal to the current global best (the best feasible solution found so far), then that subproblem and all its descendants can be pruned. They are guaranteed not to contain a solution better than the current global best.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two classic optimization problems where Branch and Bound is commonly applied.",
+      "back": "1.  <b>Traveling Salesperson Problem (TSP):</b> Finding the shortest route visiting all cities exactly once.\n2.  <b>0/1 Knapsack Problem:</b> Maximizing the value of items in a knapsack with a weight limit.\n3.  <b>Job Assignment Problem:</b> Assigning tasks to agents to minimize total cost.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the three key characteristics of an effective bounding function in Branch and Bound?",
+      "back": "An effective bounding function should be:\n1.  <b>Admissible:</b> It must never overestimate the true optimal value for minimization (or underestimate for maximization).\n2.  <b>Tight:</b> It should provide a bound as close as possible to the true optimal value to maximize pruning effectiveness.\n3.  <b>Efficient:</b> It must be computationally inexpensive to calculate, as it is invoked frequently during the search.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a Branch and Bound algorithm, what is the significance of the \"global best\" variable?",
+      "back": "The \"global best\" variable stores the value of the best feasible solution found so far during the search. It is crucial for pruning: any subproblem whose bound indicates it cannot yield a solution better than the current \"global best\" can be safely discarded, significantly reducing the search space.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which search strategy (e.g., DFS, BFS, Best-First) is often preferred for Branch and Bound and why?",
+      "back": "<b>Best-First Search</b> is often preferred. It expands the node (subproblem) with the most promising bound (e.g., the smallest lower bound for a minimization problem). This strategy aims to find an optimal or near-optimal solution quickly, leading to a tighter \"global best\" earlier, which enables more aggressive pruning throughout the search.",
+      "difficulty": "hard"
+    }
+  ]
+}

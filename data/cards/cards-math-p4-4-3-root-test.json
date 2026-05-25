@@ -1,0 +1,40 @@
+{
+  "subtopicId": "math-p4-4-3-root-test",
+  "subtopicTitle": "Root test",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:42.345Z",
+  "cards": [
+    {
+      "front": "State the Root Test for determining the convergence of an infinite series $\\sum a_n$.",
+      "back": "Let $\\sum a_n$ be an infinite series. Let $L = \\lim_{n \\to \\infty} \\sqrt[n]{|a_n|}$.\n\n1. If $L < 1$, the series $\\sum a_n$ converges absolutely.\n2. If $L > 1$ (or $L = \\infty$), the series $\\sum a_n$ diverges.\n3. If $L = 1$, the Root Test is inconclusive.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For what types of series is the Root Test particularly effective or preferred over other tests?",
+      "back": "The Root Test is particularly effective for series where the general term $a_n$ involves expressions raised to the power of $n$, such as $(f(n))^n$ or expressions like $n^n$. This is because taking the $n$-th root often simplifies the expression significantly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the intuitive explanation for why the Root Test works by relating it to a geometric series.",
+      "back": "If $\\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = L$, it means that for large $n$, $\\sqrt[n]{|a_n|} \\approx L$, which implies $|a_n| \\approx L^n$. \n\n- If $L < 1$, the series behaves like a convergent geometric series $\\sum L^n$.\n- If $L > 1$, the series behaves like a divergent geometric series $\\sum L^n$.\n- If $L = 1$, the approximation $|a_n| \\approx 1^n = 1$ is not precise enough to determine convergence or divergence, as both $\\sum 1/n$ (divergent) and $\\sum 1/n^2$ (convergent) have terms that approach 0, but $\\sqrt[n]{1/n}$ and $\\sqrt[n]{1/n^2}$ both approach 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Apply the Root Test to determine the convergence of the series $\\sum_{n=1}^{\\infty} \\left(\\frac{2n+1}{3n+5}\\right)^n$.",
+      "back": "Let $a_n = \\left(\\frac{2n+1}{3n+5}\\right)^n$. We compute the limit:\n$$L = \\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = \\lim_{n \\to \\infty} \\sqrt[n]{\\left|\\left(\\frac{2n+1}{3n+5}\\right)^n\\right|}$$ \nSince $\\frac{2n+1}{3n+5} > 0$ for $n \\ge 1$, we have:\n$$L = \\lim_{n \\to \\infty} \\frac{2n+1}{3n+5} = \\lim_{n \\to \\infty} \\frac{n(2+1/n)}{n(3+5/n)} = \\frac{2}{3}$$ \nSince $L = \\frac{2}{3} < 1$, by the Root Test, the series converges absolutely.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Apply the Root Test to determine the convergence of the series $\\sum_{n=1}^{\\infty} \\left(\\frac{n^2+1}{n+2}\\right)^n$.",
+      "back": "Let $a_n = \\left(\\frac{n^2+1}{n+2}\\right)^n$. We compute the limit:\n$$L = \\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = \\lim_{n \\to \\infty} \\sqrt[n]{\\left|\\left(\\frac{n^2+1}{n+2}\\right)^n\\right|}$$ \nSince $\\frac{n^2+1}{n+2} > 0$ for $n \\ge 1$, we have:\n$$L = \\lim_{n \\to \\infty} \\frac{n^2+1}{n+2} = \\lim_{n \\to \\infty} \\frac{n(n+1/n)}{n(1+2/n)} = \\lim_{n \\to \\infty} \\frac{n+1/n}{1+2/n} = \\infty$$ \nSince $L = \\infty > 1$, by the Root Test, the series diverges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the Root Test yields $L=1$, what can be concluded? Provide examples of both a convergent and a divergent series for which $L=1$.",
+      "back": "If the Root Test yields $L=1$, the test is inconclusive. This means the series could either converge or diverge, and another test must be used.\n\n1.  **Convergent Example:** Consider the series $\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$. This is a convergent p-series ($p=2 > 1$).\n    For this series, $a_n = \\frac{1}{n^2}$. Then $\\sqrt[n]{|a_n|} = \\sqrt[n]{\\frac{1}{n^2}} = \\frac{1}{(\\sqrt[n]{n})^2}$.\n    Since $\\lim_{n \\to \\infty} \\sqrt[n]{n} = 1$, we have $L = \\frac{1}{1^2} = 1$.\n\n2.  **Divergent Example:** Consider the series $\\sum_{n=1}^{\\infty} \\frac{1}{n}$. This is the divergent harmonic series ($p=1$).\n    For this series, $a_n = \\frac{1}{n}$. Then $\\sqrt[n]{|a_n|} = \\sqrt[n]{\\frac{1}{n}} = \\frac{1}{\\sqrt[n]{n}}$.\n    Since $\\lim_{n \\to \\infty} \\sqrt[n]{n} = 1$, we have $L = \\frac{1}{1} = 1$.",
+      "difficulty": "hard"
+    }
+  ]
+}

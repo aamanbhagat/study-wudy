@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-7-randomized-algorithms-las-vegas-monte-carlo",
+  "subtopicTitle": "Randomized algorithms — Las Vegas, Monte Carlo",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:17.107Z",
+  "cards": [
+    {
+      "front": "What is the primary characteristic that defines a randomized algorithm?",
+      "back": "A randomized algorithm makes choices based on random numbers during its execution. These random choices can influence its runtime, its output, or both.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental difference in guarantees between a Las Vegas algorithm and a Monte Carlo algorithm.",
+      "back": "A **Las Vegas** algorithm always produces the correct result but has a probabilistic runtime. A **Monte Carlo** algorithm has a deterministic (or bounded) runtime but its result might be incorrect with a certain probability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the correctness and runtime guarantees of a Las Vegas algorithm.",
+      "back": "<ul><li>**Correctness:** Always produces the correct output.</li><li>**Runtime:** Is a random variable. Typically, an expected runtime is guaranteed, e.g., $O(N \\log N)$. In rare cases, it might run for an arbitrarily long time or fail to find a solution, but it will never return an incorrect one.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the correctness and runtime guarantees of a Monte Carlo algorithm.",
+      "back": "<ul><li>**Correctness:** Produces a correct output with a certain probability $p < 1$. There's a probability $1-p$ that the output is incorrect.</li><li>**Runtime:** Is deterministic or bounded, e.g., $O(N)$.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give an example of a Las Vegas algorithm and explain its randomized aspect.",
+      "back": "**Randomized Quicksort**. It always correctly sorts an array. Its randomized aspect is the selection of the pivot element (e.g., chosen uniformly at random). This ensures that the worst-case $O(N^2)$ runtime, which occurs with bad pivot choices, becomes highly improbable, leading to an expected $O(N \\log N)$ runtime.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give an example of a Monte Carlo algorithm and how its probabilistic correctness manifests.",
+      "back": "**Miller-Rabin Primality Test**. It checks if a number $N$ is prime. If it declares $N$ as composite, it is always correct. If it declares $N$ as \"probably prime\", there's a small probability of error (e.g., $\\le 1/4$ per test) that $N$ is actually composite. Its runtime is fixed (polynomial in $\\log N$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the error probability of a Monte Carlo algorithm (with one-sided error) be reduced? State the formula for $k$ repetitions.",
+      "back": "By running the algorithm multiple times independently. If a Monte Carlo algorithm has a one-sided error probability $\\epsilon$, running it $k$ times reduces the error to $\\epsilon^k$. For example, if Miller-Rabin has error $\\epsilon \\le 1/4$, running it $k$ times reduces the total error probability to $(1/4)^k$. The trade-off is that the total runtime increases by a factor of $k$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When is a Monte Carlo algorithm generally preferred over a Las Vegas algorithm?",
+      "back": "When a guaranteed fast runtime is more critical than absolute certainty of the result, and an approximate or probably correct answer is acceptable. This is often the case for problems where finding an exact solution is too slow or impossible, or for decision problems where a small chance of error is tolerable (e.g., primality testing for cryptographic keys).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a common technique to convert a Las Vegas algorithm into a Monte Carlo algorithm.",
+      "back": "A Las Vegas algorithm with expected runtime $E[T]$ can be converted by setting a fixed time bound $T_{\\text{max}}$ (e.g., $c \\cdot E[T]$ for some constant $c$). If the algorithm completes within $T_{\\text{max}}$, its output is correct. If it exceeds $T_{\\text{max}}$, it is terminated, and a \"failure\" or arbitrary incorrect result is returned. This makes the runtime deterministic ($T_{\\text{max}}$) but introduces a probability of error (failure to complete).",
+      "difficulty": "hard"
+    }
+  ]
+}

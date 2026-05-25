@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-rc-circuits-charging-discharging-time-constant-rc",
+  "subtopicTitle": "RC circuits — charging, discharging, time constant τ = RC",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:07.804Z",
+  "cards": [
+    {
+      "front": "Define an RC circuit and state its primary components.",
+      "back": "An RC circuit is an electrical circuit consisting of a resistor (R) and a capacitor (C) connected in series or parallel. It's fundamental for applications like filtering, timing, and smoothing power supplies.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the time constant $\\tau$ for an RC circuit, providing its formula and SI units.",
+      "back": "The time constant $\\tau$ (tau) of an RC circuit is the product of the resistance $R$ and the capacitance $C$: $\\tau = RC$. It represents the time required for the capacitor's voltage to reach approximately $63.2\\%$ of its final value during charging, or to discharge to approximately $36.8\\%$ of its initial value during discharging. Its SI unit is seconds (s).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a charging RC circuit, what is the current $I(t)$ at $t=0^+$ and as $t \\to \\infty$?",
+      "back": "At $t=0^+$ (immediately after the switch is closed), the uncharged capacitor acts like a short circuit ($V_C=0$), so the current is maximum: $I(0^+) = E/R$, where $E$ is the source voltage. As $t \\to \\infty$ (steady state), the capacitor acts like an open circuit (fully charged, $V_C=E$), so the current drops to zero: $I(\\infty) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the voltage across a capacitor $V_C(t)$ during charging from an uncharged state in an RC circuit.",
+      "back": "The voltage across the capacitor during charging is given by: $$V_C(t) = E(1 - e^{-t/\\tau})$$ where $E$ is the source voltage, $t$ is time, and $\\tau = RC$ is the time constant. The term $E$ is the final steady-state voltage, and $(1 - e^{-t/\\tau})$ describes the exponential rise from $0$ to $1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the current $I(t)$ in a series RC circuit during charging, assuming the capacitor is initially uncharged.",
+      "back": "By Kirchhoff's Voltage Law (KVL): $E - V_R - V_C = 0$. We know $V_R = IR$ and $V_C = Q/C$. Also, $I = dQ/dt$. Substituting these: $E - IR - Q/C = 0$. Differentiating with respect to time $t$: $0 - R \\frac{dI}{dt} - \\frac{1}{C} \\frac{dQ}{dt} = 0 \\implies -R \\frac{dI}{dt} - \\frac{1}{C} I = 0 \\implies R \\frac{dI}{dt} = -\\frac{1}{C} I \\implies \\frac{dI}{I} = -\\frac{1}{RC} dt$. Integrating both sides from $I_0$ to $I(t)$ and $0$ to $t$: $\\int_{I_0}^{I(t)} \\frac{dI}{I} = -\\frac{1}{RC} \\int_0^t dt \\implies \\ln\\left(\\frac{I(t)}{I_0}\\right) = -\\frac{t}{RC} \\implies I(t) = I_0 e^{-t/RC}$. At $t=0^+$, $V_C=0$, so $I_0 = E/R$. Thus, $I(t) = \\frac{E}{R} e^{-t/RC} = \\frac{E}{R} e^{-t/\\tau}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a discharging RC circuit, what is $V_C(t)$ at $t=0^+$ (assuming it was fully charged to $E$) and as $t \\to \\infty$?",
+      "back": "At $t=0^+$ (the moment discharge begins), the capacitor retains its initial charge, so $V_C(0^+) = E$ (the voltage it was charged to). As $t \\to \\infty$ (steady state), the capacitor fully discharges through the resistor, and its voltage drops to zero: $V_C(\\infty) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the voltage across a capacitor $V_C(t)$ during discharging from an initial voltage $V_0$ in an RC circuit.",
+      "back": "The voltage across the capacitor during discharging is given by: $$V_C(t) = V_0 e^{-t/\\tau}$$ where $V_0$ is the initial voltage across the capacitor at $t=0$ (when discharge starts), $t$ is time, and $\\tau = RC$ is the time constant. This formula describes an exponential decay from $V_0$ towards $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many time constants ($\\tau$) does it take for a charging capacitor to reach approximately 99% of its final voltage?",
+      "back": "The voltage across a charging capacitor is $V_C(t) = E(1 - e^{-t/\\tau})$. We want $V_C(t) = 0.99 E$. Setting them equal: $0.99 E = E(1 - e^{-t/\\tau}) \\implies 0.99 = 1 - e^{-t/\\tau} \\implies e^{-t/\\tau} = 0.01$. Taking the natural logarithm: $-t/\\tau = \\ln(0.01) \\approx -4.605$. So, $t \\approx 4.605 \\tau$. Practically, it takes approximately **5 time constants** for the capacitor to reach 99% of its final voltage, as $e^{-5} \\approx 0.0067$, meaning $1 - e^{-5} \\approx 0.9933$.",
+      "difficulty": "hard"
+    }
+  ]
+}

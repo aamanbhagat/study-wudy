@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-2-solid-dependency-inversion-principle",
+  "subtopicTitle": "SOLID — Dependency Inversion Principle",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:35.206Z",
+  "cards": [
+    {
+      "front": "In SOLID, what does the 'D' stand for, and what is its fundamental goal?",
+      "back": "The 'D' stands for the Dependency Inversion Principle (DIP). Its fundamental goal is to reduce coupling between high-level and low-level modules by making both depend on abstractions rather than concrete implementations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the two core tenets of the Dependency Inversion Principle (DIP).",
+      "back": "1. High-level modules should not depend on low-level modules. Both should depend on abstractions.\n2. Abstractions should not depend on details. Details should depend on abstractions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide a Python code snippet demonstrating a direct violation of the Dependency Inversion Principle.",
+      "back": "```python\nclass ConcreteLogger: # Low-level detail\n    def log(self, message):\n        print(f\"Logging to file: {message}\")\n\nclass ReportGenerator: # High-level module\n    def __init__(self):\n        self.logger = ConcreteLogger() # Direct dependency on concrete detail\n    def generate_report(self, data):\n        # ... report generation logic ...\n        self.logger.log(\"Report generated successfully.\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Refactor the `ReportGenerator` and `ConcreteLogger` example to adhere to the Dependency Inversion Principle.",
+      "back": "```python\nfrom abc import ABC, abstractmethod\n\nclass ILogger(ABC): # Abstraction\n    @abstractmethod\n    def log(self, message):\n        pass\n\nclass ConcreteLogger(ILogger): # Low-level detail depends on abstraction\n    def log(self, message):\n        print(f\"Logging to file: {message}\")\n\nclass ReportGenerator: # High-level module depends on abstraction\n    def __init__(self, logger: ILogger): # Dependency Injection\n        self.logger = logger\n    def generate_report(self, data):\n        # ... report generation logic ...\n        self.logger.log(\"Report generated successfully.\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three significant advantages of designing systems according to the Dependency Inversion Principle.",
+      "back": "1.  **Reduced Coupling:** High-level and low-level modules are decoupled via abstractions.\n2.  **Increased Flexibility/Maintainability:** Easier to swap implementations (e.g., change a database or logging mechanism) without altering high-level logic.\n3.  **Improved Testability:** High-level modules can be tested in isolation using mock or stub implementations of their dependencies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Clarify the distinction and relationship between the Dependency Inversion Principle (DIP) and Dependency Injection (DI).",
+      "back": "DIP is a design principle stating that modules should depend on abstractions, not concretions; it's a goal or a guideline. Dependency Injection (DI) is a specific design pattern or technique used to implement DIP. DI achieves this by supplying an object's dependencies from an external source (e.g., constructor, setter method) rather than the object creating them itself, thus ensuring the object depends on an abstraction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the significance of the second part of DIP: \"Abstractions should not depend on details. Details should depend on abstractions.\"",
+      "back": "This tenet emphasizes that interfaces or abstract classes (abstractions) should be stable and defined by the needs of the high-level module, not dictated by specific concrete implementations (details). If an abstraction depends on a detail, changes in the detail might necessitate changes in the abstraction, violating the inversion. By making details depend on abstractions, the abstraction remains independent, ensuring that high-level policies are not affected by low-level implementation changes and promoting stability and reusability of the abstraction itself.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What specific \"inversion\" does the Dependency Inversion Principle refer to?",
+      "back": "It refers to the inversion of the traditional dependency flow. Conventionally, high-level modules depend directly on low-level, concrete implementations. DIP inverts this by making both high-level and low-level modules depend on a common abstraction, effectively reversing the direction of dependency from concrete implementations to abstract interfaces.",
+      "difficulty": "medium"
+    }
+  ]
+}

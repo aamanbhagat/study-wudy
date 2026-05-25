@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-2-common-log-log-and-natural-log-ln-x",
+  "subtopicTitle": "Common log (log₁₀) and natural log (ln x)",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:44.180Z",
+  "cards": [
+    {
+      "front": "What is the base of the common logarithm, $\\log x$?",
+      "back": "The common logarithm, $\\log x$ (or $\\log_{10} x$), has a base of $10$. It answers the question: 'To what power must $10$ be raised to get $x$?'",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the base of the natural logarithm, $\\ln x$?",
+      "back": "The natural logarithm, $\\ln x$ (or $\\log_e x$), has a base of Euler's number, $e \\approx 2.71828$. It answers the question: 'To what power must $e$ be raised to get $x$?'",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Simplify $\\log_{10}(10^x)$ and $10^{\\log_{10} x}$.",
+      "back": "Since $\\log_{10} x$ and $10^x$ are inverse functions:\n*   $\\log_{10}(10^x) = x$\n*   $10^{\\log_{10} x} = x$ (for $x > 0$)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Simplify $\\ln(e^x)$ and $e^{\\ln x}$.",
+      "back": "Since $\\ln x$ and $e^x$ are inverse functions:\n*   $\\ln(e^x) = x$\n*   $e^{\\ln x} = x$ (for $x > 0$)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express $\\ln x$ in terms of $\\log_{10} x$ using the change of base formula.",
+      "back": "Using the change of base formula $\\log_b a = \\frac{\\log_c a}{\\log_c b}$:\n$\\ln x = \\frac{\\log_{10} x}{\\log_{10} e}$\n(Alternatively, $\\log_{10} x = \\frac{\\ln x}{\\ln 10}$)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the domain of $\\log_{10} x$ and $\\ln x$? Explain why.",
+      "back": "The domain for both $\\log_{10} x$ and $\\ln x$ is $(0, \\infty)$, meaning $x > 0$. This is because the base ($10$ or $e$) raised to any real power will always result in a positive number. Therefore, you cannot take the logarithm of zero or a negative number.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "The natural logarithm $\\ln x$ is often called the 'time to reach' function. Explain this intuition in the context of continuous growth.",
+      "back": "If a quantity grows continuously at a rate of $100\\%$ per unit of time (i.e., $e^t$), then $\\ln x$ represents the amount of time $t$ it takes for the quantity to grow to $x$ times its original size. For example, if a population grows continuously at $100\\%$ per year, $\\ln 2 \\approx 0.693$ years is the time it takes for the population to double.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Without a calculator, what is $\\log_{10}(0.01)$?",
+      "back": "$\\log_{10}(0.01) = \\log_{10}(10^{-2})$. Since $\\log_{10}(10^x) = x$, we have $\\log_{10}(10^{-2}) = -2$.",
+      "difficulty": "medium"
+    }
+  ]
+}

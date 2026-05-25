@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-1-normal-modes-coupled-oscillators-normal-coordinates",
+  "subtopicTitle": "Normal modes — coupled oscillators, normal coordinates",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:19.108Z",
+  "cards": [
+    {
+      "front": "What defines a \"coupled oscillator\" system in analytical mechanics?",
+      "back": "A system where the motion of one oscillator affects, and is affected by, the motion of another, typically through shared springs, pendulums connected by a string, or other interaction forces that link their degrees of freedom.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"normal mode\" of oscillation for a coupled system.",
+      "back": "A specific pattern of oscillation where all parts of the system move with the same angular frequency ($\\omega$) and maintain a constant phase relationship. Each normal mode represents an independent, uncoupled simple harmonic oscillation of the entire system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are the kinetic energy ($T$) and potential energy ($V$) expressed in matrix form for a small oscillation analysis of a system with $N$ generalized coordinates $\\mathbf{q}$?",
+      "back": "For small oscillations around an equilibrium point, the kinetic and potential energies can be approximated as quadratic forms:\n$$T = \\frac{1}{2} \\dot{\\mathbf{q}}^T M \\dot{\\mathbf{q}}$$\n$$V = \\frac{1}{2} \\mathbf{q}^T K \\mathbf{q}$$\nwhere $M$ is the symmetric mass (or kinetic energy) matrix and $K$ is the symmetric potential energy (or stiffness) matrix, both evaluated at the equilibrium position.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the characteristic equation used to find the normal angular frequencies ($\\omega$) of a coupled oscillator system described by $M\\ddot{\\mathbf{q}} + K\\mathbf{q} = 0$?",
+      "back": "Assuming a harmonic solution of the form $\\mathbf{q}(t) = \\mathbf{A}e^{i\\omega t}$ and substituting it into the equations of motion leads to $(K - \\omega^2 M)\\mathbf{A} = 0$. For non-trivial solutions (i.e., $\\mathbf{A} \\neq 0$), the determinant of the coefficient matrix must be zero:\n$$\\det(K - \\omega^2 M) = 0$$\nThe roots of this equation for $\\omega^2$ are the eigenvalues, and their positive square roots are the normal angular frequencies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are \"normal coordinates\" and what is their primary benefit in analyzing coupled oscillator systems?",
+      "back": "Normal coordinates ($\\boldsymbol{\\eta}$) are a set of generalized coordinates that are linear combinations of the original coordinates ($\\mathbf{q}$). They are specifically chosen such that, when the system's equations of motion are expressed in terms of $\\boldsymbol{\\eta}$, they become completely decoupled. This transforms the complex coupled system into a set of independent simple harmonic oscillators, each corresponding to a normal mode.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the normal frequencies $\\omega_j$, how do you find the corresponding normal modes (eigenvectors $\\mathbf{A}_j$) and the transformation matrix $P$ to normal coordinates?",
+      "back": "For each normal frequency $\\omega_j$, substitute $\\omega_j^2$ back into the equation $(K - \\omega_j^2 M)\\mathbf{A}_j = 0$ and solve for the eigenvector $\\mathbf{A}_j$. These eigenvectors represent the relative amplitudes and phase relationships of the original coordinates in that specific normal mode. The transformation matrix $P$ is formed by using the normalized eigenvectors as its columns: $P = [\\mathbf{A}_1 | \\mathbf{A}_2 | \\dots | \\mathbf{A}_N]$. The relationship between original and normal coordinates is then $\\mathbf{q} = P\\boldsymbol{\\eta}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the general solution for the original generalized coordinates $\\mathbf{q}(t)$ of a coupled oscillator system in terms of its normal modes and frequencies.",
+      "back": "The general solution for the original generalized coordinates is a superposition of all normal modes. If $\\mathbf{A}_j$ are the normal mode eigenvectors and $\\omega_j$ are the corresponding normal angular frequencies, then:\n$$\\mathbf{q}(t) = \\sum_{j=1}^N \\mathbf{A}_j (C_j \\cos(\\omega_j t) + D_j \\sin(\\omega_j t))$$\nwhere $C_j$ and $D_j$ are arbitrary constants determined by the initial conditions of the system. In terms of normal coordinates $\\eta_j(t)$, this means $\\eta_j(t) = C_j \\cos(\\omega_j t) + D_j \\sin(\\omega_j t)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For two identical masses ($m$) connected by three identical springs ($k$) in a line (fixed ends), qualitatively describe the two normal modes of oscillation.",
+      "back": "1.  **Symmetric Mode (In-phase):** Both masses oscillate in the same direction (e.g., both move right, then both move left) with the same amplitude. The middle spring's length changes, but the system remains symmetric. This mode typically has a lower frequency.\n2.  **Anti-symmetric Mode (Out-of-phase):** The masses oscillate in opposite directions (e.g., one moves right while the other moves left) with the same amplitude. The center of mass remains stationary. This mode typically has a higher frequency.",
+      "difficulty": "medium"
+    }
+  ]
+}

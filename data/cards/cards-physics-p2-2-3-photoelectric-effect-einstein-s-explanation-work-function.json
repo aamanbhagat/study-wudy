@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-3-photoelectric-effect-einstein-s-explanation-work-function",
+  "subtopicTitle": "Photoelectric effect — Einstein's explanation, work function",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:15.206Z",
+  "cards": [
+    {
+      "front": "Define the photoelectric effect.",
+      "back": "The photoelectric effect is the phenomenon where electrons are emitted from a material (typically a metal) when light shines on it. These emitted electrons are called photoelectrons.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List two experimental observations of the photoelectric effect that classical wave theory could not explain.",
+      "back": "1.  **Existence of a Threshold Frequency:** Photoemission only occurs if the incident light's frequency ($\\nu$) is above a certain minimum value ($\\nu_0$), regardless of intensity. Classical theory predicted emission at any frequency if intensity was high enough.\n2.  **Instantaneous Emission:** Electron emission is almost instantaneous (within $10^{-9}$ s) once light above the threshold frequency hits, even at very low intensities. Classical theory predicted a time delay for energy accumulation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to Einstein's explanation, what is light composed of, and what is the energy of each particle?",
+      "back": "Light is composed of discrete packets of energy called **photons**. The energy of a single photon is given by $E = h\\nu$, where $h$ is Planck's constant ($6.626 \\times 10^{-34} \\text{ J}\\cdot\\text{s}$) and $\\nu$ is the frequency of the light.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the \"work function\" ($\\Phi$) of a metal in the context of the photoelectric effect.",
+      "back": "The work function ($\\Phi$) is the minimum amount of energy required to remove an electron from the surface of a particular metal. It is a characteristic property of the material and represents the binding energy of the least tightly bound electrons.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Einstein's photoelectric equation, relating photon energy, work function, and kinetic energy of emitted electrons.",
+      "back": "Einstein's photoelectric equation is:\n$$KE_{max} = h\\nu - \\Phi$$\nwhere $KE_{max}$ is the maximum kinetic energy of the emitted photoelectron, $h\\nu$ is the energy of the incident photon, and $\\Phi$ is the work function of the metal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expressions for the threshold frequency ($\\nu_0$) and threshold wavelength ($\\lambda_0$) in terms of the work function ($\\Phi$).",
+      "back": "The threshold frequency ($\\nu_0$) is the minimum frequency of light required to eject an electron, meaning $KE_{max} = 0$. From Einstein's equation:\n$0 = h\\nu_0 - \\Phi$\nSo, $\\Phi = h\\nu_0 \\implies \\nu_0 = \\frac{\\Phi}{h}$.\nThe threshold wavelength ($\\lambda_0$) corresponds to this frequency. Since $c = \\nu\\lambda$, we have $\\nu_0 = c/\\lambda_0$.\nSubstituting this into the equation for $\\nu_0$:\n$\\frac{c}{\\lambda_0} = \\frac{\\Phi}{h} \\implies \\lambda_0 = \\frac{hc}{\\Phi}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does increasing the *intensity* of incident light affect the maximum kinetic energy of the emitted photoelectrons? Explain why.",
+      "back": "Increasing the intensity of incident light **does not affect** the maximum kinetic energy ($KE_{max}$) of the emitted photoelectrons.\nIntensity relates to the *number* of photons per unit time, not the energy of individual photons. Since $KE_{max}$ depends only on the individual photon's energy ($h\\nu$) and the work function ($\\Phi$), increasing intensity only increases the *number* of emitted photoelectrons (if $\\nu > \\nu_0$), but not their individual maximum kinetic energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"stopping potential\" ($V_s$) and derive its relationship with the maximum kinetic energy ($KE_{max}$) of photoelectrons.",
+      "back": "The **stopping potential** ($V_s$) is the minimum negative (retarding) potential difference applied to the collector electrode relative to the emitter that is just sufficient to stop the most energetic photoelectrons from reaching the collector, thereby reducing the photocurrent to zero.\nThe work done by this potential difference on an electron with charge $e$ to stop it is $eV_s$. By conservation of energy, this work must be equal to the maximum kinetic energy of the photoelectrons:\n$$eV_s = KE_{max}$$\nTherefore, $V_s = \\frac{KE_{max}}{e}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

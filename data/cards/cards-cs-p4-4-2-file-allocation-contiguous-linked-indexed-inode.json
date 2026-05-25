@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-2-file-allocation-contiguous-linked-indexed-inode",
+  "subtopicTitle": "File allocation — contiguous, linked, indexed (inode)",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:14.835Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of file allocation methods in an operating system?",
+      "back": "To manage how files are stored and retrieved from secondary storage (e.g., disk) by determining which physical disk blocks are assigned to each file.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define contiguous file allocation.",
+      "back": "Each file occupies a set of *consecutive* blocks on the disk. For example, a 3-block file might occupy blocks 10, 11, and 12.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the main advantages and disadvantages of contiguous file allocation?",
+      "back": "**Advantages:** Simple to implement, excellent sequential and random access performance (only start block and length needed).\n**Disadvantages:** External fragmentation, difficulty growing files, requires compaction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe linked file allocation.",
+      "back": "Each file is a linked list of disk blocks. Each block contains the data and a pointer to the *next* block in the file. The directory entry stores the first block's address.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why linked allocation eliminates external fragmentation but has poor random access performance.",
+      "back": "**No external fragmentation:** Files can use any available block, regardless of its position. \n**Poor random access:** To access block $N$, the system must traverse $N-1$ pointers from the start, requiring $N$ disk reads in the worst case, making it slow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the File Allocation Table (FAT) system improve basic linked allocation, especially for random access?",
+      "back": "FAT moves all block pointers from data blocks into a dedicated table (the FAT) stored in memory. This allows the OS to traverse the entire block chain in memory to find any block's address quickly, instead of performing multiple disk I/Os for each pointer traversal.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is indexed file allocation, and what role does an inode play in Unix-like systems?",
+      "back": "Each file has a dedicated *index block* (an 'inode' in Unix-like systems) that contains an array of pointers to all the data blocks allocated to the file. The directory entry points to the inode.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key advantages of indexed file allocation, and one potential disadvantage for very small files.",
+      "back": "**Advantages:** Eliminates external fragmentation, supports direct (random) access, allows files to grow easily.\n**Disadvantage for small files:** An entire index block must be allocated even for very small files (e.g., 1 data block), leading to wasted space if the index block is mostly empty.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how multi-level indexing in an inode structure supports extremely large files.",
+      "back": "A single inode has limited direct pointers. Multi-level indexing uses indirect pointers:\n*   *Single indirect:* Points to a block containing pointers to data blocks.\n*   *Double indirect:* Points to a block containing pointers to single indirect blocks.\n*   *Triple indirect:* Points to a block containing pointers to double indirect blocks.\nThis hierarchy allows addressing a vast number of data blocks.",
+      "difficulty": "hard"
+    }
+  ]
+}

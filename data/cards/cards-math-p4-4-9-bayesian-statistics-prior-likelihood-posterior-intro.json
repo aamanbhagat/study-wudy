@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-9-bayesian-statistics-prior-likelihood-posterior-intro",
+  "subtopicTitle": "Bayesian statistics — prior, likelihood, posterior (intro)",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:51.117Z",
+  "cards": [
+    {
+      "front": "In Bayesian statistics, what does the \"prior probability\" $P(H)$ represent?",
+      "back": "The prior probability $P(H)$ represents your initial belief or knowledge about the likelihood of a hypothesis $H$ being true *before* observing any new data. It quantifies what you know or assume about $H$ beforehand.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Bayes' Theorem, what does the \"likelihood\" term $P(D|H)$ quantify?",
+      "back": "The likelihood $P(D|H)$ quantifies how probable the observed data $D$ is *given that the hypothesis $H$ is true*. It measures the compatibility of the data with the hypothesis, but it is *not* the probability of the hypothesis given the data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the \"posterior probability\" $P(H|D)$ in Bayesian statistics, and what is its significance?",
+      "back": "The posterior probability $P(H|D)$ represents the updated probability of the hypothesis $H$ being true *after* observing the data $D$. It is the result of combining your initial beliefs (prior) with the evidence from the data (likelihood), reflecting your new, informed belief.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Bayes' Theorem for a hypothesis $H$ and observed data $D$, identifying each component.",
+      "back": "Bayes' Theorem is given by:\n$$P(H|D) = \\frac{P(D|H) P(H)}{P(D)}$$\nWhere:\n*   $P(H|D)$: Posterior probability\n*   $P(D|H)$: Likelihood\n*   $P(H)$: Prior probability\n*   $P(D)$: Marginal likelihood or evidence",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, how does Bayesian inference use the prior and likelihood to arrive at the posterior?",
+      "back": "Bayesian inference starts with a prior belief ($P(H)$). When new data ($D$) arrives, the likelihood ($P(D|H)$) tells us how well that data supports the hypothesis. The posterior ($P(H|D)$) is then calculated by *weighting* the prior belief by how much the data supports it, effectively updating and refining the initial belief. $$P(H|D) \\propto P(D|H) P(H)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Bayes' Theorem, what is the role of the term $P(D)$ (the marginal likelihood or evidence)?",
+      "back": "The term $P(D)$ is the marginal likelihood or evidence. It represents the overall probability of observing the data $D$, averaged over all possible hypotheses. Its role is to act as a *normalization constant*, ensuring that the posterior probabilities for all possible hypotheses sum or integrate to 1. It can be calculated as $P(D) = \\sum_H P(D|H)P(H)$ for discrete hypotheses or $\\int P(D|H)P(H)dH$ for continuous ones.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $P(H)=0.01$, $P(D|H)=0.95$, and $P(D|\\neg H)=0.05$, calculate $P(H|D)$. ($H$: Has disease, $D$: Positive test)",
+      "back": "We need to calculate $P(H|D)$ using Bayes' Theorem:\n$$P(H|D) = \\frac{P(D|H) P(H)}{P(D)}$$\nFirst, find $P(D)$:\n$$P(D) = P(D|H)P(H) + P(D|\\neg H)P(\\neg H)$$\nGiven $P(H)=0.01$, then $P(\\neg H) = 1 - P(H) = 1 - 0.01 = 0.99$.\n$$P(D) = (0.95)(0.01) + (0.05)(0.99)$$\n$$P(D) = 0.0095 + 0.0495$$\n$$P(D) = 0.059$$\nNow, substitute into Bayes' Theorem:\n$$P(H|D) = \\frac{(0.95)(0.01)}{0.059}$$\n$$P(H|D) = \\frac{0.0095}{0.059} \\approx 0.161$$\nSo, even with a positive test, the probability of having the disease is about 16.1%.",
+      "difficulty": "hard"
+    }
+  ]
+}

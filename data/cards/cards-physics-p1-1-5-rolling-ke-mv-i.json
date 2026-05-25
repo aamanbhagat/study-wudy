@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-rolling-ke-mv-i",
+  "subtopicTitle": "Rolling KE = ½mv² + ½Iω²",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:34.269Z",
+  "cards": [
+    {
+      "front": "Define \"pure rolling motion\" of a rigid body.",
+      "back": "Pure rolling motion is a combination of translational motion of the center of mass and rotational motion about the center of mass, such that there is no slipping at the point of contact with the surface. The point of contact is instantaneously at rest.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two components of the total kinetic energy for an object undergoing rolling motion?",
+      "back": "The two components are:\n1.  **Translational Kinetic Energy ($KE_{trans}$):** The kinetic energy due to the motion of the center of mass, given by $KE_{trans} = ½mv²$, where $m$ is the mass and $v$ is the speed of the center of mass.\n2.  **Rotational Kinetic Energy ($KE_{rot}$):** The kinetic energy due to rotation about the center of mass, given by $KE_{rot} = ½Iω²$, where $I$ is the moment of inertia about the center of mass and $ω$ is the angular speed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the total kinetic energy ($KE_{total}$) of a rigid body undergoing rolling motion.",
+      "back": "The total kinetic energy of a rigid body undergoing rolling motion is the sum of its translational and rotational kinetic energies:\n$$KE_{total} = KE_{trans} + KE_{rot} = ½mv² + ½Iω²$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For pure rolling, express $KE_{total}$ using only $m$, $v$ (translational speed), $I$, and $R$ (radius).",
+      "back": "For pure rolling, the condition is $v = Rω$, which implies $ω = v/R$. Substituting this into the total KE formula:\n$$KE_{total} = ½mv² + ½Iω²$$\n$$KE_{total} = ½mv² + ½I\\left(\\frac{v}{R}\\right)²$$\n$$KE_{total} = ½mv² + ½\\frac{I}{R²}v²$$\n$$KE_{total} = ½\\left(m + \\frac{I}{R²}\\right)v²$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For pure rolling, express $KE_{total}$ using only $m$, $ω$ (angular speed), $I$, and $R$ (radius).",
+      "back": "For pure rolling, the condition is $v = Rω$. Substituting this into the total KE formula:\n$$KE_{total} = ½mv² + ½Iω²$$\n$$KE_{total} = ½m(Rω)² + ½Iω²$$\n$$KE_{total} = ½mR²ω² + ½Iω²$$\n$$KE_{total} = ½(mR² + I)ω²$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A solid cylinder ($I = ½mR²$) and a hollow cylinder ($I = mR²$) of equal mass and radius roll down an incline from rest. Which reaches the bottom first, and why, considering their total kinetic energy?",
+      "back": "The **solid cylinder** reaches the bottom first.\nBoth objects convert gravitational potential energy ($mgh$) into total kinetic energy ($KE_{total} = ½mv² + ½Iω²$). Using $ω = v/R$, $KE_{total} = ½(m + I/R²)v²$.\n\nFor the solid cylinder ($I = ½mR²$):\n$KE_{total,solid} = ½(m + (½mR²)/R²)v² = ½(m + ½m)v² = ¾mv²$.\nSo, $mgh = ¾mv_{solid}² \\implies v_{solid}² = \\frac{4}{3}gh$.\n\nFor the hollow cylinder ($I = mR²$):\n$KE_{total,hollow} = ½(m + (mR²)/R²)v² = ½(m + m)v² = mv²$.\nSo, $mgh = mv_{hollow}² \\implies v_{hollow}² = gh$.\n\nSince $v_{solid}² = \\frac{4}{3}gh > gh = v_{hollow}²$, the solid cylinder has a greater translational speed at the bottom and thus reaches the bottom first. The hollow cylinder, with its larger moment of inertia, stores a greater fraction of its total energy as rotational kinetic energy, leaving less for translational kinetic energy.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the total kinetic energy of a rigid body undergoing pure rolling motion by considering its instantaneous axis of rotation.",
+      "back": "For pure rolling motion, the point of contact with the surface is instantaneously at rest. This point acts as the **instantaneous axis of rotation (IAR)**.\n\nThe total kinetic energy of a rigid body can be expressed as pure rotational kinetic energy about its IAR:\n$$KE_{total} = ½I_{IAR}ω²$$\nwhere $I_{IAR}$ is the moment of inertia about the instantaneous axis of rotation, and $ω$ is the angular speed about the center of mass (which is the same as the angular speed about the IAR).\n\nBy the **parallel-axis theorem**, the moment of inertia about the IAR (point of contact, P) is related to the moment of inertia about the center of mass (CM) by:\n$$I_{IAR} = I_{CM} + mR²$$\nwhere $m$ is the mass of the body and $R$ is the distance from the CM to the IAR (i.e., the radius of the rolling object).\n\nSubstituting this into the $KE_{total}$ equation:\n$$KE_{total} = ½(I_{CM} + mR²)ω²$$\n$$KE_{total} = ½I_{CM}ω² + ½mR²ω²$$\n\nSince for pure rolling, the translational speed of the center of mass is $v_{CM} = Rω$, we can substitute $Rω$ with $v_{CM}$ in the second term:\n$$KE_{total} = ½I_{CM}ω² + ½mv_{CM}²$$\nThis derivation confirms that the total kinetic energy of a pure rolling object is the sum of its rotational kinetic energy about the center of mass and its translational kinetic energy of the center of mass.",
+      "difficulty": "hard"
+    }
+  ]
+}

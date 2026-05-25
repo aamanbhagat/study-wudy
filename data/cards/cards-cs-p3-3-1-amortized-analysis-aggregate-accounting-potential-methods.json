@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-1-amortized-analysis-aggregate-accounting-potential-methods",
+  "subtopicTitle": "Amortized analysis — aggregate, accounting, potential methods",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:16:57.397Z",
+  "cards": [
+    {
+      "front": "What is amortized analysis, and why is it useful in algorithm analysis?",
+      "back": "Amortized analysis averages the cost of a sequence of operations, where some operations might be expensive but are infrequent, while most are cheap. It's useful because worst-case analysis can be too pessimistic for certain data structures (e.g., dynamic arrays, hash tables), providing a more realistic upper bound on the total cost over time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the aggregate method for amortized analysis.",
+      "back": "The aggregate method directly calculates the total cost of a sequence of $n$ operations, $T(n)$, and then divides by $n$ to find the amortized cost per operation.\n$$ \\text{Amortized Cost per operation} = \\frac{\\sum_{i=1}^{n} c_i}{n} $$\nwhere $c_i$ is the actual cost of the $i$-th operation. It focuses on the total cost over a sequence rather than individual operation costs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the accounting (or banker's) method for amortized analysis.",
+      "back": "The accounting method assigns an amortized cost $\\hat{c}_i$ to each operation. If $\\hat{c}_i > c_i$ (actual cost), the surplus $\\hat{c}_i - c_i$ is stored as \"credit\" for future operations. If $\\hat{c}_i < c_i$, the deficit $c_i - \\hat{c}_i$ must be covered by previously accumulated credits. The total credit must never be negative. The total amortized cost $\\sum \\hat{c}_i$ must be an upper bound on the total actual cost $\\sum c_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the potential (or physicist's) method for amortized analysis, including the potential function $\\Phi(D)$.",
+      "back": "The potential method assigns a \"potential\" $\\Phi(D_i)$ to the data structure's state $D_i$ after the $i$-th operation. The amortized cost $\\hat{c}_i$ of the $i$-th operation is defined as:\n$$ \\hat{c}_i = c_i + \\Phi(D_i) - \\Phi(D_{i-1}) $$\nwhere $c_i$ is the actual cost. The potential function $\\Phi(D)$ must satisfy:\n1. $\\Phi(D_0) = 0$ (initial state).\n2. $\\Phi(D_i) \\ge 0$ for all $i$.\nThe total amortized cost $\\sum \\hat{c}_i$ must be an upper bound on the total actual cost $\\sum c_i$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using the aggregate method, what is the amortized cost of `append` to a dynamic array that doubles its capacity when full?",
+      "back": "Let's analyze $n$ `append` operations. Most appends cost $O(1)$. When the array needs to resize (at capacities $1, 2, 4, \\dots, 2^k$), it copies all $2^k$ elements.\nThe total actual cost for $n$ appends is approximately:\n$$ \\sum_{i=1}^{n} c_i \\approx n \\cdot 1 + \\sum_{k=0}^{\\log_2 n - 1} 2^k $$\nThe sum $\\sum_{k=0}^{\\log_2 n - 1} 2^k = 1 + 2 + 4 + \\dots + n/2 \\approx n$.\nSo, $T(n) \\approx n + n = 2n$.\nThe amortized cost per operation is $\\frac{T(n)}{n} = \\frac{2n}{n} = 2 = O(1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a $k$-bit binary counter starting at zero, what is the amortized cost of an `INCREMENT` operation using the potential method?",
+      "back": "Let $D_i$ be the state of the counter after $i$ operations, and $t_i$ be the number of set bits (1s) in the counter.\nDefine the potential function $\\Phi(D_i) = t_i$.\nInitial state: $\\Phi(D_0) = 0$ (all bits are 0). $\\Phi(D_i) \\ge 0$ always holds.\nAn `INCREMENT` operation flips some number of 1s to 0s (say, $j$ bits) and one 0 to 1.\nActual cost $c_i = j+1$ (flips).\nIf $j$ bits flip from 1 to 0, and one bit flips from 0 to 1, the number of set bits changes from $t_{i-1}$ to $t_i = t_{i-1} - j + 1$.\nThe change in potential is $\\Phi(D_i) - \\Phi(D_{i-1}) = t_i - t_{i-1} = (t_{i-1} - j + 1) - t_{i-1} = 1 - j$.\nAmortized cost $\\hat{c}_i = c_i + \\Phi(D_i) - \\Phi(D_{i-1}) = (j+1) + (1-j) = 2$.\nThus, the amortized cost of `INCREMENT` is $O(1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly compare the aggregate, accounting, and potential methods. When is each typically preferred?",
+      "back": "<ul>\n<li><b>Aggregate:</b> Easiest conceptually, directly calculates total cost. Best when the total cost over a sequence is straightforward to sum.</li>\n<li><b>Accounting:</b> More detailed, assigns costs and credits. Good for operations with varying costs where surplus from cheap ops can cover expensive ones. Intuitive \"bank account\" model.</li>\n<li><b>Potential:</b> Most general and powerful, often preferred for complex data structures. Requires finding a suitable potential function, which can be challenging but offers a systematic way to prove bounds.</li>\n</ul>\nAll three methods yield the same amortized bounds if applied correctly.",
+      "difficulty": "medium"
+    }
+  ]
+}

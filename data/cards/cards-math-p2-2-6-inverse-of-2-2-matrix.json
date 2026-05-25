@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-6-inverse-of-2-2-matrix",
+  "subtopicTitle": "Inverse of 2×2 matrix",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:11.345Z",
+  "cards": [
+    {
+      "front": "What is the definition of an inverse matrix $A^{-1}$ for a square matrix $A$?",
+      "back": "A square matrix $A^{-1}$ is the inverse of a square matrix $A$ if their product is the identity matrix $I$, i.e., $AA^{-1} = A^{-1}A = I$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a square matrix $A$ to have an inverse $A^{-1}$, what condition must its determinant satisfy?",
+      "back": "The determinant of $A$, denoted as $\\det(A)$ or $|A|$, must be non-zero. If $\\det(A) = 0$, the matrix $A$ is called a singular matrix and does not have an inverse.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the inverse of a general $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$.",
+      "back": "The inverse of $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is given by:\n$$A^{-1} = \\frac{1}{\\det(A)} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$\nwhere $\\det(A) = ad - bc$. This formula is valid only if $ad - bc \\neq 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the two main steps to find the inverse of a $2 \\times 2$ matrix $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$.",
+      "back": "1.  **Calculate the determinant:** $\\det(A) = ad - bc$. If $\\det(A) = 0$, the inverse does not exist.\n2.  **Form the adjugate matrix and multiply by $1/\\det(A)$:** Swap the elements on the main diagonal ($a$ and $d$), change the signs of the off-diagonal elements ($b$ and $c$), and then multiply the resulting matrix by $\\frac{1}{\\det(A)}$.\n    $$ \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}^{-1} = \\frac{1}{ad-bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the inverse of the matrix $A = \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix}$.",
+      "back": "1.  Calculate the determinant: $\\det(A) = (3)(2) - (1)(5) = 6 - 5 = 1$.\n2.  Since $\\det(A) \\neq 0$, the inverse exists.\n3.  Apply the formula:\n    $$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you verify if a calculated matrix $B$ is indeed the inverse of matrix $A$?",
+      "back": "To verify if $B = A^{-1}$, multiply $A$ by $B$ (and optionally $B$ by $A$). If the product $AB$ (or $BA$) equals the identity matrix $I$, then $B$ is the inverse of $A$.\nFor a $2 \\times 2$ matrix, $I = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the intuition behind swapping diagonal elements and negating off-diagonal elements in the $2 \\times 2$ inverse formula.",
+      "back": "This transformation is related to the adjugate matrix (or adjoint matrix), which is the transpose of the cofactor matrix.\nFor $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$:\nCofactor matrix $C = \\begin{pmatrix} d & -c \\\\ -b & a \\end{pmatrix}$.\nAdjugate matrix $\\text{adj}(A) = C^T = \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$.\nThe formula is $A^{-1} = \\frac{1}{\\det(A)} \\text{adj}(A)$. The swapping and negating directly form this adjugate matrix for the $2 \\times 2$ case.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean for a $2 \\times 2$ matrix to be \"singular,\" and what implication does this have for its inverse?",
+      "back": "A $2 \\times 2$ matrix is \"singular\" if its determinant is zero ($\\det(A) = 0$). A singular matrix does not have an inverse. This means there is no matrix $A^{-1}$ such that $AA^{-1} = I$. Geometrically, this implies the matrix transformation collapses space onto a line or a point.",
+      "difficulty": "medium"
+    }
+  ]
+}

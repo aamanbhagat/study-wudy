@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-6-matrix-multiplication-conditions-process-non-commutativity",
+  "subtopicTitle": "Matrix multiplication — conditions, process, non-commutativity",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:04.805Z",
+  "cards": [
+    {
+      "front": "What is the fundamental condition for multiplying two matrices $A$ and $B$ to form the product $AB$?",
+      "back": "For the product $AB$ to be defined, the number of columns in matrix $A$ must be equal to the number of rows in matrix $B$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $A$ is an $m \\times n$ matrix and $B$ is an $n \\times p$ matrix, what are the dimensions of the product matrix $AB$?",
+      "back": "The product matrix $AB$ will have dimensions $m \\times p$. The 'inner' dimensions ($n$) must match, and the 'outer' dimensions ($m$ and $p$) determine the size of the result.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the element $(AB)_{ij}$ (the element in the $i$-th row and $j$-th column of the product matrix $AB$) defined?",
+      "back": "The element $(AB)_{ij}$ is the dot product of the $i$-th row of matrix $A$ and the $j$-th column of matrix $B$. Mathematically, if $A$ is $m \\times n$ and $B$ is $n \\times p$, then: $$(AB)_{ij} = \\sum_{k=1}^{n} A_{ik} B_{kj}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$ and $B = \\begin{pmatrix} 1 & 4 \\\\ 5 & 2 \\end{pmatrix}$, calculate the element $(AB)_{21}$.",
+      "back": "To find $(AB)_{21}$, we take the dot product of the 2nd row of $A$ and the 1st column of $B$. $$(AB)_{21} = (0)(1) + (3)(5) = 0 + 15 = 15$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the full product $AB$ for $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$.",
+      "back": "The product $AB$ is calculated as follows: $$AB = \\begin{pmatrix} (1)(5)+(2)(7) & (1)(6)+(2)(8) \\\\ (3)(5)+(4)(7) & (3)(6)+(4)(8) \\end{pmatrix} = \\begin{pmatrix} 5+14 & 6+16 \\\\ 15+28 & 18+32 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean for matrix multiplication to be 'non-commutative'?",
+      "back": "Matrix multiplication is non-commutative because, in general, for two matrices $A$ and $B$, the product $AB$ is not equal to $BA$. The order of multiplication matters significantly.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide an example where $AB$ is defined but $BA$ is not, illustrating non-commutativity.",
+      "back": "Let $A$ be a $2 \\times 3$ matrix and $B$ be a $3 \\times 1$ matrix.\n*   $AB$: $A_{2 \\times 3} B_{3 \\times 1}$ is defined, resulting in a $2 \\times 1$ matrix.\n*   $BA$: $B_{3 \\times 1} A_{2 \\times 3}$ is not defined because the number of columns in $B$ (1) does not equal the number of rows in $A$ (2).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Even if both $AB$ and $BA$ are defined and have the same dimensions, why is $AB \\neq BA$ generally true? Provide a simple numerical example.",
+      "back": "The elements of $AB$ are formed by dot products of rows of $A$ with columns of $B$, while elements of $BA$ are formed by dot products of rows of $B$ with columns of $A$. These operations involve different pairings and orderings of elements.\nExample:\n$A = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}$, $B = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$\n$AB = \\begin{pmatrix} 0 & 1 \\\\ 1 & 1 \\end{pmatrix}$\n$BA = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}$\nClearly, $AB \\neq BA$.",
+      "difficulty": "hard"
+    }
+  ]
+}

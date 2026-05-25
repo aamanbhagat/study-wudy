@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-4-lagrange-multipliers-one-and-two-constraints",
+  "subtopicTitle": "Lagrange multipliers — one and two constraints",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:22.039Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Lagrange multiplier method in multivariable calculus?",
+      "back": "The Lagrange multiplier method finds the local maxima and minima of a function $f(x_1, \\dots, x_n)$ subject to one or more equality constraints $g_j(x_1, \\dots, x_n) = c_j$. It's a powerful tool for constrained optimization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental equation used to find critical points of $f(x,y,z)$ subject to a single constraint $g(x,y,z)=c$.",
+      "back": "The fundamental equation is $\\nabla f(x,y,z) = \\lambda \\nabla g(x,y,z)$, where $\\lambda$ is the Lagrange multiplier. This equation, combined with the constraint $g(x,y,z)=c$, forms a system of equations to solve for $x,y,z,$ and $\\lambda$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, why must $\\nabla f = \\lambda \\nabla g$ hold at an extremum of $f$ on the constraint surface $g(x,y,z)=c$?",
+      "back": "At an extremum, the level surface of $f$ must be tangent to the constraint surface $g=c$. If they weren't tangent, we could move along the constraint surface to a higher/lower level surface of $f$. Since the gradient vector is normal to its level surface, tangency implies that their normal vectors (gradients) must be parallel. Hence, $\\nabla f$ must be a scalar multiple of $\\nabla g$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the practical interpretation of the Lagrange multiplier $\\lambda$ in the context of constrained optimization?",
+      "back": "The Lagrange multiplier $\\lambda$ represents the approximate rate of change of the optimal value of the objective function with respect to a small change in the constraint constant. Specifically, if $f^*$ is the optimal value and $c$ is the constraint constant, then $\\lambda \\approx \\frac{\\partial f^*}{\\partial c}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $f(x,y) = x^2 + y^2$ subject to $xy=4$, write down the system of equations to solve using Lagrange multipliers.",
+      "back": "Let $g(x,y) = xy$. The system is:\n1. $\\frac{\\partial f}{\\partial x} = \\lambda \\frac{\\partial g}{\\partial x} \\implies 2x = \\lambda y$\n2. $\\frac{\\partial f}{\\partial y} = \\lambda \\frac{\\partial g}{\\partial y} \\implies 2y = \\lambda x$\n3. $g(x,y) = 4 \\implies xy = 4$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a critical condition under which the Lagrange multiplier method (for one constraint) might fail or require special consideration?",
+      "back": "The method can fail if $\\nabla g = \\mathbf{0}$ at a point $(x_0, y_0, z_0)$ that satisfies the constraint $g(x_0, y_0, z_0)=c$. In such cases, the constraint surface may not be \"smooth\" or well-behaved, and the assumption that $\\nabla g$ is normal to the constraint surface breaks down. These points must be checked separately.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the fundamental equation for finding critical points of $f(x,y,z)$ subject to two constraints $g_1(x,y,z)=c_1$ and $g_2(x,y,z)=c_2$.",
+      "back": "The fundamental equation is $\\nabla f(x,y,z) = \\lambda_1 \\nabla g_1(x,y,z) + \\lambda_2 \\nabla g_2(x,y,z)$, where $\\lambda_1$ and $\\lambda_2$ are Lagrange multipliers. This equation, combined with the two constraints, forms a system of equations to solve for $x,y,z,\\lambda_1,$ and $\\lambda_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For two constraints $g_1=c_1$ and $g_2=c_2$, explain the geometric intuition behind $\\nabla f = \\lambda_1 \\nabla g_1 + \\lambda_2 \\nabla g_2$.",
+      "back": "The intersection of two constraint surfaces $g_1=c_1$ and $g_2=c_2$ forms a curve. At an extremum of $f$ along this curve, the gradient $\\nabla f$ must be perpendicular to the tangent vector of the curve. The tangent space to the curve is perpendicular to both $\\nabla g_1$ and $\\nabla g_2$. Therefore, $\\nabla f$ must lie in the plane spanned by $\\nabla g_1$ and $\\nabla g_2$. This means $\\nabla f$ can be expressed as a linear combination $\\lambda_1 \\nabla g_1 + \\lambda_2 \\nabla g_2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $f(x,y,z) = x+y+z$ subject to $x^2+y^2=2$ and $x+z=1$, set up the system of equations.",
+      "back": "Let $g_1(x,y,z) = x^2+y^2$ and $g_2(x,y,z) = x+z$. The system is:\n1. $\\frac{\\partial f}{\\partial x} = \\lambda_1 \\frac{\\partial g_1}{\\partial x} + \\lambda_2 \\frac{\\partial g_2}{\\partial x} \\implies 1 = \\lambda_1 (2x) + \\lambda_2 (1)$\n2. $\\frac{\\partial f}{\\partial y} = \\lambda_1 \\frac{\\partial g_1}{\\partial y} + \\lambda_2 \\frac{\\partial g_2}{\\partial y} \\implies 1 = \\lambda_1 (2y) + \\lambda_2 (0)$\n3. $\\frac{\\partial f}{\\partial z} = \\lambda_1 \\frac{\\partial g_1}{\\partial z} + \\lambda_2 \\frac{\\partial g_2}{\\partial z} \\implies 1 = \\lambda_1 (0) + \\lambda_2 (1)$\n4. $g_1(x,y,z) = 2 \\implies x^2+y^2=2$\n5. $g_2(x,y,z) = 1 \\implies x+z=1$",
+      "difficulty": "hard"
+    }
+  ]
+}

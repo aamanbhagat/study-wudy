@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-exact-equations-exactness-condition-finding-potential-function",
+  "subtopicTitle": "Exact equations — exactness condition, finding potential function",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:10.736Z",
+  "cards": [
+    {
+      "front": "What form must a first-order ODE take to be considered an exact equation?",
+      "back": "A first-order ODE is exact if it can be written in the form $M(x,y) \\,dx + N(x,y) \\,dy = 0$, where $M(x,y)$ and $N(x,y)$ are continuous functions with continuous first partial derivatives, and there exists a function $\\Psi(x,y)$ such that $d\\Psi = M \\,dx + N \\,dy$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the necessary and sufficient condition for the ODE $M(x,y) \\,dx + N(x,y) \\,dy = 0$ to be exact.",
+      "back": "The ODE $M(x,y) \\,dx + N(x,y) \\,dy = 0$ is exact if and only if $\\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the intuitive reason why $\\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x}$ is the exactness condition, relating it to a potential function $\\Psi(x,y)$.",
+      "back": "If an ODE is exact, it means $M \\,dx + N \\,dy$ is the total differential of some potential function $\\Psi(x,y)$. Thus, $M = \\frac{\\partial \\Psi}{\\partial x}$ and $N = \\frac{\\partial \\Psi}{\\partial y}$. For $\\Psi$ to exist with continuous second partial derivatives, Clairaut's Theorem states that mixed partials must be equal: $\\frac{\\partial}{\\partial y}\\left(\\frac{\\partial \\Psi}{\\partial x}\\right) = \\frac{\\partial}{\\partial x}\\left(\\frac{\\partial \\Psi}{\\partial y}\\right)$. Substituting $M$ and $N$ gives $\\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an exact ODE $M(x,y) \\,dx + N(x,y) \\,dy = 0$, what is the first step to find the potential function $\\Psi(x,y)$?",
+      "back": "Integrate $M(x,y)$ with respect to $x$, treating $y$ as a constant. This gives $\\Psi(x,y) = \\int M(x,y) \\,dx + g(y)$, where $g(y)$ is an arbitrary function of $y$ (analogous to the constant of integration for single-variable integrals).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After finding $\\Psi(x,y) = \\int M(x,y) \\,dx + g(y)$, what are the next two steps to determine $g(y)$ and complete $\\Psi(x,y)$?",
+      "back": "1. Differentiate the expression for $\\Psi(x,y)$ with respect to $y$: $\\frac{\\partial \\Psi}{\\partial y} = \\frac{\\partial}{\\partial y}\\left(\\int M(x,y) \\,dx\\right) + g'(y)$.\n2. Equate this result to $N(x,y)$ (since $N = \\frac{\\partial \\Psi}{\\partial y}$), i.e., $N(x,y) = \\frac{\\partial}{\\partial y}\\left(\\int M(x,y) \\,dx\\right) + g'(y)$.\n3. Solve for $g'(y)$ and then integrate $g'(y)$ with respect to $y$ to find $g(y)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Instead of integrating $M(x,y)$ first, how could you start finding $\\Psi(x,y)$ using $N(x,y)$?",
+      "back": "You could integrate $N(x,y)$ with respect to $y$, treating $x$ as a constant. This gives $\\Psi(x,y) = \\int N(x,y) \\,dy + h(x)$, where $h(x)$ is an arbitrary function of $x$. Then, differentiate $\\Psi(x,y)$ with respect to $x$, equate it to $M(x,y)$, and solve for $h'(x)$ to find $h(x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Once the potential function $\\Psi(x,y)$ for an exact ODE $M \\,dx + N \\,dy = 0$ is found, how is the general solution expressed?",
+      "back": "The general solution of an exact ODE is given by $\\Psi(x,y) = C$, where $C$ is an arbitrary constant. This is because $d\\Psi = 0$ implies $\\Psi(x,y)$ must be constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Find the potential function $\\Psi(x,y)$ for the exact ODE $(2x + y) \\,dx + (x + 2y) \\,dy = 0$.",
+      "back": "Here $M(x,y) = 2x + y$ and $N(x,y) = x + 2y$.\n1. Check exactness: $\\frac{\\partial M}{\\partial y} = 1$, $\\frac{\\partial N}{\\partial x} = 1$. It's exact.\n2. Integrate $M$ w.r.t. $x$: $\\Psi(x,y) = \\int (2x + y) \\,dx = x^2 + xy + g(y)$.\n3. Differentiate $\\Psi$ w.r.t. $y$: $\\frac{\\partial \\Psi}{\\partial y} = x + g'(y)$.\n4. Equate to $N$: $x + g'(y) = x + 2y$.\n5. Solve for $g'(y)$: $g'(y) = 2y$.\n6. Integrate $g'(y)$ w.r.t. $y$: $g(y) = \\int 2y \\,dy = y^2$. (We can omit the constant of integration here as it's absorbed into the final constant $C$).\n7. Substitute $g(y)$ back into $\\Psi$: $\\Psi(x,y) = x^2 + xy + y^2$.\nThe general solution is $x^2 + xy + y^2 = C$.",
+      "difficulty": "hard"
+    }
+  ]
+}

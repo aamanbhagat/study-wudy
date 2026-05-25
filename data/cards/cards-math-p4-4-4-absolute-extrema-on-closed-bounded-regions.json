@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-absolute-extrema-on-closed-bounded-regions",
+  "subtopicTitle": "Absolute extrema on closed bounded regions",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:05.235Z",
+  "cards": [
+    {
+      "front": "Define the absolute maximum and absolute minimum of a function $f(x,y)$ on a region $D$.",
+      "back": "A function $f(x,y)$ has an **absolute maximum** on a region $D$ at $(a,b)$ if $f(a,b) \\ge f(x,y)$ for all $(x,y) \\in D$. It has an **absolute minimum** on $D$ at $(c,d)$ if $f(c,d) \\le f(x,y)$ for all $(x,y) \\in D$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain what constitutes a \"closed\" and \"bounded\" region $D \\subset \\mathbb{R}^2$.",
+      "back": "A region $D$ in $\\mathbb{R}^2$ is **closed** if it contains all its boundary points. This means that if you approach any point on the boundary from within $D$, that boundary point is also part of $D$. A region $D$ is **bounded** if it can be contained within some disk of finite radius; intuitively, it does not extend infinitely in any direction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Extreme Value Theorem (EVT) for a function $f(x,y)$.",
+      "back": "If $f(x,y)$ is a continuous function on a closed and bounded region $D$ in $\\mathbb{R}^2$, then $f$ attains both an absolute maximum value and an absolute minimum value on $D$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the general steps to find the absolute extrema of a continuous function $f(x,y)$ on a closed and bounded region $D$.",
+      "back": "1. Find the values of $f$ at the critical points of $f$ in the interior of $D$.\n2. Find the extreme values of $f$ on the boundary of $D$. This often involves parameterizing the boundary or using substitution to reduce it to a single-variable problem.\n3. The largest value from steps 1 and 2 is the absolute maximum, and the smallest is the absolute minimum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are critical points of $f(x,y)$ in the interior of $D$ found, and what are they?",
+      "back": "Critical points are points $(x,y)$ where $\\nabla f(x,y) = \\mathbf{0}$ (i.e., $f_x(x,y) = 0$ and $f_y(x,y) = 0$ simultaneously) OR where one or both partial derivatives $f_x$ or $f_y$ do not exist. Only consider critical points that lie strictly inside the region $D$ (not on its boundary).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Detail common strategies for finding the extreme values of $f(x,y)$ on the *boundary* of a closed and bounded region $D$.",
+      "back": "1.  **Parameterization:** If the boundary is a curve $C$, parameterize $C$ as $x=x(t)$, $y=y(t)$ for $a \\le t \\le b$. Substitute these into $f(x,y)$ to get a single-variable function $g(t) = f(x(t),y(t))$. Find the extrema of $g(t)$ on $[a,b]$ using single-variable calculus techniques (critical points and endpoints).\n2.  **Substitution:** If a segment of the boundary can be expressed as $y=h(x)$ or $x=k(y)$, substitute this into $f(x,y)$ to obtain a single-variable function, then find its extrema.\n3.  **Lagrange Multipliers:** For boundaries defined by a constraint $g(x,y)=c$, Lagrange multipliers can be used to find potential extrema on the boundary.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the \"closed\" condition essential for the Extreme Value Theorem? Provide a counterexample.",
+      "back": "The \"closed\" condition is essential because if the region is not closed, it might not contain its boundary points where the extrema would naturally occur. \\n**Counterexample:** Let $f(x,y) = x$ on the open disk $D = \\{(x,y) \\mid x^2+y^2 < 1\\}$. $f$ is continuous. The values of $f$ approach $-1$ and $1$ as $(x,y)$ approaches $(-1,0)$ and $(1,0)$ respectively, but these points are on the boundary and not in $D$. Thus, $f$ never actually attains an absolute minimum or maximum within $D$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the \"bounded\" condition essential for the Extreme Value Theorem? Provide a counterexample.",
+      "back": "The \"bounded\" condition is essential because if the region is not bounded, the function might \"escape to infinity\" or approach an extremum without ever reaching it. \\n**Counterexample:** Let $f(x,y) = x$ on the closed but unbounded region $D = \\{(x,y) \\mid x \\ge 0\\}$. $f$ is continuous. For any arbitrarily large $M$, we can find a point $(M,0)$ in $D$ where $f(M,0)=M$. The function values can be arbitrarily large, so there is no absolute maximum on $D$. (An absolute minimum of 0 is attained along the $y$-axis, but not an absolute maximum).",
+      "difficulty": "hard"
+    }
+  ]
+}

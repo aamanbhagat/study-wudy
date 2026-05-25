@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-electric-field-of-point-charge-dipole-ring-disk-line-charge-gauss-s-law",
+  "subtopicTitle": "Electric field of point charge, dipole, ring, disk, line charge (Gauss's law)",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:55.585Z",
+  "cards": [
+    {
+      "front": "What is the magnitude and direction of the electric field $\\vec{E}$ at a distance $r$ from a point charge $q$?",
+      "back": "The magnitude is $E = \\frac{1}{4\\pi\\epsilon_0} \\frac{|q|}{r^2}$. The direction is radially outward if $q>0$ and radially inward if $q<0$, away from or towards the charge, respectively.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an electric dipole and its electric dipole moment vector $\\vec{p}$.",
+      "back": "An electric dipole consists of two equal and opposite point charges, $+q$ and $-q$, separated by a small distance $d$. The electric dipole moment is $\\vec{p} = q\\vec{d}$, where $\\vec{d}$ is the displacement vector from the negative charge to the positive charge.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a uniformly charged ring of radius $R$ and total charge $Q$, what is the electric field magnitude on its axis at a distance $x$ from the center?",
+      "back": "The electric field magnitude on the axis is given by:\n$$E_x = \\frac{1}{4\\pi\\epsilon_0} \\frac{Qx}{(x^2+R^2)^{3/2}}$$\nThe field points along the axis, away from the ring if $Q>0$ and towards it if $Q<0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the electric field magnitude on the axis of a uniformly charged disk of radius $R$ and surface charge density $\\sigma$ at a distance $x$ from its center?",
+      "back": "The electric field magnitude on the axis is given by:\n$$E_x = \\frac{\\sigma}{2\\epsilon_0} \\left(1 - \\frac{|x|}{\\sqrt{x^2+R^2}}\\right)$$\nFor a positively charged disk, the field points away from the disk along the axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Gauss's Law in its integral form and explain the meaning of each term.",
+      "back": "Gauss's Law states:\n$$\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{enc}}{\\epsilon_0}$$\nwhere $\\oint \\vec{E} \\cdot d\\vec{A}$ is the net electric flux through any closed Gaussian surface, $Q_{enc}$ is the total net charge enclosed within that surface, and $\\epsilon_0$ is the permittivity of free space.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use Gauss's Law to derive the electric field magnitude at a distance $r$ from an infinitely long, uniformly charged line with linear charge density $\\lambda$.",
+      "back": "Consider a cylindrical Gaussian surface of radius $r$ and length $L$ coaxial with the line charge.\n1.  **Symmetry**: $\\vec{E}$ is radial and constant in magnitude on the cylindrical surface. There is no flux through the end caps.\n2.  **Gauss's Law**: The flux through the cylindrical surface is $\\oint \\vec{E} \\cdot d\\vec{A} = E (2\\pi r L)$.\n3.  **Enclosed Charge**: The total charge enclosed within the Gaussian cylinder is $Q_{enc} = \\lambda L$.\n4.  **Equate**: Applying Gauss's Law, $E (2\\pi r L) = \\frac{\\lambda L}{\\epsilon_0}$.\n5.  **Solve for E**: The electric field magnitude is:\n    $$E = \\frac{\\lambda}{2\\pi\\epsilon_0 r}$$\nThe field points radially outward if $\\lambda>0$ and inward if $\\lambda<0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can the electric field of an infinite non-conducting plane with uniform surface charge density $\\sigma$ be obtained from the formula for an electric disk? What is the result?",
+      "back": "The electric field of an infinite non-conducting plane can be obtained by taking the limit of the electric field formula for a disk as its radius $R$ approaches infinity (or equivalently, for points very close to the disk, $x \\ll R$):\n$$E_x = \\lim_{R \\to \\infty} \\frac{\\sigma}{2\\epsilon_0} \\left(1 - \\frac{|x|}{\\sqrt{x^2+R^2}}\\right)$$\nAs $R \\to \\infty$, the term $\\frac{|x|}{\\sqrt{x^2+R^2}}$ approaches $0$. Thus, the electric field is:\n$$E = \\frac{\\sigma}{2\\epsilon_0}$$\nThe field is uniform and perpendicular to the plane, pointing away from a positively charged plane.",
+      "difficulty": "medium"
+    }
+  ]
+}

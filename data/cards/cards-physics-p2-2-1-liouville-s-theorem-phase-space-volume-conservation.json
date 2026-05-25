@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-liouville-s-theorem-phase-space-volume-conservation",
+  "subtopicTitle": "Liouville's theorem — phase space volume conservation",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:16.767Z",
+  "cards": [
+    {
+      "front": "State Liouville's theorem regarding the evolution of an ensemble in phase space.",
+      "back": "Liouville's theorem states that the phase space volume occupied by an ensemble of identical systems is conserved over time, provided the system is governed by Hamiltonian dynamics. Equivalently, the phase space density $\\rho(q, p, t)$ is conserved along the flow of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the mathematical expression for Liouville's theorem in terms of the phase space density $\\rho(q, p, t)$ using both the total time derivative and Poisson brackets.",
+      "back": "The total time derivative of the phase space density is zero:\n$$ \\frac{d\\rho}{dt} = \\frac{\\partial \\rho}{\\partial t} + \\sum_{i=1}^N \\left( \\frac{\\partial \\rho}{\\partial q_i} \\dot{q}_i + \\frac{\\partial \\rho}{\\partial p_i} \\dot{p}_i \\right) = 0 $$\nUsing Poisson brackets, this is expressed as:\n$$ \\frac{\\partial \\rho}{\\partial t} + \\{\\rho, H\\} = 0 $$\nwhere $H$ is the Hamiltonian of the system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"incompressible fluid\" analogy for the flow of phase points in phase space, as it relates to Liouville's theorem.",
+      "back": "Liouville's theorem implies that the \"fluid\" of phase points in phase space behaves like an incompressible fluid. This means that while a region of phase points can distort its *shape* significantly over time, its total *volume* remains constant. Phase points neither \"bunch up\" nor \"spread out\" in terms of density along their trajectories.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "During the derivation of Liouville's theorem, what is the divergence of the phase space velocity vector $\\mathbf{v} = (\\dot{q}_1, ..., \\dot{q}_N, \\dot{p}_1, ..., \\dot{p}_N)$? Show the key step using Hamilton's equations.",
+      "back": "The divergence of the phase space velocity vector is:\n$$ \\nabla \\cdot \\mathbf{v} = \\sum_{i=1}^N \\left( \\frac{\\partial \\dot{q}_i}{\\partial q_i} + \\frac{\\partial \\dot{p}_i}{\\partial p_i} \\right) $$\nUsing Hamilton's equations ($\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$ and $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$), this becomes:\n$$ \\sum_{i=1}^N \\left( \\frac{\\partial}{\\partial q_i} \\left( \\frac{\\partial H}{\\partial p_i} \\right) + \\frac{\\partial}{\\partial p_i} \\left( -\\frac{\\partial H}{\\partial q_i} \\right) \\right) = \\sum_{i=1}^N \\left( \\frac{\\partial^2 H}{\\partial q_i \\partial p_i} - \\frac{\\partial^2 H}{\\partial p_i \\partial q_i} \\right) = 0 $$\nThis holds assuming $H$ is twice continuously differentiable, allowing the order of partial derivatives to be swapped.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the fundamental conditions or assumptions under which Liouville's theorem is valid?",
+      "back": "Liouville's theorem is valid for systems governed by Hamiltonian mechanics. This implies:\n1. The system is conservative (no dissipative forces like friction).\n2. The forces are derivable from a scalar potential (or a Hamiltonian).\n3. The Hamiltonian $H(q, p, t)$ is a well-behaved (e.g., differentiable) function of its arguments.\n4. The phase space density $\\rho(q, p, t)$ is also a differentiable function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how Liouville's theorem is critical to the foundation of the microcanonical ensemble in statistical mechanics.",
+      "back": "In the microcanonical ensemble, all microstates corresponding to a given total energy $E$ are considered equally probable. Liouville's theorem ensures that if an ensemble starts with a uniform density on the energy shell (the surface of constant energy in phase space), this uniformity is preserved over time. This conservation of phase space density along trajectories justifies the fundamental postulate of equal a priori probabilities for systems in thermal equilibrium.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "While Liouville's theorem states phase space volume is conserved, what happens to the *shape* of a region in phase space over time?",
+      "back": "While the *volume* of a region in phase space is conserved, its *shape* is generally not. Over time, the region can become highly distorted, stretched, and folded into complex, filamentary structures. This process, often called \"mixing,\" is crucial for systems to explore their phase space and achieve equilibrium, despite the total volume remaining constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the phase space volume evolve for a system subject to non-conservative forces, such as friction? Does Liouville's theorem apply?",
+      "back": "Liouville's theorem does *not* apply to systems with non-conservative forces. For such systems, the phase space volume typically *contracts* over time. Dissipative forces (like friction) cause energy loss, driving the system towards a lower-dimensional attractor in phase space (e.g., a fixed point or a limit cycle), thereby reducing the accessible phase space volume.",
+      "difficulty": "hard"
+    }
+  ]
+}

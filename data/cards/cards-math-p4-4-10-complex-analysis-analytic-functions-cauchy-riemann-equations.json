@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-complex-analysis-analytic-functions-cauchy-riemann-equations",
+  "subtopicTitle": "Complex analysis — analytic functions, Cauchy-Riemann equations",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:41.250Z",
+  "cards": [
+    {
+      "front": "Define complex differentiability for a function $f(z)$ at a point $z_0$.",
+      "back": "A function $f(z)$ is complex differentiable at $z_0$ if the limit $\\lim_{h \\to 0} \\frac{f(z_0+h) - f(z_0)}{h}$ exists and is finite, regardless of the path $h$ takes as it approaches $0$. This limit is denoted $f'(z_0)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define what it means for a complex function $f(z)$ to be analytic at a point $z_0$.",
+      "back": "A function $f(z)$ is analytic at a point $z_0$ if it is complex differentiable not only at $z_0$ itself, but also at every point in some neighborhood of $z_0$. A function is analytic in a domain $D$ if it is analytic at every point in $D$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Cauchy-Riemann equations for a complex function $f(z) = u(x,y) + iv(x,y)$.",
+      "back": "If $f(z) = u(x,y) + iv(x,y)$ is complex differentiable at a point $z=x+iy$, then the partial derivatives of $u$ and $v$ with respect to $x$ and $y$ exist at that point and satisfy:\n$$u_x = v_y$$\n$$u_y = -v_x$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Cauchy-Riemann equations by considering the limit for complex differentiability along two different paths.",
+      "back": "Let $f(z) = u(x,y) + iv(x,y)$. If $f'(z)$ exists, it must be unique regardless of the path $h \\to 0$. \n1. Path along the real axis ($h = \\Delta x$): \n$f'(z) = \\lim_{\\Delta x \\to 0} \\frac{u(x+\\Delta x, y) + iv(x+\\Delta x, y) - (u(x,y) + iv(x,y))}{\\Delta x} = u_x(x,y) + iv_x(x,y)$.\n2. Path along the imaginary axis ($h = i\\Delta y$): \n$f'(z) = \\lim_{\\Delta y \\to 0} \\frac{u(x, y+\\Delta y) + iv(x, y+\\Delta y) - (u(x,y) + iv(x,y))}{i\\Delta y} = \\frac{1}{i}(u_y(x,y) + iv_y(x,y)) = v_y(x,y) - iu_y(x,y)$.\nEquating the real and imaginary parts from both expressions for $f'(z)$: \n$u_x = v_y$ and $v_x = -u_y$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions are the Cauchy-Riemann equations not just necessary, but also sufficient for $f(z)$ to be complex differentiable at $z_0$?",
+      "back": "The Cauchy-Riemann equations are sufficient for complex differentiability at $z_0$ if, in addition to satisfying $u_x = v_y$ and $u_y = -v_x$ at $z_0$, the partial derivatives $u_x, u_y, v_x, v_y$ are continuous in some neighborhood of $z_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Cauchy-Riemann equations to show that $f(z) = z^2$ is analytic everywhere.",
+      "back": "Let $f(z) = z^2 = (x+iy)^2 = x^2 - y^2 + i(2xy)$.\nSo, $u(x,y) = x^2 - y^2$ and $v(x,y) = 2xy$.\nCalculate partial derivatives:\n$u_x = 2x$, $u_y = -2y$\n$v_x = 2y$, $v_y = 2x$\nCheck C-R equations:\n1. $u_x = v_y \\implies 2x = 2x$ (True)\n2. $u_y = -v_x \\implies -2y = -(2y)$ (True)\nSince the C-R equations are satisfied for all $(x,y)$ and all partial derivatives are continuous everywhere, $f(z)=z^2$ is complex differentiable everywhere, and thus analytic everywhere.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Cauchy-Riemann equations to determine if $f(z) = \\bar{z}$ is analytic anywhere.",
+      "back": "Let $f(z) = \\bar{z} = x-iy$.\nSo, $u(x,y) = x$ and $v(x,y) = -y$.\nCalculate partial derivatives:\n$u_x = 1$, $u_y = 0$\n$v_x = 0$, $v_y = -1$\nCheck C-R equations:\n1. $u_x = v_y \\implies 1 = -1$ (False)\n2. $u_y = -v_x \\implies 0 = -0$ (True)\nSince the first C-R equation $u_x = v_y$ is never satisfied, $f(z) = \\bar{z}$ is not complex differentiable at any point, and therefore not analytic anywhere.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Cauchy-Riemann equations for $f(z) = U(r,\\theta) + iV(r,\\theta)$ in polar coordinates.",
+      "back": "For $r \\neq 0$, the Cauchy-Riemann equations in polar coordinates are:\n$$U_r = \\frac{1}{r}V_{\\theta}$$\n$$V_r = -\\frac{1}{r}U_{\\theta}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

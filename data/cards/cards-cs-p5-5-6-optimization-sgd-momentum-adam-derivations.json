@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-optimization-sgd-momentum-adam-derivations",
+  "subtopicTitle": "Optimization — SGD, momentum, Adam — derivations",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:38.344Z",
+  "cards": [
+    {
+      "front": "What is the fundamental principle behind Stochastic Gradient Descent (SGD) for optimizing a loss function $J(\\theta)$?",
+      "back": "SGD iteratively updates model parameters $\\theta$ by moving in the direction opposite to the gradient of the loss function. Crucially, this gradient is computed on a *mini-batch* of data samples, rather than the entire dataset, making it computationally efficient for large datasets.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the parameter update rule for Stochastic Gradient Descent (SGD) for a parameter $\\theta_t$ at time $t$, given a learning rate $\\eta$ and the gradient $g_t$.",
+      "back": "The SGD parameter update rule is: $$\\theta_{t+1} = \\theta_t - \\eta \\cdot g_t$$ where $g_t = \\nabla_{\\theta} J(\\theta_t; \\mathcal{B}_t)$ is the gradient of the loss function $J$ with respect to $\\theta$ at time $t$, computed over a mini-batch $\\mathcal{B}_t$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does adding 'momentum' to SGD intuitively help in navigating loss landscapes with ravines or local optima?",
+      "back": "Momentum helps by accumulating a 'velocity' vector from past gradients. If gradients consistently point in the same direction, the velocity builds up, accelerating convergence. If gradients oscillate (e.g., in ravines), the opposing forces tend to cancel out, dampening oscillations and allowing the optimizer to move more smoothly and quickly along the 'floor' of the ravine, effectively providing inertia to overcome small obstacles or local minima.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the parameter update rule for SGD with Momentum, defining the velocity term and its components.",
+      "back": "SGD with Momentum introduces a velocity term $v_t$ that is an exponentially weighted moving average of past gradients. The update rules are: $$v_t = \\gamma v_{t-1} + \\eta g_t$$ $$\\theta_{t+1} = \\theta_t - v_t$$ Where:\n*   $v_t$: velocity vector at time $t$.\n*   $\\gamma$: momentum coefficient (e.g., 0.9), controlling the decay of previous velocities.\n*   $\\eta$: learning rate.\n*   $g_t$: gradient at time $t$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Adam (Adaptive Moment Estimation) combines two key adaptive learning rate mechanisms. What are they?",
+      "back": "Adam combines two main ideas:\n1.  **Momentum**: It uses an exponentially weighted average of past gradients (the 'first moment' estimate) to guide the direction of updates.\n2.  **RMSprop/AdaGrad**: It uses an exponentially weighted average of past *squared* gradients (the 'second moment' estimate) to adapt the learning rate for each parameter individually, scaling it down for parameters with large, consistent gradients and up for those with small, inconsistent ones.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the bias-corrected first moment estimate ($\\hat{m}_t$) in the Adam optimization algorithm.",
+      "back": "The raw first moment estimate $m_t$ is an exponentially weighted average of past gradients: $$m_t = \\beta_1 m_{t-1} + (1 - \\beta_1) g_t$$ This estimate is biased towards zero, especially in early timesteps, as $m_0$ is usually initialized to 0. To correct this bias, we divide by $(1 - \\beta_1^t)$: $$\\hat{m}_t = \\frac{m_t}{1 - \\beta_1^t}$$ where $\\beta_1$ is the exponential decay rate for the first moment (e.g., 0.9) and $t$ is the current timestep.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for the bias-corrected second moment estimate ($\\hat{v}_t$) in the Adam optimization algorithm.",
+      "back": "The raw second moment estimate $v_t$ is an exponentially weighted average of past squared gradients (element-wise): $$v_t = \\beta_2 v_{t-1} + (1 - \\beta_2) g_t^2$$ Similar to the first moment, this estimate is biased towards zero. The bias-corrected second moment estimate is: $$\\hat{v}_t = \\frac{v_t}{1 - \\beta_2^t}$$ where $\\beta_2$ is the exponential decay rate for the second moment (e.g., 0.999) and $t$ is the current timestep.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Combine the bias-corrected first and second moments to state the final parameter update rule for the Adam optimizer.",
+      "back": "Given the bias-corrected first moment $\\hat{m}_t$ and second moment $\\hat{v}_t$, the Adam parameter update rule is: $$\\theta_{t+1} = \\theta_t - \\eta \\frac{\\hat{m}_t}{\\sqrt{\\hat{v}_t} + \\epsilon}$$ Where:\n*   $\\eta$: the learning rate.\n*   $\\epsilon$: a small constant (e.g., $10^{-8}$) added for numerical stability to prevent division by zero.\nThis rule adaptively scales the learning rate for each parameter based on the magnitudes of its past gradients.",
+      "difficulty": "hard"
+    }
+  ]
+}

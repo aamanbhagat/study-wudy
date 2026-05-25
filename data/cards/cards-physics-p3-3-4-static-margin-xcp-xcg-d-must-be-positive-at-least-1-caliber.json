@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-4-static-margin-xcp-xcg-d-must-be-positive-at-least-1-caliber",
+  "subtopicTitle": "Static margin = (XCP - XCG)/d — must be positive (at least 1 caliber)",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:22.945Z",
+  "cards": [
+    {
+      "front": "Define \"static margin\" in the context of rocket flight stability.",
+      "back": "The static margin is a dimensionless measure of a rocket's aerodynamic stability, quantifying the distance between the center of pressure ($X_{CP}$) and the center of gravity ($X_{CG}$), normalized by the reference diameter ($d$). It indicates the strength of the restoring moment that aligns the rocket with its flight path.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for static margin and identify its variables.",
+      "back": "The static margin ($SM$) is given by $SM = \\frac{X_{CP} - X_{CG}}{d}$.\n*   $X_{CP}$: Longitudinal position of the Center of Pressure, the point where all aerodynamic forces effectively act.\n*   $X_{CG}$: Longitudinal position of the Center of Gravity, the point where the rocket's mass is effectively concentrated.\n*   $d$: Reference diameter of the rocket, typically the maximum body diameter.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the physical significance of a *positive* static margin for a rocket?",
+      "back": "A positive static margin means that the Center of Pressure ($X_{CP}$) is located *aft* (behind) the Center of Gravity ($X_{CG}$). This configuration creates a restoring aerodynamic moment when the rocket is perturbed from its flight path, causing it to pitch back towards the direction of flight and thus ensuring aerodynamic stability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the flight behavior of a rocket with a *negative* static margin.",
+      "back": "A negative static margin means $X_{CP}$ is located *forward* (in front) of $X_{CG}$. This creates a destabilizing aerodynamic moment when the rocket is perturbed. Instead of restoring the rocket to its flight path, the moment will amplify the perturbation, leading to uncontrolled tumbling or divergence from the intended trajectory, resulting in catastrophic flight instability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In rocket stability, what is a \"caliber,\" and why is it used to express static margin?",
+      "back": "A \"caliber\" is a unit of length equal to the reference diameter ($d$) of the rocket. Expressing static margin in calibers (e.g., \"1 caliber\") normalizes the stability measure, making it independent of the rocket's absolute size and allowing for easy comparison across different rocket designs. A static margin of 1 caliber means $(X_{CP} - X_{CG}) = d$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a static margin of \"at least 1 caliber\" is recommended, and discuss implications of much larger values.",
+      "back": "A minimum static margin of \"at least 1 caliber\" (i.e., $X_{CP} - X_{CG} \\ge d$) ensures sufficient aerodynamic stability to counteract minor perturbations and uncertainties in $X_{CP}$ and $X_{CG}$ calculations. While larger static margins increase stability, they also lead to:\n1. Increased weathercocking (tendency to turn into the wind).\n2. Higher drag due to larger fins (often required to move $X_{CP}$ aft).\n3. Greater control authority needed for maneuvering, as the restoring moment is stronger.\n4. Potentially higher structural loads.\nA balance is sought between stability and maneuverability/efficiency.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do adding fins or shifting payload mass affect a rocket's static margin?",
+      "back": "*   **Adding fins (or increasing fin size/cant):** Primarily moves the Center of Pressure ($X_{CP}$) *aft* (rearward) because fins contribute significant aerodynamic force. This *increases* the static margin, making the rocket more stable.\n*   **Shifting payload mass forward:** Moves the Center of Gravity ($X_{CG}$) *forward*. Since static margin is $(X_{CP} - X_{CG})/d$, decreasing $X_{CG}$ (making it a smaller number if measured from the nose) *increases* the static margin, making the rocket more stable.\n*   **Shifting payload mass aft:** Moves $X_{CG}$ *aft*, which *decreases* the static margin, making the rocket less stable.",
+      "difficulty": "hard"
+    }
+  ]
+}

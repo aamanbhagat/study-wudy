@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-quaternion-product-hamilton-product",
+  "subtopicTitle": "Quaternion product — Hamilton product",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:43.586Z",
+  "cards": [
+    {
+      "front": "Define a quaternion $q$ in terms of its scalar and vector parts.",
+      "back": "A quaternion $q$ is defined as $q = s + \\mathbf{v}$, where $s \\in \\mathbb{R}$ is the scalar part and $\\mathbf{v} \\in \\mathbb{R}^3$ is the vector part.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental product rules for the quaternion basis elements $i, j, k$.",
+      "back": "The fundamental product rules are: $i^2 = j^2 = k^2 = ijk = -1$. From these, we derive: $ij=k, jk=i, ki=j$ and $ji=-k, kj=-i, ik=-j$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given two quaternions $p = p_s + \\mathbf{p}_v$ and $q = q_s + \\mathbf{q}_v$, define their Hamilton product $pq$.",
+      "back": "The Hamilton product $pq$ is defined as: $$pq = (p_s q_s - \\mathbf{p}_v \\cdot \\mathbf{q}_v) + (p_s \\mathbf{q}_v + q_s \\mathbf{p}_v + \\mathbf{p}_v \\times \\mathbf{q}_v)$$ where $\\cdot$ is the dot product and $\\times$ is the cross product.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $p = p_s + \\mathbf{p}_v$ and $q = q_s + \\mathbf{q}_v$, identify the scalar and vector parts of their Hamilton product $pq$.",
+      "back": "The scalar part of $pq$ is $(pq)_s = p_s q_s - \\mathbf{p}_v \\cdot \\mathbf{q}_v$. The vector part of $pq$ is $(pq)_v = p_s \\mathbf{q}_v + q_s \\mathbf{p}_v + \\mathbf{p}_v \\times \\mathbf{q}_v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is the Hamilton product of two general quaternions $p$ and $q$ commutative? Justify your answer.",
+      "back": "No, the Hamilton product is generally not commutative. This is primarily due to the cross product term $\\mathbf{p}_v \\times \\mathbf{q}_v$ in the vector part, which is anti-commutative (i.e., $\\mathbf{p}_v \\times \\mathbf{q}_v = -(\\mathbf{q}_v \\times \\mathbf{p}_v)$). For example, $ij=k$ but $ji=-k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is the Hamilton product associative? Provide the property if it is.",
+      "back": "Yes, the Hamilton product is associative. For any three quaternions $p, q, r$, the property holds: $(pq)r = p(qr)$. This property is crucial for chaining multiple rotations in GNC applications.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a quaternion $q = q_s + \\mathbf{q}_v$, what is the result of the product $q q^*$?",
+      "back": "The product $q q^*$ results in the squared magnitude of the quaternion: $$q q^* = (q_s + \\mathbf{q}_v)(q_s - \\mathbf{q}_v) = q_s^2 + ||\\mathbf{q}_v||^2 = ||q||^2$$ This is derived by applying the Hamilton product formula, where the vector part cancels out.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is a 3D vector $\\mathbf{v}$ rotated by a unit quaternion $q$ (representing a rotation) using the Hamilton product?",
+      "back": "To rotate a 3D vector $\\mathbf{v}$ by a unit quaternion $q$, the vector is first represented as a pure quaternion $v_q = 0 + \\mathbf{v}$. The rotated vector $\\mathbf{v}'$ is then computed using the Hamilton product as: $$\\mathbf{v}' = q v_q q^{-1}$$ For a unit quaternion, its inverse $q^{-1}$ is equal to its conjugate $q^*$. Thus, the formula simplifies to: $\\mathbf{v}' = q \\mathbf{v} q^*$.",
+      "difficulty": "hard"
+    }
+  ]
+}

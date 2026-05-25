@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-fragmentation-internal-vs-external-compaction",
+  "subtopicTitle": "Fragmentation — internal vs external, compaction",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:09.425Z",
+  "cards": [
+    {
+      "front": "What is memory fragmentation in the context of operating systems?",
+      "back": "Memory fragmentation is a phenomenon where available memory is divided into small, non-contiguous blocks, making it unusable for allocation requests that require a larger contiguous block, even if the total free memory is sufficient.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Distinguish between internal and external fragmentation.",
+      "back": "**Internal Fragmentation**: Unused memory space *within* an allocated memory block. It occurs when a process is allocated more memory than it actually needs (e.g., due to fixed-size blocks or pages).\n\n**External Fragmentation**: Unused memory space *between* allocated memory blocks. It occurs when free memory is broken into many small, non-contiguous pieces, making it difficult to find a large enough contiguous block for a new process.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A system uses fixed-size memory pages of 4 KB. If a process requests 10.5 KB of memory, calculate the internal fragmentation for this process.",
+      "back": "To accommodate $10.5 \\text{ KB}$ with $4 \\text{ KB}$ pages, the process will be allocated $\\lceil 10.5 \\text{ KB} / 4 \\text{ KB} \\rceil = 3$ pages.\n\nTotal allocated memory: $3 \\times 4 \\text{ KB} = 12 \\text{ KB}$.\nMemory actually used: $10.5 \\text{ KB}$.\nInternal fragmentation: $12 \\text{ KB} - 10.5 \\text{ KB} = 1.5 \\text{ KB}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why external fragmentation is a significant problem in dynamic partitioning memory management schemes.",
+      "back": "In dynamic partitioning, processes are allocated contiguous blocks of exactly the size they request. Over time, processes start and terminate, leaving behind holes of varying sizes. External fragmentation arises when these holes are too small and scattered to satisfy a new process's request, even if the *total* free memory is adequate. This leads to inefficient memory utilization and the inability to load new processes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of memory compaction, and which type of fragmentation does it specifically address?",
+      "back": "Memory compaction is the process of reorganizing the contents of main memory to gather all free memory into one large, contiguous block. Its primary purpose is to eliminate **external fragmentation**, making it possible to allocate large contiguous blocks to new processes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List and briefly describe two major overheads or challenges associated with performing memory compaction.",
+      "back": "Two major overheads/challenges:\n\n1.  **Relocation Cost**: Moving all allocated processes to contiguous locations requires copying large amounts of data, incurring significant CPU overhead and potentially I/O if pages need to be swapped.\n2.  **Address Translation Updates**: When processes are moved, their logical-to-physical address mappings (e.g., in page tables or segment tables) must be updated. This is a complex and time-consuming operation that can involve scanning and modifying numerous entries.\n3.  **System Pause/Downtime**: Compaction often requires the system to pause or freeze active processes while memory is being rearranged, leading to temporary unresponsiveness or degraded performance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Does a system using pure paging (fixed-size pages) suffer from external fragmentation? Justify your answer.",
+      "back": "No, a system using pure paging does not suffer from external fragmentation. In paging, memory is divided into fixed-size frames, and processes are divided into fixed-size pages. Any free frame can be used to hold any page, regardless of its physical location relative to other frames used by the same process. There are no 'holes' between allocated blocks that are too small to use, as all free units (frames) are of the same usable size. It *does* suffer from internal fragmentation within the last page of a process.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a system with dynamic memory allocation, under what specific condition would the OS typically decide that memory compaction is necessary?",
+      "back": "The OS typically decides compaction is necessary when a memory allocation request for a new process or an expanding existing process fails, *despite* the total amount of free memory in the system being sufficient to satisfy the request. This scenario explicitly indicates that severe external fragmentation has occurred, where no single contiguous free block is large enough, and compaction is the only way to create such a block.",
+      "difficulty": "hard"
+    }
+  ]
+}

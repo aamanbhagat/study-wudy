@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-1-chaotic-systems-sensitivity-to-initial-conditions-lyapunov-exponents",
+  "subtopicTitle": "Chaotic systems — sensitivity to initial conditions, Lyapunov exponents",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:19.941Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of a chaotic system in the context of dynamical systems?",
+      "back": "A chaotic system is a deterministic dynamical system that exhibits extreme sensitivity to initial conditions. This means that arbitrarily small differences in the initial state lead to vastly diverging outcomes over time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain \"sensitivity to initial conditions\" using the \"butterfly effect\" analogy.",
+      "back": "The \"butterfly effect\" illustrates sensitivity to initial conditions (SIC): a butterfly flapping its wings in Brazil could, in theory, set off a chain of events leading to a tornado in Texas weeks later. This highlights how minuscule perturbations in initial conditions can lead to dramatically different macroscopic outcomes in chaotic systems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the largest Lyapunov exponent ($\\lambda$) for a dynamical system.",
+      "back": "The largest Lyapunov exponent ($\\lambda$) quantifies the average exponential rate of divergence or convergence of nearby trajectories in phase space. For two initially close trajectories separated by a distance $\\delta_0$, their separation at time $t$ is approximately $\\delta(t) \\approx \\delta_0 e^{\\lambda t}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does a positive largest Lyapunov exponent ($\\lambda > 0$) signify about a system?",
+      "back": "A positive largest Lyapunov exponent ($\\lambda > 0$) is a hallmark of a chaotic system. It indicates that nearby trajectories diverge exponentially over time, confirming the system's extreme sensitivity to initial conditions and its unpredictability in the long term.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the expected values of the largest Lyapunov exponent for stable (periodic/fixed point) and quasi-periodic systems?",
+      "back": "<ul><li>For a stable fixed point or periodic orbit, the largest Lyapunov exponent is $\\lambda < 0$ (trajectories converge).</li><li>For a quasi-periodic system (e.g., a torus in phase space), the largest Lyapunov exponent is $\\lambda = 0$ (trajectories neither diverge nor converge exponentially; they maintain a constant average separation).</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given two nearby trajectories $\\mathbf{x}(t)$ and $\\mathbf{x}(t) + \\delta(t)$ in a continuous dynamical system $\\dot{\\mathbf{x}} = \\mathbf{F}(\\mathbf{x})$, how does $\\delta(t)$ evolve for small $\\delta(t)$?",
+      "back": "The evolution of the system is given by $\\dot{\\mathbf{x}} = \\mathbf{F}(\\mathbf{x})$.\nFor the perturbed trajectory: $\\frac{d}{dt}(\\mathbf{x} + \\delta) = \\mathbf{F}(\\mathbf{x} + \\delta)$.\nUsing a Taylor expansion for $\\mathbf{F}(\\mathbf{x} + \\delta)$ around $\\mathbf{x}$:\n$\\mathbf{F}(\\mathbf{x} + \\delta) \\approx \\mathbf{F}(\\mathbf{x}) + D\\mathbf{F}(\\mathbf{x})\\delta$, where $D\\mathbf{F}(\\mathbf{x})$ is the Jacobian matrix.\nSo, $\\dot{\\mathbf{x}} + \\dot{\\delta} \\approx \\mathbf{F}(\\mathbf{x}) + D\\mathbf{F}(\\mathbf{x})\\delta$.\nSince $\\dot{\\mathbf{x}} = \\mathbf{F}(\\mathbf{x})$, we get the variational equation for the separation vector:\n$$\\dot{\\delta} \\approx D\\mathbf{F}(\\mathbf{x}(t))\\delta$$\nThe solution generally involves an exponential term, $\\delta(t) \\approx \\delta_0 e^{\\lambda t}$, where $\\lambda$ is related to the eigenvalues of $D\\mathbf{F}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does a positive Lyapunov exponent imply long-term unpredictability, even for a deterministic system?",
+      "back": "Even though chaotic systems are deterministic (their future state is uniquely determined by their present state), a positive Lyapunov exponent means that any tiny, unavoidable error or uncertainty in measuring the initial conditions will grow exponentially over time. Eventually, this error becomes so large that the prediction loses all accuracy, rendering long-term prediction impossible in practice.",
+      "difficulty": "medium"
+    }
+  ]
+}

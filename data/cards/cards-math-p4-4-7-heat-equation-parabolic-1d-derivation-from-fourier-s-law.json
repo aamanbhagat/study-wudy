@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-heat-equation-parabolic-1d-derivation-from-fourier-s-law",
+  "subtopicTitle": "Heat equation (parabolic) 1D — derivation from Fourier's law",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:29.998Z",
+  "cards": [
+    {
+      "front": "What physical phenomenon does the 1D heat equation primarily model?",
+      "back": "The distribution of temperature $u(x,t)$ over time $t$ along a thin, insulated rod or wire (1D domain) due to heat conduction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Fourier's Law of Heat Conduction for 1D heat flow, defining all terms.",
+      "back": "The heat flux $q(x,t)$ (rate of heat energy transfer per unit area) is proportional to the negative temperature gradient: $$q = -k \\frac{\\partial u}{\\partial x}$$ where $k$ is the thermal conductivity (material's ability to conduct heat), and $\\frac{\\partial u}{\\partial x}$ is the temperature gradient. The negative sign indicates heat flows from higher to lower temperature.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental physical principle forms the basis for deriving the heat equation when considering a small volume element?",
+      "back": "The principle of conservation of energy (or heat balance). It states that the net rate of heat entering a volume element must equal the rate of change of heat energy stored within that element (assuming no internal heat sources or sinks).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a small 1D segment of a rod with cross-sectional area $A$ and length $\\Delta x$, from $x$ to $x+\\Delta x$. Using Fourier's Law, express the *net rate of heat energy entering* this segment.",
+      "back": "The rate of heat entering at $x$ is $-A q(x,t) = -A \\left(-k \\frac{\\partial u}{\\partial x}\\right)\\Big|_x = k A \\frac{\\partial u}{\\partial x}\\Big|_x$. The rate of heat leaving at $x+\\Delta x$ is $-A q(x+\\Delta x,t) = -A \\left(-k \\frac{\\partial u}{\\partial x}\\right)\\Big|_{x+\\Delta x} = k A \\frac{\\partial u}{\\partial x}\\Big|_{x+\\Delta x}$. The net rate of heat entering is: $$Q_{net} = k A \\frac{\\partial u}{\\partial x}\\Big|_x - k A \\frac{\\partial u}{\\partial x}\\Big|_{x+\\Delta x} = -k A \\left( \\frac{\\partial u}{\\partial x}\\Big|_{x+\\Delta x} - \\frac{\\partial u}{\\partial x}\\Big|_x \\right)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the same segment from the previous card, express the *rate of change of heat energy stored* within the segment in terms of temperature $u(x,t)$ and material properties.",
+      "back": "The heat energy $E$ in the segment is $E = \\text{mass} \\times \\text{specific heat} \\times \\text{temperature}$. Mass of segment $= \\rho (A \\Delta x)$, where $\\rho$ is density. So, $E = \\rho (A \\Delta x) c u(x,t)$, where $c$ is specific heat. The rate of change of heat energy stored is: $$\\frac{\\partial E}{\\partial t} = \\rho A \\Delta x c \\frac{\\partial u}{\\partial t}$$ (Assuming $u(x,t)$ represents the average temperature in the segment, or taking the limit as $\\Delta x \\to 0$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Combine the expressions for net heat entering and rate of change of stored energy to derive the 1D heat equation.",
+      "back": "From conservation of energy, $Q_{net} = \\frac{\\partial E}{\\partial t}$. $$-k A \\left( \\frac{\\partial u}{\\partial x}\\Big|_{x+\\Delta x} - \\frac{\\partial u}{\\partial x}\\Big|_x \\right) = \\rho A \\Delta x c \\frac{\\partial u}{\\partial t}$$ Divide by $A \\Delta x$: $$-k \\frac{1}{\\Delta x} \\left( \\frac{\\partial u}{\\partial x}\\Big|_{x+\\Delta x} - \\frac{\\partial u}{\\partial x}\\Big|_x \\right) = \\rho c \\frac{\\partial u}{\\partial t}$$ Taking the limit as $\\Delta x \\to 0$, the left side becomes $-k \\frac{\\partial}{\\partial x} \\left( \\frac{\\partial u}{\\partial x} \\right) = -k \\frac{\\partial^2 u}{\\partial x^2}$. So, $$-k \\frac{\\partial^2 u}{\\partial x^2} = \\rho c \\frac{\\partial u}{\\partial t}$$ Rearranging, we get the 1D heat equation: $$\\frac{\\partial u}{\\partial t} = \\frac{k}{\\rho c} \\frac{\\partial^2 u}{\\partial x^2}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define thermal diffusivity $\\alpha$ and explain its physical significance in the context of the heat equation.",
+      "back": "Thermal diffusivity $\\alpha$ is defined as $\\alpha = \\frac{k}{\\rho c}$, where $k$ is thermal conductivity, $\\rho$ is density, and $c$ is specific heat. The 1D heat equation is often written as $\\frac{\\partial u}{\\partial t} = \\alpha \\frac{\\partial^2 u}{\\partial x^2}$. Physically, $\\alpha$ represents how quickly temperature changes propagate or \"diffuse\" through a material. A high $\\alpha$ means temperature changes spread rapidly, while a low $\\alpha$ means they spread slowly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the primary simplifying assumptions made during the derivation of the standard 1D heat equation?",
+      "back": "1. **Homogeneous Material:** The material properties ($k, \\rho, c$) are constant throughout the rod. 2. **Constant Properties:** Thermal conductivity ($k$), density ($\\rho$), and specific heat ($c$) do not vary with temperature. 3. **No Internal Heat Sources/Sinks:** No chemical reactions or electrical heating within the rod. 4. **Perfect Lateral Insulation:** Heat flow occurs only in the x-direction; no heat loss or gain from the sides of the rod. 5. **Small Temperature Gradients:** The continuum assumption holds, allowing differential calculus.",
+      "difficulty": "medium"
+    }
+  ]
+}

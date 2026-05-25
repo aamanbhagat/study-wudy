@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-6-distance-from-a-point-to-a-plane",
+  "subtopicTitle": "Distance from a point to a plane",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:39.462Z",
+  "cards": [
+    {
+      "front": "Geometrically, what does the \"distance from a point $P$ to a plane $\\Pi$\" represent?",
+      "back": "It is the shortest distance from $P$ to any point on $\\Pi$. This distance is measured along the line segment from $P$ that is perpendicular to the plane $\\Pi$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the distance from a point $P(x_0, y_0, z_0)$ to a plane $Ax + By + Cz + D = 0$.",
+      "back": "The distance $d$ is given by: $$d = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2 + B^2 + C^2}}$$ This formula holds true for any real values of $A, B, C, D$ where at least one of $A, B, C$ is non-zero.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the distance from $P(1, -2, 3)$ to the plane $2x - y + 2z - 6 = 0$.",
+      "back": "Using the formula $d = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2 + B^2 + C^2}}$:\nGiven $P(1, -2, 3)$, so $x_0=1, y_0=-2, z_0=3$.\nGiven plane $2x - y + 2z - 6 = 0$, so $A=2, B=-1, C=2, D=-6$.\n$$d = \\frac{|2(1) - 1(-2) + 2(3) - 6|}{\\sqrt{2^2 + (-1)^2 + 2^2}}$$ \n$$d = \\frac{|2 + 2 + 6 - 6|}{\\sqrt{4 + 1 + 4}}$$ \n$$d = \\frac{|4|}{\\sqrt{9}} = \\frac{4}{3}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly outline the vector projection method to derive the distance formula from $P_0(x_0, y_0, z_0)$ to $Ax+By+Cz+D=0$.",
+      "back": "1. Let $P_1(x_1, y_1, z_1)$ be any point on the plane. The normal vector to the plane is $\\vec{n} = \\langle A, B, C \\rangle$.\n2. Form the vector $\\vec{P_1P_0} = \\langle x_0-x_1, y_0-y_1, z_0-z_1 \\rangle$.\n3. The distance $d$ is the magnitude of the scalar projection of $\\vec{P_1P_0}$ onto $\\vec{n}$: $$d = \\frac{|\\vec{P_1P_0} \\cdot \\vec{n}|}{|\\vec{n}|}$$ \n4. Substitute $\\vec{P_1P_0} \\cdot \\vec{n} = A(x_0-x_1) + B(y_0-y_1) + C(z_0-z_1)$.\n5. Since $P_1$ is on the plane, $Ax_1+By_1+Cz_1+D=0 \\implies Ax_1+By_1+Cz_1 = -D$.\n6. The numerator simplifies to $|Ax_0+By_0+Cz_0 - (Ax_1+By_1+Cz_1)| = |Ax_0+By_0+Cz_0 - (-D)| = |Ax_0+By_0+Cz_0+D|$.\n7. The denominator is $|\\vec{n}| = \\sqrt{A^2+B^2+C^2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the distance from a point $P(x_0, y_0, z_0)$ to a plane $Ax+By+Cz+D=0$ if $P$ lies on the plane?",
+      "back": "If $P(x_0, y_0, z_0)$ lies on the plane, its coordinates satisfy the plane equation, meaning $Ax_0 + By_0 + Cz_0 + D = 0$. \nPlugging this into the distance formula:\n$$d = \\frac{|Ax_0 + By_0 + Cz_0 + D|}{\\sqrt{A^2 + B^2 + C^2}} = \\frac{|0|}{\\sqrt{A^2 + B^2 + C^2}} = 0$$ \nThe distance is 0, which is consistent with the geometric definition.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the formula for distance from a point to a plane be used to find the distance between two parallel planes $A_1x+B_1y+C_1z+D_1=0$ and $A_2x+B_2y+C_2z+D_2=0$?",
+      "back": "Since the planes are parallel, their normal vectors are proportional. We can rewrite the equations so that $A_1=A_2=A$, $B_1=B_2=B$, $C_1=C_2=C$. \n1. Pick any point $P_0(x_0, y_0, z_0)$ on the first plane $Ax+By+Cz+D_1=0$. (e.g., set $x_0=0, y_0=0$ and solve for $z_0 = -D_1/C$, if $C \\ne 0$).\n2. Calculate the distance from this point $P_0$ to the *second* plane $Ax+By+Cz+D_2=0$ using the standard formula:\n$$d = \\frac{|Ax_0 + By_0 + Cz_0 + D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ \nThis simplifies to the general formula for distance between parallel planes: $$d = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ (assuming the coefficients $A, B, C$ are identical for both planes).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A plane is given by the vector equation $\\vec{r} \\cdot \\vec{n} = k$. How do you find the distance from a point $P_0$ with position vector $\\vec{r_0}$ to this plane?",
+      "back": "The distance $d$ is given by: $$d = \\frac{|\\vec{r_0} \\cdot \\vec{n} - k|}{|\\vec{n}|}$$ \nThis formula is derived from the scalar projection concept. If $\\vec{n} = \\langle A, B, C \\rangle$ and $\\vec{r_0} = \\langle x_0, y_0, z_0 \\rangle$, this is equivalent to the Cartesian formula where $D = -k$.",
+      "difficulty": "medium"
+    }
+  ]
+}

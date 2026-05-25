@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-dataclasses-dataclass-decorator-post-init",
+  "subtopicTitle": "Dataclasses — @dataclass decorator, __post_init__",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:28.182Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `@dataclass` decorator in Python?",
+      "back": "The `@dataclass` decorator is used to automatically generate boilerplate methods for classes, such as `__init__`, `__repr__`, `__eq__`, `__hash__`, and `__str__`, based on type-hinted fields. It simplifies the creation of classes primarily used to store data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Declare a simple dataclass `Point` with `x` and `y` integer fields.",
+      "back": "```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Point:\n    x: int\n    y: int\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name three dunder methods that `@dataclass` automatically generates for a class.",
+      "back": "`@dataclass` automatically generates `__init__`, `__repr__`, `__eq__`, `__hash__` (conditionally), and `__str__` methods, among others. Any three of these would be a correct answer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `__post_init__` method in a dataclass, and when is it executed?",
+      "back": "The `__post_init__` method is a special method in dataclasses that is executed *after* the automatically generated `__init__` method has finished initializing the fields. It's primarily used for:\n1.  Performing validation checks on initialized fields.\n2.  Calculating and setting derived attributes based on other fields.\n3.  Initializing fields that are excluded from `__init__` (e.g., `field(init=False)`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using `__post_init__`, modify the `Rectangle` dataclass below to ensure `width` and `height` are always positive, raising a `ValueError` if not.\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Rectangle:\n    width: float\n    height: float\n```",
+      "back": "```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Rectangle:\n    width: float\n    height: float\n\n    def __post_init__(self):\n        if self.width <= 0 or self.height <= 0:\n            raise ValueError(\"Width and height must be positive.\")\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you correctly provide a mutable default value (e.g., a list or dictionary) for a field in a dataclass to avoid unintended sharing between instances?",
+      "back": "To provide a mutable default value, you must use the `default_factory` argument within the `field()` function. This ensures a new mutable object is created for each instance.\n```python\nfrom dataclasses import dataclass, field\n\n@dataclass\nclass Player:\n    name: str\n    inventory: list[str] = field(default_factory=list)\n\n# Incorrect way (would share the same list instance):\n# inventory: list[str] = []\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the effect of `field(init=False)` for a dataclass field and how such a field would typically be initialized.",
+      "back": "Setting `field(init=False)` means the field will *not* be included in the automatically generated `__init__` method's parameters. Consequently, you cannot pass a value for this field during object instantiation.\nSuch a field is typically initialized within the `__post_init__` method, often based on other fields or a fixed value.\nExample:\n```python\nfrom dataclasses import dataclass, field\n\n@dataclass\nclass Product:\n    name: str\n    price: float\n    tax: float = 0.05 # Default value for init\n    final_price: float = field(init=False) # Not in __init__\n\n    def __post_init__(self):\n        self.final_price = self.price * (1 + self.tax)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary consequence of setting `frozen=True` in the `@dataclass` decorator?",
+      "back": "When `frozen=True` is set (e.g., `@dataclass(frozen=True)`), instances of the dataclass become immutable. This means that once an object is created, its fields cannot be modified. Any attempt to assign a new value to a field after initialization will raise a `FrozenInstanceError`. This makes dataclasses suitable for use as dictionary keys or in sets, as they become hashable (if all fields are hashable).",
+      "difficulty": "medium"
+    }
+  ]
+}

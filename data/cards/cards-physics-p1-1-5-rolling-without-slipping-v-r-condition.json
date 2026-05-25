@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-rolling-without-slipping-v-r-condition",
+  "subtopicTitle": "Rolling without slipping — v = Rω condition",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:08.934Z",
+  "cards": [
+    {
+      "front": "What does \"rolling without slipping\" physically mean for the point of contact between the rolling object and the surface?",
+      "back": "The point of contact between the rolling object and the surface is instantaneously at rest relative to the surface it is rolling on.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental mathematical relationship between the linear speed ($v$) of the center of mass of a rigid body and its angular speed ($\\omega$) when it is rolling without slipping, given its radius $R$?",
+      "back": "The condition for rolling without slipping is $v = R\\omega$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the condition $v = R\\omega$ for a wheel of radius $R$ rolling without slipping, by considering the velocity of the point of contact with the ground.",
+      "back": "Let $v_C$ be the linear velocity of the center of mass and $\\omega$ be the angular velocity. The velocity of any point $P$ on the circumference relative to the center of mass is $v_{P/C} = R\\omega$ (tangential). For the point of contact with the ground, this tangential velocity is directed backward (opposite to $v_C$).\n\nThe velocity of the point of contact ($v_P$) relative to the ground is the vector sum of the center of mass velocity and the tangential velocity relative to the center:\n$$v_P = v_C + v_{P/C}$$ \nFor rolling without slipping, the point of contact is instantaneously at rest, so $v_P = 0$. Considering magnitudes and directions:\n$$0 = v_C - R\\omega$$ \nTherefore, the condition is:\n$$v_C = R\\omega$$ \n(Often, $v_C$ is simply denoted as $v$ for the linear speed of the object.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A wheel rolls without slipping. If the center of mass moves at speed $v$, what is the speed of the topmost point of the wheel relative to the ground?",
+      "back": "The speed of the topmost point of the wheel relative to the ground is $2v$. The center of mass has a linear velocity $v$. The topmost point also has a tangential velocity relative to the center, $R\\omega$, which is in the same direction as $v$. Since $v = R\\omega$ for rolling without slipping, the total speed of the topmost point is $v + R\\omega = v + v = 2v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of friction is present at the point of contact when an object is rolling without slipping, and what is its role?",
+      "back": "Static friction is present at the point of contact. Its role is to prevent slipping and to provide the necessary torque (or force component) to change the angular momentum (and/or linear momentum) of the object, allowing it to roll. Crucially, because the point of contact is instantaneously at rest, static friction does no work and dissipates no energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an object of mass $M$ and moment of inertia $I_{CM}$ rolling without slipping, express its total kinetic energy in terms of its linear speed $v$ and radius $R$.",
+      "back": "The total kinetic energy ($K_{total}$) of an object rolling without slipping is the sum of its translational kinetic energy and rotational kinetic energy:\n$$K_{total} = K_{translational} + K_{rotational}$$ \n$$K_{total} = \frac{1}{2}Mv^2 + \frac{1}{2}I_{CM}\\omega^2$$ \nSince the object is rolling without slipping, we use the condition $v = R\\omega$, which implies $\\omega = v/R$. Substituting this into the rotational term:\n$$K_{total} = \frac{1}{2}Mv^2 + \frac{1}{2}I_{CM}\\left(\frac{v}{R}\right)^2$$ \n$$K_{total} = \frac{1}{2}v^2\\left(M + \frac{I_{CM}}{R^2}\right)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can an object roll without slipping on a perfectly frictionless surface? Explain why or why not.",
+      "back": "No, an object cannot *start* rolling without slipping from rest or with only translational motion on a perfectly frictionless surface. Friction is essential to provide the torque required to initiate or change the angular velocity, which is necessary to satisfy the $v = R\\omega$ condition.\n\nIf an object is already rolling without slipping and then encounters a frictionless surface, it would continue to roll without slipping *if no other forces or torques act upon it* (e.g., gravity on an incline). However, if there's any tendency to slip (e.g., if it's placed on an incline or if it's given an initial linear velocity without corresponding angular velocity), it would simply slide (or slip while rotating) indefinitely, as there's no friction to adjust its rotation or translation to meet the $v=R\\omega$ condition.",
+      "difficulty": "hard"
+    }
+  ]
+}

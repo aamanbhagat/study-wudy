@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-3-telescoping-series",
+  "subtopicTitle": "Telescoping series",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:38.461Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of a telescoping series?",
+      "back": "A telescoping series $\\sum_{n=1}^\\infty a_n$ is one where its partial sums $S_N = \\sum_{n=1}^N a_n$ simplify significantly because intermediate terms cancel each other out. The terms $a_n$ typically take the form of a difference, such as $b_n - b_{n+1}$ or $b_n - b_{n+k}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a series $\\sum_{n=1}^\\infty (b_n - b_{n+1})$, what is the general formula for its $N$-th partial sum $S_N$?",
+      "back": "The $N$-th partial sum $S_N$ is given by:\n$$S_N = \\sum_{n=1}^N (b_n - b_{n+1})$$\n$$S_N = (b_1 - b_2) + (b_2 - b_3) + (b_3 - b_4) + \\dots + (b_N - b_{N+1})$$\nAll intermediate terms cancel, leaving:\n$$S_N = b_1 - b_{N+1}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what condition does a telescoping series $\\sum_{n=1}^\\infty (b_n - b_{n+1})$ converge, and what is its sum?",
+      "back": "The series converges if and only if the sequence $b_n$ converges to a finite limit, i.e., $\\lim_{N \\to \\infty} b_{N+1} = L$ exists. If it converges, the sum of the series is:\n$$\\sum_{n=1}^\\infty (b_n - b_{n+1}) = \\lim_{N \\to \\infty} S_N = \\lim_{N \\to \\infty} (b_1 - b_{N+1}) = b_1 - L$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the sum of the series $\\sum_{n=1}^\\infty \\left(\\frac{1}{n+1} - \\frac{1}{n+2}\\right)$.",
+      "back": "Let $b_n = \\frac{1}{n+1}$. Then $a_n = b_n - b_{n+1}$.\nThe $N$-th partial sum is $S_N = b_1 - b_{N+1} = \\frac{1}{1+1} - \\frac{1}{N+1+1} = \\frac{1}{2} - \\frac{1}{N+2}$.\nTo find the sum of the series, take the limit as $N \\to \\infty$:\n$$\\sum_{n=1}^\\infty \\left(\\frac{1}{n+1} - \\frac{1}{n+2}\\right) = \\lim_{N \\to \\infty} \\left(\\frac{1}{2} - \\frac{1}{N+2}\\right) = \\frac{1}{2} - 0 = \\frac{1}{2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the sum of the series $\\sum_{n=1}^\\infty \\frac{1}{n(n+1)}$.",
+      "back": "First, use partial fraction decomposition:\n$$\\frac{1}{n(n+1)} = \\frac{A}{n} + \\frac{B}{n+1} \\Rightarrow 1 = A(n+1) + Bn$$\nSetting $n=0 \\Rightarrow A=1$. Setting $n=-1 \\Rightarrow B=-1$.\nSo, $\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$.\nThis is a telescoping series. The $N$-th partial sum is $S_N = \\sum_{n=1}^N \\left(\\frac{1}{n} - \\frac{1}{n+1}\\right) = \\left(\\frac{1}{1} - \\frac{1}{N+1}\\right)$.\nTaking the limit as $N \\to \\infty$:\n$$\\sum_{n=1}^\\infty \\frac{1}{n(n+1)} = \\lim_{N \\to \\infty} \\left(1 - \\frac{1}{N+1}\\right) = 1 - 0 = 1$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a telescoping series $\\sum_{n=1}^\\infty (b_n - b_{n+k})$ where $k$ is a positive integer greater than 1, what terms remain in the $N$-th partial sum $S_N$?",
+      "back": "The $N$-th partial sum $S_N = \\sum_{n=1}^N (b_n - b_{n+k})$ will have the first $k$ terms of the sequence $b_n$ and the last $k$ terms of the sequence $-b_{n+k}$ remaining:\n$$S_N = (b_1 + b_2 + \\dots + b_k) - (b_{N+1} + b_{N+2} + \\dots + b_{N+k})$$\nAll intermediate terms cancel out. For convergence, $\\lim_{N \\to \\infty} b_N$ must exist.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Determine if the series $\\sum_{n=1}^\\infty \\ln\\left(\\frac{n+1}{n}\\right)$ converges or diverges. If it converges, find its sum.",
+      "back": "We can rewrite the term using logarithm properties:\n$$\\ln\\left(\\frac{n+1}{n}\\right) = \\ln(n+1) - \\ln(n)$$\nThis is a telescoping series with $b_n = -\\ln(n)$ (or $b_n = \\ln(n+1)$ if we consider $b_{n+1}-b_n$).\nThe $N$-th partial sum is:\n$$S_N = \\sum_{n=1}^N (\\ln(n+1) - \\ln(n))$$ \n$$S_N = (\\ln 2 - \\ln 1) + (\\ln 3 - \\ln 2) + \\dots + (\\ln(N+1) - \\ln N)$$\n$$S_N = \\ln(N+1) - \\ln 1 = \\ln(N+1)$$\nNow, we take the limit as $N \\to \\infty$:\n$$\\lim_{N \\to \\infty} S_N = \\lim_{N \\to \\infty} \\ln(N+1) = \\infty$$\nSince the limit of the partial sums is infinite, the series **diverges**.",
+      "difficulty": "hard"
+    }
+  ]
+}

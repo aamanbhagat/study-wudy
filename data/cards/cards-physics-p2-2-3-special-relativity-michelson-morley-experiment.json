@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-3-special-relativity-michelson-morley-experiment",
+  "subtopicTitle": "Special relativity — Michelson-Morley experiment",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:25.272Z",
+  "cards": [
+    {
+      "front": "What was the hypothetical 'luminiferous aether' proposed to be in 19th-century physics?",
+      "back": "The luminiferous aether was a hypothetical medium thought to permeate all space, providing a reference frame for absolute rest and acting as the carrier for the propagation of light waves, much like air carries sound waves.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What was the primary objective of the Michelson-Morley experiment?",
+      "back": "The primary objective was to detect the Earth's motion relative to the stationary luminiferous aether, often referred to as 'aether wind,' by measuring the speed of light in different directions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a Michelson interferometer work, as used in the M-M experiment, to detect differences in light travel time?",
+      "back": "A beam of light is split into two perpendicular paths by a half-silvered mirror. Each beam travels to a mirror and reflects back to the splitter, where they recombine. Any difference in their travel times or path lengths results in an observable interference fringe shift.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to the aether theory, why was a measurable fringe shift expected when the Michelson-Morley apparatus was rotated?",
+      "back": "The Earth's motion through the stationary aether would create an 'aether wind.' This wind would cause light to travel at different effective speeds along the two perpendicular arms of the interferometer, leading to a phase difference between the recombining beams and thus a detectable fringe shift.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What was the surprising and crucial outcome of the Michelson-Morley experiment?",
+      "back": "The experiment yielded a null result: no significant or consistent interference fringe shift was observed, regardless of the orientation of the interferometer or the time of year (which would change Earth's velocity relative to the Sun).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the approximate expected time difference $\\Delta t$ between the two arms of length $L$ in the Michelson-Morley experiment, assuming an aether wind velocity $v$ and light speed $c$, for $v \\ll c$.",
+      "back": "For the arm parallel to $v$: $t_1 = \\frac{L}{c-v} + \\frac{L}{c+v} = \\frac{2Lc}{c^2-v^2} = \\frac{2L}{c(1-v^2/c^2)}$. For the arm perpendicular to $v$: $t_2 = \\frac{2L}{\\sqrt{c^2-v^2}} = \\frac{2L}{c\\sqrt{1-v^2/c^2}}$. The difference is $\\Delta t = t_1 - t_2 = \\frac{2L}{c} \\left( \\frac{1}{1-v^2/c^2} - \\frac{1}{\\sqrt{1-v^2/c^2}} \\right)$. Using the binomial approximation $(1-x)^{-n} \\approx 1+nx$ for small $x=v^2/c^2$, we get $\\Delta t \\approx \\frac{2L}{c} \\left( (1 + \\frac{v^2}{c^2}) - (1 + \\frac{1}{2}\\frac{v^2}{c^2}) \\right) = \\frac{2L}{c} \\left( \\frac{1}{2}\\frac{v^2}{c^2} \\right) = \\frac{Lv^2}{c^3}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How did the null result of the Michelson-Morley experiment contribute to the formulation of Einstein's Special Theory of Relativity?",
+      "back": "The null result provided strong evidence against the existence of a luminiferous aether and thus an absolute rest frame. This directly supported Einstein's two postulates of Special Relativity: 1) The laws of physics are the same in all inertial frames, and 2) The speed of light in vacuum is constant for all inertial observers, regardless of the motion of the source. These postulates inherently explain the M-M result without needing an aether.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the 'boat in a river' analogy often used to intuitively explain the expected time difference in the Michelson-Morley experiment.",
+      "back": "Imagine two boats traveling equal distances in a river with a current. One boat travels upstream and then downstream (parallel to the current), while the other travels across the river and back (perpendicular to the current). Despite equal distances, the boat traveling parallel to the current takes longer for the round trip due to the current's effect on its effective speed, analogous to light in the hypothetical aether wind.",
+      "difficulty": "medium"
+    }
+  ]
+}

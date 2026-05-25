@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-7-brute-force-exhaustive-search-when-acceptable",
+  "subtopicTitle": "Brute force — exhaustive search, when acceptable",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:30.609Z",
+  "cards": [
+    {
+      "front": "What is the core principle of a brute-force algorithm, also known as exhaustive search?",
+      "back": "A brute-force algorithm solves a problem by systematically trying every single possible candidate solution until the correct one is found or all possibilities have been exhausted.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the general three-step process a brute-force algorithm follows.",
+      "back": "1. **Generate Candidates:** Systematically create all possible candidate solutions.\n2. **Test Candidates:** For each candidate, check if it satisfies the problem's conditions.\n3. **Return Result:** If a valid solution is found, return it. If optimizing, continue to find the best solution among all valid ones.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the time complexity of most brute-force algorithms often very high, making them impractical for large inputs?",
+      "back": "Brute-force algorithms explore every single possibility in the solution space. If the number of possibilities grows exponentially (e.g., $2^N$, $N!$) with respect to the input size $N$, the number of operations quickly becomes astronomically large and computationally infeasible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the primary conditions under which a brute-force algorithm is considered acceptable or even optimal.",
+      "back": "1. **Small Input Size:** The solution space is small enough to be explored within reasonable time.\n2. **No Better Alternative:** No known polynomial-time algorithm exists (e.g., for some NP-hard problems where exact solutions are needed).\n3. **Simplicity/Baseline:** Ease of implementation is critical, or it's used as a baseline for comparison with more complex algorithms.\n4. **Guaranteed Correctness:** When absolute certainty of finding a solution (if one exists) is paramount.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider finding the maximum value in an unsorted array of $N$ integers. Is a brute-force approach acceptable here? Justify your answer.",
+      "back": "Yes, it is acceptable and optimal. The brute-force approach involves iterating through all $N$ elements once to compare them and find the maximum. This has a time complexity of $O(N)$, which is the best possible as every element must be examined at least once.\n```python\ndef find_max_brute_force(arr):\n    if not arr: return None\n    max_val = arr[0]\n    for x in arr:\n        if x > max_val:\n            max_val = x\n    return max_val\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The Traveling Salesperson Problem (TSP) with $N$ cities asks for the shortest route visiting each city exactly once. Why is a brute-force solution typically unacceptable for $N > 20$?",
+      "back": "A brute-force solution for TSP involves checking every possible permutation of cities. For $N$ cities, there are $(N-1)!$ unique routes (fixing the start city). This factorial growth is extremely rapid. For $N=20$, $(19)! \\approx 1.2 \\times 10^{17}$ operations, which is computationally infeasible for modern computers within a reasonable timeframe, making it unacceptable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State one primary advantage and one primary disadvantage of brute-force algorithms.",
+      "back": "Advantage: Simplicity of implementation and guaranteed correctness (if a solution exists and the search space is finite).\nDisadvantage: Extremely high time complexity for most problems with large input sizes, making them impractical due to the exponential or factorial growth of operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a brute-force algorithm serve as a crucial baseline in algorithm design, even when it's not the final solution?",
+      "back": "It provides a guaranteed correct (though often inefficient) solution that can be used to: \n1. **Verify Correctness:** Test and validate the output of more complex, optimized algorithms.\n2. **Set Upper Bound:** Establish an upper bound on performance; if an optimized algorithm is slower than brute force, it indicates a flaw.\n3. **Define Optimality:** For NP-hard problems, it defines the 'optimal' solution that approximation algorithms strive to approach.",
+      "difficulty": "hard"
+    }
+  ]
+}

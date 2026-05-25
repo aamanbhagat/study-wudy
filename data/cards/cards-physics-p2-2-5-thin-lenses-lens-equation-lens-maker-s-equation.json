@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-5-thin-lenses-lens-equation-lens-maker-s-equation",
+  "subtopicTitle": "Thin lenses — lens equation, lens maker's equation",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:27.909Z",
+  "cards": [
+    {
+      "front": "What are the primary assumptions that define a \"thin lens\" in optics?",
+      "back": "A thin lens is one whose thickness is negligible compared to its focal length and the object/image distances. Additionally, all light rays are assumed to be paraxial (close to the principal axis and making small angles with it).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the thin lens equation and the linear magnification equation.",
+      "back": "Thin lens equation: $\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}$\nLinear magnification: $M = -\\frac{d_i}{d_o} = \\frac{h_i}{h_o}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the standard sign conventions for focal length ($f$), object distance ($d_o$), and image distance ($d_i$) in the thin lens equation.",
+      "back": "<ul>\n<li>$f$: Positive for converging (convex) lenses, negative for diverging (concave) lenses.</li>\n<li>$d_o$: Positive if the object is real (on the side from which light originates).</li>\n<li>$d_i$: Positive for real images (on the opposite side of the lens from the object), negative for virtual images (on the same side as the object).</li>\n</ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An object is placed 30 cm in front of a converging lens with a focal length of 20 cm. Calculate the image distance and magnification.",
+      "back": "Given $d_o = 30$ cm, $f = 20$ cm (converging lens).\nUsing $\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}$:\n$\\frac{1}{20} = \\frac{1}{30} + \\frac{1}{d_i}$\n$\\frac{1}{d_i} = \\frac{1}{20} - \\frac{1}{30} = \\frac{3 - 2}{60} = \\frac{1}{60}$\n$d_i = 60$ cm. (Real image, on the opposite side).\nMagnification $M = -\\frac{d_i}{d_o} = -\\frac{60}{30} = -2$. (Image is inverted and twice as large).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What do a negative image distance ($d_i < 0$) and a negative magnification ($M < 0$) physically signify?",
+      "back": "<ul>\n<li>**$d_i < 0$**: Indicates a **virtual image**. This means the light rays *appear* to diverge from a point on the *same side* of the lens as the object, rather than actually converging there. Such images cannot be projected onto a screen.</li>\n<li>**$M < 0$**: Indicates an **inverted image**. The image is upside down relative to the object. If $M > 0$, the image is upright.</li>\n</ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Lens Maker's Equation.",
+      "back": "The Lens Maker's Equation is: $\\frac{1}{f} = (n-1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$, where $f$ is the focal length, $n$ is the refractive index of the lens material, and $R_1$ and $R_2$ are the radii of curvature of the first and second lens surfaces, respectively.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the sign conventions for the radii of curvature ($R_1$ and $R_2$) in the Lens Maker's Equation.",
+      "back": "<ul>\n<li>**$R_1$**: Positive if the first surface (where light enters) is convex (center of curvature on the side of outgoing light). Negative if concave (center of curvature on the side of incoming light).</li>\n<li>**$R_2$**: Positive if the second surface (where light exits) is concave (center of curvature on the side of incoming light). Negative if convex (center of curvature on the side of outgoing light).</li>\n<li>A simpler rule: If the center of curvature is on the side where light *exits* the surface, the radius is positive. If on the side where light *enters* the surface, it's negative. For a flat surface, $R = \\infty$.</li>\n</ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A plano-convex lens is made of glass ($n=1.5$). Its curved surface has a radius of curvature of 20 cm. Calculate its focal length.",
+      "back": "For a plano-convex lens, one surface is flat ($R = \\infty$) and the other is curved. Assuming light enters the curved surface first:\n$n = 1.5$\n$R_1 = +20$ cm (convex surface, center of curvature on the side of outgoing light).\n$R_2 = \\infty$ (flat surface).\nUsing $\\frac{1}{f} = (n-1)\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$:\n$\\frac{1}{f} = (1.5-1)\\left(\\frac{1}{20} - \\frac{1}{\\infty}\\right)$\n$\\frac{1}{f} = (0.5)\\left(\\frac{1}{20} - 0\\right)$\n$\\frac{1}{f} = 0.5 \\times \\frac{1}{20} = \\frac{1}{40}$\n$f = 40$ cm.",
+      "difficulty": "hard"
+    }
+  ]
+}

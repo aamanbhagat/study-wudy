@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-homogeneous-with-constant-coefficients-characteristic-equation",
+  "subtopicTitle": "Homogeneous with constant coefficients — characteristic equation",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:53.236Z",
+  "cards": [
+    {
+      "front": "State the general form of an $n$-th order homogeneous linear ordinary differential equation with constant coefficients.",
+      "back": "An $n$-th order homogeneous linear ODE with constant coefficients has the form:\n$$a_n y^{(n)} + a_{n-1} y^{(n-1)} + \\dots + a_1 y' + a_0 y = 0$$\nwhere $a_n, a_{n-1}, \\dots, a_1, a_0$ are real constants and $a_n \\neq 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What trial solution is typically assumed for $y(x)$ when solving a homogeneous linear ODE with constant coefficients, and why?",
+      "back": "We assume a solution of the form $y(x) = e^{rx}$. This is because differentiation of $e^{rx}$ always yields a constant multiple of $e^{rx}$ itself ($y^{(k)} = r^k e^{rx}$). This property allows $e^{rx}$ to be factored out, simplifying the ODE into an algebraic equation involving $r$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the characteristic equation for the second-order homogeneous linear ODE $ay'' + by' + cy = 0$.",
+      "back": "Assume $y = e^{rx}$.\nThen $y' = re^{rx}$ and $y'' = r^2 e^{rx}$.\nSubstitute these into the ODE:\n$a(r^2 e^{rx}) + b(re^{rx}) + c(e^{rx}) = 0$\nFactor out $e^{rx}$:\n$e^{rx}(ar^2 + br + c) = 0$\nSince $e^{rx} \\neq 0$, we must have:\n$ar^2 + br + c = 0$\nThis is the characteristic equation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the characteristic equation for the ODE $y''' - 2y'' + 5y' - y = 0$?",
+      "back": "The characteristic equation is obtained by replacing each derivative $y^{(k)}$ with $r^k$.\nFor $y''' - 2y'' + 5y' - y = 0$, the characteristic equation is:\n$r^3 - 2r^2 + 5r - 1 = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the characteristic equation $P(r)=0$ of an $n$-th order homogeneous linear ODE has $n$ distinct real roots $r_1, r_2, \\dots, r_n$, what is the general solution?",
+      "back": "The general solution is a linear combination of the fundamental solutions $e^{r_i x}$:\n$$y(x) = c_1 e^{r_1 x} + c_2 e^{r_2 x} + \\dots + c_n e^{r_n x}$$\nwhere $c_1, \\dots, c_n$ are arbitrary constants.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the characteristic equation for a 2nd-order ODE $ay''+by'+cy=0$ has a single real root $r$ repeated twice, what is the general solution?",
+      "back": "If $r$ is a real root of multiplicity 2, the two linearly independent solutions are $e^{rx}$ and $x e^{rx}$.\nThe general solution is:\n$$y(x) = c_1 e^{rx} + c_2 x e^{rx}$$\nThis can be generalized: if $r$ is a root of multiplicity $k$, then $e^{rx}, x e^{rx}, x^2 e^{rx}, \\dots, x^{k-1} e^{rx}$ are $k$ linearly independent solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the characteristic equation for a 2nd-order ODE $ay''+by'+cy=0$ has complex conjugate roots $r = \\alpha \\pm i\\beta$ (where $\\beta \\neq 0$), what is the general real-valued solution?",
+      "back": "The complex roots lead to complex solutions $e^{(\\alpha+i\\beta)x}$ and $e^{(\\alpha-i\\beta)x}$. Using Euler's formula $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$, these can be transformed into real-valued solutions.\nThe general real-valued solution is:\n$$y(x) = e^{\\alpha x}(c_1 \\cos(\\beta x) + c_2 \\sin(\\beta x))$$\nwhere $c_1, c_2$ are arbitrary constants.",
+      "difficulty": "medium"
+    }
+  ]
+}

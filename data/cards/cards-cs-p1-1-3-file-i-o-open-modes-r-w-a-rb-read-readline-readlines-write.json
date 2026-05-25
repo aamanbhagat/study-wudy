@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-3-file-i-o-open-modes-r-w-a-rb-read-readline-readlines-write",
+  "subtopicTitle": "File I/O — open modes (r, w, a, rb), read, readline, readlines, write",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:14.478Z",
+  "cards": [
+    {
+      "front": "What is the default file opening mode for Python's `open()` function, and what operation does it permit?",
+      "back": "The default mode is `'r'` (read mode). It allows reading from an existing file. If the file does not exist, it will raise a `FileNotFoundError`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the key difference between `'w'` (write) and `'a'` (append) modes when opening a file, especially concerning existing files.",
+      "back": "`'w'` (write mode): Opens a file for writing. If the file exists, its contents are **truncated** (deleted). If the file does not exist, a new file is created.\n\n`'a'` (append mode): Opens a file for appending. If the file exists, new data is written to the **end** of the file. If the file does not exist, a new file is created.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the significance of the `'b'` in modes like `'rb'`? Provide an example of data typically handled in binary mode.",
+      "back": "The `'b'` signifies **binary mode**. In binary mode, data is read/written as raw bytes, not as text. This is crucial for non-text files like images (`.jpg`, `.png`), audio (`.mp3`), video (`.mp4`), or executable files. Text mode performs encoding/decoding, which is inappropriate for binary data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the behavior of `file.read()` when called (a) without arguments and (b) with an integer argument `n`. What is its return type in text mode?",
+      "back": "(a) `file.read()` (no arguments): Reads the **entire content** of the file from the current position until EOF (End Of File).\n\n(b) `file.read(n)`: Reads up to `n` characters (in text mode) or `n` bytes (in binary mode) from the current position.\n\nIn text mode, its return type is a **string**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare `file.readline()` and `file.readlines()`. What does each method return, and how do they handle newline characters?",
+      "back": "`file.readline()`: Reads a **single line** from the file, including the trailing newline character (`\\n`), and returns it as a **string**. It returns an empty string `''` at EOF.\n\n`file.readlines()`: Reads **all lines** from the file into a **list of strings**. Each string in the list represents a line and includes its trailing newline character (`\\n`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When using `file.write()`, what type of data must be passed in text mode (`'w'`) vs. binary mode (`'wb'`)? Does it automatically add a newline?",
+      "back": "In text mode (`'w'`, `'a'`, etc.), `file.write()` expects a **string**.\n\nIn binary mode (`'wb'`, `'ab'`, etc.), `file.write()` expects a **bytes-like object**.\n\n`file.write()` **does not automatically add a newline character**. You must explicitly include `\\n` in the string if you want to write data on a new line.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What error occurs if you try to open a non-existent file in `'r'` mode? Provide a Python snippet to demonstrate and show how to handle it gracefully.",
+      "back": "A `FileNotFoundError` occurs.\n\n```python\ntry:\n    with open('nonexistent.txt', 'r') as f:\n        content = f.read()\n        print(content)\nexcept FileNotFoundError:\n    print(\"Error: The file 'nonexistent.txt' was not found.\")\nexcept Exception as e:\n    print(f\"An unexpected error occurred: {e}\")\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

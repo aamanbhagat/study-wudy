@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-4-aerodynamic-heating-during-reentry-stagnation-point-heat-flux-chapman-equation",
+  "subtopicTitle": "Aerodynamic heating during reentry — stagnation point heat flux Chapman equation",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:53.297Z",
+  "cards": [
+    {
+      "front": "Define aerodynamic heating during atmospheric reentry.",
+      "back": "Aerodynamic heating is the conversion of kinetic energy into thermal energy due to friction and compression of air, primarily in the shock layer, leading to high temperatures on the vehicle surface during high-speed atmospheric flight.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Where is the stagnation point on a blunt body during reentry, and why is it significant for heating?",
+      "back": "The stagnation point is the point on the body where the local flow velocity is zero relative to the body. It's significant because it experiences the highest pressure and, consequently, the highest convective heat transfer (heat flux) due to the most intense shock layer compression.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Chapman equation for stagnation point heat flux $q_s$.",
+      "back": "The Chapman equation for stagnation point heat flux is given by: $$q_s = K \\sqrt{\\frac{\\rho_\\infty}{R_N}} V_\\infty^3$$ where $K$ is an empirically derived constant, $\\rho_\\infty$ is the free-stream atmospheric density, $R_N$ is the nose radius of the blunt body, and $V_\\infty$ is the free-stream velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the Chapman equation for stagnation point heat flux, explain the physical significance of $R_N$ and the $V_\\infty^3$ term.",
+      "back": "$R_N$ (nose radius) inversely affects heating; a larger $R_N$ 'blunts' the body, spreading the shock layer over a wider area and reducing the heat flux per unit area. The $V_\\infty^3$ term highlights the strong dependence on velocity: kinetic energy scales with $V^2$, and the rate of energy transfer (and thus heating) also depends on $V$, leading to a cubic relationship.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why a larger nose radius ($R_N$) reduces stagnation point heat flux, despite increasing total heat load.",
+      "back": "A larger nose radius 'blunts' the body, which spreads the intense shock layer and the associated heat transfer over a wider surface area. While the total amount of heat absorbed by the vehicle might increase due to a larger heated area, the *heat flux* (heat per unit area per unit time) at any specific point, including the stagnation point, is reduced because the same amount of energy is distributed over a larger region.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two key assumptions or simplifications inherent in the Chapman equation for stagnation point heat flux.",
+      "back": "Key assumptions include:\n1.  **Laminar boundary layer flow:** Assumes the flow within the boundary layer is smooth and orderly, not turbulent.\n2.  **Ideal gas behavior and constant fluid properties:** Assumes air behaves as an ideal gas and properties like viscosity and thermal conductivity are constant or can be averaged.\n3.  **Convective dominance:** Neglects radiative heat transfer, assuming convective heating is the primary mechanism.\n4.  **Blunt body, hypersonic flow:** Specifically applies to blunt geometries at very high speeds.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A reentry vehicle doubles its velocity. Assuming constant altitude and nose radius, how does its stagnation point heat flux change according to the Chapman equation?",
+      "back": "The Chapman equation states that stagnation point heat flux $q_s$ is proportional to the free-stream velocity cubed ($q_s \\propto V_\\infty^3$). If the velocity doubles ($2V_\\infty$), the new heat flux will be proportional to $(2V_\\infty)^3 = 8V_\\infty^3$. Therefore, the stagnation point heat flux increases by a factor of 8.",
+      "difficulty": "hard"
+    }
+  ]
+}

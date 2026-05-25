@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-6-quick-sort-lomuto-hoare-partition-pivot-strategies-expected-o-n-log-n-worst-case",
+  "subtopicTitle": "Quick sort — Lomuto/Hoare partition, pivot strategies, expected O(n log n), worst case",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:00.746Z",
+  "cards": [
+    {
+      "front": "Quick Sort is a highly efficient sorting algorithm that follows the _________ paradigm, primarily relying on a _________ operation to arrange elements.",
+      "back": "Divide and Conquer; partition.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the Lomuto partition scheme for Quick Sort, detailing how it places the pivot element.",
+      "back": "The Lomuto scheme selects a pivot (often the last element) and maintains two sections: elements less than or equal to the pivot, and elements greater than the pivot. It iterates through the array, swapping elements smaller than the pivot to the left side, effectively growing the \"less than or equal\" section. Finally, it swaps the pivot into its correct sorted position between these two sections.\n```python\ndef lomuto_partition(arr, low, high):\n    pivot = arr[high]\n    i = low - 1\n    for j in range(low, high):\n        if arr[j] <= pivot:\n            i += 1\n            arr[i], arr[j] = arr[j], arr[i]\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    return i + 1\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the Hoare partition scheme for Quick Sort, emphasizing how it differs from Lomuto in pivot placement and pointer movement.",
+      "back": "The Hoare scheme selects a pivot (often the first or middle element) and uses two pointers, `i` (from left) and `j` (from right). `i` moves right past elements $\\le$ pivot, and `j` moves left past elements $\\ge$ pivot. When `i` and `j` stop, `arr[i]` and `arr[j]` are swapped. This continues until `i` crosses `j`. The key difference is that the pivot's final position is *not* guaranteed to be between `i` and `j` after the loop; `i` and `j` simply define the boundaries for the next recursive calls. It typically performs fewer swaps than Lomuto.\n```python\ndef hoare_partition(arr, low, high):\n    pivot = arr[low] # or arr[(low+high)//2]\n    i = low - 1\n    j = high + 1\n    while True:\n        i += 1\n        while arr[i] < pivot:\n            i += 1\n        j -= 1\n        while arr[j] > pivot:\n            j -= 1\n        if i >= j:\n            return j\n        arr[i], arr[j] = arr[j], arr[i]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the intuitive reason why Quick Sort achieves an average-case time complexity of $O(n \\log n)$.",
+      "back": "In the average case, pivot selection results in reasonably balanced partitions, meaning the array is roughly divided into two halves. This creates a recursion tree of depth $O(\\log n)$. At each level of the recursion tree, the partitioning process for all sub-arrays combined takes $O(n)$ time (each element is visited and potentially swapped a constant number of times). Multiplying the depth by the work per level gives $O(n \\log n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions does Quick Sort exhibit its worst-case time complexity of $O(n^2)$? Provide an example input array.",
+      "back": "The worst case occurs when the pivot selection consistently results in extremely unbalanced partitions, typically dividing the array into one sub-array of size $n-1$ and another of size $0$ (or $1$). This happens when the pivot is always the smallest or largest element in the sub-array.\nExample: If the pivot is always chosen as the first element:\n1. An already sorted array: `[1, 2, 3, 4, 5]`\n2. A reverse-sorted array: `[5, 4, 3, 2, 1]`\nIn such cases, the recursion depth becomes $O(n)$, and at each level, $O(n)$ work is done, leading to $O(n \\cdot n) = O(n^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List and briefly describe three common pivot selection strategies in Quick Sort, and state their primary goal.",
+      "back": "1.  **First/Last Element:** Simplest, but prone to worst-case with sorted/reverse-sorted input.\n2.  **Random Pivot:** Selects a random element as pivot. Aims to achieve average-case performance with high probability, making worst-case unlikely for any specific input.\n3.  **Median-of-Three:** Selects the median of the first, middle, and last elements as the pivot. This strategy tries to pick a pivot that is closer to the true median, reducing the chance of extremely unbalanced partitions and improving performance on partially sorted arrays.\nPrimary Goal: To select a pivot that creates balanced partitions, thus minimizing the recursion depth and achieving $O(n \\log n)$ performance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is Quick Sort a stable sorting algorithm? Justify your answer.",
+      "back": "No, Quick Sort is generally *not* a stable sorting algorithm. Stability means that elements with equal values maintain their relative order in the sorted output. Quick Sort's partitioning process, especially when swapping elements across the pivot, can change the relative order of equal elements. For example, if you have `(A, 5)` and `(B, 5)` and `(A, 5)` appears before `(B, 5)` in the original array, Quick Sort might swap them such that `(B, 5)` appears before `(A, 5)` in the sorted array.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the space complexity of Quick Sort in its average and worst-case scenarios, and what data structure contributes to this complexity?",
+      "back": "1.  **Average Case:** $O(\\log n)$. This is due to the recursion stack depth. With balanced partitions, the depth of the recursion tree is $O(\\log n)$.\n2.  **Worst Case:** $O(n)$. This occurs when partitions are highly unbalanced (e.g., always splitting into $n-1$ and $0$ elements), leading to a recursion stack depth of $O(n)$.\nThe primary data structure contributing to this space complexity is the **call stack** used for recursive function calls.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-solving-odes-with-laplace-including-discontinuous-forcing",
+  "subtopicTitle": "Solving ODEs with Laplace (including discontinuous forcing)",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:13.598Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of using the Laplace Transform to solve Ordinary Differential Equations (ODEs)?",
+      "back": "The Laplace Transform converts an ODE from the time domain ($t$) into an algebraic equation in the frequency domain ($s$). This algebraic equation is generally much easier to solve. The Inverse Laplace Transform then brings the solution back to the time domain.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Laplace Transform for the first derivative $f'(t)$ and explain its importance for solving ODEs.",
+      "back": "The Laplace Transform for the first derivative is $\\mathcal{L}\\{f'(t)\\} = sF(s) - f(0)$. This formula is crucial because it transforms a differential operation into an algebraic multiplication by $s$ and directly incorporates the initial condition $f(0)$, making ODEs solvable algebraically in the $s$-domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the Laplace Transform of $e^{at} \\sin(bt)$.",
+      "back": "Using the frequency shift property $\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)$ and the basic transform $\\mathcal{L}\\{\\sin(bt)\\} = \\frac{b}{s^2+b^2}$, we substitute $(s-a)$ for $s$ in the latter to get:\n$$\\mathcal{L}\\{e^{at} \\sin(bt)\\} = \\frac{b}{(s-a)^2+b^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Heaviside (unit step) function $u_c(t)$ and state its Laplace Transform.",
+      "back": "The Heaviside function $u_c(t)$ (also denoted $H(t-c)$) is defined as:\n$$u_c(t) = \\begin{cases} 0 & \\text{if } t < c \\\\ 1 & \\text{if } t \\ge c \\end{cases}$$\nIts Laplace Transform is $\\mathcal{L}\\{u_c(t)\\} = \\frac{e^{-cs}}{s}$ for $c \\ge 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the general steps to solve a linear ODE with constant coefficients using the Laplace Transform method.",
+      "back": "1. Take the Laplace Transform of both sides of the ODE.\n2. Use linearity and the derivative property to transform the ODE into an algebraic equation for $Y(s) = \\mathcal{L}\\{y(t)\\}$.\n3. Substitute the given initial conditions.\n4. Solve the algebraic equation for $Y(s)$.\n5. Find the Inverse Laplace Transform of $Y(s)$ (often using partial fraction decomposition and tables) to obtain the solution $y(t)$ in the time domain.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you find the Laplace Transform of a time-shifted function multiplied by a Heaviside function, i.e., $\\mathcal{L}\\{u_c(t)f(t-c)\\}$?",
+      "back": "This is given by the second shifting theorem (or time-delay property):\n$$\\mathcal{L}\\{u_c(t)f(t-c)\\} = e^{-cs}F(s)$$\nwhere $F(s) = \\mathcal{L}\\{f(t)\\}$. This property is essential for handling ODEs with discontinuous forcing terms that are 'switched on' at $t=c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the Laplace Transform of the Dirac delta function $\\delta(t-c)$, and how does it simplify solving ODEs with impulse forcing?",
+      "back": "The Laplace Transform of the Dirac delta function is $\\mathcal{L}\\{\\delta(t-c)\\} = e^{-cs}$ for $c \\ge 0$. For an ODE with an impulse forcing term like $g(t) = \\delta(t-c)$, its Laplace Transform is simply $e^{-cs}$. This directly introduces an exponential term in the $s$-domain, which after inverse transformation results in a shifted Heaviside function in the $t$-domain, accurately modeling the sudden 'kick' or impulse at time $t=c$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the Laplace Transform method is particularly well-suited for solving initial value problems (IVPs) but not boundary value problems (BVPs).",
+      "back": "The Laplace Transform of derivatives (e.g., $\\mathcal{L}\\{y'(t)\\} = sY(s) - y(0)$) inherently incorporates initial conditions ($y(0), y'(0)$, etc.) directly into the transformed algebraic equation. This makes solving IVPs straightforward. For BVPs, boundary conditions are specified at different points (e.g., $y(0)$ and $y(L)$), which cannot be directly substituted into the standard Laplace derivative formulas, making the method less convenient or applicable without significant modification.",
+      "difficulty": "hard"
+    }
+  ]
+}

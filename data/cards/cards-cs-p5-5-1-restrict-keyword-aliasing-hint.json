@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-restrict-keyword-aliasing-hint",
+  "subtopicTitle": "restrict keyword — aliasing hint",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:54.585Z",
+  "cards": [
+    {
+      "front": "In C, what is the primary role of the `restrict` keyword when applied to a pointer?",
+      "back": "The `restrict` keyword is a type qualifier that, when applied to a pointer, informs the compiler that the pointer provides the *only* means of accessing the memory it points to within its scope. It's a promise from the programmer to the compiler about unique access.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the main benefit `restrict` provides to the compiler, and why is this important for performance?",
+      "back": "It enables the compiler to perform aggressive optimizations by eliminating concerns about pointer aliasing. Without `restrict`, the compiler must assume pointers *might* alias, preventing optimizations like reordering memory accesses or caching values in registers, which could lead to incorrect results if aliasing were present.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider a function `void copy_data(int *dest, const int *src, size_t n)`. How would adding `restrict` to the parameters potentially optimize this function, and what assumption does it make?",
+      "back": "```c\nvoid copy_data(int *restrict dest, const int *restrict src, size_t n) {\n    for (size_t i = 0; i < n; ++i) {\n        dest[i] = src[i];\n    }\n}\n```\nAdding `restrict` tells the compiler that `dest` and `src` point to non-overlapping memory regions. This allows the compiler to optimize by, for example, loading multiple `src` values into registers before storing them to `dest`, without needing to worry that a store to `dest` might inadvertently modify a `src` value that was yet to be read.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a programmer uses `restrict` on a pointer but the memory it points to is *also* accessed via another pointer or lvalue within the `restrict`'s scope, what is the consequence?",
+      "back": "The consequence is **undefined behavior**. The compiler will have made optimizations based on the programmer's guarantee that no aliasing would occur. When aliasing *does* happen, the optimized code might produce incorrect results that are difficult to debug, as the compiler's assumptions have been violated.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does the `restrict` qualifier guarantee that the memory pointed to by a `restrict`-qualified pointer will *never* be accessed by any other pointer throughout the entire program's execution?",
+      "back": "No, the `restrict` qualifier's guarantee is limited to the **scope** of the pointer declaration. It asserts that *this specific pointer* is the sole means of accessing its pointed-to memory *within its own scope*. Other parts of the program outside this scope might access that same memory via different pointers without violating the `restrict` contract.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why can't C compilers typically infer non-aliasing automatically in complex scenarios, making the `restrict` keyword a necessary programmer hint?",
+      "back": "Determining whether two arbitrary pointers might alias (point to the same memory location) is a fundamentally difficult problem for static analysis, often undecidable in the general case for complex programs. The compiler cannot always definitively prove non-aliasing without potentially expensive runtime checks or making overly conservative assumptions. `restrict` provides a crucial, explicit promise from the programmer, allowing the compiler to proceed with optimizations that would otherwise be unsafe.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a function signature like `void process(float *restrict a, float *restrict b, float *restrict c)`, what specific guarantee does the programmer make regarding the memory regions pointed to by `a`, `b`, and `c`?",
+      "back": "The programmer guarantees that the memory regions pointed to by `a`, `b`, and `c` are **mutually exclusive and non-overlapping**. Furthermore, for each pointer (`a`, `b`, `c`), it is the *only* way to access its respective memory region within the scope of the `process` function.",
+      "difficulty": "hard"
+    }
+  ]
+}

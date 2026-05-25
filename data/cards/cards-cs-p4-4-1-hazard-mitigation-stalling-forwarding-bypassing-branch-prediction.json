@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-hazard-mitigation-stalling-forwarding-bypassing-branch-prediction",
+  "subtopicTitle": "Hazard mitigation — stalling, forwarding/bypassing, branch prediction",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:46.145Z",
+  "cards": [
+    {
+      "front": "What are the three primary types of hazards that can occur in a pipelined processor, requiring mitigation strategies?",
+      "back": "The three primary types of pipeline hazards are:\n1.  **Structural Hazards**: When two instructions require the same hardware resource at the same time.\n2.  **Data Hazards**: When an instruction tries to use data that has not yet been produced by a preceding instruction (e.g., Read After Write - RAW).\n3.  **Control Hazards**: When the pipeline makes an incorrect decision on the next instruction to fetch, typically due to branches or jumps.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is pipeline stalling, and what is its primary mechanism for resolving hazards?",
+      "back": "Pipeline stalling (or a pipeline interlock) is a hazard resolution technique where the pipeline temporarily halts the flow of instructions. Its primary mechanism involves inserting 'bubbles' or NOP (No Operation) instructions into the pipeline, effectively freezing one or more pipeline stages until the required resource or data becomes available, or the hazard condition is resolved.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the concept of 'forwarding' (or 'bypassing') in a pipelined processor, specifying which type of hazard it primarily addresses.",
+      "back": "Forwarding (or bypassing) is a technique that resolves data hazards by sending the result of an instruction directly from the pipeline stage where it's computed to the pipeline stage where a subsequent instruction needs it, without waiting for the result to be written back to the register file. It primarily addresses **Read-After-Write (RAW) data hazards**, allowing dependent instructions to execute sooner by providing the data from an internal pipeline register rather than the architectural register file.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a 5-stage pipeline (IF, ID, EX, MEM, WB), consider `ADD R1, R2, R3` followed by `SUB R4, R1, R5`. From which stage's output would `R1` be forwarded to `SUB`'s EX stage?",
+      "back": "The `ADD` instruction computes the value for `R1` in its **EX (Execute) stage**. Therefore, the result (the ALU output) would be forwarded from the `ADD` instruction's EX stage output register directly to the input of the `SUB` instruction's EX stage, allowing `SUB` to use `R1` without stalling.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why can't forwarding alone completely resolve a 'load-use hazard' (e.g., `LW R1, 0(R2)` followed by `ADD R3, R1, R4`) in a typical 5-stage pipeline, necessitating a stall?",
+      "back": "A load-use hazard occurs because the data loaded from memory by `LW` (`Load Word`) is not available until the **MEM (Memory Access) stage** of the `LW` instruction. If a subsequent `ADD` instruction needs that value in its **EX (Execute) stage**, forwarding from the `LW`'s MEM stage to the `ADD`'s EX stage still creates a 1-cycle dependency. The `ADD` instruction's EX stage would need the data one cycle *before* the `LW` instruction's MEM stage can provide it. Thus, a 1-cycle stall (bubble) is typically required to delay the `ADD` instruction until the loaded value becomes available for forwarding.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the fundamental problem that branch prediction aims to solve, and why is it critical for modern pipelined CPUs?",
+      "back": "Branch prediction aims to solve **control hazards**, specifically the uncertainty of the next instruction to fetch after a conditional branch. It's critical because modern deep pipelines cannot afford to wait for the branch condition to be evaluated and the target address to be computed (which happens late in the pipeline). Without prediction, every branch would cause significant stalls, flushing the pipeline and drastically reducing Instruction Per Cycle (IPC) and overall performance. By predicting the outcome and target, the pipeline can continue fetching instructions, maintaining high throughput.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the state transitions and prediction logic of a 2-bit saturating counter for dynamic branch prediction.",
+      "back": "A 2-bit saturating counter has four states, typically representing the likelihood of a branch being taken:\n*   `00`: Strongly Not Taken (SNT)\n*   `01`: Weakly Not Taken (WNT)\n*   `10`: Weakly Taken (WT)\n*   `11`: Strongly Taken (ST)\n\n**Prediction Logic**: If the counter is `00` or `01`, predict Not Taken. If `10` or `11`, predict Taken.\n\n**State Transitions**: \n*   If the branch is actually Taken: Increment the counter (saturating at `11`). E.g., `00 -> 01`, `01 -> 10`, `10 -> 11`, `11 -> 11`.\n*   If the branch is actually Not Taken: Decrement the counter (saturating at `00`). E.g., `11 -> 10`, `10 -> 01`, `01 -> 00`, `00 -> 00`.\n\nThis mechanism provides hysteresis, requiring two consistent mispredictions to change the prediction direction, making it robust against transient branch behavior.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical consequence of a branch misprediction in a deep pipeline, and what actions must the processor take?",
+      "back": "The typical consequence of a branch misprediction is a significant performance penalty due to wasted work. When a misprediction is detected (usually in the EX or MEM stage), the processor must:\n1.  **Flush the pipeline**: Discard all speculatively fetched and partially executed instructions that followed the mispredicted branch.\n2.  **Restore architectural state**: Roll back any register or memory writes that were performed by the flushed instructions.\n3.  **Refetch instructions**: Start fetching instructions from the correct branch target address.\n\nThis process incurs a penalty of many cycles (equal to the depth of the pipeline from the fetch stage to the misprediction detection stage), severely impacting Instruction Per Cycle (IPC).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-smart-pointers-unique-ptr-sole-ownership-shared-ptr-shared-ownership-ref-count-weak-ptr-break-cycles",
+  "subtopicTitle": "Smart pointers — unique_ptr (sole ownership), shared_ptr (shared ownership, ref count), weak_ptr (break cycles)",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:57.569Z",
+  "cards": [
+    {
+      "front": "What fundamental problem in C++ memory management do smart pointers primarily address?",
+      "back": "Smart pointers automate memory deallocation, preventing memory leaks and dangling pointers by implementing the Resource Acquisition Is Initialization (RAII) principle, ensuring resources are released when they go out of scope.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the ownership model of `std::unique_ptr` and explain why it cannot be copied.",
+      "back": "`std::unique_ptr` enforces *sole ownership*. Only one `unique_ptr` can point to a specific resource at any given time. Copying would violate this, as it would create two `unique_ptr`s owning the same resource, leading to double deletion. It can only be *moved*.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can you transfer ownership of a dynamically allocated object from one `std::unique_ptr` to another? Provide a minimal code snippet.",
+      "back": "Ownership is transferred using `std::move`.\n```cpp\nstd::unique_ptr<int> ptr1 = std::make_unique<int>(10);\nstd::unique_ptr<int> ptr2 = std::move(ptr1); // ptr1 is now null, ptr2 owns the int\n// *ptr1 would be undefined behavior\nstd::cout << *ptr2 << std::endl; // Outputs 10\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the ownership model of `std::shared_ptr` and how it determines when the managed object should be deallocated.",
+      "back": "`std::shared_ptr` implements *shared ownership*. Multiple `shared_ptr` instances can co-own the same resource. It uses an internal *reference count*. The managed object is deallocated only when the last `shared_ptr` instance owning it is destroyed or reset, causing the reference count to drop to zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is `std::make_shared<T>(args...)` generally preferred over `std::shared_ptr<T>(new T(args...))` for creating `std::shared_ptr` instances?",
+      "back": "`std::make_shared` performs a single memory allocation for both the object `T` and the control block (which contains the reference counts and deleter). Using `new T(...)` followed by the constructor requires two separate allocations, which is less efficient and can be less exception-safe if a raw `new` allocation fails before the `shared_ptr` constructor is called.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What specific problem does `std::weak_ptr` solve when working with `std::shared_ptr`, and how does it prevent this issue?",
+      "back": "`std::weak_ptr` solves the problem of *circular references* between `std::shared_ptr` objects. If two objects hold `shared_ptr`s to each other, their reference counts will never drop to zero, leading to a memory leak. `std::weak_ptr` provides *non-owning observation*; it points to an object managed by a `shared_ptr` without incrementing its reference count, thus allowing the cycle to be broken and objects to be deallocated correctly.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you safely access the object managed by a `std::weak_ptr`? What should you do if the object has already been deallocated?",
+      "back": "You must convert a `std::weak_ptr` to a `std::shared_ptr` using its `lock()` method. `lock()` returns a `std::shared_ptr` if the object still exists, or an empty `std::shared_ptr` (i.e., `nullptr`) if the object has been deallocated. You should always check the returned `shared_ptr` for validity before dereferencing it.\n```cpp\nstd::weak_ptr<int> wp;\n// ... later ...\nif (std::shared_ptr<int> sp = wp.lock()) {\n    // Object is still alive, safely use *sp\n    std::cout << *sp << std::endl;\n} else {\n    // Object has been deallocated\n    std::cout << \"Object expired.\" << std::endl;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When designing a class `Foo` that is intended to be managed by `std::shared_ptr`, how can a member function of `Foo` return a `std::shared_ptr` to `this` (the current instance) without causing undefined behavior or issues?",
+      "back": "The class `Foo` must publicly inherit from `std::enable_shared_from_this<Foo>`. Then, within a member function, `shared_from_this()` can be called to obtain a valid `std::shared_ptr` to the current instance. This ensures that the returned `shared_ptr` shares ownership with existing `shared_ptr`s, rather than creating a new, independent `shared_ptr` with a separate control block.\n```cpp\nclass Foo : public std::enable_shared_from_this<Foo> {\npublic:\n    std::shared_ptr<Foo> get_shared_ptr() {\n        return shared_from_this();\n    }\n};\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

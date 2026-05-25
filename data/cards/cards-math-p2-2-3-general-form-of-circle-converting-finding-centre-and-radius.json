@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-3-general-form-of-circle-converting-finding-centre-and-radius",
+  "subtopicTitle": "General form of circle — converting, finding centre and radius",
+  "topicId": "math-p2-2-3-coordinate-geometry",
+  "topicTitle": "Coordinate Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:10.134Z",
+  "cards": [
+    {
+      "front": "What is the general form of the equation of a circle?",
+      "back": "The general form of the equation of a circle is $x^2 + y^2 + 2gx + 2fy + c = 0$, where $g, f,$ and $c$ are constants.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What information about a circle can be directly read from its standard form $(x-h)^2 + (y-k)^2 = r^2$?",
+      "back": "From the standard form, the centre of the circle is $(h, k)$ and its radius is $r$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the key algebraic technique used to convert the general form $x^2 + y^2 + 2gx + 2fy + c = 0$ into the standard form.",
+      "back": "The key algebraic technique is **completing the square** for both the $x$ terms ($x^2 + 2gx$) and the $y$ terms ($y^2 + 2fy$). This involves adding $(g)^2$ and $(f)^2$ to both sides of the equation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the coordinates of the centre $(h, k)$ of a circle given its general form $x^2 + y^2 + 2gx + 2fy + c = 0$.",
+      "back": "Starting with $x^2 + y^2 + 2gx + 2fy + c = 0$, we complete the square:\n$(x^2 + 2gx + g^2) + (y^2 + 2fy + f^2) = g^2 + f^2 - c$\n$(x+g)^2 + (y+f)^2 = g^2 + f^2 - c$\nComparing this to the standard form $(x-h)^2 + (y-k)^2 = r^2$, we have $x-h = x+g \\Rightarrow h = -g$ and $y-k = y+f \\Rightarrow k = -f$. Thus, the centre is $(-g, -f)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the radius $r$ of a circle given its general form $x^2 + y^2 + 2gx + 2fy + c = 0$.",
+      "back": "From the completed square form: $(x+g)^2 + (y+f)^2 = g^2 + f^2 - c$. Comparing this to the standard form $(x-h)^2 + (y-k)^2 = r^2$, we see that $r^2 = g^2 + f^2 - c$. Therefore, the radius is $r = \\sqrt{g^2 + f^2 - c}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the centre and radius of the circle given by the equation $2x^2 + 2y^2 - 8x + 12y - 24 = 0$.",
+      "back": "First, divide the entire equation by 2 to get the general form with $x^2$ and $y^2$ coefficients as 1:\n$x^2 + y^2 - 4x + 6y - 12 = 0$\nComparing with $x^2 + y^2 + 2gx + 2fy + c = 0$, we have:\n$2g = -4 \\Rightarrow g = -2$\n$2f = 6 \\Rightarrow f = 3$\n$c = -12$\nCentre: $(-g, -f) = (-(-2), -(3)) = (2, -3)$\nRadius: $r = \\sqrt{g^2 + f^2 - c} = \\sqrt{(-2)^2 + (3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = \\sqrt{25} = 5$.\nSo, the centre is $(2, -3)$ and the radius is $5$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean if, for the general form $x^2 + y^2 + 2gx + 2fy + c = 0$, the term $g^2 + f^2 - c$ is: a) Zero? b) Negative?",
+      "back": "The term $g^2 + f^2 - c$ represents $r^2$.\na) If $g^2 + f^2 - c = 0$, then $r^2 = 0$, which means $r = 0$. This represents a **point circle**, a circle with zero radius, effectively just its centre point.\nb) If $g^2 + f^2 - c < 0$, then $r^2 < 0$. This means the radius $r$ would be an imaginary number. Such an equation does not represent a real circle in the Cartesian plane; it's referred to as an **imaginary circle**.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the necessary conditions for an equation of the form $Ax^2 + By^2 + Cx + Dy + E = 0$ to represent a real circle?",
+      "back": "For the equation $Ax^2 + By^2 + Cx + Dy + E = 0$ to represent a real circle, the following conditions must be met:\n1. The coefficients of $x^2$ and $y^2$ must be equal and non-zero: $A = B \\neq 0$.\n2. There must be no $xy$ term (i.e., its coefficient must be zero).\n3. After dividing by $A$ (to get $x^2 + y^2 + (C/A)x + (D/A)y + (E/A) = 0$), the term $g^2 + f^2 - c$ must be non-negative. That is, $(C/(2A))^2 + (D/(2A))^2 - (E/A) \\ge 0$.",
+      "difficulty": "medium"
+    }
+  ]
+}

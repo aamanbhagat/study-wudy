@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-antiderivative-definition-family-of-solutions-c",
+  "subtopicTitle": "Antiderivative — definition, family of solutions (+C)",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:15.737Z",
+  "cards": [
+    {
+      "front": "What is an antiderivative of a function $f(x)$?",
+      "back": "A function $F(x)$ is an antiderivative of $f(x)$ on an interval $I$ if its derivative $F'(x)$ equals $f(x)$ for all $x$ in $I$. That is, $F'(x) = f(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What notation is used to represent the general antiderivative of $f(x)$?",
+      "back": "The general antiderivative of $f(x)$ is denoted by $\\int f(x) \\, dx$. This expression is called the indefinite integral of $f(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why the general antiderivative of a function $f(x)$ always includes an arbitrary constant $+C$.",
+      "back": "If $F(x)$ is an antiderivative of $f(x)$, then $F'(x) = f(x)$. For any constant $C$, the derivative of $(F(x) + C)$ is $(F(x) + C)' = F'(x) + C' = f(x) + 0 = f(x)$. This means that $F(x) + C$ is also an antiderivative for any real constant $C$. To represent *all* possible antiderivatives, we must include this arbitrary constant $+C$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the general antiderivative of $f(x) = x^3$.",
+      "back": "Using the power rule for integration, $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$.\nFor $f(x) = x^3$, we have:\n$$ \\int x^3 \\, dx = \\frac{x^{3+1}}{3+1} + C = \\frac{x^4}{4} + C $$\nTo verify, differentiate the result: $\\frac{d}{dx}\\left(\\frac{x^4}{4} + C\\right) = \\frac{1}{4} \\cdot 4x^3 + 0 = x^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the general antiderivative of $g(x) = \\cos(x) + e^x$.",
+      "back": "We integrate each term separately:\n$$ \\int (\\cos(x) + e^x) \\, dx = \\int \\cos(x) \\, dx + \\int e^x \\, dx $$\nSince $\\frac{d}{dx}(\\sin(x)) = \\cos(x)$ and $\\frac{d}{dx}(e^x) = e^x$, the antiderivative is:\n$$ \\sin(x) + e^x + C $$\nTo verify, differentiate: $\\frac{d}{dx}(\\sin(x) + e^x + C) = \\cos(x) + e^x + 0 = \\cos(x) + e^x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $F(x)$ is an antiderivative of $f(x)$ and we are given a specific point $(x_0, y_0)$ that $F(x)$ must pass through, how does this affect the constant $C$?",
+      "back": "The constant $C$ becomes uniquely determined. If $F(x) = G(x) + C$ (where $G(x)$ is *any* particular antiderivative), and $F(x_0) = y_0$, then we can substitute the point to solve for $C$:\n$y_0 = G(x_0) + C$\n$C = y_0 - G(x_0)$\nThis means there is only one specific antiderivative curve from the family $G(x)+C$ that passes through the given point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Geometrically, what does the constant $+C$ in the general antiderivative $F(x) + C$ represent?",
+      "back": "The constant $+C$ represents a vertical shift of the antiderivative curve. The family of solutions $F(x) + C$ consists of infinitely many curves, each of which is a vertical translation of any other curve in the family. All these curves have the same slope (derivative) at any given $x$-value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are the operations of differentiation and finding an antiderivative related?",
+      "back": "They are inverse operations.\n1. If you differentiate a function and then find its antiderivative, you get back the original function (up to a constant $C$):\n   $\\int \\left(\\frac{d}{dx} f(x)\\right) \\, dx = f(x) + C$\n2. If you find the antiderivative of a function and then differentiate it, you get back the original function:\n   $\\frac{d}{dx} \\left(\\int f(x) \\, dx\\right) = f(x)$",
+      "difficulty": "medium"
+    }
+  ]
+}

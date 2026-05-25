@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-joins-inner-left-right-full-outer-cross-self",
+  "subtopicTitle": "Joins — INNER, LEFT, RIGHT, FULL OUTER, CROSS, SELF",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:43.502Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of a SQL `JOIN` clause?",
+      "back": "The fundamental purpose of a SQL `JOIN` clause is to combine rows from two or more tables based on a related column between them, creating a new, wider result set. It allows you to query data that is logically separated across multiple tables.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe what an `INNER JOIN` returns.",
+      "back": "An `INNER JOIN` returns only the rows where there is a match in *both* tables based on the specified join condition. Rows from either table that do not have a corresponding match in the other table are entirely excluded from the result set. It's the most common type of join and effectively finds the intersection of the two tables.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the key difference between `INNER JOIN` and `LEFT JOIN` regarding unmatched rows.",
+      "back": "An `INNER JOIN` excludes rows that do not have a match in *both* tables. A `LEFT JOIN` (or `LEFT OUTER JOIN`), however, returns *all* rows from the *left* table, and only the matching rows from the *right* table. If a row from the left table has no match in the right table, the columns from the right table will contain `NULL` values for that row.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you retrieve all customers and their orders, including customers who have placed no orders?",
+      "back": "You would use a `LEFT JOIN` (or `LEFT OUTER JOIN`) with the `Customers` table as the left table and the `Orders` table as the right table. This ensures all customers are listed, and `NULL`s appear for order details if a customer has no orders.\n```sql\nSELECT C.customer_name, O.order_id, O.order_date\nFROM Customers C\nLEFT JOIN Orders O ON C.customer_id = O.customer_id;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If you have a `LEFT JOIN` from `TableA` to `TableB`, how can you achieve the same logical result using a `RIGHT JOIN`?",
+      "back": "A `LEFT JOIN` from `TableA` to `TableB` is logically equivalent to a `RIGHT JOIN` from `TableB` to `TableA`. The terms 'left' and 'right' refer to the order in which the tables appear in the `FROM` and `JOIN` clauses. Swapping the tables and changing the join type maintains the same 'outer' table.\n```sql\n-- LEFT JOIN A to B\nSELECT * FROM TableA LEFT JOIN TableB ON TableA.id = TableB.id;\n\n-- Equivalent RIGHT JOIN B to A\nSELECT * FROM TableB RIGHT JOIN TableA ON TableA.id = TableB.id;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you use a `FULL OUTER JOIN`, and what does it return?",
+      "back": "A `FULL OUTER JOIN` (or `FULL JOIN`) is used when you want to return *all* rows from *both* tables, combining the results of both `LEFT JOIN` and `RIGHT JOIN`. If a row from one table has no match in the other, the columns from the non-matching table will be filled with `NULL` values. It's useful for finding all data points from both datasets, highlighting where matches exist and where they don't.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the result of a `CROSS JOIN` between two tables, `TableA` with $M$ rows and `TableB` with $N$ rows?",
+      "back": "A `CROSS JOIN` produces the Cartesian product of the two tables. Every single row from `TableA` is combined with every single row from `TableB`. The resulting table will have $M \\times N$ rows. It does not require an `ON` condition, as it's not based on matching columns but on combining all possibilities.\n```sql\nSELECT * FROM TableA CROSS JOIN TableB;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose and implementation of a `SELF JOIN`.",
+      "back": "A `SELF JOIN` is a regular join (typically `INNER` or `LEFT`) where a table is joined with itself. Its purpose is to compare or combine rows within the same table, often to find hierarchical relationships (e.g., employees and their managers) or to find rows that share a common attribute. To implement it, you *must* use table aliases to treat the single table as two distinct entities in the query, allowing you to refer to different 'instances' of the same table.\n```sql\nSELECT E1.employee_name, E2.employee_name AS manager_name\nFROM Employees E1\nINNER JOIN Employees E2 ON E1.manager_id = E2.employee_id;\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

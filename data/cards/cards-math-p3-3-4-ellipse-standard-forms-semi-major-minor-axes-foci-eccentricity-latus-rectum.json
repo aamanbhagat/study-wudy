@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-4-ellipse-standard-forms-semi-major-minor-axes-foci-eccentricity-latus-rectum",
+  "subtopicTitle": "Ellipse — standard forms, semi-major/minor axes, foci, eccentricity, latus rectum",
+  "topicId": "math-p3-3-4-conic-sections",
+  "topicTitle": "Conic Sections",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:25.271Z",
+  "cards": [
+    {
+      "front": "Define an ellipse geometrically.",
+      "back": "An ellipse is the locus of all points in a plane such that the sum of the distances from two fixed points (called foci) is a constant. If the foci are $F_1$ and $F_2$, and $P$ is any point on the ellipse, then $PF_1 + PF_2 = \\text{constant}$. This constant sum is equal to $2a$, where $a$ is the length of the semi-major axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the standard form equation of an ellipse centered at the origin with its major axis along the x-axis. Identify $a$ and $b$.",
+      "back": "The equation is $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, where $a > b > 0$.\n$a$: length of the semi-major axis (distance from center to a vertex along the major axis).\n$b$: length of the semi-minor axis (distance from center to a co-vertex along the minor axis).\nThe vertices are $(\\pm a, 0)$ and co-vertices are $(0, \\pm b)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an ellipse, what is the fundamental relationship between the semi-major axis $a$, semi-minor axis $b$, and the focal distance $c$ (distance from center to a focus)?",
+      "back": "The relationship is $c^2 = a^2 - b^2$.\nThis can be derived by considering a point on the ellipse located at $(0,b)$ (a co-vertex). The sum of distances from this point to the foci $(\\pm c, 0)$ is $2\\sqrt{c^2+b^2}$. Since this sum must equal $2a$, we have $2\\sqrt{c^2+b^2} = 2a \\Rightarrow c^2+b^2 = a^2 \\Rightarrow c^2 = a^2 - b^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the ellipse $\\frac{x^2}{49} + \\frac{y^2}{24} = 1$, find the coordinates of its foci.",
+      "back": "Here, $a^2=49 \\Rightarrow a=7$ and $b^2=24 \\Rightarrow b=\\sqrt{24}$.\nSince $a^2$ (the larger denominator) is under $x^2$, the major axis is horizontal.\nWe use the relationship $c^2 = a^2 - b^2 = 49 - 24 = 25$. So, $c=5$.\nThe foci are located at $(\\pm c, 0)$, which are $(\\pm 5, 0)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the eccentricity $e$ of an ellipse and provide its formula in terms of $a$ and $c$. What does its value tell us about the ellipse's shape?",
+      "back": "Eccentricity $e$ is a measure of how 'stretched out' or 'circular' an ellipse is. It is the ratio of the distance from the center to a focus ($c$) to the length of the semi-major axis ($a$).\nFormula: $e = \\frac{c}{a}$.\nSince $0 < c < a$ (for a non-degenerate ellipse), $0 < e < 1$.\n- As $e \\to 0$, the ellipse approaches a circle.\n- As $e \\to 1$, the ellipse becomes very elongated, approaching a line segment.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the latus rectum of an ellipse and provide its length formula. Briefly explain how the formula is derived.",
+      "back": "The latus rectum of an ellipse is a chord passing through a focus and perpendicular to the major axis. An ellipse has two latus recta.\nIts length is given by $L = \\frac{2b^2}{a}$.\nDerivation: Let the focus be $(c,0)$ (for a horizontal major axis). A point on the latus rectum has coordinates $(c, y_0)$. Substitute into the ellipse equation $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$: $\\frac{c^2}{a^2} + \\frac{y_0^2}{b^2} = 1 \\Rightarrow \\frac{y_0^2}{b^2} = 1 - \\frac{c^2}{a^2} = \\frac{a^2-c^2}{a^2}$. Since $c^2 = a^2-b^2$, then $a^2-c^2 = b^2$. So, $\\frac{y_0^2}{b^2} = \\frac{b^2}{a^2} \\Rightarrow y_0^2 = \\frac{b^4}{a^2} \\Rightarrow y_0 = \\pm \\frac{b^2}{a}$. The length of the latus rectum is $2|y_0| = \\frac{2b^2}{a}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the standard form equation of an ellipse change if its center is at $(h,k)$ instead of the origin? Provide both horizontal and vertical major axis forms.",
+      "back": "For an ellipse with center at $(h,k)$:\n1.  Major axis horizontal: $\\frac{(x-h)^2}{a^2} + \\frac{(y-k)^2}{b^2} = 1$ (where $a > b$).\n2.  Major axis vertical: $\\frac{(x-h)^2}{b^2} + \\frac{(y-k)^2}{a^2} = 1$ (where $a > b$).\nIn both cases, $a$ is the semi-major axis length and $b$ is the semi-minor axis length. The foci are at $(h \\pm c, k)$ for horizontal major axis, and $(h, k \\pm c)$ for vertical major axis, where $c^2 = a^2-b^2$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-unit-vectors-k-constructing-unit-vector",
+  "subtopicTitle": "Unit vectors — î, ĵ, k̂; constructing unit vector",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:25.250Z",
+  "cards": [
+    {
+      "front": "Define a unit vector.",
+      "back": "A unit vector is a vector that has a magnitude of 1 and points in a specific direction. It is used solely to indicate direction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the standard Cartesian unit vectors in 3D space, and along which axes do they point?",
+      "back": "The standard Cartesian unit vectors are $\\hat{\\mathbf{i}}$ (or $\\hat{\\mathbf{x}}$), $\\hat{\\mathbf{j}}$ (or $\\hat{\\mathbf{y}}$), and $\\hat{\\mathbf{k}}$ (or $\\hat{\\mathbf{z}}$). They point along the positive x-axis, positive y-axis, and positive z-axis, respectively.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the magnitude of any unit vector, including $\\hat{\\mathbf{i}}$, $\\hat{\\mathbf{j}}$, or $\\hat{\\mathbf{k}}$?",
+      "back": "The magnitude of any unit vector is exactly 1. For example, $|\\hat{\\mathbf{i}}| = 1$, $|\\hat{\\mathbf{j}}| = 1$, $|\\hat{\\mathbf{k}}| = 1$, and generally, $|\\hat{\\mathbf{u}}| = 1$ for any unit vector $\\hat{\\mathbf{u}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for constructing a unit vector $\\hat{\\mathbf{u}}$ in the same direction as a given non-zero vector $\\mathbf{v}$.",
+      "back": "The unit vector $\\hat{\\mathbf{u}}$ in the same direction as vector $\\mathbf{v}$ is given by:\n$$\\hat{\\mathbf{u}} = \\frac{\\mathbf{v}}{|\\mathbf{v}|}$$\nwhere $|\\mathbf{v}|$ is the magnitude of vector $\\mathbf{v}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a vector $\\mathbf{A} = 3\\hat{\\mathbf{i}} - 4\\hat{\\mathbf{j}}$, construct the unit vector $\\hat{\\mathbf{A}}$.",
+      "back": "First, find the magnitude of $\\mathbf{A}$:\n$$|\\mathbf{A}| = \\sqrt{(3)^2 + (-4)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$$\nThen, divide $\\mathbf{A}$ by its magnitude:\n$$\\hat{\\mathbf{A}} = \\frac{\\mathbf{A}}{|\\mathbf{A}|} = \\frac{3\\hat{\\mathbf{i}} - 4\\hat{\\mathbf{j}}}{5} = \\frac{3}{5}\\hat{\\mathbf{i}} - \\frac{4}{5}\\hat{\\mathbf{j}}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the conceptual basis for why dividing a vector $\\mathbf{v}$ by its own magnitude $|\\mathbf{v}|$ results in a unit vector in the same direction.",
+      "back": "A vector $\\mathbf{v}$ can be thought of as having two components: its magnitude (size) and its direction. When we divide $\\mathbf{v}$ by its scalar magnitude $|\\mathbf{v}|$, we are essentially \"normalizing\" its length. The operation scales the vector such that its new length becomes 1, while preserving its original direction. This is because scalar multiplication (or division) changes a vector's magnitude but not its direction (unless the scalar is negative, which is not the case here as magnitude is always positive).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do unit vectors $\\hat{\\mathbf{i}}$, $\\hat{\\mathbf{j}}$, and $\\hat{\\mathbf{k}}$ simplify the representation of any 3D vector $\\mathbf{V}$ in Cartesian coordinates?",
+      "back": "Any 3D vector $\\mathbf{V}$ can be uniquely expressed as a linear combination of the standard Cartesian unit vectors. If $\\mathbf{V}$ has components $V_x, V_y, V_z$, it can be written as:\n$$\\mathbf{V} = V_x\\hat{\\mathbf{i}} + V_y\\hat{\\mathbf{j}} + V_z\\hat{\\mathbf{k}}$$\nThis representation clearly separates the scalar components ($V_x, V_y, V_z$) from the directional information ($\\hat{\\mathbf{i}}, \\hat{\\mathbf{j}}, \\hat{\\mathbf{k}}$), making vector addition, subtraction, and other operations straightforward component-wise.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can a zero vector have an associated unit vector? Explain why or why not.",
+      "back": "No, a zero vector ($\\mathbf{0}$) cannot have an associated unit vector. The formula for a unit vector is $\\hat{\\mathbf{u}} = \\frac{\\mathbf{v}}{|\\mathbf{v}|}$. If $\\mathbf{v} = \\mathbf{0}$, then its magnitude $|\\mathbf{v}| = 0$. Division by zero is undefined, so the formula fails. Conceptually, a zero vector has no magnitude and no defined direction, thus it cannot point in a specific direction required for a unit vector.",
+      "difficulty": "hard"
+    }
+  ]
+}

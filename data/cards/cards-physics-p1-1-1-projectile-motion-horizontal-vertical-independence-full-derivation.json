@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-projectile-motion-horizontal-vertical-independence-full-derivation",
+  "subtopicTitle": "Projectile motion — horizontal/vertical independence, full derivation",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:39.985Z",
+  "cards": [
+    {
+      "front": "State the principle of independence of horizontal and vertical motion in projectile analysis.",
+      "back": "The horizontal and vertical components of projectile motion are independent of each other. Changes in the vertical motion do not affect the horizontal motion, and vice-versa, assuming no air resistance. They are linked only by time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two primary idealizing assumptions made when analyzing projectile motion?",
+      "back": "1. Air resistance is negligible. 2. The acceleration due to gravity ($g$) is constant in both magnitude and direction throughout the projectile's flight.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A projectile is launched with initial speed $v_0$ at an angle $\\theta$ above the horizontal. Write the expressions for its initial horizontal and vertical velocity components.",
+      "back": "$$v_{0x} = v_0 \\cos \\theta$$ $$v_{0y} = v_0 \\sin \\theta$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the kinematic equations for the horizontal position $x(t)$ and vertical position $y(t)$ of a projectile, assuming $x_0=0, y_0=0$ and initial velocity components $v_{0x}, v_{0y}$.",
+      "back": "Horizontal motion: $a_x = 0$. Using $x = x_0 + v_{0x}t + \\frac{1}{2}a_xt^2$, with $x_0=0$, we get $$x(t) = v_{0x}t$$ Vertical motion: $a_y = -g$. Using $y = y_0 + v_{0y}t + \\frac{1}{2}a_yt^2$, with $y_0=0$, we get $$y(t) = v_{0y}t - \\frac{1}{2}gt^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the total time of flight ($T$) for a projectile launched from ground level ($y_0=0$) and landing back at ground level ($y=0$). Use initial vertical velocity $v_{0y}$.",
+      "back": "At landing, $y(T)=0$. Using $y(t) = v_{0y}t - \\frac{1}{2}gt^2$: $$0 = v_{0y}T - \\frac{1}{2}gT^2$$ Since $T \\neq 0$ (it's in flight), we can divide by $T$: $$0 = v_{0y} - \\frac{1}{2}gT$$ Solving for $T$: $$T = \\frac{2v_{0y}}{g}$$ If initial speed $v_0$ and angle $\\theta$ are given, $T = \\frac{2v_0 \\sin \\theta}{g}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the maximum height ($H$) reached by a projectile launched with initial vertical velocity $v_{0y}$ from ground level.",
+      "back": "At maximum height, the vertical velocity $v_y = 0$. Using $v_y = v_{0y} - gt$: $$0 = v_{0y} - gt_H \\implies t_H = \\frac{v_{0y}}{g}$$ Now substitute $t_H$ into the vertical position equation $y(t) = v_{0y}t - \\frac{1}{2}gt^2$: $$H = v_{0y}\\left(\\frac{v_{0y}}{g}\\right) - \\frac{1}{2}g\\left(\\frac{v_{0y}}{g}\\right)^2$$ $$H = \\frac{v_{0y}^2}{g} - \\frac{1}{2}\\frac{v_{0y}^2}{g} = \\frac{v_{0y}^2}{2g}$$ If initial speed $v_0$ and angle $\\theta$ are given, $H = \\frac{(v_0 \\sin \\theta)^2}{2g}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the horizontal range ($R$) for a projectile launched from ground level with initial speed $v_0$ and angle $\\theta$ above the horizontal.",
+      "back": "The range $R$ is the horizontal distance covered during the total time of flight $T$. Using $x(t) = v_{0x}t$: $$R = v_{0x}T$$ From the derivation of total time of flight, $T = \\frac{2v_0 \\sin \\theta}{g}$, and the initial horizontal velocity component is $v_{0x} = v_0 \\cos \\theta$. Substituting these: $$R = (v_0 \\cos \\theta)\\left(\\frac{2v_0 \\sin \\theta}{g}\\right)$$ $$R = \\frac{v_0^2 (2 \\sin \\theta \\cos \\theta)}{g}$$ Using the trigonometric identity $2 \\sin \\theta \\cos \\theta = \\sin(2\\theta)$: $$R = \\frac{v_0^2 \\sin(2\\theta)}{g}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A cannonball is fired horizontally from a cliff. At the same instant, an identical cannonball is dropped from rest from the same height. Which hits the ground first (neglecting air resistance)?",
+      "back": "Both cannonballs hit the ground simultaneously. The horizontal motion of the fired cannonball does not affect its vertical motion. Both cannonballs have an initial vertical velocity of $v_{0y}=0$ and experience the same constant downward acceleration due to gravity, $a_y = -g$, from the same initial height. Thus, their time to fall vertically is identical.",
+      "difficulty": "medium"
+    }
+  ]
+}

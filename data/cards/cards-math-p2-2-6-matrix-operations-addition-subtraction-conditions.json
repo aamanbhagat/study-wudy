@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-6-matrix-operations-addition-subtraction-conditions",
+  "subtopicTitle": "Matrix operations — addition, subtraction (conditions)",
+  "topicId": "math-p2-2-6-matrices-determinants-introduction",
+  "topicTitle": "Matrices & Determinants — Introduction",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:09.517Z",
+  "cards": [
+    {
+      "front": "What is the fundamental condition for two matrices $A$ and $B$ to be added or subtracted?",
+      "back": "They must have the **same dimensions** (i.e., the same number of rows and the same number of columns). If $A$ is an $m \\times n$ matrix, $B$ must also be an $m \\times n$ matrix.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define matrix addition $A+B$ for $A=[a_{ij}]$ and $B=[b_{ij}]$ of the same dimensions.",
+      "back": "The sum $C = A+B$ is a matrix $C=[c_{ij}]$ where each element $c_{ij}$ is the sum of the corresponding elements from $A$ and $B$. That is, $c_{ij} = a_{ij} + b_{ij}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate $A+B$ for $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$.",
+      "back": "$$A+B = \\begin{pmatrix} 1+5 & 2+6 \\\\ 3+7 & 4+8 \\end{pmatrix} = \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define matrix subtraction $A-B$ for $A=[a_{ij}]$ and $B=[b_{ij}]$ of the same dimensions.",
+      "back": "The difference $C = A-B$ is a matrix $C=[c_{ij}]$ where each element $c_{ij}$ is the difference of the corresponding elements from $A$ and $B$. That is, $c_{ij} = a_{ij} - b_{ij}$. Alternatively, $A-B = A + (-1)B$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate $A-B$ for $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$.",
+      "back": "$$A-B = \\begin{pmatrix} 1-5 & 2-6 \\\\ 3-7 & 4-8 \\end{pmatrix} = \\begin{pmatrix} -4 & -4 \\\\ -4 & -4 \\end{pmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that matrix addition is commutative, i.e., $A+B = B+A$, for matrices $A$ and $B$ of the same dimensions.",
+      "back": "Let $A=[a_{ij}]$ and $B=[b_{ij}]$.\nThe $(i,j)$-th element of $A+B$ is $a_{ij} + b_{ij}$.\nThe $(i,j)$-th element of $B+A$ is $b_{ij} + a_{ij}$.\nSince addition of real (or complex) numbers is commutative, $a_{ij} + b_{ij} = b_{ij} + a_{ij}$ for all $i,j$.\nAs all corresponding elements are equal, $A+B = B+A$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the additive identity matrix for an $m \\times n$ matrix $A$?",
+      "back": "The additive identity matrix is the $m \\times n$ **zero matrix**, denoted $0_{m \\times n}$ (or simply $0$), where all its elements are zero. For any matrix $A$, $A + 0 = 0 + A = A$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why matrix addition/subtraction is undefined if matrices have different dimensions, e.g., $A$ is $2 \\times 3$ and $B$ is $2 \\times 2$.",
+      "back": "Matrix addition/subtraction is defined element-wise. This means you combine elements at the exact same row and column position. If matrices have different dimensions, there will be elements in one matrix that do not have a corresponding element in the other. For example, $A_{13}$ (element in row 1, col 3 of $A$) has no counterpart in $B$ if $B$ is $2 \\times 2$. This makes a consistent element-wise operation impossible.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-important-limits-lim-sinx-x-1-lim-1-1-n-n-e",
+  "subtopicTitle": "Important limits — lim(sinx/x)=1, lim((1+1/n)^n)=e",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:37.736Z",
+  "cards": [
+    {
+      "front": "Evaluate the fundamental limit: $\\lim_{x \\to 0} \\frac{\\sin x}{x}$.",
+      "back": "$1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using the fundamental limit $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$, evaluate $\\lim_{x \\to 0} \\frac{\\tan x}{x}$.",
+      "back": "$$\\lim_{x \\to 0} \\frac{\\tan x}{x} = \\lim_{x \\to 0} \\frac{\\sin x / \\cos x}{x} = \\lim_{x \\to 0} \\left( \\frac{\\sin x}{x} \\cdot \\frac{1}{\\cos x} \\right) = \\left( \\lim_{x \\to 0} \\frac{\\sin x}{x} \\right) \\cdot \\left( \\lim_{x \\to 0} \\frac{1}{\\cos x} \\right) = 1 \\cdot \\frac{1}{1} = 1$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What theorem is typically used to formally prove $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$, and what geometric comparison forms its basis?",
+      "back": "The Squeeze Theorem (also known as the Sandwich Theorem or Pinching Theorem). Its basis involves comparing the areas of a sector of a unit circle, an inscribed triangle, and a circumscribed triangle. Specifically, for $x \\in (0, \\pi/2)$, we establish the inequality $\\sin x < x < \\tan x$, which can be rearranged to $\\cos x < \\frac{\\sin x}{x} < 1$. As $x \\to 0$, $\\cos x \\to 1$, so $\\frac{\\sin x}{x}$ is \"squeezed\" to $1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the mathematical constant defined by the limit: $\\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n$.",
+      "back": "Euler's number, denoted by $e$. Its approximate value is $2.71828$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate the limit: $\\lim_{n \\to \\infty} \\left(1 + \\frac{2}{n}\\right)^n$.",
+      "back": "Let $m = n/2$. As $n \\to \\infty$, $m \\to \\infty$. Then the limit becomes:\n$$ \\lim_{m \\to \\infty} \\left(1 + \\frac{1}{m}\\right)^{2m} = \\lim_{m \\to \\infty} \\left[ \\left(1 + \\frac{1}{m}\\right)^m \\right]^2 = \\left[ \\lim_{m \\to \\infty} \\left(1 + \\frac{1}{m}\\right)^m \\right]^2 = e^2 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the steps to evaluate $\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x$ using L'Hopital's Rule.",
+      "back": "1. Let $y = \\left(1 + \\frac{1}{x}\\right)^x$.\n2. Take the natural logarithm: $\\ln y = x \\ln \\left(1 + \\frac{1}{x}\\right)$.\n3. Rewrite as a fraction for L'Hopital's Rule: $\\ln y = \\frac{\\ln \\left(1 + \\frac{1}{x}\\right)}{1/x}$.\n4. As $x \\to \\infty$, this is of the indeterminate form $\\frac{0}{0}$.\n5. Apply L'Hopital's Rule by differentiating the numerator and denominator:\n   Derivative of numerator: $\\frac{1}{1+1/x} \\cdot (-\\frac{1}{x^2})$\n   Derivative of denominator: $-\\frac{1}{x^2}$\n6. The limit of $\\ln y$ becomes: $\\lim_{x \\to \\infty} \\frac{\\frac{1}{1+1/x} \\cdot (-\\frac{1}{x^2})}{-\\frac{1}{x^2}} = \\lim_{x \\to \\infty} \\frac{1}{1+1/x} = \\frac{1}{1+0} = 1$.\n7. Since $\\lim_{x \\to \\infty} \\ln y = 1$, then $\\lim_{x \\to \\infty} y = e^1 = e$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the general form for the limit $\\lim_{n \\to \\infty} \\left(1 + \\frac{a}{n}\\right)^n$, where $a$ is a constant.",
+      "back": "$e^a$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the intuitive connection between $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$ and the small angle approximation for $\\sin x$.",
+      "back": "For very small angles $x$ (measured in radians), the value of $\\sin x$ is approximately equal to $x$. This is because, in a unit circle, the length of the arc subtended by angle $x$ is $x$, and for small angles, the vertical component (which is $\\sin x$) is very close to this arc length. Therefore, as $x \\to 0$, $\\sin x \\approx x$, which means $\\frac{\\sin x}{x} \\approx \\frac{x}{x} = 1$.",
+      "difficulty": "medium"
+    }
+  ]
+}

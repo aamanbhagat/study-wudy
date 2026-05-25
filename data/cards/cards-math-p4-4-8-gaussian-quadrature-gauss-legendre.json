@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-gaussian-quadrature-gauss-legendre",
+  "subtopicTitle": "Gaussian quadrature — Gauss-Legendre",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:08.328Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Gaussian quadrature, specifically Gauss-Legendre, in numerical integration?",
+      "back": "To approximate definite integrals $\\int_a^b f(x) dx$ by choosing optimal nodes and weights, achieving a higher degree of precision than Newton-Cotes methods for the same number of points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Gauss-Legendre quadrature is naturally defined over which standard interval? How do you transform an integral over $[a, b]$ to this standard interval?",
+      "back": "The standard interval is $[-1, 1]$. To transform $\\int_a^b f(t) dt$ to an integral over $[-1, 1]$, use the substitution $t = \\frac{b-a}{2} u + \\frac{a+b}{2}$, which implies $dt = \\frac{b-a}{2} du$. The integral becomes $\\frac{b-a}{2} \\int_{-1}^{1} f\\left(\\frac{b-a}{2} u + \\frac{a+b}{2}\\right) du$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the general formula for $n$-point Gauss-Legendre quadrature over the standard interval $[-1, 1]$, identifying its key components.",
+      "back": "The general formula is $\\int_{-1}^{1} f(x) dx \\approx \\sum_{i=1}^{n} w_i f(x_i)$. Here, $x_i$ are the quadrature nodes (or abscissas), and $w_i$ are the corresponding quadrature weights.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are the $n$ quadrature nodes $x_i$ for Gauss-Legendre quadrature determined?",
+      "back": "The $n$ quadrature nodes $x_i$ are the roots of the $n$-th Legendre polynomial, $P_n(x)$. These roots are real, distinct, and lie within the open interval $(-1, 1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the formula for calculating the weights $w_i$ in $n$-point Gauss-Legendre quadrature, given the nodes $x_i$ and the $n$-th Legendre polynomial $P_n(x)$.",
+      "back": "The weights $w_i$ can be calculated using the formula:\n$$w_i = \\frac{2}{(1-x_i^2) [P_n'(x_i)]^2}$$\nwhere $P_n'(x_i)$ is the derivative of the $n$-th Legendre polynomial evaluated at the node $x_i$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the degree of precision (or exactness) of an $n$-point Gauss-Legendre quadrature rule?",
+      "back": "An $n$-point Gauss-Legendre quadrature rule can exactly integrate any polynomial of degree up to $2n-1$. This is the highest possible degree of precision for any $n$-point quadrature rule.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $n=2$ (2-point) Gauss-Legendre quadrature, state the nodes $x_i$ and weights $w_i$.",
+      "back": "For $n=2$, the Legendre polynomial is $P_2(x) = \\frac{1}{2}(3x^2-1)$. Its roots are $x_1 = -\\frac{1}{\\sqrt{3}}$ and $x_2 = \\frac{1}{\\sqrt{3}}$. The corresponding weights are $w_1 = 1$ and $w_2 = 1$. Thus, $\\int_{-1}^{1} f(x) dx \\approx f\\left(-\\frac{1}{\\sqrt{3}}\\right) + f\\left(\\frac{1}{\\sqrt{3}}\\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why Gauss-Legendre quadrature achieves such a high degree of precision ($2n-1$) compared to Newton-Cotes methods ($n-1$ or $n$) with $n$ points.",
+      "back": "Newton-Cotes methods fix the nodes at equally spaced points and then determine weights. Gauss-Legendre, however, *optimally chooses both the nodes and the weights*. By selecting the nodes as the roots of orthogonal polynomials (Legendre polynomials), it effectively minimizes the error term and allows the method to integrate polynomials of much higher degree exactly. This 'optimal placement' of nodes is key to its superior accuracy.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p2-2-5-optical-instruments-human-eye-simple-microscope-compound-microscope-telescope",
+  "subtopicTitle": "Optical instruments — human eye, simple microscope, compound microscope, telescope",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:31.586Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the ciliary muscles and suspensory ligaments in the human eye?",
+      "back": "They adjust the curvature (and thus the focal length) of the eye lens, a process called **accommodation**, allowing the eye to focus on objects at varying distances.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between myopia and hyperopia, and state the type of lens used for their correction.",
+      "back": "**Myopia (Nearsightedness)**: Light from distant objects focuses *in front* of the retina. Corrected with a **concave (diverging) lens**.\n**Hyperopia (Farsightedness)**: Light from near objects focuses *behind* the retina. Corrected with a **convex (converging) lens**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the principle of a simple microscope and derive its angular magnification when the final image is formed at the near point ($D$).",
+      "back": "**Principle**: A convex lens of short focal length is used to produce a magnified virtual image of a small object placed just inside its principal focus.\n**Angular Magnification ($M$)**: For an image at the near point ($v = -D$), using the lens formula $\\frac{1}{v} - \\frac{1}{u} = \\frac{1}{f}$, we get $\\frac{1}{-D} - \\frac{1}{u} = \\frac{1}{f} \\implies \\frac{1}{u} = \\frac{1}{f} + \\frac{1}{D}$. Angular magnification is $M = \\frac{\\beta}{\\alpha}$, where $\\beta$ is the angle subtended by the image at the eye and $\\alpha$ is the angle subtended by the object at the eye when placed at $D$. For small angles, $M \\approx \\frac{\\tan \\beta}{\\tan \\alpha} = \\frac{h_i/D}{h_o/D} = \\frac{h_i}{h_o}$. Also, linear magnification $m = \\frac{h_i}{h_o} = \\frac{v}{u}$. So, $M = \\frac{v}{u} = \\frac{D}{u}$. Substituting $\\frac{1}{u}$: $M = D \\left(\\frac{1}{f} + \\frac{1}{D}\\right) = \\frac{D}{f} + 1$. Thus, $M = 1 + \\frac{D}{f}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the two-stage image formation in a compound microscope, identifying the nature of the image formed by the objective and eyepiece.",
+      "back": "1.  **Objective Lens**: Forms a **real, inverted, and magnified** intermediate image ($I_1$) of the object. The object is placed just outside the objective's focal point.\n2.  **Eyepiece Lens**: Acts as a simple microscope, forming a **virtual, inverted (relative to the original object), and further magnified** final image ($I_2$) from $I_1$. $I_1$ is placed within the eyepiece's focal point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the formula for the total magnification ($M_{total}$) of a compound microscope, in terms of the linear magnification of the objective ($m_o$) and the angular magnification of the eyepiece ($M_e$)?",
+      "back": "The total magnification of a compound microscope is the product of the linear magnification produced by the objective lens and the angular magnification produced by the eyepiece:\n$$M_{total} = m_o \\times M_e$$\nWhere $m_o = \\frac{v_o}{u_o}$ (or $\\frac{L}{f_o}$ for image at infinity, where $L$ is tube length) and $M_e = 1 + \\frac{D}{f_e}$ (for image at near point) or $M_e = \\frac{D}{f_e}$ (for image at infinity).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the angular magnification of a refracting astronomical telescope when it is in normal adjustment (final image at infinity).",
+      "back": "**Normal Adjustment**: The final image is formed at infinity. This occurs when the intermediate image formed by the objective lens is at the focal point of the eyepiece.\nAngular magnification $M = \\frac{\\beta}{\\alpha}$, where $\\alpha$ is the angle subtended by the distant object at the objective, and $\\beta$ is the angle subtended by the final image at the eye.\nFrom the diagram (or small angle approximation):\n$\\alpha \\approx \\tan \\alpha = \\frac{h'}{f_o}$ (where $h'$ is the height of the intermediate image, $f_o$ is objective focal length).\n$\\beta \\approx \\tan \\beta = \\frac{h'}{f_e}$ (where $f_e$ is eyepiece focal length).\nTherefore, $M = \\frac{h'/f_e}{h'/f_o} = \\frac{f_o}{f_e}$.\nThe magnification is negative, indicating an inverted final image, so $M = -\\frac{f_o}{f_e}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare refracting and reflecting telescopes, listing one significant advantage of each type over the other.",
+      "back": "**Refracting Telescope**: Uses lenses.\n*   **Advantage**: Closed tube prevents dust and air currents from affecting image quality.\n**Reflecting Telescope**: Uses mirrors.\n*   **Advantage**: No chromatic aberration (mirrors don't suffer from dispersion). Also, easier to make large diameter mirrors than large lenses (mirrors can be supported from the back, lenses only at edges).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-5-properties-row-operations-multiplicativity",
+  "subtopicTitle": "Properties — row operations, multiplicativity",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:10.874Z",
+  "cards": [
+    {
+      "front": "List the three elementary row operations on a matrix.",
+      "back": "The three elementary row operations are:\n1.  Swapping two rows ($R_i \\leftrightarrow R_j$).\n2.  Multiplying a row by a non-zero scalar ($cR_i \\to R_i$, where $c \\ne 0$).\n3.  Adding a multiple of one row to another row ($R_i + cR_j \\to R_i$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If matrix $B$ is obtained from matrix $A$ by swapping two rows, how does $\\det(B)$ relate to $\\det(A)$?",
+      "back": "If $B$ is obtained from $A$ by swapping two rows, then $\\det(B) = -\\det(A)$. Swapping two rows multiplies the determinant by $-1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do the following row operations affect the determinant of a matrix $A$:\n1.  $cR_i \\to R_i$ (for $c \\ne 0$)\n2.  $R_i + cR_j \\to R_i$",
+      "back": "1.  If $B$ is obtained by multiplying row $i$ by $c$ ($cR_i \\to R_i$), then $\\det(B) = c \\cdot \\det(A)$.\n2.  If $B$ is obtained by adding $c$ times row $j$ to row $i$ ($R_i + cR_j \\to R_i$), then $\\det(B) = \\det(A)$. This operation does not change the determinant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the determinant multiplicativity property for two $n \\times n$ matrices $A$ and $B$.",
+      "back": "For any two $n \\times n$ matrices $A$ and $B$, the determinant of their product is the product of their determinants: $\\det(AB) = \\det(A) \\det(B)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For two invertible $n \\times n$ matrices $A$ and $B$, state the property for the inverse of their product $(AB)^{-1}$.",
+      "back": "The inverse of a product of two invertible matrices is the product of their inverses in reverse order: $(AB)^{-1} = B^{-1}A^{-1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For any two matrices $A$ (size $m \\times n$) and $B$ (size $n \\times p$), state the property for the transpose of their product $(AB)^T$.",
+      "back": "The transpose of a product of two matrices is the product of their transposes in reverse order: $(AB)^T = B^T A^T$. Note that $A^T$ is $n \\times m$ and $B^T$ is $p \\times n$, so $B^T A^T$ is $p \\times m$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that for two invertible $n \\times n$ matrices $A$ and $B$, $(AB)^{-1} = B^{-1}A^{-1}$.",
+      "back": "To prove that $(AB)^{-1} = B^{-1}A^{-1}$, we must show that $(AB)(B^{-1}A^{-1}) = I$ and $(B^{-1}A^{-1})(AB) = I$.\n1.  $(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = A(I)A^{-1} = AA^{-1} = I$.\n2.  $(B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}(I)B = B^{-1}B = I$.\nSince both conditions are met, $(AB)^{-1} = B^{-1}A^{-1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain the key idea behind proving $\\det(AB) = \\det(A)\\det(B)$, especially concerning elementary matrices.",
+      "back": "The key idea relies on two facts:\n1.  If $A$ is a singular matrix, then $\\det(A)=0$ and $AB$ is also singular (meaning $\\det(AB)=0$), so the property holds ($0=0 \\cdot \\det(B)$).\n2.  Any invertible matrix $A$ can be expressed as a product of elementary matrices: $A = E_k \\cdots E_1$. For any elementary matrix $E$, $\\det(EA) = \\det(E)\\det(A)$. By repeatedly applying this property, we get:\n    $\\det(AB) = \\det(E_k \\cdots E_1 B) = \\det(E_k)\\det(E_{k-1} \\cdots E_1 B) = \\cdots = \\det(E_k)\\cdots\\det(E_1)\\det(B) = \\det(A)\\det(B)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $A, B$ are $n \\times n$ matrices with $\\det(A) = 3$ and $\\det(B) = -2$. Calculate $\\det(2AB^T A^{-1})$.",
+      "back": "Using the properties:\n1.  $\\det(cA) = c^n \\det(A)$ for an $n \\times n$ matrix.\n2.  $\\det(XY) = \\det(X)\\det(Y)$.\n3.  $\\det(X^T) = \\det(X)$.\n4.  $\\det(X^{-1}) = 1/\\det(X)$.\n\n$\\det(2AB^T A^{-1}) = 2^n \\det(A) \\det(B^T) \\det(A^{-1})$\n$= 2^n \\det(A) \\det(B) (1/\\det(A))$\n$= 2^n \\det(B)$\n$= 2^n (-2)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-4-pitch-program-open-loop-pitch-over",
+  "subtopicTitle": "Pitch program — open-loop pitch-over",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:49.583Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the \"pitch-over maneuver\" in a rocket launch?",
+      "back": "The primary purpose is to reorient the rocket's thrust vector from purely vertical to a direction with a horizontal component, initiating the gravity turn and allowing the rocket to gain horizontal velocity for orbital insertion or downrange travel.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of a rocket's pitch program, what does \"open-loop\" signify regarding control?",
+      "back": "\"Open-loop\" signifies that the pitch angle (or thrust vector direction) is pre-programmed as a function of time or altitude, without real-time feedback from sensors to correct for deviations from the planned trajectory. The control inputs are executed regardless of the actual state of the rocket.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does a rocket typically ascend vertically for a short period before initiating the pitch-over maneuver?",
+      "back": "Initial vertical ascent (often 10-20 seconds) helps the rocket clear launch tower structures, achieve a safe altitude away from ground hazards, and build up some initial velocity to improve aerodynamic stability before intentionally introducing a significant angle of attack during the pitch-over.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the \"pitch-over maneuver\" relate to and initiate the \"gravity turn\" trajectory?",
+      "back": "The pitch-over maneuver is the initial, controlled tilt of the rocket's thrust vector away from vertical. Once initiated, gravity naturally pulls the rocket's trajectory downwards, causing the flight path angle to continuously decrease, aligning the thrust vector with the velocity vector (or close to it) in a \"gravity turn\" trajectory, minimizing aerodynamic losses.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A common open-loop pitch program for the initial pitch-over phase uses a time-dependent function for the pitch angle $\\theta(t)$. Provide a general form for such a function.",
+      "back": "A common form for an open-loop pitch program, particularly for the initial pitch-over, is a polynomial or exponential function of time. For example, a simple linear or quadratic function:\n$$ \\theta(t) = \\theta_0 + c_1 t + c_2 t^2 $$\nwhere $\\theta(t)$ is the pitch angle (angle between rocket's longitudinal axis and local vertical), $t$ is time from pitch-over initiation, $\\theta_0$ is the initial pitch angle (often $0^\\circ$ relative to vertical at start of pitch-over), and $c_1, c_2$ are constants determined by desired trajectory and vehicle characteristics. More complex functions might involve exponential terms.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a primary advantage of using an open-loop pitch-over program for the initial phase of flight?",
+      "back": "The primary advantage is its simplicity and robustness against sensor failures or complex real-time computations during a critical, high-dynamic phase of flight. It requires no feedback, making it computationally less intensive and easier to implement, relying solely on pre-calculated commands.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the main limitation of an open-loop pitch program, especially if used for an extended duration beyond the initial pitch-over?",
+      "back": "The main limitation is its inability to correct for external perturbations (e.g., wind gusts, thrust variations, atmospheric density changes) or internal deviations. Since it lacks feedback, any deviation from the planned trajectory will persist and accumulate, potentially leading to significant errors and failure to reach the target orbit or destination.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"pitch angle\" ($\\theta$) in the context of rocket flight mechanics.",
+      "back": "The pitch angle ($\\theta$) is typically defined as the angle between the rocket's longitudinal axis (or thrust vector) and the local vertical direction. A pitch angle of $0^\\circ$ means the rocket is pointing straight up, while $90^\\circ$ means it's pointing horizontally. The sign convention may vary, but it often increases as the rocket tilts away from vertical.",
+      "difficulty": "easy"
+    }
+  ]
+}

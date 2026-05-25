@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-5-torque-r-f-definition-physical-meaning",
+  "subtopicTitle": "Torque τ = r×F — definition, physical meaning",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:18.564Z",
+  "cards": [
+    {
+      "front": "Define torque ($\\vec{\\tau}$) in the context of rotational mechanics.",
+      "back": "Torque is the rotational equivalent of force. It is a measure of how much a force acting on an object tends to cause that object to rotate about a specific axis or pivot point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the vector formula for torque, identifying each component.",
+      "back": "The vector formula for torque is $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$.\n\n- $\\vec{\\tau}$ is the torque vector.\n- $\\vec{r}$ is the position vector from the chosen pivot point to the point where the force is applied.\n- $\\vec{F}$ is the force vector acting on the object.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary physical effect that a net torque produces on an object?",
+      "back": "A net torque produces angular acceleration ($\\vec{\\alpha}$) on an object, causing its rotational velocity to change. This is analogous to how a net force produces linear acceleration ($\\vec{a}$). The relationship is given by Newton's Second Law for rotation: $\\vec{\\tau}_{net} = I\\vec{\\alpha}$, where $I$ is the moment of inertia.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the magnitude of torque $|\\vec{\\tau}|$ calculated using the magnitudes of $\\vec{r}$, $\\vec{F}$, and the angle $\\theta$ between them?",
+      "back": "The magnitude of torque is given by $|\\vec{\\tau}| = rF\\sin\\theta$, where:\n- $r$ is the magnitude of the position vector from the pivot.\n- $F$ is the magnitude of the force.\n- $\\theta$ is the angle between the $\\vec{r}$ and $\\vec{F}$ vectors when placed tail-to-tail. It's the smaller angle, $0^\\circ \\le \\theta \\le 180^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the direction of the torque vector $\\vec{\\tau}$ determined from $\\vec{r}$ and $\\vec{F}$?",
+      "back": "The direction of $\\vec{\\tau}$ is determined by the right-hand rule for cross products. To apply it:\n1. Point the fingers of your right hand in the direction of the first vector ($\\vec{r}$). \n2. Curl your fingers towards the direction of the second vector ($\\vec{F}$) through the smaller angle.\n3. Your thumb will then point in the direction of the torque vector $\\vec{\\tau}$. This direction indicates the axis of rotation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of the \"lever arm\" ($r_\\perp$) and how it relates to calculating torque magnitude.",
+      "back": "The lever arm ($r_\\perp$) is the perpendicular distance from the pivot point to the line of action of the force. It simplifies the calculation of torque magnitude to $|\\vec{\\tau}| = r_\\perp F$. This is equivalent to $rF\\sin\\theta$ because $r_\\perp = r\\sin\\theta$. Alternatively, one can use the component of the force perpendicular to $\\vec{r}$, $F_\\perp = F\\sin\\theta$, such that $|\\vec{\\tau}| = r F_\\perp$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the SI units for torque? Are they the same as energy units, and if not, why?",
+      "back": "The SI units for torque are Newton-meters (N·m). While N·m is also the unit for energy (Joules), torque and energy are distinct physical quantities. Torque is a vector quantity representing a rotational 'twist' or tendency to cause rotation, whereas energy is a scalar quantity representing the capacity to do work. They are dimensionally equivalent but conceptually different.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific conditions will a force $\\vec{F}$ produce zero torque about a given pivot point?",
+      "back": "A force $\\vec{F}$ will produce zero torque about a pivot point if:\n1.  The force $\\vec{F}$ itself is zero.\n2.  The position vector $\\vec{r}$ is zero, meaning the force acts directly *at* the pivot point.\n3.  The force vector $\\vec{F}$ is parallel or anti-parallel to the position vector $\\vec{r}$ (i.e., the angle $\\theta$ between them is $0^\\circ$ or $180^\\circ$). In this case, $\\sin\\theta = 0$, so $|\\vec{\\tau}| = rF\\sin\\theta = 0$. This implies the force acts directly towards or away from the pivot.",
+      "difficulty": "hard"
+    }
+  ]
+}

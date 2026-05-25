@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-entropy-change-in-irreversible-processes-always-0",
+  "subtopicTitle": "Entropy change in irreversible processes — always > 0",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:24.266Z",
+  "cards": [
+    {
+      "front": "According to the Second Law of Thermodynamics, for any irreversible process occurring in an isolated system, the total entropy change is always _______.",
+      "back": "...always **greater than zero** ($\\Delta S_{total} > 0$). This is a fundamental statement of the increase of entropy principle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the mathematical statement for the entropy change of an isolated system undergoing an irreversible process?",
+      "back": "For an isolated system undergoing an irreversible process, the entropy change $\\Delta S$ is given by: $$ \\Delta S > 0 $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why can't we calculate $\\Delta S$ for an irreversible process using $\\int \\frac{dQ}{T}$ directly? How *do* we calculate it?",
+      "back": "The formula $\\Delta S = \\int \\frac{dQ_{rev}}{T}$ is only valid for **reversible** paths. For an irreversible process, we must devise a **hypothetical reversible path** between the *same initial and final states* as the irreversible process, and then calculate $\\Delta S$ along that reversible path. Entropy is a state function, so its change depends only on the initial and final states, not the path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why entropy *must* increase for an irreversible process in an isolated system.",
+      "back": "Irreversible processes are spontaneous and naturally proceed towards states of greater equilibrium, disorder, and energy dispersal. For an isolated system, there's no external interaction to \"re-order\" it. Entropy quantifies this tendency; thus, for an isolated system, it naturally moves to a state of higher entropy, reflecting increased randomness and spread-out energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain how the Clausius inequality, $\\oint \\frac{\\delta Q}{T} \\le 0$, implies $\\Delta S_{universe} > 0$ for irreversible processes.",
+      "back": "The Clausius inequality states that for any cycle, $\\oint \\frac{\\delta Q}{T} \\le 0$. For a reversible cycle, $\\oint \\frac{\\delta Q_{rev}}{T} = 0$, which defines entropy change as $dS = \\frac{\\delta Q_{rev}}{T}$. For an irreversible cycle, $\\oint \\frac{\\delta Q_{irr}}{T} < 0$.\nConsider an irreversible process from state 1 to 2, followed by a reversible process from 2 back to 1. The cycle is $1 \\xrightarrow{irr} 2 \\xrightarrow{rev} 1$.\n$\\oint \\frac{\\delta Q}{T} = \\int_1^2 \\frac{\\delta Q_{irr}}{T} + \\int_2^1 \\frac{\\delta Q_{rev}}{T} \\le 0$.\nSince $\\int_2^1 \\frac{\\delta Q_{rev}}{T} = S_1 - S_2 = -\\Delta S_{1 \\to 2, rev}$, we have $\\int_1^2 \\frac{\\delta Q_{irr}}{T} - \\Delta S_{1 \\to 2, rev} \\le 0$.\nThis implies $\\Delta S_{sys} = \\Delta S_{1 \\to 2, rev} \\ge \\int_1^2 \\frac{\\delta Q_{irr}}{T}$.\nFor an isolated system, $\\delta Q_{irr} = 0$, so $\\Delta S_{sys} \\ge 0$. If the process is irreversible, the strict inequality holds: $\\Delta S_{sys} > 0$. For a non-isolated system, $\\Delta S_{universe} = \\Delta S_{sys} + \\Delta S_{surr} \\ge 0$, with $\\Delta S_{universe} > 0$ for irreversible processes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A gas expands freely into a vacuum (Joule expansion). Is this process reversible or irreversible? What is the entropy change of the gas and the universe?",
+      "back": "This is an **irreversible** process because it cannot be reversed without external work.\nFor the gas: $\\Delta S_{gas} > 0$. Even though $Q=0$ and $W=0$ (for an ideal gas, $\\Delta U=0$ and $\\Delta T=0$), entropy increases due to the increase in volume and molecular disorder. To calculate it, we'd imagine a reversible isothermal expansion.\nFor the universe: Since the system is isolated (no heat or work exchange with surroundings), $\\Delta S_{surroundings} = 0$. Therefore, $\\Delta S_{universe} = \\Delta S_{gas} + \\Delta S_{surroundings} = \\Delta S_{gas} > 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can the entropy of a *system* decrease during an irreversible process? If so, what condition must be met for the total entropy change of the universe?",
+      "back": "Yes, the entropy of a *system* can decrease during an irreversible process. For example, a hot object cooling down (irreversible heat transfer) causes its entropy to decrease.\nHowever, for the process to be irreversible, the **total entropy change of the universe** (system + surroundings) must still be **greater than zero**:\n$$ \\Delta S_{universe} = \\Delta S_{system} + \\Delta S_{surroundings} > 0 $$\nIf $\\Delta S_{system} < 0$, then $\\Delta S_{surroundings}$ must be positive and larger in magnitude than $|\\Delta S_{system}|$ to ensure $\\Delta S_{universe} > 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is it possible for an irreversible process to occur with $\\Delta S_{universe} = 0$? Explain why or why not.",
+      "back": "No, it is **not possible**. By definition, an irreversible process is one that cannot be reversed without leaving a change in the surroundings. The Second Law of Thermodynamics (specifically, the increase of entropy principle) states that for any *irreversible* process, the total entropy change of the universe must be strictly **greater than zero** ($\\Delta S_{universe} > 0$). If $\\Delta S_{universe} = 0$, the process would be reversible.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-pivot-positions-free-variables",
+  "subtopicTitle": "Pivot positions, free variables",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:51.480Z",
+  "cards": [
+    {
+      "front": "In an echelon form of a matrix, a pivot position is defined as...",
+      "back": "...a location in a matrix that corresponds to a leading non-zero entry (often a leading 1) in a row.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A variable corresponding to a non-pivot column in the augmented matrix of a linear system is called a(n) ________ variable.",
+      "back": "A variable corresponding to a non-pivot column in the augmented matrix of a linear system is called a **free** variable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a matrix in reduced row echelon form (RREF), how do you identify the pivot columns?",
+      "back": "A pivot column is any column that contains a pivot position (a leading 1). These columns will have a leading 1 and zeros everywhere else in that column.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the system represented by the RREF matrix below, identify the free variables:\n$$\n\\begin{bmatrix}\n1 & 2 & 0 & 3 & 0 \\\\\n0 & 0 & 1 & 4 & 0 \\\\\n0 & 0 & 0 & 0 & 1\n\\end{bmatrix}\n$$\n(Assume variables $x_1, x_2, x_3, x_4, x_5$)",
+      "back": "The pivot columns are 1, 3, and 5 (as they contain the leading 1s). The non-pivot columns are 2 and 4. Therefore, the free variables are $x_2$ and $x_4$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the presence of one or more free variables imply about the solution set of a consistent linear system?",
+      "back": "The presence of one or more free variables in a consistent linear system implies that the system has infinitely many solutions. Each free variable can take any real value, and the basic variables will be expressed in terms of these free variables.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a consistent linear system $A\\mathbf{x} = \\mathbf{b}$, what condition must be met regarding pivot positions for the system to have a unique solution?",
+      "back": "For a consistent linear system $A\\mathbf{x} = \\mathbf{b}$ to have a unique solution, every column in the coefficient matrix $A$ must be a pivot column. This means there are no free variables.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Variables corresponding to pivot columns in a linear system are called ________ variables.",
+      "back": "Variables corresponding to pivot columns in a linear system are called **basic** variables.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a linear system has $n$ variables and its coefficient matrix has $k$ pivot columns, how many free variables are there?",
+      "back": "If a linear system has $n$ variables and its coefficient matrix has $k$ pivot columns, then there are $n - k$ free variables. This is because each variable corresponds to a column, and columns are either pivot columns or non-pivot (free variable) columns.",
+      "difficulty": "hard"
+    }
+  ]
+}

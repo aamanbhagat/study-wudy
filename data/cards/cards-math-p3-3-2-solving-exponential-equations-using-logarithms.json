@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-2-solving-exponential-equations-using-logarithms",
+  "subtopicTitle": "Solving exponential equations using logarithms",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:49.967Z",
+  "cards": [
+    {
+      "front": "When solving an exponential equation of the form $a^x = b$, where $b$ cannot be expressed as a power of $a$, what mathematical tool is essential?",
+      "back": "Logarithms. Taking the logarithm of both sides allows us to use the power rule of logarithms to bring the exponent down, making it solvable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Solve for $x$: $2^x = 10$.",
+      "back": "Take $\\log$ (or $\\ln$) of both sides: $\\log(2^x) = \\log(10)$.\\nUsing the power rule, $x \\log(2) = \\log(10)$.\\nSo, $x = \\frac{\\log(10)}{\\log(2)}$. (Approximately $3.32$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the power rule of logarithms, which is crucial for solving exponential equations.",
+      "back": "For any positive numbers $b \\neq 1$, $M > 0$, and any real number $p$, the power rule states: $\\log_b(M^p) = p \\log_b(M)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Solve for $x$: $5 \\cdot 3^{x+1} = 45$.",
+      "back": "First, isolate the exponential term: $3^{x+1} = \\frac{45}{5} \\Rightarrow 3^{x+1} = 9$.\\nThen, take $\\log$ of both sides: $\\log(3^{x+1}) = \\log(9)$.\\n$(x+1)\\log(3) = \\log(9)$.\\n$x+1 = \\frac{\\log(9)}{\\log(3)} = \\frac{\\log(3^2)}{\\log(3)} = \\frac{2\\log(3)}{\\log(3)} = 2$.\\nSo, $x+1 = 2 \\Rightarrow x = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve for $x$: $4^{x-1} = 7^{2x}$.",
+      "back": "Take $\\ln$ (or $\\log$) of both sides: $\\ln(4^{x-1}) = \\ln(7^{2x})$.\\nApply the power rule: $(x-1)\\ln(4) = 2x\\ln(7)$.\\nExpand: $x\\ln(4) - \\ln(4) = 2x\\ln(7)$.\\nGather terms with $x$: $x\\ln(4) - 2x\\ln(7) = \\ln(4)$.\\nFactor out $x$: $x(\\ln(4) - 2\\ln(7)) = \\ln(4)$.\\n$x = \\frac{\\ln(4)}{\\ln(4) - 2\\ln(7)}$. (This can be written as $x = \\frac{\\ln(4)}{\\ln(4/49)}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When solving $a^x = b$ using logarithms, what constraint must $b$ satisfy, and why?",
+      "back": "$b$ must be a positive number ($b > 0$). This is because the range of any exponential function $f(x) = a^x$ (where $a>0, a \\neq 1$) is always $(0, \\infty)$. You cannot take the logarithm of a non-positive number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve for $x$: $e^{2x} - 3e^x + 2 = 0$.",
+      "back": "Let $y = e^x$. The equation becomes $y^2 - 3y + 2 = 0$.\\nFactor this quadratic: $(y-1)(y-2) = 0$.\\nSo, $y=1$ or $y=2$.\\nSubstitute back $e^x = y$:\\n1) $e^x = 1 \\Rightarrow x = \\ln(1) \\Rightarrow x = 0$.\\n2) $e^x = 2 \\Rightarrow x = \\ln(2)$.\\nSolutions are $x=0$ and $x=\\ln(2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why taking the logarithm of both sides of an equation like $a^x = b$ is a valid operation and helps solve for $x$.",
+      "back": "Taking the logarithm of both sides is valid because the logarithmic function is one-to-one (injective). If $M=N$, then $\\log_c(M) = \\log_c(N)$ for any valid base $c$. This operation is useful because it allows us to apply the power rule of logarithms ($\\log_c(a^x) = x \\log_c(a)$), which brings the exponent $x$ down to a coefficient, transforming the equation from an exponential form to a linear form in $x$.",
+      "difficulty": "hard"
+    }
+  ]
+}

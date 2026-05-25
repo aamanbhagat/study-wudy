@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-spectral-series-lyman-balmer-paschen",
+  "subtopicTitle": "Spectral series — Lyman, Balmer, Paschen",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:13.926Z",
+  "cards": [
+    {
+      "front": "Define \"spectral series\" in the context of atomic physics.",
+      "back": "A set of emission or absorption lines in the electromagnetic spectrum, resulting from electron transitions between specific energy levels within an atom (e.g., hydrogen). Each series corresponds to transitions ending at a particular principal quantum number $n_f$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Rydberg formula for the wavelength of spectral lines in a hydrogen atom.",
+      "back": "The Rydberg formula is given by:\n$$ \\frac{1}{\\lambda} = R_H \\left( \\frac{1}{n_f^2} - \\frac{1}{n_i^2} \\right) $$\nwhere $\\lambda$ is the wavelength, $R_H$ is the Rydberg constant ($1.097 \\times 10^7 \\text{ m}^{-1}$), $n_f$ is the final principal quantum number, and $n_i$ is the initial principal quantum number ($n_i > n_f$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the Lyman, Balmer, and Paschen series, state the final principal quantum number ($n_f$) and the typical electromagnetic region.",
+      "back": "*   **Lyman Series:** $n_f = 1$. Electromagnetic region: Ultraviolet (UV).\n*   **Balmer Series:** $n_f = 2$. Electromagnetic region: Visible (partially UV).\n*   **Paschen Series:** $n_f = 3$. Electromagnetic region: Infrared (IR).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What transition corresponds to the longest wavelength line in the Balmer series, and what is its approximate wavelength?",
+      "back": "The longest wavelength corresponds to the smallest energy difference. For the Balmer series ($n_f=2$), this is the transition from $n_i=3$ to $n_f=2$.\nUsing the Rydberg formula:\n$$ \\frac{1}{\\lambda} = R_H \\left( \\frac{1}{2^2} - \\frac{1}{3^2} \\right) = R_H \\left( \\frac{1}{4} - \\frac{1}{9} \\right) = R_H \\left( \\frac{9-4}{36} \\right) = R_H \\frac{5}{36} $$\n$$ \\lambda = \\frac{36}{5 R_H} = \\frac{36}{5 \\times 1.097 \\times 10^7 \\text{ m}^{-1}} \\approx 6.56 \\times 10^{-7} \\text{ m} = 656 \\text{ nm} $$\nThis is the H-alpha line, which is red light.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the series limit wavelength for any spectral series with a final principal quantum number $n_f$.",
+      "back": "The series limit corresponds to an electron transition from an infinitely high energy level ($n_i = \\infty$) to the final principal quantum number $n_f$.\nUsing the Rydberg formula:\n$$ \\frac{1}{\\lambda_{limit}} = R_H \\left( \\frac{1}{n_f^2} - \\frac{1}{\\infty^2} \\right) $$\nSince $\\frac{1}{\\infty^2} = 0$:\n$$ \\frac{1}{\\lambda_{limit}} = R_H \\left( \\frac{1}{n_f^2} - 0 \\right) $$\n$$ \\frac{1}{\\lambda_{limit}} = \\frac{R_H}{n_f^2} $$\nTherefore, the series limit wavelength is:\n$$ \\lambda_{limit} = \\frac{n_f^2}{R_H} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which of the Lyman, Balmer, or Paschen series involves the emission of the highest energy photons, and what is the physical reason?",
+      "back": "The **Lyman series** involves the highest energy photons. This is because the Lyman series corresponds to electron transitions ending at the ground state ($n_f=1$). Since the energy levels are most widely spaced at lower principal quantum numbers, transitions to $n=1$ involve the largest energy drops, leading to the emission of higher frequency/shorter wavelength (UV) photons compared to transitions ending at $n_f=2$ (Balmer) or $n_f=3$ (Paschen).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical reason why spectral lines in a series appear to converge closer together and eventually form a continuum at the series limit.",
+      "back": "As the initial principal quantum number ($n_i$) increases, the energy levels in the hydrogen atom become progressively closer together. This means that the energy differences ($\\Delta E$) between successive high-$n$ levels and the final level ($n_f$) become smaller and smaller. Consequently, the emitted photons have wavelengths that are increasingly close to each other, causing the spectral lines to converge. At the series limit ($n_i \\rightarrow \\infty$), the electron is essentially unbound (ionized), and any additional energy above this ionization threshold can be absorbed or emitted as kinetic energy, leading to a continuous spectrum rather than discrete lines.",
+      "difficulty": "hard"
+    }
+  ]
+}

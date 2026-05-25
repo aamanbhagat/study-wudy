@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-array-creation-np-zeros-np-ones-np-linspace-np-arange-np-random",
+  "subtopicTitle": "Array creation — np.zeros, np.ones, np.linspace, np.arange, np.random",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:28.890Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of `np.zeros()`? How do you create a $2 \\times 3$ array of zeros with integer type?",
+      "back": "The primary purpose of `np.zeros()` is to create a new array of a given shape and data type, filled with zeros. It's useful for initializing arrays before populating them with actual data.\n\n```python\nimport numpy as np\n\n# Create a 2x3 array of zeros with integer type\narr = np.zeros((2, 3), dtype=int)\nprint(arr)\n# Expected output:\n# [[0 0 0]\n#  [0 0 0]]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does `np.ones()` differ from `np.zeros()` in its default values? Create a $1 \\times 4$ array of ones with `float64` type.",
+      "back": "`np.ones()` is identical to `np.zeros()` in functionality, but instead of filling the array with zeros, it fills it with ones. Both functions default to `dtype=float64` if not specified.\n\n```python\nimport numpy as np\n\n# Create a 1x4 array of ones with float64 type\narr = np.ones((1, 4), dtype=np.float64)\nprint(arr)\n# Expected output:\n# [[1. 1. 1. 1.]]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the parameters of `np.arange(start, stop, step)`. How would you create an array of even numbers from 0 up to (but not including) 10?",
+      "back": "`np.arange(start, stop, step)` creates an array with evenly spaced values within a given interval. \n- `start`: The beginning of the interval (inclusive). Default is 0.\n- `stop`: The end of the interval (exclusive). The value at `stop` is not included.\n- `step`: The spacing between values. Default is 1.\n\n```python\nimport numpy as np\n\n# Array of even numbers from 0 up to (but not including) 10\narr = np.arange(0, 10, 2)\nprint(arr)\n# Expected output:\n# [0 2 4 6 8]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key difference between `np.linspace()` and `np.arange()`? Generate 5 evenly spaced numbers between 0 and 1 (inclusive).",
+      "back": "The key difference is how they define the spacing: \n- `np.arange(start, stop, step)` uses a fixed `step` size, and the `stop` value is exclusive.\n- `np.linspace(start, stop, num)` uses a fixed `num` of samples to generate, and the `stop` value is inclusive by default.\n\n```python\nimport numpy as np\n\n# Generate 5 evenly spaced numbers between 0 and 1 (inclusive)\narr = np.linspace(0, 1, 5)\nprint(arr)\n# Expected output:\n# [0.   0.25 0.5  0.75 1.  ]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you create a $3 \\times 2$ array of random floats uniformly distributed between 0 and 1 using `np.random`?",
+      "back": "You can use `np.random.rand()` to create an array of random floats in the half-open interval $[0.0, 1.0)$. The dimensions are passed as separate arguments.\n\n```python\nimport numpy as np\n\n# Create a 3x2 array of random floats between 0 and 1\narr = np.random.rand(3, 2)\nprint(arr)\n# Example output (values will vary):\n# [[0.123 0.456]\n#  [0.789 0.012]\n#  [0.345 0.678]]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Create a $2 \\times 2$ array of random integers between 10 (inclusive) and 20 (exclusive).",
+      "back": "You can use `np.random.randint(low, high, size)` to generate random integers. `low` is inclusive, and `high` is exclusive. `size` specifies the shape of the output array.\n\n```python\nimport numpy as np\n\n# Create a 2x2 array of random integers between 10 (inclusive) and 20 (exclusive)\narr = np.random.randint(10, 20, size=(2, 2))\nprint(arr)\n# Example output (values will vary):\n# [[15 11]\n#  [19 10]]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is specifying `dtype` important when creating arrays, especially with `np.zeros` or `np.ones`? Provide an example where it matters.",
+      "back": "Specifying `dtype` (data type) is crucial for several reasons:\n1.  **Memory Efficiency**: Different dtypes (e.g., `int8` vs `int64`) consume different amounts of memory. Choosing the smallest appropriate dtype saves memory.\n2.  **Precision**: Floating-point dtypes (`float32`, `float64`) offer different levels of precision for calculations.\n3.  **Correctness of Operations**: Operations might behave differently or produce unexpected results if the dtype isn't what's expected (e.g., integer division vs. float division).\n\nExample:\n```python\nimport numpy as np\n\n# Default dtype (float64) allows fractional values\narr_float = np.zeros(3)\narr_float[0] = 0.5\nprint(f\"Float array: {arr_float}, Dtype: {arr_float.dtype}\")\n\n# Explicitly set dtype to int\narr_int = np.zeros(3, dtype=int)\n# Assigning a float to an integer array will truncate the decimal part\narr_int[0] = 0.5\nprint(f\"Int array: {arr_int}, Dtype: {arr_int.dtype}\")\n# Output:\n# Float array: [0.  0.  0. ], Dtype: float64\n# Int array: [0 0 0], Dtype: int64 (0.5 was truncated to 0)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When would you prefer `np.linspace()` over `np.arange()`? Provide a scenario where `linspace` is more suitable.",
+      "back": "You would prefer `np.linspace()` over `np.arange()` when you need a specific *number* of points over a given range, and you want the start and end points to be *inclusive*.\n\n**Scenario**: Plotting a function $f(x)$ over an interval $[a, b]$. You need to generate 100 data points evenly distributed between $a$ and $b$ to ensure a smooth curve on the plot.\n\nUsing `np.linspace()`:\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx_values = np.linspace(0, 2 * np.pi, 100) # 100 points from 0 to 2*pi, inclusive\ny_values = np.sin(x_values)\n\n# plt.plot(x_values, y_values) # This would plot the sine wave\n# plt.show()\n```\n\n`np.arange()` would be less convenient here because calculating the `step` size to get exactly 100 points and ensuring the `stop` value is handled correctly (inclusive vs. exclusive) would require more manual calculation and could introduce floating-point precision issues for the exact endpoint.",
+      "difficulty": "hard"
+    }
+  ]
+}

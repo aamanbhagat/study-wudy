@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-1-formation-of-quadratic-with-given-roots",
+  "subtopicTitle": "Formation of quadratic with given roots",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:44.961Z",
+  "cards": [
+    {
+      "front": "State the general form of a quadratic equation given its roots $\\alpha$ and $\\beta$, using the sum and product of roots.",
+      "back": "The general form is: $$x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$$ where $(\\alpha+\\beta)$ is the sum of the roots and $\\alpha\\beta$ is the product of the roots.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the factored form of a quadratic equation with roots $\\alpha$ and $\\beta$.",
+      "back": "The factored form is: $$(x-\\alpha)(x-\\beta) = 0$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the standard quadratic form $x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$ from its factored form $(x-\\alpha)(x-\\beta) = 0$.",
+      "back": "Starting with the factored form: $$(x-\\alpha)(x-\\beta) = 0$$ Expand the product: $$x(x-\\beta) - \\alpha(x-\\beta) = 0$$ $$x^2 - \\beta x - \\alpha x + \\alpha\\beta = 0$$ Factor out $x$ from the middle terms: $$x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Form a quadratic equation with integer roots $3$ and $-5$.",
+      "back": "Given roots $\\alpha=3$ and $\\beta=-5$.\n1.  Calculate the sum of roots: $\\alpha+\\beta = 3 + (-5) = -2$.\n2.  Calculate the product of roots: $\\alpha\\beta = 3 \\times (-5) = -15$.\n3.  Substitute into the general form $x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$:\n    $$x^2 - (-2)x + (-15) = 0$$\n    $$x^2 + 2x - 15 = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Form a quadratic equation with roots $2+\\sqrt{3}$ and $2-\\sqrt{3}$.",
+      "back": "Given roots $\\alpha=2+\\sqrt{3}$ and $\\beta=2-\\sqrt{3}$.\n1.  Sum of roots: $\\alpha+\\beta = (2+\\sqrt{3}) + (2-\\sqrt{3}) = 2+2 = 4$.\n2.  Product of roots: $\\alpha\\beta = (2+\\sqrt{3})(2-\\sqrt{3})$. This is a difference of squares $(a+b)(a-b)=a^2-b^2$.\n    $\\alpha\\beta = 2^2 - (\\sqrt{3})^2 = 4 - 3 = 1$.\n3.  Substitute into $x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$:\n    $$x^2 - 4x + 1 = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Form a quadratic equation with roots $1+2i$ and $1-2i$.",
+      "back": "Given roots $\\alpha=1+2i$ and $\\beta=1-2i$.\n1.  Sum of roots: $\\alpha+\\beta = (1+2i) + (1-2i) = 1+1 = 2$.\n2.  Product of roots: $\\alpha\\beta = (1+2i)(1-2i)$. This is a difference of squares $(a+b)(a-b)=a^2-b^2$.\n    $\\alpha\\beta = 1^2 - (2i)^2 = 1 - 4i^2 = 1 - 4(-1) = 1+4 = 5$.\n3.  Substitute into $x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$:\n    $$x^2 - 2x + 5 = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a quadratic equation $ax^2+bx+c=0$, express the sum of roots $(\\alpha+\\beta)$ and the product of roots $(\\alpha\\beta)$ in terms of $a, b, c$.",
+      "back": "First, divide the equation by $a$ (assuming $a \\ne 0$) to get a monic quadratic:\n$$x^2 + \\frac{b}{a}x + \\frac{c}{a} = 0$$\nComparing this with the standard form $x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$:\n1.  Sum of roots: $\\alpha+\\beta = -\\frac{b}{a}$\n2.  Product of roots: $\\alpha\\beta = \\frac{c}{a}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why irrational (surd) or complex roots of a quadratic equation with real coefficients must appear in conjugate pairs.",
+      "back": "For a quadratic equation $x^2 - (\\alpha+\\beta)x + \\alpha\\beta = 0$ to have real coefficients, both the sum of roots $(\\alpha+\\beta)$ and the product of roots $(\\alpha\\beta)$ must be real numbers.\n\n1.  **Complex Roots**: If one root is complex, say $\\alpha = p+qi$ (where $q \\ne 0$), for $(\\alpha+\\beta)$ to be real, the imaginary part of $\\beta$ must cancel that of $\\alpha$. For $\\alpha\\beta$ to also be real, $\\beta$ must be the complex conjugate, $p-qi$. For example, if $\\beta \\ne p-qi$, then $\\alpha\\beta$ would likely have an imaginary component.\n2.  **Irrational (Surd) Roots**: Similarly, if one root is irrational, say $\\alpha = p+\\sqrt{q}$ (where $q$ is not a perfect square), for $(\\alpha+\\beta)$ to be rational/real, the irrational part of $\\beta$ must cancel that of $\\alpha$. For $\\alpha\\beta$ to also be rational/real, $\\beta$ must be the conjugate, $p-\\sqrt{q}$.\n\nThis ensures that the coefficients $-(\\alpha+\\beta)$ and $\\alpha\\beta$ are real, forming a quadratic with real coefficients.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-fracture-mechanics-stress-intensity-factor-k-toughness-kic",
+  "subtopicTitle": "Fracture mechanics — stress intensity factor K, toughness KIC",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:11.896Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of fracture mechanics, and why is it particularly vital for spacecraft structural integrity?",
+      "back": "Fracture mechanics studies the behavior of materials containing cracks, predicting when and how they will fail. It's vital for spacecraft because structural failures in space are catastrophic, and components often contain pre-existing flaws (e.g., manufacturing defects, micro-cracks from fatigue) that can propagate under operational stresses, leading to sudden brittle fracture.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the stress intensity factor ($K$) and state its general formula, including typical units.",
+      "back": "The stress intensity factor ($K$) quantifies the stress field magnitude near the tip of a crack. It describes the \"severity\" of the crack.\nGeneral formula: $K = Y \\sigma \\sqrt{\\pi a}$\nWhere:\n*   $Y$ = dimensionless geometry factor.\n*   $\\sigma$ = applied remote stress.\n*   $a$ = half-crack length (for center crack) or crack length (for edge crack).\nUnits: $\\text{Pa}\\sqrt{\\text{m}}$ or $\\text{psi}\\sqrt{\\text{in}}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an infinite plate with a central through-crack of length $2a$ subjected to a remote tensile stress $\\sigma$, what is the formula for the stress intensity factor $K$?",
+      "back": "For an infinite plate with a central through-crack of length $2a$ (meaning $a$ is the half-crack length) under remote tensile stress $\\sigma$, the stress intensity factor is:\n$K = \\sigma \\sqrt{\\pi a}$\nIn this specific case, the geometry factor $Y$ is approximately 1. This formula shows that $K$ increases with both applied stress and crack length, indicating a more severe crack condition.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define fracture toughness ($K_{IC}$) and explain its significance as a material property.",
+      "back": "Fracture toughness ($K_{IC}$) is a critical material property representing a material's resistance to brittle fracture when a crack is present. It is the critical value of the stress intensity factor at which an existing crack will propagate rapidly, leading to catastrophic failure. A higher $K_{IC}$ indicates a material is more resistant to fracture. It's measured under plane strain conditions (hence the 'IC' subscript).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental condition for brittle fracture initiation in a material containing a crack, using $K$ and $K_{IC}$.",
+      "back": "Brittle fracture initiates when the stress intensity factor ($K$) at the crack tip reaches or exceeds the material's critical fracture toughness ($K_{IC}$). The condition for fracture is:\n$K \\ge K_{IC}$\nWhen this condition is met, the crack will propagate unstably, leading to sudden and complete failure of the component.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between plane stress ($K_c$) and plane strain ($K_{IC}$) fracture toughness, and explain why $K_{IC}$ is typically used for conservative engineering design.",
+      "back": "*   **Plane Stress Fracture Toughness ($K_c$):** Occurs in thin sections where the stress field is primarily two-dimensional, allowing significant plastic deformation at the crack tip. $K_c$ is generally higher and varies with thickness.\n*   **Plane Strain Fracture Toughness ($K_{IC}$):** Occurs in thick sections where material constraint restricts plastic deformation normal to the crack plane. The stress state is triaxial, leading to minimal plastic yielding. $K_{IC}$ is a minimum, thickness-independent value.\n$K_{IC}$ is used for conservative engineering design because it represents the *lowest* possible fracture toughness for a given material. It corresponds to the most constrained crack tip condition, where plastic deformation is minimized, making it the most brittle and critical failure mode. Designing with $K_{IC}$ ensures safety even in thick components where plane strain conditions prevail.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A spacecraft component has a known edge crack of length $a$. How would engineers use $K$ and $K_{IC}$ to determine the maximum safe operating stress $\\sigma_{max}$? (Assume a known geometry factor $Y$).",
+      "back": "Engineers would use the fracture condition $K = K_{IC}$ to find the critical stress.\n1.  Start with the general formula: $K = Y \\sigma \\sqrt{\\pi a}$\n2.  Set $K = K_{IC}$ to find the critical stress $\\sigma_{crit}$ that would cause fracture:\n    $K_{IC} = Y \\sigma_{crit} \\sqrt{\\pi a}$\n3.  Solve for $\\sigma_{crit}$:\n    $\\sigma_{crit} = \\frac{K_{IC}}{Y \\sqrt{\\pi a}}$\n4.  The maximum safe operating stress $\\sigma_{max}$ would then be $\\sigma_{crit}$ divided by a suitable factor of safety (FS), i.e., $\\sigma_{max} = \\frac{\\sigma_{crit}}{\\text{FS}}$. This ensures the applied stress remains well below the critical level.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three material or environmental factors that can significantly influence a material's fracture toughness ($K_{IC}$), and briefly explain why each is important for spacecraft design.",
+      "back": "1.  **Temperature:** Many materials exhibit a ductile-to-brittle transition at low temperatures. In the cold vacuum of space, $K_{IC}$ can drastically decrease, making materials more susceptible to brittle fracture.\n2.  **Microstructure/Heat Treatment:** Grain size, precipitates, and heat treatment processes profoundly affect a material's ability to resist crack propagation by influencing dislocation movement and plastic deformation at the crack tip. Fine grains generally improve toughness.\n3.  **Corrosive Environment/Stress Corrosion Cracking (SCC):** Even in space, residual moisture or specific propellants can react with stressed materials, leading to SCC. This chemical-mechanical interaction can significantly reduce apparent $K_{IC}$ over time, promoting crack growth at stresses far below the material's inherent toughness.",
+      "difficulty": "hard"
+    }
+  ]
+}

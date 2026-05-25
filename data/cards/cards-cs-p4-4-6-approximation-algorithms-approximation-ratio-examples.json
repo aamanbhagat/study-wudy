@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-approximation-algorithms-approximation-ratio-examples",
+  "subtopicTitle": "Approximation algorithms — approximation ratio, examples",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:54.615Z",
+  "cards": [
+    {
+      "front": "What is an approximation algorithm, and under what circumstances are they typically employed?",
+      "back": "An approximation algorithm is a polynomial-time algorithm that returns a solution to an optimization problem that is not necessarily optimal, but is guaranteed to be within a certain factor of the optimal solution. They are used for NP-hard optimization problems where finding an exact optimal solution in polynomial time is believed to be impossible.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Formally define the approximation ratio (or approximation factor) $\\rho$ for a minimization problem.",
+      "back": "For a minimization problem, an algorithm $A$ has an approximation ratio $\\rho$ (where $\\rho \\ge 1$) if for every instance $I$, the cost of the solution $A(I)$ is at most $\\rho$ times the cost of the optimal solution $OPT(I)$. That is, $A(I) \\le \\rho \\cdot OPT(I)$. For maximization problems, the ratio is typically defined such that $A(I) \\ge OPT(I) / \\rho$, or equivalently, $OPT(I) \\le \\rho \\cdot A(I)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a simple 2-approximation algorithm for the Minimum Vertex Cover problem.",
+      "back": "A simple greedy 2-approximation algorithm for Minimum Vertex Cover works as follows:\n1. Initialize an empty set $C$ for the vertex cover.\n2. While there are still uncovered edges in the graph $G$:\n    a. Pick an arbitrary uncovered edge $(u, v)$.\n    b. Add both $u$ and $v$ to $C$.\n    c. Remove all edges incident to $u$ or $v$ from $G$.\n3. Return $C$.\nThis algorithm has an approximation ratio of 2, meaning $|C| \\le 2 \\cdot OPT$, where $OPT$ is the size of the optimal vertex cover.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain why the greedy algorithm for Vertex Cover (adding both endpoints of an uncovered edge) achieves a 2-approximation ratio.",
+      "back": "Consider the set $M$ of edges chosen in step 2a of the algorithm. Since each edge in $M$ was chosen because it was uncovered, no two edges in $M$ share a vertex. Thus, $M$ is a matching. For any optimal vertex cover $OPT$, each edge in $M$ must have at least one of its endpoints in $OPT$. Since edges in $M$ are disjoint, $|OPT| \\ge |M|$. The algorithm adds both endpoints of each edge in $M$ to its cover $C$. Therefore, $|C| = 2 \\cdot |M|$. Combining these, we get $|C| = 2 \\cdot |M| \\le 2 \\cdot |OPT|$. Hence, it's a 2-approximation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the general Traveling Salesperson Problem (TSP) hard to approximate, and what assumption allows for a 2-approximation?",
+      "back": "The general TSP is NP-hard to approximate within any constant factor (unless P=NP). This is due to a reduction from Hamiltonian Cycle. However, if the edge weights satisfy the **triangle inequality** (i.e., $w(u,v) \\le w(u,x) + w(x,v)$ for all vertices $u,v,x$), it's called **Metric TSP**. For Metric TSP, a 2-approximation algorithm exists (e.g., by finding an MST, doubling its edges to get an Eulerian tour, and then shortcutting).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean for a problem to be 'inapproximable', and which major theorem relates to this concept?",
+      "back": "A problem is 'inapproximable' if there is no polynomial-time algorithm that can guarantee a solution within a certain approximation ratio (e.g., within any constant factor, or even within a factor dependent on $n$) unless P=NP. The **PCP Theorem (Probabilistically Checkable Proofs Theorem)** is a fundamental result in complexity theory that implies strong inapproximability results for many NP-hard problems, such as Max-3-SAT and Vertex Cover. For example, it implies that Vertex Cover cannot be approximated within a factor of $1.36$ unless P=NP.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the primary trade-offs or considerations when choosing to use an approximation algorithm instead of an exact algorithm?",
+      "back": "The primary trade-offs are:\n1.  **Time Complexity vs. Optimality**: Approximation algorithms run in polynomial time, unlike exact algorithms for NP-hard problems which often take exponential time. This speed comes at the cost of not guaranteeing an optimal solution.\n2.  **Guaranteed Quality**: While not optimal, approximation algorithms provide a provable bound on how far from optimal the solution can be (the approximation ratio), offering a quality guarantee that heuristics often lack.\n3.  **Feasibility**: For very large instances of NP-hard problems, approximation algorithms may be the only feasible way to obtain a solution within practical time limits.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between a Polynomial-Time Approximation Scheme (PTAS) and a Fully Polynomial-Time Approximation Scheme (FPTAS).",
+      "back": "A **PTAS (Polynomial-Time Approximation Scheme)** is a family of approximation algorithms such that for any constant $\\epsilon > 0$, there is an algorithm that achieves an approximation ratio of $(1+\\epsilon)$ (for minimization) and runs in polynomial time. The polynomial's degree can depend on $1/\\epsilon$, e.g., $O(n^{1/\\epsilon})$.\nA **FPTAS (Fully Polynomial-Time Approximation Scheme)** is a PTAS where the running time is polynomial in both the input size $n$ AND $1/\\epsilon$, e.g., $O(n^2 \\cdot (1/\\epsilon)^3)$. FPTAS are considered 'better' as their runtime scales more favorably with the desired accuracy.",
+      "difficulty": "hard"
+    }
+  ]
+}

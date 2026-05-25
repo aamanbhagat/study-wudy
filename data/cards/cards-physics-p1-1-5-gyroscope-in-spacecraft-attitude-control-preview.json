@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-gyroscope-in-spacecraft-attitude-control-preview",
+  "subtopicTitle": "Gyroscope in spacecraft attitude control — preview",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:36.287Z",
+  "cards": [
+    {
+      "front": "What fundamental physical principle does a gyroscope exploit to maintain or change orientation?",
+      "back": "A gyroscope exploits the conservation of angular momentum. A rotating body resists changes to the direction of its spin axis in space, requiring an external torque to alter its orientation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the phenomenon of \"precession\" in a rotating gyroscope when an external torque is applied.",
+      "back": "Precession is the change in the orientation of the rotational axis of a rotating body due to an external torque. Instead of tilting in the direction of the applied torque, the gyroscope's axis rotates perpendicular to both the applied torque and its angular momentum vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do spacecraft use internal rotating devices to change their orientation without expelling propellant?",
+      "back": "Spacecraft use internal rotating devices (like reaction wheels or Control Moment Gyroscopes - CMGs) to store or exchange angular momentum. By spinning a wheel in one direction, the spacecraft body rotates in the opposite direction to conserve the total angular momentum of the system, thereby changing its attitude.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between a reaction wheel and a Control Moment Gyroscope (CMG) in terms of how they generate control torque for spacecraft attitude.",
+      "back": "A **reaction wheel** generates torque by changing its own spin rate, causing an equal and opposite torque on the spacecraft body. A **CMG** generates torque by changing the *orientation* of its rapidly spinning rotor's axis (i.e., by precessing the rotor), which produces a much larger output torque for a given change in momentum than a reaction wheel.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the vector relationship between an applied torque $\\vec{\\tau}$, the gyroscope's angular momentum $\\vec{L}$, and its precession angular velocity $\\vec{\\Omega}$?",
+      "back": "The fundamental relationship is $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$. For a precessing gyroscope, this simplifies to $\\vec{\\tau} = \\vec{\\Omega} \\times \\vec{L}$. This indicates that the torque is perpendicular to both the angular momentum vector and the precession axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a CMG can provide continuous torque in a specific direction for spacecraft attitude control, even though the internal rotor's angular momentum magnitude is constant.",
+      "back": "A CMG provides continuous torque by continuously changing the *direction* of its rotor's spin axis through precession. Even if the magnitude of the angular momentum $\\vec{L}$ is constant, a change in its direction ($\\frac{d\\vec{L}}{dt}$) generates a torque $\\vec{\\tau}$. By controlling the precession rate and direction, the CMG can apply a sustained torque to the spacecraft.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is \"momentum saturation\" in the context of reaction wheels, and how is it typically managed in spacecraft?",
+      "back": "Momentum saturation occurs when a reaction wheel reaches its maximum operational spin speed, meaning it can no longer absorb or impart further angular momentum to control the spacecraft. It is typically managed by \"momentum dumping,\" where thrusters are fired to expel the accumulated excess angular momentum into space, allowing the reaction wheels to return to their operational range.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-5-b-zout-s-identity",
+  "subtopicTitle": "Bézout's identity",
+  "topicId": "math-p2-2-5-number-theory-intermediate",
+  "topicTitle": "Number Theory (Intermediate)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:19.745Z",
+  "cards": [
+    {
+      "front": "State Bézout's identity for non-zero integers $a$ and $b$.",
+      "back": "For any non-zero integers $a$ and $b$, there exist integers $x$ and $y$ such that $ax + by = \\gcd(a, b)$. If $a=b=0$, then $\\gcd(0,0)=0$, and $0x+0y=0$ (any $x,y$ work).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given non-zero integers $a, b$, what is the smallest positive integer value that the linear combination $ax + by$ can take for integers $x, y$?",
+      "back": "The smallest positive integer value that $ax + by$ can take is $\\gcd(a, b)$. This is a direct consequence of Bézout's identity, as $\\gcd(a,b)$ divides every linear combination $ax+by$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which algorithm is used to systematically find integers $x$ and $y$ satisfying $ax + by = \\gcd(a, b)$?",
+      "back": "The Extended Euclidean Algorithm. It works by \"unwinding\" the steps of the standard Euclidean Algorithm, expressing each remainder as a linear combination of the previous two.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the necessary and sufficient condition for the linear Diophantine equation $ax + by = c$ to have integer solutions for $x$ and $y$?",
+      "back": "The equation $ax + by = c$ has integer solutions if and only if $\\gcd(a, b)$ divides $c$. This is because $ax+by$ must always be a multiple of $\\gcd(a,b)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the Extended Euclidean Algorithm, find one pair of integers $(x, y)$ such that $24x + 18y = \\gcd(24, 18)$.",
+      "back": "First, find $\\gcd(24, 18)$:\n$24 = 1 \\cdot 18 + 6$\n$18 = 3 \\cdot 6 + 0$\nSo, $\\gcd(24, 18) = 6$.\nNow, express $6$ as a linear combination:\nFrom $24 = 1 \\cdot 18 + 6$, we get $6 = 24 - 1 \\cdot 18$.\nThus, one solution is $(x, y) = (1, -1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $(x_0, y_0)$ is a particular solution to $ax + by = \\gcd(a, b)$, provide the general form for all integer solutions $(x, y)$.",
+      "back": "All integer solutions $(x, y)$ are given by:\n$x = x_0 + k \\frac{b}{\\gcd(a, b)}$\n$y = y_0 - k \\frac{a}{\\gcd(a, b)}$\nfor any integer $k \\in \\mathbb{Z}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the generalization of Bézout's identity for $n$ non-zero integers $a_1, a_2, \\dots, a_n$.",
+      "back": "For $n$ non-zero integers $a_1, a_2, \\dots, a_n$, there exist integers $x_1, x_2, \\dots, x_n$ such that $a_1x_1 + a_2x_2 + \\dots + a_nx_n = \\gcd(a_1, a_2, \\dots, a_n)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

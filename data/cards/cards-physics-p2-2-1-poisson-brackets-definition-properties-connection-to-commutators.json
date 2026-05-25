@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-1-poisson-brackets-definition-properties-connection-to-commutators",
+  "subtopicTitle": "Poisson brackets — definition, properties, connection to commutators",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:10.650Z",
+  "cards": [
+    {
+      "front": "Define the Poisson bracket for two functions $f(q, p, t)$ and $g(q, p, t)$ in canonical coordinates $(q_i, p_i)$.",
+      "back": "The Poisson bracket of two functions $f(q, p, t)$ and $g(q, p, t)$ is defined as:\n$$\n[f, g] = \\sum_{i=1}^N \\left( \\frac{\\partial f}{\\partial q_i} \\frac{\\partial g}{\\partial p_i} - \\frac{\\partial f}{\\partial p_i} \\frac{\\partial g}{\\partial q_i} \\right)\n$$\nwhere $N$ is the number of degrees of freedom.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the antisymmetry property of the Poisson bracket.",
+      "back": "The Poisson bracket is antisymmetric, meaning that swapping the order of the functions changes the sign:\n$$[f, g] = -[g, f]$$\nThis implies that $[f, f] = 0$ for any function $f$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Demonstrate the linearity of the Poisson bracket with respect to its first argument: $[af_1 + bf_2, g]$.",
+      "back": "The Poisson bracket is linear in each argument. For the first argument:\n$$[af_1 + bf_2, g] = \\sum_i \\left( \\frac{\\partial(af_1 + bf_2)}{\\partial q_i} \\frac{\\partial g}{\\partial p_i} - \\frac{\\partial(af_1 + bf_2)}{\\partial p_i} \\frac{\\partial g}{\\partial q_i} \\right)$$\n$$= \\sum_i \\left( \\left( a\\frac{\\partial f_1}{\\partial q_i} + b\\frac{\\partial f_2}{\\partial q_i} \\right) \\frac{\\partial g}{\\partial p_i} - \\left( a\\frac{\\partial f_1}{\\partial p_i} + b\\frac{\\partial f_2}{\\partial p_i} \\right) \\frac{\\partial g}{\\partial q_i} \\right)$$\n$$= a \\sum_i \\left( \\frac{\\partial f_1}{\\partial q_i} \\frac{\\partial g}{\\partial p_i} - \\frac{\\partial f_1}{\\partial p_i} \\frac{\\partial g}{\\partial q_i} \\right) + b \\sum_i \\left( \\frac{\\partial f_2}{\\partial q_i} \\frac{\\partial g}{\\partial p_i} - \\frac{\\partial f_2}{\\partial p_i} \\frac{\\partial g}{\\partial q_i} \\right)$$\n$$= a[f_1, g] + b[f_2, g]$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the product rule (Leibniz rule) for Poisson brackets.",
+      "back": "The Poisson bracket satisfies the product rule, analogous to differentiation:\n$$[fg, h] = f[g, h] + [f, h]g$$\nThis property is crucial for manipulating expressions involving products of functions within Poisson brackets.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Jacobi identity for Poisson brackets and explain its significance.",
+      "back": "The Jacobi identity for Poisson brackets is:\n$$[f, [g, h]] + [g, [h, f]] + [h, [f, g]] = 0$$\nIts significance is that it defines the Poisson bracket as a Lie bracket, making the space of smooth functions on phase space, equipped with the Poisson bracket, a Lie algebra. This structure is fundamental in Hamiltonian mechanics and its connection to quantum mechanics.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the fundamental Poisson brackets for canonical coordinates $(q_i, p_j)$?",
+      "back": "The fundamental Poisson brackets for canonical coordinates $(q_i, p_j)$ are:\n\n1.  $[q_i, q_j] = 0$\n2.  $[p_i, p_j] = 0$\n3.  $[q_i, p_j] = \\delta_{ij}$\n\nwhere $\\delta_{ij}$ is the Kronecker delta, equal to 1 if $i=j$ and 0 otherwise. These relations are the basis for calculating any other Poisson bracket.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Poisson bracket relate to the commutator in quantum mechanics?",
+      "back": "The Poisson bracket in classical mechanics is the classical analogue of the commutator in quantum mechanics. According to the correspondence principle, for two classical observables $A$ and $B$, their Poisson bracket corresponds to the commutator of their quantum mechanical operator counterparts $\\hat{A}$ and $\\hat{B}$ via:\n$$\n[A, B]_{classical} \\quad \\longleftrightarrow \\quad \\frac{1}{i\\hbar} [\\hat{A}, \\hat{B}]_{quantum}\n$$\nThis relationship is a cornerstone for quantizing classical systems, where $\\hbar$ is the reduced Planck constant.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Express the total time derivative of a function $F(q, p, t)$ using Poisson brackets, given the Hamiltonian $H(q, p, t)$.",
+      "back": "The total time derivative of a function $F(q, p, t)$ in Hamiltonian mechanics is given by:\n$$\\frac{dF}{dt} = \\frac{\\partial F}{\\partial t} + [F, H]$$\nwhere $H$ is the Hamiltonian of the system. This equation shows that if a function $F$ does not explicitly depend on time ($\\partial F / \\partial t = 0$) and its Poisson bracket with the Hamiltonian is zero ($[F, H] = 0$), then $F$ is a constant of motion (a conserved quantity).",
+      "difficulty": "medium"
+    }
+  ]
+}

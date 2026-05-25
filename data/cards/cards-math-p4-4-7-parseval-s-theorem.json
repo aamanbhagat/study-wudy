@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-7-parseval-s-theorem",
+  "subtopicTitle": "Parseval's theorem",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:22.873Z",
+  "cards": [
+    {
+      "front": "State the fundamental principle of Parseval's theorem.",
+      "back": "Parseval's theorem states that the total energy (or power) of a signal is conserved across its time/spatial domain representation and its frequency domain (Fourier) representation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a periodic function $f(t)$ with period $T$ and complex Fourier series coefficients $c_n$, state Parseval's theorem.",
+      "back": "$$\\frac{1}{T} \\int_0^T |f(t)|^2 dt = \\sum_{n=-\\infty}^{\\infty} |c_n|^2$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Parseval's theorem for the Fourier Transform $\\mathcal{F}\\{f(x)\\} (\\omega) = \\hat{f}(\\omega)$ of a non-periodic function $f(x)$.",
+      "back": "$$\\int_{-\\infty}^{\\infty} |f(x)|^2 dx = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} |\\hat{f}(\\omega)|^2 d\\omega$$ (Note: The $2\\pi$ factor depends on the Fourier transform convention used; sometimes it appears on the spatial side or is distributed.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What physical quantity is conserved according to Parseval's theorem, and why is this significant?",
+      "back": "Parseval's theorem asserts the conservation of *energy* (or power) when transforming a signal between its original domain (time/space) and its frequency domain representation. This is significant because it allows analysis of energy distribution in either domain, ensuring consistency and providing a powerful tool for understanding physical systems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is Parseval's theorem applied in the analysis of Partial Differential Equations, particularly in \"energy methods\"?",
+      "back": "In PDE analysis, Parseval's theorem allows us to equate the $L^2$ norm of a solution in the spatial domain to the $L^2$ norm of its Fourier transform in the frequency domain. This is crucial for energy methods used to prove uniqueness, stability, or existence of solutions, as the $L^2$ norm often represents the total energy of the system. For instance, $\\int |u(x,t)|^2 dx = \\frac{1}{2\\pi} \\int |\\hat{u}(\\omega,t)|^2 d\\omega$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the key steps in deriving Parseval's theorem for complex Fourier series using orthogonality.",
+      "back": "1. Start with the integral $\\frac{1}{T} \\int_0^T |f(t)|^2 dt = \\frac{1}{T} \\int_0^T f(t) \\overline{f(t)} dt$.\n2. Substitute the complex Fourier series $f(t) = \\sum_{n=-\\infty}^{\\infty} c_n e^{i n \\omega_0 t}$ and its conjugate $\\overline{f(t)} = \\sum_{m=-\\infty}^{\\infty} \\overline{c_m} e^{-i m \\omega_0 t}$.\n3. Interchange summation and integration: $\\sum_{n=-\\infty}^{\\infty} \\sum_{m=-\\infty}^{\\infty} c_n \\overline{c_m} \\frac{1}{T} \\int_0^T e^{i (n-m) \\omega_0 t} dt$.\n4. Apply the orthogonality relation: $\\frac{1}{T} \\int_0^T e^{i (n-m) \\omega_0 t} dt = \\delta_{nm}$ (Kronecker delta), which is 1 if $n=m$ and 0 otherwise.\n5. This leaves only terms where $n=m$: $\\sum_{n=-\\infty}^{\\infty} c_n \\overline{c_n} = \\sum_{n=-\\infty}^{\\infty} |c_n|^2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary distinction between Parseval's theorem and Plancherel's theorem in the context of Fourier analysis?",
+      "back": "Parseval's theorem typically refers to the conservation of energy for Fourier *series* or for functions in $L^1(\\mathbb{R}) \\cap L^2(\\mathbb{R})$. Plancherel's theorem is a more general result stating that the Fourier transform is an isometry from $L^2(\\mathbb{R})$ to $L^2(\\mathbb{R})$, preserving the $L^2$ norm for *all* square-integrable functions. For practical purposes in PDEs, they often describe the same idea of $L^2$ norm preservation.",
+      "difficulty": "medium"
+    }
+  ]
+}

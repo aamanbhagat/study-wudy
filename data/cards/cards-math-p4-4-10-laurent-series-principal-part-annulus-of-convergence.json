@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-10-laurent-series-principal-part-annulus-of-convergence",
+  "subtopicTitle": "Laurent series — principal part, annulus of convergence",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:43.966Z",
+  "cards": [
+    {
+      "front": "Define a Laurent series for a function $f(z)$ centered at $z_0$.",
+      "back": "A Laurent series is a representation of a complex function $f(z)$ as an infinite series of the form:\n$$\\sum_{n=-\\infty}^{\\infty} a_n (z-z_0)^n = \\sum_{n=0}^{\\infty} a_n (z-z_0)^n + \\sum_{n=1}^{\\infty} a_{-n} (z-z_0)^{-n}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the general form of the annulus of convergence for a Laurent series centered at $z_0$?",
+      "back": "The general form of the annulus of convergence is an open annulus $A = \\{z \\in \\mathbb{C} : R_1 < |z-z_0| < R_2\\}$, where $0 \\le R_1 < R_2 \\le \\infty$. The series converges absolutely in this region.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a Laurent series $\\sum_{n=-\\infty}^{\\infty} a_n (z-z_0)^n$, which part is called the \"principal part\"?",
+      "back": "The principal part is the sum of terms with negative powers of $(z-z_0)$: $\\sum_{n=-\\infty}^{-1} a_n (z-z_0)^n = \\sum_{n=1}^{\\infty} a_{-n} (z-z_0)^{-n}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the coefficients $a_n$ of a Laurent series for $f(z)$ in an annulus $R_1 < |z-z_0| < R_2$.",
+      "back": "The coefficients $a_n$ are given by:\n$$a_n = \\frac{1}{2\\pi i} \\oint_C \\frac{f(\\zeta)}{(\\zeta-z_0)^{n+1}} d\\zeta$$\nwhere $C$ is any positively oriented simple closed contour in the annulus $R_1 < |\\zeta-z_0| < R_2$ that encloses $z_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the \"analytic part\" and \"principal part\" of a Laurent series converge within the annulus $R_1 < |z-z_0| < R_2$?",
+      "back": "The \"analytic part\" (terms with non-negative powers) $\\sum_{n=0}^{\\infty} a_n (z-z_0)^n$ converges for $|z-z_0| < R_2$. The \"principal part\" (terms with negative powers) $\\sum_{n=1}^{\\infty} a_{-n} (z-z_0)^{-n}$ converges for $|z-z_0| > R_1$. The full Laurent series converges where both converge, i.e., $R_1 < |z-z_0| < R_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the Laurent series for $f(z) = \\frac{1}{z(z-1)}$ centered at $z_0=0$ in the annulus $0 < |z| < 1$.",
+      "back": "First, use partial fractions: $f(z) = \\frac{1}{z-1} - \\frac{1}{z}$.\nThe term $-\\frac{1}{z}$ is already in Laurent series form (it's the $n=-1$ term).\nFor $\\frac{1}{z-1}$ in $0 < |z| < 1$, we write it as a geometric series:\n$\\frac{1}{z-1} = -\\frac{1}{1-z} = -\\sum_{n=0}^{\\infty} z^n$ for $|z|<1$.\nSo, $f(z) = -\\sum_{n=0}^{\\infty} z^n - \\frac{1}{z} = -\\frac{1}{z} - 1 - z - z^2 - \\dots$\nThis is the Laurent series for $f(z)$ in $0 < |z| < 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the Laurent series for $f(z) = \\frac{1}{z(z-1)}$ centered at $z_0=0$ in the annulus $1 < |z| < \\infty$.",
+      "back": "Again, $f(z) = \\frac{1}{z-1} - \\frac{1}{z}$.\nThe term $-\\frac{1}{z}$ is in Laurent series form.\nFor $\\frac{1}{z-1}$ in $1 < |z| < \\infty$, we factor out $z$ and use a geometric series:\n$\\frac{1}{z-1} = \\frac{1}{z(1 - 1/z)}$. Since $|z|>1$, we have $|1/z|<1$.\nSo, $\\frac{1}{z(1 - 1/z)} = \\frac{1}{z} \\sum_{n=0}^{\\infty} \\left(\\frac{1}{z}\\right)^n = \\sum_{n=0}^{\\infty} \\frac{1}{z^{n+1}} = \\frac{1}{z} + \\frac{1}{z^2} + \\frac{1}{z^3} + \\dots$\nTherefore, $f(z) = \\left(\\frac{1}{z} + \\frac{1}{z^2} + \\frac{1}{z^3} + \\dots\\right) - \\frac{1}{z} = \\frac{1}{z^2} + \\frac{1}{z^3} + \\dots = \\sum_{n=2}^{\\infty} \\frac{1}{z^n}$.\nThis is the Laurent series for $f(z)$ in $1 < |z| < \\infty$.",
+      "difficulty": "hard"
+    }
+  ]
+}

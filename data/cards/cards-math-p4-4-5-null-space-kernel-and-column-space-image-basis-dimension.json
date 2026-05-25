@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-null-space-kernel-and-column-space-image-basis-dimension",
+  "subtopicTitle": "Null space (kernel) and column space (image) — basis, dimension",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:02.076Z",
+  "cards": [
+    {
+      "front": "What is the null space (kernel) of an $m \\times n$ matrix $A$?",
+      "back": "The null space of $A$, denoted $N(A)$ or $\\text{ker}(A)$, is the set of all vectors $\\mathbf{x} \\in \\mathbb{R}^n$ such that $A\\mathbf{x} = \\mathbf{0}$. It is a subspace of $\\mathbb{R}^n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you find a basis for the null space of a matrix $A$?",
+      "back": "To find a basis for $N(A)$:\n1. Solve the homogeneous system $A\\mathbf{x} = \\mathbf{0}$.\n2. Reduce $A$ to its Reduced Row Echelon Form (RREF).\n3. Express each pivot variable in terms of the free variables.\n4. Write the general solution $\\mathbf{x}$ as a linear combination of vectors, where each vector corresponds to a free variable. These vectors form a basis for $N(A)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the nullity of a matrix $A$. How is it determined?",
+      "back": "The nullity of $A$, denoted $\\text{nullity}(A)$, is the dimension of the null space $N(A)$. It is equal to the number of free variables in the solution to $A\\mathbf{x} = \\mathbf{0}$, which is also the number of non-pivot columns in the RREF of $A$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the column space (image) of an $m \\times n$ matrix $A$?",
+      "back": "The column space of $A$, denoted $C(A)$ or $\\text{im}(A)$, is the set of all linear combinations of the columns of $A$. It is a subspace of $\\mathbb{R}^m$. Equivalently, it is the set of all vectors $\\mathbf{b} \\in \\mathbb{R}^m$ for which the system $A\\mathbf{x} = \\mathbf{b}$ has a solution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you find a basis for the column space of a matrix $A$?",
+      "back": "To find a basis for $C(A)$:\n1. Reduce $A$ to its Row Echelon Form (REF) or Reduced Row Echelon Form (RREF).\n2. Identify the pivot columns in the RREF.\n3. The corresponding columns from the *original* matrix $A$ (not the RREF) form a basis for $C(A)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the rank of a matrix $A$. How is it determined?",
+      "back": "The rank of $A$, denoted $\\text{rank}(A)$, is the dimension of the column space $C(A)$. It is equal to the number of pivot columns (or pivot positions) in the Row Echelon Form (REF) of $A$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Rank-Nullity Theorem for an $m \\times n$ matrix $A$.",
+      "back": "For an $m \\times n$ matrix $A$, the Rank-Nullity Theorem states:\n$$ \\text{rank}(A) + \\text{nullity}(A) = n $$\nwhere $n$ is the number of columns in $A$. This fundamental theorem connects the dimension of the column space (rank) and the dimension of the null space (nullity) to the total number of variables.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If the null space of an $m \\times n$ matrix $A$ is trivial ($N(A) = \\{\\mathbf{0}\\}$), what does this imply about $A$'s columns and solutions to $A\\mathbf{x}=\\mathbf{b}$?",
+      "back": "If $N(A) = \\{\\mathbf{0}\\}$, then:\n1. The columns of $A$ are linearly independent.\n2. The homogeneous equation $A\\mathbf{x} = \\mathbf{0}$ has only the trivial solution ($\\mathbf{x} = \\mathbf{0}$). \n3. The nullity of $A$ is $0$. By the Rank-Nullity Theorem, $\\text{rank}(A) = n$. This means $A$ has a pivot in every column.\n4. If the equation $A\\mathbf{x} = \\mathbf{b}$ is consistent, its solution is unique.",
+      "difficulty": "hard"
+    }
+  ]
+}

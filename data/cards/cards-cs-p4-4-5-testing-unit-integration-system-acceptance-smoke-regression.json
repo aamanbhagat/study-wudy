@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-testing-unit-integration-system-acceptance-smoke-regression",
+  "subtopicTitle": "Testing — unit, integration, system, acceptance, smoke, regression",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:06.373Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of **Unit Testing** in software development?",
+      "back": "To verify that individual components or \"units\" of source code (e.g., functions, methods, classes) work correctly in isolation, meeting their design specifications. It focuses on the smallest testable parts of an application.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You've developed `ModuleA` and `ModuleB` independently. What testing phase focuses on verifying their interaction and data flow when they are combined?",
+      "back": "**Integration Testing**. This phase aims to expose defects in the interfaces and interactions between integrated modules or components.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the main purpose of **Smoke Testing**, and when is it typically performed?",
+      "back": "Its purpose is to perform a quick, non-exhaustive sanity check to ensure that the most critical functions of a new build are working and that the build is stable enough for further, more rigorous testing. It's typically performed immediately after a new software build is released.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between **System Testing** and **Acceptance Testing** based on their primary focus and typical stakeholders.",
+      "back": "<ul><li>**System Testing:** Focuses on verifying the entire integrated system against the specified functional and non-functional requirements (e.g., performance, security). It's typically performed by the QA team to ensure the system works as a whole from a technical perspective.</li><li>**Acceptance Testing:** Focuses on verifying the system against the business requirements, ensuring it meets the end-user's needs and is fit for purpose. It's typically performed by end-users or clients (User Acceptance Testing - UAT).</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After implementing a new feature or fixing a bug, which type of testing is essential to ensure that these changes haven't negatively impacted existing, previously working functionality?",
+      "back": "**Regression Testing**. This involves re-running a subset of previously passed tests to confirm that new code, code changes, or bug fixes have not introduced new defects or re-introduced old ones into existing functionality.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In **Integration Testing**, explain the role of a **stub** when using a top-down approach.",
+      "back": "In a top-down integration approach, a **stub** is a dummy program or module that simulates the behavior of lower-level modules that are not yet developed or integrated. It provides predefined responses to calls from the higher-level module being tested, allowing testing to proceed without waiting for all dependencies to be complete.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a function `calculate_discount(price, customer_type)` that depends on a `CustomerService.get_customer_type(customer_id)` external call. How would you unit test `calculate_discount` in isolation?",
+      "back": "You would use a **mock** or **stub** for `CustomerService.get_customer_type`.\n```python\n# Example using Python's unittest.mock\nfrom unittest.mock import Mock\n\ndef calculate_discount(price, customer_type):\n    if customer_type == \"PREMIUM\":\n        return price * 0.10\n    return 0\n\n# In your test:\n# customer_service_mock = Mock()\n# customer_service_mock.get_customer_type.return_value = \"PREMIUM\"\n# discount = calculate_discount(100, customer_service_mock.get_customer_type(123))\n# assert discount == 10\n```\nThe `get_customer_type` call would be replaced with a controlled, predefined return value, isolating `calculate_discount`'s logic from the actual external service.",
+      "difficulty": "hard"
+    }
+  ]
+}

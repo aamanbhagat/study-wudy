@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-inverse-laplace-transform-partial-fractions-tables",
+  "subtopicTitle": "Inverse Laplace transform — partial fractions, tables",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:06.797Z",
+  "cards": [
+    {
+      "front": "Define the inverse Laplace transform, denoted by $\\mathcal{L}^{-1}$.",
+      "back": "The inverse Laplace transform $\\mathcal{L}^{-1}\\{F(s)\\}$ of a function $F(s)$ is the function $f(t)$ such that $\\mathcal{L}\\{f(t)\\} = F(s)$. It transforms a function from the $s$-domain (frequency domain) back to the $t$-domain (time domain), effectively \"undoing\" the Laplace transform.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate $\\mathcal{L}^{-1}\\left\\{\\frac{1}{s-a}\\right\\}$ using standard Laplace transform tables.",
+      "back": "$$\\mathcal{L}^{-1}\\left\\{\\frac{1}{s-a}\\right\\} = e^{at}$$ This is a fundamental entry found in all Laplace transform tables, derived from the transform of the exponential function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Find the inverse Laplace transform of $F(s) = \\frac{3}{s} - \\frac{2s}{s^2+4}$.",
+      "back": "Using the linearity property of the inverse Laplace transform and standard table entries:\n$$ \\mathcal{L}^{-1}\\left\\{\\frac{3}{s} - \\frac{2s}{s^2+4}\\right\\} = 3\\mathcal{L}^{-1}\\left\\{\\frac{1}{s}\\right\\} - 2\\mathcal{L}^{-1}\\left\\{\\frac{s}{s^2+2^2}\\right\\} $$\nFrom tables, $\\mathcal{L}^{-1}\\left\\{\\frac{1}{s}\\right\\} = 1$ and $\\mathcal{L}^{-1}\\left\\{\\frac{s}{s^2+k^2}\\right\\} = \\cos(kt)$.\nSo, $3(1) - 2\\cos(2t) = 3 - 2\\cos(2t)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why partial fraction decomposition is crucial for finding inverse Laplace transforms of many rational functions.",
+      "back": "Partial fraction decomposition is crucial because it breaks down complex rational functions $F(s) = \\frac{P(s)}{Q(s)}$ (where $P(s)$ and $Q(s)$ are polynomials) into a sum of simpler, elementary fractions. These simpler fractions (e.g., $\\frac{A}{s-a}$, $\\frac{Bs+C}{s^2+bs+c}$) have direct corresponding inverse Laplace transforms readily available in standard tables. Without decomposition, inverting the original complex rational function directly is often not possible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find $\\mathcal{L}^{-1}\\left\\{\\frac{1}{s^2+3s+2}\\right\\}$ using partial fractions.",
+      "back": "First, factor the denominator: $s^2+3s+2 = (s+1)(s+2)$.\nNext, perform partial fraction decomposition:\n$$ \\frac{1}{(s+1)(s+2)} = \\frac{A}{s+1} + \\frac{B}{s+2} $$\nMultiplying by $(s+1)(s+2)$ gives $1 = A(s+2) + B(s+1)$.\nSet $s=-1 \\implies 1 = A(1) \\implies A=1$.\nSet $s=-2 \\implies 1 = B(-1) \\implies B=-1$.\nSo, the expression becomes $\\frac{1}{s+1} - \\frac{1}{s+2}$.\nNow, take the inverse Laplace transform:\n$$ \\mathcal{L}^{-1}\\left\\{\\frac{1}{s+1} - \\frac{1}{s+2}\\right\\} = \\mathcal{L}^{-1}\\left\\{\\frac{1}{s+1}\\right\\} - \\mathcal{L}^{-1}\\left\\{\\frac{1}{s+2}\\right\\} = e^{-t} - e^{-2t} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you set up the partial fraction decomposition for a term involving a repeated linear factor like $(s-a)^n$ in the denominator?",
+      "back": "For a repeated linear factor $(s-a)^n$ in the denominator of a rational function, the partial fraction decomposition must include $n$ distinct terms, each with an increasing power of the factor, up to $n$. The general form is:\n$$ \\frac{A_1}{s-a} + \\frac{A_2}{(s-a)^2} + \\dots + \\frac{A_n}{(s-a)^n} $$\nFor example, if the denominator contains $(s-2)^3$, the corresponding partial fractions would be $\\frac{A}{s-2} + \\frac{B}{(s-2)^2} + \\frac{C}{(s-2)^3}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find $\\mathcal{L}^{-1}\\left\\{\\frac{s+3}{s^2+2s+5}\\right\\}$ by completing the square and using the first shifting theorem.",
+      "back": "The denominator $s^2+2s+5$ is an irreducible quadratic. Complete the square:\n$s^2+2s+5 = (s^2+2s+1) + 4 = (s+1)^2+2^2$.\nNow, rewrite the numerator to align with the shifted forms of $\\cos$ and $\\sin$ transforms:\n$$ \\frac{s+3}{(s+1)^2+2^2} = \\frac{(s+1)+2}{(s+1)^2+2^2} = \\frac{s+1}{(s+1)^2+2^2} + \\frac{2}{(s+1)^2+2^2} $$\nUsing the first shifting theorem, $\\mathcal{L}^{-1}\\{F(s-a)\\} = e^{at}f(t)$:\n1. $\\mathcal{L}^{-1}\\left\\{\\frac{s+1}{(s+1)^2+2^2}\\right\\} = e^{-t}\\mathcal{L}^{-1}\\left\\{\\frac{s}{s^2+2^2}\\right\\} = e^{-t}\\cos(2t)$.\n2. $\\mathcal{L}^{-1}\\left\\{\\frac{2}{(s+1)^2+2^2}\\right\\} = e^{-t}\\mathcal{L}^{-1}\\left\\{\\frac{2}{s^2+2^2}\\right\\} = e^{-t}\\sin(2t)$.\nCombining these, the inverse Laplace transform is $e^{-t}\\cos(2t) + e^{-t}\\sin(2t) = e^{-t}(\\cos(2t) + \\sin(2t))$.",
+      "difficulty": "hard"
+    }
+  ]
+}

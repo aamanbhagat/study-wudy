@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-2-deque-double-ended-queue-operations-use-cases",
+  "subtopicTitle": "Deque (double-ended queue) — operations, use cases",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:45.407Z",
+  "cards": [
+    {
+      "front": "What is a Deque, and how does it differ from a standard Queue or Stack?",
+      "back": "A Deque (Double-Ended Queue) is a linear data structure that allows elements to be added or removed from *both* ends (front and rear). Unlike a Queue (FIFO) or Stack (LIFO), a Deque provides full flexibility for insertions and deletions at either end, combining features of both.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the four primary operations for adding and removing elements from a Deque.",
+      "back": "The four primary operations are:\n1.  `addFront()` (or `push_front()`)\n2.  `addRear()` (or `push_back()`)\n3.  `removeFront()` (or `pop_front()`)\n4.  `removeRear()` (or `pop_back()`)\nAdditionally, `peekFront()`/`front()` and `peekRear()`/`back()` allow inspecting elements without removal.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the typical time complexity for `addFront()` and `removeRear()` operations on a Deque, assuming an efficient implementation?",
+      "back": "The typical time complexity for `addFront()` and `removeRear()` is $O(1)$ (constant time). This is achieved with implementations like a doubly linked list or a dynamic circular array (where array resizing is amortized $O(1)$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a common use case where a Deque is more suitable than a standard Queue or Stack.",
+      "back": "A common use case is implementing browser history (back/forward functionality). A Deque allows adding new pages to the 'current' end (`addRear`), navigating 'back' (`removeRear` from current history, `addFront` to forward history), and navigating 'forward' (`removeFront` from forward history, `addRear` to current history). This dual-ended access is crucial.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a Deque can efficiently solve the \"Sliding Window Maximum\" problem in $O(N)$ time.",
+      "back": "A Deque stores indices of elements in *decreasing* order of their values within the current window. When processing a new element:\n1.  Remove indices from the rear of the Deque whose corresponding values are less than or equal to the new element (they can never be the maximum).\n2.  Add the new element's index to the rear.\n3.  Remove indices from the front of the Deque if they fall outside the current window.\n4.  The element at the front of the Deque is the maximum for the current window. Each element is added and removed at most once, leading to $O(N)$ time.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a Deque implemented with a circular array becomes full, what typically happens when an `addFront()` or `addRear()` operation is attempted?",
+      "back": "When a circular array-based Deque becomes full and an insertion is attempted, the underlying array usually needs to be resized. This involves allocating a new, larger array (e.g., double the capacity), copying all existing elements from the old array to the new one, and then performing the insertion. This operation has an $O(N)$ worst-case time complexity, but it is amortized $O(1)$ over many operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the space overhead and cache performance of a Deque implemented with a Doubly Linked List vs. a Dynamic Circular Array.",
+      "back": "1.  **Doubly Linked List:** Higher space overhead due to storing two pointers (next, previous) per node in addition to the data. Poor cache locality because nodes are typically scattered in memory, leading to more cache misses.\n2.  **Dynamic Circular Array:** Lower space overhead as it only stores data (and possibly head/tail pointers). Excellent cache locality because elements are stored contiguously in memory, leading to fewer cache misses and faster access.",
+      "difficulty": "hard"
+    }
+  ]
+}

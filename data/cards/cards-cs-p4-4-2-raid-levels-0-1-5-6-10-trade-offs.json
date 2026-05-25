@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-raid-levels-0-1-5-6-10-trade-offs",
+  "subtopicTitle": "RAID — levels 0, 1, 5, 6, 10 — trade-offs",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:21.734Z",
+  "cards": [
+    {
+      "front": "What does RAID stand for, and what is its fundamental goal in storage systems?",
+      "back": "RAID stands for **R**edundant **A**rray of **I**ndependent (or Inexpensive) **D**isks. Its fundamental goal is to combine multiple physical disk drives into a single logical unit to improve performance, provide data redundancy, or both.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A user needs maximum storage performance for temporary, non-critical data. Which RAID level should they choose, and what is its main risk?",
+      "back": "**RAID 0 (Striping)**. It stripes data across multiple disks, offering the highest read/write performance and full capacity utilization. Its main risk is that it provides **no redundancy**; the failure of any single disk results in complete data loss for the entire array.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a critical OS drive where data integrity is paramount and performance is secondary, which RAID level is ideal, and what is its capacity overhead?",
+      "back": "**RAID 1 (Mirroring)**. It duplicates data across two disks. It offers excellent fault tolerance (can lose one disk without data loss) and good read performance. Its capacity overhead is 50%; for $N$ disks, usable capacity is $N/2$ (assuming $N$ is even and disks are paired).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how RAID 5 achieves both data striping and single-disk fault tolerance, and identify its primary performance bottleneck during writes.",
+      "back": "RAID 5 stripes data blocks across $N-1$ disks, with a corresponding parity block distributed among all $N$ disks. This distributed parity allows the array to reconstruct data if one disk fails. Its primary performance bottleneck during writes is the **read-modify-write cycle** for parity: the system must read old data, read old parity, calculate new parity based on new data, and then write new data and new parity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key architectural difference between RAID 5 and RAID 6, and what specific advantage does RAID 6 offer regarding fault tolerance?",
+      "back": "The key difference is that RAID 6 includes **two independent parity blocks** distributed across all disks, whereas RAID 5 uses only one. This allows RAID 6 to tolerate the failure of **any two disks** simultaneously without data loss, providing a higher level of fault tolerance than RAID 5 (which can only tolerate one disk failure).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the \"nested\" architecture of RAID 10 (1+0) and explain how it combines the benefits of its constituent RAID levels.",
+      "back": "RAID 10 (1+0) is a nested RAID level that combines RAID 1 (mirroring) and RAID 0 (striping). It consists of **multiple RAID 1 mirrored pairs**, which are then **striped together using RAID 0**. This architecture provides the high read/write performance of RAID 0 due to striping, combined with the excellent fault tolerance of RAID 1, as it can typically withstand the loss of one disk from *each* mirrored pair without data loss (as long as the failed disks are not from the same mirror).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A company needs storage for a large, critical database requiring high transactional throughput and the ability to withstand two simultaneous disk failures. Which RAID level is best suited, and why?",
+      "back": "For high transactional throughput and the ability to withstand two simultaneous disk failures, **RAID 10** is generally preferred over RAID 6.\n\n*   **RAID 10** offers superior read/write performance (especially for writes) due to striping across mirrored pairs, and can tolerate two disk failures (provided they are in different mirrored pairs). It has a 50% capacity overhead.\n*   **RAID 6** also tolerates two disk failures and is more capacity-efficient (N-2 usable disks), but its write performance is typically lower than RAID 10 due to the overhead of calculating and writing two parity blocks.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Calculate the usable storage capacity for a RAID 5 array configured with four 4TB hard drives.",
+      "back": "In a RAID 5 array with $N$ drives, one drive's capacity is reserved for parity.\nUsable capacity = $(N-1) \\times \\text{drive_capacity}$\nFor four 4TB drives:\nUsable capacity = $(4-1) \\times 4\\text{TB} = 3 \\times 4\\text{TB} = 12\\text{TB}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

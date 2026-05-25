@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-std-condition-variable",
+  "subtopicTitle": "std::condition_variable",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:13.435Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of `std::condition_variable` in C++ concurrency?",
+      "back": "`std::condition_variable` provides a mechanism for threads to efficiently wait for certain conditions to become true, and for other threads to notify them when those conditions might have changed. It prevents busy-waiting by allowing threads to block until a shared state meets a specific criterion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When a thread calls `cv.wait(lock)`, what two C++ standard library components *must* be used alongside `std::condition_variable` to correctly manage the shared state and lock?",
+      "back": "A `std::mutex` (to protect the shared state being waited upon) and a `std::unique_lock<std::mutex>` (to manage the mutex ownership during the wait operation). The `unique_lock` is crucial as `wait()` atomically releases the mutex and blocks, then reacquires it upon wakeup.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain what a 'spurious wakeup' is for `std::condition_variable::wait()` and how it's typically handled.",
+      "back": "A spurious wakeup occurs when a thread waiting on a `condition_variable` is unblocked without an explicit `notify_one()` or `notify_all()` call, or without the condition it's waiting for actually being met. This is allowed by the C++ standard for efficiency. It's handled by always re-checking the condition in a loop, ideally using the predicate overload of `wait()`:\n```cpp\nstd::unique_lock<std::mutex> lock(mtx);\ncv.wait(lock, []{ return shared_data_ready; });\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between `std::condition_variable::notify_one()` and `std::condition_variable::notify_all()`. When would you use each?",
+      "back": "`notify_one()` unblocks at most one thread currently waiting on the `condition_variable`. Use it when only one waiting thread needs to proceed (e.g., a single worker consuming a task).\n`notify_all()` unblocks all threads currently waiting on the `condition_variable`. Use it when multiple waiting threads might need to react to the condition change (e.g., a broadcast event, or multiple consumers for multiple items).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Rewrite the following `std::condition_variable` wait loop using the predicate overload of `wait()` for safer and more concise code:\n```cpp\nstd::unique_lock<std::mutex> lock(mtx);\nwhile (!data_ready) {\n    cv.wait(lock);\n}\n// ... process data ...\n```",
+      "back": "```cpp\nstd::unique_lock<std::mutex> lock(mtx);\ncv.wait(lock, [&]{ return data_ready; });\n// ... process data ...\n```\nThe predicate overload internally handles the `while` loop, automatically re-checking `data_ready` after each wakeup (including spurious ones) while holding the lock, and only returning when `data_ready` is true.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the minimal steps (locking, notification, waiting) for a producer thread adding an item to a shared queue and a consumer thread taking an item, using `std::condition_variable`.",
+      "back": "**Producer:**\n1. Acquire `std::unique_lock<std::mutex>` on the shared mutex.\n2. Add item to the shared queue.\n3. Call `cv.notify_one()` (or `notify_all()`).\n4. The `unique_lock` automatically releases the mutex upon destruction.\n\n**Consumer:**\n1. Acquire `std::unique_lock<std::mutex>` on the shared mutex.\n2. Call `cv.wait(lock, [&]{ return !shared_queue.empty(); });` (waits until queue is not empty, handles spurious wakeups).\n3. Remove item from the shared queue.\n4. The `unique_lock` automatically releases the mutex upon destruction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can a thread waiting on a `std::condition_variable` implement a timeout, and what is the return type of the function used for this when *not* using a predicate?",
+      "back": "A thread can implement a timeout using `cv.wait_for(lock, duration)` (relative time) or `cv.wait_until(lock, time_point)` (absolute time).\nWhen *not* using a predicate, both functions return a `std::cv_status` enum value (`std::cv_status::no_timeout` or `std::cv_status::timeout`), indicating whether the wait completed due to a notification or a timeout.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you use `std::condition_variable_any` instead of `std::condition_variable`, and what is its primary difference?",
+      "back": "`std::condition_variable_any` is used when the mutex type protecting the shared state is *not* `std::mutex`. It can work with any lockable type that satisfies the `BasicLockable` concept (e.g., `std::recursive_mutex`, custom mutexes, or `std::shared_mutex` with `std::unique_lock`). Its primary difference is that its `wait()` methods accept any `Lockable` object, not just `std::unique_lock<std::mutex>`. It generally has higher overhead.",
+      "difficulty": "hard"
+    }
+  ]
+}

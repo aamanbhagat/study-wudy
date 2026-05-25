@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-powered-descent-guidance-g-fold-algorithm-convex-optimization",
+  "subtopicTitle": "Powered descent guidance — G-FOLD algorithm (convex optimization)",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:33.157Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the G-FOLD algorithm in powered descent guidance?",
+      "back": "The primary purpose of the G-FOLD algorithm is to generate a fuel-optimal, feasible thrust profile and trajectory for a spacecraft's powered descent and landing, formulated as a convex optimization problem.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does \"G-FOLD\" stand for, and what mathematical field is central to its methodology?",
+      "back": "\"G\" stands for Guidance, and \"FOLD\" refers to the core technique of \"Fuel-Optimal Landing by Convex Optimization.\" The central mathematical field leveraged is convex optimization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the continuous-time dynamics equation for a spacecraft under thrust $\\mathbf{u}(t)$ and gravity $\\mathbf{g}(t)$, which forms the basis for G-FOLD.",
+      "back": "The dynamics are given by: $$\\dot{\\mathbf{r}}(t) = \\mathbf{v}(t)$$ $$\\dot{\\mathbf{v}}(t) = \\frac{\\mathbf{u}(t)}{m_0 - \\dot{m}t} + \\mathbf{g}(t)$$ where $\\mathbf{r}$ is position, $\\mathbf{v}$ is velocity, $m_0$ is initial mass, $\\dot{m}$ is the constant mass flow rate, and $\\mathbf{u}(t)$ is the thrust vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the main non-convex constraint in the direct transcription of a powered descent problem that G-FOLD addresses, and how is it typically represented?",
+      "back": "The main non-convex constraint is the thrust magnitude constraint, which is typically represented as $0 \\le ||\\mathbf{u}(t)|| \\le u_{max}$. The lower bound $||\\mathbf{u}(t)|| \\ge 0$ (or $u_{min}=0$) is convex, but the upper bound $||\\mathbf{u}(t)|| \\le u_{max}$ is the one that requires specific handling to be expressed in a convex form.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how G-FOLD transforms the non-convex thrust magnitude constraint $||\\mathbf{u}(t)|| \\le u_{max}$ into a convex form suitable for Second-Order Cone Programming (SOCP).",
+      "back": "G-FOLD introduces an auxiliary variable $\\sigma_i$ for each discrete time step $i$, such that $\\sigma_i \\ge ||\\mathbf{u}_i||$. This inequality is a Second-Order Cone (SOC) constraint, which is convex. The original thrust upper bound then becomes a simple linear constraint: $\\sigma_i \\le u_{max}$. By minimizing the sum of these $\\sigma_i$ variables (which corresponds to minimizing fuel), the algorithm implicitly drives $\\sigma_i$ down to $||\\mathbf{u}_i||$, thus satisfying the original constraint in a convex manner.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In G-FOLD, fuel consumption is typically minimized. How is the total fuel mass consumed related to the thrust profile $\\mathbf{u}(t)$ and the specific impulse $I_{sp}$?",
+      "back": "Fuel mass consumption $\\Delta m_f$ is given by $\\Delta m_f = \\int_0^{t_f} \\dot{m}(t) dt$. The mass flow rate $\\dot{m}(t)$ is related to thrust by $\\dot{m}(t) = \\frac{||\\mathbf{u}(t)||}{g_0 I_{sp}}$, where $g_0$ is standard gravity. Therefore, minimizing fuel is equivalent to minimizing $\\int_0^{t_f} ||\\mathbf{u}(t)|| dt$. In the discretized problem, this translates to minimizing $\\sum_k \\sigma_k \\Delta t_k$ using the epigraph formulation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a significant advantage of formulating powered descent guidance as a convex optimization problem like G-FOLD, compared to traditional non-convex methods?",
+      "back": "Convex optimization problems guarantee finding the global optimum if a feasible solution exists. This means G-FOLD can reliably find the fuel-optimal trajectory and thrust profile without getting stuck in local minima, which is a common issue with non-convex optimization methods. This provides strong guarantees on optimality and feasibility.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "While G-FOLD handles thrust magnitude and pointing, what other crucial constraint for rocket engines is inherently non-convex and often approximated or handled outside the core G-FOLD formulation?",
+      "back": "The minimum thrust magnitude constraint ($||\\mathbf{u}(t)|| \\ge u_{min} > 0$). If $u_{min} > 0$, the feasible region (an annulus or spherical shell) is non-convex. G-FOLD's direct formulation handles $u_{min}=0$ (thrust-off capability) but requires iterative \"successive convexification\" or other approximations to enforce a non-zero minimum thrust.",
+      "difficulty": "hard"
+    }
+  ]
+}

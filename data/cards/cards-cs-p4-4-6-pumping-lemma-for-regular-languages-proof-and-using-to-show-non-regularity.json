@@ -1,0 +1,46 @@
+{
+  "subtopicId": "cs-p4-4-6-pumping-lemma-for-regular-languages-proof-and-using-to-show-non-regularity",
+  "subtopicTitle": "Pumping lemma for regular languages — proof and using to show non-regularity",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:03:14.555Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Pumping Lemma for Regular Languages?",
+      "back": "The primary purpose of the Pumping Lemma for Regular Languages is to prove that a given language is *not* regular. It provides a necessary condition that all regular languages must satisfy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core intuition behind the Pumping Lemma for Regular Languages in terms of a Deterministic Finite Automaton (DFA).",
+      "back": "If a regular language contains an arbitrarily long string, then when processing this string with its DFA, some state must be revisited due to the finite number of states in the DFA. The substring processed between the first and second visit to this repeated state can be 'pumped' (repeated or removed) any number of times, and the resulting string will still be accepted by the DFA.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Pumping Lemma for Regular Languages formally.",
+      "back": "If $L$ is a regular language, then there exists an integer $p \\ge 1$ (the pumping length) such that for any string $s \\in L$ with $|s| \\ge p$, $s$ can be divided into three parts $s = xyz$ satisfying the conditions:\n1. $|y| \\ge 1$\n2. $|xy| \\le p$\n3. For all $i \\ge 0$, $xy^iz \\in L$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the proof of the Pumping Lemma, if a string $s$ has length $|s| \\ge p$ (where $p$ is the number of states in the DFA for $L$), why must some state be repeated when processing $s$?",
+      "back": "By the Pigeonhole Principle. When a DFA with $p$ states processes a string $s$ of length $|s| \\ge p$, it makes $|s|+1$ state transitions. The sequence of states visited is $q_0, q_1, \\dots, q_{|s|}$. Since there are only $p$ distinct states, at least one state must appear twice among the first $p+1$ states ($q_0, \\dots, q_p$). This repeated state marks the beginning and end of the 'pumpable' segment $y$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the typical steps to use the Pumping Lemma to prove a language $L$ is *not* regular.",
+      "back": "1. Assume $L$ is regular.\n2. By the Pumping Lemma, there exists a pumping length $p$.\n3. Choose a specific string $s \\in L$ such that $|s| \\ge p$. This choice is crucial.\n4. Show that for *any* possible valid division of $s$ into $xyz$ (where $|y| \\ge 1$ and $|xy| \\le p$), pumping $y$ (e.g., $xy^0z$ or $xy^2z$) results in a string that is *not* in $L$.\n5. This contradicts the Pumping Lemma, therefore the initial assumption that $L$ is regular must be false.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Pumping Lemma to show that $L = \\{a^n b^n \\mid n \\ge 0\\}$ is not regular.",
+      "back": "1. Assume $L$ is regular with pumping length $p$.\n2. Choose $s = a^p b^p \\in L$. Clearly $|s| \\ge p$.\n3. By the Pumping Lemma, $s = xyz$ where $|y| \\ge 1$ and $|xy| \\le p$.\n4. Since $|xy| \\le p$, the segment $xy$ must consist entirely of $a$'s. Thus, $y$ must be of the form $a^k$ for some $k \\ge 1$.\n5. Consider $xy^0z = xz$. This string removes $k$ $a$'s. The resulting string will have $p-k$ $a$'s and $p$ $b$'s. Since $k \\ge 1$, $p-k \\ne p$, so $xz \\notin L$.\n6. This contradicts the Pumping Lemma, so $L$ is not regular.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Pumping Lemma to show that $L = \\{ww \\mid w \\in \\{0,1\\}^*\\}$ is not regular.",
+      "back": "1. Assume $L$ is regular with pumping length $p$.\n2. Choose $s = 0^p 1 0^p 1 \\in L$. (Here $w = 0^p 1$). Clearly $|s| \\ge p$.\n3. By the Pumping Lemma, $s = xyz$ where $|y| \\ge 1$ and $|xy| \\le p$.\n4. Since $|xy| \\le p$, $xy$ must be contained entirely within the first $0^p$ block of $s$. Thus, $y$ must be of the form $0^k$ for some $k \\ge 1$.\n5. Consider $xy^2z$. This string becomes $0^{p+k} 1 0^p 1$. Its length is $2p+2+k$.\n6. For $xy^2z$ to be in $L$, it must be of the form $w'w'$. This would mean its first half equals its second half.\n7. However, in $0^{p+k} 1 0^p 1$, the number of $0$s before the first $1$ is $p+k$, while the number of $0$s before the second $1$ is $p$. Since $k \\ge 1$, $p+k \\ne p$. This means the first half cannot be identical to the second half (e.g., the first $w'$ would be $0^{p+k}1$ and the second $w'$ would be $0^p1$, which are not equal).\n8. Thus, $xy^2z \\notin L$.\n9. This contradicts the Pumping Lemma, so $L$ is not regular.",
+      "difficulty": "hard"
+    }
+  ]
+}

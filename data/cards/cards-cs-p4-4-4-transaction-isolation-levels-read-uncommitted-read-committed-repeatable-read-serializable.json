@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-4-transaction-isolation-levels-read-uncommitted-read-committed-repeatable-read-serializable",
+  "subtopicTitle": "Transaction isolation levels — READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:51.365Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of transaction isolation levels in a database system?",
+      "back": "To define how concurrent transactions interact and observe each other's changes, specifically regarding data visibility. They are crucial for maintaining data consistency and are a key component of the 'Isolation' property of ACID.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which transaction isolation level offers the *lowest* degree of isolation, allowing \"dirty reads\"?",
+      "back": "READ UNCOMMITTED. A transaction operating at this level can read data that has been modified by another transaction but not yet committed (or even rolled back).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a \"dirty read\" anomaly. Which isolation level *prevents* dirty reads but still allows \"non-repeatable reads\"?",
+      "back": "A dirty read occurs when Transaction A reads data written by Transaction B, and then Transaction B subsequently rolls back its changes. Transaction A has read data that effectively never committed.\nREAD COMMITTED prevents dirty reads.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"non-repeatable read\" anomaly. Provide a simple SQL scenario.",
+      "back": "A non-repeatable read occurs when a transaction reads the same row multiple times and gets different values because another *committed* transaction modified that row between the reads.\n```sql\n-- Transaction A\nSELECT balance FROM accounts WHERE id = 1; -- Returns 100\n-- Transaction B updates balance for id=1 to 50 and commits\nSELECT balance FROM accounts WHERE id = 1; -- Returns 50 (different!)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a \"phantom read\" anomaly? Which isolation level (per SQL standard) prevents non-repeatable reads but *allows* phantom reads?",
+      "back": "A phantom read occurs when a transaction re-executes a query that returns a set of rows (e.g., `SELECT COUNT(*)` or `SELECT * WHERE condition`) and finds that the set of rows has changed due to another *committed* transaction inserting or deleting rows matching the query's `WHERE` clause.\nREPEATABLE READ (according to the SQL standard) prevents non-repeatable reads but allows phantom reads.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which transaction isolation level guarantees that concurrent transactions appear to execute sequentially, preventing all known concurrency anomalies (dirty, non-repeatable, phantom reads)?",
+      "back": "SERIALIZABLE. This is the highest isolation level. It ensures full data consistency by preventing all types of concurrency anomalies, typically through strict two-phase locking or advanced MVCC. Transactions are effectively serialized.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why might a database system or application choose an isolation level *lower* than SERIALIZABLE, despite the risk of anomalies?",
+      "back": "Lower isolation levels (e.g., READ COMMITTED) offer significantly higher concurrency and better performance. SERIALIZABLE can introduce substantial locking overhead, increasing contention, deadlocks, and reducing throughput, which is often undesirable for high-volume, performance-critical applications where some anomalies might be tolerable or handled at the application layer.",
+      "difficulty": "medium"
+    }
+  ]
+}

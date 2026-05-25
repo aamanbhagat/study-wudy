@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-3-applications-frequency-counting-two-sum-problem-caching-lru",
+  "subtopicTitle": "Applications — frequency counting, two-sum problem, caching (LRU)",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:56.589Z",
+  "cards": [
+    {
+      "front": "For efficient frequency counting of elements in an array or list, what data structure, leveraging hashing, is typically used?",
+      "back": "A hash map (or dictionary/hash table). It stores elements as keys and their counts as values, allowing $O(1)$ average-case lookup, insertion, and update for each element.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare the average-case time complexity of frequency counting using a hash map versus sorting the array first.",
+      "back": "<ul><li><b>Hash Map:</b> $O(N)$ average-case, as each element is processed once for insertion/update ($O(1)$ average).</li><li><b>Sorting:</b> $O(N \\log N)$ for sorting, plus $O(N)$ to iterate and count.</li></ul>Hashing provides a significant advantage for large $N$ by reducing complexity from $O(N \\log N)$ to $O(N)$ average-case.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the core idea behind using a hash map to solve the Two-Sum problem in $O(N)$ average time.",
+      "back": "Iterate through the array. For each number `x`, calculate the `complement = target - x`. Check if `complement` exists in the hash map. If yes, a pair is found. If no, add `x` to the hash map for future checks. This avoids nested loops.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Analyze the average-case time and worst-case space complexity of the hash map approach for the Two-Sum problem.",
+      "back": "<ul><li><b>Time Complexity:</b> $O(N)$ average-case. Each element is inserted/looked up once in the hash map, which takes $O(1)$ average time.</li><li><b>Space Complexity:</b> $O(N)$ worst-case. In the worst scenario (e.g., no pair found until the very end, or no pair exists), all $N$ elements might need to be stored in the hash map.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An LRU Cache needs $O(1)$ access and $O(1)$ removal of the least recently used item. What two primary data structures are combined to achieve this?",
+      "back": "A <b>Hash Map</b> (or dictionary) and a <b>Doubly Linked List</b>. The hash map stores key-node pairs for $O(1)$ average-case access to any item, while the doubly linked list maintains the order of usage, allowing $O(1)$ removal from the tail and $O(1)$ reordering to the head.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how the `get(key)` operation works in an LRU cache, detailing the roles of the hash map and doubly linked list.",
+      "back": "<ol><li><b>Hash Map Lookup:</b> Use the hash map to find the node corresponding to `key` in $O(1)$ average time. If not found, return -1.</li><li><b>Node Retrieval:</b> If found, retrieve the node.</li><li><b>Doubly Linked List Update:</b> Since this node was just accessed, it becomes the most recently used. Move this node from its current position to the front (head) of the doubly linked list.</li><li><b>Return Value:</b> Return the node's value.</li></ol>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Detail the `put(key, value)` operation in an LRU cache, covering insertion, update, and eviction logic.",
+      "back": "<ol><li><b>Check Existence:</b> If `key` exists in the hash map: <ol type=\"a\"><li>Update the node's value.</li><li>Move this node to the front of the doubly linked list (most recently used).</li></ol></li><li><b>If New Key:</b> <ol type=\"a\"><li>Create a new node `(key, value)`.</li><li>Add it to the front of the doubly linked list.</li><li>Add `key` and the new node to the hash map.</li><li><b>Eviction:</b> If cache size now exceeds capacity, remove the node from the tail of the doubly linked list (LRU) and remove its entry from the hash map.</li></ol></li></ol>",
+      "difficulty": "hard"
+    }
+  ]
+}

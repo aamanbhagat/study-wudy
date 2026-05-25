@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-context-switch-what-gets-saved-overhead",
+  "subtopicTitle": "Context switch — what gets saved, overhead",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:56.519Z",
+  "cards": [
+    {
+      "front": "Define a 'context switch' in the context of an operating system.",
+      "back": "A context switch is the process by which the CPU switches from executing one task (process or thread) to another. It involves saving the state of the current task and loading the state of the next task, allowing multiple tasks to share a single CPU resource efficiently.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which essential CPU-specific components are *always* saved and restored during a context switch?",
+      "back": "The CPU's general-purpose registers, program counter (PC), stack pointer (SP), and processor status word (PSW) or flag registers are always saved and restored. This ensures the interrupted task can resume execution exactly where it left off, with its CPU state intact.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Besides CPU registers, what other critical process-specific information is saved or updated in the Process Control Block (PCB) during a context switch?",
+      "back": "The PCB stores the process ID (PID), process state (e.g., running, ready, waiting), scheduling information (priority), memory management information (e.g., page table base register value), I/O status, and accounting information. During a context switch, the current process's state is updated in its PCB, and the next process's state is loaded from its PCB.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Enumerate the primary sources of overhead incurred by a context switch, impacting system performance.",
+      "back": "The overhead includes:\n1.  **CPU time:** Saving the old process's state and loading the new process's state (registers, PCB updates).\n2.  **Memory access:** Accessing the PCB in memory.\n3.  **Cache/TLB invalidation:** Flushing or invalidating CPU caches (especially the Translation Lookaside Buffer, TLB) due to switching to a different address space, leading to 'cold cache' misses for the new process.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List at least three common events or conditions that typically trigger a context switch in a modern operating system.",
+      "back": "Common triggers include:\n1.  **Time-slice expiration:** When a process has used its allocated CPU time (preemptive scheduling).\n2.  **System calls:** A process voluntarily yields the CPU (e.g., for I/O operations like `read()` or `write()`).\n3.  **Interrupts:** Hardware interrupts (e.g., I/O completion) or software interrupts (e.g., page fault) that require the OS to handle an event and potentially schedule a different process.\n4.  **Process termination:** When a process finishes execution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how context switches specifically degrade CPU cache and Translation Lookaside Buffer (TLB) performance, leading to a 'cold cache' effect.",
+      "back": "When a context switch occurs, the CPU switches to a different process, which typically operates in a different virtual address space. This often invalidates entries in the TLB (which maps virtual to physical addresses) and can cause many data and instruction cache lines to become stale. The new process will then experience a higher rate of TLB misses and cache misses (a 'cold cache'), requiring slower memory accesses until its working set is reloaded into the caches, thus slowing down its initial execution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the overhead of a context switch between two *processes* versus a context switch between two *threads* within the *same* process.",
+      "back": "A context switch between two threads of the *same process* generally has significantly lower overhead than between two *different processes*. This is because threads within the same process share the same virtual address space, memory segments (code, data, heap), and open files. Therefore, the OS does not need to save/restore memory management information (like page tables) or invalidate the TLB as extensively. Only thread-specific state (registers, stack pointer, program counter) needs to be saved/restored.",
+      "difficulty": "hard"
+    }
+  ]
+}

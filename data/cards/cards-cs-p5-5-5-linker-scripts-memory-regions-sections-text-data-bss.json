@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-linker-scripts-memory-regions-sections-text-data-bss",
+  "subtopicTitle": "Linker scripts — memory regions, sections (.text, .data, .bss)",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:56.331Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a linker script in embedded systems development?",
+      "back": "A linker script instructs the linker on how to map different sections of an executable file (like code, initialized data, uninitialized data) into specific memory regions (like Flash, RAM) of the target hardware. It defines the memory layout and addresses for the program.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a linker script, what does the `MEMORY` command block define?",
+      "back": "The `MEMORY` command block defines the available physical memory regions on the target hardware. Each region is specified by a name, its origin (start address), and its length. For example:\n```\nMEMORY\n{\n  FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 1024K\n  RAM (rwx)  : ORIGIN = 0x20000000, LENGTH = 128K\n}\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What type of program content is typically placed in the `.text` section, and which memory region is it usually mapped to in embedded systems?",
+      "back": "The `.text` section typically contains the executable machine code (program instructions) and read-only data (e.g., string literals, `const` variables). In embedded systems, it's usually mapped to a non-volatile memory region like Flash, as code needs to persist across power cycles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the content of the `.data` section and explain how its values are initialized.",
+      "back": "The `.data` section contains global and static variables that are explicitly initialized with a non-zero value at compile time. At program startup, the values stored in the `.data` section (which are part of the executable image, often in Flash) are copied into RAM before `main()` executes.\nExample: `int global_var = 10;`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What kind of variables are found in the `.bss` section, and what is its state at program startup?",
+      "back": "The `.bss` (Block Started by Symbol) section contains global and static variables that are uninitialized or explicitly initialized to zero. At program startup, the linker script typically ensures that the entire `.bss` section in RAM is filled with zeros before `main()` executes. This section does not consume space in the executable file itself, only in RAM at runtime.\nExample: `int global_uninit_var;` or `static int zero_init_var = 0;`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the `SECTIONS` command block in a linker script relate the logical program sections (`.text`, `.data`, `.bss`) to the physical `MEMORY` regions?",
+      "back": "The `SECTIONS` command block defines how input sections from object files are combined into output sections, and crucially, where these output sections are placed within the `MEMORY` regions. The `>` operator is used to specify the target memory region for an output section.\nExample:\n```\nSECTIONS\n{\n  .text : { *(.text) } > FLASH\n  .data : { *(.data) } > RAM AT > FLASH\n  .bss  : { *(.bss)  } > RAM\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the difference between the \"load address\" and \"run address\" for the `.data` section, and why this distinction is important in embedded systems.",
+      "back": "The **load address** is where the initialized `.data` values are stored in non-volatile memory (e.g., Flash) within the executable image. The **run address** is the final location in RAM where these variables will reside and be accessed during program execution. This distinction is vital because the `.data` section must be copied from its load address in Flash to its run address in RAM at startup before the program can use those variables. This copy operation is typically handled by startup code.\nExample: `.data : AT > FLASH { *(.data) } > RAM`\nHere, `AT > FLASH` specifies the load address, and `> RAM` specifies the run address.",
+      "difficulty": "hard"
+    }
+  ]
+}

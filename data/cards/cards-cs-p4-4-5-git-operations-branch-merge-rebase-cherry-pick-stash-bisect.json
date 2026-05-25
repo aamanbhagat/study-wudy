@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-git-operations-branch-merge-rebase-cherry-pick-stash-bisect",
+  "subtopicTitle": "Git operations — branch, merge, rebase, cherry-pick, stash, bisect",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:01.915Z",
+  "cards": [
+    {
+      "front": "What is a Git branch and how do you create a new one named `feature/login` and switch to it?",
+      "back": "A Git branch is a lightweight, movable pointer to a commit. It allows for parallel development without affecting the main codebase.\n\nTo create and switch:\n```bash\ngit checkout -b feature/login\n```\nAlternatively:\n```bash\ngit branch feature/login\ngit switch feature/login\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fundamental difference in how `git merge` and `git rebase` integrate changes from one branch into another, focusing on commit history.",
+      "back": "`git merge` integrates changes by creating a new \"merge commit\" that has two parent commits (the tips of both merged branches). This preserves the original commit history of both branches, showing exactly when and where the merge occurred.\n\n`git rebase` integrates changes by rewriting the commit history. It takes the commits from your feature branch, temporarily removes them, applies them one by one onto the target branch's latest commit, and creates new commit SHAs. This results in a linear history, as if the feature branch's work was done directly on top of the target branch from the start.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When merging a feature branch into `main`, describe the two main types of merges Git performs and the conditions under which each occurs.",
+      "back": "1.  **Fast-forward merge**: Occurs if the target branch (e.g., `main`) has not diverged from the point where the feature branch was created. Git simply moves the `main` branch pointer forward to the latest commit of the feature branch. No new merge commit is created.\n2.  **3-way merge**: Occurs if the target branch (`main`) *has* diverged (i.e., new commits were added to `main` since the feature branch was created). Git finds a common ancestor commit, then creates a new merge commit with two parents, combining the changes from both branches. This is the default merge strategy when divergence exists.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the \"Golden Rule of Rebasing,\" and why is it crucial to follow? Provide a scenario where violating it causes problems.",
+      "back": "The \"Golden Rule of Rebasing\" is: **\"Never rebase commits that have been pushed to a public/shared repository.\"**\n\nRebasing rewrites history by creating new commit SHAs. If you rebase commits that others have already pulled and based their work on, their local history will refer to non-existent (old) commits. When they try to push, Git will detect divergent histories, forcing them to either pull with a complex merge or force push, which could overwrite your rebased work or cause significant confusion and conflict resolution issues for everyone involved.\n\n**Scenario**: Alice pushes her `feature` branch. Bob pulls `feature` and starts working on `bugfix` based on Alice's commits. Alice then rebases her `feature` branch (rewriting its history) and force pushes it. Now, Bob's `bugfix` branch is based on commits that no longer exist in the remote `feature` branch's history, leading to major headaches when he tries to integrate his work.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You've made a small bug fix on your `feature` branch, but this bug also exists on `main` and needs an immediate hotfix. How can you apply *only* that specific bug fix commit to `main` without merging the entire `feature` branch?",
+      "back": "You can use `git cherry-pick`.\n\n1.  First, identify the SHA of the specific bug fix commit on your `feature` branch.\n2.  Then, switch to the `main` branch.\n3.  Finally, apply the commit using `cherry-pick`:\n    ```bash\n    git switch main\n    git cherry-pick <commit-sha-of-bugfix>\n    ```\n    This creates a new commit on `main` with the same changes as the original bug fix commit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You're working on a feature, but an urgent bug report comes in. You don't want to commit your half-finished work. How can you temporarily save your changes and revert to a clean working directory?",
+      "back": "Use `git stash`.\n\nTo save your current uncommitted changes (both staged and unstaged):\n```bash\ngit stash save \"WIP: implementing user profile\"\n```\nYour working directory will revert to the `HEAD` commit. To reapply your changes later:\n```bash\ngit stash apply # applies the latest stash, keeps it in the stash list\n# OR\ngit stash pop   # applies the latest stash, then removes it from the stash list\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the typical workflow for using `git bisect` to find the commit that introduced a bug, assuming you know a \"bad\" commit (bug present) and a \"good\" commit (bug absent).",
+      "back": "1.  **Start bisect**: `git bisect start`\n2.  **Mark known bad**: `git bisect bad <commit-sha-bad>` (often `HEAD` if the bug is present now).\n3.  **Mark known good**: `git bisect good <commit-sha-good>` (a commit where you know the bug didn't exist).\n4.  Git will checkout a commit roughly halfway between the good and bad commits.\n5.  **Test**: Compile and run tests on the current commit. Determine if the bug is present or not.\n6.  **Report**: If the bug is present, `git bisect bad`. If not, `git bisect good`.\n7.  Repeat steps 4-6. Git will continue to narrow down the range until it identifies the single commit that introduced the bug.\n8.  **End bisect**: `git bisect reset` to return to your original branch and commit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You've initiated a `git merge` and encountered conflicts. What are the general steps you would take to resolve these conflicts and complete the merge?",
+      "back": "1.  **Identify conflicts**: Git will stop the merge and list the files with conflicts. `git status` will show these files as 'unmerged'.\n2.  **Edit files**: Open each conflicting file in your editor. Git inserts conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) to highlight the conflicting sections. Manually edit the file to resolve the conflicting lines, choosing which changes to keep, combine, or discard. Remove all conflict markers.\n3.  **Stage resolved files**: After resolving conflicts in a file, stage it: `git add <resolved-file>`.\n4.  **Commit merge**: Once all conflicts are resolved and all conflicting files are staged, complete the merge by committing: `git commit -m \"Merge branch 'feature/xyz' into main\"` (Git usually pre-populates a helpful merge commit message).",
+      "difficulty": "medium"
+    }
+  ]
+}

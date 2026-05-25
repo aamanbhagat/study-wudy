@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p3-3-3-harmonic-progression-definition-hm",
+  "subtopicTitle": "Harmonic progression — definition, HM",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:54.074Z",
+  "cards": [
+    {
+      "front": "Define a Harmonic Progression (HP).",
+      "back": "A sequence of non-zero numbers is said to be in Harmonic Progression (HP) if the reciprocals of its terms are in Arithmetic Progression (AP).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If the reciprocals of terms $a_1, a_2, \\dots, a_n$ form an AP with first term $A$ and common difference $D$, what is the $n$-th term of the HP?",
+      "back": "If $\\frac{1}{a_1}, \\frac{1}{a_2}, \\dots, \\frac{1}{a_n}$ are in AP, then the $n$-th term of the AP is $\\frac{1}{a_n} = A + (n-1)D$. Thus, the $n$-th term of the HP is $a_n = \\frac{1}{A + (n-1)D}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Harmonic Mean (HM) of two non-zero numbers $a$ and $b$.",
+      "back": "The Harmonic Mean (HM) of two non-zero numbers $a$ and $b$ is a number $H$ such that $a, H, b$ are in Harmonic Progression (HP).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the Harmonic Mean $H$ of two non-zero numbers $a$ and $b$.",
+      "back": "$H = \\frac{2ab}{a+b}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the Harmonic Mean $H$ of two non-zero numbers $a$ and $b$.",
+      "back": "If $a, H, b$ are in HP, then their reciprocals $\\frac{1}{a}, \\frac{1}{H}, \\frac{1}{b}$ are in AP. \\nTherefore, the common difference is equal: $\\frac{1}{H} - \\frac{1}{a} = \\frac{1}{b} - \\frac{1}{H}$. \\nRearranging terms: $2 \\cdot \\frac{1}{H} = \\frac{1}{a} + \\frac{1}{b}$. \\nCombining the right side: $\\frac{2}{H} = \\frac{a+b}{ab}$. \\nSolving for $H$: $H = \\frac{2ab}{a+b}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $a, b, c$ are in Harmonic Progression (HP), express $b$ in terms of $a$ and $c$.",
+      "back": "If $a, b, c$ are in HP, then $\\frac{1}{a}, \\frac{1}{b}, \\frac{1}{c}$ are in AP. \\nBy the property of AP, the middle term is the average of the other two: $\\frac{1}{b} = \\frac{\\frac{1}{a} + \\frac{1}{c}}{2}$. \\nSimplifying: $\\frac{1}{b} = \\frac{a+c}{2ac}$. \\nTherefore, $b = \\frac{2ac}{a+c}$. This shows $b$ is the Harmonic Mean of $a$ and $c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the Harmonic Mean (HM) of $n$ non-zero numbers $x_1, x_2, \\dots, x_n$.",
+      "back": "$HM = \\frac{n}{\\frac{1}{x_1} + \\frac{1}{x_2} + \\dots + \\frac{1}{x_n}} = \\frac{n}{\\sum_{i=1}^{n} \\frac{1}{x_i}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For two positive numbers $a$ and $b$, state the inequality relating their Arithmetic Mean (AM), Geometric Mean (GM), and Harmonic Mean (HM).",
+      "back": "For two positive numbers $a$ and $b$: $AM \\ge GM \\ge HM$. \\nSpecifically: $\\frac{a+b}{2} \\ge \\sqrt{ab} \\ge \\frac{2ab}{a+b}$. \\nEquality holds if and only if $a=b$. \\nAdditionally, a useful relationship is $GM^2 = AM \\cdot HM$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can a term in a Harmonic Progression (HP) be equal to zero? Explain why or why not.",
+      "back": "No. A Harmonic Progression is defined by the reciprocals of its terms forming an Arithmetic Progression. If any term in the HP were zero, its reciprocal would be undefined (or tend to infinity), which would mean the corresponding AP would contain an undefined term. This violates the definition of an AP, where all terms must be well-defined finite numbers. Therefore, all terms in an HP must be non-zero.",
+      "difficulty": "medium"
+    }
+  ]
+}

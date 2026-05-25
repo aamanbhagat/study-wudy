@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-move-semantics-rvalue-references-std-move-std-forward",
+  "subtopicTitle": "Move semantics — rvalue references (&&), std::move, std::forward",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:04.366Z",
+  "cards": [
+    {
+      "front": "Distinguish between lvalues and rvalues in C++ with examples.",
+      "back": "Lvalues are expressions that refer to a persistent memory location and have an identity (e.g., variables like `int x;`, `x`, `*ptr`, `arr[0]`). They can appear on the left side of an assignment. Rvalues are temporary expressions that do not have a persistent memory location or identity beyond the expression they are part of (e.g., literals like `10`, `\"hello\"`, return values of functions like `func()`, `x + y`). They can only appear on the right side of an assignment.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is an rvalue reference (`&&`) in C++ and what is its primary purpose?",
+      "back": "An rvalue reference (`T&&`) is a type of reference that can bind *only* to rvalues (temporary objects or expressions that are about to be destroyed). Its primary purpose is to enable *move semantics*, allowing resources owned by a temporary object to be \"moved\" (stolen) to a new object rather than being copied. This significantly improves performance by avoiding expensive deep copies for large objects.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain what `std::move` *actually* does and what it *does not* do.",
+      "back": "`std::move(obj)` does not move any data itself. It unconditionally casts its argument `obj` to an rvalue reference (`T&&`). This cast signals to the compiler that `obj` *can* be moved from, allowing overload resolution to select move constructors or move assignment operators if available. The actual \"move\" (resource transfer, like swapping pointers) happens inside the called constructor or operator, not within `std::move` itself. After `std::move`, the original object `obj` is left in a valid, but unspecified, state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement a minimal move constructor for a C++ class `MyData` that manages a dynamically allocated integer array.",
+      "back": "```cpp\nclass MyData {\n    int* arr;\n    size_t size;\npublic:\n    // Assume MyData(size_t s) constructor exists\n    MyData(MyData&& other) noexcept : arr(nullptr), size(0) {\n        // 1. Steal the resources from 'other'\n        arr = other.arr;\n        size = other.size;\n        // 2. Nullify 'other's pointers to prevent double-free\n        other.arr = nullptr;\n        other.size = 0;\n    }\n    // ... destructor, copy constructor, etc. ...\n};\n```\nThe move constructor takes an rvalue reference (`MyData&& other`), transfers ownership of `other`'s resources (`arr`, `size`) to the new object, and then sets `other` to a valid, empty state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When and why is `std::forward` used, especially in generic programming with templates?",
+      "back": "`std::forward<T>(arg)` is used in template functions to \"perfectly forward\" arguments. It conditionally casts `arg` to an rvalue reference (`T&&`) if `T` is an rvalue reference type (meaning `arg` was originally an rvalue), or leaves it as an lvalue reference (`T&`) if `T` is an lvalue reference type (meaning `arg` was originally an lvalue). This preserves the original value category (lvalue or rvalue) of `arg` when passing it to another function, enabling move semantics for rvalues and copy semantics for lvalues downstream, without unnecessary copies.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Complete the template function `log_and_process` to perfectly forward `data` to `process_data`.",
+      "back": "```cpp\ntemplate<typename T>\nvoid log_and_process(T&& data) {\n    std::cout << \"Logging data...\\n\";\n    // Call process_data, preserving data's original value category\n    process_data(std::forward<T>(data));\n}\n\n// Example usage:\n// void process_data(MyObject& obj); // for lvalues\n// void process_data(MyObject&& obj); // for rvalues\n```\n`std::forward<T>(data)` ensures that if `data` was passed as an lvalue, it's forwarded as an lvalue reference; if it was passed as an rvalue, it's forwarded as an rvalue reference. This allows `process_data` to correctly invoke either its copy or move overload.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why it is highly recommended to mark move constructors and move assignment operators as `noexcept`.",
+      "back": "Marking move constructors and move assignment operators as `noexcept` is crucial for performance and correctness, particularly when objects are stored in standard library containers like `std::vector`. If a move operation could throw an exception, `std::vector` might fall back to more expensive copy operations during reallocations to maintain strong exception safety guarantees (i.e., if a move fails, the container is left in a valid state). If only a throwing move constructor is available and no copy constructor, some operations might even fail to compile. A `noexcept` guarantee allows containers to perform optimizations, like simply swapping internal pointers during reallocations, knowing that the move won't fail.",
+      "difficulty": "hard"
+    }
+  ]
+}

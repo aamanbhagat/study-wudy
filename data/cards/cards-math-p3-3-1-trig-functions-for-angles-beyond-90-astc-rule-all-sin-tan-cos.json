@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-1-trig-functions-for-angles-beyond-90-astc-rule-all-sin-tan-cos",
+  "subtopicTitle": "Trig functions for angles beyond 90° — ASTC rule (All, Sin, Tan, Cos)",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:31.049Z",
+  "cards": [
+    {
+      "front": "What does the acronym ASTC stand for in trigonometry, and what does each letter signify regarding trigonometric functions?",
+      "back": "ASTC stands for:\n*   **A**ll (Quadrant I): All trigonometric functions (sin, cos, tan, csc, sec, cot) are positive.\n*   **S**in (Quadrant II): Only sine and its reciprocal, cosecant, are positive.\n*   **T**an (Quadrant III): Only tangent and its reciprocal, cotangent, are positive.\n*   **C**os (Quadrant IV): Only cosine and its reciprocal, secant, are positive.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an angle $\\theta = 210^\\circ$, identify its quadrant and list the trigonometric functions that are positive in that quadrant according to the ASTC rule.",
+      "back": "The angle $\\theta = 210^\\circ$ lies in **Quadrant III** ($180^\\circ < 210^\\circ < 270^\\circ$).\nAccording to the ASTC rule (\"Tan\" for Quadrant III), only **tangent** ($\\tan \\theta$) and its reciprocal, **cotangent** ($\\cot \\theta$), are positive.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you find the reference angle $\\alpha$ for an angle $\\theta$ if $\\theta$ is in Quadrant II or Quadrant III?",
+      "back": "If $\\theta$ is in Quadrant II ($90^\\circ < \\theta < 180^\\circ$):\n$$ \\alpha = 180^\\circ - \\theta $$\n(or $\\alpha = \\pi - \\theta$ in radians)\n\nIf $\\theta$ is in Quadrant III ($180^\\circ < \\theta < 270^\\circ$):\n$$ \\alpha = \\theta - 180^\\circ $$\n(or $\\alpha = \\theta - \\pi$ in radians)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the exact value of $\\cos(300^\\circ)$ using reference angles and the ASTC rule.",
+      "back": "1.  **Quadrant**: $300^\\circ$ is in Quadrant IV ($270^\\circ < 300^\\circ < 360^\\circ$).\n2.  **Reference Angle**: $\\alpha = 360^\\circ - 300^\\circ = 60^\\circ$.\n3.  **Sign (ASTC)**: In Quadrant IV, Cosine is positive (\"C\" for Cos).\n4.  **Value**: $\\cos(300^\\circ) = +\\cos(60^\\circ) = \\frac{1}{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $\\sin \\theta = -\\frac{3}{5}$ and $\\theta$ is in Quadrant III, find the value of $\\tan \\theta$.",
+      "back": "1.  **Quadrant**: $\\theta$ is in Quadrant III.\n2.  **Sign Check**: In QIII, $\\sin \\theta$ is negative (consistent), and $\\tan \\theta$ should be positive.\n3.  **Right Triangle**: Using the Pythagorean identity $\\sin^2 \\theta + \\cos^2 \\theta = 1$, we have $(-\\frac{3}{5})^2 + \\cos^2 \\theta = 1 \\implies \\frac{9}{25} + \\cos^2 \\theta = 1 \\implies \\cos^2 \\theta = \\frac{16}{25}$.\n4.  **Determine $\\cos \\theta$**: Since $\\theta$ is in QIII, $\\cos \\theta$ must be negative. So, $\\cos \\theta = -\\frac{4}{5}$.\n5.  **Calculate $\\tan \\theta$**: $\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta} = \\frac{-3/5}{-4/5} = \\frac{3}{4}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the unit circle definition where a point $P(x,y)$ corresponds to an angle $\\theta$, explain why $\\sin \\theta$ is positive in Quadrants I and II, and negative in Quadrants III and IV.",
+      "back": "On the unit circle, for an angle $\\theta$ in standard position, the coordinates of the terminal point $P(x,y)$ are $(\\cos \\theta, \\sin \\theta)$.\n*   $\\sin \\theta$ is the $y$-coordinate of the point $P$.\n*   **Quadrant I**: $y > 0 \\implies \\sin \\theta > 0$.\n*   **Quadrant II**: $y > 0 \\implies \\sin \\theta > 0$.\n*   **Quadrant III**: $y < 0 \\implies \\sin \\theta < 0$.\n*   **Quadrant IV**: $y < 0 \\implies \\sin \\theta < 0$.\nThis directly shows why sine is positive in Q1 & Q2 (\"All\" and \"Sin\" quadrants) and negative elsewhere. Similar logic applies to $x$ for cosine and $y/x$ for tangent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do the signs of the reciprocal trigonometric functions ($\\csc \\theta$, $\\sec \\theta$, $\\cot \\theta$) follow the ASTC rule?",
+      "back": "The sign of a reciprocal function is always the same as the sign of its primary function because division by 1 (or multiplication by 1) does not change the sign of the original value.\n*   $\\csc \\theta = 1/\\sin \\theta$: Positive where $\\sin \\theta$ is positive (Q1, Q2).\n*   $\\sec \\theta = 1/\\cos \\theta$: Positive where $\\cos \\theta$ is positive (Q1, Q4).\n*   $\\cot \\theta = 1/\\tan \\theta$: Positive where $\\tan \\theta$ is positive (Q1, Q3).\nThus, the ASTC rule implicitly covers all six trigonometric functions. For example, in QII, \"S\" means $\\sin \\theta$ is positive, and therefore $\\csc \\theta$ is also positive.",
+      "difficulty": "hard"
+    }
+  ]
+}

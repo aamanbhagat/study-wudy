@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-secant-method",
+  "subtopicTitle": "Secant method",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:59.023Z",
+  "cards": [
+    {
+      "front": "Describe the geometric intuition behind the Secant method for finding roots of $f(x)=0$.",
+      "back": "The Secant method approximates the root by repeatedly drawing a secant line through two points $(x_{n-1}, f(x_{n-1}))$ and $(x_n, f(x_n))$ on the function's curve. The next approximation $x_{n+1}$ is the x-intercept of this secant line, which is taken as a better estimate of the root.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the iterative formula for the Secant method to find a root of $f(x)=0$.",
+      "back": "The iterative formula for the Secant method is:\n$$x_{n+1} = x_n - f(x_n) \\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$ \nThis formula requires two initial guesses, $x_0$ and $x_1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the Secant method's iterative formula by approximating the derivative in Newton's method.",
+      "back": "Newton's method formula is $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$.\nWe approximate the derivative $f'(x_n)$ using a finite difference based on two previous points:\n$$f'(x_n) \\approx \\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}$$\nSubstituting this approximation into Newton's formula yields the Secant method:\n$$x_{n+1} = x_n - \\frac{f(x_n)}{\\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}} = x_n - f(x_n) \\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary advantage of the Secant method over Newton's method, and what is its main drawback in comparison?",
+      "back": "**Advantage:** The Secant method does not require the computation of the derivative $f'(x)$, which can be difficult or impossible to find analytically for some functions.\n**Drawback:** It generally has a slower convergence rate than Newton's method (superlinear, order $\\phi \\approx 1.618$ vs. quadratic, order 2).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many initial guesses are required for the Secant method, and what is a crucial condition for these guesses to avoid immediate failure?",
+      "back": "The Secant method requires **two** initial guesses, $x_0$ and $x_1$. A crucial condition for these guesses is that $f(x_0) \\neq f(x_1)$. If $f(x_0) = f(x_1)$, the denominator $f(x_n) - f(x_{n-1})$ in the iterative formula becomes zero, leading to division by zero and failure. Geometrically, this means the secant line would be horizontal and not intersect the x-axis (unless $f(x_0)=f(x_1)=0$, in which case both are roots).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the order of convergence for the Secant method, and how does it compare to the Bisection method?",
+      "back": "The Secant method has a **superlinear** order of convergence, specifically $\\phi = \\frac{1+\\sqrt{5}}{2} \\approx 1.618$ (the golden ratio). The Bisection method has a **linear** order of convergence (order 1), as the interval containing the root is halved in each step. Thus, the Secant method converges faster than the Bisection method but slower than Newton's method (which is quadratic, order 2).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a scenario where the Secant method might fail to converge to a root, even if one exists, and explain why.",
+      "back": "The Secant method might fail if the initial guesses are poorly chosen, causing subsequent iterations to diverge or jump far from the root. A specific failure mode occurs if $f(x_n) \\approx f(x_{n-1})$ for some iteration $n$. This makes the denominator $f(x_n) - f(x_{n-1})$ very small, potentially leading to a very large $x_{n+1}$ (numerical instability or overflow) or causing the method to 'overshoot' the root significantly. If $f(x_n) = f(x_{n-1})$, the method fails due to division by zero.",
+      "difficulty": "hard"
+    }
+  ]
+}

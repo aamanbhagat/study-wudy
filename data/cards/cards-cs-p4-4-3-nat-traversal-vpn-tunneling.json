@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-nat-traversal-vpn-tunneling",
+  "subtopicTitle": "NAT traversal, VPN, tunneling",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:41.408Z",
+  "cards": [
+    {
+      "front": "Define Network Address Translation (NAT) and state its primary purpose in IPv4 networks.",
+      "back": "NAT is a method of remapping an IP address space into another by modifying network address information in the IP header of packets while they are in transit across a traffic routing device. Its primary purpose in IPv4 is to conserve public IP addresses and add a layer of security by hiding internal network topology.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why Network Address Translation (NAT) complicates direct peer-to-peer (P2P) communication.",
+      "back": "NAT modifies the source IP address and port of outgoing connections and only allows incoming connections that are a response to an outgoing one. This makes it challenging for an external peer to *initiate* a connection to an internal device behind a NAT, as the internal IP/port is not directly routable or discoverable from the outside.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the mechanism of UDP Hole Punching for NAT traversal.",
+      "back": "In UDP Hole Punching, two peers ($A$ and $B$) behind NATs each send a UDP packet to a public STUN server. The STUN server records their public IP/port mappings ($A_{pub}$, $B_{pub}$). $A$ and $B$ then exchange these public mappings. Peer $A$ sends a packet to $B_{pub}$, and peer $B$ sends a packet to $A_{pub}$. This outgoing traffic \"punches a hole\" in each NAT, allowing subsequent packets from the other peer to pass through directly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate STUN and TURN servers in NAT traversal. When is a TURN server necessary?",
+      "back": "<ul><li><b>STUN (Session Traversal Utilities for NAT):</b> Helps a client discover its public IP address and port mapping when behind a NAT. It's used for \"hole punching\" to establish direct peer-to-peer connections.</li><li><b>TURN (Traversal Using Relays around NAT):</b> A relay server used when direct peer-to-peer connection is impossible (e.g., due to symmetric NATs). Peers send all data to the TURN server, which then relays it to the other peer, acting as an intermediary.</li></ul>A TURN server is necessary when STUN-based hole punching fails, typically with restrictive NAT types like symmetric NATs, where the NAT maps an internal IP/port to a *different* external IP/port for each new destination.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a Virtual Private Network (VPN) and what are its two main benefits?",
+      "back": "A VPN extends a private network across a public network (like the internet). It allows users to send and receive data as if their devices were directly connected to the private network. Its two main benefits are enhanced security (through encryption) and privacy (by masking the user's real IP address and location).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core concept of \"tunneling\" in computer networks, including encapsulation.",
+      "back": "Tunneling is a networking technique where one network protocol (the payload protocol) is encapsulated within another protocol (the carrier protocol). This creates a \"tunnel\" through an intermediate network. The entire inner packet, including its headers, is treated as data by the outer protocol. This allows data to traverse networks that might not natively support the payload protocol or to provide security/privacy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare IPsec and OpenVPN regarding their typical OSI model layers of operation and flexibility.",
+      "back": "<ul><li><b>IPsec (Internet Protocol Security):</b> Operates primarily at the Network Layer (Layer 3). It's integrated into the IP stack, offering high performance and broad support. It can be complex to configure and may face challenges with NAT traversal.</li><li><b>OpenVPN:</b> Operates at the Transport Layer (Layer 4) or Application Layer (Layer 7) using custom security protocols over SSL/TLS. It's highly flexible, uses open-source libraries, and excels at NAT traversal (can use TCP or UDP). It's generally easier to deploy and manage for end-users.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does a VPN enable bypassing geographical content restrictions or network firewalls?",
+      "back": "When connected to a VPN, all internet traffic is encrypted and routed through the VPN server. The destination service or website sees the IP address of the VPN server, not the user's actual IP. By choosing a VPN server in a region where content is available, or by using encryption and standard ports to evade firewall detection, the user can effectively bypass geographical blocks or local network restrictions.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-atmospheric-drag-exponential-atmosphere-model-orbit-decay",
+  "subtopicTitle": "Atmospheric drag — exponential atmosphere model, orbit decay",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:11.122Z",
+  "cards": [
+    {
+      "front": "Define atmospheric drag in the context of orbital mechanics.",
+      "back": "Atmospheric drag is a resistive force experienced by an object moving through an atmosphere. It arises from collisions between the spacecraft and atmospheric particles, which transfer momentum from the spacecraft to the particles, resulting in a loss of orbital energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general formula for atmospheric drag force $F_D$.",
+      "back": "The general formula for atmospheric drag force is: $$F_D = \\frac{1}{2} \\rho v^2 C_D A$$ where $\\rho$ is the atmospheric density, $v$ is the relative velocity of the object with respect to the atmosphere, $C_D$ is the dimensionless drag coefficient, and $A$ is the reference (cross-sectional) area perpendicular to the velocity vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is atmospheric density $\\rho$ typically modeled as a function of altitude $h$ for orbital drag calculations?",
+      "back": "A common approximation is the exponential atmosphere model: $$\\rho(h) = \\rho_0 e^{-(h-h_0)/H}$$ where $\\rho_0$ is the atmospheric density at a reference altitude $h_0$, and $H$ is the atmospheric scale height. This model assumes an isothermal atmosphere and constant mean molecular mass, which is an simplification but useful for initial estimates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the ballistic coefficient $B$ and explain its significance for orbit decay.",
+      "back": "The ballistic coefficient $B$ is defined as $B = \\frac{m}{C_D A}$, where $m$ is the mass of the satellite, $C_D$ is its drag coefficient, and $A$ is its reference area. It quantifies how resistant an object is to drag. A higher ballistic coefficient indicates that the object is less affected by atmospheric drag (e.g., it's dense or has a small cross-section), leading to a slower rate of orbit decay.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary effect of atmospheric drag on a satellite's orbit and its impact on the semi-major axis $a$.",
+      "back": "Atmospheric drag is a dissipative force that removes energy from the satellite's orbit. Since the total mechanical energy $E$ of an orbit is related to its semi-major axis $a$ by $E = -\\frac{\\mu m}{2a}$ (for a two-body system), a continuous loss of energy due to drag causes the semi-major axis $a$ to continuously decrease. This shrinking of the orbit leads to a lower altitude and eventual deorbiting.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a circular orbit, derive the approximate rate of change of semi-major axis $\\frac{da}{dt}$ due to atmospheric drag.",
+      "back": "The rate of energy loss due to drag is $\\frac{dE}{dt} = -F_D v = -\\frac{1}{2} \\rho v^3 C_D A$. The total orbital energy for a circular orbit is $E = -\\frac{\\mu m}{2a}$. Differentiating with respect to time: $\\frac{dE}{dt} = \\frac{\\mu m}{2a^2} \\frac{da}{dt}$. Equating the two expressions for $\\frac{dE}{dt}$: $$\\frac{\\mu m}{2a^2} \\frac{da}{dt} = -\\frac{1}{2} \\rho v^3 C_D A$$ For a circular orbit, $v = \\sqrt{\\frac{\\mu}{a}}$. Substituting this and rearranging for $\\frac{da}{dt}$: $$\\frac{da}{dt} = -\\frac{a^2}{\\mu m} \\rho \\left(\\frac{\\mu}{a}\\right)^{3/2} C_D A = -\\frac{\\rho \\sqrt{\\mu a} C_D A}{m} = -\\frac{\\rho v C_D A}{m}$$ Using the ballistic coefficient $B = \\frac{m}{C_D A}$, we get: $$\\frac{da}{dt} = -\\frac{\\rho v}{B}$$ This shows the semi-major axis decreases, with the rate proportional to density and velocity, and inversely proportional to the ballistic coefficient.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does orbit decay accelerate as a satellite's altitude decreases?",
+      "back": "The rate of orbit decay accelerates because atmospheric density ($\\rho$) increases exponentially with decreasing altitude. Although orbital velocity ($v$) slightly increases as the orbit shrinks ($v \\propto 1/\\sqrt{a}$ for circular orbits), the exponential increase in density dominates the drag force ($F_D \\propto \\rho v^2$). This leads to a much higher drag force at lower altitudes, causing a faster loss of orbital energy and thus an accelerated decrease in the semi-major axis and altitude.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does atmospheric drag preferentially affect an elliptical orbit compared to a circular one?",
+      "back": "In an elliptical orbit, atmospheric drag has its most significant effect near perigee, where the satellite is at its lowest altitude and highest velocity. This concentrated drag primarily reduces the semi-major axis ($a$) and also tends to circularize the orbit. The apogee altitude decreases much more rapidly than the perigee altitude, which remains relatively stable until the final stages of decay. This is because drag at perigee reduces the velocity, which lowers the subsequent apogee height.",
+      "difficulty": "hard"
+    }
+  ]
+}

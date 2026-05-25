@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-vector-addition-triangle-law-parallelogram-law",
+  "subtopicTitle": "Vector addition — triangle law, parallelogram law",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:18.568Z",
+  "cards": [
+    {
+      "front": "What is the fundamental difference between adding scalar quantities and vector quantities?",
+      "back": "Scalar quantities (e.g., mass, time, speed) are added arithmetically by their magnitudes only. Vector quantities (e.g., displacement, velocity, force) require considering both their magnitudes and directions, typically using geometric methods (like the triangle or parallelogram laws) or component methods.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Triangle Law of Vector Addition.",
+      "back": "If two vectors are represented in magnitude and direction by the two sides of a triangle taken in the same order (head-to-tail), then their resultant is represented in magnitude and direction by the third side of the triangle taken in the opposite order (from the tail of the first to the head of the second).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given two vectors $\\vec{A}$ and $\\vec{B}$ with an angle $\\theta$ between them (when placed tail-to-tail), derive the magnitude of their resultant $\\vec{R} = \\vec{A} + \\vec{B}$ using the Law of Cosines.",
+      "back": "Consider a triangle formed by $\\vec{A}$, $\\vec{B}$, and $\\vec{R}$. If $\\vec{A}$ and $\\vec{B}$ are placed tail-to-tail, the angle between them is $\\theta$. The third side $\\vec{R}$ completes the triangle. The angle opposite to $\\vec{R}$ in this triangle is $180^\\circ - \\theta$. Applying the Law of Cosines:\n$$R^2 = A^2 + B^2 - 2AB \\cos(180^\\circ - \\theta)$$\nSince $\\cos(180^\\circ - \\theta) = -\\cos\\theta$, we get:\n$$R^2 = A^2 + B^2 + 2AB \\cos\\theta$$\nThus, the magnitude of the resultant is:\n$$R = \\sqrt{A^2 + B^2 + 2AB \\cos\\theta}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Parallelogram Law of Vector Addition.",
+      "back": "If two vectors acting simultaneously at a point are represented in magnitude and direction by the two adjacent sides of a parallelogram drawn from that point, then their resultant is represented in magnitude and direction by the diagonal of the parallelogram drawn from the same point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you determine the direction of the resultant vector $\\vec{R}$ (angle $\\phi$ with $\\vec{A}$) when using the Parallelogram Law for vectors $\\vec{A}$ and $\\vec{B}$ with angle $\\theta$ between them?",
+      "back": "Using the Law of Sines in the triangle formed by $\\vec{A}$, $\\vec{R}$, and the parallel vector to $\\vec{B}$ (or by resolving components), the angle $\\phi$ that the resultant $\\vec{R}$ makes with vector $\\vec{A}$ is given by:\n$$\\tan\\phi = \\frac{B \\sin\\theta}{A + B \\cos\\theta}$$\nwhere $\\theta$ is the angle between $\\vec{A}$ and $\\vec{B}$ when placed tail-to-tail.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the geometric equivalence between the Triangle Law and the Parallelogram Law of Vector Addition.",
+      "back": "Both laws yield the identical resultant vector. The Parallelogram Law is essentially two congruent triangles. If you draw vectors $\\vec{A}$ and $\\vec{B}$ from a common origin (parallelogram law), the diagonal represents $\\vec{R}$. One half of this parallelogram (e.g., the triangle formed by $\\vec{A}$, $\\vec{R}$, and the side parallel to $\\vec{B}$) is exactly what the Triangle Law describes: $\\vec{A}$ followed by $\\vec{B}$ (represented by the parallel side) results in $\\vec{R}$. The Triangle Law is a specific case or a 'half' of the Parallelogram Law.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Two forces, $F_1 = 15 \\text{ N}$ and $F_2 = 5 \\text{ N}$, act on an object. What is the range of possible magnitudes for their resultant force?",
+      "back": "The magnitude of the resultant force $R$ lies between the absolute difference and the sum of the magnitudes of the individual forces.\nMinimum magnitude: When the forces are anti-parallel (angle $\\theta = 180^\\circ$), $R_{min} = |F_1 - F_2| = |15 \\text{ N} - 5 \\text{ N}| = 10 \\text{ N}$.\nMaximum magnitude: When the forces are parallel (angle $\\theta = 0^\\circ$), $R_{max} = F_1 + F_2 = 15 \\text{ N} + 5 \\text{ N} = 20 \\text{ N}$.\nThus, the range of possible magnitudes for the resultant force is $[10 \\text{ N}, 20 \\text{ N}]$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is vector addition commutative? That is, does $\\vec{A} + \\vec{B} = \\vec{B} + \\vec{A}$? Justify your answer using a geometric interpretation.",
+      "back": "Yes, vector addition is commutative. Geometrically, if you use the Triangle Law, drawing $\\vec{A}$ then $\\vec{B}$ from its head gives a resultant $\\vec{R}_1$. If you draw $\\vec{B}$ then $\\vec{A}$ from its head, it gives a resultant $\\vec{R}_2$. Both $\\vec{R}_1$ and $\\vec{R}_2$ will be identical in magnitude and direction, forming the diagonal of the same parallelogram. The Parallelogram Law explicitly shows this by representing both $\\vec{A} + \\vec{B}$ and $\\vec{B} + \\vec{A}$ as the same diagonal from the common origin.",
+      "difficulty": "medium"
+    }
+  ]
+}

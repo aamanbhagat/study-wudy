@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-ampere-s-circuital-law-magnetostatic-form",
+  "subtopicTitle": "Ampere's circuital law — magnetostatic form",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:47.958Z",
+  "cards": [
+    {
+      "front": "State Ampere's Circuital Law (magnetostatic form) mathematically.",
+      "back": "Ampere's Circuital Law (magnetostatic form) states:\n$$ \\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{\\text{enc}} $$\nWhere $\\vec{B}$ is the magnetic field, $d\\vec{l}$ is an infinitesimal displacement vector along the closed Amperian loop, $\\mu_0$ is the permeability of free space, and $I_{\\text{enc}}$ is the total steady current enclosed by the loop.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does Ampere's Circuital Law intuitively state about magnetic fields and enclosed currents?",
+      "back": "It states that the line integral of the magnetic field $\\vec{B}$ around any closed loop is directly proportional to the total steady current $I_{\\text{enc}}$ passing through the surface bounded by that loop. Intuitively, it means that steady electric currents are sources of magnetic fields that \"circulate\" around them.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the key conditions under which Ampere's Circuital Law (magnetostatic form) is valid and most useful for calculating $\\vec{B}$.",
+      "back": "1.  **Magnetostatic Fields:** The currents must be steady (time-independent), meaning no changing electric fields or displacement currents are present.\n2.  **High Symmetry:** The current distribution must possess sufficient symmetry (e.g., cylindrical, planar, toroidal) such that $\\vec{B}$ is constant in magnitude and/or direction along parts of the chosen Amperian loop, simplifying the integral.\n3.  **Closed Loop:** The integration must always be performed over a closed path (Amperian loop).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When applying Ampere's Law, how is the positive direction of the enclosed current $I_{\\text{enc}}$ determined relative to the direction of integration along the Amperian loop?",
+      "back": "The right-hand rule is used. If you curl the fingers of your right hand in the direction of the Amperian loop's integration, your thumb points in the positive direction for the enclosed current $I_{\\text{enc}}$. Currents flowing in this direction are considered positive, while those flowing opposite are negative.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use Ampere's Law to derive the magnetic field magnitude $B$ at a distance $r$ from a very long, straight wire carrying a steady current $I$. Assume $r > 0$.",
+      "back": "1.  **Symmetry:** For a very long straight wire, the magnetic field lines are concentric circles centered on the wire. $\\vec{B}$ is tangential to these circles, and its magnitude depends only on $r$.\n2.  **Amperian Loop:** Choose a circular Amperian loop of radius $r$ centered on the wire, lying in a plane perpendicular to the wire.\n3.  **Line Integral:** Along this loop, $\\vec{B}$ is everywhere tangential to $d\\vec{l}$ (so $\\vec{B} \\cdot d\\vec{l} = B dl$), and $B$ is constant in magnitude. Thus:\n    $$ \\oint \\vec{B} \\cdot d\\vec{l} = \\oint B dl = B \\oint dl = B (2\\pi r) $$\n4.  **Enclosed Current:** The total current enclosed by the loop is $I$.\n5.  **Ampere's Law:** Equating the integral to $\\mu_0 I_{\\text{enc}}$:\n    $$ B (2\\pi r) = \\mu_0 I $$\n    Solving for $B$:\n    $$ B = \\frac{\\mu_0 I}{2\\pi r} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe how Ampere's Law is used to find the magnetic field *inside* a very long solenoid with $n$ turns per unit length carrying current $I$. What is the result?",
+      "back": "1.  **Ideal Solenoid Assumption:** For a very long solenoid, the magnetic field is approximately uniform and parallel to the axis inside, and approximately zero outside.\n2.  **Amperian Loop:** Choose a rectangular Amperian loop. One side (length $L$) is inside the solenoid, parallel to its axis. The opposite side is outside the solenoid. The other two sides are perpendicular to the axis.\n3.  **Line Integral:**\n    *   Integral along the side outside is zero ($\\vec{B} \\approx 0$).\n    *   Integrals along the two perpendicular sides are zero ($\\vec{B} \\perp d\\vec{l}$). \n    *   Integral along the side inside is $B \\cdot L$ (since $\\vec{B}$ is parallel to $d\\vec{l}$ and constant).\n    So, $\\oint \\vec{B} \\cdot d\\vec{l} = B L$.\n4.  **Enclosed Current:** The number of turns enclosed by the length $L$ of the loop is $nL$. Each turn carries current $I$. So, $I_{\\text{enc}} = nLI$.\n5.  **Ampere's Law:**\n    $$ B L = \\mu_0 (nLI) $$\n    Solving for $B$:\n    $$ B = \\mu_0 n I $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare Ampere's Circuital Law (magnetostatic form) to Gauss's Law for electric fields, highlighting their similarities and key differences in what they describe.",
+      "back": "**Similarities:**\n*   Both are integral laws useful for calculating fields in highly symmetric situations.\n*   Both relate a field (magnetic or electric) to its source (current or charge).\n*   Both involve an integral over a closed boundary (loop for Ampere, surface for Gauss).\n\n**Differences:**\n*   **Field Type:** Ampere's Law is for magnetic fields ($\\vec{B}$); Gauss's Law is for electric fields ($\\vec{E}$). \n*   **Source:** Ampere's Law relates to *currents* ($I_{\\text{enc}}$); Gauss's Law relates to *charges* ($Q_{\\text{enc}}$).\n*   **Integral Type:** Ampere's Law uses a *line integral* over a closed loop; Gauss's Law uses a *surface integral* over a closed surface.\n*   **Field Nature:** Ampere's Law implies magnetic fields *circulate* around currents (no magnetic monopoles). Gauss's Law for E-fields implies E-fields *diverge* from charges.",
+      "difficulty": "medium"
+    }
+  ]
+}

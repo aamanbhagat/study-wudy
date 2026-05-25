@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p3-3-2-exponential-growth-and-decay-models-half-life-doubling-time",
+  "subtopicTitle": "Exponential growth and decay models — half-life, doubling time",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "model": "gemini-3.1-pro-preview",
+  "generatedAt": "2026-05-25T15:01:12.420Z",
+  "cards": [
+    {
+      "front": "Write the standard continuous exponential growth and decay model formula, defining all variables.",
+      "back": "$N(t) = N_0 e^{kt}$\n\nWhere:\n- $N(t)$ = amount at time $t$\n- $N_0$ = initial amount (at $t=0$)\n- $k$ = continuous growth/decay constant ($k > 0$ for growth, $k < 0$ for decay)\n- $t$ = time elapsed",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the terms \"doubling time\" ($T_d$) and \"half-life\" ($T_{1/2}$) conceptually.",
+      "back": "- **Doubling time ($T_d$)**: The amount of time it takes for a growing quantity to reach exactly twice its initial size.\n- **Half-life ($T_{1/2}$)**: The amount of time it takes for a decaying quantity to reduce to exactly half of its initial size.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for doubling time $T_d$ in terms of the continuous growth rate $k > 0$, starting from $N(t) = N_0 e^{kt}$.",
+      "back": "Set $N(T_d) = 2N_0$:\n$$2N_0 = N_0 e^{k T_d}$$\nDivide by $N_0$:\n$$2 = e^{k T_d}$$\nTake the natural logarithm of both sides:\n$$\\ln(2) = k T_d$$\nSolve for $T_d$:\n$$T_d = \\frac{\\ln(2)}{k}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for half-life $T_{1/2}$ in terms of the continuous decay rate $k < 0$, starting from $N(t) = N_0 e^{kt}$.",
+      "back": "Set $N(T_{1/2}) = \\frac{1}{2}N_0$:\n$$\\frac{1}{2}N_0 = N_0 e^{k T_{1/2}}$$\n$$\\frac{1}{2} = e^{k T_{1/2}}$$\nTake $\\ln$ of both sides:\n$$\\ln(1/2) = k T_{1/2}$$\n$$-\\ln(2) = k T_{1/2}$$\n$$T_{1/2} = -\\frac{\\ln(2)}{k}$$\n\n*(Note: If using a positive decay constant $\\lambda > 0$ where $k = -\\lambda$, then $T_{1/2} = \\frac{\\ln(2)}{\\lambda}$.)*",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the exponential growth model directly in terms of base 2 and doubling time $T_d$, without using Euler's number $e$.",
+      "back": "$$N(t) = N_0 \\cdot 2^{\\frac{t}{T_d}}$$\n\nThis is intuitive because every time $t$ increases by $T_d$, the exponent increases by 1, multiplying the current amount by exactly 2.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the exponential decay model directly in terms of half-life $T_{1/2}$, without using Euler's number $e$.",
+      "back": "$$N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}}$$\n\nAlternatively written with base 2:\n$$N(t) = N_0 \\cdot 2^{-\\frac{t}{T_{1/2}}}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A radioactive substance has a half-life of $T_{1/2}$. Derive the formula for the time $t$ it takes to decay to a fraction $p$ of its original amount.",
+      "back": "Start with the base-1/2 model:\n$$p N_0 = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}}$$\n$$p = \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}}$$\nTake $\\ln$ of both sides:\n$$\\ln(p) = \\frac{t}{T_{1/2}} \\ln\\left(\\frac{1}{2}\\right)$$\n$$\\ln(p) = -\\frac{t}{T_{1/2}} \\ln(2)$$\nSolve for $t$:\n$$t = -T_{1/2} \\frac{\\ln(p)}{\\ln(2)}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the mathematical relationship between a continuous growth rate $k$ and the effective annual percentage yield (APY) $r$?",
+      "back": "If a quantity grows continuously at rate $k$, the multiplier after 1 year is $e^k$. The effective annual rate $r$ is the actual percentage increase over that year.\n$$1 + r = e^k$$\n\nTherefore, solving for $r$:\n$$r = e^k - 1$$\n\nAnd conversely, solving for $k$:\n$$k = \\ln(1 + r)$$",
+      "difficulty": "hard"
+    }
+  ]
+}

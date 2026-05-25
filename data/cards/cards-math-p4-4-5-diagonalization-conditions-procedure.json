@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-diagonalization-conditions-procedure",
+  "subtopicTitle": "Diagonalization — conditions, procedure",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:20.310Z",
+  "cards": [
+    {
+      "front": "A square matrix $A$ is diagonalizable if it is similar to a _______ matrix.",
+      "back": "A square matrix $A$ is diagonalizable if it is similar to a **diagonal** matrix. This means there exists an invertible matrix $P$ and a diagonal matrix $D$ such that $A = PDP^{-1}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the necessary and sufficient condition for an $n \\times n$ matrix $A$ to be diagonalizable in terms of its eigenvectors?",
+      "back": "An $n \\times n$ matrix $A$ is diagonalizable if and only if it has $n$ linearly independent eigenvectors. These $n$ eigenvectors form a basis for $\\mathbb{R}^n$ (or $\\mathbb{C}^n$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an $n \\times n$ matrix $A$ to be diagonalizable, what two conditions must be met regarding its eigenvalues?",
+      "back": "1. The characteristic polynomial of $A$ must factor completely over the field (e.g., $\\mathbb{R}$ or $\\mathbb{C}$), meaning the sum of the algebraic multiplicities (AMs) of all eigenvalues equals $n$.<br>2. For every eigenvalue $\\lambda$, its algebraic multiplicity must equal its geometric multiplicity ($\\text{AM}(\\lambda) = \\text{GM}(\\lambda)$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the initial step in the procedure to diagonalize a square matrix $A$?",
+      "back": "**Step 1: Find the eigenvalues.** Solve the characteristic equation $\\det(A - \\lambda I) = 0$ for $\\lambda$. The roots of this polynomial are the eigenvalues of $A$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After finding all eigenvalues $\\lambda_i$ of $A$, what is the next step in the diagonalization procedure?",
+      "back": "**Step 2: Find the eigenvectors.** For each eigenvalue $\\lambda_i$, find a basis for its corresponding eigenspace $E_{\\lambda_i} = \\text{null}(A - \\lambda_i I)$ by solving the homogeneous system $(A - \\lambda_i I)x = 0$. These basis vectors are the eigenvectors. Ensure you find enough linearly independent eigenvectors to satisfy the diagonalization conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $n$ linearly independent eigenvectors $v_1, \\dots, v_n$ corresponding to eigenvalues $\\lambda_1, \\dots, \\lambda_n$, how do you construct the matrices $P$ and $D$ for $A = PDP^{-1}$?",
+      "back": "1. The matrix $P$ is formed by using the eigenvectors as its columns: $P = [v_1 \\ v_2 \\ \\dots \\ v_n]$.<br>2. The matrix $D$ is a diagonal matrix whose diagonal entries are the eigenvalues, in the same order as their corresponding eigenvectors appear in $P$: $D = \\text{diag}(\\lambda_1, \\lambda_2, \\dots, \\lambda_n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the transformation $A = PDP^{-1}$ intuitively in terms of change of basis.",
+      "back": "The transformation $A$ can be understood in three sequential steps:<br>1. $P^{-1}$: Transforms a vector from the standard basis to the basis formed by the eigenvectors (the \"eigenbasis\").<br>2. $D$: In the eigenbasis, the transformation is a simple scaling. Each component of the vector (which corresponds to an eigenvector) is scaled by its respective eigenvalue.<br>3. $P$: Transforms the scaled vector back from the eigenbasis to the standard basis.<br>Thus, $A$ effectively acts as a \"stretch\" along the directions of its eigenvectors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does diagonalization significantly simplify the computation of $A^k$ for large $k$?",
+      "back": "If $A$ is diagonalizable, then $A = PDP^{-1}$. Computing $A^k$ becomes:\n$$A^k = (PDP^{-1})(PDP^{-1})\\dots(PDP^{-1}) \\quad (k \\text{ times})$$\nSince $P^{-1}P = I$, all intermediate terms cancel out, leaving:\n$$A^k = PD^kP^{-1}$$\nComputing $D^k$ is trivial for a diagonal matrix $D = \\text{diag}(\\lambda_1, \\dots, \\lambda_n)$: it's simply $D^k = \\text{diag}(\\lambda_1^k, \\dots, \\lambda_n^k)$. This avoids repeated matrix multiplications of $A$.",
+      "difficulty": "hard"
+    }
+  ]
+}

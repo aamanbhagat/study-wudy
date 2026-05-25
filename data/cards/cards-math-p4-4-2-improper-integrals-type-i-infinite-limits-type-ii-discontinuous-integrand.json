@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-2-improper-integrals-type-i-infinite-limits-type-ii-discontinuous-integrand",
+  "subtopicTitle": "Improper integrals — Type I (infinite limits), Type II (discontinuous integrand)",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:29.705Z",
+  "cards": [
+    {
+      "front": "What are the two main characteristics that define an improper integral?",
+      "back": "An integral is improper if:\n1. At least one of its limits of integration is infinite ($-\\infty$ or $\\infty$). (Type I)\n2. The integrand has an infinite discontinuity at one or more points within the interval of integration. (Type II)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the improper integral $\\int_a^\\infty f(x) dx$ and state what it means for it to converge.",
+      "back": "$\\int_a^\\infty f(x) dx = \\lim_{t \\to \\infty} \\int_a^t f(x) dx$.\nThe integral converges if this limit exists as a finite number; otherwise, it diverges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate the improper integral $\\int_1^\\infty \\frac{1}{x^2} dx$.",
+      "back": "$$ \\int_1^\\infty \\frac{1}{x^2} dx = \\lim_{t \\to \\infty} \\int_1^t x^{-2} dx $$ \n$$ = \\lim_{t \\to \\infty} \\left[ -\\frac{1}{x} \\right]_1^t $$ \n$$ = \\lim_{t \\to \\infty} \\left( -\\frac{1}{t} - \\left(-\\frac{1}{1}\\right) \\right) $$ \n$$ = \\lim_{t \\to \\infty} \\left( 1 - \\frac{1}{t} \\right) = 1 - 0 = 1 $$ \nThe integral converges to 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the improper integral $\\int_a^b f(x) dx$ where $f(x)$ has an infinite discontinuity at $x=b$.",
+      "back": "If $f$ is continuous on $[a, b)$ and has an infinite discontinuity at $b$, then $\\int_a^b f(x) dx = \\lim_{t \\to b^-} \\int_a^t f(x) dx$. The integral converges if this limit exists as a finite number; otherwise, it diverges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate the improper integral $\\int_0^1 \\frac{1}{\\sqrt{x}} dx$.",
+      "back": "The integrand has an infinite discontinuity at $x=0$.\n$$ \\int_0^1 \\frac{1}{\\sqrt{x}} dx = \\lim_{t \\to 0^+} \\int_t^1 x^{-1/2} dx $$ \n$$ = \\lim_{t \\to 0^+} \\left[ 2\\sqrt{x} \\right]_t^1 $$ \n$$ = \\lim_{t \\to 0^+} (2\\sqrt{1} - 2\\sqrt{t}) $$ \n$$ = 2 - 2(0) = 2 $$ \nThe integral converges to 2.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the p-test for improper integrals of the form $\\int_1^\\infty \\frac{1}{x^p} dx$ and $\\int_0^1 \\frac{1}{x^p} dx$.",
+      "back": "1.  **Type I**: For $\\int_1^\\infty \\frac{1}{x^p} dx$:\n    *   Converges if $p > 1$.\n    *   Diverges if $p \\le 1$.\n2.  **Type II**: For $\\int_0^1 \\frac{1}{x^p} dx$ (discontinuity at $x=0$):\n    *   Converges if $p < 1$.\n    *   Diverges if $p \\ge 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the general strategy for evaluating an improper integral that has both infinite limits and infinite discontinuities within the interval, such as $\\int_0^\\infty \\frac{1}{x^2} dx$.",
+      "back": "1.  **Identify all points of impropriety**: Infinite limits ($\\pm \\infty$) and points where the integrand is discontinuous.\n2.  **Split the integral**: Break the original integral into a sum of simpler improper integrals, each with only *one* point of impropriety (either an infinite limit OR a single discontinuity at an endpoint). Choose an intermediate point $c$ (e.g., $c=1$ is often convenient). Example: $\\int_0^\\infty \\frac{1}{x^2} dx = \\int_0^1 \\frac{1}{x^2} dx + \\int_1^\\infty \\frac{1}{x^2} dx$.\n3.  **Evaluate each sub-integral independently**: Use limits for each part.\n4.  **Conclusion**: The original improper integral converges if *and only if* ALL of the sub-integrals converge. If even one sub-integral diverges, the entire integral diverges.",
+      "difficulty": "hard"
+    }
+  ]
+}

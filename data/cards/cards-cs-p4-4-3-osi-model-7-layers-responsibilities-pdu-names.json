@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-osi-model-7-layers-responsibilities-pdu-names",
+  "subtopicTitle": "OSI model — 7 layers, responsibilities, PDU names",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:21.482Z",
+  "cards": [
+    {
+      "front": "List the 7 layers of the OSI model from bottom to top.",
+      "back": "1. Physical\n2. Data Link\n3. Network\n4. Transport\n5. Session\n6. Presentation\n7. Application",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the PDU (Protocol Data Unit) names for the Physical, Data Link, and Network layers?",
+      "back": "Physical Layer: Bit\nData Link Layer: Frame\nNetwork Layer: Packet",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which OSI layer is responsible for logical addressing (e.g., IP addresses) and path determination (routing) across different networks?",
+      "back": "Network Layer (Layer 3).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the core responsibilities of the Transport Layer and its two main PDU names, differentiating between TCP and UDP.",
+      "back": "The Transport Layer ensures end-to-end communication, provides segmentation/reassembly of data, port addressing, flow control, and error recovery. Its PDU is a **Segment** for TCP and a **Datagram** for UDP.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the primary responsibilities of the Data Link Layer, and what common network device operates at this layer?",
+      "back": "The Data Link Layer handles physical addressing (MAC addresses), error detection and correction (within a link), framing of data, and flow control. Network switches commonly operate at this layer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When you browse a secure website (HTTPS), which OSI layer handles data encryption/decryption, which manages the communication dialog, and which provides the service protocol?",
+      "back": "Data encryption/decryption: **Presentation Layer** (Layer 6).\nManaging communication dialog/session: **Session Layer** (Layer 5).\nProviding the service protocol (HTTP/HTTPS): **Application Layer** (Layer 7).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the fundamental role of the Physical Layer in the OSI model, and what aspects does it define?",
+      "back": "The Physical Layer is responsible for the raw bit stream transmission over the physical medium. It defines electrical, mechanical, procedural, and functional specifications for activating, maintaining, and deactivating the physical link (e.g., voltage levels, cable types, connectors).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When data moves from the Application Layer down to the Physical Layer, what process occurs at each layer regarding headers and trailers?",
+      "back": "As data moves down the stack, each layer adds its own header (and sometimes a trailer for the Data Link layer) to the PDU it receives from the layer above. This process is called **encapsulation**. For example, the Transport layer adds a segment header, the Network layer adds an IP header, and the Data Link layer adds a frame header and trailer.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-infinite-limits-and-limits-at-infinity-vertical-horizontal-asymptotes",
+  "subtopicTitle": "Infinite limits and limits at infinity — vertical/horizontal asymptotes",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:43.478Z",
+  "cards": [
+    {
+      "front": "What does $\\lim_{x \\to a} f(x) = \\infty$ mean graphically and analytically?",
+      "back": "Graphically, $f(x)$ increases without bound as $x$ approaches $a$. Analytically, for any $M > 0$, there exists a $\\delta > 0$ such that if $0 < |x-a| < \\delta$, then $f(x) > M$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does $\\lim_{x \\to \\infty} f(x) = L$ mean graphically and analytically?",
+      "back": "Graphically, the graph of $f(x)$ approaches the horizontal line $y=L$ as $x$ increases without bound. Analytically, for any $\\epsilon > 0$, there exists an $N > 0$ such that if $x > N$, then $|f(x) - L| < \\epsilon$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do infinite limits relate to vertical asymptotes? State the condition for $x=a$ to be a VA.",
+      "back": "If $\\lim_{x \\to a^+} f(x) = \\pm \\infty$ or $\\lim_{x \\to a^-} f(x) = \\pm \\infty$, then the line $x=a$ is a vertical asymptote of $f(x)$. This typically occurs where the denominator of a rational function is zero and the numerator is non-zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do limits at infinity relate to horizontal asymptotes? State the condition for $y=L$ to be a HA.",
+      "back": "If $\\lim_{x \\to \\infty} f(x) = L$ or $\\lim_{x \\to -\\infty} f(x) = L$, then the line $y=L$ is a horizontal asymptote of $f(x)$. A function can have at most two horizontal asymptotes (one for $x \\to \\infty$ and one for $x \\to -\\infty$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find all vertical and horizontal asymptotes for $f(x) = \\frac{3x^2 - x + 1}{x^2 - 4}$.",
+      "back": "**Vertical Asymptotes:** Set denominator to zero: $x^2 - 4 = 0 \\implies (x-2)(x+2) = 0 \\implies x = 2, x = -2$. Since the numerator is non-zero at these points, $x=2$ and $x=-2$ are VAs.\n\n**Horizontal Asymptotes:** $\\lim_{x \\to \\pm \\infty} \\frac{3x^2 - x + 1}{x^2 - 4} = \\lim_{x \\to \\pm \\infty} \\frac{3 - 1/x + 1/x^2}{1 - 4/x^2} = \\frac{3-0+0}{1-0} = 3$. So, $y=3$ is a HA.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\lim_{x \\to 0} \\frac{1}{x^2}$ and $\\lim_{x \\to 0} \\frac{1}{x}$. Explain the difference.",
+      "back": "For $\\lim_{x \\to 0} \\frac{1}{x^2}$:\n$\\lim_{x \\to 0^+} \\frac{1}{x^2} = \\infty$\n$\\lim_{x \\to 0^-} \\frac{1}{x^2} = \\infty$\nSince both one-sided limits are $\\infty$, $\\lim_{x \\to 0} \\frac{1}{x^2} = \\infty$.\n\nFor $\\lim_{x \\to 0} \\frac{1}{x}$:\n$\\lim_{x \\to 0^+} \\frac{1}{x} = \\infty$\n$\\lim_{x \\to 0^-} \\frac{1}{x} = -\\infty$\nSince the one-sided limits are not equal, $\\lim_{x \\to 0} \\frac{1}{x}$ DNE.\n\nThe difference is due to the even power in the denominator of $1/x^2$ making the expression always positive near 0, whereas $1/x$ changes sign.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Determine all horizontal asymptotes for $f(x) = \\frac{e^x}{1 + e^x}$.",
+      "back": "**For $x \\to \\infty$:**\n$\\lim_{x \\to \\infty} \\frac{e^x}{1 + e^x} = \\lim_{x \\to \\infty} \\frac{e^x/e^x}{(1 + e^x)/e^x} = \\lim_{x \\to \\infty} \\frac{1}{1/e^x + 1} = \\frac{1}{0+1} = 1$. So $y=1$ is a HA.\n\n**For $x \\to -\\infty$:**\n$\\lim_{x \\to -\\infty} \\frac{e^x}{1 + e^x}$. As $x \\to -\\infty$, $e^x \\to 0$. So, $\\lim_{x \\to -\\infty} \\frac{e^x}{1 + e^x} = \\frac{0}{1+0} = 0$. So $y=0$ is a HA.\n\nThis function has two horizontal asymptotes: $y=0$ and $y=1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can a function's graph intersect its vertical asymptote? What about its horizontal asymptote?",
+      "back": "**Vertical Asymptote:** No, a function cannot intersect its vertical asymptote. A vertical asymptote occurs where the function is undefined (e.g., division by zero), meaning there is no y-value for that x-value.\n\n**Horizontal Asymptote:** Yes, a function can intersect or even cross its horizontal asymptote multiple times. The definition of a HA only describes the function's behavior as $x \\to \\pm \\infty$, not its behavior for finite $x$ values.",
+      "difficulty": "medium"
+    }
+  ]
+}

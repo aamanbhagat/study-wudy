@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-2-paging-page-frame-size-page-table-structure",
+  "subtopicTitle": "Paging — page/frame size, page table structure",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:06.698Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of paging in an operating system?",
+      "back": "Paging is a memory management scheme that allows the physical address space of a process to be non-contiguous. Its primary purpose is to enable virtual memory, allowing processes to use more memory than physically available, and to simplify memory allocation by eliminating external fragmentation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In paging, what is the relationship between 'page size' and 'frame size'?",
+      "back": "Page size refers to the fixed-size blocks into which a process's logical address space is divided. Frame size refers to the fixed-size blocks into which physical memory is divided. For paging to work, page size and frame size *must* be identical.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When a CPU generates a logical address in a paged system, what two components does the Memory Management Unit (MMU) separate it into for translation?",
+      "back": "The MMU separates a logical address into two components: the **page number (p)** and the **page offset (d)**. The page number identifies which page the address is in, and the page offset specifies the byte within that page.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary function of a page table, and where is it typically stored?",
+      "back": "The page table's primary function is to translate logical page numbers into physical frame numbers. Each process has its own page table. It is typically stored in main memory, and a dedicated CPU register (like the Page-Table Base Register, PTBR) points to its start.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Besides the frame number, list at least three other common fields found in a Page Table Entry (PTE) and their purpose.",
+      "back": "Common PTE fields include:\n1.  **Valid/Invalid bit:** Indicates if the page is currently in physical memory.\n2.  **Protection bits:** (e.g., read/write/execute) Control access permissions.\n3.  **Dirty/Modified bit:** Indicates if the page has been written to since being loaded.\n4.  **Reference/Accessed bit:** Indicates if the page has been accessed recently (for page replacement algorithms).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a logical address $A$, page size $S$, and a page table, write the formulas to derive the page number $p$ and page offset $d$, and then the physical address.",
+      "back": "Given logical address $A$ and page size $S$:\nPage number $p = \\lfloor A / S \\rfloor$\nPage offset $d = A \\pmod S$ (or $A - (p \\times S)$)\n\nTo find the physical address:\n1. Look up $p$ in the page table to find the corresponding frame number $f$.\n2. Physical address = $(f \\times S) + d$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A 32-bit logical address space uses a 4 KB page size. If each Page Table Entry (PTE) is 4 bytes, how many entries are in the page table and what is its total size?",
+      "back": "1.  **Number of possible pages:**\n    Logical address space = $2^{32}$ bytes.\n    Page size = 4 KB = $4 \\times 1024 = 2^{12}$ bytes.\n    Number of pages = $2^{32} / 2^{12} = 2^{20}$ pages.\n2.  **Page Table Size:**\n    Number of entries = $2^{20}$ entries.\n    PTE size = 4 bytes.\n    Total size = $2^{20} \\times 4$ bytes = $2^{20} \\times 2^2$ bytes = $2^{22}$ bytes = 4 MB.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does page size influence internal fragmentation, and what is the typical average internal fragmentation per process?",
+      "back": "Larger page sizes lead to *more* internal fragmentation. This is because processes rarely use memory in exact multiples of the page size; the last page allocated to a process will likely be partially empty. The typical average internal fragmentation per process is half a page.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is a single-level page table impractical for systems with large logical address spaces (e.g., 64-bit systems)?",
+      "back": "A single-level page table becomes impractically large. For a 64-bit system with 4KB pages and 8-byte PTEs, the page table would have $2^{64}/2^{12} = 2^{52}$ entries, totaling $2^{52} \\times 8 = 2^{55}$ bytes (32 petabytes!). Storing such a large table in contiguous physical memory is infeasible, and much of it would be empty for typical processes. This necessitates multi-level paging.",
+      "difficulty": "hard"
+    }
+  ]
+}

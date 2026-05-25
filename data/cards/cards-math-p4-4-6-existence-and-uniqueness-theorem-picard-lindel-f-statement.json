@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-existence-and-uniqueness-theorem-picard-lindel-f-statement",
+  "subtopicTitle": "Existence and uniqueness theorem — Picard-Lindelöf (statement)",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:51.838Z",
+  "cards": [
+    {
+      "front": "The Picard-Lindelöf theorem (also known as the Existence and Uniqueness Theorem) provides conditions for the existence and uniqueness of solutions to what type of differential equation problem?",
+      "back": "An Initial Value Problem (IVP) of the form $y' = f(t, y)$ with an initial condition $y(t_0) = y_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two main conclusions regarding the solution to an IVP that the Picard-Lindelöf theorem guarantees under its conditions?",
+      "back": "It guarantees both the **existence** of a solution and the **uniqueness** of that solution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the Picard-Lindelöf theorem to guarantee the **existence** of a solution to $y' = f(t,y)$, what is the fundamental condition required for the function $f(t,y)$?",
+      "back": "The function $f(t,y)$ must be **continuous** in some rectangle $R = [t_0 - a, t_0 + a] \\times [y_0 - b, y_0 + b]$ containing the initial point $(t_0, y_0)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond continuity, what specific condition on $f(t,y)$ with respect to $y$ is required by the Picard-Lindelöf theorem to guarantee the **uniqueness** of the solution?",
+      "back": "$f(t,y)$ must satisfy a **Lipschitz condition** with respect to $y$ in the rectangle $R$. That is, there exists a constant $L > 0$ such that for all $(t, y_1), (t, y_2) \\in R$, $|f(t, y_1) - f(t, y_2)| \\le L|y_1 - y_2|$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In practice, how is the Lipschitz condition for $f(t,y)$ with respect to $y$ often verified for the Picard-Lindelöf theorem?",
+      "back": "If the partial derivative $\\frac{\\partial f}{\\partial y}$ exists and is **continuous** in the rectangle $R$, then $f(t,y)$ satisfies a Lipschitz condition with respect to $y$ in $R$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the full Picard-Lindelöf Existence and Uniqueness Theorem for an Initial Value Problem $y' = f(t,y)$, $y(t_0) = y_0$.",
+      "back": "Let $f(t,y)$ be a function defined on a rectangle $R = [t_0 - a, t_0 + a] \\times [y_0 - b, y_0 + b]$ for some $a, b > 0$. If: 1. $f(t,y)$ is **continuous** on $R$. 2. $f(t,y)$ satisfies a **Lipschitz condition** with respect to $y$ on $R$. Then, there exists some $h > 0$ such that a **unique solution** $y(t)$ to the IVP $y' = f(t,y)$, $y(t_0) = y_0$ exists on the interval $(t_0 - h, t_0 + h)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "The Picard-Lindelöf theorem guarantees a unique solution on what kind of interval, relative to the initial point $t_0$?",
+      "back": "The unique solution is guaranteed to exist on some **open interval** $(t_0 - h, t_0 + h)$ for some $h > 0$. It does not guarantee existence for all $t$, only locally around $t_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an example of an IVP where $f(t,y)$ is continuous but does **not** satisfy a Lipschitz condition with respect to $y$, leading to non-uniqueness of solutions.",
+      "back": "Consider the IVP: $y' = \\sqrt{|y|}$, $y(0) = 0$. Here, $f(t,y) = \\sqrt{|y|}$, which is continuous at $(0,0)$. However, $\\frac{\\partial f}{\\partial y} = \\frac{1}{2\\sqrt{|y|}}$ (for $y \\ne 0$), which is unbounded as $y \\to 0$. Thus, $f(t,y)$ is not Lipschitz continuous with respect to $y$ in any rectangle containing $(0,0)$. Solutions include $y(t) = 0$ and $y(t) = \\frac{t^2}{4}$ (for $t \\ge 0$). Since both satisfy $y(0)=0$ and $y'=\\sqrt{|y|}$, uniqueness is violated.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-1-average-acceleration-vs-instantaneous-acceleration",
+  "subtopicTitle": "Average acceleration vs instantaneous acceleration",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:30.233Z",
+  "cards": [
+    {
+      "front": "Define average acceleration and provide its mathematical formula.",
+      "back": "Average acceleration ($\\vec{a}_{\\text{avg}}$) is the rate of change of velocity over a finite time interval. It is calculated as:\n$$ \\vec{a}_{\\text{avg}} = \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{\\vec{v}_f - \\vec{v}_i}{t_f - t_i} $$\nwhere $\\vec{v}_i$ and $\\vec{v}_f$ are the initial and final velocities, and $t_i$ and $t_f$ are the initial and final times, respectively.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define instantaneous acceleration and provide its mathematical formula.",
+      "back": "Instantaneous acceleration ($\\vec{a}(t)$) is the rate of change of velocity at a specific instant in time. It is the limit of average acceleration as the time interval approaches zero, which is the first derivative of velocity with respect to time:\n$$ \\vec{a}(t) = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{d\\vec{v}}{dt} $$\nIt is also the second derivative of the position vector with respect to time: $\\vec{a}(t) = \\frac{d^2\\vec{r}}{dt^2}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what specific condition is average acceleration equal to instantaneous acceleration for any given time interval?",
+      "back": "Average acceleration is equal to instantaneous acceleration for any time interval when the acceleration is constant. In this scenario, the velocity changes linearly with time, resulting in a constant slope on a velocity-time graph, meaning the average rate of change is always identical to the instantaneous rate of change.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "On a velocity-time graph, what does the instantaneous acceleration at a specific time represent?",
+      "back": "On a velocity-time graph, the instantaneous acceleration at a specific time represents the slope of the tangent line to the velocity curve at that exact point in time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "On a velocity-time graph, what does the average acceleration between two points in time represent?",
+      "back": "On a velocity-time graph, the average acceleration between two points in time represents the slope of the secant line connecting the two points on the velocity curve corresponding to those times.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If an object's position is given by $\\vec{r}(t) = (2t^3 - 4t)\\hat{i} + (6t^2 + 1)\\hat{j}$, derive its instantaneous acceleration $\\vec{a}(t)$.",
+      "back": "First, find the instantaneous velocity $\\vec{v}(t)$ by differentiating $\\vec{r}(t)$ with respect to time:\n$$ \\vec{v}(t) = \\frac{d\\vec{r}}{dt} = \\frac{d}{dt}(2t^3 - 4t)\\hat{i} + \\frac{d}{dt}(6t^2 + 1)\\hat{j} $$\n$$ \\vec{v}(t) = (6t^2 - 4)\\hat{i} + (12t)\\hat{j} $$\nNext, find the instantaneous acceleration $\\vec{a}(t)$ by differentiating $\\vec{v}(t)$ with respect to time:\n$$ \\vec{a}(t) = \\frac{d\\vec{v}}{dt} = \\frac{d}{dt}(6t^2 - 4)\\hat{i} + \\frac{d}{dt}(12t)\\hat{j} $$\n$$ \\vec{a}(t) = (12t)\\hat{i} + 12\\hat{j} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the SI units for acceleration, and is it a scalar or vector quantity?",
+      "back": "The SI units for acceleration are meters per second squared ($\\text{m/s}^2$). Acceleration is a vector quantity, meaning it has both magnitude and direction.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-4-implementing-numerical-integration-from-scratch-trapezoidal-simpson-s",
+  "subtopicTitle": "Implementing numerical integration from scratch — trapezoidal, Simpson's",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:08.914Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of numerical integration in scientific computing?",
+      "back": "To approximate the definite integral of a function $\\int_a^b f(x) \\, dx$, especially when an analytical solution is difficult or impossible to find, or when the function is only known at discrete data points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Geometrically, how does the Composite Trapezoidal Rule approximate the area under a curve?",
+      "back": "It divides the area under the curve into $N$ subintervals. Over each subinterval $[x_i, x_{i+1}]$, it approximates the function $f(x)$ with a straight line segment, forming a trapezoid. The total integral is the sum of the areas of these trapezoids.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the Composite Trapezoidal Rule for $\\int_a^b f(x) \\, dx$ using $N$ subintervals of width $h$.",
+      "back": "$$ \\int_a^b f(x) \\, dx \\approx \\frac{h}{2} [f(x_0) + 2\\sum_{i=1}^{N-1} f(x_i) + f(x_N)] $$ where $h = (b-a)/N$ and $x_i = a + i \\cdot h$ for $i=0, 1, \\dots, N$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement the core logic for the Composite Trapezoidal Rule in Python, given `f`, `a`, `b`, and `N`.",
+      "back": "```python\ndef trapezoidal_rule(f, a, b, N):\n    h = (b - a) / N\n    x = [a + i * h for i in range(N + 1)]\n    integral = (f(x[0]) + f(x[N])) / 2.0\n    for i in range(1, N):\n        integral += f(x[i])\n    return integral * h\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of polynomial approximation does Simpson's Rule use over each pair of subintervals to estimate the function?",
+      "back": "Simpson's Rule uses a quadratic polynomial (parabola) to approximate the function $f(x)$ over each pair of subintervals. This allows it to fit curves more accurately than the linear approximation of the Trapezoidal Rule.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the Composite Simpson's Rule for $\\int_a^b f(x) \\, dx$ using an *even* number of $N$ subintervals.",
+      "back": "$$ \\int_a^b f(x) \\, dx \\approx \\frac{h}{3} [f(x_0) + 4\\sum_{i=1}^{N/2} f(x_{2i-1}) + 2\\sum_{i=1}^{N/2-1} f(x_{2i}) + f(x_N)] $$ where $h = (b-a)/N$ and $x_i = a + i \\cdot h$. The sum with $4$ is for odd indices, and the sum with $2$ is for even indices.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement the core logic for the Composite Simpson's Rule in Python, given `f`, `a`, `b`, and `N` (assume `N` is even).",
+      "back": "```python\ndef simpsons_rule(f, a, b, N):\n    if N % 2 != 0:\n        raise ValueError(\"N must be an even integer for Simpson's Rule.\")\n    h = (b - a) / N\n    x = [a + i * h for i in range(N + 1)]\n    integral = f(x[0]) + f(x[N])\n    for i in range(1, N, 2): # Odd indices\n        integral += 4 * f(x[i])\n    for i in range(2, N - 1, 2): # Even indices\n        integral += 2 * f(x[i])\n    return integral * (h / 3.0)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the order of accuracy for the Composite Trapezoidal Rule and Composite Simpson's Rule in terms of step size $h$.",
+      "back": "*   **Composite Trapezoidal Rule:** $O(h^2)$\n*   **Composite Simpson's Rule:** $O(h^4)$\nThis indicates that Simpson's Rule converges much faster to the true integral value as the step size $h$ is reduced, making it generally more efficient for a given accuracy target.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the fundamental requirement for the number of subintervals $N$ when applying the Composite Simpson's Rule, and why?",
+      "back": "The number of subintervals $N$ must be an **even integer**. This is because Simpson's Rule approximates the function using a parabola, which requires three points (two subintervals) to define. Thus, it operates on pairs of subintervals, necessitating an even total count.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-4-tree-terminology-root-leaf-height-depth-degree-subtree",
+  "subtopicTitle": "Tree terminology — root, leaf, height, depth, degree, subtree",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:48.079Z",
+  "cards": [
+    {
+      "front": "In tree terminology, what is the **root** node?",
+      "back": "The root node is the topmost node in a tree structure. It is the only node that has no parent.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What defines a **leaf** node in a tree?",
+      "back": "A leaf node (or external node) is any node in a tree that has no children.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the **depth** of a node $v$ in a tree. What is the depth of the root node?",
+      "back": "The depth of a node $v$ is the number of edges on the path from the root node to $v$. Alternatively, it is the number of ancestors of $v$ (excluding $v$ itself).\n\nThe depth of the root node is $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the **height** of a node $v$ and the **height** of a tree.",
+      "back": "The height of a node $v$ is the number of edges on the longest path from $v$ to a leaf descendant.\n\nThe height of a tree is the height of its root node. If the tree is empty, its height is typically defined as $-1$ or $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the **degree** of a node $v$ and the **degree** of a tree?",
+      "back": "The degree of a node $v$ is the number of its direct children.\n\nThe degree of a tree is the maximum degree among all nodes in the tree.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What constitutes a **subtree** in a tree data structure?",
+      "back": "A subtree of a node $v$ consists of $v$ and all of its descendants. Essentially, if you consider any node $v$ and all nodes reachable from $v$ without going upwards, that forms a subtree rooted at $v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a tree with root 'A'. 'B' and 'C' are children of 'A'. 'D' is a child of 'B'. 'E' is a child of 'C'. 'F' is a child of 'E'.\n\n1. What is the depth of node 'F'?\n2. What is the height of node 'C'?\n3. What is the height of the tree?",
+      "back": "The tree structure is:\n```\n    A\n   / \\\n  B   C\n /     \\\nD       E\n         \\\n          F\n```\n1.  **Depth of node 'F'**: The path from root 'A' to 'F' is A -> C -> E -> F. This path has 3 edges. So, the depth of 'F' is $3$.\n2.  **Height of node 'C'**: The longest path from 'C' to a leaf descendant is C -> E -> F. This path has 2 edges. So, the height of 'C' is $2$.\n3.  **Height of the tree**: This is the height of the root 'A'. The longest path from 'A' to a leaf is A -> C -> E -> F. This path has 3 edges. So, the height of the tree is $3$.",
+      "difficulty": "hard"
+    }
+  ]
+}

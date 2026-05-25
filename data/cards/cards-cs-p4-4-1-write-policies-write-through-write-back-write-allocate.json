@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-write-policies-write-through-write-back-write-allocate",
+  "subtopicTitle": "Write policies — write-through, write-back, write-allocate",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:43.254Z",
+  "cards": [
+    {
+      "front": "In a cache, what is the primary characteristic of a 'write-through' policy regarding data updates?",
+      "back": "With a write-through policy, data is written *simultaneously* to both the cache and the main memory (or next-level memory) on every write operation. The write operation is considered complete only when both updates are finished.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the 'write-back' policy for cache writes, focusing on when main memory is updated.",
+      "back": "In a write-back policy, data is initially written *only* to the cache. A 'dirty' bit is set for the modified cache block. Main memory is updated only when this dirty cache block is *evicted* from the cache to make room for new data, or explicitly flushed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the main advantages and disadvantages of a write-through cache policy?",
+      "back": "Advantages: Simplicity (easier to implement), data consistency (main memory is always up-to-date, simplifying cache coherence), better for read-heavy workloads. Disadvantages: Slower writes (every write incurs main memory latency), higher memory bus traffic, can become a bottleneck.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the primary benefits and drawbacks of using a write-back cache policy.",
+      "back": "Advantages: Faster writes (writes to cache only, main memory writes are batched/deferred), lower memory bus traffic (multiple writes to the same block only write back once), better for write-heavy workloads. Disadvantages: Complexity (dirty bit management, eviction logic), potential for data inconsistency if the system crashes before dirty data is written back, more complex cache coherence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When a write miss occurs, what does a 'write-allocate' (or fetch-on-write) policy dictate?",
+      "back": "Upon a write miss, a write-allocate policy dictates that the entire cache block containing the target address is first *fetched from main memory* into the cache. Then, the write operation is performed on this newly loaded cache block, and it is typically marked dirty.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the 'no-write-allocate' (or write-no-allocate) policy for handling a write miss.",
+      "back": "When a write miss occurs, a no-write-allocate policy dictates that the data is *written directly to main memory* (or the next-level memory) and *not* loaded into the cache. The cache remains unchanged for that specific block.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which write-miss policy is typically paired with 'write-through' and why?",
+      "back": "Write-through is almost always paired with **no-write-allocate**. If a write miss occurs, the data is written directly to main memory (write-through's primary action). Loading the block into the cache (write-allocate) would be redundant if the subsequent access is not a read, and it adds unnecessary overhead and bus traffic for a policy that prioritizes main memory consistency.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which write-miss policy is typically paired with 'write-back' and why?",
+      "back": "Write-back is almost always paired with **write-allocate**. If a write miss occurs, the block is fetched into the cache (write-allocate), then the write is performed on the cache block, and it's marked dirty. This allows subsequent writes to the same block to hit in the cache, leveraging the write-back policy's benefit of deferring memory writes and reducing bus traffic.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do 'write-through' and 'write-back' policies impact the complexity of maintaining cache coherence in a multi-processor system?",
+      "back": "<ul><li><b>Write-Through:</b> Simplifies coherence because main memory is always up-to-date. Other caches can snoop on the bus and invalidate their copies if they see a write to a block they hold. No need to check for dirty blocks in other caches before reading from memory.</li><li><b>Write-Back:</b> Significantly increases coherence complexity. A block in one cache might be dirty (modified) and not yet written to main memory. Other caches or processors trying to read that block must be able to obtain the *latest* version from the dirty cache, not from stale main memory. This requires sophisticated protocols like MESI (Modified, Exclusive, Shared, Invalid) to track block states and ensure correct data propagation.</li></ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

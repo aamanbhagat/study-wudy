@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-converging-diverging-de-laval-nozzle-subsonic-supersonic-flow",
+  "subtopicTitle": "Converging-diverging (de Laval) nozzle — subsonic, supersonic flow",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:20.398Z",
+  "cards": [
+    {
+      "front": "What is a de Laval nozzle, and what is its primary purpose in rocket propulsion?",
+      "back": "A de Laval nozzle is a converging-diverging nozzle designed to accelerate hot, high-pressure gas (combustion products) to supersonic speeds, converting thermal energy into kinetic energy to generate thrust. Its primary purpose in rocket propulsion is to efficiently expand the exhaust gases.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the flow behavior (Mach number range) in the converging, throat, and diverging sections of a de Laval nozzle operating at its design condition.",
+      "back": "At design condition:\n- **Converging section:** Subsonic flow ($M < 1$) accelerates.\n- **Throat:** Sonic flow ($M = 1$) is achieved, provided the nozzle is choked.\n- **Diverging section:** Supersonic flow ($M > 1$) accelerates further.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is meant by 'choked flow' in a de Laval nozzle, and what critical condition must be met at the throat for this to occur?",
+      "back": "Choked flow occurs when the mass flow rate through the nozzle reaches its maximum possible value and cannot increase further, regardless of how much the back pressure is lowered. This condition is met when the flow velocity at the throat reaches the local speed of sound, i.e., the Mach number at the throat is $M_t = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the isentropic area-Mach number relation for a nozzle and explain its significance for the converging-diverging shape.",
+      "back": "The isentropic area-Mach number relation is:\n$$\\frac{A}{A^*} = \\frac{1}{M} \\left[ \\frac{2}{\\gamma+1} \\left( 1 + \\frac{\\gamma-1}{2} M^2 \\right) \\right]^{\\frac{\\gamma+1}{2(\\gamma-1)}}$$ \nwhere $A$ is the local area, $A^*$ is the throat (sonic) area, $M$ is the local Mach number, and $\\gamma$ is the ratio of specific heats.\n\n**Significance:** This equation shows that for $M < 1$, $A$ decreases as $M$ increases, requiring a converging section to accelerate subsonic flow. For $M > 1$, $A$ increases as $M$ increases, requiring a diverging section to accelerate supersonic flow. This mathematically justifies the de Laval nozzle's unique converging-diverging geometry.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After a de Laval nozzle has choked, what additional condition must be met for the flow to accelerate to supersonic speeds in the diverging section?",
+      "back": "After choking ($M=1$ at the throat), for the flow to accelerate to supersonic speeds in the diverging section, the back pressure ($P_b$) must be sufficiently low. Specifically, $P_b$ must be less than the critical pressure ratio that would cause a normal shock to form at the nozzle exit, and ideally equal to or lower than the design exit pressure ($P_e$) for shock-free supersonic flow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between an 'over-expanded' and 'under-expanded' de Laval nozzle, including the implications for thrust efficiency and the presence of shocks or expansion waves.",
+      "back": "- **Over-expanded nozzle:** The exit pressure ($P_e$) is lower than the ambient pressure ($P_a$). The flow expands too much inside the nozzle. This can lead to a normal shock forming inside the diverging section or oblique shocks outside the nozzle, reducing thrust and potentially causing flow separation.\n- **Under-expanded nozzle:** The exit pressure ($P_e$) is higher than the ambient pressure ($P_a$). The flow expands insufficiently inside the nozzle. Further expansion occurs via expansion waves outside the nozzle. While generally less detrimental than over-expansion, it still means the nozzle is not operating at peak efficiency for the given ambient conditions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write down the general thrust equation for a rocket engine, highlighting the two main components related to a de Laval nozzle's operation.",
+      "back": "The general thrust equation is:\n$$F = \\dot{m} V_e + (P_e - P_a) A_e$$ \nWhere:\n- $F$: Thrust\n- $\\dot{m} V_e$: **Momentum Thrust** (or velocity thrust), resulting from the mass flow rate ($\\dot{m}$) of exhaust gases accelerated to exit velocity ($V_e$) by the nozzle.\n- $(P_e - P_a) A_e$: **Pressure Thrust**, resulting from the pressure difference between the nozzle exit pressure ($P_e$) and the ambient pressure ($P_a$) acting over the nozzle exit area ($A_e$). A de Laval nozzle is designed to maximize $V_e$ and ideally match $P_e$ to $P_a$ for optimal pressure thrust.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why a diverging section is necessary to accelerate a flow to supersonic speeds, given that a converging nozzle accelerates subsonic flow.",
+      "back": "For subsonic flow, increasing velocity requires decreasing area (converging nozzle) because density changes are small, and the primary effect is to 'squeeze' the fluid. However, for supersonic flow, density changes become dominant. As a gas accelerates to supersonic speeds, its density drops significantly. To continue accelerating (i.e., further increase velocity), the flow needs more space to expand and accommodate this decreasing density. A diverging area provides this space, allowing the pressure to continue dropping and the velocity to increase further, unlike subsonic flow where a diverging section would slow it down.",
+      "difficulty": "medium"
+    }
+  ]
+}

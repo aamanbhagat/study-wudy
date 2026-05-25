@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-graph-definitions-directed-undirected-weighted-unweighted-simple-multigraph",
+  "subtopicTitle": "Graph definitions — directed, undirected, weighted, unweighted, simple, multigraph",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:16:53.924Z",
+  "cards": [
+    {
+      "front": "What are the two fundamental components that formally define any graph $G$?",
+      "back": "A graph $G$ is formally defined as an ordered pair $(V, E)$, where $V$ is a finite, non-empty set of vertices (or nodes) and $E$ is a set of edges (or links) connecting pairs of vertices.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an undirected graph, what characterizes the relationship between two connected vertices $u$ and $v$?",
+      "back": "In an undirected graph, an edge $(u, v)$ represents a symmetric relationship. This means if $u$ is connected to $v$, then $v$ is also connected to $u$. Edges are unordered pairs of vertices, so $(u, v)$ is identical to $(v, u)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does an edge $(u, v)$ in a directed graph (digraph) differ fundamentally from an edge $(u, v)$ in an undirected graph?",
+      "back": "In a directed graph, an edge $(u, v)$ (often denoted $u \\to v$) is an ordered pair, indicating a connection *from* vertex $u$ *to* vertex $v$. This does not imply a connection from $v$ to $u$. In an undirected graph, $(u, v)$ is an unordered pair, representing a bidirectional connection between $u$ and $v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a weighted graph and provide a simple Python example of how edge weights are typically represented in an adjacency list.",
+      "back": "A weighted graph is a graph where each edge (and sometimes vertices) has an associated numerical value called a \"weight\" or \"cost.\" These weights can represent distance, time, capacity, cost, etc.\n\nExample representation:\n```python\n# Adjacency list for a weighted graph\ngraph = {\n    'A': [('B', 10), ('C', 5)],\n    'B': [('D', 7)],\n    'C': [('B', 3), ('D', 12)],\n    'D': []\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the defining characteristic of an unweighted graph, and how does this simplify certain graph algorithms?",
+      "back": "An unweighted graph is one where edges have no associated numerical value; all edges are considered to have a uniform \"cost\" (often implicitly 1). This simplifies pathfinding algorithms like Breadth-First Search (BFS), which can directly find the shortest path in terms of the number of edges without needing to consider varying edge costs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What two specific properties must a graph satisfy to be classified as a \"simple graph\"?",
+      "back": "A graph is classified as a \"simple graph\" if it satisfies two properties:\n1.  It contains no loops (edges connecting a vertex to itself, e.g., $(v, v)$).\n2.  It contains no multiple edges (more than one edge connecting the same pair of distinct vertices, e.g., two distinct edges between $u$ and $v$).\nSimple graphs are typically undirected, though directed simple graphs also exist (no loops, no multiple directed edges from $u$ to $v$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a road network where one-way streets exist, and some intersections have multiple distinct routes directly connecting them (e.g., a bridge and a tunnel). Which graph type(s) would best model this scenario, and why?",
+      "back": "This scenario is best modeled by a **directed multigraph**.\n\n*   **Directed**: Because of one-way streets, the connection from intersection A to B does not necessarily imply a connection from B to A.\n*   **Multigraph**: Because there can be multiple distinct routes (edges) directly connecting the same two intersections (vertices), such as a bridge and a tunnel between the same two points. A simple graph would not allow these multiple edges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does a \"multigraph\" relax the constraints of a \"simple graph\"?",
+      "back": "A multigraph relaxes the constraints of a simple graph by allowing **multiple edges** (also called parallel edges) between the same pair of vertices. For example, if vertices $u$ and $v$ are connected by two distinct edges $e_1$ and $e_2$, it's a multigraph. While simple graphs strictly forbid multiple edges, multigraphs embrace them. Multigraphs may or may not allow loops, depending on the specific definition used, but their primary distinction is the allowance of multiple edges.",
+      "difficulty": "medium"
+    }
+  ]
+}

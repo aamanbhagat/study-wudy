@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-6-mass-budgets-dry-mass-wet-mass-margin",
+  "subtopicTitle": "Mass budgets — dry mass, wet mass, margin",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:27.626Z",
+  "cards": [
+    {
+      "front": "Define \"dry mass\" in the context of spacecraft.",
+      "back": "The total mass of a spacecraft *without* any propellants, expendables (e.g., attitude control gas, life support consumables), or jettisonable payload. It includes all permanent hardware: structures, propulsion system (tanks, engines), avionics, power system, thermal control, communication systems, and scientific instruments.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is \"wet mass\" defined for a spacecraft, and what is its relationship to dry mass?",
+      "back": "\"Wet mass\" is the total mass of a spacecraft *including* all propellants, expendables, and any jettisonable payload at a specific point in time (e.g., at launch). It is calculated as:\n$$M_{wet} = M_{dry} + M_{propellant} + M_{expendables}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is \"mass margin,\" and why is it crucial in spacecraft mass budgeting?",
+      "back": "Mass margin is an additional percentage of mass added to the estimated spacecraft mass (dry or wet) to account for uncertainties, design changes, and unforeseen growth during the development process. It's crucial because initial mass estimates are rarely exact, and without sufficient margin, a project risks exceeding its launch vehicle capacity or failing to meet performance requirements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A spacecraft has an estimated dry mass of $M_{dry,est}$. It requires $M_{propellant}$ and $M_{expendables}$. If a mass margin of $X\\%$ is applied to the *dry mass*, write the formula for the total budgeted wet mass ($M_{wet,budget}$).",
+      "back": "First, calculate the budgeted dry mass with margin:\n$$M_{dry,budget} = M_{dry,est} \\times (1 + \\frac{X}{100})$$\nThen, the total budgeted wet mass is:\n$$M_{wet,budget} = M_{dry,budget} + M_{propellant} + M_{expendables}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List at least five major subsystems whose mass contributes to a spacecraft's \"dry mass.\"",
+      "back": "Major subsystems contributing to dry mass include:\n1.  **Structures:** Frame, panels, adapters, mechanisms.\n2.  **Propulsion System (dry components):** Tanks (empty), engines, thrusters, plumbing, valves.\n3.  **Avionics & GNC:** Computers, sensors (star trackers, IMUs), navigation systems.\n4.  **Power System:** Solar arrays, batteries, power distribution units.\n5.  **Thermal Control System:** Radiators, heat pipes, insulation.\n6.  **Communication System:** Antennas, transponders, receivers.\n7.  **Payload:** Scientific instruments, cameras, communication relays.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how the typical percentage for mass margin evolves throughout the spacecraft design lifecycle, from conceptual design to critical design review (CDR).",
+      "back": "Mass margin typically decreases as the design matures and uncertainties are reduced:\n*   **Conceptual Design (Phase A/B):** High margin, often 20-30% or more.\n*   **Preliminary Design Review (PDR):** Margin reduces to 15-20% as major subsystems are defined.\n*   **Critical Design Review (CDR):** Margin further reduces to 5-10% as the design is largely \"frozen\" and detailed component selections are made.\n*   **Post-CDR/Launch:** Margin is typically very low (0-5%) or even negative if mass growth has occurred.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A spacecraft project experiences a significant mass overrun late in its development. What are the potential consequences for the mission and project?",
+      "back": "A significant mass overrun can have severe consequences:\n1.  **Launch Vehicle Compatibility:** May exceed the capacity of the planned launch vehicle, requiring a more expensive alternative or significant redesign.\n2.  **Performance Degradation:** Reduced propellant for maneuvers, shortening mission life, or limiting delta-V.\n3.  **Cost Increase:** Redesign, retesting, launch vehicle changes, and schedule delays all drive up project costs.\n4.  **Schedule Delays:** Redesign and re-manufacturing take time, delaying the launch.\n5.  **Mission Failure/Cancellation:** In extreme cases, the mission may be canceled if the mass cannot be controlled or accommodated.\n6.  **Reduced Redundancy/Reliability:** To shed mass, critical redundant components might be removed, increasing risk.",
+      "difficulty": "hard"
+    }
+  ]
+}

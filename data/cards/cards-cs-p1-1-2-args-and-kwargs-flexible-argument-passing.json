@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-args-and-kwargs-flexible-argument-passing",
+  "subtopicTitle": "*args and **kwargs — flexible argument passing",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:06.089Z",
+  "cards": [
+    {
+      "front": "What does `*args` allow a Python function to accept?",
+      "back": "`*args` allows a function to accept an arbitrary number of non-keyword (positional) arguments. These arguments are collected into a `tuple` inside the function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does `**kwargs` allow a Python function to accept?",
+      "back": "`**kwargs` allows a function to accept an arbitrary number of keyword arguments. These arguments are collected into a `dictionary` inside the function, where keys are argument names and values are their corresponding values.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `def calculate_sum(*numbers): ...`, how would you access the third number passed, and what Python type would `numbers` be inside the function?",
+      "back": "Inside the function, `numbers` would be a `tuple`. You would access the third number using `numbers[2]` (assuming at least three numbers were passed).\n```python\ndef calculate_sum(*numbers):\n    print(type(numbers)) # <class 'tuple'>\n    if len(numbers) >= 3:\n        print(f\"Third number: {numbers[2]}\")\ncalculate_sum(10, 20, 30, 40)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `def create_user(**details): ...`, how would you access the value associated with the key 'email', and what Python type would `details` be inside the function?",
+      "back": "Inside the function, `details` would be a `dictionary`. You would access the value for 'email' using `details['email']`.\n```python\ndef create_user(**details):\n    print(type(details)) # <class 'dict'>\n    if 'email' in details:\n        print(f\"User email: {details['email']}\")\ncreate_user(name=\"Alice\", email=\"alice@example.com\", age=30)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the `*` and `**` operators behave when used during a function *call* (not definition) to pass arguments from an iterable or a dictionary?",
+      "back": "When used during a function *call*:\n-   `*` unpacks an iterable (like a list or tuple) into individual positional arguments.\n    ```python\n    def greet(a, b, c): print(f\"{a} {b} {c}\")\n    words = [\"Hello\", \"world\", \"!\"]\n    greet(*words) # Calls greet(\"Hello\", \"world\", \"!\")\n    ```\n-   `**` unpacks a dictionary into keyword arguments, where dictionary keys become argument names.\n    ```python\n    def show_info(name, age): print(f\"{name} is {age} years old.\")\n    person_data = {'name': 'Bob', 'age': 25}\n    show_info(**person_data) # Calls show_info(name='Bob', age=25)\n    ```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the correct and mandatory order for defining parameters in a Python function signature when combining standard positional, `*args`, keyword-only, and `**kwargs` parameters?",
+      "back": "The correct and mandatory order is:\n1.  Standard positional arguments\n2.  `*args` (to collect additional positional arguments)\n3.  Keyword-only arguments (arguments defined after `*args` or a bare `*`)\n4.  `**kwargs` (to collect additional keyword arguments)\n\nExample:\n```python\ndef complex_func(pos_arg1, pos_arg2, *args, kw_only1, kw_only2='default', **kwargs):\n    pass\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the widely accepted naming conventions for the parameters that collect arbitrary positional and keyword arguments, and why are they important?",
+      "back": "The widely accepted naming conventions are `*args` for arbitrary positional arguments and `**kwargs` for arbitrary keyword arguments. They are important because they significantly improve code readability and maintainability, making it easier for other developers (and your future self) to understand the function's intent and how arguments are handled.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Beyond simply accepting a flexible number of arguments, describe a powerful use case for `*args` and `**kwargs` in function design.",
+      "back": "A powerful use case is creating \"wrapper\" functions or function decorators. These constructs need to accept any arbitrary arguments and then pass them on to another function without knowing the exact signature of that target function. This allows the wrapper to add functionality (e.g., logging, timing, validation) while preserving the original function's interface.\n```python\ndef log_execution(func):\n    def wrapper(*args, **kwargs):\n        print(f\"Executing {func.__name__} with args: {args}, kwargs: {kwargs}\")\n        result = func(*args, **kwargs)\n        print(f\"Finished {func.__name__}, result: {result}\")\n        return result\n    return wrapper\n\n@log_execution\ndef multiply(a, b, c=1):\n    return a * b * c\n\nmultiply(2, 3, c=4)\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

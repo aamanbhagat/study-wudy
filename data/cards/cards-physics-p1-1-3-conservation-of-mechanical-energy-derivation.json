@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-3-conservation-of-mechanical-energy-derivation",
+  "subtopicTitle": "Conservation of mechanical energy — derivation",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:57.696Z",
+  "cards": [
+    {
+      "front": "Define mechanical energy ($E_{mech}$) in terms of its components.",
+      "back": "$E_{mech} = K + U$, where $K$ is kinetic energy and $U$ is potential energy. It represents the sum of an object's kinetic and potential energies.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For potential energy to be defined and mechanical energy to be conserved (in the absence of non-conservative forces), what type of force must be acting?",
+      "back": "A conservative force. A conservative force is one for which the work done in moving an object between two points is independent of the path taken, and depends only on the initial and final positions. Examples include gravity and the spring force.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Work-Energy Theorem, relating net work and kinetic energy change.",
+      "back": "The Work-Energy Theorem states that the net work done on an object ($W_{net}$) is equal to the change in its kinetic energy ($\\Delta K$): $W_{net} = \\Delta K = K_f - K_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the work done by a conservative force ($W_c$) related to the change in potential energy ($\\Delta U$)?",
+      "back": "The work done by a conservative force is equal to the negative of the change in potential energy: $W_c = -\\Delta U = -(U_f - U_i) = U_i - U_f$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the principle of conservation of mechanical energy, starting from the Work-Energy Theorem and assuming only conservative forces do work.",
+      "back": "1. Start with the Work-Energy Theorem: $W_{net} = \\Delta K$.\n2. If only conservative forces do work, then $W_{net} = W_c$.\n3. Substitute the relationship between conservative work and potential energy: $W_c = -\\Delta U$.\n4. So, $-\\Delta U = \\Delta K$.\n5. Rearrange: $\\Delta K + \\Delta U = 0$.\n6. Since $\\Delta K = K_f - K_i$ and $\\Delta U = U_f - U_i$, we have $(K_f - K_i) + (U_f - U_i) = 0$.\n7. Rearrange further: $K_f + U_f = K_i + U_i$.\n8. This shows that the total mechanical energy ($E_{mech} = K + U$) remains constant: $E_{mech,f} = E_{mech,i}$, or $\\Delta E_{mech} = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Extend the derivation of mechanical energy conservation to include non-conservative forces, and state the condition under which mechanical energy is conserved.",
+      "back": "1. Start with the Work-Energy Theorem: $W_{net} = \\Delta K$.\n2. The net work is the sum of work done by conservative forces ($W_c$) and non-conservative forces ($W_{nc}$): $W_{net} = W_c + W_{nc}$.\n3. Substitute this into the Work-Energy Theorem: $W_c + W_{nc} = \\Delta K$.\n4. Substitute $W_c = -\\Delta U$: $-\\Delta U + W_{nc} = \\Delta K$.\n5. Rearrange: $W_{nc} = \\Delta K + \\Delta U$.\n6. Since $\\Delta K + \\Delta U = \\Delta E_{mech}$, we get $W_{nc} = \\Delta E_{mech}$.\n7. **Condition for Conservation:** Mechanical energy is conserved *if and only if* the net work done by non-conservative forces is zero ($W_{nc} = 0$). In this case, $\\Delta E_{mech} = 0$, meaning $E_{mech,f} = E_{mech,i}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Give two examples of conservative forces and two examples of non-conservative forces.",
+      "back": "Conservative forces: Gravitational force, Spring force (elastic force).\nNon-conservative forces: Friction (kinetic and static), Air resistance (drag), Applied push/pull (if it's not path-independent).",
+      "difficulty": "medium"
+    }
+  ]
+}

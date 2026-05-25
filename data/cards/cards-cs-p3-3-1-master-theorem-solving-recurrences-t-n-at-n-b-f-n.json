@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-1-master-theorem-solving-recurrences-t-n-at-n-b-f-n",
+  "subtopicTitle": "Master theorem — solving recurrences T(n) = aT(n/b) + f(n)",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:46.354Z",
+  "cards": [
+    {
+      "front": "The Master Theorem solves recurrences of the form $T(n) = aT(n/b) + f(n)$. What are the constraints on $a$, $b$, and $f(n)$?",
+      "back": "$a \\ge 1$ and $b > 1$ are constants. $f(n)$ is an asymptotically positive function (i.e., $f(n) > 0$ for sufficiently large $n$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the three cases of the Master Theorem for $T(n) = aT(n/b) + f(n)$ in terms of comparing $f(n)$ with $n^{\\log_b a}$.",
+      "back": "Let $p = \\log_b a$.\n1. If $f(n) = O(n^{p - \\epsilon})$ for some constant $\\epsilon > 0$, then $T(n) = \\Theta(n^p)$.\n2. If $f(n) = \\Theta(n^p)$, then $T(n) = \\Theta(n^p \\log n)$.\n3. If $f(n) = \\Omega(n^{p + \\epsilon})$ for some constant $\\epsilon > 0$, AND $af(n/b) \\le cf(n)$ for some constant $c < 1$ and all sufficiently large $n$, then $T(n) = \\Theta(f(n))$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Master Theorem to solve $T(n) = 3T(n/2) + n$. Identify the case.",
+      "back": "Here $a=3, b=2, f(n)=n$. We compare $f(n)$ with $n^{\\log_b a} = n^{\\log_2 3}$. Since $\\log_2 3 \\approx 1.58$, we compare $n$ with $n^{1.58}$.\nSince $n = O(n^{\\log_2 3 - \\epsilon})$ for $\\epsilon \\approx 0.58$, this is Case 1.\nTherefore, $T(n) = \\Theta(n^{\\log_2 3})$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Master Theorem to solve $T(n) = 2T(n/2) + n$. Identify the case.",
+      "back": "Here $a=2, b=2, f(n)=n$. We compare $f(n)$ with $n^{\\log_b a} = n^{\\log_2 2} = n^1 = n$.\nSince $f(n) = \\Theta(n)$, this is Case 2.\nTherefore, $T(n) = \\Theta(n \\log n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the Master Theorem to solve $T(n) = 2T(n/2) + n^2$. Identify the case and verify the regularity condition.",
+      "back": "Here $a=2, b=2, f(n)=n^2$. We compare $f(n)$ with $n^{\\log_b a} = n^{\\log_2 2} = n^1 = n$.\nSince $n^2 = \\Omega(n^{1+\\epsilon})$ for $\\epsilon=1$, this is Case 3.\nRegularity condition: Check if $af(n/b) \\le cf(n)$ for $c < 1$.\n$a f(n/b) = 2(n/2)^2 = 2(n^2/4) = n^2/2$.\nIs $n^2/2 \\le c n^2$ for some $c < 1$? Yes, for $c=1/2$.\nSince the condition holds, $T(n) = \\Theta(f(n)) = \\Theta(n^2)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the regularity condition $af(n/b) \\le cf(n)$ for $c<1$ necessary for Case 3 of the Master Theorem?",
+      "back": "Case 3 implies that the work done at the root level, $f(n)$, dominates the total cost. The regularity condition ensures that the work done at subsequent recursive levels ($af(n/b)$, $a^2f(n/b^2)$, etc.) decreases sufficiently fast. If this condition didn't hold, the sum of work at lower levels might grow too quickly, potentially exceeding $f(n)$ or even diverging, thus invalidating the assumption that $f(n)$ is the dominant term.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List two common scenarios where the Master Theorem cannot be directly applied.",
+      "back": "1. The function $f(n)$ is not polynomially larger/smaller/equal to $n^{\\log_b a}$ (e.g., $f(n) = n^{\\log_b a} \\log \\log n$, or a gap between cases).\n2. The regularity condition ($af(n/b) \\le cf(n)$ for $c<1$) for Case 3 is not met.\n3. The recurrence is not in the form $T(n) = aT(n/b) + f(n)$ (e.g., $T(n) = 2T(n-1) + n$, or $T(n) = T(n/2) + T(n/3) + n$).\n4. $a < 1$ or $b \\le 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Intuitively, what does each of the three cases of the Master Theorem imply about where most of the computational work is done in the recursion tree?",
+      "back": "Case 1: Most of the work is done at the leaves (base cases) of the recursion tree.\nCase 2: The work is distributed roughly evenly across all levels of the recursion tree.\nCase 3: Most of the work is done at the root (top level) of the recursion tree.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can the Master Theorem solve $T(n) = 2T(n/2) + n \\log n$? If not, why?",
+      "back": "No, the Master Theorem cannot directly solve this recurrence. Here $a=2, b=2$, so $n^{\\log_b a} = n^{\\log_2 2} = n$. We compare $f(n) = n \\log n$ with $n$.\n$f(n)$ is asymptotically larger than $n$, but it is not polynomially larger (i.e., $n \\log n \\ne \\Omega(n^{1+\\epsilon})$ for any $\\epsilon > 0$). This falls into a 'gap' between Case 2 and Case 3, where $f(n)$ is neither polynomially smaller/equal/larger than $n^{\\log_b a}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

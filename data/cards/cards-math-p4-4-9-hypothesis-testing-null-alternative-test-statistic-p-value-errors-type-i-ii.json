@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-hypothesis-testing-null-alternative-test-statistic-p-value-errors-type-i-ii",
+  "subtopicTitle": "Hypothesis testing — null/alternative, test statistic, p-value, errors (Type I & II)",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:46.395Z",
+  "cards": [
+    {
+      "front": "Define the null hypothesis ($H_0$) and the alternative hypothesis ($H_1$ or $H_a$).",
+      "back": "The **null hypothesis ($H_0$)** is a statement of no effect, no difference, or the status quo, assumed true until evidence suggests otherwise. The **alternative hypothesis ($H_1$ or $H_a$)** is the statement we hope to find evidence for, contradicting $H_0$. It represents the effect or difference we are trying to detect.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A new drug claims to reduce blood pressure. Write $H_0$ and $H_1$ for testing if it *reduces* pressure, and if it *changes* pressure.",
+      "back": "Let $\\mu$ be the mean change in blood pressure.\n1.  **Reduces pressure (one-sided):** $H_0: \\mu = 0$ (no change), $H_1: \\mu < 0$ (reduction).\n2.  **Changes pressure (two-sided):** $H_0: \\mu = 0$ (no change), $H_1: \\mu \\neq 0$ (change).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a **test statistic** in hypothesis testing, and what is its fundamental role?",
+      "back": "A value calculated from sample data during a hypothesis test. It quantifies how far our observed sample result deviates from what we would expect if the null hypothesis ($H_0$) were true, often in standardized units (e.g., standard errors). It's used to make a decision about $H_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the **p-value**. If a test yields $p = 0.015$ and the significance level $\\alpha = 0.05$, what is the conclusion?",
+      "back": "The **p-value** is the probability of observing a test statistic as extreme as, or more extreme than, the one calculated from the sample data, *assuming the null hypothesis ($H_0$) is true*.\nSince $p = 0.015 < \\alpha = 0.05$, we **reject the null hypothesis ($H_0$)**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a **Type I error** in hypothesis testing. What is its probability, and what is the common notation for this probability?",
+      "back": "A **Type I error** occurs when we *reject a true null hypothesis ($H_0$)*. It is often called a \"false positive\". The probability of committing a Type I error is denoted by $\\alpha$, which is also the chosen significance level of the test.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a **Type II error** in hypothesis testing. What is its probability, and what is the common notation for this probability?",
+      "back": "A **Type II error** occurs when we *fail to reject a false null hypothesis ($H_0$)*. It is often called a \"false negative\". The probability of committing a Type II error is denoted by $\\beta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the general relationship between the probabilities of Type I error ($\\alpha$) and Type II error ($\\beta$) for a fixed sample size.",
+      "back": "For a fixed sample size, there is an inverse relationship:\n*   Decreasing $\\alpha$ (making the test more stringent, requiring stronger evidence to reject $H_0$) will generally *increase* $\\beta$.\n*   Increasing $\\alpha$ (making the test less stringent) will generally *decrease* $\\beta$.\nYou cannot reduce both simultaneously without increasing the sample size or improving the test's design.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the **power of a hypothesis test**. How is it related to Type II error, and why is it important?",
+      "back": "The **power of a test** is the probability of *correctly rejecting a false null hypothesis ($H_0$)*. It measures the test's ability to detect an effect when one truly exists.\nIt is related to the Type II error probability ($\\beta$) by the formula: $\\text{Power} = 1 - \\beta$.\nIt is important because a high-power test is more likely to detect a real effect, reducing the chance of a \"false negative\".",
+      "difficulty": "hard"
+    }
+  ]
+}

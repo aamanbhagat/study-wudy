@@ -1,0 +1,60 @@
+{
+  "subtopicId": "physics-p3-3-2-conservation-of-energy-and-angular-momentum-in-gravitational-field",
+  "subtopicTitle": "Conservation of energy and angular momentum in gravitational field",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:42.785Z",
+  "cards": [
+    {
+      "front": "What is the formula for gravitational potential energy $U$ between two masses $m_1$ and $m_2$ separated by distance $r$?",
+      "back": "The gravitational potential energy $U$ is given by: $$U = -\\frac{G m_1 m_2}{r}$$ where $G$ is the gravitational constant. The negative sign indicates that gravity is an attractive force and the zero potential is defined at infinite separation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the total mechanical energy $E$ of an orbiting body and state its conservation principle in an ideal two-body system.",
+      "back": "The total mechanical energy $E$ is the sum of its kinetic energy $K$ and gravitational potential energy $U$: $$E = K + U = \\frac{1}{2} m v^2 - \\frac{G M m}{r}$$ In an ideal two-body system under only conservative gravitational forces, the total mechanical energy $E$ is conserved.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the physical implication of the conservation of total mechanical energy $E$ for an orbiting body in a two-body system.",
+      "back": "Conservation of $E$ means that throughout an orbit, the sum of kinetic and potential energy remains constant. If the orbiting body moves closer to the central body ($r$ decreases, $U$ becomes more negative), its kinetic energy must increase (speeding up). Conversely, if it moves farther away ($r$ increases, $U$ becomes less negative), its kinetic energy must decrease (slowing down). Energy is continuously exchanged between kinetic and potential forms.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the angular momentum $\\vec{L}$ of a point mass $m$ with position vector $\\vec{r}$ and linear momentum $\\vec{p}$ relative to an origin.",
+      "back": "Angular momentum $\\vec{L}$ is defined as the cross product of the position vector $\\vec{r}$ and the linear momentum $\\vec{p}$: $$\\vec{L} = \\vec{r} \\times \\vec{p} = \\vec{r} \\times (m\\vec{v})$$ Its magnitude is $L = r p \\sin\\theta = r m v \\sin\\theta$, where $\\theta$ is the angle between $\\vec{r}$ and $\\vec{v}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what condition is the angular momentum $\\vec{L}$ of an orbiting body conserved, and what is its physical implication in a central force field?",
+      "back": "Angular momentum $\\vec{L}$ is conserved if the net external torque $\\vec{\\tau}$ acting on the system is zero (i.e., $\\vec{\\tau} = \\frac{d\\vec{L}}{dt} = 0$). In a central gravitational field, the gravitational force acts along the line connecting the two bodies, producing no torque about the center of mass. This conservation implies two key things: 1) The orbit lies in a fixed plane perpendicular to the constant angular momentum vector. 2) The orbiting body sweeps out equal areas in equal times (Kepler's Second Law).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for specific mechanical energy $\\epsilon$ (energy per unit mass) for an orbiting body and state its significance.",
+      "back": "The total mechanical energy $E = \\frac{1}{2} m v^2 - \\frac{G M m}{r}$.\nSpecific mechanical energy $\\epsilon$ is $E$ divided by the orbiting mass $m$: $$\\epsilon = \\frac{E}{m} = \\frac{1}{2} v^2 - \\frac{G M}{r}$$ This quantity is constant for a given orbit and its value determines the *type* of orbit (elliptic, parabolic, hyperbolic). For a bound (elliptic) orbit, $\\epsilon = -\\frac{G M}{2a}$, where $a$ is the semi-major axis.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for specific angular momentum $\\vec{h}$ (angular momentum per unit mass) and explain its significance for orbital geometry.",
+      "back": "Angular momentum $\\vec{L} = \\vec{r} \\times (m\\vec{v})$.\nSpecific angular momentum $\\vec{h}$ is $\\vec{L}$ divided by the orbiting mass $m$: $$\\vec{h} = \\frac{\\vec{L}}{m} = \\vec{r} \\times \\vec{v}$$ $\\vec{h}$ is a constant vector for a two-body system under gravity. Its direction defines the orbital plane, which remains fixed in space. Its magnitude $h$ is crucial in determining the shape (eccentricity) and size of the orbit (e.g., the semi-latus rectum $p = h^2 / (GM)$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the sign of the specific mechanical energy $\\epsilon$ determine the type of orbit (elliptic, parabolic, hyperbolic)?",
+      "back": "The sign of the specific mechanical energy $\\epsilon$ dictates the orbital trajectory:\n*   If $\\epsilon < 0$: The orbit is **elliptic** (or circular). The body is gravitationally bound to the central mass and will repeatedly return.\n*   If $\\epsilon = 0$: The orbit is **parabolic**. The body has exactly the escape velocity and will escape the gravitational field, reaching infinity with zero residual velocity.\n*   If $\\epsilon > 0$: The orbit is **hyperbolic**. The body has more than escape velocity and will escape the gravitational field, reaching infinity with a positive residual velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a fixed specific mechanical energy $\\epsilon < 0$ (bound orbit), how does the magnitude of the specific angular momentum $h$ affect the shape (eccentricity) of the orbit?",
+      "back": "For a fixed negative specific mechanical energy $\\epsilon$, the semi-major axis $a = -GM/(2\\epsilon)$ is constant. The eccentricity $e$ is given by $e = \\sqrt{1 + \\frac{2\\epsilon h^2}{(GM)^2}}$.\n*   A *higher* magnitude of specific angular momentum $h$ leads to a *lower* eccentricity, resulting in a more circular orbit.\n*   A *lower* magnitude of $h$ leads to a *higher* eccentricity, resulting in a more elongated (elliptical) orbit. The minimum $h=0$ corresponds to a purely radial fall ($e=1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What aspect of the specific angular momentum vector $\\vec{h}$ directly determines the orientation of an orbital plane in space, and why is this significant?",
+      "back": "The *direction* of the specific angular momentum vector $\\vec{h}$ is always perpendicular to the orbital plane. Since $\\vec{h}$ is conserved (constant in direction and magnitude) in a central gravitational field, the orbital plane itself is fixed in inertial space. This is significant because it means a spacecraft's orbit will maintain its initial tilt and orientation relative to a fixed reference frame unless acted upon by external torques (e.g., thrust maneuvers, atmospheric drag, or gravitational perturbations from other celestial bodies).",
+      "difficulty": "medium"
+    }
+  ]
+}

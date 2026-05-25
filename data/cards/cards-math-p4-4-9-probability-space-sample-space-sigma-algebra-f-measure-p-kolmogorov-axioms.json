@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-probability-space-sample-space-sigma-algebra-f-measure-p-kolmogorov-axioms",
+  "subtopicTitle": "Probability space — sample space Ω, sigma-algebra F, measure P — Kolmogorov axioms",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:51.640Z",
+  "cards": [
+    {
+      "front": "Define a probability space.",
+      "back": "A probability space is a triplet $(\\Omega, \\mathcal{F}, P)$, where:\n1.  $\\Omega$ (Omega) is the sample space.\n2.  $\\mathcal{F}$ is a $\\sigma$-algebra (sigma-algebra) of subsets of $\\Omega$, whose elements are called events.\n3.  $P$ is a probability measure on $(\\Omega, \\mathcal{F})$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the sample space $\\Omega$ in a probability space, and what are its elements?",
+      "back": "The sample space $\\Omega$ is the set of all possible outcomes of a random experiment. Its elements, $\\omega \\in \\Omega$, are called elementary outcomes or sample points. For example, if you toss a fair coin twice, $\\Omega = \\{HH, HT, TH, TT\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a $\\sigma$-algebra $\\mathcal{F}$ on a sample space $\\Omega$ and explain its purpose.",
+      "back": "A $\\sigma$-algebra $\\mathcal{F}$ is a non-empty collection of subsets of $\\Omega$ satisfying the following properties:\n1.  $\\emptyset \\in \\mathcal{F}$ (and thus $\\Omega \\in \\mathcal{F}$).\n2.  If $A \\in \\mathcal{F}$, then its complement $A^c \\in \\mathcal{F}$.\n3.  If $A_1, A_2, \\dots$ is a countable sequence of sets in $\\mathcal{F}$, then their union $\\bigcup_{i=1}^\\infty A_i \\in \\mathcal{F}$.\nIts purpose is to define the collection of \"measurable events\" for which we can assign a probability. Not all subsets of $\\Omega$ might be assignable a probability, especially in infinite spaces.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a sample space $\\Omega = \\{a, b, c\\}$, construct the smallest $\\sigma$-algebra $\\mathcal{F}$ that contains the set $\\{a\\}$.",
+      "back": "To construct the smallest $\\sigma$-algebra $\\mathcal{F}$ containing $\\{a\\}$:\n1.  By definition, $\\mathcal{F}$ must contain $\\emptyset$ and $\\Omega = \\{a, b, c\\}$.\n2.  It must contain $\\{a\\}$ (given).\n3.  If $\\{a\\} \\in \\mathcal{F}$, then its complement $\\{a\\}^c = \\{b, c\\}$ must also be in $\\mathcal{F}$.\n4.  All countable unions and intersections of these sets must be in $\\mathcal{F}$.\n    $\\emptyset \\cup \\{a\\} = \\{a\\}$\n    $\\emptyset \\cup \\{b, c\\} = \\{b, c\\}$\n    $\\{a\\} \\cup \\{b, c\\} = \\{a, b, c\\} = \\Omega$\n    All these are already included.\nThus, the smallest $\\sigma$-algebra is $\\mathcal{F} = \\{\\emptyset, \\{a\\}, \\{b, c\\}, \\{a, b, c\\}\\}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define a probability measure $P$ on a measurable space $(\\Omega, \\mathcal{F})$.",
+      "back": "A probability measure $P$ is a function $P: \\mathcal{F} \\to [0, 1]$ that assigns a probability to each event $A \\in \\mathcal{F}$, satisfying the three Kolmogorov axioms.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the first two Kolmogorov axioms for a probability measure $P$.",
+      "back": "For any event $A \\in \\mathcal{F}$:\n1.  **Non-negativity**: $P(A) \\ge 0$. (The probability of any event is a non-negative real number.)\n2.  **Normalization**: $P(\\Omega) = 1$. (The probability of the sample space, which represents all possible outcomes, is 1.)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the third Kolmogorov axiom (countable additivity) and explain its significance.",
+      "back": "For any countable sequence of pairwise disjoint events $A_1, A_2, \\dots \\in \\mathcal{F}$ (i.e., $A_i \\cap A_j = \\emptyset$ for $i \\ne j$):\n$$P\\left(\\bigcup_{i=1}^\\infty A_i\\right) = \\sum_{i=1}^\\infty P(A_i)$$\n**Significance**: This axiom is crucial for dealing with infinite sample spaces (both countably infinite and uncountably infinite). It ensures that the probability of a union of infinitely many disjoint events is the sum of their individual probabilities, which is fundamental for constructing probability distributions for continuous random variables and for convergence concepts in probability theory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using Kolmogorov axioms, prove that $P(\\emptyset) = 0$.",
+      "back": "We know that $\\Omega$ and $\\emptyset$ are disjoint events, and their union is $\\Omega$, i.e., $\\Omega \\cup \\emptyset = \\Omega$. \n\nBy the third Kolmogorov axiom (countable additivity), for any countable sequence of pairwise disjoint events $A_1, A_2, \\dots \\in \\mathcal{F}$, $P(\\bigcup_{i=1}^\\infty A_i) = \\sum_{i=1}^\\infty P(A_i)$.\n\nConsider the sequence of disjoint events $A_1 = \\Omega$, $A_2 = \\emptyset$, $A_3 = \\emptyset$, and so on. \nThen $\\bigcup_{i=1}^\\infty A_i = \\Omega \\cup \\emptyset \\cup \\emptyset \\cup \\dots = \\Omega$.\n\nApplying the third axiom:\n$P(\\Omega) = P(\\Omega) + P(\\emptyset) + P(\\emptyset) + \\dots$\n\nFrom the second Kolmogorov axiom (Normalization), $P(\\Omega) = 1$. Substituting this into the equation:\n$1 = 1 + P(\\emptyset) + P(\\emptyset) + \\dots$\n\nSubtracting 1 from both sides gives:\n$0 = P(\\emptyset) + P(\\emptyset) + \\dots$\n\nFrom the first Kolmogorov axiom (Non-negativity), $P(\\emptyset) \\ge 0$. The only way a sum of non-negative numbers can be zero is if each term is zero. Therefore, $P(\\emptyset) = 0$.",
+      "difficulty": "hard"
+    }
+  ]
+}

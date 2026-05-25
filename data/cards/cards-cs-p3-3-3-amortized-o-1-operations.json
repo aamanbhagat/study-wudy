@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-3-amortized-o-1-operations",
+  "subtopicTitle": "Amortized O(1) operations",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:52.235Z",
+  "cards": [
+    {
+      "front": "In the context of data structures, what does it mean for an operation to have an 'amortized O(1)' time complexity?",
+      "back": "It means that while individual operations might occasionally take longer (e.g., O(N)), the average cost over a sequence of many operations is constant, or O(1). The total cost of $k$ operations is $O(k)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify a common operation in dynamic arrays (like Python's `list` or Java's `ArrayList`) that exhibits amortized O(1) time complexity.",
+      "back": "Appending an element to the end of the array. Most appends are O(1), but when the underlying array runs out of space, a new, larger array must be allocated and all existing elements copied over, which is an O(N) operation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do hash tables (e.g., Python `dict`, Java `HashMap`) achieve amortized O(1) time for insertions and deletions, despite occasional O(N) operations?",
+      "back": "They use dynamic resizing (rehashing). When the load factor exceeds a certain threshold, the hash table's underlying array is expanded (e.g., doubled), and all existing key-value pairs are rehashed and reinserted into the new, larger array. This expensive O(N) operation is infrequent, making the average cost O(1).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the 'load factor' in a hash table and explain its critical role in maintaining amortized O(1) performance.",
+      "back": "The load factor, denoted $\\alpha$, is the ratio of the number of elements ($n$) to the total number of available buckets ($m$) in the hash table: $\\alpha = \\frac{n}{m}$. When $\\alpha$ exceeds a predefined threshold (e.g., 0.7 or 0.75), the hash table is resized to a larger capacity, preventing excessive collisions and preserving the average O(1) time complexity for operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why an O(N) hash table resize operation, when the table doubles in size, still results in an amortized O(1) cost per insertion.",
+      "back": "Consider a hash table that doubles its size from $M$ to $2M$ when it becomes full (i.e., has $M$ elements). This resize costs $O(M)$ to rehash all $M$ elements. However, this resize only occurs after $M/2$ *new* insertions have taken place since the *previous* resize (when it went from $M/2$ to $M$). Thus, the $O(M)$ cost is spread across $M/2$ insertions, leading to an average cost of $\\frac{O(M)}{M/2} = O(1)$ per insertion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the worst-case time complexity for a *single* insertion into a dynamically resizing hash table, and when does it occur?",
+      "back": "The worst-case time complexity for a single insertion is $O(N)$, where $N$ is the number of elements currently in the hash table. This occurs when the insertion triggers a resize operation (rehashing all $N$ existing elements into a new, larger array) AND potentially involves a collision that requires traversing a long linked list or probing sequence (if using separate chaining or open addressing).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly describe the 'accounting method' for amortized analysis and how it can be applied to demonstrate the amortized O(1) cost of hash table insertions with resizing.",
+      "back": "The accounting method assigns a 'credit' to each operation. For hash table insertions:\n1. Each insertion costs 1 unit to perform the actual insert.\n2. An additional 2 units (credits) are 'saved' for the future.\nWhen a resize occurs (doubling the table size from $M$ to $2M$ for $M$ elements):\n* The $M$ rehashes cost $M$ units.\n* These $M$ units are paid for by the $M/2$ insertions that occurred since the last resize, each having saved 2 credits ($M/2 \\times 2 = M$ credits).\nThus, each insertion effectively 'pays' 3 units (1 for itself, 2 for future rehashes), ensuring enough credit is available for expensive resizes, resulting in an amortized O(1) cost.",
+      "difficulty": "hard"
+    }
+  ]
+}

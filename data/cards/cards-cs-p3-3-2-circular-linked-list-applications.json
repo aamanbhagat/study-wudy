@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-2-circular-linked-list-applications",
+  "subtopicTitle": "Circular linked list — applications",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:44.887Z",
+  "cards": [
+    {
+      "front": "What is a fundamental advantage of a circular linked list when managing a sequence of items that requires continuous, cyclic processing?",
+      "back": "Its ability to seamlessly transition from the last item directly back to the first, eliminating the need for special end-of-list checks and simplifying logic for repetitive loops.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a circular linked list facilitate the implementation of a round-robin CPU scheduling algorithm?",
+      "back": "Each node represents a process. The scheduler maintains a pointer to the current process. After a time slice, it advances the pointer to the `next` node. The circular nature ensures that when the \"last\" process finishes its turn, the scheduler naturally cycles back to the \"first\" process, providing fair, continuous resource allocation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a circular linked list simplifies the \"loop all\" feature in a music or video playlist.",
+      "back": "Each song/video is a node. When the player reaches the last node in the list, the circular structure automatically points back to the first node. This allows for continuous playback without needing explicit conditional checks to reset the playlist pointer or handle the end of the list separately.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the role of a circular linked list in implementing a circular buffer for I/O operations.",
+      "back": "A circular linked list can model a fixed-size circular buffer where nodes store data blocks. It uses \"head\" (read) and \"tail\" (write) pointers that traverse the circle. When the buffer is full, new writes at the tail overwrite old data at the head, ensuring continuous data flow without needing to shift elements, which is efficient for streaming I/O.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the Josephus Problem, where people are eliminated in a circle, how does a circular linked list provide a natural and efficient data structure for simulation?",
+      "back": "The circular linked list directly models the circle of people. Each node represents a person. Simulating elimination involves traversing $k-1$ nodes from a starting point and then deleting the $k$-th node. The list's circularity simplifies finding the \"next\" person after an elimination, even when wrapping around the shrinking circle, until only one node (person) remains.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When implementing a queue using a circular linked list, what single pointer is typically maintained to ensure $O(1)$ enqueue and dequeue operations?",
+      "back": "A pointer to the **last node** (or tail) of the circular linked list.\n*   **Enqueue:** A new node is inserted after `last`, and `last` is updated to point to the new node. (`last->next` still points to the head).\n*   **Dequeue:** The node `last->next` (which is the head) is removed. The new head becomes `last->next->next`.\nBoth operations are constant time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a fixed-size history mechanism (e.g., an undo/redo buffer), argue why a circular linked list might be a better choice than a standard doubly linked list or a dynamic array.",
+      "back": "A circular linked list inherently handles the \"wrap-around\" logic for a fixed-size buffer. When the buffer is full, new additions naturally overwrite the oldest entry without complex shifting (like in an array) or explicit end-of-list checks and re-linking (like in a standard doubly linked list). It provides $O(1)$ insertion and deletion at both ends (or anywhere, given a pointer), making it efficient for managing a rolling window of history.",
+      "difficulty": "hard"
+    }
+  ]
+}

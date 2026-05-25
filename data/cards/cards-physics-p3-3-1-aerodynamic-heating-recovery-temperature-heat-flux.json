@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-aerodynamic-heating-recovery-temperature-heat-flux",
+  "subtopicTitle": "Aerodynamic heating — recovery temperature, heat flux",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:36.947Z",
+  "cards": [
+    {
+      "front": "Define aerodynamic heating and state its primary cause.",
+      "back": "Aerodynamic heating is the temperature rise of a body moving through a fluid due to the conversion of kinetic energy into internal energy within the boundary layer. It's primarily caused by viscous dissipation (friction) and adiabatic compression of the fluid.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define recovery temperature ($T_r$) and provide its general formula in terms of static temperature ($T_{\\infty}$) and recovery factor ($r$).",
+      "back": "Recovery temperature ($T_r$) is the temperature an adiabatic wall would reach when exposed to a moving fluid. It represents the equilibrium temperature where no net heat transfer occurs between the fluid and the wall.\n$$T_r = T_{\\infty} \\left(1 + r \\frac{\\gamma-1}{2} M^2 \\right)$$\nwhere $T_{\\infty}$ is static temperature, $r$ is the recovery factor, $\\gamma$ is the ratio of specific heats, and $M$ is the Mach number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the recovery factor ($r$) typically vary for laminar versus turbulent boundary layers in air?",
+      "back": "The recovery factor ($r$) depends on the boundary layer type and the Prandtl number ($Pr$).\n*   For **laminar flow**: $r \\approx \\sqrt{Pr}$\n*   For **turbulent flow**: $r \\approx \\sqrt[3]{Pr}$\nFor air, $Pr \\approx 0.72$.\n*   Laminar: $r \\approx \\sqrt{0.72} \\approx 0.85$\n*   Turbulent: $r \\approx \\sqrt[3]{0.72} \\approx 0.89$\nTurbulent boundary layers generally recover more of the kinetic energy as heat.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between recovery temperature ($T_r$) and stagnation temperature ($T_0$), and identify when they are equal.",
+      "back": "Stagnation temperature ($T_0$) is the temperature achieved when a fluid is brought to rest *isentropically* (without viscous effects). Recovery temperature ($T_r$) is the temperature achieved at an adiabatic wall due to viscous effects within the boundary layer.\nThe formula for stagnation temperature is:\n$$T_0 = T_{\\infty} \\left(1 + \\frac{\\gamma-1}{2} M^2 \\right)$$\nComparing with $T_r = T_{\\infty} \\left(1 + r \\frac{\\gamma-1}{2} M^2 \\right)$, $T_r = T_0$ only when $r=1$. This ideal condition ($r=1$) implies that *all* the kinetic energy is converted into internal energy at the wall, which is true for an isentropic stagnation point but not generally for a viscous boundary layer where some energy is lost to heat conduction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define aerodynamic heat flux ($q_w$) at a wall and provide the primary equation used to calculate it, specifying terms.",
+      "back": "Aerodynamic heat flux ($q_w$) is the rate of heat transfer per unit area between the fluid and the wall of a body, driven by the temperature difference between the wall and the fluid's recovery temperature.\nIt's typically governed by Newton's Law of Cooling:\n$$q_w = h (T_r - T_w)$$\nwhere $h$ is the convective heat transfer coefficient, $T_r$ is the recovery temperature, and $T_w$ is the wall temperature. Heat flows *into* the wall if $T_r > T_w$, and *out* of the wall if $T_w > T_r$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the wall temperature ($T_w$) is equal to the recovery temperature ($T_r$), what is the heat flux ($q_w$)? What is the significance for thermal design?",
+      "back": "If $T_w = T_r$, then the heat flux $q_w = h (T_r - T_w) = h (T_r - T_r) = 0$. This means there is no net heat transfer between the fluid and the wall; such a wall is considered **adiabatic** (in the context of the fluid-wall interface).\nFor thermal design, if a component can withstand $T_r$ without degradation, no active cooling is needed for that surface. However, $T_r$ can be extremely high at hypersonic speeds, often exceeding material limits, necessitating active cooling to maintain $T_w < T_r$ and thus manage heat input.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the physical meaning of the convective heat transfer coefficient ($h$) and how it's influenced by the boundary layer.",
+      "back": "The convective heat transfer coefficient ($h$) quantifies the effectiveness of heat transfer between a surface and a moving fluid. It depends on fluid properties (density, viscosity, thermal conductivity, specific heat), flow velocity, and surface geometry.\nPhysically, $h$ is inversely proportional to the thermal resistance of the boundary layer. A thinner, more turbulent boundary layer generally leads to a higher $h$ because it facilitates more effective mixing and heat transport across the boundary layer. Conversely, a thicker, laminar boundary layer offers more resistance to heat transfer, resulting in a lower $h$.",
+      "difficulty": "hard"
+    }
+  ]
+}

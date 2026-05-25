@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-1-reference-frames-galilean-transformations",
+  "subtopicTitle": "Reference frames — Galilean transformations",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:27.034Z",
+  "cards": [
+    {
+      "front": "Define a \"reference frame\" in physics.",
+      "back": "A reference frame is a coordinate system (with an origin and axes) equipped with a clock, used to specify the position, velocity, and acceleration of objects. It provides the perspective from which physical observations are made.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is an \"inertial reference frame,\" and what is its key characteristic?",
+      "back": "An inertial reference frame is a non-accelerating reference frame in which Newton's first law of motion (the law of inertia) holds true. Objects not subjected to net external forces move at constant velocity (or remain at rest). All inertial frames move at constant velocity relative to each other.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given two inertial frames $S$ and $S'$, where $S'$ moves with constant velocity $\\vec{v}$ relative to $S$ along the x-axis. Write the Galilean transformation equations for the position of a particle, assuming their origins coincide at $t=t'=0$.",
+      "back": "$$x' = x - vt$$ $$y' = y$$ $$z' = z$$ $$t' = t$$ (The assumption $t'=t$ signifies absolute time, a cornerstone of Galilean relativity.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Galilean velocity transformation equations for a particle observed in two inertial frames $S$ and $S'$, where $S'$ moves with constant velocity $\\vec{v}$ relative to $S$ along the x-axis.",
+      "back": "Starting from the position transformations:\n$x' = x - vt$\n$y' = y$\n$z' = z$\nAssuming absolute time ($t'=t$), differentiate each equation with respect to $t$:\n$\\frac{dx'}{dt} = \\frac{dx}{dt} - v \\Rightarrow u_x' = u_x - v$\n$\\frac{dy'}{dt} = \\frac{dy}{dt} \\Rightarrow u_y' = u_y$\n$\\frac{dz'}{dt} = \\frac{dz}{dt} \\Rightarrow u_z' = u_z$\nIn vector form: $\\vec{u}' = \\vec{u} - \\vec{v}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Galilean acceleration transformation equations. What does this imply about acceleration in different inertial frames, and why is this significant for Newton's laws?",
+      "back": "Starting from the velocity transformations:\n$u_x' = u_x - v$\n$u_y' = u_y$\n$u_z' = u_z$\nSince $\\vec{v}$ is constant for inertial frames, differentiate each equation with respect to $t$:\n$\\frac{du_x'}{dt} = \\frac{du_x}{dt} - \\frac{dv}{dt} = \\frac{du_x}{dt} - 0 \\Rightarrow a_x' = a_x$\n$\\frac{du_y'}{dt} = \\frac{du_y}{dt} \\Rightarrow a_y' = a_y$\n$\\frac{du_z'}{dt} = \\frac{du_z}{dt} \\Rightarrow a_z' = a_z$\nIn vector form: $\\vec{a}' = \\vec{a}$.\nThis means acceleration is *invariant* under Galilean transformations. Since $\\vec{F} = m\\vec{a}$ and mass $m$ is also invariant, the force $\\vec{F}$ is the same in all inertial frames. This is the **Principle of Galilean Relativity**: the laws of classical mechanics are identical in all inertial reference frames.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A car travels north at $25 \\, \\text{m/s}$ relative to the ground. A ball is thrown from the car's window, moving west at $5 \\, \\text{m/s}$ relative to the car. What is the ball's velocity relative to the ground?",
+      "back": "Let $S$ be the ground frame and $S'$ be the car frame.\nVelocity of $S'$ relative to $S$: $\\vec{v} = (0, 25) \\, \\text{m/s}$ (assuming north is +y).\nVelocity of ball relative to $S'$: $\\vec{u}' = (-5, 0) \\, \\text{m/s}$ (assuming west is -x).\nUsing the Galilean velocity transformation: $\\vec{u} = \\vec{u}' + \\vec{v}$.\n$\\vec{u} = (-5, 0) + (0, 25) = (-5, 25) \\, \\text{m/s}$.\nThe ball's velocity relative to the ground is $5 \\, \\text{m/s}$ west and $25 \\, \\text{m/s}$ north, with a magnitude of $\\sqrt{(-5)^2 + 25^2} = \\sqrt{25 + 625} = \\sqrt{650} \\approx 25.5 \\, \\text{m/s}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental physical phenomenon do Galilean transformations fail to correctly describe, and what does this failure lead to in physics?",
+      "back": "Galilean transformations fail to correctly describe phenomena involving light and electromagnetism, specifically the observation that the speed of light in a vacuum is constant for all inertial observers, regardless of their relative motion (as confirmed by experiments like Michelson-Morley and predicted by Maxwell's equations). According to Galilean transformations, the speed of light should vary with the observer's velocity.\nThis fundamental inconsistency led to the development of Albert Einstein's **Special Theory of Relativity**, which replaced Galilean transformations with Lorentz transformations and revolutionized our understanding of space and time.",
+      "difficulty": "hard"
+    }
+  ]
+}

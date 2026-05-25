@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-7-dp-problems-longest-increasing-subsequence-lis-o-n-and-o-n-log-n",
+  "subtopicTitle": "DP problems — Longest Increasing Subsequence (LIS) — O(n²) and O(n log n)",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:12.014Z",
+  "cards": [
+    {
+      "front": "Define the Longest Increasing Subsequence (LIS) of a given sequence.",
+      "back": "The LIS of a sequence is the subsequence with the greatest length such that all elements of the subsequence are sorted in strictly increasing order. A subsequence can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the $O(n^2)$ LIS algorithm, define the DP state $dp[i]$ and its recurrence relation.",
+      "back": "$dp[i]$ represents the length of the Longest Increasing Subsequence ending at index $i$ (and including $nums[i]$).\nRecurrence: $dp[i] = 1 + \\max(\\{dp[j] \\mid 0 \\le j < i \\text{ and } nums[j] < nums[i]\\} \\cup \\{0\\})$.\nThe base case for $\\max$ is $0$ if no such $j$ exists, meaning $nums[i]$ starts a new LIS of length 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Apply the $O(n^2)$ LIS DP to find the LIS length for `nums = [3, 1, 4, 2, 5]`.",
+      "back": "Initialize $dp$ array with all $1$s: `[1, 1, 1, 1, 1]`.\n- $nums[0]=3: dp[0]=1$\n- $nums[1]=1: dp[1]=1$ (no $j<1$ with $nums[j]<nums[1]$)\n- $nums[2]=4: dp[2]=1+\\max(dp[0] \\text{ if } 3<4, dp[1] \\text{ if } 1<4) = 1+\\max(1,1)=2$\n- $nums[3]=2: dp[3]=1+\\max(dp[1] \\text{ if } 1<2) = 1+dp[1]=1+1=2$\n- $nums[4]=5: dp[4]=1+\\max(dp[0] \\text{ if } 3<5, dp[1] \\text{ if } 1<5, dp[2] \\text{ if } 4<5, dp[3] \\text{ if } 2<5) = 1+\\max(1,1,2,2)=1+2=3$\nThe $dp$ array becomes `[1, 1, 2, 2, 3]`. The LIS length is $\\max(dp) = 3$. (e.g., `[1, 2, 5]` or `[1, 4, 5]`)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core idea and purpose of the `tails` array in the $O(n \\log n)$ LIS algorithm.",
+      "back": "The `tails` array stores the smallest tail of all increasing subsequences with a given length. Specifically, `tails[k]` stores the smallest ending element of an increasing subsequence of length $k+1$.\nExample: If `tails = [2, 5, 8]`, it means there's an IS of length 1 ending with 2, an IS of length 2 ending with 5, and an IS of length 3 ending with 8.\nThe `tails` array is always sorted in increasing order. Its length at any point is the current LIS length found.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the $O(n \\log n)$ LIS algorithm, if the current number `num` is greater than all elements in the `tails` array, what action is taken?",
+      "back": "If `num > tails[tails.length - 1]` (or `tails` is empty), it means `num` can extend the longest increasing subsequence found so far. In this case, `num` is appended to the `tails` array. This increases the length of the LIS by 1.\n```python\nif not tails or num > tails[-1]:\n    tails.append(num)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the $O(n \\log n)$ LIS algorithm, if `num` is not greater than all elements in `tails`, how is binary search used?",
+      "back": "If `num` is not greater than all elements in `tails`, binary search is used to find the smallest element in `tails` that is greater than or equal to `num`. Let this index be `i`. Then, `tails[i]` is replaced with `num`. This ensures `tails` remains sorted and `tails[i]` is the smallest possible tail for an IS of length `i+1`, potentially allowing for longer subsequences later.\n```python\nimport bisect\n# ...\nelse:\n    idx = bisect.bisect_left(tails, num) # Finds insertion point\n    tails[idx] = num\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the time and space complexities of the $O(n^2)$ and $O(n \\log n)$ LIS algorithms.",
+      "back": "**$O(n^2)$ Algorithm:**\n*   **Time Complexity:** $O(n^2)$ due to nested loops.\n*   **Space Complexity:** $O(n)$ to store the $dp$ array.\n**$O(n \\log n)$ Algorithm:**\n*   **Time Complexity:** $O(n \\log n)$ because each of the $n$ elements involves a binary search operation on the `tails` array, taking $O(\\log k)$ time (where $k$ is `tails.length`, $k \\le n$).\n*   **Space Complexity:** $O(n)$ to store the `tails` array.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the LIS length for `nums = []` (empty array) and `nums = [7]` (single element array)?",
+      "back": "*   For `nums = []`, the LIS length is $0$.\n*   For `nums = [7]`, the LIS length is $1$ (the subsequence is `[7]` itself).\nThese are common edge cases for LIS algorithms.",
+      "difficulty": "easy"
+    }
+  ]
+}

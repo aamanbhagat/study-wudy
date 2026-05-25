@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-real-analysis-rigorous-epsilon-delta-metric-spaces",
+  "subtopicTitle": "Real analysis — rigorous epsilon-delta, metric spaces",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:18.378Z",
+  "cards": [
+    {
+      "front": "State the $\\epsilon-\\delta$ definition for the limit of a function $\\lim_{x \\to c} f(x) = L$.",
+      "back": "For every $\\epsilon > 0$, there exists a $\\delta > 0$ such that if $0 < |x-c| < \\delta$, then $|f(x)-L| < \\epsilon$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove $\\lim_{x \\to 3} (2x+1) = 7$ using the $\\epsilon-\\delta$ definition.",
+      "back": "Given $\\epsilon > 0$, we need $|(2x+1)-7| < \\epsilon$. This simplifies to $|2x-6| < \\epsilon \\implies 2|x-3| < \\epsilon \\implies |x-3| < \\epsilon/2$. So, choose $\\delta = \\epsilon/2$. If $0 < |x-3| < \\delta$, then $|2x-6| < 2\\delta = \\epsilon$, thus $|(2x+1)-7| < \\epsilon$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a metric space $(X, d)$, listing the four properties of the metric $d$.",
+      "back": "A metric space is a set $X$ with a function $d: X \\times X \\to \\mathbb{R}$ (a metric) satisfying for all $x, y, z \\in X$:\n1. $d(x, y) \\ge 0$ (Non-negativity)\n2. $d(x, y) = 0 \\iff x = y$ (Identity of indiscernibles)\n3. $d(x, y) = d(y, x)$ (Symmetry)\n4. $d(x, z) \\le d(x, y) + d(y, z)$ (Triangle inequality)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Let $X$ be any non-empty set. Define the discrete metric $d(x, y)$ on $X$.",
+      "back": "The discrete metric $d(x, y)$ is defined as:\n$$d(x, y) = \\begin{cases} 0 & \\text{if } x = y \\\\ 1 & \\text{if } x \\ne y \\end{cases}$$\nIt satisfies all metric properties. For example, for the triangle inequality, if $x=z$, $d(x,z)=0 \\le d(x,y)+d(y,z)$. If $x \\ne z$, then $d(x,z)=1$. Since $x \\ne z$, either $x \\ne y$ or $y \\ne z$ (or both), so $d(x,y)+d(y,z) \\ge 1$. Thus $d(x,z) \\le d(x,y)+d(y,z)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define an open ball $B_r(p)$ of radius $r$ centered at $p$ in a metric space $(X, d)$.",
+      "back": "An open ball $B_r(p)$ is the set of all points $x \\in X$ such that their distance from $p$ is strictly less than $r$:\n$$B_r(p) = \\{x \\in X \\mid d(x, p) < r\\}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the $\\epsilon-\\delta$ definition of continuity for a function $f: (X, d_X) \\to (Y, d_Y)$ at a point $p \\in X$.",
+      "back": "A function $f$ is continuous at $p \\in X$ if for every $\\epsilon > 0$, there exists a $\\delta > 0$ such that for all $x \\in X$, if $d_X(x, p) < \\delta$, then $d_Y(f(x), f(p)) < \\epsilon$.\nThis can be rephrased using open balls: for every open ball $B_\\epsilon(f(p))$ in $Y$, there exists an open ball $B_\\delta(p)$ in $X$ such that $f(B_\\delta(p)) \\subseteq B_\\epsilon(f(p))$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define a Cauchy sequence in a metric space $(X, d)$ and explain what it means for $(X, d)$ to be complete.",
+      "back": "A sequence $\\{x_n\\}$ in a metric space $(X, d)$ is Cauchy if for every $\\epsilon > 0$, there exists an integer $N$ such that for all $m, n > N$, $d(x_m, x_n) < \\epsilon$.\nA metric space $(X, d)$ is complete if every Cauchy sequence in $X$ converges to a point that is also in $X$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the key difference in the choice of $\\delta$ between point-wise continuity and uniform continuity for a function $f: A \\to \\mathbb{R}$?",
+      "back": "For point-wise continuity at a specific point $c \\in A$, the choice of $\\delta$ can depend on both $\\epsilon$ and the point $c$.\nFor uniform continuity on the set $A$, the choice of $\\delta$ depends only on $\\epsilon$, not on any specific point $x \\in A$. A single $\\delta$ must work for all points in the domain $A$.",
+      "difficulty": "medium"
+    }
+  ]
+}

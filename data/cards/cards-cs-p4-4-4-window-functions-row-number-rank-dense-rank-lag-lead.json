@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-window-functions-row-number-rank-dense-rank-lag-lead",
+  "subtopicTitle": "Window functions — ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:47.541Z",
+  "cards": [
+    {
+      "front": "How do SQL window functions fundamentally differ from standard aggregate functions (e.g., `SUM()`, `COUNT()`) in their output?",
+      "back": "Standard aggregate functions collapse rows into a single summary row per group. Window functions, however, perform calculations across a set of table rows (the 'window') but return a result for *each original row*, thus preserving the original row count.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The essential clause used with all window functions to define the window of rows is `______`. It can specify partitioning with `PARTITION BY` and ordering with `ORDER BY`.",
+      "back": "`OVER()`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You need to assign a unique, sequential integer to each customer's order within each year, starting from 1. Which ranking window function would you use, and how does it handle ties?",
+      "back": "`ROW_NUMBER()`.\nIt assigns a unique, sequential integer to each row within its partition, even if there are ties in the `ORDER BY` clause. The order for tied rows is non-deterministic unless additional columns are specified in `ORDER BY` to break ties.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a leaderboard where multiple players can have the same score. If three players tie for 1st place, which ranking function would assign them all '1' and the next player '4' (skipping '2' and '3')? Which would assign '1' and the next player '2'?",
+      "back": "`RANK()` would assign '1' to all three tied players and '4' to the next player (skipping ranks 2 and 3).\n`DENSE_RANK()` would assign '1' to all three tied players and '2' to the next player (not skipping any ranks).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To calculate the month-over-month sales growth, you need to retrieve the sales amount from the *previous* month for each row. Which window function is best suited for this, and what is its general syntax?",
+      "back": "`LAG()` is best suited.\nGeneral syntax: `LAG(expression, offset, default_value) OVER (PARTITION BY ... ORDER BY ...)`.\nExample: `LAG(SalesAmount, 1, 0) OVER (PARTITION BY ProductID ORDER BY SaleDate)`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You're analyzing stock prices and want to compare today's closing price with the *next* day's closing price. Which window function would you use to fetch the next day's price?",
+      "back": "`LEAD()`.\nExample: `LEAD(ClosePrice, 1, 0.0) OVER (ORDER BY TradeDate)`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference in how `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()` behave when encountering tied values in the `ORDER BY` clause of their window definition.",
+      "back": "1.  `ROW_NUMBER()`: Assigns a unique, sequential number to each row, even if values are tied. The assignment order for ties is arbitrary unless more columns are added to `ORDER BY`.\n2.  `RANK()`: Assigns the same rank to tied values. It then skips ranks based on the number of tied rows. (e.g., 1, 1, 3 for two ties).\n3.  `DENSE_RANK()`: Assigns the same rank to tied values. It does *not* skip ranks; the next distinct value receives the next consecutive rank. (e.g., 1, 1, 2 for two ties).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When using `LAG(expression, offset, default_value)`, what is the purpose of the `offset` and `default_value` parameters? Provide a scenario where `default_value` is critical.",
+      "back": "`offset`: An integer indicating how many rows back (for `LAG`) or forward (for `LEAD`) from the current row to retrieve the value. Default is 1.\n`default_value`: The value to return if the `offset` goes beyond the partition boundaries (i.e., there's no row at that offset). Default is `NULL`.\n\nCritical scenario: Calculating a daily percentage change where the first day has no 'previous day'. If `default_value` isn't set, the first day's change would be `NULL`. Setting it to the first day's value (e.g., `LAG(Sales, 1, Sales)`) would result in a 0% change for the first day, which might be desired for charting or aggregation.",
+      "difficulty": "hard"
+    }
+  ]
+}

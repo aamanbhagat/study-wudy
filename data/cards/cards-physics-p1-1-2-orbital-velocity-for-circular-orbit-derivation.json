@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-2-orbital-velocity-for-circular-orbit-derivation",
+  "subtopicTitle": "Orbital velocity for circular orbit — derivation",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:51.527Z",
+  "cards": [
+    {
+      "front": "Define \"orbital velocity\" in the context of a circular orbit.",
+      "back": "The speed at which an object must travel to maintain a stable circular path around a central body, where the central body's gravitational attraction provides the necessary centripetal force.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a stable circular orbit, the __________ force on the orbiting object is provided by the __________ force from the central body.",
+      "back": "For a stable circular orbit, the **centripetal** force on the orbiting object is provided by the **gravitational** force from the central body.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formulas for Newton's Law of Universal Gravitation and centripetal force.",
+      "back": "Newton's Law of Universal Gravitation: $F_g = G\\frac{Mm}{r^2}$\nCentripetal Force: $F_c = \\frac{mv^2}{r}$\nWhere $G$ is the gravitational constant, $M$ is the mass of the central body, $m$ is the mass of the orbiting object, $r$ is the orbital radius, and $v$ is the orbital velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for orbital velocity ($v$) for an object in a stable circular orbit around a central body of mass $M$ at radius $r$.",
+      "back": "1. Equate gravitational force ($F_g$) and centripetal force ($F_c$):\n$$F_g = F_c$$\n$$G\\frac{Mm}{r^2} = \\frac{mv^2}{r}$$\n2. Cancel $m$ (mass of the orbiting object) from both sides:\n$$G\\frac{M}{r^2} = \\frac{v^2}{r}$$\n3. Multiply both sides by $r$:\n$$G\\frac{M}{r} = v^2$$\n4. Take the square root of both sides to solve for $v$:\n$$v = \\sqrt{\\frac{GM}{r}}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the mass of a satellite ($m$) affect its orbital velocity ($v$) in a stable circular orbit?",
+      "back": "The mass of the satellite ($m$) does **not** affect its orbital velocity ($v$). As shown in the derivation, $m$ cancels out when equating gravitational and centripetal forces ($G\\frac{Mm}{r^2} = \\frac{mv^2}{r} \\implies v = \\sqrt{\\frac{GM}{r}}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a satellite orbiting Earth (mass $M_E$) at radius $R$, what is the expression for its orbital velocity?",
+      "back": "The orbital velocity is $v = \\sqrt{\\frac{GM_E}{R}}$. Note that $R$ here represents the distance from the center of the Earth to the satellite, i.e., $R_{Earth} + \\text{altitude}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a satellite's circular orbital radius ($r$) increases, how does its orbital velocity ($v$) change, and why?",
+      "back": "If the orbital radius ($r$) increases, the orbital velocity ($v$) **decreases**. This is because $v$ is inversely proportional to the square root of $r$ ($v = \\sqrt{\\frac{GM}{r}}$). A larger radius means a weaker gravitational pull, requiring less speed to maintain the orbit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the orbital period ($T$) of a circular orbit related to its orbital velocity ($v$) and orbital radius ($r$)?",
+      "back": "For a circular orbit, the distance traveled in one period is the circumference ($2\\pi r$). Since distance = velocity $\\times$ time, we have $2\\pi r = vT$. Therefore, the orbital period is $T = \\frac{2\\pi r}{v}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

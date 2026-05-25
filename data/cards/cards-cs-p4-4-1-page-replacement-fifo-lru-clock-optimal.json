@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-page-replacement-fifo-lru-clock-optimal",
+  "subtopicTitle": "Page replacement — FIFO, LRU, Clock, Optimal",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:39.391Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a page replacement algorithm in a virtual memory system?",
+      "back": "To decide which page to remove from physical memory (RAM) when a new page needs to be loaded and all frames are occupied, with the goal of minimizing page faults.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"Optimal\" (OPT or MIN) page replacement algorithm and explain why it is impractical for real-world operating systems.",
+      "back": "OPT replaces the page that will not be used for the longest period of time in the future. It's impractical because it requires foreknowledge of future page references, which is impossible to predict accurately in a real system. It serves as a theoretical benchmark for evaluating other algorithms.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the FIFO (First-In, First-Out) page replacement algorithm. Given a page reference string `[1, 2, 3, 4, 1, 2, 5]` and 3 frames, what is the page fault count?",
+      "back": "FIFO replaces the page that has been in memory the longest.\n\nReference String `[1, 2, 3, 4, 1, 2, 5]` with 3 frames:\n1. `[1]` -> F (1)\n2. `[2]` -> F (1, 2)\n3. `[3]` -> F (1, 2, 3)\n4. `[4]` -> F (2, 3, 4) -- 1 replaced\n5. `[1]` -> F (3, 4, 1) -- 2 replaced\n6. `[2]` -> F (4, 1, 2) -- 3 replaced\n7. `[5]` -> F (1, 2, 5) -- 4 replaced\nTotal Page Faults: 7",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define Belady's Anomaly and identify which common page replacement algorithm is susceptible to it.",
+      "back": "Belady's Anomaly is the phenomenon where increasing the number of available page frames can lead to an *increase* in the number of page faults. The FIFO (First-In, First-Out) algorithm is known to suffer from Belady's Anomaly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the LRU (Least Recently Used) page replacement algorithm. Given a page reference string `[1, 2, 3, 4, 1, 2, 5]` and 3 frames, what is the page fault count?",
+      "back": "LRU replaces the page that has not been used for the longest period of time.\n\nReference String `[1, 2, 3, 4, 1, 2, 5]` with 3 frames:\n1. `[1]` -> F (1)\n2. `[2]` -> F (1, 2)\n3. `[3]` -> F (1, 2, 3)\n4. `[4]` -> F (2, 3, 4) -- 1 is LRU\n5. `[1]` -> F (4, 1, 3) -- 2 is LRU\n6. `[2]` -> F (1, 2, 4) -- 3 is LRU\n7. `[5]` -> F (2, 5, 1) -- 4 is LRU\nTotal Page Faults: 7",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the primary challenges in implementing the LRU page replacement algorithm efficiently in hardware or software?",
+      "back": "LRU requires keeping track of the exact usage time or order of all pages in memory. This can be implemented using:\n1.  **Counters/Timestamps:** Each page entry needs a timestamp/counter updated on every reference. On replacement, the page with the smallest counter is chosen. This is computationally expensive as it requires searching through all pages and updating on every access.\n2.  **Stacks/Linked Lists:** A linked list or stack can maintain pages in order of recency. On reference, the page is moved to the top. On replacement, the page at the bottom is removed. This involves frequent list manipulations (removals and insertions), which can be slow, especially for large main memories. Both methods incur significant overhead.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the Clock (or Second-Chance) page replacement algorithm and how it improves upon FIFO.",
+      "back": "The Clock algorithm is a variation of FIFO that uses a \"use bit\" (or reference bit) for each page. When a page is selected for replacement (like in FIFO, by a 'clock hand'), its use bit is checked:\n*   If the use bit is 1, it's given a \"second chance\": the bit is cleared to 0, and the clock hand advances to the next page.\n*   If the use bit is 0, the page is replaced.\nThis mechanism gives recently used pages a chance to stay in memory, approximating LRU's behavior at a lower cost than pure LRU, and it does not suffer from Belady's Anomaly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Rank FIFO, LRU, and Optimal page replacement algorithms in terms of their typical performance (lowest to highest page faults) and implementation complexity (lowest to highest).",
+      "back": "1.  **Performance (Page Faults, lowest to highest):**\n    Optimal < LRU < FIFO (generally, but FIFO can be worse due to Belady's Anomaly).\n2.  **Implementation Complexity (lowest to highest):**\n    FIFO < Clock (Second-Chance) < LRU < Optimal (Optimal is impractical, so its complexity is theoretical, requiring perfect future knowledge).",
+      "difficulty": "hard"
+    }
+  ]
+}

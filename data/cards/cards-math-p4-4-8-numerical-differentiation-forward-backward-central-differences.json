@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-numerical-differentiation-forward-backward-central-differences",
+  "subtopicTitle": "Numerical differentiation — forward, backward, central differences",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:04.298Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of numerical differentiation?",
+      "back": "To approximate the derivative of a function $f(x)$ at a given point $x_0$ using only function values at discrete points. This is particularly useful when an analytical derivative is difficult or impossible to obtain, or when the function is only known through discrete data points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the forward difference formula for $f'(x)$ and explain its geometric interpretation.",
+      "back": "The forward difference approximation for $f'(x)$ is $f'(x) \\approx \\frac{f(x+h) - f(x)}{h}$. Geometrically, it represents the slope of the secant line connecting the points $(x, f(x))$ and $(x+h, f(x+h))$. As $h \\to 0$, this secant line approaches the tangent line at $x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the central difference formula for $f'(x)$ using Taylor series expansion and state its order of accuracy.",
+      "back": "Taylor expansions around $x$:\n$f(x+h) = f(x) + hf'(x) + \\frac{h^2}{2!}f''(x) + \\frac{h^3}{3!}f'''(x) + O(h^4)$\n$f(x-h) = f(x) - hf'(x) + \\frac{h^2}{2!}f''(x) - \\frac{h^3}{3!}f'''(x) + O(h^4)$\nSubtracting the second from the first:\n$f(x+h) - f(x-h) = 2hf'(x) + 2\\frac{h^3}{3!}f'''(x) + O(h^5)$\nSolving for $f'(x)$:\n$f'(x) = \\frac{f(x+h) - f(x-h)}{2h} - \\frac{h^2}{6}f'''(x) + O(h^4)$\nThe central difference formula is $f'(x) \\approx \\frac{f(x+h) - f(x-h)}{2h}$. Its order of accuracy is $O(h^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the backward difference formula for $f'(x)$. In what scenario might it be preferred over the forward difference?",
+      "back": "The backward difference approximation for $f'(x)$ is $f'(x) \\approx \\frac{f(x) - f(x-h)}{h}$. It might be preferred when calculating the derivative at the *beginning* of a data set (e.g., at $x_0$ in a sequence $x_0, x_1, ..., x_N$) if only past data points are available, or when future data points are unavailable or computationally expensive to obtain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the order of accuracy for forward, backward, and central difference approximations for the first derivative.",
+      "back": "<ul>\n<li><b>Forward Difference</b>: $O(h)$</li>\n<li><b>Backward Difference</b>: $O(h)$</li>\n<li><b>Central Difference</b>: $O(h^2)$</li>\n</ul>\nThe central difference method is generally more accurate for a given step size $h$ because its leading error term is proportional to $h^2$, whereas forward and backward differences have leading error terms proportional to $h$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You need to numerically differentiate a function $f(x)$ at $x=0$ given data points only for $x \\ge 0$. Which method(s) could you use, and which would be most accurate?",
+      "back": "Given data only for $x \\ge 0$, you cannot use the central difference method (as it requires $f(x-h)$) or the backward difference method (as it requires $f(x-h)$). You would have to use the **forward difference method**: $f'(0) \\approx \\frac{f(h) - f(0)}{h}$. This is the only viable option among the three standard methods in this specific scenario, making it the 'most accurate' by necessity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is truncation error in the context of numerical differentiation?",
+      "back": "Truncation error arises from approximating an infinite process (like a Taylor series expansion) with a finite one. In numerical differentiation, it's the error introduced by replacing the true derivative with a finite difference formula, effectively 'truncating' the Taylor series. It generally decreases as the step size $h$ decreases.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the trade-off involved when choosing the step size $h$ for numerical differentiation.",
+      "back": "Choosing the step size $h$ involves a trade-off between **truncation error** and **round-off error**.\n<ul>\n<li><b>Smaller $h$</b>: Reduces truncation error but increases round-off error (due to subtracting nearly equal numbers, leading to loss of significant digits).</li>\n<li><b>Larger $h$</b>: Increases truncation error but decreases round-off error.</li>\n</ul>\nAn optimal $h$ exists where the sum of these two error types is minimized.",
+      "difficulty": "medium"
+    }
+  ]
+}

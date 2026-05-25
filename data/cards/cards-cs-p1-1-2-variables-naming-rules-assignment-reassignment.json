@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p1-1-2-variables-naming-rules-assignment-reassignment",
+  "subtopicTitle": "Variables — naming rules, assignment, reassignment",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:43.407Z",
+  "cards": [
+    {
+      "front": "In programming, what is the primary purpose of a variable?",
+      "back": "A variable is a named storage location in memory used to hold a value. It acts as a symbolic name for a value, allowing you to refer to and manipulate that data throughout your program.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you assign the integer value $100$ to a variable named `player_score` in Python?",
+      "back": "You use the assignment operator (`=`).\n```python\nplayer_score = 100\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What types of characters are generally allowed in Python variable names?",
+      "back": "Python variable names can contain alphanumeric characters (letters `a-z`, `A-Z`, digits `0-9`) and underscores (`_`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which type of character is NOT allowed to be the first character of a Python variable name?",
+      "back": "A variable name cannot start with a digit (`0-9`). It must begin with a letter (a-z, A-Z) or an underscore (`_`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can Python keywords (e.g., `if`, `for`, `class`) be used as variable names? Why or why not?",
+      "back": "No, Python keywords are reserved words with special meanings to the interpreter and cannot be used as variable names. Attempting to do so will result in a `SyntaxError` because the interpreter expects a specific action associated with that keyword, not a variable definition.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain what happens when you \"reassign\" a variable in Python.",
+      "back": "Reassignment means changing the value that a variable refers to. When a variable is reassigned, it stops referring to its old value and starts referring to the new value. The old value may then be garbage-collected if no other references to it exist in the program.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What will be the final value and type of `data_item` after executing this code, and why?",
+      "back": "```python\ndata_item = 10\ndata_item = \"Python\"\ndata_item = 3.14159\n```\nThe final value of `data_item` will be `3.14159`, and its type will be `float`. Python variables are dynamically typed, meaning a variable can refer to values of different types throughout its lifetime without explicit type declaration.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "According to PEP 8, the Python style guide, what is the recommended naming convention for general variables and function names?",
+      "back": "PEP 8 recommends using `lowercase_with_underscores` (often called snake_case) for general variables and function names. For example: `user_name`, `calculate_total_score`, `is_active`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify which of the following are valid Python variable names:\n`_temp_var`, `2nd_attempt`, `my-file`, `import_data`, `user ID`",
+      "back": "*   `_temp_var`: **Valid** (starts with underscore, contains letters and underscores)\n*   `2nd_attempt`: **Invalid** (starts with a digit)\n*   `my-file`: **Invalid** (hyphens `-` are not allowed; they are interpreted as subtraction)\n*   `import_data`: **Valid** (although `import` is a keyword, `import_data` is not)\n*   `user ID`: **Invalid** (spaces are not allowed in variable names)",
+      "difficulty": "medium"
+    }
+  ]
+}

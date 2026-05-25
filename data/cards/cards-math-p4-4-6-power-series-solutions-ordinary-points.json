@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-power-series-solutions-ordinary-points",
+  "subtopicTitle": "Power series solutions — ordinary points",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:59.440Z",
+  "cards": [
+    {
+      "front": "For a second-order linear homogeneous ODE $P(x)y'' + Q(x)y' + R(x)y = 0$, what is an ordinary point $x_0$?",
+      "back": "A point $x_0$ is an ordinary point if $P(x_0) \\neq 0$. Equivalently, when the ODE is written in standard form $y'' + p(x)y' + q(x)y = 0$, $x_0$ is an ordinary point if $p(x) = Q(x)/P(x)$ and $q(x) = R(x)/P(x)$ are analytic at $x_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the existence theorem for power series solutions around an ordinary point $x_0$ guarantee for $P(x)y'' + Q(x)y' + R(x)y = 0$?",
+      "back": "If $x_0$ is an ordinary point, then there exist two linearly independent series solutions of the form $y(x) = \\sum_{n=0}^{\\infty} a_n (x-x_0)^n$. These solutions are analytic at $x_0$ and converge at least on an interval $|x-x_0| < R$, where $R$ is the distance from $x_0$ to the nearest singular point (real or complex) of the ODE.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To find a power series solution $y(x) = \\sum_{n=0}^{\\infty} a_n x^n$ for an ODE around $x_0=0$, what are the first three steps after assuming the series form?",
+      "back": "1. Differentiate the series term by term to find $y'(x) = \\sum_{n=1}^{\\infty} n a_n x^{n-1}$ and $y''(x) = \\sum_{n=2}^{\\infty} n(n-1) a_n x^{n-2}$.\n2. Substitute $y, y', y''$ into the ODE.\n3. Adjust the indices of the summations so that all terms involve $x^k$ for the same power $k$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After substituting power series into an ODE and collecting terms by powers of $x$, what is the next critical step and its purpose?",
+      "back": "The next step is to equate the coefficient of each power of $x$ to zero. This yields a recurrence relation (or recursion formula) that expresses higher-order coefficients $a_n$ in terms of lower-order coefficients (e.g., $a_{n-1}, a_{n-2}$, etc.). This relation allows us to determine all coefficients in terms of $a_0$ and $a_1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a second-order ODE, how are the arbitrary constants $a_0$ and $a_1$ in the power series solution $y(x) = \\sum_{n=0}^{\\infty} a_n (x-x_0)^n$ determined by initial conditions $y(x_0)$ and $y'(x_0)$?",
+      "back": "From $y(x) = a_0 + a_1(x-x_0) + a_2(x-x_0)^2 + \\dots$, setting $x=x_0$ gives $y(x_0) = a_0$. From $y'(x) = a_1 + 2a_2(x-x_0) + 3a_3(x-x_0)^2 + \\dots$, setting $x=x_0$ gives $y'(x_0) = a_1$. Thus, $a_0 = y(x_0)$ and $a_1 = y'(x_0)$. These are the two arbitrary constants required for the general solution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a power series solution around an ordinary point $x_0$, how is its radius of convergence $R$ determined?",
+      "back": "The radius of convergence $R$ is at least the distance from $x_0$ to the nearest singular point (real or complex) of the ODE when written in standard form $y'' + p(x)y' + q(x)y = 0$. That is, $R = \\min |x_s - x_0|$ for all singular points $x_s$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the ODE $y'' + y = 0$ around $x_0=0$, find the recurrence relation for $a_n$ in the power series solution $y(x) = \\sum_{n=0}^{\\infty} a_n x^n$.",
+      "back": "$y = \\sum_{n=0}^{\\infty} a_n x^n$ \n$y'' = \\sum_{n=2}^{\\infty} n(n-1) a_n x^{n-2} = \\sum_{k=0}^{\\infty} (k+2)(k+1) a_{k+2} x^k$ \nSubstitute into $y''+y=0$: \n$\\sum_{k=0}^{\\infty} (k+2)(k+1) a_{k+2} x^k + \\sum_{k=0}^{\\infty} a_k x^k = 0$ \n$\\sum_{k=0}^{\\infty} [(k+2)(k+1) a_{k+2} + a_k] x^k = 0$ \nEquating coefficients to zero: $(k+2)(k+1) a_{k+2} + a_k = 0$ \nRecurrence relation: $a_{k+2} = -\\frac{a_k}{(k+2)(k+1)}$ for $k \\ge 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you obtain two linearly independent solutions from the general power series solution $y(x) = a_0 y_1(x) + a_1 y_2(x)$ after finding the recurrence relation?",
+      "back": "1. Set $a_0=1, a_1=0$ and use the recurrence relation to find all subsequent coefficients $a_2, a_3, \\dots$. This defines the first solution $y_1(x)$.\n2. Set $a_0=0, a_1=1$ and use the recurrence relation to find all subsequent coefficients $a_2, a_3, \\dots$. This defines the second solution $y_2(x)$.\nThese two solutions, $y_1(x)$ and $y_2(x)$, are linearly independent because their Wronskian at $x_0$ is $W(y_1, y_2)(x_0) = y_1(x_0)y_2'(x_0) - y_1'(x_0)y_2(x_0) = (1)(1) - (0)(0) = 1 \\neq 0$.",
+      "difficulty": "medium"
+    }
+  ]
+}

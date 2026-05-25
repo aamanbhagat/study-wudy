@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p2-2-2-design-patterns-behavioral-observer-strategy-command-iterator-state-template-method-chain-of-responsibility-mediator-memento-visitor",
+  "subtopicTitle": "Design Patterns — Behavioral: Observer, Strategy, Command, Iterator, State, Template Method, Chain of Responsibility, Mediator, Memento, Visitor",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:34.925Z",
+  "cards": [
+    {
+      "front": "The Observer pattern defines a one-to-many dependency between objects. What is the role of the 'Subject' in this pattern?",
+      "back": "The Subject is the object being observed. It maintains a list of its dependents (Observers) and notifies them automatically of any state changes, usually by calling a specific update method on each registered Observer.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the Strategy pattern enable an object to change its behavior dynamically at runtime?",
+      "back": "The Strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. The 'Context' object holds a reference to a 'Strategy' interface and delegates the behavior to the concrete strategy object it currently holds, allowing the algorithm to be swapped at runtime without changing the Context's class.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the core components of the Command pattern and its primary benefit.",
+      "back": "Components: `Command` interface (declares an `execute()` method), `ConcreteCommand` (implements `Command`, binds a receiver to an action), `Receiver` (performs the actual work), `Invoker` (holds a `Command` and asks it to `execute()`). Benefit: Decouples the object that invokes an operation from the object that knows how to perform it, enabling features like undoable operations, logging, and queuing requests.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of the Iterator pattern?",
+      "back": "The Iterator pattern provides a way to access the elements of an aggregate object (like a collection) sequentially without exposing its underlying representation. It decouples the traversal logic from the collection itself, allowing different traversal methods to be used.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how the State pattern manages an object's behavior based on its internal state, contrasting it with large conditional statements.",
+      "back": "The State pattern allows an object to alter its behavior when its internal state changes, making it appear as if the object has changed its class. Instead of using large `if-else` or `switch` statements within a single class, each state is encapsulated in a separate class. The 'Context' object delegates state-specific behavior to its current 'State' object, making the code cleaner, more modular, and easier to extend.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Template Method pattern define an algorithm's skeleton, and what role do subclasses play?",
+      "back": "The Template Method pattern defines the skeleton of an algorithm in a method (the 'template method') within an abstract base class, deferring some steps to subclasses. The template method calls a series of abstract or hook methods. Subclasses implement or override these specific steps to provide their concrete implementations without changing the algorithm's overall structure or sequence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the Chain of Responsibility pattern, how is a request processed, and what is its main advantage?",
+      "back": "A request is passed along a chain of 'handler' objects. Each handler decides either to process the request itself or to pass it to the next handler in the chain. The main advantage is that it decouples the sender of a request from its receiver, allowing multiple objects to have a chance to handle the request without the sender knowing which one will ultimately handle it.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What problem does the Mediator pattern solve regarding direct communication between objects, and how does it achieve this?",
+      "back": "The Mediator pattern solves the problem of tight coupling ('spaghetti code') that arises when objects communicate directly with many other objects. It introduces a 'Mediator' object that encapsulates how a set of objects (colleagues) interact. Colleagues communicate only with the mediator, which then forwards or broadcasts messages to other relevant colleagues, reducing direct dependencies and simplifying individual object logic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the Memento pattern's purpose and how it achieves externalizing an object's internal state without violating encapsulation.",
+      "back": "Purpose: To capture and externalize an object's internal state so that the object can be restored to this state later. Mechanism: The 'Originator' object creates a 'Memento' object containing a snapshot of its internal state. The Memento itself is opaque to other objects ('Caretaker') that store it, meaning the Caretaker cannot inspect or modify the Memento's contents, thus preserving the Originator's encapsulation. Only the Originator can access and restore its state from the Memento.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When is the Visitor pattern most appropriate, especially concerning adding new operations to an object structure without modifying the structure itself?",
+      "back": "The Visitor pattern is most appropriate when: 1. You have an object structure (e.g., a composite tree) with many different classes. 2. You need to perform many distinct and unrelated operations on these objects. 3. You want to add new operations frequently without modifying the classes of the elements themselves. It achieves this by defining a 'Visitor' interface with methods for each element type, allowing new operations to be defined in new concrete Visitor classes.",
+      "difficulty": "hard"
+    }
+  ]
+}

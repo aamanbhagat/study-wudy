@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-2-stl-algorithms-sort-find-transform-accumulate-copy-all-of-any-of",
+  "subtopicTitle": "STL algorithms — sort, find, transform, accumulate, copy, all_of, any_of",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:07.913Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `std::sort` algorithm in C++ STL?",
+      "back": "The `std::sort` algorithm is used to reorder the elements in a specified range `[first, last)` into non-descending order. It requires random access iterators.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How would you sort a `std::vector<int> my_vec` in descending order using `std::sort`?",
+      "back": "You can provide a custom comparator, such as `std::greater<int>()` or a lambda expression:\n```cpp\nstd::vector<int> my_vec = {3, 1, 4, 1, 5, 9};\nstd::sort(my_vec.begin(), my_vec.end(), std::greater<int>());\n// Or with a lambda:\n// std::sort(my_vec.begin(), my_vec.end(), [](int a, int b){ return a > b; });\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does `std::find(first, last, value)` return if `value` is not found within the range `[first, last)`?",
+      "back": "If the `value` is not found, `std::find` returns the `last` iterator (the end of the range). If found, it returns an iterator to the first occurrence of the `value`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use `std::transform` to square each element of `std::vector<int> input_vec` and store the results in a new `std::vector<int> squared_vec`.",
+      "back": "```cpp\nstd::vector<int> input_vec = {1, 2, 3, 4};\nstd::vector<int> squared_vec;\nsquared_vec.reserve(input_vec.size()); // Optional: pre-allocate memory\n\nstd::transform(input_vec.begin(), input_vec.end(),\n               std::back_inserter(squared_vec),\n               [](int x){ return x * x; });\n// squared_vec will be {1, 4, 9, 16}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you calculate the sum of all elements in a `std::list<double> prices` using `std::accumulate`, starting with an initial sum of $0.0$?",
+      "back": "The `std::accumulate` algorithm can be used for this:\n```cpp\n#include <numeric> // For std::accumulate\n#include <list>\n\nstd::list<double> prices = {10.5, 20.0, 5.25};\ndouble total_sum = std::accumulate(prices.begin(), prices.end(), 0.0);\n// total_sum will be 35.75\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference in behavior between `std::copy` using `std::back_inserter` and `std::copy` to a pre-sized vector using its `begin()` iterator.",
+      "back": "When using `std::back_inserter`, `std::copy` appends elements to the destination container, effectively calling `push_back()` for each element. This allows copying to an empty or growing container.\n\nWhen copying to a pre-sized vector using `vec.begin()`, `std::copy` overwrites existing elements starting from the beginning. The destination vector must already have enough capacity (or be resized) to accommodate all copied elements; otherwise, it leads to undefined behavior.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write a C++ code snippet using `std::all_of` to check if all numbers in a `std::vector<int> nums` are even.",
+      "back": "```cpp\n#include <algorithm> // For std::all_of\n#include <vector>\n\nstd::vector<int> nums1 = {2, 4, 6, 8};\nstd::vector<int> nums2 = {2, 3, 6, 8};\n\nbool all_even1 = std::all_of(nums1.begin(), nums1.end(), [](int n){ return n % 2 == 0; });\n// all_even1 will be true\n\nbool all_even2 = std::all_of(nums2.begin(), nums2.end(), [](int n){ return n % 2 == 0; });\n// all_even2 will be false\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which STL algorithm is used to check if *at least one* element in a range satisfies a given unary predicate?",
+      "back": "`std::any_of` is used to check if at least one element in the specified range `[first, last)` satisfies the given predicate. It returns `true` if any element satisfies the condition, and `false` otherwise. It short-circuits on the first match.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the typical average time complexity of `std::sort` for random access iterators, and what kind of sorting algorithm does it usually implement?",
+      "back": "The typical average time complexity of `std::sort` is $O(N \\log N)$, where $N$ is the number of elements. It usually implements IntroSort, which is a hybrid sorting algorithm combining QuickSort (for average performance), HeapSort (for worst-case guarantee), and InsertionSort (for small partitions).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When would you prefer using `std::find_if` over `std::find`? Provide an example.",
+      "back": "You would prefer `std::find_if` when the search condition is more complex than a simple equality check. `std::find` searches for an exact value, while `std::find_if` searches for an element satisfying a unary predicate.\n\nExample: To find the first odd number in a vector:\n```cpp\nstd::vector<int> data = {2, 4, 7, 8, 9};\nauto it = std::find_if(data.begin(), data.end(), [](int n){ return n % 2 != 0; });\n// it will point to 7\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

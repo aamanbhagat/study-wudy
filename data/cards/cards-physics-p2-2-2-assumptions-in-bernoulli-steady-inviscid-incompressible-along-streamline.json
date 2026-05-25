@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-assumptions-in-bernoulli-steady-inviscid-incompressible-along-streamline",
+  "subtopicTitle": "Assumptions in Bernoulli — steady, inviscid, incompressible, along streamline",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:37.721Z",
+  "cards": [
+    {
+      "front": "State Bernoulli's equation for a fluid flow, assuming it applies.",
+      "back": "Bernoulli's equation states that for a steady, incompressible, inviscid flow along a streamline, the sum of pressure, kinetic energy per unit volume, and potential energy per unit volume is constant: $P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{constant}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the \"steady flow\" assumption in Bernoulli's equation imply about fluid properties at a given point in space?",
+      "back": "The \"steady flow\" assumption implies that all fluid properties (velocity, pressure, density, temperature) at any fixed point in space do not change with time. Mathematically, for any property $\\phi$, $\\frac{\\partial \\phi}{\\partial t} = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the \"inviscid flow\" assumption for Bernoulli's equation and its practical consequence regarding friction.",
+      "back": "The \"inviscid flow\" assumption means the fluid has zero viscosity ($\\mu = 0$). This implies there are no internal frictional forces (shear stresses) within the fluid or between the fluid and solid boundaries. Consequently, no mechanical energy is dissipated into heat due to friction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"incompressible flow\" as an assumption for Bernoulli's equation and state its mathematical implication for fluid density.",
+      "back": "Incompressible flow assumes that the fluid's density ($\\rho$) remains constant throughout the flow field, meaning it does not change with pressure or temperature. Mathematically, $\\rho = \\text{constant}$ or $\\frac{D\\rho}{Dt} = 0$. This is generally valid for liquids and for gases at Mach numbers less than approximately 0.3.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Bernoulli's equation applies \"along a streamline.\" What does this mean for selecting points to apply the equation, and can the Bernoulli constant vary?",
+      "back": "It means Bernoulli's equation can only be applied between two points that lie on the *same* streamline. A streamline is a line everywhere tangent to the instantaneous velocity vector of the fluid. The 'constant' in Bernoulli's equation can indeed vary from one streamline to another in a general flow field.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what common real-world scenarios is the \"inviscid\" assumption of Bernoulli's equation most likely to be significantly violated, and what is the consequence?",
+      "back": "The inviscid assumption is significantly violated in regions with high velocity gradients (shear), such as near solid boundaries (where viscous boundary layers form), in wakes behind objects, and within turbulent flows. This leads to viscous energy losses, meaning the Bernoulli constant is not conserved, and a more general energy equation (like the extended Bernoulli equation with head loss) is required.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Bernoulli's equation is a special integral of which fundamental fluid dynamics equation, and how do the assumptions simplify its derivation?",
+      "back": "Bernoulli's equation is derived by integrating Euler's equation of motion: $\\rho \\frac{D\\mathbf{v}}{Dt} = -\\nabla P + \\rho \\mathbf{g}$.\n\nThe assumptions simplify the derivation by:\n1.  **Steady**: Eliminates the local acceleration term $\\frac{\\partial \\mathbf{v}}{\\partial t}$.\n2.  **Inviscid**: Euler's equation itself is for inviscid flow (no viscous stress terms).\n3.  **Incompressible**: Allows $\\rho$ to be treated as a constant, simplifying integration.\n4.  **Along a streamline**: Allows integration along a path where the velocity vector is parallel to the path differential, simplifying the convective acceleration term.",
+      "difficulty": "hard"
+    }
+  ]
+}

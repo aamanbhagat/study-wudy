@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-routing-forwarding-table-routing-table",
+  "subtopicTitle": "Routing — forwarding table, routing table",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:34.590Z",
+  "cards": [
+    {
+      "front": "Differentiate between \"routing\" and \"forwarding\" in computer networks.",
+      "back": "**Routing** is the process of learning network paths and building routing tables. It's the \"control plane\" function, determining the best path. **Forwarding** (or switching) is the process of taking a packet and sending it towards its destination based on information in the forwarding table. It's the \"data plane\" function, executing the path decision.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a router's \"routing table\" and what is its primary role?",
+      "back": "A **routing table** is a database maintained by a router that stores information about known network destinations, their next-hop routers, and associated metrics (costs). Its primary role is to inform the routing *process* (control plane) about all possible paths to networks, which then determines the best paths.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the essential information typically contained within a single entry of a routing table.",
+      "back": "A routing table entry typically includes:\n1.  **Destination Network/Prefix:** The IP address range for the destination (e.g., $192.168.1.0/24$).\n2.  **Next-Hop IP Address:** The IP address of the next router to send packets to for this destination.\n3.  **Outgoing Interface:** The local interface through which packets should be sent.\n4.  **Metric/Cost:** A value indicating the \"cost\" or preference of this route (lower is usually better).\n5.  **Route Source:** How the route was learned (e.g., directly connected, static, OSPF, BGP).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a \"forwarding table\" (FIB) and explain why it's distinct from the routing table.",
+      "back": "A **forwarding table** (or Forwarding Information Base - FIB) is a streamlined, optimized version of the routing table used by the router's data plane for rapid packet lookup and forwarding. It's distinct because it only contains the *best* paths (selected from the routing table) and is structured for high-speed hardware lookups, often pre-calculated and stored in specialized memory (e.g., TCAM).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a router use its routing table to populate its forwarding table?",
+      "back": "The router's routing *process* (control plane) analyzes all entries in the routing table, which may contain multiple paths to the same destination (e.g., from different routing protocols or metrics). It applies routing policies and selects the *best* path(s) for each destination based on administrative distance and metric. These chosen best paths are then installed into the forwarding table (FIB) for use by the data plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"Longest Prefix Match\" (LPM) rule in packet forwarding and its importance.",
+      "back": "The **Longest Prefix Match (LPM)** rule states that when a router receives a packet, it must forward the packet using the entry in its forwarding table that has the longest matching network prefix with the packet's destination IP address. This is crucial because it ensures that the most specific route is always chosen, allowing for hierarchical addressing and overriding broader routes with more specific ones (e.g., a route for $192.168.1.0/24$ can be overridden by $192.168.1.128/25$ for IPs in that specific range).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A router receives a packet for $192.168.1.10$. Its forwarding table has:\n1. $192.168.1.0/24 \\rightarrow$ Interface G0/1\n2. $192.168.1.8/29 \\rightarrow$ Interface G0/2\nWhich interface is used and why?",
+      "back": "The packet will be forwarded out of **Interface G0/2**.\n*   $192.168.1.10$ matches $192.168.1.0/24$ (binary $11000000.10101000.00000001.00000000$ with $24$ bits matching).\n*   $192.168.1.10$ also matches $192.168.1.8/29$ (binary $11000000.10101000.00000001.00001000$ with $29$ bits matching).\n*   According to the **Longest Prefix Match** rule, the route with the longest prefix ($/29$) is preferred over the shorter prefix ($/24$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of a \"default route\" ($0.0.0.0/0$) in a router's forwarding table?",
+      "back": "A **default route** ($0.0.0.0/0$) acts as a \"gateway of last resort.\" If a router receives a packet for a destination IP address that does not explicitly match any other entry in its forwarding table, it will forward the packet via the default route. This is commonly used to direct traffic to the Internet or to a central \"hub\" router in a network.",
+      "difficulty": "easy"
+    }
+  ]
+}

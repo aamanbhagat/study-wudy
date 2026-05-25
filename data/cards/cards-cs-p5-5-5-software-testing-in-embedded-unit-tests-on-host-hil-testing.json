@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-software-testing-in-embedded-unit-tests-on-host-hil-testing",
+  "subtopicTitle": "Software testing in embedded — unit tests on host, HIL testing",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:58.280Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of \"unit testing on host\" for embedded software development?",
+      "back": "To test individual software components (units) of the embedded system on a standard development machine (host PC) rather than the actual target hardware. This isolates the software logic from hardware dependencies, allowing for faster feedback and easier debugging.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are hardware dependencies typically managed when performing unit tests for embedded software on a host PC?",
+      "back": "By using **mocks**, **stubs**, or **fakes** to simulate the behavior of hardware peripherals (e.g., ADC, GPIO, UART) or external software modules that the unit under test would normally interact with on the target. This allows the software logic to be tested in isolation without needing the physical hardware.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does HIL stand for, and what is its core concept in embedded software testing?",
+      "back": "HIL stands for **Hardware-in-the-Loop**. It's a testing methodology where the actual embedded controller (the \"hardware\") runs its production software and interacts with a real-time simulator that emulates the physical system (the \"loop\") it's designed to control.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What critical aspect of embedded system behavior does HIL testing primarily validate that unit tests on host cannot?",
+      "back": "HIL testing primarily validates the **real-time interaction** between the embedded software and the emulated physical environment. This includes validating timing, control algorithms, sensor/actuator interfaces, and overall system performance under realistic dynamic conditions, bridging the gap between pure software testing and full system integration testing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name at least three essential components of a typical Hardware-in-the-Loop (HIL) test setup.",
+      "back": "1.  **Real-time Simulator:** Emulates the plant (physical system) dynamics.\n2.  **HIL Interface Hardware:** Converts signals between the simulator and the ECU (e.g., ADCs, DACs, digital I/O, communication buses like CAN, LIN).\n3.  **Controller Under Test (ECU):** The actual embedded hardware running the production software.\n4.  **Test Automation Software:** Manages test execution, data logging, and fault injection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why unit tests on host and HIL testing are considered complementary rather than mutually exclusive for robust embedded software validation.",
+      "back": "Unit tests on host efficiently verify the **correctness of individual software logic** in isolation, catching bugs early and providing fast feedback. HIL testing, conversely, validates the **system's overall behavior and real-time performance** by integrating the actual hardware and software with a simulated environment. Unit tests ensure the building blocks are sound; HIL ensures the assembled system works as intended in its operational context, especially regarding hardware interaction and timing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a significant challenge in testing embedded software that often requires specialized techniques beyond standard software testing?",
+      "back": "Embedded software frequently interacts directly with **hardware peripherals** (sensors, actuators), operates under strict **real-time constraints**, and often has **limited debugging capabilities** on the target. These factors necessitate techniques like mocking for host-based tests and HIL for realistic hardware interaction validation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a simple embedded function `read_sensor_value()` that reads from a hardware register, how would you write a mock for it to unit test a higher-level function `process_sensor_data()` on a host PC?",
+      "back": "```c\n// Original embedded function (not compiled for host)\n// uint16_t read_sensor_register() {\n//     // Access hardware register, e.g., return *SENSOR_REG_PTR;\n// }\n\n// Function to be tested\nuint16_t process_sensor_data() {\n    uint16_t raw_value = read_sensor_register(); // Call to hardware-dependent function\n    return raw_value / 2; // Simple processing\n}\n\n// Mock for host unit testing\nstatic uint16_t mock_sensor_value = 0;\nvoid set_mock_sensor_value(uint16_t val) {\n    mock_sensor_value = val;\n}\n\n// This mock replaces the actual hardware read function during host testing\nuint16_t read_sensor_register() {\n    return mock_sensor_value;\n}\n\n// Example unit test (pseudo-code)\nvoid test_process_sensor_data() {\n    set_mock_sensor_value(100); // Simulate sensor reading 100\n    assert(process_sensor_data() == 50);\n\n    set_mock_sensor_value(200); // Simulate sensor reading 200\n    assert(process_sensor_data() == 100);\n}\n```\nThe `read_sensor_register()` function is replaced by a mock that returns a predefined value, allowing `process_sensor_data()` to be tested without actual hardware.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-cache-organization-direct-mapped-n-way-set-associative-fully-associative",
+  "subtopicTitle": "Cache organization — direct-mapped, n-way set associative, fully associative",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:29.430Z",
+  "cards": [
+    {
+      "front": "In a direct-mapped cache, each block from main memory can map to ___________ specific location(s) in the cache.",
+      "back": "exactly one",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a direct-mapped cache with $B$ bytes per block and $C$ total cache blocks, how are the sizes of the Index and Offset fields determined from a memory address?",
+      "back": "The Offset field has $\\log_2 B$ bits, identifying a byte within a block. The Index field has $\\log_2 C$ bits, identifying which specific cache block (line) the main memory block maps to.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An $N$-way set associative cache allows each main memory block to map to ___________ possible locations within a specific ___________.",
+      "back": "$N$ possible locations; specific set",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a memory address, how are the Tag, Index, and Offset fields derived for an $N$-way set associative cache with $B$ bytes/block and $S$ total sets?",
+      "back": "The Offset field has $\\log_2 B$ bits. The Index field has $\\log_2 S$ bits, identifying the set. The remaining most significant bits form the Tag, which uniquely identifies the block within that set.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the mapping flexibility of a fully associative cache for a main memory block.",
+      "back": "In a fully associative cache, any block from main memory can be placed in *any* available cache line. There are no restrictions based on an index; only the Tag is used for identification.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the steps to determine a cache hit in an $N$-way set associative cache for a given memory address.",
+      "back": "1. The Index bits of the memory address select a specific set.\n2. All $N$ cache lines within that set are checked simultaneously.\n3. For a hit, one of the lines must have its Valid bit set AND its Tag bits must match the Tag bits from the memory address.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the hardware complexity and cost of direct-mapped, $N$-way set associative, and fully associative caches, considering the number of comparators needed for a hit.",
+      "back": "Direct-mapped: Simplest, 1 comparator. $N$-way set associative: $N$ comparators (one for each way in the selected set), moderate complexity. Fully associative: Most complex, requires $C$ comparators (where $C$ is total cache lines) to check all lines simultaneously, highest cost.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why do larger $N$ (higher associativity) in an $N$-way set associative cache reduce conflict misses but increase hit latency and hardware cost?",
+      "back": "Higher $N$ means more choices for block placement within a set, reducing the chance of multiple active memory blocks competing for the same single cache line (conflict misses). However, it requires more comparators (one for each way) and a more complex multiplexer to select the correct data, increasing the time to determine a hit (latency) and hardware cost/power consumption.",
+      "difficulty": "hard"
+    }
+  ]
+}

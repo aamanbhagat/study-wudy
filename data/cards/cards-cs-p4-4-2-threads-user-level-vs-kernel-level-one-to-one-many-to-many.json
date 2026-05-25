@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-2-threads-user-level-vs-kernel-level-one-to-one-many-to-many",
+  "subtopicTitle": "Threads — user-level vs kernel-level, one-to-one, many-to-many",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:57.365Z",
+  "cards": [
+    {
+      "front": "What is a thread, and how does it differ from a traditional process in terms of shared resources?",
+      "back": "A thread (or lightweight process) is a basic unit of CPU utilization. It differs from a process by sharing its code section, data section, and other OS resources (like open files, signals) with other threads belonging to the same process. Each thread, however, has its own program counter, register set, and stack.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the key characteristic of a User-Level Thread (ULT) regarding its management by the OS kernel?",
+      "back": "ULTs are managed entirely by a user-level library, *without* direct kernel involvement. The kernel is unaware of the existence of individual ULTs; it only sees the process as a single thread of control.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify two advantages and two disadvantages of User-Level Threads (ULTs).",
+      "back": "<ul><li><b>Advantages:</b><ol><li><b>Fast context switching:</b> No kernel mode switch required, faster than KLTs.</li><li><b>Application-specific scheduling:</b> The user-level thread library can implement custom scheduling algorithms.</li></ol></li><li><b>Disadvantages:</b><ol><li><b>Blocking system calls:</b> If one ULT makes a blocking system call, the entire process (and all its ULTs) will block.</li><li><b>No true parallelism:</b> Multiple ULTs in a single process cannot run concurrently on multiple CPUs, as the kernel only sees one thread of control.</li></ol></li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key characteristic of a Kernel-Level Thread (KLT) regarding its management by the OS kernel?",
+      "back": "KLTs are managed directly by the operating system kernel. The kernel is aware of and schedules individual KLTs. Each KLT has its own thread control block (TCB) within the kernel.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify two advantages and two disadvantages of Kernel-Level Threads (KLTs).",
+      "back": "<ul><li><b>Advantages:</b><ol><li><b>True parallelism:</b> Multiple KLTs from the same process can run concurrently on different processors.</li><li><b>Non-blocking system calls:</b> If one KLT makes a blocking system call, other KLTs in the same process can continue execution.</li></ol></li><li><b>Disadvantages:</b><ol><li><b>Slower context switching:</b> Requires a mode switch to kernel mode, incurring higher overhead than ULTs.</li><li><b>Increased kernel overhead:</b> More data structures and management required in the kernel for each thread.</li></ol></li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the 'Many-to-One' thread mapping model. What is its main limitation?",
+      "back": "In the Many-to-One model, many user-level threads are mapped to a single kernel-level thread. The user-level thread library manages the ULTs, while the kernel only sees and schedules the single KLT. Its main limitation is that if one ULT makes a blocking system call, the entire process (and all its ULTs) will block, preventing true concurrency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the 'One-to-One' thread mapping model. What is its primary drawback?",
+      "back": "In the One-to-One model, each user-level thread is mapped directly to a separate kernel-level thread. This allows for true concurrency and non-blocking system calls. Its primary drawback is the overhead associated with creating and managing a kernel thread for every user thread, which can significantly impact performance if an application uses many threads.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the 'Many-to-Many' thread mapping model. How does it address the limitations of both Many-to-One and One-to-One?",
+      "back": "The Many-to-Many model multiplexes many user-level threads onto a smaller or equal number of kernel-level threads. The OS provides a pool of KLTs, and the user-level thread library maps ULTs to these available KLTs.<br/><br/>It addresses <b>Many-to-One's limitation</b> by allowing multiple ULTs to run concurrently on multiple KLTs, preventing the entire process from blocking on a single system call.<br/>It addresses <b>One-to-One's limitation</b> by not requiring a dedicated KLT for every ULT, reducing kernel overhead while still providing parallelism.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a Many-to-One thread mapping model. If one user-level thread initiates a blocking I/O operation, what happens to other user-level threads within the same process?",
+      "back": "If one user-level thread in a Many-to-One model makes a blocking I/O call, the *entire process* (and thus all other user-level threads within it) will block. This is because the kernel only sees and schedules the single kernel-level thread associated with the process. When that single KLT blocks, the kernel suspends the entire process, unaware that other user-level threads might be ready to run.",
+      "difficulty": "hard"
+    }
+  ]
+}

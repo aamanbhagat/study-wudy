@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-z-test-t-test-chi-squared-goodness-of-fit-f-test",
+  "subtopicTitle": "z-test, t-test, chi-squared goodness of fit, F-test",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:12.719Z",
+  "cards": [
+    {
+      "front": "Under what conditions should a z-test be used instead of a t-test for a single sample mean?",
+      "back": "A z-test is used when the population standard deviation $\\sigma$ is known. It can also be approximated when the sample size $n$ is large ($n \\ge 30$) and the Central Limit Theorem applies, allowing the sample standard deviation $s$ to be a good estimate for $\\sigma$. A t-test is used when $\\sigma$ is unknown, particularly with small sample sizes ($n < 30$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the one-sample t-test statistic and its degrees of freedom.",
+      "back": "The one-sample t-test statistic is $t = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}}$, where $\\bar{x}$ is the sample mean, $\\mu_0$ is the hypothesized population mean, $s$ is the sample standard deviation, and $n$ is the sample size. The degrees of freedom (df) are $n-1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You want to compare the mean height of 15 students to the national average. Population std dev is unknown. Which test?",
+      "back": "A one-sample t-test. Since the population standard deviation is unknown and the sample size ($n=15$) is small, the t-distribution is appropriate. The degrees of freedom would be $n-1 = 15-1=14$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of a chi-squared goodness of fit test?",
+      "back": "To determine if an observed frequency distribution significantly differs from an expected (theoretical) frequency distribution. It assesses how well a proposed probability model or hypothesis fits the observed categorical data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the formula for the chi-squared goodness of fit test statistic and its degrees of freedom.",
+      "back": "The chi-squared statistic is $\\chi^2 = \\sum_{i=1}^{k} \\frac{(O_i - E_i)^2}{E_i}$, where $O_i$ is the observed frequency for category $i$, $E_i$ is the expected frequency for category $i$, and $k$ is the number of categories. The degrees of freedom (df) are $k-1$ (assuming no parameters are estimated from the data).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary application of the F-test in hypothesis testing?",
+      "back": "The F-test is primarily used to compare the variances of two or more populations. Its most common application is in Analysis of Variance (ANOVA) to test if the means of multiple groups are equal by comparing the variance between groups to the variance within groups. It can also test the overall significance of a regression model.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the F-statistic when comparing two population variances and its degrees of freedom.",
+      "back": "The F-statistic for comparing two population variances is $F = \\frac{s_1^2}{s_2^2}$, where $s_1^2$ and $s_2^2$ are the sample variances from two independent populations. By convention, the larger variance is usually placed in the numerator. It has two sets of degrees of freedom: $df_1 = n_1-1$ (numerator) and $df_2 = n_2-1$ (denominator), where $n_1$ and $n_2$ are the respective sample sizes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the relationship between the t-distribution and the F-distribution when comparing two population means.",
+      "back": "When comparing two population means using an independent samples t-test with equal variances, the square of the t-statistic ($t^2$) follows an F-distribution with 1 numerator degree of freedom and $n_1+n_2-2$ denominator degrees of freedom. That is, $F_{(1, n_1+n_2-2)} = t^2_{(n_1+n_2-2)}$. This relationship is fundamental to ANOVA, which uses the F-test to compare multiple means.",
+      "difficulty": "hard"
+    }
+  ]
+}

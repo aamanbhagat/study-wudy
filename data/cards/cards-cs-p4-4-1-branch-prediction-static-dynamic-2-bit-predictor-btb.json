@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-branch-prediction-static-dynamic-2-bit-predictor-btb",
+  "subtopicTitle": "Branch prediction — static, dynamic (2-bit predictor, BTB)",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:44.139Z",
+  "cards": [
+    {
+      "front": "What is the primary problem branch prediction aims to solve in a pipelined processor?",
+      "back": "Branch prediction addresses control hazards in pipelined processors. Without prediction, the processor would have to stall the pipeline until the outcome of a branch instruction is known, leading to significant performance loss by preventing the fetching of subsequent instructions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a simple static branch prediction strategy and its main drawback.",
+      "back": "A simple static strategy is \"Always Not Taken\" (ANT), where the predictor always assumes a branch will not be taken and fetches instructions sequentially. Its main drawback is poor accuracy for branches that are frequently taken (e.g., loop branches), leading to many mispredictions and pipeline flushes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does dynamic branch prediction fundamentally differ from static branch prediction?",
+      "back": "Dynamic branch prediction uses the *past execution history* of a branch to predict its future outcome, adapting to runtime behavior. Static prediction relies on fixed rules, compiler hints, or opcode analysis, without considering runtime history.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the state transitions and prediction logic of a 2-bit saturating counter branch predictor.",
+      "back": "A 2-bit predictor uses a 4-state finite state machine (FSM) for each branch, providing hysteresis. The states are:\n*   00: Strongly Not Taken (SN)\n*   01: Weakly Not Taken (WN)\n*   10: Weakly Taken (WT)\n*   11: Strongly Taken (ST)\n\n**Prediction Logic**: If the counter's most significant bit (MSB) is 0 (states 00, 01), predict Not Taken. If MSB is 1 (states 10, 11), predict Taken.\n\n**State Transitions**:\n*   If the branch is **Taken**: Increment the counter, saturating at 11 (e.g., $00 \to 01 \to 10 \to 11$).\n*   If the branch is **Not Taken**: Decrement the counter, saturating at 00 (e.g., $11 \to 10 \to 01 \to 00$).\n\nThis requires two consecutive mispredictions to change the prediction direction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is a 2-bit saturating counter predictor generally more effective than a 1-bit predictor?",
+      "back": "A 1-bit predictor flips its prediction after just one misprediction, making it unstable and prone to 'thrashing' for branches that frequently alternate outcomes. A 2-bit predictor requires two consecutive mispredictions to change its primary prediction direction (e.g., from predicting Taken to predicting Not Taken), providing hysteresis and stability against single, isolated mispredictions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary function of a Branch Target Buffer (BTB) in a pipelined processor?",
+      "back": "The primary function of a BTB is to predict the *target address* of a taken branch *before* the branch instruction itself is decoded and its target address is computed. This allows the instruction fetch unit to start fetching instructions from the predicted target path earlier, reducing pipeline bubbles for taken branches.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the typical lookup process in a BTB and what happens on a hit vs. miss.",
+      "back": "The Program Counter (PC) of the *current* instruction fetch is used to index into the BTB.\n\n*   **BTB Hit**: If an entry matches the PC and predicts \"Taken\", the BTB provides the predicted target address, and the fetch unit immediately starts fetching from that address.\n*   **BTB Miss**: If no entry matches, or if the entry matches but predicts \"Not Taken\", the pipeline continues fetching instructions sequentially. The actual branch outcome and target are resolved later in the pipeline.\n\nIf a branch is taken and was a BTB miss, or if the BTB predicted the wrong target, a significant pipeline flush and refill penalty occurs.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a \"misprediction penalty\" and how does it manifest in terms of CPU cycles?",
+      "back": "A misprediction penalty is the performance cost incurred when a branch predictor makes an incorrect prediction. It manifests as pipeline stalls and wasted work: instructions fetched down the wrong path must be flushed from the pipeline, and the correct instructions must then be fetched from the right path. This process typically wastes several clock cycles (e.g., 5-20 cycles or more in modern deep pipelines), significantly reducing CPU throughput.",
+      "difficulty": "medium"
+    }
+  ]
+}

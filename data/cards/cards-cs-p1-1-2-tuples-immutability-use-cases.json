@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p1-1-2-tuples-immutability-use-cases",
+  "subtopicTitle": "Tuples — immutability, use cases",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:01.369Z",
+  "cards": [
+    {
+      "front": "In Python, what is a tuple, and how do you create an empty one or one with elements?",
+      "back": "A tuple is an ordered, immutable collection of items. It's similar to a list but cannot be changed after creation.\n\nTo create:\n*   Empty tuple: `my_tuple = ()`\n*   Tuple with elements: `my_tuple = (1, 'hello', 3.14)`\n*   Tuple packing (without parentheses): `my_tuple = 1, 2, 3`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental property of Python tuples is described by the term 'immutability'?",
+      "back": "Immutability means that once a tuple is created, its elements cannot be changed, added, or removed. You cannot modify the tuple in place. Any operation that seems to 'change' a tuple actually creates a *new* tuple.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which of the following operations are *not* allowed on a Python tuple `my_tuple = (1, 2, 3)` due to its immutability?\n\nA) `my_tuple[0] = 5`\nB) `my_tuple.append(4)`\nC) `my_tuple = (4, 5, 6)`\nD) `len(my_tuple)`",
+      "back": "Operations A) `my_tuple[0] = 5` (item assignment) and B) `my_tuple.append(4)` (adding elements) are *not* allowed because they attempt to modify the tuple in place. These would raise a `TypeError`.\n\nC) `my_tuple = (4, 5, 6)` is allowed because it reassigns the `my_tuple` variable to a *new* tuple, not modifies the original one.\nD) `len(my_tuple)` is allowed as it only queries the tuple's length without modifying it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You need to store a set of coordinates $(x, y)$ that should not change after creation. Should you use a list or a tuple, and why?",
+      "back": "You should use a **tuple**. The primary reason is its immutability. Once the coordinates are set (e.g., `point = (10, 20)`), you are guaranteed that they cannot be accidentally or intentionally altered later in the program, ensuring data integrity for fixed values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two common Python scenarios where tuples are preferred or required over lists due to their immutability.",
+      "back": "1.  **Function Returns:** Functions often return multiple values as a tuple (e.g., `return x, y, z`). This groups related values that are meant to be consumed together and not individually modified.\n2.  **Dictionary Keys:** Tuples can be used as keys in dictionaries because they are immutable and thus 'hashable'. Lists, being mutable, cannot be dictionary keys.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain 'tuple packing' and 'tuple unpacking' in Python with a simple example.",
+      "back": "**Tuple Packing:** Creating a tuple by assigning multiple values to a single variable, often without explicit parentheses.\n    ```python\n    coordinates = 10, 20 # (10, 20) is packed into 'coordinates'\n    ```\n**Tuple Unpacking:** Assigning the elements of a tuple to multiple variables in a single statement.\n    ```python\n    x, y = coordinates # 10 goes to x, 20 goes to y\n    ```\nThis is commonly used for swapping variables (`a, b = b, a`) or returning multiple values from functions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you correctly create a tuple containing only the integer `5`? Why is its specific syntax necessary?",
+      "back": "To create a tuple with a single element, you must include a trailing comma:\n```python\nsingle_element_tuple = (5,)\n```\nThis syntax is necessary because `(5)` without the comma is interpreted by Python as simply the integer `5` enclosed in parentheses (a parenthesized expression), not a tuple. The comma distinguishes it as a tuple.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given `t = (1, [2, 3], 4)`, can `t[1]` be modified? Explain how this relates to tuple immutability.",
+      "back": "Yes, `t[1]` *can* be modified. For example, `t[1].append(5)` would result in `t` becoming `(1, [2, 3, 5], 4)`.\n\nThis relates to tuple immutability because the tuple itself is immutable: the *references* it holds to its elements cannot change. `t[1]` always refers to the *same list object*. However, if an element *within* the tuple is a mutable object (like a list), that mutable object's *contents* can be changed, even though the tuple still refers to the original list object.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides data integrity, what potential advantage might tuples offer over lists in terms of performance or memory, and why?",
+      "back": "Tuples can offer slight advantages in **performance** and **memory usage** compared to lists, especially for large collections.\n\n**Why?** Because tuples are immutable, Python can make certain optimizations. They are fixed-size, so they don't need to allocate extra memory for potential future growth (unlike lists, which often pre-allocate space). This can lead to slightly faster creation, iteration, and access times, and a smaller memory footprint, as the interpreter doesn't need to manage their mutability.",
+      "difficulty": "medium"
+    }
+  ]
+}

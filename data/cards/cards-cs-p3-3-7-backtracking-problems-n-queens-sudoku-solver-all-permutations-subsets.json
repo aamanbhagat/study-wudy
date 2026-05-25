@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-7-backtracking-problems-n-queens-sudoku-solver-all-permutations-subsets",
+  "subtopicTitle": "Backtracking problems — N-Queens, Sudoku solver, all permutations/subsets",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:34.390Z",
+  "cards": [
+    {
+      "front": "What is the fundamental principle of a backtracking algorithm?",
+      "back": "Backtracking is a general algorithmic technique for finding all (or some) solutions to computational problems, especially constraint satisfaction problems. It incrementally builds candidates to the solutions, and 'backtracks' (abandons) a candidate as soon as it determines that the candidate cannot possibly be completed to a valid solution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three core components typically found in a backtracking algorithm's recursive function.",
+      "back": "1.  **Base Case**: Defines when a solution is found or when a path is invalid. \n2.  **Constraint Check**: A function to determine if the current partial solution is valid or can potentially lead to a valid solution. \n3.  **Recursive Step (Exploration)**: Iterates through choices, makes a choice, recursively calls itself, and then 'undoes' the choice (backtracks) to explore other paths.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the N-Queens problem, when placing a queen at $(r, c)$, what three conditions must be checked to ensure it doesn't attack existing queens?",
+      "back": "1. No other queen in the same **column** ($c$).\n2. No other queen in the same **main diagonal** ($r-c$ is constant).\n3. No other queen in the same **anti-diagonal** ($r+c$ is constant).\n(Row check is implicit as queens are usually placed one per row.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the high-level backtracking approach for solving the N-Queens problem.",
+      "back": "Start by placing a queen in the first row. For each column in that row, if it's safe to place a queen, place it and recursively try to place a queen in the next row. If the recursive call returns false (no solution from that path), remove the queen (backtrack) and try the next column. If all queens are placed (base case), a solution is found.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a Sudoku solver, when attempting to place a digit $d$ at $(r, c)$, what three regions must be checked for $d$'s presence?",
+      "back": "1. The **row** $r$.\n2. The **column** $c$.\n3. The $3 \\times 3$ **subgrid** containing $(r, c)$. The subgrid index can be calculated as $(\\lfloor r/3 \\rfloor, \\lfloor c/3 \\rfloor)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When generating all permutations of a list `nums`, how does backtracking use a `visited` array or swapping to explore choices and then backtrack?",
+      "back": "Using a `visited` array: For each element `nums[i]`, if not `visited[i]`, add it to the current permutation, mark `visited[i] = true`, and recurse. After the recursive call, set `visited[i] = false` (backtrack) to allow it in other permutations.\n\nUsing swapping: Iterate `i` from `start` to `n-1`. Swap `nums[start]` with `nums[i]`, recurse on `start+1`, then swap `nums[start]` with `nums[i]` again to restore the original order (backtrack).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the two main recursive choices made at each step to generate all subsets (power set) of a given set $S$ using backtracking.",
+      "back": "At each element $S[i]$, there are two choices:\n1.  **Include** $S[i]$ in the current subset. Add $S[i]$ to the temporary subset and recurse for $S[i+1]$.\n2.  **Exclude** $S[i]$ from the current subset. Do not add $S[i]$ to the temporary subset and recurse for $S[i+1]$.\nThe base case is when all elements have been processed, at which point the current temporary subset is a valid subset.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a common worst-case time complexity for many backtracking problems like N-Queens or permutations of $N$ items, and why?",
+      "back": "The worst-case time complexity is often exponential or factorial, such as $O(N!)$ for permutations or $O(N^N)$ (or slightly better for N-Queens) for problems involving $N$ choices at each of $N$ steps. This is because backtracking explores a decision tree, and in the worst case, it might visit a significant portion of all possible configurations before finding solutions or determining no solution exists.",
+      "difficulty": "hard"
+    }
+  ]
+}

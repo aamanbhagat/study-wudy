@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-floyd-warshall-all-pairs-shortest-paths-o-v",
+  "subtopicTitle": "Floyd-Warshall — all-pairs shortest paths, O(V³)",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:35.799Z",
+  "cards": [
+    {
+      "front": "What problem does the Floyd-Warshall algorithm solve?",
+      "back": "The Floyd-Warshall algorithm solves the All-Pairs Shortest Path (APSP) problem for a given weighted, directed graph. It finds the shortest path between every pair of vertices in the graph.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core dynamic programming principle behind Floyd-Warshall.",
+      "back": "Floyd-Warshall uses dynamic programming by iteratively considering all possible intermediate vertices $k$. For each pair of vertices $(i, j)$, it checks if passing through $k$ provides a shorter path: $dist[i][j] = \\min(dist[i][j], dist[i][k] + dist[k][j])$. This ensures that after iterating through all possible $k$, $dist[i][j]$ holds the shortest path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the three nested loops of the Floyd-Warshall algorithm and their order.",
+      "back": "The algorithm uses three nested loops. The outermost loop iterates through all possible intermediate vertices $k$. The middle loop iterates through all possible source vertices $i$. The innermost loop iterates through all possible destination vertices $j$. The order is crucial:\n```\nfor k from 1 to V:\n    for i from 1 to V:\n        for j from 1 to V:\n            dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the initial distance matrix $D^{(0)}$ (or `dist` array) set up before the Floyd-Warshall iterations begin?",
+      "back": "For a graph with $V$ vertices and edge weights $w(u, v)$:\n1.  $D^{(0)}[i][j] = w(i, j)$ if a direct edge $(i, j)$ exists.\n2.  $D^{(0)}[i][i] = 0$ for all vertices $i$.\n3.  $D^{(0)}[i][j] = \\infty$ (a very large number) if no direct edge $(i, j)$ exists and $i \\neq j$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity of the Floyd-Warshall algorithm, and why?",
+      "back": "The time complexity of the Floyd-Warshall algorithm is $O(V^3)$, where $V$ is the number of vertices. This is because the algorithm consists of three perfectly nested loops, each iterating $V$ times (for intermediate vertices $k$, source vertices $i$, and destination vertices $j$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can the Floyd-Warshall algorithm detect the presence of a negative cycle in a graph?",
+      "back": "After the Floyd-Warshall algorithm completes its execution, if any $dist[i][i]$ (the shortest path from a vertex to itself) is found to be negative, it indicates the presence of a negative cycle. This is because a path from $i$ to $i$ with negative length implies that $i$ is part of or can reach a negative cycle, as a shortest path from $i$ to $i$ should ideally be 0 (no movement) or $\\infty$ (unreachable).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe how to modify Floyd-Warshall to reconstruct the actual shortest paths, not just their lengths.",
+      "back": "To reconstruct paths, an additional `next_node` matrix, say `P[i][j]`, is maintained. It's initialized such that `P[i][j] = j` if an edge $(i, j)$ exists, otherwise `null`. When `dist[i][j]` is updated because $dist[i][k] + dist[k][j]$ is shorter, `P[i][j]` is set to `P[i][k]`. To reconstruct the path from $i$ to $j$, start at $i$, then move to `P[i][j]`, then `P[P[i][j]][j]`, and so on, until $j$ is reached. The path would be $i \\to P[i][j] \\to P[P[i][j]][j] \\to \\dots \\to j$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions would you prefer Floyd-Warshall over running Dijkstra's algorithm from each vertex for APSP?",
+      "back": "Floyd-Warshall is generally preferred over running Dijkstra's from each vertex for APSP in these scenarios:\n1.  **Negative Edge Weights**: If the graph contains negative edge weights (but no negative cycles), Floyd-Warshall can handle them, whereas Dijkstra's algorithm requires non-negative weights.\n2.  **Graph Density/Size**: For dense graphs or when $V$ is relatively small, its $O(V^3)$ complexity can be competitive or even better than $V$ runs of Dijkstra's (which can be $O(V(E + V \\log V))$ with a Fibonacci heap or $O(V^2)$ with a simple array/min-priority queue).\n3.  **Simplicity**: It's often simpler to implement compared to managing a priority queue for Dijkstra's $V$ times.",
+      "difficulty": "medium"
+    }
+  ]
+}

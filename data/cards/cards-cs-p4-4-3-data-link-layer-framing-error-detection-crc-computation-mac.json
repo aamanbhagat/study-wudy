@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-data-link-layer-framing-error-detection-crc-computation-mac",
+  "subtopicTitle": "Data link layer — framing, error detection (CRC computation), MAC",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:28.986Z",
+  "cards": [
+    {
+      "front": "Why is \"framing\" a crucial function of the data link layer?",
+      "back": "Framing divides the stream of bits from the network layer into manageable blocks called frames. This is crucial for error detection and recovery, flow control, and identifying the start and end of a message unit for reliable transmission across the physical medium.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the bit stuffing technique used in framing, and provide an example.",
+      "back": "Bit stuffing ensures that a specific flag pattern (e.g., `01111110`) used to mark frame boundaries does not appear within the data itself. Whenever five consecutive `1`s appear in the data, an extra `0` is inserted. This `0` is removed by the receiver.\n\nExample: Data `011111111110` with flag `01111110`.\nAfter stuffing: `011111011111010` (inserted `0`s are after 5 consecutive `1`s).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the underlying mathematical principle that Cyclic Redundancy Check (CRC) uses for error detection?",
+      "back": "CRC uses polynomial division over a finite field (typically GF(2), meaning coefficients are 0 or 1, and arithmetic is modulo 2). The data to be transmitted is treated as a polynomial, divided by a predetermined generator polynomial $G(x)$, and the remainder is appended to the data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compute the CRC for the data word $D = 1101011011$ using the generator polynomial $G(x) = x^4 + x + 1$. Show your work.",
+      "back": "The generator polynomial $G(x) = x^4 + x + 1$ corresponds to the bit pattern $10011$. Its degree is $r=4$.\n1.  Append $r$ zeros to the data word: $1101011011\\underline{0000}$.\n2.  Perform binary polynomial division (XOR operation):\n```\n        1100010110  (Quotient - not used for CRC)\n      -----------------\n10011 ) 11010110110000  (Data + 0s)\n        10011\n        -----\n         10011110110000\n         10011\n         -----\n              0000110110000\n                  10011\n                  -----\n                   0100000000\n                    10011\n                    -----\n                     000110000\n                       10011\n                       -----\n                        01011000\n                         10011\n                         -----\n                          0100100\n                           10011\n                           -----\n                            000010  (Remainder)\n```\n3.  The remainder is $0010$.\n4.  The transmitted frame (data + CRC) is $11010110110010$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What types of errors can a CRC with a generator polynomial of degree $r$ detect, and what is its main advantage over simple parity checks?",
+      "back": "A CRC with degree $r$ can detect:\n*   All single-bit errors.\n*   All double-bit errors.\n*   Any odd number of errors (if $G(x)$ contains a factor $x+1$).\n*   All burst errors of length less than or equal to $r$.\n*   A very high percentage of burst errors longer than $r$.\nIts main advantage over simple parity checks is its superior ability to detect burst errors effectively and its high probability of detecting multiple random errors, making it much more robust and reliable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary responsibility of the Medium Access Control (MAC) sublayer, and what is a MAC address?",
+      "back": "The MAC sublayer manages how devices on a network share access to a common transmission medium. It handles channel access control, frame addressing, and error detection (though CRC is often done by the LLC sublayer or hardware).\nA MAC address is a unique, hardware-embedded 48-bit (6-byte) identifier assigned to network interfaces (e.g., Ethernet card) for communication within a local network segment (e.g., a LAN).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the Carrier Sense Multiple Access with Collision Detection (CSMA/CD) protocol, including its collision handling mechanism.",
+      "back": "CSMA/CD is a random access protocol used primarily in Ethernet.\n1.  **Carrier Sense**: A station wanting to transmit first listens to the medium. If it's idle, it transmits.\n2.  **Multiple Access**: Multiple stations can attempt to access the medium.\n3.  **Collision Detection**: While transmitting, the station continuously monitors the medium for collisions (simultaneous transmissions, causing signal interference).\n4.  **Collision Handling**: If a collision is detected, the transmitting station immediately stops transmission, sends a brief \"jamming signal\" to ensure all other stations detect the collision, and then waits for a random amount of time (using an exponential backoff algorithm) before attempting to retransmit. This random delay helps prevent repeated collisions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare and contrast CSMA/CA with CSMA/CD, specifying where each is typically used and why.",
+      "back": "Both are MAC protocols for shared media, but they differ in collision handling:\n*   **CSMA/CD (Collision Detection)**:\n    *   **Mechanism**: Detects collisions *during* transmission.\n    *   **Environment**: Wired networks (e.g., Ethernet), where it's feasible to detect signal interference while sending.\n    *   **Reason**: Signals propagate quickly, and a station can monitor its own transmission for interference.\n*   **CSMA/CA (Collision Avoidance)**:\n    *   **Mechanism**: Tries to *avoid* collisions *before* transmission (e.g., using RTS/CTS handshakes or DIFS/SIFS timing), as detection during transmission is difficult or impossible.\n    *   **Environment**: Wireless networks (e.g., Wi-Fi).\n    *   **Reason**: Due to the \"hidden terminal\" problem (stations not hearing each other) and the difficulty of detecting collisions in a half-duplex wireless environment (a station cannot effectively listen while transmitting).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-superscalar-multiple-execution-units",
+  "subtopicTitle": "Superscalar — multiple execution units",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:45.016Z",
+  "cards": [
+    {
+      "front": "Define a \"superscalar processor\" in the context of computer architecture.",
+      "back": "A superscalar processor is a CPU capable of executing more than one instruction per clock cycle by dispatching multiple instructions simultaneously to different execution units. It exploits instruction-level parallelism (ILP) within a single instruction stream.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental hardware feature that enables a superscalar processor to achieve parallelism?",
+      "back": "The fundamental hardware feature is the presence of *multiple, independent execution units* (e.g., multiple ALUs, floating-point units, load/store units) that can operate concurrently.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is Instruction-Level Parallelism (ILP) critical for the performance of a superscalar processor?",
+      "back": "ILP is critical because a superscalar processor's ability to execute multiple instructions simultaneously hinges on finding independent instructions that can be run in parallel. Without sufficient ILP, the multiple execution units would often sit idle, negating the benefits of the superscalar design.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a \"Read-After-Write (RAW)\" data dependency limits superscalar instruction dispatch.",
+      "back": "A RAW dependency occurs when an instruction needs to read a register or memory location that a previous, in-flight instruction is still writing to. The dependent instruction cannot be dispatched until the earlier instruction completes its write, preventing parallel execution and causing a stall.\nExample:\n```\nADD R1, R2, R3  // Writes to R1\nMUL R4, R1, R5  // Reads from R1\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do conditional branch instructions pose a significant challenge to superscalar processors, and what is a common hardware solution?",
+      "back": "Conditional branches create *control dependencies* because the processor doesn't know which path to take until the branch condition is evaluated. This uncertainty can stall instruction fetching and dispatch. A common hardware solution is *branch prediction*, where the processor guesses the outcome of a branch and speculatively executes instructions along the predicted path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond multiple execution units, name two advanced techniques superscalar processors use to overcome dependencies and improve parallelism.",
+      "back": "1.  **Out-of-Order Execution (OoOE):** Allows instructions to execute in an order different from their program order, as long as data and control dependencies are respected, enabling independent instructions to run earlier.\n2.  **Register Renaming:** Solves *Write-After-Write (WAW)* and *Write-After-Read (WAR)* dependencies (false dependencies) by providing more physical registers than architectural registers, allowing different instructions to write to distinct physical registers even if they target the same architectural register.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Distinguish between a pipelined processor and a superscalar processor in terms of how they exploit parallelism.",
+      "back": "A **pipelined processor** exploits parallelism by overlapping the execution *stages* of *different* instructions. It executes one instruction per clock cycle (IPC = 1) but keeps multiple instructions in flight, each in a different stage.\nA **superscalar processor** exploits parallelism by executing *multiple instructions simultaneously* in the *same* clock cycle, using multiple execution units. It aims for IPC > 1. A superscalar processor typically also uses pipelining within each execution unit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two primary practical limitations that prevent superscalar processors from achieving arbitrarily high Instruction Per Cycle (IPC) rates?",
+      "back": "1.  **Diminishing Instruction-Level Parallelism (ILP):** Real-world code often has inherent data and control dependencies that limit how many instructions can truly execute in parallel, even with advanced techniques.\n2.  **Hardware Complexity and Power Consumption:** As the number of execution units and associated control logic (e.g., dependency checking, scheduling, register renaming) increases, the complexity, die area, and power consumption of the CPU grow significantly, leading to diminishing returns.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-incidence-matrix",
+  "subtopicTitle": "Incidence matrix",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:36.554Z",
+  "cards": [
+    {
+      "front": "Define an incidence matrix for an undirected graph, specifying its dimensions and the meaning of its entries.",
+      "back": "An incidence matrix $M$ for an undirected graph with $n$ vertices and $m$ edges is an $n \\times m$ matrix. Each row corresponds to a vertex $v_i$ and each column corresponds to an edge $e_j$. The entry $M_{ij}$ is $1$ if vertex $v_i$ is incident to edge $e_j$, and $0$ otherwise.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Construct the incidence matrix for an undirected graph with vertices $V=\\{v_1, v_2, v_3\\}$ and edges $E=\\{e_1=(v_1,v_2), e_2=(v_2,v_3), e_3=(v_3,v_1)\\}$.",
+      "back": "The incidence matrix $M$ is:\n$$ M = \\begin{pmatrix}\n& e_1 & e_2 & e_3 \\\\\nv_1 & 1 & 0 & 1 \\\\\nv_2 & 1 & 1 & 0 \\\\\nv_3 & 0 & 1 & 1\n\\end{pmatrix} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does an incidence matrix represent a *directed* graph? Explain the meaning of $1$, $-1$, and $0$ entries.",
+      "back": "For a directed graph, the incidence matrix $M$ is an $n \\times m$ matrix where:\n- $M_{ij} = 1$ if vertex $v_i$ is the *tail* (start) of directed edge $e_j$.\n- $M_{ij} = -1$ if vertex $v_i$ is the *head* (end) of directed edge $e_j$.\n- $M_{ij} = 0$ if $v_i$ is not incident to $e_j$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an undirected graph's incidence matrix $M$, what does the sum of entries in a column represent, and what does the sum of entries in a row represent?",
+      "back": "The sum of entries in any column $j$ (representing edge $e_j$) is always $2$ (since each edge connects exactly two vertices, or $2$ for a self-loop if that convention is used). The sum of entries in any row $i$ (representing vertex $v_i$) is equal to the degree of vertex $v_i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are parallel edges and self-loops represented in an incidence matrix for an *undirected* graph?",
+      "back": "-   **Parallel Edges**: Each parallel edge is represented by its own distinct column in the matrix. For example, two edges between $v_1$ and $v_2$ would result in two separate columns, each with $1$s in rows $v_1$ and $v_2$.\n-   **Self-loops**: A self-loop on vertex $v_i$ (e.g., $e_j=(v_i,v_i)$) is represented by a column $e_j$ where $M_{ij}=2$. This convention ensures the column sum is $2$ and the row sum correctly reflects the degree (where a self-loop contributes $2$ to the degree).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State two key advantages and two key disadvantages of using an incidence matrix compared to an adjacency matrix for graph representation.",
+      "back": "**Advantages:**\n1.  Explicitly represents edges, making it easy to handle multigraphs (parallel edges).\n2.  Vertex degrees are easily calculated by summing rows.\n\n**Disadvantages:**\n1.  Larger memory footprint for sparse graphs ($|V| \\times |E|$ vs. $|V| \\times |V|$).\n2.  Checking for adjacency between two specific vertices is less direct; it requires scanning columns to find common $1$s.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an incidence matrix $M$ for an undirected graph, write a formula to calculate the degree of vertex $v_k$. Assume self-loops are represented by $M_{kj}=2$.",
+      "back": "The degree of vertex $v_k$, denoted $\\text{deg}(v_k)$, is the sum of the entries in its corresponding row $k$:\n$$ \\text{deg}(v_k) = \\sum_{j=1}^{m} M_{kj} $$\nWhere $m$ is the total number of edges in the graph. This formula directly holds when self-loops are represented with a $2$ in the matrix.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given an incidence matrix $M$, how can you determine the number of vertices and the number of edges in the graph it represents?",
+      "back": "-   **Number of Vertices ($n$)**: The number of rows in the incidence matrix $M$.\n-   **Number of Edges ($m$)**: The number of columns in the incidence matrix $M$.",
+      "difficulty": "easy"
+    }
+  ]
+}

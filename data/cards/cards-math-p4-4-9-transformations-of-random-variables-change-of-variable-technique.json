@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-9-transformations-of-random-variables-change-of-variable-technique",
+  "subtopicTitle": "Transformations of random variables — change-of-variable technique",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:07.368Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of the change-of-variable technique in probability theory?",
+      "back": "To find the probability distribution (e.g., PDF or PMF) of a new random variable $Y$ that is a function of one or more existing random variables $X_1, X_2, \\dots$, i.e., $Y = g(X_1, X_2, \\dots)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a discrete random variable $X$ with PMF $P_X(x)$, how do you find the PMF of $Y=g(X)$?",
+      "back": "The PMF of $Y$ is $P_Y(y) = \\sum_{x: g(x)=y} P_X(x)$. If $g$ is a one-to-one transformation, then $P_Y(y) = P_X(g^{-1}(y))$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the PDF $f_Y(y)$ of a continuous random variable $Y=g(X)$, where $g$ is a one-to-one differentiable function.",
+      "back": "If $X$ has PDF $f_X(x)$ and $Y=g(X)$ where $g$ is one-to-one and differentiable, then:\n$$f_Y(y) = f_X(g^{-1}(y)) \\left| \\frac{d}{dy} g^{-1}(y) \\right|$$\nor equivalently, using the inverse function theorem:\n$$f_Y(y) = f_X(g^{-1}(y)) \\left| \\frac{1}{g'(g^{-1}(y))} \\right|$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the univariate continuous change-of-variable formula, why does the term $|g'(x)|^{-1}$ (or $|(g^{-1})'(y)|$) appear? What does it represent?",
+      "back": "This term, derived from the Jacobian, accounts for the \"stretching\" or \"compression\" of probability density when transforming from $X$ to $Y$. If $|g'(x)|$ is large, a small change in $X$ leads to a large change in $Y$, so the probability density gets \"thinned out\" (compressed). Conversely, if $|g'(x)|$ is small, density gets \"bunched up\" (stretched). The absolute value ensures density remains non-negative.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find the PDF of $Y=g(X)$ when $g$ is *not* a one-to-one function (e.g., $Y=X^2$)?",
+      "back": "If $g$ is not one-to-one, partition the domain of $X$ into disjoint intervals $I_k$ where $g$ *is* one-to-one. For each interval $I_k$, find the inverse function $x_k = g_k^{-1}(y)$. Then sum the contributions:\n$$f_Y(y) = \\sum_{k} f_X(x_k) \\left| \\frac{d}{dy} x_k \\right|$$\nFor $Y=X^2$, if $X$ can be positive or negative, $x_1 = \\sqrt{y}$ and $x_2 = -\\sqrt{y}$ for $y>0$. The formula becomes:\n$$f_Y(y) = f_X(\\sqrt{y}) \\left| \\frac{1}{2\\sqrt{y}} \\right| + f_X(-\\sqrt{y}) \\left| \\frac{-1}{2\\sqrt{y}} \\right| \\quad \\text{for } y>0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for the joint PDF $f_{Y_1, Y_2}(y_1, y_2)$ of $Y_1=g_1(X_1, X_2)$ and $Y_2=g_2(X_1, X_2)$, assuming the transformation is one-to-one.",
+      "back": "If $(X_1, X_2)$ has joint PDF $f_{X_1, X_2}(x_1, x_2)$, and the transformation $(y_1, y_2) = (g_1(x_1, x_2), g_2(x_1, x_2))$ is one-to-one with inverse $(x_1, x_2) = (h_1(y_1, y_2), h_2(y_1, y_2))$, then:\n$$f_{Y_1, Y_2}(y_1, y_2) = f_{X_1, X_2}(h_1(y_1, y_2), h_2(y_1, y_2)) |J|$$\nwhere $|J|$ is the absolute value of the Jacobian determinant:\n$$J = \\det \\begin{pmatrix} \\frac{\\partial x_1}{\\partial y_1} & \\frac{\\partial x_1}{\\partial y_2} \\\\ \\frac{\\partial x_2}{\\partial y_1} & \\frac{\\partial x_2}{\\partial y_2} \\end{pmatrix}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the multivariate change-of-variable technique, what does the absolute value of the Jacobian determinant physically represent?",
+      "back": "The absolute value of the Jacobian determinant, $|J|$, represents the ratio of infinitesimal volume elements in the $X$-space and $Y$-space. Specifically, $dV_X = |J| dV_Y$. It accounts for how the transformation \"stretches\" or \"shrinks\" the probability density as we move from the original coordinate system $(X_1, \\dots, X_n)$ to the new coordinate system $(Y_1, \\dots, Y_n)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

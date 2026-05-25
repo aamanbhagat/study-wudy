@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-os-structure-monolithic-microkernel-hybrid",
+  "subtopicTitle": "OS structure — monolithic, microkernel, hybrid",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:52.521Z",
+  "cards": [
+    {
+      "front": "Define a \"monolithic kernel\" in the context of OS structure.",
+      "back": "A monolithic kernel is an OS architecture where all core OS services (process management, memory management, file system, device drivers, networking) run in a single address space in kernel mode.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"microkernel\" in the context of OS structure.",
+      "back": "A microkernel is an OS architecture where only the most essential services (IPC, basic memory management, process scheduling, low-level hardware access) run in kernel mode. Other services (e.g., file systems, device drivers, network stacks) run as user-level servers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"hybrid kernel\" in the context of OS structure.",
+      "back": "A hybrid kernel is an OS architecture that combines aspects of both monolithic and microkernel designs. It typically keeps some performance-critical services (like certain device drivers or file systems) in kernel space for speed, while moving others to user space for modularity and stability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary performance trade-off between monolithic and microkernel architectures?",
+      "back": "Monolithic kernels generally offer higher performance due to less overhead from inter-process communication (IPC) as all services share the same address space. Microkernels, conversely, incur performance overhead from frequent context switches and message passing between the kernel and user-level servers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A new device driver needs to be added to a running OS. Which kernel architecture generally allows this with less system disruption and why?",
+      "back": "A **microkernel** architecture generally allows this with less system disruption. In a microkernel, device drivers run as user-level servers. A new driver can often be loaded, updated, or even crash without affecting the entire kernel or requiring a full system reboot, unlike in a monolithic kernel where drivers are part of the kernel space.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In which kernel architecture would a bug in a file system driver be *least likely* to crash the entire system, and why?",
+      "back": "A bug in a file system driver would be **least likely** to crash the entire system in a **microkernel** architecture. In a microkernel, the file system driver runs as a user-level server in its own address space, isolated from the kernel and other services. A crash in this driver would typically only affect that specific server, not the entire OS.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the XNU kernel (used in macOS) is considered a hybrid kernel, referencing its design.",
+      "back": "The XNU kernel is hybrid because it combines the Mach microkernel's core (for IPC, memory management, scheduling) with elements of a monolithic kernel (specifically, the FreeBSD kernel's networking stack, file system, and parts of its process model, known as the \"BSD layer\"). This design aims to leverage Mach's modularity while retaining the performance benefits of a monolithic approach for certain critical services.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When designing an OS for an embedded system requiring high fault tolerance and real-time responsiveness for critical components, which kernel architecture might be preferred and why?",
+      "back": "A **microkernel** architecture might be preferred. Its modularity and isolation allow critical real-time components (e.g., schedulers) to run in kernel space, while less critical or potentially buggy components (e.g., device drivers) run in user space. This provides strong fault isolation, meaning a failure in a non-critical component is less likely to impact the real-time guarantees or stability of the critical system. Examples like QNX are popular in such scenarios.",
+      "difficulty": "hard"
+    }
+  ]
+}

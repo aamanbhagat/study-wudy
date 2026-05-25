@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-2-queue-fifo-semantics-enqueue-dequeue-circular-array-implementation",
+  "subtopicTitle": "Queue — FIFO semantics, enqueue/dequeue, circular array implementation",
+  "topicId": "cs-p3-3-2-linear-data-structures",
+  "topicTitle": "Linear Data Structures",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:41.933Z",
+  "cards": [
+    {
+      "front": "The fundamental principle that defines a Queue data structure is __________, meaning the first element added is the first one to be removed.",
+      "back": "FIFO (First-In, First-Out). Elements are added to the `rear` (or `tail`) and removed from the `front` (or `head`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the `enqueue` operation in a Queue, including where elements are added.",
+      "back": "`enqueue(item)` adds an `item` to the `rear` (or `tail`) of the queue. If the queue has a fixed capacity and is full, this operation might fail (e.g., throw an error) or trigger a resize.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the `dequeue` operation in a Queue, including where elements are removed.",
+      "back": "`dequeue()` removes and returns the element at the `front` (or `head`) of the queue. If the queue is empty, this operation typically results in an error (e.g., `underflow`) or returns a special value (e.g., `null`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is a circular array often preferred over a simple linear array for implementing a Queue?",
+      "back": "A simple linear array implementation suffers from \"wasted space\" or \"shifting elements\" after multiple `dequeue` operations, as elements at the front are removed. A circular array reuses space at the beginning of the array once elements are dequeued, preventing the need for costly element shifts and optimizing space utilization.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a circular array queue of `capacity`, how are the `rear` (for enqueue) and `front` (for dequeue) pointers updated to wrap around?",
+      "back": "The modulo operator (`%`) is used to ensure the pointers wrap back to `0`:\n*   For `enqueue`: `rear = (rear + 1) % capacity`\n*   For `dequeue`: `front = (front + 1) % capacity`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using `front` and `rear` pointers (where `front` points to the first element and `rear` to the last element), how do you check if a circular array queue of `capacity` is full?",
+      "back": "A common strategy is to leave one slot empty to distinguish between full and empty states. The queue is full when the `rear` pointer is one position behind the `front` pointer (circularly):\n```\nis_full = (rear + 1) % capacity == front\n```\nAlternatively, a `count` variable can track the number of elements: `is_full = (count == capacity)`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using `front` and `rear` pointers, how do you check if a circular array queue is empty?",
+      "back": "The queue is empty when the `front` and `rear` pointers are equal:\n```\nis_empty = (front == rear)\n```\nThis assumes `front` and `rear` are initialized to the same value (e.g., `0`) and `rear` increments *before* adding the first element, or `front` increments *after* removing the last element. A `count` variable also works: `is_empty = (count == 0)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the average and worst-case time complexity for `enqueue` and `dequeue` operations in a circular array queue?",
+      "back": "Both `enqueue` and `dequeue` operations have an average and worst-case time complexity of $O(1)$ (constant time). This is because they only involve updating a few pointers and accessing array elements by index, regardless of the number of elements in the queue.",
+      "difficulty": "medium"
+    }
+  ]
+}

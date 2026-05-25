@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-computational-aerodynamics-panel-method-intro-cfd-overview",
+  "subtopicTitle": "Computational aerodynamics — panel method (intro), CFD overview",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:39.560Z",
+  "cards": [
+    {
+      "front": "What is the overarching objective of computational aerodynamics as a field?",
+      "back": "To numerically solve the governing equations of fluid motion (e.g., Navier-Stokes equations) using computers to predict aerodynamic forces, moments, and flow fields around objects, enabling design, analysis, and optimization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The panel method relies on the principle of __________ to model incompressible, inviscid flow around an arbitrary body.",
+      "back": "The panel method relies on the principle of **superposition** to model incompressible, inviscid flow around an arbitrary body. It approximates the body surface with discrete panels, each hosting an elementary potential flow solution (e.g., source, vortex, or doublet).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a 2D panel method, how is the no-penetration boundary condition typically enforced on the surface of an airfoil?",
+      "back": "The no-penetration boundary condition is enforced by requiring that the normal component of the total velocity (freestream + induced by panels) is zero at specific control points (e.g., midpoints) on each panel. Mathematically, for each panel $i$:$$ \\vec{V}_{\\text{freestream}} \\cdot \\hat{n}_i + \\sum_{j=1}^{N} \\sigma_j \\vec{V}_{\\text{induced},j} \\cdot \\hat{n}_i = 0 $$where $\\hat{n}_i$ is the outward normal vector of panel $i$, $\\sigma_j$ is the strength of the source/vortex on panel $j$, and $\\vec{V}_{\\text{induced},j}$ is the velocity induced by panel $j$. This forms a system of linear equations for the unknown panel strengths.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the primary limitations of the classical panel method that prevent its direct application to high-speed (transonic/supersonic) or separated viscous flows?",
+      "back": "The classical panel method is based on **potential flow theory**, which assumes the flow is **inviscid, incompressible, and irrotational**.\n*   **High-speed flows:** Compressibility effects become significant, violating the incompressible assumption. Shock waves cannot be modeled.\n*   **Viscous/Separated flows:** Viscous effects (boundary layers, drag, flow separation) are entirely neglected, making it unsuitable for predicting drag or post-stall behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the three fundamental stages of a typical Computational Fluid Dynamics (CFD) simulation workflow.",
+      "back": "The three fundamental stages are:\n1.  **Pre-processing:** Defining the computational domain, generating the mesh (grid), and setting up boundary conditions and fluid properties.\n2.  **Solver:** Iteratively solving the discretized governing equations (e.g., Navier-Stokes) on the mesh.\n3.  **Post-processing:** Visualizing and analyzing the simulation results (e.g., pressure contours, velocity vectors, lift/drag coefficients).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the three primary conservation laws that form the basis of the Navier-Stokes equations, which are solved in CFD for compressible, viscous flows?",
+      "back": "The three primary conservation laws are:\n1.  **Conservation of Mass (Continuity Equation):** $\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\vec{V}) = 0$\n2.  **Conservation of Momentum (Newton's Second Law):** $\\frac{\\partial (\\rho \\vec{V})}{\\partial t} + \\nabla \\cdot (\\rho \\vec{V} \\vec{V}) = -\\nabla p + \\nabla \\cdot \\vec{\\tau} + \\rho \\vec{f}$\n3.  **Conservation of Energy (First Law of Thermodynamics):** $\\frac{\\partial (\\rho E)}{\\partial t} + \\nabla \\cdot (\\rho E \\vec{V}) = -\\nabla \\cdot (p \\vec{V}) + \\nabla \\cdot (\\vec{\\tau} \\cdot \\vec{V}) - \\nabla \\cdot \\vec{q} + \\rho \\vec{V} \\cdot \\vec{f}$\nThese equations represent the conservation of mass, momentum, and energy within a fluid element, respectively.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the fundamental difference in how the Finite Difference Method (FDM) and the Finite Volume Method (FVM) discretize the governing equations in CFD.",
+      "back": "*   **Finite Difference Method (FDM):** Approximates derivatives in the differential form of the governing equations using Taylor series expansions at discrete grid points. It is typically applied to structured grids.\n*   **Finite Volume Method (FVM):** Integrates the governing equations (in their integral form) over discrete control volumes (cells) in the computational domain. This ensures conservation of flux across cell faces and is highly versatile for unstructured grids.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly compare the strengths of CFD over the panel method for analyzing complex aerodynamic phenomena, and identify one key advantage the panel method still holds.",
+      "back": "*   **CFD Strengths:** Can model **viscous effects** (boundary layers, drag, separation), **compressibility** (shocks, transonic/supersonic flow), **turbulence**, and complex geometries with high fidelity. It solves the full Navier-Stokes equations.\n*   **Panel Method Advantage:** Significantly **faster** computational speed and requires less computational resources. It's suitable for rapid preliminary design and optimization studies where inviscid, incompressible assumptions are valid.",
+      "difficulty": "hard"
+    }
+  ]
+}

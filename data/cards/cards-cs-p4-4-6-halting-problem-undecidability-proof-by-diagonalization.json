@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-halting-problem-undecidability-proof-by-diagonalization",
+  "subtopicTitle": "Halting problem — undecidability proof by diagonalization",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:23.623Z",
+  "cards": [
+    {
+      "front": "Define the Halting Problem. What are its inputs and desired output?",
+      "back": "The Halting Problem asks whether, given a description of an arbitrary program $P$ and an input $I$, $P$ will halt (finish execution) or run forever (loop infinitely) when executed with $I$. The desired output is \"halts\" or \"does not halt\".",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In computability theory, what does it mean for a problem to be \"undecidable\"?",
+      "back": "An undecidable problem is a decision problem for which no algorithm (or Turing machine) exists that can correctly determine a \"yes\" or \"no\" answer for *all* possible valid inputs in a finite amount of time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the core idea of diagonalization, as first introduced by Cantor, and how does it relate to proving the uncountability of real numbers?",
+      "back": "Diagonalization is a proof technique that constructs an element (e.g., a real number, a language, a program) that is not on a given list, by differing from each element on the list at a specific \"diagonal\" position. For real numbers, it shows that the set of real numbers between 0 and 1 is uncountably infinite by constructing a real number not in any enumeration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Assume a Turing machine $H_{halts}$ exists that solves the Halting Problem. Describe its inputs and outputs using formal notation.",
+      "back": "If $H_{halts}$ exists, it would take two inputs: a program $P$ (or its encoding $\\langle P \\rangle$) and an input $I$.\n$$H_{halts}(\\langle P \\rangle, I) = \\begin{cases} \\text{accept} & \\text{if } P \\text{ halts on } I \\\\ \\text{reject} & \\text{if } P \\text{ does not halt on } I \\end{cases}$$\nHere, \"accept\" means $H_{halts}$ halts and outputs \"yes\", and \"reject\" means $H_{halts}$ halts and outputs \"no\".",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the hypothetical $H_{halts}$ from the previous card, construct a new Turing machine $D$ (the \"Diagonalizer\"). How does $D$ behave?",
+      "back": "$D$ takes a program $\\langle P \\rangle$ as its input.\n1. $D$ calls $H_{halts}(\\langle P \\rangle, \\langle P \\rangle)$. (It feeds the program's own code as its input data).\n2. If $H_{halts}$ accepts (meaning $P$ halts on $\\langle P \\rangle$), then $D$ enters an infinite loop.\n3. If $H_{halts}$ rejects (meaning $P$ does not halt on $\\langle P \\rangle$), then $D$ halts.\n\nIn pseudocode:\n```\nfunction D(program_P):\n    if H_halts(program_P, program_P) == ACCEPTS:\n        loop_forever()\n    else:\n        halt()\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens when the Diagonalizer machine $D$ is given *itself* as input, i.e., $D(\\langle D \\rangle)$? Explain the resulting contradiction.",
+      "back": "When $D$ is given $\\langle D \\rangle$ as input, it executes:\n1. $D$ calls $H_{halts}(\\langle D \\rangle, \\langle D \\rangle)$.\n2. **Case 1:** If $H_{halts}(\\langle D \\rangle, \\langle D \\rangle)$ accepts (meaning $D$ halts on $\\langle D \\rangle$), then $D$ enters an infinite loop. This contradicts the assumption that $D$ halts.\n3. **Case 2:** If $H_{halts}(\\langle D \\rangle, \\langle D \\rangle)$ rejects (meaning $D$ does *not* halt on $\\langle D \\rangle$), then $D$ halts. This contradicts the assumption that $D$ does not halt.\nIn both cases, we reach a contradiction, proving our initial assumption (that $H_{halts}$ exists) must be false.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the ultimate conclusion of the Halting Problem undecidability proof by diagonalization?",
+      "back": "The Halting Problem is undecidable. This means there is no general algorithm or Turing machine that can take *any* program $P$ and input $I$ and correctly determine whether $P$ will halt on $I$ or run forever.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why can't we simply simulate a program $P$ on input $I$ to solve the Halting Problem?",
+      "back": "Simulating $P$ on $I$ works if $P$ halts. However, if $P$ enters an infinite loop on $I$, the simulation will run forever and never tell us that $P$ *won't* halt. We would never know if the program is just taking a very long time to halt or if it's truly in an infinite loop. A decider must always halt and give an answer.",
+      "difficulty": "medium"
+    }
+  ]
+}

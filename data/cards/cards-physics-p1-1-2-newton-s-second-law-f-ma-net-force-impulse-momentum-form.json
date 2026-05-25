@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-2-newton-s-second-law-f-ma-net-force-impulse-momentum-form",
+  "subtopicTitle": "Newton's second law — F = ma (net force), impulse-momentum form",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:29.171Z",
+  "cards": [
+    {
+      "front": "State Newton's Second Law of Motion.",
+      "back": "Newton's Second Law states that the acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass. The direction of the acceleration is the same as the direction of the net force. Mathematically, this is expressed as $\\vec{F}_{\\text{net}} = m\\vec{a}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Newton's Second Law, $\\vec{F}_{\\text{net}} = m\\vec{a}$, what does $\\vec{F}_{\\text{net}}$ represent?",
+      "back": "$\\vec{F}_{\\text{net}}$ represents the *net external force* (or resultant force) acting on the object. It is the vector sum of all individual external forces acting on the object. Only external forces contribute to the acceleration of the system's center of mass.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the SI units for force, mass, and acceleration, and how do they relate in $F=ma$?",
+      "back": "The SI units are:\n*   Force ($\\vec{F}$): Newton (N)\n*   Mass ($m$): kilogram (kg)\n*   Acceleration ($\\vec{a}$): meter per second squared (m/s$^2$)\nA Newton is defined as the force required to accelerate a mass of one kilogram at a rate of one meter per second squared: $1 \\text{ N} = 1 \\text{ kg} \\cdot \\text{m/s}^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define linear momentum ($\\vec{p}$) and state its SI units.",
+      "back": "Linear momentum ($\\vec{p}$) is a vector quantity defined as the product of an object's mass ($m$) and its velocity ($\\vec{v}$). \n$$\\vec{p} = m\\vec{v}$$ \nIts SI unit is kilogram-meter per second (kg$\\cdot$m/s).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive Newton's Second Law in terms of momentum, $F = \\frac{d\\vec{p}}{dt}$, starting from $F=ma$.",
+      "back": "We know that linear momentum is defined as $\\vec{p} = m\\vec{v}$.\nNewton's Second Law is $\\vec{F}_{\\text{net}} = m\\vec{a}$.\nWe also know that acceleration is the time derivative of velocity: $\\vec{a} = \\frac{d\\vec{v}}{dt}$.\nSubstituting $\\vec{a}$ into the Second Law:\n$$\\vec{F}_{\\text{net}} = m \\frac{d\\vec{v}}{dt}$$ \nSince mass ($m$) is typically constant for an object in classical mechanics, we can move $m$ inside the derivative:\n$$\\vec{F}_{\\text{net}} = \\frac{d(m\\vec{v})}{dt}$$ \nSubstituting $\\vec{p} = m\\vec{v}$:\n$$\\vec{F}_{\\text{net}} = \\frac{d\\vec{p}}{dt}$$ \nThis form is more general, as it accounts for systems where mass might change (e.g., rockets expelling fuel).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define impulse ($\\vec{J}$) and state its SI units.",
+      "back": "Impulse ($\\vec{J}$) is a vector quantity defined as the integral of force over the time interval during which the force acts.\n$$\\vec{J} = \\int_{t_1}^{t_2} \\vec{F}(t) dt$$ \nIf the force is constant over the time interval $\\Delta t = t_2 - t_1$, it simplifies to $\\vec{J} = \\vec{F}_{\\text{avg}} \\Delta t$.\nIts SI unit is Newton-second (N$\\cdot$s), which is equivalent to kilogram-meter per second (kg$\\cdot$m/s).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the impulse-momentum theorem, stating that impulse equals the change in momentum, starting from $F = \\frac{d\\vec{p}}{dt}$.",
+      "back": "We begin with Newton's Second Law in its momentum form:\n$$\\vec{F}_{\\text{net}} = \\frac{d\\vec{p}}{dt}$$ \nRearranging to isolate $d\\vec{p}$:\n$$d\\vec{p} = \\vec{F}_{\\text{net}} dt$$ \nNow, integrate both sides over a time interval from $t_1$ to $t_2$, corresponding to momentum changing from $\\vec{p}_1$ to $\\vec{p}_2$:\n$$\\int_{\\vec{p}_1}^{\\vec{p}_2} d\\vec{p} = \\int_{t_1}^{t_2} \\vec{F}_{\\text{net}} dt$$ \nThe left side integrates to the change in momentum:\n$$\\vec{p}_2 - \\vec{p}_1 = \\Delta \\vec{p}$$ \nThe right side is the definition of impulse:\n$$\\vec{J} = \\int_{t_1}^{t_2} \\vec{F}_{\\text{net}} dt$$ \nTherefore, the impulse-momentum theorem states:\n$$\\vec{J} = \\Delta \\vec{p}$$ \nThis means the total impulse applied to an object equals the change in its linear momentum.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively how crumple zones in cars reduce injury, relating it to impulse and force.",
+      "back": "The impulse-momentum theorem states $\\vec{J} = \\vec{F}_{\\text{avg}} \\Delta t = \\Delta \\vec{p}$. In a collision, the change in momentum ($\\Delta \\vec{p}$) of a person is largely fixed by their initial and final velocities. To reduce the average force ($\\vec{F}_{\\text{avg}}$) experienced by the person, the time interval ($\\Delta t$) over which the collision occurs must be increased. Crumple zones in cars, airbags, and padded dashboards achieve this by deforming and extending the stopping time, thereby reducing the peak forces exerted on the occupants and mitigating injury.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-code-review-what-to-look-for",
+  "subtopicTitle": "Code review — what to look for",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:10.250Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of reviewing code for \"correctness\" during a code review?",
+      "back": "To ensure the code accurately implements the intended functionality, handles all specified requirements, and produces the expected output for various inputs, including edge cases. This verifies the code *works as designed* and meets its specifications.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When reviewing for \"readability,\" what specific elements should you scrutinize in a code snippet like `def calc(a, b): return a*b`?",
+      "back": "You should scrutinize:\n*   **Variable/Function Names:** Are they descriptive and unambiguous? (`calc`, `a`, `b` are too generic; `calculate_product(factor1, factor2)` is better).\n*   **Comments:** Are complex parts explained? Are unnecessary comments avoided?\n*   **Clarity:** Is the logic immediately obvious and easy to follow?\n*   **Formatting:** Consistent indentation, spacing, and line breaks according to style guides.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A common code review finding is \"magic numbers.\" Explain what they are and why they are problematic.",
+      "back": "Magic numbers are hardcoded numerical or string values (e.g., `if status == 3` or `return \"error\"`) that appear directly in the code without explanation or being assigned to a named constant.\n\n**Problematic because:**\n*   **Readability:** Their meaning is often obscure, making the code harder to understand.\n*   **Maintainability:** If the value needs to change, it must be found and updated in every instance, increasing the risk of errors.\n*   **Error Prone:** Easy to introduce bugs by changing one instance but missing others.\n\n**Solution:** Replace with clearly named constants (e.g., `STATUS_PENDING = 3`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "During a code review, you find a function that combines data fetching, complex business logic, and error logging. Which SOLID principle is likely violated, and what should you recommend?",
+      "back": "The **Single Responsibility Principle (SRP)** is likely violated. SRP states that a module, class, or function should have only one reason to change.\n\n**Recommendation:** Refactor the function into smaller, more focused units:\n*   A dedicated function/module for data fetching.\n*   A separate function/class for the complex business logic.\n*   A logging service or utility for error logging.\n\nThis improves maintainability, testability, and reduces complexity by decoupling concerns.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a critical security concern to look for in code that processes user input, and what common defense mechanism should be present?",
+      "back": "A critical security concern is the potential for **input-related vulnerabilities** such as SQL injection, Cross-Site Scripting (XSS), command injection, or path traversal, which arise from malicious user input.\n\n**Common Defense Mechanism:** Rigorous **input validation** and **sanitization**. All user input must be:\n*   Validated against expected types, formats, and length constraints.\n*   Sanitized (e.g., removing or encoding special characters) before being used in database queries, file paths, or rendered in a web page.\n*   Applied at the earliest possible point of entry.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When reviewing for \"maintainability,\" what does the DRY principle stand for, and why is it important?",
+      "back": "DRY stands for \"**Don't Repeat Yourself**.\" It's a principle aimed at reducing repetition of information, especially code.\n\n**Importance:** Duplicated code:\n*   Increases the risk of bugs (if one instance is updated, others might be missed).\n*   Makes the codebase harder to maintain and understand.\n*   Increases the effort required for changes.\n\n**Goal:** Abstract common logic into reusable functions, classes, or modules to have a single, authoritative representation of every piece of knowledge in a system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You're reviewing a new feature that introduces a `try-catch` block. What are key aspects to specifically check regarding the `catch` block's implementation?",
+      "back": "Key aspects to check in a `catch` block:\n*   **Specificity:** Does it catch specific exceptions it knows how to handle, or is it too broad (e.g., catching `Exception`)?\n*   **Handling Logic:** Does it truly *handle* the exception (e.g., retry, notify user, fall back), or does it simply swallow it (empty `catch` block), hiding potential issues?\n*   **Logging:** Is the exception properly logged with sufficient context (stack trace, relevant variables) to aid debugging?\n*   **Resource Cleanup:** If resources were acquired in the `try` block, are they properly released (e.g., in a `finally` block or using try-with-resources)?\n*   **User Feedback:** If applicable, does it provide meaningful feedback to the user without exposing sensitive internal details?",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify a common performance anti-pattern to look for in loops, especially when dealing with collections.",
+      "back": "A common performance anti-pattern is **repeatedly calculating or accessing a collection's size/length within the loop condition or body** when that value does not change during the loop's execution.\n\n**Example (Java):**\n```java\nfor (int i = 0; i < list.size(); i++) { // list.size() called in each iteration\n    // ...\n}\n```\n\n**Better approach:** Cache the size in a variable outside the loop:\n```java\nint size = list.size();\nfor (int i = 0; i < size; i++) {\n    // ...\n}\n```\nWhile modern compilers can sometimes optimize this, it's a good practice to avoid unnecessary method calls inside tight loops.",
+      "difficulty": "medium"
+    }
+  ]
+}

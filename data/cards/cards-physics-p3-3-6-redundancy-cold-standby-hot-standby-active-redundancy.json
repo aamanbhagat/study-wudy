@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-redundancy-cold-standby-hot-standby-active-redundancy",
+  "subtopicTitle": "Redundancy — cold standby, hot standby, active redundancy",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:12.574Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of employing redundancy in spacecraft systems?",
+      "back": "The primary purpose of redundancy in spacecraft systems is to increase overall system reliability and availability by providing alternative means to perform a critical function in the event of a primary component failure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"cold standby\" redundancy in the context of spacecraft systems.",
+      "back": "Cold standby redundancy refers to a redundant component that is unpowered, inactive, and isolated until a failure is detected in the primary component. Upon detection, the standby unit is powered on, initialized, and takes over the function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the main advantages and disadvantages of using a cold standby system over a hot standby system for a critical spacecraft component?",
+      "back": "Advantages: Lower power consumption, reduced wear-and-tear on the standby unit (potentially longer life), and less susceptibility to common-mode failures while idle. Disadvantages: Slower switchover time (due to power-up and initialization), potential for the standby unit to fail during startup, and requires more complex failure detection and switchover logic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain \"hot standby\" redundancy and provide a common spacecraft application.",
+      "back": "Hot standby redundancy involves a redundant component that is powered on and continuously operating (or in a ready, low-power monitoring state) alongside the primary component. It can take over immediately or with minimal delay upon primary component failure. Example: Redundant reaction wheels, where one is active for control and others are spinning at zero speed or in a low-power mode, ready to ramp up instantly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe \"active redundancy\" (also known as parallel or $N$-modular redundancy) and provide a common spacecraft application.",
+      "back": "Active redundancy involves multiple identical components simultaneously performing the same function. Their outputs are continuously compared or combined (e.g., through voting logic) to produce a single, reliable output. If one component fails, the others continue to operate, and the system often masks the failure without interruption. Example: Triple Modular Redundancy (TMR) for flight computers or critical sensor arrays, where three identical units process data, and a voter selects the majority output.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When designing a power system for a deep-space probe, what factors might lead an engineer to choose a hot standby battery over a cold standby battery, despite the increased power draw?",
+      "back": "An engineer might choose a hot standby battery due to the critical need for immediate power availability upon primary battery failure (e.g., during critical maneuvers, communication windows, or eclipse events). The long communication delays in deep space make manual intervention or complex cold-start sequences impractical. Avoiding potential startup transients or failures associated with bringing a cold unit online, and ensuring continuous operation without interruption, would prioritize hot standby over power efficiency for this vital subsystem.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a system with a primary component ($R_p$) and one identical redundant component ($R_r$). How does the conceptual overall system reliability calculation differ for a cold standby versus a hot standby configuration, assuming perfect switchover?",
+      "back": "For **Cold Standby**, the system reliability $R_{sys}$ is conceptually $R_p + (1 - R_p)R_r$. The standby unit's reliability $R_r$ only comes into play *after* the primary fails, and it does not accumulate operating time or wear while idle.\n\nFor **Hot Standby** (parallel active), the system reliability $R_{sys}$ is $1 - (1 - R_p)(1 - R_r)$. Here, both units are active from $t=0$, and the system fails only if *both* fail. The key difference is that the standby unit in hot standby accumulates operating time and wear from the mission start, whereas in cold standby, it only starts operating and aging after the primary fails.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a spacecraft's attitude determination and control system (ADCS), why might a designer choose a 2-out-of-3 (TMR) voting scheme for gyroscopes (active redundancy) rather than a simple hot standby configuration for a single gyroscope?",
+      "back": "A TMR voting scheme provides immediate fault masking and error correction. If one gyroscope fails (e.g., drifts significantly or provides erroneous data), the voting logic can instantly identify and exclude the faulty unit, allowing the system to continue operating correctly without any interruption or degradation in performance. A simple hot standby system would require a finite time for fault detection, switchover, and potentially a brief period of degraded performance during the transition, which might be unacceptable for the precise and continuous attitude control required by ADCS.",
+      "difficulty": "medium"
+    }
+  ]
+}

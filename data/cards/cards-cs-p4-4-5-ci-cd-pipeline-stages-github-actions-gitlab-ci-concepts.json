@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-ci-cd-pipeline-stages-github-actions-gitlab-ci-concepts",
+  "subtopicTitle": "CI/CD — pipeline stages, GitHub Actions/GitLab CI concepts",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:05.593Z",
+  "cards": [
+    {
+      "front": "What do CI and CD stand for in software engineering, and what is their primary goal?",
+      "back": "CI stands for **Continuous Integration**. CD can stand for **Continuous Delivery** or **Continuous Deployment**.\nTheir primary goal is to automate and streamline the software development and release process, ensuring frequent, reliable, and high-quality updates by integrating code changes often and releasing them efficiently.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the typical stages of a CI/CD pipeline in order, and briefly describe the purpose of each.",
+      "back": "1.  **Source/Commit**: Developers commit code to a version control system.\n2.  **Build**: Compile source code, run static analysis, package artifacts (e.g., Docker image).\n3.  **Test**: Execute automated tests (unit, integration, end-to-end, security).\n4.  **Deploy**: Release the application to various environments (e.g., staging, production).\n5.  **Monitor**: Observe application performance and health in production, gather feedback.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In GitHub Actions, what is the top-level unit that defines an automated process, and what file extension is typically used for its configuration?",
+      "back": "The top-level unit is a **Workflow**. It is typically defined in a YAML file with a `.yml` or `.yaml` extension, located in the `.github/workflows/` directory of your repository.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you configure a GitHub Actions workflow to run only when changes are pushed to the `main` branch? Provide the relevant YAML snippet.",
+      "back": "```yaml\non:\n  push:\n    branches:\n      - main\n```\nThis `on` keyword specifies the event (`push`) and the target branch (`main`) that triggers the workflow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between \"Jobs\" and \"Stages\" in GitLab CI/CD, explaining how they interact within a pipeline.",
+      "back": "-   **Stages**: Define the order of execution for groups of jobs. All jobs within a stage must complete successfully before the next stage begins.\n-   **Jobs**: The fundamental unit of work in GitLab CI/CD. Each job runs independently, usually in its own environment (e.g., a Docker container), and executes a set of commands.\nJobs belonging to the same stage run in parallel by default.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In GitHub Actions, how do you ensure that a `deploy` job only runs after a `build` job and a `test` job have both completed successfully?",
+      "back": "You use the `needs` keyword within the `deploy` job definition to specify its dependencies:\n```yaml\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps: [...]\n  test:\n    runs-on: ubuntu-latest\n    steps: [...]\n  deploy:\n    runs-on: ubuntu-latest\n    needs: [build, test] # This ensures build and test must complete first\n    steps: [...]\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the purpose of \"Secrets\" in CI/CD pipelines (like GitHub Actions/GitLab CI) and how they should be managed.",
+      "back": "**Secrets** are encrypted environment variables used to store sensitive information (e.g., API keys, database credentials, access tokens) that your pipeline needs to interact with external services. They are crucial for security.\nThey should be:\n1.  Stored securely within the CI/CD platform's dedicated secrets management system.\n2.  Never hardcoded directly in pipeline configuration files.\n3.  Injected into jobs as environment variables at runtime.\n4.  Restricted in access to only necessary jobs/workflows.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A common CI/CD pipeline optimization involves reducing redundant dependency downloads. What feature addresses this, and how does it work conceptually?",
+      "back": "**Caching**. This feature stores frequently used, but slow-to-download, artifacts (e.g., `node_modules`, Maven `.m2` repository, Python `venv` packages) from previous pipeline runs.\nConceptually:\n1.  A unique \"cache key\" (often based on a hash of a dependency manifest file like `package-lock.json`) is generated.\n2.  If a cache exists for that key, dependencies are restored from the cache.\n3.  If no cache exists or the key changes, dependencies are downloaded, and a new cache is saved for future runs.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-stream-function-velocity-potential",
+  "subtopicTitle": "Stream function, velocity potential",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:38.071Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of introducing the stream function ($\\psi$) in fluid mechanics?",
+      "back": "The stream function ($\\psi$) is used to describe two-dimensional, incompressible flows. Its primary purpose is to automatically satisfy the continuity equation ($\\nabla \\cdot \\vec{V} = 0$) by its definition.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a 2D incompressible flow described by a stream function $\\psi(x, y)$, express the velocity components $u$ and $v$ in Cartesian coordinates.",
+      "back": "The velocity components are given by:\n$$u = \\frac{\\partial \\psi}{\\partial y}$$\n$$v = -\\frac{\\partial \\psi}{\\partial x}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical interpretation of lines where the stream function $\\psi$ is constant ($\\psi = \\text{constant}$)?",
+      "back": "Lines of constant $\\psi$ are streamlines. This means that fluid particles always move tangent to these lines, and no fluid crosses a streamline. The mass flow rate between two streamlines is proportional to the difference in their $\\psi$ values.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental condition that must be met for a velocity potential ($\\phi$) to exist for a fluid flow?",
+      "back": "A velocity potential ($\\phi$) can only be defined for an irrotational flow. This means the vorticity ($\\nabla \\times \\vec{V}$) must be zero everywhere in the flow domain.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an irrotational flow, how is the velocity vector $\\vec{V}$ related to the velocity potential $\\phi$ in Cartesian coordinates?",
+      "back": "The velocity vector is the gradient of the velocity potential:\n$$\\vec{V} = \\nabla \\phi$$\nIn Cartesian components:\n$$u = \\frac{\\partial \\phi}{\\partial x}, \\quad v = \\frac{\\partial \\phi}{\\partial y}, \\quad w = \\frac{\\partial \\phi}{\\partial z}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 2D incompressible and irrotational flow, show that the stream function $\\psi$ and velocity potential $\\phi$ must both satisfy the Laplace equation.",
+      "back": "For irrotational flow, $\\vec{V} = \\nabla \\phi$. For incompressible flow, $\\nabla \\cdot \\vec{V} = 0$.\nThus, $\\nabla \\cdot (\\nabla \\phi) = 0 \\implies \\nabla^2 \\phi = 0$.\nIn 2D, $\\frac{\\partial^2 \\phi}{\\partial x^2} + \\frac{\\partial^2 \\phi}{\\partial y^2} = 0$.\n\nFor incompressible 2D flow, $u = \\frac{\\partial \\psi}{\\partial y}$ and $v = -\\frac{\\partial \\psi}{\\partial x}$.\nFor irrotational 2D flow, $\\omega_z = \\frac{\\partial v}{\\partial x} - \\frac{\\partial u}{\\partial y} = 0$.\nSubstitute $u$ and $v$:\n$\\frac{\\partial}{\\partial x}\\left(-\\frac{\\partial \\psi}{\\partial x}\\right) - \\frac{\\partial}{\\partial y}\\left(\\frac{\\partial \\psi}{\\partial y}\\right) = 0$\n$-\\frac{\\partial^2 \\psi}{\\partial x^2} - \\frac{\\partial^2 \\psi}{\\partial y^2} = 0 \\implies \\nabla^2 \\psi = 0$.\nSo, $\\frac{\\partial^2 \\psi}{\\partial x^2} + \\frac{\\partial^2 \\psi}{\\partial y^2} = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In 2D incompressible, irrotational flow, what is the geometric relationship between lines of constant velocity potential ($\\phi = \\text{constant}$) and lines of constant stream function ($\\psi = \\text{constant}$)?",
+      "back": "Lines of constant velocity potential (equipotential lines) are orthogonal to lines of constant stream function (streamlines) at every point of intersection. This is because the velocity vector $\\vec{V}$ is tangent to streamlines and normal to equipotential lines ($\\vec{V} = \\nabla \\phi$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The existence of both a stream function $\\psi$ and a velocity potential $\\phi$ for a 2D flow implies a specific relationship between their partial derivatives. What are these relations (Cauchy-Riemann equations)?",
+      "back": "For a 2D incompressible, irrotational flow, the velocity components are:\n$$u = \\frac{\\partial \\phi}{\\partial x} = \\frac{\\partial \\psi}{\\partial y}$$\n$$v = \\frac{\\partial \\phi}{\\partial y} = -\\frac{\\partial \\psi}{\\partial x}$$\nThese are the Cauchy-Riemann equations, which link the real and imaginary parts of an analytic complex potential $W = \\phi + i\\psi$.",
+      "difficulty": "hard"
+    }
+  ]
+}

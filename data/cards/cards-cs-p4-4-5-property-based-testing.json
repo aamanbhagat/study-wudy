@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-property-based-testing",
+  "subtopicTitle": "Property-based testing",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:05.227Z",
+  "cards": [
+    {
+      "front": "What is the fundamental difference between property-based testing and example-based testing (e.g., traditional unit tests)?",
+      "back": "Example-based testing checks specific, predefined inputs and their expected outputs. Property-based testing defines general properties (invariants) that the code *should always satisfy* for a wide range of randomly or systematically generated inputs, focusing on the system's behavior across an input space rather than individual results.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name and briefly describe the three core components of a property-based testing framework.",
+      "back": "1.  **Generators**: Functions that produce diverse inputs for the system under test, often covering a specified domain or data type.\n2.  **Properties (or Invariants)**: Boolean assertions that must hold true for *all* generated inputs, describing the expected behavior or relationships of the code.\n3.  **Shrinking**: An optimization process that, upon a property failure, attempts to find the *minimal* failing input that still triggers the bug, simplifying debugging.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does property-based testing help uncover edge cases that traditional unit tests often miss?",
+      "back": "Traditional unit tests rely on developers explicitly writing test cases, which can lead to cognitive biases and overlooking unusual or boundary inputs. Property-based testing uses generators to explore a vast input space, including random, malformed, or extreme values, systematically discovering edge cases that violate defined properties without explicit developer foresight.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the 'shrinking' process in property-based testing and why it's crucial for developer productivity.",
+      "back": "When a property fails, shrinking attempts to simplify the complex failing input down to the smallest possible input that still causes the failure. For example, a failing list `[1, 5, 100, 20, 3]` might shrink to `[100]`. This drastically reduces the cognitive load for developers by providing a minimal, easy-to-understand reproduction case, accelerating debugging and bug fixing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write a property for a `reverse` function (e.g., `reverse([1,2,3]) == [3,2,1]`) using pseudocode, demonstrating an invariant.",
+      "back": "```\nproperty \"reversing twice restores original list\":\n    for_all list in listOf(integers()):\n        assert reverse(reverse(list)) == list\n\nproperty \"reversing a list doesn't change its length\":\n    for_all list in listOf(integers()):\n        assert length(reverse(list)) == length(list)\n```\n(Either property demonstrates a valid invariant.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is 'stateful property-based testing,' and when would you use it over stateless PBT?",
+      "back": "Stateful PBT tests systems with internal state (e.g., objects, databases, APIs) by generating sequences of operations (commands) and asserting properties about the system's state after each operation or the entire sequence. You'd use it when testing complex state machines, concurrent systems, or APIs where the order and combination of operations matter, ensuring invariants hold across state transitions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When might creating effective generators be the most challenging aspect of implementing property-based tests?",
+      "back": "Generators become challenging when the valid input space is highly constrained or has complex interdependencies. For example, generating a valid, non-empty, balanced binary search tree, or a JSON object conforming to a specific schema, requires sophisticated custom generators or combinators to avoid generating mostly invalid inputs, which would make property checks trivial or non-representative.",
+      "difficulty": "medium"
+    }
+  ]
+}

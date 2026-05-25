@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-quadratic-forms-positive-definite-negative-definite-indefinite",
+  "subtopicTitle": "Quadratic forms — positive definite, negative definite, indefinite",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:18.592Z",
+  "cards": [
+    {
+      "front": "Define a quadratic form $Q(x)$ for $x \\in \\mathbb{R}^n$ and state its standard matrix representation.",
+      "back": "A quadratic form $Q(x)$ is a scalar-valued function of $n$ variables $x = (x_1, \\dots, x_n)^T$ that can be written as:\n$$Q(x) = \\sum_{i=1}^n \\sum_{j=1}^n a_{ij} x_i x_j$$\nIts standard matrix representation is $Q(x) = x^T A x$, where $A$ is an $n \\times n$ symmetric matrix with entries $a_{ij}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a quadratic form $Q(x)$ to be positive definite.",
+      "back": "A quadratic form $Q(x) = x^T A x$ (where $A$ is symmetric) is positive definite if $x^T A x > 0$ for all non-zero vectors $x \\in \\mathbb{R}^n$. Geometrically, the surface $z = Q(x)$ opens upwards, with a unique global minimum at $x=0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a symmetric matrix $A$, what are the conditions on its eigenvalues for the quadratic form $x^T A x$ to be positive definite, negative definite, or indefinite?",
+      "back": "Let $\\lambda_1, \\dots, \\lambda_n$ be the eigenvalues of the symmetric matrix $A$:\n<ul>\n  <li><b>Positive Definite:</b> All eigenvalues $\\lambda_i > 0$.</li>\n  <li><b>Negative Definite:</b> All eigenvalues $\\lambda_i < 0$.</li>\n  <li><b>Indefinite:</b> $A$ has at least one positive eigenvalue and at least one negative eigenvalue.</li>\n</ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Sylvester's Criterion (leading principal minors) for a symmetric matrix $A$ to be positive definite.",
+      "back": "A symmetric matrix $A$ is positive definite if and only if all its leading principal minors are positive. That is, if $A_k$ denotes the $k \\times k$ submatrix formed by the first $k$ rows and columns of $A$, then:\n$$\\det(A_1) > 0, \\det(A_2) > 0, \\dots, \\det(A_n) > 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Sylvester's Criterion (leading principal minors) change for a symmetric matrix $A$ to be negative definite?",
+      "back": "A symmetric matrix $A$ is negative definite if and only if its leading principal minors alternate in sign, starting with negative. That is:\n$$\\det(A_1) < 0, \\det(A_2) > 0, \\det(A_3) < 0, \\dots, (-1)^k \\det(A_k) > 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between positive definite and positive semi-definite quadratic forms using their definitions and eigenvalue criteria.",
+      "back": "For a symmetric matrix $A$:\n<ul>\n  <li><b>Positive Definite:</b> $x^T A x > 0$ for all $x \\neq 0$. All eigenvalues $\\lambda_i > 0$.</li>\n  <li><b>Positive Semi-definite:</b> $x^T A x \\ge 0$ for all $x$. All eigenvalues $\\lambda_i \\ge 0$.</li>\n</ul>\nThe key difference is the strict inequality for positive definite forms. A positive semi-definite form can be zero for some non-zero $x$ (i.e., $A$ is singular), whereas a positive definite form is only zero at $x=0$ (i.e., $A$ is invertible).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why any quadratic form $x^T B x$ (where $B$ is any square matrix) can always be written as $x^T A x$ for a unique symmetric matrix $A$. Provide the formula for $A$.",
+      "back": "Let $Q(x) = x^T B x$. We can decompose any square matrix $B$ into its symmetric and skew-symmetric parts: $B = \\frac{1}{2}(B + B^T) + \\frac{1}{2}(B - B^T)$.\nLet $A = \\frac{1}{2}(B + B^T)$ (which is symmetric) and $S = \\frac{1}{2}(B - B^T)$ (which is skew-symmetric, meaning $S^T = -S$).\nThen $Q(x) = x^T A x + x^T S x$. For any skew-symmetric matrix $S$, $x^T S x = 0$. This is because $(x^T S x)^T = x^T S^T x = x^T (-S) x = -x^T S x$. Since $x^T S x$ is a scalar, it must equal its transpose, so $x^T S x = -x^T S x$, implying $2(x^T S x) = 0$, thus $x^T S x = 0$.\nTherefore, $Q(x) = x^T A x$ where $A = \\frac{1}{2}(B + B^T)$. This symmetric $A$ is unique because if $x^T A_1 x = x^T A_2 x$ for all $x$ with $A_1, A_2$ symmetric, then $A_1 = A_2$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-2-solid-open-closed-principle",
+  "subtopicTitle": "SOLID — Open/Closed Principle",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:29.852Z",
+  "cards": [
+    {
+      "front": "State the Open/Closed Principle (OCP).",
+      "back": "The Open/Closed Principle states that \"software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does \"open for extension\" mean in the context of OCP?",
+      "back": "It means that the behavior of a module can be extended or altered to meet new requirements without changing its existing source code. This is typically achieved by adding new code, such as new classes implementing an interface or extending an abstract class, rather than modifying old code.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does \"closed for modification\" mean in the context of OCP?",
+      "back": "It means that once a module's source code has been written, reviewed, and tested, it should not be changed. Modifying existing, tested code introduces a risk of breaking existing functionality and re-introducing bugs, requiring re-testing of the entire module.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental programming concept is crucial for adhering to the Open/Closed Principle?",
+      "back": "Abstraction (using interfaces or abstract classes) combined with polymorphism. By programming to an interface or abstract base class, client code can interact with new concrete implementations without needing modification, thus enabling extension without modification.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the OCP violation in this code and explain why:\n```python\nclass PaymentProcessor:\n    def process_payment(self, payment_type, amount):\n        if payment_type == \"CreditCard\":\n            # Process credit card\n            print(f\"Processing CreditCard payment of ${amount}\")\n        elif payment_type == \"PayPal\":\n            # Process PayPal\n            print(f\"Processing PayPal payment of ${amount}\")\n        # ... new payment types require modification\n```",
+      "back": "This `PaymentProcessor` violates OCP. If a new payment method (e.g., \"Stripe\" or \"Bitcoin\") needs to be added, the `process_payment` method must be modified to include another `elif` condition. This means the class is not \"closed for modification\" when new payment types are introduced.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Refactor the `PaymentProcessor` to adhere to OCP.",
+      "back": "```python\nfrom abc import ABC, abstractmethod\n\nclass PaymentMethod(ABC):\n    @abstractmethod\n    def process(self, amount):\n        pass\n\nclass CreditCardPayment(PaymentMethod):\n    def process(self, amount):\n        print(f\"Processing CreditCard payment of ${amount}\")\n\nclass PayPalPayment(PaymentMethod):\n    def process(self, amount):\n        print(f\"Processing PayPal payment of ${amount}\")\n\n# New payment method can be added without changing existing code\nclass StripePayment(PaymentMethod):\n    def process(self, amount):\n        print(f\"Processing Stripe payment of ${amount}\")\n\nclass PaymentProcessor:\n    def process_payment(self, payment_method: PaymentMethod, amount):\n        payment_method.process(amount)\n\n# Usage:\nprocessor = PaymentProcessor()\nprocessor.process_payment(CreditCardPayment(), 100)\nprocessor.process_payment(PayPalPayment(), 50)\nprocessor.process_payment(StripePayment(), 200) # No change to PaymentProcessor needed\n```\nThis adheres to OCP because new payment methods can be added by creating new `PaymentMethod` subclasses without modifying the `PaymentProcessor` class or existing payment method implementations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List two key benefits of adhering to the Open/Closed Principle.",
+      "back": "1.  **Reduced Risk of Bugs:** By avoiding modifications to existing, tested code, the likelihood of introducing new defects into stable parts of the system is significantly reduced.\n2.  **Increased Maintainability and Reusability:** The system becomes easier to extend and adapt to new requirements without breaking existing functionality, promoting modularity and making components more reusable.\n3.  **Improved Testability:** Individual components can be tested in isolation, and new extensions typically don't invalidate existing tests.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When might applying OCP be considered over-engineering, and what is the associated trade-off?",
+      "back": "OCP might be considered over-engineering for very small, simple, and stable systems where future changes or extensions are highly unlikely, or for performance-critical sections where the overhead of abstraction (e.g., virtual method calls) is unacceptable. The associated trade-off is increased initial complexity, more classes/interfaces, and potentially a slight performance overhead, which might not be justified for trivial or highly stable components.",
+      "difficulty": "hard"
+    }
+  ]
+}

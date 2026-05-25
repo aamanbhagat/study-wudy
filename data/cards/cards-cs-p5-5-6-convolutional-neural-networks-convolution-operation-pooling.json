@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-convolutional-neural-networks-convolution-operation-pooling",
+  "subtopicTitle": "Convolutional neural networks — convolution operation, pooling",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:19.870Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the convolution operation in a Convolutional Neural Network (CNN)?",
+      "back": "The primary purpose of the convolution operation is to extract features (e.g., edges, textures, patterns) from the input data by applying a learnable filter (kernel) across it. This allows the network to learn hierarchical representations of the input.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core mathematical operation performed by a 2D convolution layer when a filter slides over an input feature map.",
+      "back": "As the filter (kernel) slides across the input feature map, at each position, it performs an element-wise multiplication between the filter's values and the corresponding input region. These products are then summed to produce a single output value for that position in the output feature map. This is mathematically represented as a cross-correlation (often simply called convolution in DL):\n$$ O(i, j) = \\sum_{m=0}^{F-1} \\sum_{n=0}^{F-1} I(i+m, j+n) \\cdot K(m, n) $$\nwhere $I$ is the input, $K$ is the kernel of size $F \\times F$, and $O$ is the output.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify two key hyperparameters that control the spatial dimensions of the output feature map from a convolutional layer, and briefly explain their effect.",
+      "back": "1.  **Stride ($S$):** The number of pixels the filter shifts over the input matrix at each step. A larger stride reduces the output's height and width, effectively downsampling the feature map.\n2.  **Padding ($P$):** Adding extra pixels (usually zeros) around the input's borders. Padding helps preserve spatial information at the input's edges and can be used to control the output size, often to maintain the same dimensions as the input ('same' padding).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An input feature map has dimensions $(H, W)$. A convolutional layer uses a filter of size $(F, F)$, stride $S$, and padding $P$. Provide the formula for the output dimensions $(H', W')$.",
+      "back": "The output dimensions $(H', W')$ are calculated as:\n$$ H' = \\lfloor \\frac{H - F + 2P}{S} \\rfloor + 1 $$\n$$ W' = \\lfloor \\frac{W - F + 2P}{S} \\rfloor + 1 $$\nwhere $\\lfloor \\cdot \\rfloor$ denotes the floor function.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the main goal of a pooling operation in a CNN, and what are two common types?",
+      "back": "The main goal of a pooling operation is to reduce the spatial dimensions (height and width) of the feature maps. This helps to reduce computational cost, control overfitting, and provide some degree of translation invariance. Two common types are **Max Pooling** and **Average Pooling**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a $4 \\times 4$ input feature map, demonstrate the output of a $2 \\times 2$ max pooling operation with a stride of 2.\n```\n[[1, 2, 3, 4],\n [5, 6, 7, 8],\n [9, 8, 7, 6],\n [5, 4, 3, 2]]\n```",
+      "back": "The $2 \\times 2$ max pooling filter with a stride of 2 will extract the maximum value from each non-overlapping $2 \\times 2$ region:\n- Top-left region `[[1, 2], [5, 6]]` -> max is 6\n- Top-right region `[[3, 4], [7, 8]]` -> max is 8\n- Bottom-left region `[[9, 8], [5, 4]]` -> max is 9\n- Bottom-right region `[[7, 6], [3, 2]]` -> max is 7\n\nOutput feature map:\n```\n[[6, 8],\n [9, 7]]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond reducing dimensionality, explain one significant benefit that pooling layers provide for CNNs, particularly regarding object recognition.",
+      "back": "Pooling layers introduce **translation invariance** (or robustness to small translations). By aggregating information (e.g., taking the maximum or average) over a local region, small shifts in the position of a detected feature within the input will still result in roughly the same output from the pooling layer. This helps the network recognize objects even if they appear in slightly different locations or orientations within an image.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Contrast the primary role and the learnability of parameters between a convolutional layer and a pooling layer in a CNN.",
+      "back": "1.  **Convolutional Layer:**\n    *   **Primary Role:** Feature extraction. It learns to detect specific patterns, edges, or textures in the input data.\n    *   **Learnability:** Its parameters (the weights of the filters/kernels) are **learnable** through backpropagation. They are adjusted during training to optimally extract relevant features.\n2.  **Pooling Layer:**\n    *   **Primary Role:** Dimensionality reduction, regularization, and providing translation invariance.\n    *   **Learnability:** It has **no learnable parameters**. It applies a fixed, non-parametric operation (e.g., finding the maximum or computing the average) over local regions of the input feature map.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-6-p-polynomial-time",
+  "subtopicTitle": "P — polynomial time",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:22.350Z",
+  "cards": [
+    {
+      "front": "What is the formal definition of the complexity class P?",
+      "back": "P is the class of decision problems that can be solved by a deterministic Turing machine (DTM) in polynomial time. Formally, a problem is in P if there exists a DTM $M$ and a polynomial $p(n)$ such that for any input of length $n$, $M$ decides the problem in at most $p(n)$ steps.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which of the following time complexities are considered polynomial time: $O(n^2)$, $O(n \\log n)$, $O(2^n)$, $O(n!)$, $O(n^{100})$?",
+      "back": "$O(n^2)$, $O(n \\log n)$, and $O(n^{100})$ are considered polynomial time complexities. A function $f(n)$ is polynomial if $f(n) = O(n^k)$ for some constant $k \\ge 0$. $O(2^n)$ (exponential) and $O(n!)$ (factorial) grow much faster than any polynomial and are not polynomial time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In theoretical computer science, why is a problem solvable in polynomial time generally considered 'tractable' or 'efficient'?",
+      "back": "Problems in P are considered tractable because their running time grows relatively slowly with input size $n$. Even for large $n$, a polynomial function $p(n)$ will generally be much smaller than exponential functions like $2^n$. This means that as inputs get larger, the time required to solve the problem remains practically feasible, unlike non-polynomial algorithms which quickly become intractable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a common algorithm for sorting an array of $n$ elements that runs in polynomial time, and state its typical time complexity.",
+      "back": "Merge Sort is a common algorithm that sorts an array of $n$ elements in polynomial time. It divides the array into halves, recursively sorts them, and then merges the sorted halves. Its time complexity is $O(n \\log n)$, which is polynomial because $n \\log n = O(n^k)$ for any $k > 1$ (e.g., $n \\log n = O(n^2)$).\n```python\ndef merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    mid = len(arr) // 2\n    left_half = merge_sort(arr[:mid])\n    right_half = merge_sort(arr[mid:])\n    # merge logic here\n    return merge(left_half, right_half)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the choice of computational model (e.g., single-tape vs. multi-tape Turing machine) affect whether a problem is in P?",
+      "back": "The class P is robust across different 'reasonable' computational models. For instance, a problem solvable in polynomial time on a multi-tape Turing machine can also be solved in polynomial time (though possibly a higher degree polynomial, e.g., $p(n)$ vs $p(n)^2$) on a single-tape Turing machine. This robustness means that the definition of P is not sensitive to minor changes in the underlying machine model, reinforcing its fundamental nature.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider an algorithm that checks every possible subset of $n$ items. What is its typical time complexity, and is this considered polynomial time?",
+      "back": "Checking every possible subset of $n$ items typically involves $2^n$ operations (since there are $2^n$ subsets). This is an exponential time complexity, $O(2^n)$. This is *not* considered polynomial time because $2^n$ grows much faster than any polynomial $n^k$ for large $n$. Such problems are generally considered intractable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the 'P' in the complexity class P stand for?",
+      "back": "The 'P' in the complexity class P stands for **Polynomial time**.",
+      "difficulty": "easy"
+    }
+  ]
+}

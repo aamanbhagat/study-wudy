@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-initial-value-problems-ivp-vs-boundary-value-problems-bvp",
+  "subtopicTitle": "Initial value problems (IVP) vs boundary value problems (BVP)",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:18.845Z",
+  "cards": [
+    {
+      "front": "In a Partial Differential Equation (PDE), what type of problem involves specifying conditions at a single point in time, often $t=0$?",
+      "back": "An Initial Value Problem (IVP). These problems typically involve evolutionary PDEs where the solution evolves over time from a given initial state.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a Partial Differential Equation (PDE), what type of problem involves specifying conditions along the spatial boundaries of a domain?",
+      "back": "A Boundary Value Problem (BVP). These problems typically involve elliptic PDEs or steady-state solutions, where conditions are given on the perimeter or surface of the region.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Distinguish the primary difference between the conditions specified in an Initial Value Problem (IVP) and a Boundary Value Problem (BVP) for a PDE.",
+      "back": "IVPs specify conditions at a particular *initial time* (e.g., $u(x,0) = f(x)$), describing the state of the system at the beginning. BVPs specify conditions on the *spatial boundaries* of the domain (e.g., $u(0,t) = g(t)$ or $u(L,t) = h(t)$), describing the system's behavior at its edges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the 1D wave equation, $\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\frac{\\partial^2 u}{\\partial x^2}$, what initial conditions are typically required to form a well-posed IVP?",
+      "back": "For a well-posed IVP, you typically need to specify the initial displacement and initial velocity of the wave:\n1.  Initial displacement: $u(x,0) = f(x)$\n2.  Initial velocity: $\\frac{\\partial u}{\\partial t}(x,0) = g(x)$\nThese conditions are given across the entire spatial domain at $t=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the 2D Laplace equation, $\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2} = 0$, what type of conditions are typically required to form a well-posed BVP on a domain $\\Omega$?",
+      "back": "For a well-posed BVP, conditions are specified on the boundary $\\partial \\Omega$ of the domain. Common types include:\n1.  Dirichlet condition: $u(x,y) = f(x,y)$ on $\\partial \\Omega$ (specifying the value of the solution).\n2.  Neumann condition: $\\nabla u \\cdot \\mathbf{n} = g(x,y)$ on $\\partial \\Omega$ (specifying the normal derivative).\n3.  Robin condition: $a u + b \\nabla u \\cdot \\mathbf{n} = h(x,y)$ on $\\partial \\Omega$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the 1D heat equation $\\frac{\\partial u}{\\partial t} = k \\frac{\\partial^2 u}{\\partial x^2}$ for $x \\in [0, L]$ and $t > 0$. What combination of conditions would make this a \"mixed initial-boundary value problem\"?",
+      "back": "This would be a mixed initial-boundary value problem. It requires:\n1.  **Initial condition**: The temperature distribution at $t=0$, e.g., $u(x,0) = f(x)$ for $0 \\le x \\le L$.\n2.  **Boundary conditions**: Conditions at the spatial ends of the rod, $x=0$ and $x=L$, for all $t>0$. Examples:\n    *   Dirichlet: $u(0,t) = T_1(t)$ and $u(L,t) = T_2(t)$.\n    *   Neumann: $\\frac{\\partial u}{\\partial x}(0,t) = q_1(t)$ and $\\frac{\\partial u}{\\partial x}(L,t) = q_2(t)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Physically, what do the initial conditions $u(x,0)=f(x)$ and $\\frac{\\partial u}{\\partial t}(x,0)=g(x)$ represent for a vibrating string (wave equation)?",
+      "back": "$u(x,0)=f(x)$ represents the *initial displacement* or shape of the string at time $t=0$. This is the starting configuration from which the string begins to vibrate.\n$\\frac{\\partial u}{\\partial t}(x,0)=g(x)$ represents the *initial velocity* of each point on the string at time $t=0$. This describes how fast and in what direction each point on the string is moving at the very beginning of the motion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What three properties define a \"well-posed\" problem in the context of PDEs, whether an IVP or BVP?",
+      "back": "A problem is well-posed if it satisfies three conditions:\n1.  **Existence**: A solution to the problem exists.\n2.  **Uniqueness**: The solution is unique.\n3.  **Stability**: The solution depends continuously on the initial and boundary data (small changes in conditions lead to small changes in the solution).",
+      "difficulty": "medium"
+    }
+  ]
+}

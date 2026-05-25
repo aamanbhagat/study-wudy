@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-stagnation-total-quantities-t-p-derivations",
+  "subtopicTitle": "Stagnation (total) quantities — T₀, P₀, ρ₀ — derivations",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:09.671Z",
+  "cards": [
+    {
+      "front": "Define a \"stagnation point\" in fluid dynamics.",
+      "back": "A stagnation point is a point in a flow field where the local fluid velocity is zero relative to the object or reference frame. At this point, all the kinetic energy of the fluid is converted into internal energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What do \"stagnation (total) quantities\" (e.g., $T_0, P_0, \\rho_0$) represent?",
+      "back": "Stagnation quantities represent the thermodynamic properties (temperature, pressure, density) that a fluid would attain if it were brought to rest isentropically (for $P_0, \\rho_0$) or adiabatically (for $T_0$) from its local flow conditions. They are constant along a streamline in isentropic flow.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the expression for stagnation temperature $T_0$ from the steady-flow energy equation, assuming an adiabatic process.",
+      "back": "Start with the steady-flow energy equation for a control volume, neglecting potential energy and work: $h_1 + \\frac{V_1^2}{2} + q_{in} = h_2 + \\frac{V_2^2}{2}$.\nFor an adiabatic process, $q_{in} = 0$. At a stagnation point, $V_2 = 0$. Let state 1 be the local flow and state 2 be the stagnation state ($T_0, h_0$).\nSo, $h + \\frac{V^2}{2} = h_0$.\nFor an ideal gas, $h = c_p T$. Substituting this:\n$c_p T + \\frac{V^2}{2} = c_p T_0$.\nDivide by $c_p T$: $1 + \\frac{V^2}{2c_p T} = \\frac{T_0}{T}$.\nUsing $c_p = \\frac{\\gamma R}{\\gamma-1}$ and $a^2 = \\gamma R T$ (where $a$ is the speed of sound):\n$\\frac{T_0}{T} = 1 + \\frac{V^2}{2 \\frac{\\gamma R}{\\gamma-1} T} = 1 + \\frac{(\\gamma-1)V^2}{2\\gamma R T} = 1 + \\frac{(\\gamma-1)V^2}{2a^2}$.\nSince Mach number $M = V/a$, we get:\n$$T_0 = T \\left(1 + \\frac{\\gamma-1}{2} M^2\\right)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of stagnation temperature $T_0$.",
+      "back": "$T_0$ represents the maximum temperature a fluid can attain if all its kinetic energy is converted into internal energy through an adiabatic process. It's the temperature that would be measured by a thermometer brought to rest relative to the fluid (e.g., the temperature experienced by the nose of a high-speed aircraft due to aerodynamic heating). It remains constant across a normal shock wave.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for stagnation pressure $P_0$ from the energy equation and isentropic relations.",
+      "back": "From the derivation of $T_0$, we have $\\frac{T_0}{T} = 1 + \\frac{\\gamma-1}{2} M^2$. \nFor an isentropic process (which is assumed for $P_0$ and $\\rho_0$ derivations), the pressure-temperature relation is:\n$\\frac{P_0}{P} = \\left(\\frac{T_0}{T}\\right)^{\\frac{\\gamma}{\\gamma-1}}$.\nSubstitute the expression for $\\frac{T_0}{T}$:\n$$P_0 = P \\left(1 + \\frac{\\gamma-1}{2} M^2\\right)^{\\frac{\\gamma}{\\gamma-1}}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the expression for stagnation density $\\rho_0$ from the energy equation and isentropic relations.",
+      "back": "From the derivation of $T_0$, we have $\\frac{T_0}{T} = 1 + \\frac{\\gamma-1}{2} M^2$. \nFor an isentropic process, the density-temperature relation is:\n$\\frac{\\rho_0}{\\rho} = \\left(\\frac{T_0}{T}\\right)^{\\frac{1}{\\gamma-1}}$.\nSubstitute the expression for $\\frac{T_0}{T}$:\n$$\\rho_0 = \\rho \\left(1 + \\frac{\\gamma-1}{2} M^2\\right)^{\\frac{1}{\\gamma-1}}$$ \nAlternatively, using the ideal gas law $P = \\rho R T$, we have $\\frac{P_0}{\\rho_0 T_0} = \\frac{P}{\\rho T}$, so $\\frac{\\rho_0}{\\rho} = \\frac{P_0}{P} \\frac{T}{T_0}$. Substituting the derived expressions for $\\frac{P_0}{P}$ and $\\frac{T_0}{T}$:\n$\\frac{\\rho_0}{\\rho} = \\left(1 + \\frac{\\gamma-1}{2} M^2\\right)^{\\frac{\\gamma}{\\gamma-1}} \\left(1 + \\frac{\\gamma-1}{2} M^2\\right)^{-1} = \\left(1 + \\frac{\\gamma-1}{2} M^2\\right)^{\\frac{1}{\\gamma-1}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What crucial assumption is made when deriving stagnation pressure ($P_0$) and density ($\\rho_0$) that is *not* strictly required for stagnation temperature ($T_0$)?",
+      "back": "The crucial assumption is **isentropic flow** from the local flow state to the stagnation state. While $T_0$ only requires an adiabatic process (no heat transfer), $P_0$ and $\\rho_0$ require reversibility (no friction, no shocks, no heat transfer) to apply the isentropic relations. If a non-isentropic process (like a shock wave) occurs, the actual total pressure will be lower than the upstream isentropic $P_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do stagnation quantities ($T_0, P_0, \\rho_0$) change relative to static quantities ($T, P, \\rho$) as the Mach number ($M$) increases?",
+      "back": "As the Mach number ($M$) increases:\n1.  **Stagnation Temperature ($T_0/T$):** Increases quadratically with $M^2$. This means $T_0$ becomes significantly higher than $T$ at supersonic speeds, reflecting the conversion of kinetic energy to internal energy.\n2.  **Stagnation Pressure ($P_0/P$):** Increases more rapidly than $T_0/T$, as it's raised to the power of $\\frac{\\gamma}{\\gamma-1}$ (for air, $\\approx 3.5$). This shows a strong dependence on speed.\n3.  **Stagnation Density ($\\rho_0/\\rho$):** Increases, but less rapidly than $P_0/P$, as it's raised to the power of $\\frac{1}{\\gamma-1}$ (for air, $\\approx 2.5$).\nIn essence, at higher speeds, a greater proportion of the fluid's energy is in its kinetic form, leading to much higher stagnation values when the flow is brought to rest.",
+      "difficulty": "medium"
+    }
+  ]
+}

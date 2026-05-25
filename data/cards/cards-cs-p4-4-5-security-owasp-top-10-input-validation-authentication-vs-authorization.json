@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-security-owasp-top-10-input-validation-authentication-vs-authorization",
+  "subtopicTitle": "Security — OWASP Top 10, input validation, authentication vs authorization",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:08.186Z",
+  "cards": [
+    {
+      "front": "Distinguish between Authentication and Authorization in software security.",
+      "back": "Authentication verifies *who you are* (e.g., username/password, biometrics). Authorization determines *what you can do* (e.g., access specific resources or perform actions) once authenticated.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of the OWASP Top 10?",
+      "back": "The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications, helping organizations prioritize their security efforts.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is input validation crucial for application security, and what are its two main categories?",
+      "back": "Input validation is crucial to prevent malicious data from being processed, mitigating attacks like Injection, XSS, and Broken Access Control. Its two main categories are: 1. **Syntax Validation:** Checks format, type, length, range. 2. **Semantic Validation:** Checks if the data makes sense in the application's context (e.g., a valid product ID, an existing user).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the OWASP 'Injection' vulnerability and provide a simple SQL example of how it occurs.",
+      "back": "Injection vulnerabilities allow untrusted data sent to an interpreter (e.g., SQL, OS commands, LDAP) to trick the interpreter into executing unintended commands or accessing data without proper authorization.\nExample (vulnerable SQL): \n```sql\nquery = \"SELECT * FROM users WHERE username = '\" + userInput + \"' AND password = '\" + userPass + \"';\"\n```\nIf `userInput` is `' OR '1'='1`, the query becomes `SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '...'`, potentially bypassing authentication.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the OWASP 'Broken Access Control' vulnerability and give an example scenario.",
+      "back": "Broken Access Control occurs when restrictions on what authenticated users are allowed to do are not properly enforced. Attackers can exploit these flaws to bypass authorization checks, access unauthorized functionality/data, or escalate privileges.\nExample: A user changes the URL parameter `id=123` to `id=124` to view another user's private document without the server-side application performing proper authorization checks for `id=124`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare 'whitelist' and 'blacklist' input validation strategies. Which is generally preferred for security and why?",
+      "back": "<ul><li><b>Whitelist (Positive) Validation:</b> Defines what <em>is</em> allowed. It explicitly lists all acceptable inputs, characters, or patterns, rejecting everything else.</li><li><b>Blacklist (Negative) Validation:</b> Defines what <em>is not</em> allowed. It attempts to filter out known bad inputs, characters, or patterns, accepting everything else.</li></ul>Whitelist validation is generally preferred for security. It's much harder to anticipate and block all possible malicious inputs (blacklist) than to define all valid inputs (whitelist), providing a stronger security posture by default.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can 'Injection' vulnerabilities (e.g., SQL Injection) be effectively mitigated in application code?",
+      "back": "The most effective mitigation for Injection vulnerabilities is to use **Parameterized Queries (Prepared Statements)** or **Object Relational Mappers (ORMs)**. These separate the SQL logic from user-supplied data, ensuring user input is treated as data, not executable code.\nExample (secure SQL using Python's `sqlite3`):\n```python\n# Using a parameterized query\ncursor.execute(\"SELECT * FROM users WHERE username = ? AND password = ?\", (userInput, userPass))\n```\nAdditionally, **Input Validation** (whitelist approach) and **Contextual Output Escaping** are crucial layers of defense, but parameterized queries are primary for preventing injection.",
+      "difficulty": "hard"
+    }
+  ]
+}

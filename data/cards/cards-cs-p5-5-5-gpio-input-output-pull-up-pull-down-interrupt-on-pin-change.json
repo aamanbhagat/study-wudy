@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-gpio-input-output-pull-up-pull-down-interrupt-on-pin-change",
+  "subtopicTitle": "GPIO — input/output, pull-up/pull-down, interrupt on pin change",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:07.682Z",
+  "cards": [
+    {
+      "front": "What does GPIO stand for, and what is its fundamental purpose in embedded systems?",
+      "back": "GPIO stands for General Purpose Input/Output. Its fundamental purpose is to allow a microcontroller to interact with external electronic components by either reading digital signals (input) or sending digital signals (output).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the difference between configuring a GPIO pin as an INPUT versus an OUTPUT.",
+      "back": "When configured as an INPUT, the microcontroller reads the voltage level present on the pin (interpreting it as HIGH or LOW). When configured as an OUTPUT, the microcontroller actively sets the voltage level of the pin (either HIGH, typically VCC, or LOW, typically GND) to control an external device.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the 'floating input' problem and how pull-up or pull-down resistors solve it.",
+      "back": "A 'floating input' occurs when a GPIO pin configured as an input is not actively driven to a definite HIGH or LOW voltage level. This results in an indeterminate voltage, leading to erratic and unpredictable readings. A **pull-up resistor** connects the pin to VCC, defaulting it HIGH. A **pull-down resistor** connects the pin to GND, defaulting it LOW. This ensures the pin always has a defined state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you use a pull-up resistor versus a pull-down resistor for a button connected to a GPIO pin?",
+      "back": "You would use a **pull-up resistor** when the button connects the GPIO pin to GND when pressed (active-low configuration). The pin is HIGH by default and goes LOW when the button is pressed. You would use a **pull-down resistor** when the button connects the GPIO pin to VCC when pressed (active-high configuration). The pin is LOW by default and goes HIGH when the button is pressed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a conceptual C-like code snippet to configure a GPIO pin (e.g., Pin 0 of Port A) as an output and then toggle its state.",
+      "back": "```c\n// Assume 'GPIO_PORTA_DIR' is the direction register for Port A\n// and 'GPIO_PORTA_DATA' is the data register for Port A.\n// 'GPIO_PIN_0' represents the bit for Pin 0.\n\n// 1. Configure Pin 0 of Port A as OUTPUT\nGPIO_PORTA_DIR |= (1 << GPIO_PIN_0); \n\n// 2. Set Pin 0 HIGH (e.g., turn on an LED)\nGPIO_PORTA_DATA |= (1 << GPIO_PIN_0);\n\n// 3. Set Pin 0 LOW (e.g., turn off an LED)\nGPIO_PORTA_DATA &= ~(1 << GPIO_PIN_0);\n\n// To toggle:\n// GPIO_PORTA_DATA ^= (1 << GPIO_PIN_0); // XOR with the bit\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary advantage of using an interrupt on a GPIO pin change compared to 'polling' the pin's state in a loop?",
+      "back": "The primary advantage is efficiency and responsiveness. **Polling** continuously consumes CPU cycles by repeatedly checking the pin's state, potentially missing short events and wasting power. An **interrupt** is event-driven: the CPU can perform other tasks and is only interrupted to service the pin change when it actually occurs. This ensures a timely response to asynchronous external events without constant CPU overhead.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Differentiate between edge-triggered and level-triggered interrupts for a GPIO pin, and provide a scenario where each would be preferred.",
+      "back": "<ul><li>**Edge-triggered interrupt:** Activates only on a *change* in the signal level (e.g., rising edge: LOW to HIGH; falling edge: HIGH to LOW). It fires once per transition. Preferred for single, momentary events like button presses, encoder clicks, or data pulse detection.</li><li>**Level-triggered interrupt:** Activates and remains active as long as the signal is at a specific *level* (e.g., continuously HIGH or LOW). Preferred for continuous conditions, such as a safety interlock being open, or a sensor indicating an ongoing fault. Requires careful handling to prevent repeated ISR execution while the condition persists.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it generally safer and often preferred to use internal pull-up/pull-down resistors provided by a microcontroller rather than external ones?",
+      "back": "Using internal pull-up/pull-down resistors is generally safer because they are configured via software, eliminating the need for external components and associated wiring. This reduces the bill of materials, simplifies the circuit design, and minimizes the risk of wiring errors (e.g., incorrect resistor value, accidental short circuits). It makes the system more robust, compact, and easier to debug, especially for beginners.",
+      "difficulty": "medium"
+    }
+  ]
+}

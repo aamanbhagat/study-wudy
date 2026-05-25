@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-attitude-control-modes-spin-stabilization-3-axis-active",
+  "subtopicTitle": "Attitude control modes — spin stabilization, 3-axis active",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:33.678Z",
+  "cards": [
+    {
+      "front": "Define \"spin stabilization\" as an attitude control mode for spacecraft.",
+      "back": "An attitude control method where a spacecraft is rotated about a principal axis to provide gyroscopic stiffness, maintaining its orientation in space due to conservation of angular momentum.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe two common methods to initiate and maintain spin stabilization for a spacecraft after separation.",
+      "back": "1.  **Tangential Thrusters:** Small thrusters fired tangentially to the spacecraft body, imparting a spin. \n2.  **Spin Motors:** Electric motors with flywheels inside the spacecraft. \n3.  **Rifling/Spin Tabs:** On rocket upper stages, small canted fins or exhaust nozzles can impart spin during thrust.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain nutation in spin-stabilized spacecraft, including its cause and an intuitive analogy.",
+      "back": "Nutation is a wobbling motion of the spacecraft's spin axis around its angular momentum vector. It occurs when the spacecraft's spin axis is not perfectly aligned with its principal axis of inertia, or due to external disturbances (e.g., thruster firings, deployment shocks). Analogy: A slightly unbalanced spinning top that wobbles as it spins. This wobble dissipates energy, often through internal damping mechanisms or dedicated nutation dampers, until the spin axis aligns with the principal axis of maximum inertia.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"3-axis active attitude control\" for spacecraft.",
+      "back": "An attitude control method that maintains a spacecraft's orientation by actively sensing its attitude in three orthogonal axes (roll, pitch, yaw) and applying torques via actuators to correct any deviations from the desired orientation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the three primary functional blocks required for a 3-axis active attitude control system.",
+      "back": "1.  **Sensors:** Measure the current attitude (e.g., star trackers, sun sensors, IMUs, magnetometers).\n2.  **Controller/Processor:** Calculates the required control torques based on desired vs. actual attitude.\n3.  **Actuators:** Generate the necessary torques to reorient the spacecraft (e.g., reaction wheels, control moment gyros, thrusters, magnetic torquers).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare reaction wheels and CMGs as 3-axis control actuators, focusing on how each generates torque.",
+      "back": "Both use spinning flywheels.\n*   **Reaction Wheels (RWs):** Generate torque by changing the flywheel's *spin speed*. By accelerating or decelerating the wheel, an equal and opposite torque is applied to the spacecraft body. The torque magnitude is $\\tau_{body} = -I_{wheel} \\frac{d\\omega_{wheel}}{dt}$.\n*   **Control Moment Gyros (CMGs):** Generate torque by *gimbaling* a constantly spinning flywheel. The torque is perpendicular to both the flywheel's angular momentum vector and the gimbal rotation axis, given by $\\vec{\\tau} = \\vec{\\omega}_{gimbal} \\times \\vec{H}_{wheel}$. CMGs can produce much larger torques for a given mass/power than RWs.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the primary trade-offs guiding the choice between spin stabilization and 3-axis active control for a spacecraft mission.",
+      "back": "*   **Spin Stabilization:** Chosen for missions requiring simplicity, low cost, low power, and less precise pointing (e.g., deep space probes, simple communications satellites, upper stages). Advantages: inherent stability, fewer components. Disadvantages: limited pointing flexibility, payload constraints.\n*   **3-Axis Active Control:** Chosen for missions requiring precise pointing, high maneuverability, and complex payloads (e.g., Earth observation, space telescopes, crewed spacecraft, advanced communication satellites). Advantages: high pointing accuracy, flexibility. Disadvantages: higher complexity, cost, mass, power consumption, potential for propellant usage.",
+      "difficulty": "medium"
+    }
+  ]
+}

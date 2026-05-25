@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-8-suffix-tree-conceptual",
+  "subtopicTitle": "Suffix tree (conceptual)",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:24.698Z",
+  "cards": [
+    {
+      "front": "A suffix tree for a string $S$ is a compressed trie of all ______ of $S$.",
+      "back": "A suffix tree for a string $S$ is a compressed trie of all **suffixes** of $S$. It's a powerful data structure used for various string processing problems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the two main types of nodes and the labels on edges in a suffix tree.",
+      "back": "A suffix tree consists of:\n1.  **Internal nodes:** Represent common prefixes of suffixes.\n2.  **Leaf nodes:** Each corresponds to a unique suffix of the original string.\nEdges are labeled with **non-empty substrings** of $S$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a suffix tree for string $S$, every suffix of $S$ corresponds to a unique ______ from the root to a ______ node.",
+      "back": "In a suffix tree for string $S$, every suffix of $S$ corresponds to a unique **path** from the root to a **leaf** node. The concatenation of edge labels along this path forms the suffix.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is a unique terminator character (e.g., '$') often appended to a string $S$ before building its suffix tree?",
+      "back": "To ensure that:\n1.  Every suffix ends at a leaf node. Without it, a suffix might end in the middle of an edge or at an internal node, violating the property that every suffix corresponds to a unique path from the root to a leaf.\n2.  All suffixes are unique, preventing one suffix from being a prefix of another (e.g., \"banana\" vs \"ana\").",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can a suffix tree be used to efficiently find all occurrences of a pattern $P$ in a text $T$?",
+      "back": "To find all occurrences of $P$ in $T$:\n1.  Traverse the suffix tree of $T$ following the characters of $P$.\n2.  If $P$ is found (i.e., you reach a node or an edge where $P$ ends), all leaf nodes in the subtree rooted at this point correspond to suffixes of $T$ that start with $P$.\n3.  The starting positions of these suffixes in $T$ are the occurrences of $P$. This takes $O(|P|)$ time plus $O(\\text{number of occurrences})$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Conceptually describe the paths for the suffixes of \"banana$\" in its suffix tree.",
+      "back": "For \"banana$\":\n- Paths for \"banana$\", \"anana$\", \"nana$\", \"ana$\", \"na$\", \"a$\", \"$\" would all start from the root and end at distinct leaf nodes.\n- Common prefixes would lead to internal nodes, e.g., the path for \"ana$\" would share an initial segment with \"anana$\".\n- The path for \"a$\" would be distinct from \"ana$\" and \"anana$\" after the first 'a'.\n- The path for \"na$\" would be distinct from \"nana$\".",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical space complexity of a suffix tree for a string of length $N$, and why is it considered efficient?",
+      "back": "The typical space complexity is $O(N)$. This is because a suffix tree for a string of length $N$ has at most $2N-1$ nodes and $2N-2$ edges. Each edge stores a reference to a substring (start and end indices), not the full substring itself, which keeps the space linear.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-4-scipy-optimize-minimize-fsolve-curve-fit-linprog",
+  "subtopicTitle": "scipy.optimize — minimize, fsolve, curve_fit, linprog",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:35.770Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of the `scipy.optimize` module?",
+      "back": "The `scipy.optimize` module provides various algorithms for finding optimal solutions to mathematical problems, including function minimization, root finding, curve fitting, and linear programming.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary function of `scipy.optimize.minimize` and what does it require as its first argument?",
+      "back": "`scipy.optimize.minimize` finds the minimum of a scalar function of one or more variables. Its first argument is the objective function $f(x)$ to be minimized, which must return a scalar value.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are different optimization algorithms (e.g., 'BFGS', 'SLSQP') specified for `scipy.optimize.minimize`, and what's the typical way to add variable bounds?",
+      "back": "The `method` argument specifies the algorithm (e.g., `method='BFGS'`). Variable bounds are typically passed as a sequence of `(min, max)` tuples to the `bounds` argument, e.g., `bounds=((0, None), (0, 10))`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After calling `scipy.optimize.minimize`, what are the two most important attributes of the returned `OptimizeResult` object for analyzing the solution?",
+      "back": "The two most important attributes are `x` (the optimal parameter values that minimize the objective function) and `fun` (the minimum value of the objective function found).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the main purpose of `scipy.optimize.fsolve`? How does it differ fundamentally from `minimize`?",
+      "back": "`scipy.optimize.fsolve` finds the roots of a system of non-linear equations, i.e., it finds $x$ such that $f(x) = 0$. Unlike `minimize` which seeks to find the minimum value of a function, `fsolve` seeks to find the inputs that make a function (or system of functions) evaluate to zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $f(x, y) = x^2 + y - 5$ and $g(x, y) = x + y^2 - 3$, how would you set up these equations for `scipy.optimize.fsolve`?",
+      "back": "You need to define a single function that returns an array of the equation residuals:\n```python\nimport numpy as np\nfrom scipy.optimize import fsolve\n\ndef equations(p):\n    x, y = p\n    return [x**2 + y - 5, x + y**2 - 3]\n\n# Then call fsolve with an initial guess:\n# solution = fsolve(equations, [1, 1])\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary use case for `scipy.optimize.curve_fit` and what are its three essential arguments?",
+      "back": "`scipy.optimize.curve_fit` is used to fit a user-defined function to data. Its three essential arguments are: 1) the model function $f(x, \\dots)$ to fit, 2) the independent variable data $xdata$, and 3) the dependent variable data $ydata$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does `scipy.optimize.curve_fit` return, and what is the significance of the second returned value?",
+      "back": "`curve_fit` returns two arrays: `popt` (optimal parameters for the model function) and `pcov` (the covariance matrix of `popt`). The diagonal elements of `pcov` are the variances of the estimated parameters, from which standard errors can be derived ($\\sqrt{\\text{diag(pcov)}}$), providing uncertainty estimates for the parameters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of optimization problem does `scipy.optimize.linprog` solve, and what is its standard mathematical form?",
+      "back": "`scipy.optimize.linprog` solves linear programming problems. The standard form is:\n$$ \\text{minimize } c^T x $$\n$$ \\text{subject to: } A_{ub} x \\le b_{ub} $$\n$$ A_{eq} x = b_{eq} $$\n$$ l \\le x \\le u $$\nwhere $c, x, b_{ub}, b_{eq}, l, u$ are vectors and $A_{ub}, A_{eq}$ are matrices.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do `c`, `A_ub`, `b_ub`, `A_eq`, `b_eq`, and `bounds` in `scipy.optimize.linprog` map to the standard linear programming problem formulation?",
+      "back": "<ul>\n<li>`c`: Coefficients of the objective function to be minimized ($c^T x$).</li>\n<li>`A_ub`, `b_ub`: Define the upper-bound (less-than-or-equal) inequality constraints ($A_{ub} x \\le b_{ub}$).</li>\n<li>`A_eq`, `b_eq`: Define the equality constraints ($A_{eq} x = b_{eq}$).</li>\n<li>`bounds`: Define the lower and upper bounds for each variable $x_i$, typically as `(min_i, max_i)` ($l \\le x \\le u$).</li>\n</ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

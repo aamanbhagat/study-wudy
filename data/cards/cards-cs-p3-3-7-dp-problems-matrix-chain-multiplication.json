@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-7-dp-problems-matrix-chain-multiplication",
+  "subtopicTitle": "DP problems — matrix chain multiplication",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:13.046Z",
+  "cards": [
+    {
+      "front": "The Matrix Chain Multiplication problem aims to find the optimal _________ of a sequence of matrices to minimize the total number of _________ operations.",
+      "back": "The Matrix Chain Multiplication problem aims to find the optimal **parenthesization** of a sequence of matrices to minimize the total number of **scalar multiplication** operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given matrices $A_{p \\times q}$ and $B_{q \\times r}$, what is the number of scalar multiplications required to compute $A \\times B$?",
+      "back": "The number of scalar multiplications required to compute $A_{p \\times q} \\times B_{q \\times r}$ is $p \\times q \\times r$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Matrix multiplication is _________, meaning $(AB)C = A(BC)$, but generally NOT _________. Explain why this property is crucial for the Matrix Chain Multiplication problem.",
+      "back": "Matrix multiplication is **associative**, meaning $(AB)C = A(BC)$, but generally NOT **commutative**. This means the order of operations (parenthesization) does not change the *mathematical result* of the product, but it *does* change the total number of scalar multiplications required, which is what we aim to minimize.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the two key properties that make the Matrix Chain Multiplication problem suitable for Dynamic Programming?",
+      "back": "1. **Optimal Substructure**: An optimal solution to the problem contains optimal solutions to subproblems. If $(A_i \\dots A_k)(A_{k+1} \\dots A_j)$ is an optimal parenthesization of $A_i \\dots A_j$, then $(A_i \\dots A_k)$ and $(A_{k+1} \\dots A_j)$ must themselves be optimally parenthesized.\n2. **Overlapping Subproblems**: The recursive solution recomputes the same subproblems many times. For example, calculating the cost of $A_i \\dots A_j$ might involve calculating the cost of $A_i \\dots A_k$ for various $j$ values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a chain of $n$ matrices $A_1, \\dots, A_n$ with dimensions $p_0 \\times p_1, \\dots, p_{n-1} \\times p_n$, derive the recurrence relation for $m[i, j]$, the minimum cost to compute $A_i \\dots A_j$. Base case: $i=j$.",
+      "back": "To compute $A_i \\dots A_j$, we split the product at some $k$ ($i \\le k < j$). The cost is the sum of costs for $(A_i \\dots A_k)$, $(A_{k+1} \\dots A_j)$, plus the cost of multiplying the two resulting matrices. The dimensions are $(p_{i-1} \\times p_k)$ for $A_i \\dots A_k$ and $(p_k \\times p_j)$ for $A_{k+1} \\dots A_j$.\n$$m[i, j] = \\begin{cases} 0 & \\text{if } i = j \\\\ \\min_{i \\le k < j} (m[i, k] + m[k+1, j] + p_{i-1}p_k p_j) & \\text{if } i < j \\end{cases}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the time and space complexities of the standard dynamic programming algorithm for Matrix Chain Multiplication, given $n$ matrices?",
+      "back": "The DP algorithm fills a 2D table of size $n \\times n$.\n*   **Time Complexity**: $O(n^3)$. This comes from iterating through chain length $L$ (from 2 to $n$), start index $i$ (from 1 to $n-L+1$), and split point $k$ (from $i$ to $j-1$).\n*   **Space Complexity**: $O(n^2)$. We need a 2D array $m[n][n]$ to store minimum costs and another 2D array $s[n][n]$ to store split points for reconstruction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After computing the minimum costs $m[i, j]$ for all subproblems, how can you reconstruct the actual optimal parenthesization of the matrix chain $A_1 \\dots A_n$?",
+      "back": "To reconstruct the optimal parenthesization, we store the optimal split point $k$ for each subproblem $m[i, j]$ in a separate 2D array, say $s[i, j]$. After filling the $m$ table, $s[i, j]$ holds the $k$ that yielded the minimum cost for $m[i, j]$.\n\nWe can then use a recursive function to print the parenthesization:\n```\nPRINT-PARENS(s, i, j):\n    if i == j:\n        print \"A\" + i\n    else:\n        print \"(\"\n        PRINT-PARENS(s, i, s[i][j])\n        PRINT-PARENS(s, s[i][j] + 1, j)\n        print \")\"\n```\nCall `PRINT-PARENS(s, 1, n)` to get the full parenthesization.",
+      "difficulty": "hard"
+    }
+  ]
+}

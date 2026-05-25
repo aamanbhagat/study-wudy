@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-2d-plots-line-scatter-bar-histogram-contour-imshow",
+  "subtopicTitle": "2D plots — line, scatter, bar, histogram, contour, imshow",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:43.300Z",
+  "cards": [
+    {
+      "front": "Differentiate the primary use cases for `plt.plot()` and `plt.scatter()`.",
+      "back": "`plt.plot()` connects data points with lines, making it ideal for visualizing trends, functions, or sequential data where the order of points is significant (e.g., time series). `plt.scatter()` displays individual data points without connecting them, primarily used to show the distribution or correlation between two variables, highlighting clusters or outliers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write Python code to create a basic bar plot showing category counts `{'A': 10, 'B': 15, 'C': 7}`. What data does it typically represent?",
+      "back": "```python\nimport matplotlib.pyplot as plt\n\ncategories = ['A', 'B', 'C']\ncounts = [10, 15, 7]\n\nplt.bar(categories, counts)\nplt.xlabel('Category')\nplt.ylabel('Count')\nplt.title('Category Counts Example')\nplt.show()\n```\nBar plots typically represent categorical data, comparing discrete categories or showing changes over time for distinct, non-continuous items.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the `bins` parameter in `plt.hist()` and how does its value impact the histogram's appearance?",
+      "back": "The `bins` parameter in `plt.hist()` defines the number or edges of the intervals (bins) into which the data will be divided. It can be an integer (number of bins), a sequence (bin edges), or a string (e.g., 'auto', 'sturges').\n-   **Too few bins:** Can obscure important details and make the distribution appear overly smooth or uniform.\n-   **Too many bins:** Can make the histogram appear noisy and jagged, highlighting random fluctuations rather than the underlying distribution shape.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 2D scalar field $f(x, y)$, when is `plt.contourf()` preferred over `plt.imshow()`?",
+      "back": "`plt.contourf()` is preferred when you want to visualize specific isolines (contours) or ranges of values in a 2D scalar field, emphasizing the *shape*, *gradient*, and *levels* of the function. It interpolates between grid points to draw smooth contours. `plt.imshow()` treats the data as an image, displaying each grid cell as a pixel. It's better for visualizing raw grid data, actual images, or when the exact pixel values without interpolation are crucial. `contourf` is often used for mathematical functions or interpolated scientific data, while `imshow` is for discrete grid data or image processing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What type of data is `plt.imshow()` primarily designed to display?",
+      "back": "`plt.imshow()` is primarily designed to display 2D raster data (images) or 2D arrays where the value at each $(x, y)$ coordinate represents a color or intensity. This includes grayscale images (single channel), RGB images (3 channels), or RGBA images (4 channels, including alpha transparency).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the roles of the `levels` and `cmap` parameters in `plt.contourf()`.",
+      "back": "-   **`levels`**: This parameter determines the number and values of the contour lines/filled regions. If an integer $N$, it draws $N$ equally spaced contour lines. If a sequence of numbers, it specifies the exact data values at which to draw the contour lines and fill the regions between them. It controls the granularity of the value representation.\n-   **`cmap` (Colormap)**: This parameter specifies the colormap to use. It maps data values to colors, determining the color scheme used to fill the regions between contour lines. This provides a visual representation of the scalar field's magnitude across the surface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When creating a scatter plot with many overlapping points, what two `plt.scatter()` parameters can improve visibility?",
+      "back": "Two key parameters to improve visibility in scatter plots with overlapping points are:\n1.  **`alpha`**: A float between 0 and 1, controlling the transparency of the markers. Lower `alpha` values make points semi-transparent, allowing underlying points to be seen and revealing areas of higher point density.\n2.  **`s` (size)**: Controls the size of the markers. Reducing the marker size can decrease the likelihood of points completely obscuring others. Alternatively, `s` can be used to encode a third variable, where larger `s` indicates a higher value for that variable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the steps to visualize a 3D function $z = f(x, y)$ using `plt.contourf()`.",
+      "back": "To visualize a 3D function $z = f(x, y)$ using `plt.contourf()`, follow these steps:\n1.  **Define $x$ and $y$ ranges:** Create 1D arrays for the $x$ and $y$ coordinates using `np.linspace` or `np.arange`.\n2.  **Create a meshgrid:** Use `np.meshgrid(x, y)` to generate 2D arrays `X` and `Y` that represent the coordinates of the grid points for the entire plotting area.\n3.  **Compute $z$ values:** Evaluate the function $f(x, y)$ at each point $(X_{ij}, Y_{ij})$ to obtain a 2D array `Z` of corresponding $z$ values.\n4.  **Plot contours:** Call `plt.contourf(X, Y, Z, levels=N, cmap='viridis')` (or `plt.contour` for lines only) to generate the plot. It's often helpful to add `plt.colorbar()` for a legend mapping colors to $z$ values.\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(-5, 5, 100)\ny = np.linspace(-5, 5, 100)\nX, Y = np.meshgrid(x, y)\nZ = np.sin(np.sqrt(X**2 + Y**2)) # Example function\n\nplt.contourf(X, Y, Z, levels=20, cmap='viridis')\nplt.colorbar(label='Z value')\nplt.title('$z = \\sin(\\sqrt{x^2+y^2})$ Contour Plot')\nplt.xlabel('X-axis')\nplt.ylabel('Y-axis')\nplt.show()\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-modified-euler-heun-s-method",
+  "subtopicTitle": "Modified Euler (Heun's method)",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:20.182Z",
+  "cards": [
+    {
+      "front": "What is Heun's method (Modified Euler method) primarily used for?",
+      "back": "Heun's method is a numerical procedure for solving first-order ordinary differential equations (ODEs) of the form $y' = f(t, y)$ with an initial condition $y(t_0) = y_0$. It's a predictor-corrector method that improves upon the basic Euler method's accuracy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the predictor and corrector formulas for Heun's method to approximate $y_{i+1}$ given $y_i$, $t_i$, and step size $h$.",
+      "back": "The predictor step (Euler's method):\n$$y_{i+1}^* = y_i + h f(t_i, y_i)$$\nThe corrector step (Trapezoidal rule approximation):\n$$y_{i+1} = y_i + \\frac{h}{2} [f(t_i, y_i) + f(t_{i+1}, y_{i+1}^*)]$$\nwhere $t_{i+1} = t_i + h$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the intuition behind Heun's method, specifically how it improves upon Euler's method's slope approximation.",
+      "back": "Euler's method uses the slope at the *beginning* of the interval $f(t_i, y_i)$ to estimate the next point. Heun's method improves this by first *predicting* a provisional $y_{i+1}^*$ using Euler's. Then, it calculates a slope at the *end* of the interval using this predicted value, $f(t_{i+1}, y_{i+1}^*)$. Finally, it uses the *average* of these two slopes (initial and predicted final) to get a more accurate estimate for $y_{i+1}$. This averaging is akin to the trapezoidal rule for integration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the order of accuracy for Heun's method, and how does it compare to the standard Euler method?",
+      "back": "Heun's method is a **second-order** method. This means its local truncation error is $O(h^3)$ and its global truncation error is $O(h^2)$. In contrast, the standard Euler method is a first-order method, with local truncation error $O(h^2)$ and global truncation error $O(h)$. The higher order of Heun's method implies that for a given step size $h$, it generally yields significantly more accurate results than Euler's method.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the ODE $y' = -2y$, $y(0)=1$, use Heun's method with $h=0.1$ to estimate $y(0.1)$.",
+      "back": "Here $f(t, y) = -2y$, $t_0=0$, $y_0=1$, $h=0.1$.\n1. Predictor step:\n$y_1^* = y_0 + h f(t_0, y_0) = 1 + 0.1(-2 \\cdot 1) = 1 - 0.2 = 0.8$\n2. Corrector step:\n$t_1 = t_0 + h = 0 + 0.1 = 0.1$\n$y_1 = y_0 + \\frac{h}{2} [f(t_0, y_0) + f(t_1, y_1^*)]$\n$y_1 = 1 + \\frac{0.1}{2} [(-2 \\cdot 1) + (-2 \\cdot 0.8)]$\n$y_1 = 1 + 0.05 [-2 - 1.6]$\n$y_1 = 1 + 0.05 [-3.6]$\n$y_1 = 1 - 0.18 = 0.82$\nSo, $y(0.1) \\approx 0.82$. (The exact solution is $y(t)=e^{-2t}$, so $y(0.1) = e^{-0.2} \\approx 0.8187$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Heun's method relate to the broader family of Runge-Kutta methods?",
+      "back": "Heun's method is a specific example of a **second-order Runge-Kutta (RK2)** method. It can be seen as an RK2 method where the two slopes (or \"k\" values) are $k_1 = f(t_i, y_i)$ and $k_2 = f(t_i+h, y_i+hk_1)$, and the final estimate is $y_{i+1} = y_i + \\frac{h}{2}(k_1 + k_2)$. This structure of evaluating slopes at different points within the interval and combining them is characteristic of the Runge-Kutta family, which aims to achieve higher orders of accuracy than simple Euler methods.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List two significant advantages of Heun's method over the basic Euler method.",
+      "back": "1.  **Higher Accuracy**: Heun's method is second-order accurate ($O(h^2)$ global error), while Euler's is first-order ($O(h)$ global error). This means for a given step size, Heun's method generally provides much more accurate approximations.\n2.  **Improved Stability (often)**: While not universally true for all ODEs, the averaging of slopes in Heun's method often leads to better stability properties compared to Euler's method, allowing for larger step sizes without solutions diverging as quickly.",
+      "difficulty": "medium"
+    }
+  ]
+}

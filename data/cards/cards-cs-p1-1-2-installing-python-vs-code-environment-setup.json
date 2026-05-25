@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-installing-python-vs-code-environment-setup",
+  "subtopicTitle": "Installing Python + VS Code — environment setup",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:44.191Z",
+  "cards": [
+    {
+      "front": "What is the primary official source for downloading Python, and what crucial option should be selected during its installation on Windows?",
+      "back": "The primary official source is <a href=\"https://www.python.org\">python.org</a>. On Windows, it's crucial to check \"Add Python X.Y to PATH\" during installation. This makes Python and `pip` accessible from any terminal location.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After installing Python, what two commands can you run in your terminal to verify both the Python interpreter and its package manager are correctly installed?",
+      "back": "You should run:\n1. `python --version` (or `python3 --version` on some systems) to check the Python interpreter version.\n2. `pip --version` (or `pip3 --version`) to check the package installer version.\n\nBoth should display version numbers without errors.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is VS Code, and what is the essential extension you must install within VS Code to enable robust Python development features?",
+      "back": "VS Code (Visual Studio Code) is a free, open-source code editor developed by Microsoft. The essential extension is the \"Python\" extension by Microsoft. It provides features like IntelliSense, linting, debugging, and testing for Python.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After installing the Python extension in VS Code, how do you select the specific Python interpreter for your project, and why is this step important?",
+      "back": "To select the interpreter, open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P) and type \"Python: Select Interpreter\". Choose the desired interpreter from the list. This step is crucial because it tells VS Code which Python executable to use for running, debugging, and providing language-specific features for your code.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two common ways to run a Python script (e.g., `my_script.py`) directly from within VS Code after setting up the interpreter.",
+      "back": "1.  **Using the \"Run Python File\" button:** With the `.py` file open, click the \"Run Python File\" play button in the top-right corner of the editor, or right-click in the editor and select \"Run Python File in Terminal\".\n2.  **Using the Integrated Terminal:** Open the Integrated Terminal (Ctrl+` or Cmd+`). Navigate to your script's directory using `cd` and then execute the script with `python my_script.py` (or `python3 my_script.py`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the `PATH` environment variable in the context of installing Python, and why adding Python to it is beneficial.",
+      "back": "The `PATH` environment variable is a list of directories where your operating system searches for executable programs when you type a command in the terminal. Adding Python's installation directory to `PATH` allows you to execute `python` or `pip` commands from *any* directory in your terminal without needing to specify the full path to the Python executable each time. This significantly improves convenience and workflow.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain how to set a breakpoint in VS Code for a Python script and what happens when the debugger reaches it.",
+      "back": "To set a breakpoint, click in the gutter (the space to the left of the line numbers) next to the desired line of code; a red dot will appear. When you run your script in debug mode (e.g., by clicking the \"Run and Debug\" button or pressing F5), execution will pause at that breakpoint. This allows you to inspect variables, step through code line by line, and evaluate expressions to understand program flow and identify issues.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary benefit of using an Integrated Development Environment (IDE) like VS Code for programming compared to a simple text editor?",
+      "back": "The primary benefit is that IDEs like VS Code provide a comprehensive set of tools integrated into a single environment, significantly boosting productivity. This includes features like intelligent code completion (IntelliSense), syntax highlighting, built-in debugging, version control integration, extensions for various languages and tools, and the ability to run code directly, all of which are typically absent or require manual setup in a simple text editor.",
+      "difficulty": "hard"
+    }
+  ]
+}

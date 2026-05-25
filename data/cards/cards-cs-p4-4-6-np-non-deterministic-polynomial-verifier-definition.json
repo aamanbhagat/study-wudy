@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-6-np-non-deterministic-polynomial-verifier-definition",
+  "subtopicTitle": "NP — non-deterministic polynomial, verifier definition",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:25.554Z",
+  "cards": [
+    {
+      "front": "NP stands for _______, and problems in this class are characterized by having solutions that can be _______ in polynomial time.",
+      "back": "NP stands for **Non-deterministic Polynomial**, and problems in this class are characterized by having solutions that can be **verified** in polynomial time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of NP, a 'verifier' for a language $L$ is a(n) _______ that takes two inputs: _______ and _______.",
+      "back": "In the context of NP, a 'verifier' for a language $L$ is a(n) **algorithm (or deterministic Turing Machine)** that takes two inputs: **a string $w$ (the problem instance)** and **a string $c$ (the certificate/witness/proof)**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a language $L$ to be in NP, its verifier $V$ must satisfy two properties: 1. If $w \\in L$, then... 2. If $w \\notin L$, then...",
+      "back": "For a language $L$ to be in NP, its verifier $V$ must satisfy two properties:\n1.  If $w \\in L$, then there **exists a certificate $c$** such that $V(w, c) = \\text{ACCEPT}$.\n2.  If $w \\notin L$, then for **all possible certificates $c'$**, $V(w, c') = \\text{REJECT}$.\nCrucially, the verifier $V$ must run in polynomial time with respect to the length of $w$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The 'non-deterministic' aspect of NP refers to a non-deterministic Turing machine (NDTM). How does this relate to the verifier definition?",
+      "back": "A non-deterministic Turing machine (NDTM) can 'guess' a certificate $c$ and then deterministically verify it in polynomial time. If at least one 'guess' (path of computation) leads to an accepting state, the NDTM accepts. This directly corresponds to the verifier definition: if $w \\in L$, there 'exists' a certificate $c$ that the verifier accepts. The NDTM can be thought of as trying all possible certificates simultaneously or making the 'right' guess.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the SUBSET-SUM problem, given a set $S$, target $T$, and a potential subset $S'$, describe the verifier's operation and its time complexity.",
+      "back": "For SUBSET-SUM, if $w = (S, T)$ and $c = S'$ (a potential subset):\nThe verifier $V((S, T), S')$ would:\n1.  Check if all elements in $S'$ are actually present in $S$.\n2.  Calculate the sum of elements in $S'$.\n3.  Compare this sum to $T$.\nIf all checks pass, $V$ accepts; otherwise, it rejects. This process takes polynomial time with respect to the size of $S$ and $T$ (and thus $w$), as checking membership and summing elements are polynomial operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the verifier definition, explain why every language in P is also in NP. What would be the 'certificate' for a problem in P?",
+      "back": "If a language $L$ is in P, it means there exists a deterministic polynomial-time algorithm $A$ that decides $L$. To show $L \\in \\text{NP}$, we need a polynomial-time verifier $V$. We can construct $V(w, c)$ as follows: simply ignore the certificate $c$ and run algorithm $A$ on input $w$. If $A(w)$ accepts, $V(w, c)$ accepts. If $A(w)$ rejects, $V(w, c)$ rejects.\n1.  If $w \\in L$, then $A(w)$ accepts, so $V(w, \\text{any } c)$ accepts. We can pick *any* $c$ (e.g., the empty string) as the certificate.\n2.  If $w \\notin L$, then $A(w)$ rejects, so $V(w, \\text{any } c')$ rejects.\nSince $A$ runs in polynomial time, $V$ also runs in polynomial time. Thus, P $\\subseteq$ NP.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a language $L \\in \\text{NP}$, if the input string is $w$ of length $n$, what is the maximum allowed length for its certificate $c$? Explain why.",
+      "back": "The maximum allowed length for a certificate $c$ must be **polynomial in the length of $w$ (i.e., $|c| = O(n^k)$ for some constant $k$)**.\nThis is because the verifier $V(w, c)$ must run in polynomial time with respect to $|w|$. If $c$ were exponentially long, the verifier would take at least exponential time just to read the certificate, let alone process it. For $V$ to be polynomial in $|w|$, it must also be polynomial in $|c|$ (since $c$ is an input to $V$), which implies $|c|$ cannot be super-polynomial in $|w|$.",
+      "difficulty": "hard"
+    }
+  ]
+}

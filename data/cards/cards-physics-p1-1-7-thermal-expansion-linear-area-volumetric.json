@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-thermal-expansion-linear-area-volumetric",
+  "subtopicTitle": "Thermal expansion — linear, area, volumetric",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:30.855Z",
+  "cards": [
+    {
+      "front": "What is thermal expansion?",
+      "back": "Thermal expansion is the tendency of matter to change in volume (or length/area) in response to a change in temperature, typically increasing with increasing temperature. This occurs because increased thermal energy causes atoms/molecules to vibrate with greater amplitude, increasing their average separation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for linear thermal expansion, defining all variables.",
+      "back": "The change in length $\\Delta L$ of a material due to a temperature change $\\Delta T$ is given by:\n$$\\Delta L = L_0 \\alpha \\Delta T$$\nWhere:\n*   $L_0$ is the original length.\n*   $\\alpha$ (alpha) is the coefficient of linear thermal expansion.\n*   $\\Delta T = T_f - T_0$ is the change in temperature.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the coefficient of linear thermal expansion ($\\alpha$) represent, and what are its SI units?",
+      "back": "The coefficient of linear thermal expansion ($\\alpha$) quantifies how much a material's length changes per unit length per degree Celsius or Kelvin change in temperature. It is an intrinsic material property.\nIts SI units are per degree Celsius ($^\\circ \\text{C}^{-1}$) or per Kelvin ($\\text{K}^{-1}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for area thermal expansion ($\\Delta A$) in terms of original area ($A_0$), temperature change ($\\Delta T$), and the coefficient of linear expansion ($\\alpha$).",
+      "back": "Consider a square plate with original side length $L_0$. Its original area is $A_0 = L_0^2$.\nAfter a temperature change $\\Delta T$, the new length of each side is $L = L_0(1 + \\alpha \\Delta T)$.\nThe new area is $A = L^2 = [L_0(1 + \\alpha \\Delta T)]^2 = L_0^2 (1 + \\alpha \\Delta T)^2$.\nExpanding, $A = A_0 (1 + 2\\alpha \\Delta T + (\\alpha \\Delta T)^2)$.\nSince $\\alpha \\Delta T$ is typically very small, $(\\alpha \\Delta T)^2$ is negligible.\nSo, $A \\approx A_0 (1 + 2\\alpha \\Delta T)$.\nThe change in area is $\\Delta A = A - A_0 = A_0 (1 + 2\\alpha \\Delta T) - A_0 = A_0 (2\\alpha \\Delta T)$.\nThus, $\\Delta A = A_0 \\beta \\Delta T$, where $\\beta \\approx 2\\alpha$ is the coefficient of area thermal expansion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for volumetric thermal expansion ($\\Delta V$) in terms of original volume ($V_0$), temperature change ($\\Delta T$), and the coefficient of linear expansion ($\\alpha$).",
+      "back": "Consider a cube with original side length $L_0$. Its original volume is $V_0 = L_0^3$.\nAfter a temperature change $\\Delta T$, the new length of each side is $L = L_0(1 + \\alpha \\Delta T)$.\nThe new volume is $V = L^3 = [L_0(1 + \\alpha \\Delta T)]^3 = L_0^3 (1 + \\alpha \\Delta T)^3$.\nExpanding, $V = V_0 (1 + 3\\alpha \\Delta T + 3(\\alpha \\Delta T)^2 + (\\alpha \\Delta T)^3)$.\nSince $\\alpha \\Delta T$ is very small, higher-order terms like $(\\alpha \\Delta T)^2$ and $(\\alpha \\Delta T)^3$ are negligible.\nSo, $V \\approx V_0 (1 + 3\\alpha \\Delta T)$.\nThe change in volume is $\\Delta V = V - V_0 = V_0 (1 + 3\\alpha \\Delta T) - V_0 = V_0 (3\\alpha \\Delta T)$.\nThus, $\\Delta V = V_0 \\gamma \\Delta T$, where $\\gamma \\approx 3\\alpha$ is the coefficient of volumetric thermal expansion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the approximate relationship between the coefficients of linear ($\\alpha$), area ($\\beta$), and volumetric ($\\gamma$) thermal expansion for isotropic materials?",
+      "back": "For isotropic materials (materials that expand equally in all directions), the approximate relationships are:\n*   $\\beta \\approx 2\\alpha$\n*   $\\gamma \\approx 3\\alpha$\nThis implies $\\gamma \\approx \\frac{3}{2}\\beta$.\nThese approximations hold true because the linear expansion coefficient $\\alpha$ is typically very small, making higher-order terms in the expansion negligible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a bimetallic strip works to detect temperature changes, relating it to linear thermal expansion.",
+      "back": "A bimetallic strip consists of two different metals bonded together, each with a different coefficient of linear thermal expansion (e.g., $\\alpha_1 \\ne \\alpha_2$). When the temperature changes, one metal expands or contracts more than the other. This differential expansion/contraction causes the strip to bend. For example, if metal A has a higher $\\alpha$ than metal B, heating the strip will cause metal A to expand more, forcing the strip to bend towards metal B. This bending action is used in thermostats, thermometers, and circuit breakers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the anomalous thermal expansion behavior of water between $0^\\circ \\text{C}$ and $4^\\circ \\text{C}$.",
+      "back": "Unlike most substances, water does not continuously expand as its temperature increases from $0^\\circ \\text{C}$. Instead, when heated from $0^\\circ \\text{C}$ to $4^\\circ \\text{C}$, water contracts, reaching its maximum density at approximately $4^\\circ \\text{C}$. Above $4^\\circ \\text{C}$, it exhibits normal thermal expansion, expanding as temperature increases. This anomalous behavior is crucial for aquatic life, as it causes ice to float and prevents lakes from freezing solid from the bottom up.",
+      "difficulty": "hard"
+    }
+  ]
+}

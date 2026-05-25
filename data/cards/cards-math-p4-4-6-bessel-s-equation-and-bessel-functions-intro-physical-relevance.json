@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-bessel-s-equation-and-bessel-functions-intro-physical-relevance",
+  "subtopicTitle": "Bessel's equation and Bessel functions (intro, physical relevance)",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:02.062Z",
+  "cards": [
+    {
+      "front": "State the general form of Bessel's differential equation of order $\\nu$.",
+      "back": "Bessel's equation of order $\\nu$ is given by: $$x^2 \\frac{d^2y}{dx^2} + x \\frac{dy}{dx} + (x^2 - \\nu^2) y = 0$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are Bessel functions, and what is their relationship to Bessel's equation?",
+      "back": "Bessel functions are the solutions to Bessel's differential equation. For a given order $\\nu$, there are two linearly independent solutions, typically denoted as Bessel functions of the first kind, $J_\\nu(x)$, and Bessel functions of the second kind, $Y_\\nu(x)$ (also called Neumann functions).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name three distinct physical phenomena or engineering applications where Bessel functions are essential.",
+      "back": "1. Vibrations of a circular drumhead or membrane. 2. Heat conduction in cylindrical objects. 3. Electromagnetic wave propagation in cylindrical waveguides. 4. Diffraction patterns from circular apertures (Airy disk).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the infinite series expansion for the Bessel function of the first kind, $J_\\nu(x)$, for non-negative integer $\\nu$.",
+      "back": "The Bessel function of the first kind of order $\\nu$ is given by: $$J_\\nu(x) = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{k! \\Gamma(\\nu+k+1)} \\left(\\frac{x}{2}\\right)^{2k+\\nu}$$ Here, $\\Gamma(z)$ is the Gamma function, a generalization of the factorial function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how Bessel's equation arises when solving the Helmholtz equation in cylindrical coordinates.",
+      "back": "When solving the Helmholtz equation ($\\nabla^2 \\Psi + k^2 \\Psi = 0$) in cylindrical coordinates $(r, \\phi, z)$ using separation of variables, the radial part of the solution, $R(r)$, satisfies an equation that can be transformed into Bessel's equation. The term $\\nu^2$ (or $m^2$) arises from the separation constant for the angular part (e.g., $\\Phi(\\phi) = e^{im\\phi}$), and the $x^2$ term (or $r^2$) comes from the radial derivative terms of the Laplacian operator.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the behavior of $J_\\nu(x)$ near $x=0$ for $\\nu \\ge 0$.",
+      "back": "For $\\nu > 0$, $J_\\nu(x)$ approaches zero as $x \\to 0$, specifically $J_\\nu(x) \\sim \\frac{1}{\\Gamma(\\nu+1)} \\left(\\frac{x}{2}\\right)^\\nu$. For $\\nu = 0$, $J_0(x)$ approaches $1$ as $x \\to 0$ (i.e., $J_0(0)=1$). This means $J_0(x)$ is finite at the origin, while $J_\\nu(x)$ for $\\nu > 0$ starts at zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the asymptotic behavior of $J_\\nu(x)$ for very large values of $x$?",
+      "back": "For large $x$, the Bessel function of the first kind $J_\\nu(x)$ behaves like a damped sinusoid: $$J_\\nu(x) \\approx \\sqrt{\\frac{2}{\\pi x}} \\cos\\left(x - \\frac{\\nu\\pi}{2} - \\frac{\\pi}{4}\\right)$$ This indicates that Bessel functions oscillate with decreasing amplitude as $x$ increases, similar to sine and cosine waves but with an amplitude decay of $1/\\sqrt{x}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

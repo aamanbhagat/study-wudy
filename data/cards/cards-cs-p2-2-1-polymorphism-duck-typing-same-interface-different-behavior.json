@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-polymorphism-duck-typing-same-interface-different-behavior",
+  "subtopicTitle": "Polymorphism — duck typing, same interface different behavior",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:26.546Z",
+  "cards": [
+    {
+      "front": "In Object-Oriented Programming, what does the term \"Polymorphism\" literally mean and conceptually refer to?",
+      "back": "Literally \"many forms.\" Conceptually, it's the ability of an object to take on many forms, allowing objects of different classes to be treated as objects of a common type (often through a shared interface or base class) and respond to the same method call in different ways.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core concept of polymorphism often described as \"same interface, different behavior.\"",
+      "back": "It means that different objects can share a common set of methods (the \"interface\") but implement those methods in their own unique ways (exhibiting \"different behavior\"). When a common method is called on such objects, the specific implementation for the object's actual type is executed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a `Shape` base class with an `area()` method, how would `Circle` and `Rectangle` demonstrate \"same interface, different behavior\"?",
+      "back": "Both `Circle` and `Rectangle` would inherit from `Shape` (or implement a `Shape` interface). They would both have an `area()` method (the \"same interface\"). However, `Circle.area()` would calculate $\\pi r^2$, while `Rectangle.area()` would calculate $width \\times height$ (the \"different behavior\").\n```python\nclass Shape:\n    def area(self):\n        raise NotImplementedError # Abstract method\n\nclass Circle(Shape):\n    def __init__(self, radius): self.radius = radius\n    def area(self): return 3.14 * self.radius ** 2\n\nclass Rectangle(Shape):\n    def __init__(self, w, h): self.width, self.height = w, h\n    def area(self): return self.width * self.height\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"duck typing\" in the context of polymorphism.",
+      "back": "Duck typing is a style of dynamic typing where the type or class of an object is less important than *what methods it defines*. If an object \"walks like a duck and quacks like a duck,\" then it's treated as a duck, regardless of its explicit type. It focuses on an object's capabilities (its methods) rather than its inheritance hierarchy or explicit interface implementation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a Python code snippet demonstrating duck typing with a function that accepts any object having a `make_sound()` method.",
+      "back": "```python\nclass Dog:\n    def make_sound(self): return \"Woof!\"\n\nclass Cat:\n    def make_sound(self): return \"Meow!\"\n\nclass Car: # Does not have make_sound\n    def drive(self): return \"Vroom!\"\n\ndef animal_chorus(animal):\n    # The function doesn't care about the object's type, only its methods\n    return animal.make_sound()\n\ndog = Dog()\ncat = Cat()\n\nprint(animal_chorus(dog)) # Output: Woof!\nprint(animal_chorus(cat)) # Output: Meow!\n# print(animal_chorus(Car())) # This would raise an AttributeError at runtime\n```\nThe `animal_chorus` function works with `Dog` and `Cat` because they both implement `make_sound()`, demonstrating duck typing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference between polymorphism achieved via explicit interfaces (e.g., Java's `interface`) and duck typing (e.g., Python)?",
+      "back": "The fundamental difference lies in *when* type compatibility is enforced:\n\n*   **Explicit Interface Polymorphism:** Relies on compile-time checks (or explicit runtime checks). Objects *must* explicitly declare that they implement an interface and provide all its specified methods. Compatibility is verified at compilation or class definition time.\n*   **Duck Typing:** Relies on runtime checks. There's no explicit declaration of an interface. An object is considered compatible if it *has* the required methods when they are called. If a method is missing, an error occurs only at runtime when that specific method is invoked.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a primary advantage of using duck typing in a dynamically-typed language?",
+      "back": "A primary advantage is increased flexibility and reduced coupling. Duck typing allows you to write code that operates on objects based purely on their behavior (what methods they have), rather than their explicit type or inheritance hierarchy. This makes it easier to integrate unrelated classes or third-party objects, promoting a more adaptable and less rigid design.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify a significant potential pitfall or disadvantage of duck typing, especially in large codebases.",
+      "back": "The main pitfall is the lack of early (compile-time or static analysis) type checking. Errors due to missing methods or incorrect method signatures are only discovered at runtime when the problematic code path is executed. This can lead to unexpected `AttributeError` or similar exceptions in production, making debugging harder and potentially introducing subtle bugs that are not caught until late in the development cycle or during actual user interaction. It necessitates comprehensive unit and integration testing to ensure correctness.",
+      "difficulty": "hard"
+    }
+  ]
+}

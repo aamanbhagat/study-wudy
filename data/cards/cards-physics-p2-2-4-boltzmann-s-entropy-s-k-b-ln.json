@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-4-boltzmann-s-entropy-s-k-b-ln",
+  "subtopicTitle": "Boltzmann's entropy S = k_B ln(Ω)",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:35.818Z",
+  "cards": [
+    {
+      "front": "State Boltzmann's entropy formula and identify each variable.",
+      "back": "Boltzmann's entropy formula is $S = k_B \\ln(\\Omega)$.\n$S$: Entropy of the system.\n$k_B$: Boltzmann's constant ($1.380649 \\times 10^{-23}$ J/K).\n$\\Omega$: Multiplicity, which is the number of distinct microscopic configurations (microstates) corresponding to a given macroscopic thermodynamic state (macrostate).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define $\\Omega$ (multiplicity) in the context of Boltzmann's entropy formula and explain its physical meaning.",
+      "back": "$\\Omega$ (multiplicity) represents the number of distinct microscopic arrangements or configurations (microstates) that result in the same observable macroscopic properties (macrostate) of a system. It quantifies the 'ways' a system's particles and energy can be distributed while maintaining its macroscopic appearance. A higher $\\Omega$ implies a greater number of possible internal arrangements for a given macrostate.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate $\\Omega$ for 4 distinguishable particles distributed into 2 boxes, where 3 particles are in box 1 and 1 particle is in box 2.",
+      "back": "This is a combination problem. We need to choose 3 particles out of 4 to be in box 1. The remaining 1 particle automatically goes into box 2.\n$\\Omega = \\binom{N}{n_1} = \\binom{4}{3} = \\frac{4!}{3!(4-3)!} = \\frac{4 \\times 3 \\times 2 \\times 1}{(3 \\times 2 \\times 1)(1)} = 4$.\nThere are 4 possible microstates for this macrostate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical reason for the logarithm in Boltzmann's entropy formula, $S = k_B \\ln(\\Omega)$.",
+      "back": "The logarithm ensures that entropy is an *extensive* property. If we combine two independent systems, their total multiplicity is the product of their individual multiplicities: $\\Omega_{total} = \\Omega_1 \\Omega_2$. If entropy were proportional to $\\Omega$, it would multiply, not add. By taking the logarithm, we get:\n$S_{total} = k_B \\ln(\\Omega_{total}) = k_B \\ln(\\Omega_1 \\Omega_2) = k_B (\\ln(\\Omega_1) + \\ln(\\Omega_2)) = S_1 + S_2$.\nThis additive property (extensivity) is a fundamental requirement for entropy, reflecting that the entropy of a combined system is the sum of the entropies of its parts.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Boltzmann's entropy formula, $S = k_B \\ln(\\Omega)$, provide a statistical basis for the Second Law of Thermodynamics?",
+      "back": "The Second Law states that the entropy of an isolated system tends to increase over time, moving towards equilibrium. Boltzmann's formula links entropy directly to the number of microstates ($\\Omega$). A system naturally evolves towards macrostates with higher $\\Omega$ because these states are statistically more probable—there are simply many more ways for the system to exist in such a state. This tendency towards states of higher multiplicity (and thus higher entropy) is the microscopic explanation for the macroscopic observation of the Second Law.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to Boltzmann's entropy formula, what is the entropy of a system at absolute zero ($T=0$ K), assuming a unique ground state?",
+      "back": "At absolute zero, if a system has a unique, perfectly ordered ground state (meaning only one possible microstate corresponds to its lowest energy macrostate), then its multiplicity $\\Omega = 1$. Substituting this into Boltzmann's formula:\n$S = k_B \\ln(1) = 0$.\nThis result aligns with the Third Law of Thermodynamics (Nernst's Postulate), which states that the entropy of a perfect crystal at absolute zero is zero. If there are multiple degenerate ground states (e.g., residual entropy), then $\\Omega > 1$ and $S > 0$ at $T=0$ K.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain how Boltzmann's statistical entropy ($S = k_B \\ln(\\Omega)$) relates to the classical thermodynamic definition of entropy ($\\Delta S = \\int \\frac{dQ_{rev}}{T}$).",
+      "back": "Boltzmann's formula provides a *microscopic* definition of entropy based on the number of available microstates, while the classical definition is a *macroscopic* one derived from reversible heat transfer. The two are fundamentally consistent. Statistical mechanics, using $S = k_B \\ln(\\Omega)$, can be used to derive macroscopic thermodynamic relations, including the classical definition of entropy change. An increase in $\\Omega$ (more microstates) corresponds to an increase in the system's capacity to absorb heat reversibly at a given temperature, linking the microscopic 'disorder' or 'multiplicity' to the macroscopic energy dispersal and temperature.",
+      "difficulty": "hard"
+    }
+  ]
+}

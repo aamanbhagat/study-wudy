@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-copy-on-write",
+  "subtopicTitle": "Copy-on-write",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:13.436Z",
+  "cards": [
+    {
+      "front": "Define Copy-on-Write (COW) in the context of operating systems.",
+      "back": "Copy-on-Write (COW) is a resource-management technique where resources (e.g., memory pages, file data) are initially shared between multiple entities. Actual duplication of the resource occurs only when one of the entities attempts to modify its copy. Until then, they all share a single, read-only instance, saving memory and speeding up initial operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What primary problem does the Copy-on-Write (COW) mechanism aim to solve?",
+      "back": "COW primarily solves the problem of inefficient resource duplication, especially in scenarios like process creation (e.g., `fork()`). Instead of immediately copying an entire large resource, COW delays the actual copying of data until it's absolutely necessary (i.e., when one of the copies is modified), thus reducing memory overhead and improving performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe how Copy-on-Write (COW) optimizes the `fork()` system call in Unix-like operating systems.",
+      "back": "When a parent process calls `fork()`, the child process initially shares the parent's entire address space (memory pages). These shared pages are marked as read-only in both processes' page tables, and a reference count for each page is incremented. If either the parent or child attempts to write to a shared page, a page fault occurs. The OS then traps, allocates a new physical page, copies the original content to it, updates the faulting process's page table to point to the new page, and decrements the reference count of the original page.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What specific event or condition triggers the \"copy\" action in a Copy-on-Write (COW) scenario?",
+      "back": "A COW event is triggered when a process attempts to **write** to a memory page that is currently shared with other processes and marked as read-only in its page table. This write attempt results in a page fault, which the operating system's kernel intercepts to perform the copy operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the sequence of steps the operating system kernel performs when a Copy-on-Write (COW) page fault occurs.",
+      "back": "1. **Page Fault:** A process attempts to write to a shared, read-only page.\n2. **Trap to Kernel:** The CPU generates a page fault, transferring control to the OS kernel.\n3. **Identify COW Page:** The kernel determines that the faulting page is a COW page (e.g., by checking page table flags and reference count).\n4. **Allocate New Page:** A new, free physical memory page is allocated.\n5. **Copy Content:** The content of the original shared page is copied to the newly allocated page.\n6. **Update Page Table:** The faulting process's page table entry is updated to point to the new physical page, and its permissions are changed to read-write.\n7. **Decrement Reference Count:** The reference count for the original shared page is decremented. If it drops to zero, the original page can be freed.\n8. **Retry Instruction:** The instruction that caused the page fault is restarted.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond memory savings, what is a significant performance benefit of Copy-on-Write (COW) for process creation?",
+      "back": "A significant performance benefit of COW for process creation (e.g., `fork()`) is the **reduced time taken to create a new process**. Instead of copying the entire address space immediately, which can be very large and time-consuming, COW allows the child process to start executing much faster by simply sharing pages. The actual copying is deferred and only done for pages that are modified.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a reference count mechanism is crucial for the correct and efficient operation of Copy-on-Write (COW).",
+      "back": "Reference counting is crucial for COW to manage shared resources effectively:\n1. **Resource Management:** It tracks how many processes are currently sharing a specific physical page.\n2. **Correct Copying:** When a process attempts to write to a shared page, the kernel checks the reference count. If it's greater than 1, a copy *must* be made. If it's 1, the page is no longer truly shared, so the kernel can simply change its permissions to read-write without copying.\n3. **Memory Reclamation:** When a process stops sharing a page, its reference count is decremented. If the count drops to zero, the OS can safely reclaim and free the memory, preventing leaks.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify a potential performance overhead or disadvantage associated with the Copy-on-Write (COW) mechanism.",
+      "back": "A potential performance overhead of COW is the **initial page fault and subsequent kernel intervention** for every page that is eventually written to. While it saves memory and speeds up initial process creation, if a large number of shared pages are immediately written to by multiple processes, the overhead of handling these page faults, allocating new memory, copying data, and updating page tables can collectively be higher than a simple full copy upfront.",
+      "difficulty": "medium"
+    }
+  ]
+}

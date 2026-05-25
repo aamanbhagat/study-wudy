@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-functions-def-parameters-return-docstrings",
+  "subtopicTitle": "Functions — def, parameters, return, docstrings",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:02.424Z",
+  "cards": [
+    {
+      "front": "In Python, what keyword is used to define a new function?",
+      "back": "The `def` keyword.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the basic Python syntax for defining a function named `greet` that takes no arguments and prints \"Hello!\".",
+      "back": "```python\ndef greet():\n    print(\"Hello!\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you define a function `add_numbers` that accepts two parameters, `a` and `b`, and prints their sum?",
+      "back": "```python\ndef add_numbers(a, b):\n    print(a + b)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the `return` statement in a Python function. What value does a function implicitly return if no `return` statement is present?",
+      "back": "The `return` statement is used to exit a function and send a value back to the caller. If no `return` statement is present, or if `return` is used without an argument, the function implicitly returns `None`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a docstring in Python, and how is it typically written for a function?",
+      "back": "A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. It's used to document the purpose and usage of the code. It is enclosed in triple quotes (`\"\"\"Docstring goes here.\"\"\"`).\n```python\ndef example_function():\n    \"\"\"This is a simple docstring.\n    It explains what the function does.\n    \"\"\"\n    pass\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Python, how can a function effectively \"return multiple values\"? Provide an example for a function that returns both the sum and product of two numbers.",
+      "back": "A Python function can return multiple values by packaging them into a single data structure, most commonly a tuple. When you `return val1, val2, ...`, Python automatically creates a tuple.\n```python\ndef calculate_stats(x, y):\n    \"\"\"Returns the sum and product of two numbers.\"\"\"\n    sum_val = x + y\n    product_val = x * y\n    return sum_val, product_val # Returns a tuple (sum_val, product_val)\n\n# Example usage:\n# s, p = calculate_stats(5, 3)\n# print(f\"Sum: {s}, Product: {p}\") # Output: Sum: 8, Product: 15\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After defining a function named `say_hello`, how do you execute (call) it?",
+      "back": "You execute (call) a function by writing its name followed by parentheses, e.g., `say_hello()`. If it takes arguments, you pass them inside the parentheses, e.g., `my_function(arg1, arg2)`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Are parameters defined in a function local or global in scope? Explain briefly.",
+      "back": "Parameters are **local** to the function. Their scope is limited to the function body where they are defined. This means they cannot be accessed directly from outside the function, preventing naming conflicts and promoting modularity.\n```python\ndef my_func(param):\n    print(param) # 'param' is accessible here\n\n# print(param) # This would cause a NameError as 'param' is out of scope\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

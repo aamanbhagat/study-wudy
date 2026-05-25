@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-mil-std-1553-military-avionics-bus",
+  "subtopicTitle": "MIL-STD-1553 — military avionics bus",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:09.131Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the MIL-STD-1553 standard in avionics?",
+      "back": "It defines the mechanical, electrical, and functional characteristics of a serial data bus for communication between subsystems in military aircraft and spacecraft, ensuring interoperability and reliability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name and briefly describe the three fundamental types of devices that can operate on a MIL-STD-1553 bus.",
+      "back": "1.  **Bus Controller (BC):** Initiates all communication, manages data flow.\n2.  **Remote Terminal (RT):** An interface between the 1553 bus and a subsystem (e.g., sensor, actuator). It responds to BC commands.\n3.  **Bus Monitor (BM):** Passively listens to bus traffic for recording or analysis, cannot initiate communication or respond.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What data encoding scheme is mandated by MIL-STD-1553, and what are its two key advantages for avionics?",
+      "back": "Manchester encoding. Its advantages are:\n1.  **Self-clocking:** Each bit period has a transition, allowing the receiver to recover the clock signal from the data stream itself, simplifying synchronization.\n2.  **DC-balanced:** The average DC voltage of the signal is zero, which prevents DC wander and allows for transformer coupling, providing electrical isolation and common-mode noise rejection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the physical layer characteristics of MIL-STD-1553 concerning cabling and data rate.",
+      "back": "It uses a dual-redundant, shielded, twisted-pair cable (often 78 Ohm characteristic impedance) with transformer coupling for electrical isolation. The nominal data rate is $1 \\text{ Mbps}$, transmitted as a half-duplex, command/response protocol.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the 20-bit structure of a MIL-STD-1553 word, identifying its three main components and their bit lengths.",
+      "back": "Each word consists of:\n1.  **3 Sync Bits:** Unique non-return-to-zero (NRZ) waveform that is illegal in Manchester encoding, used to identify the start and type (command, data, status) of the word.\n2.  **16 Data/Command/Status Bits:** The payload of the word, carrying instructions, data, or status information.\n3.  **1 Parity Bit:** An odd parity bit for error detection over the 16 data/command/status bits.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"RT to RT Transfer\" transaction type, detailing the role of the Bus Controller and the sequence of messages.",
+      "back": "In an RT to RT transfer, the Bus Controller (BC) orchestrates data movement directly between two Remote Terminals (RTs). The sequence is:\n1.  BC sends a \"Transmit\" command word to the source RT (RT A).\n2.  BC sends a \"Receive\" command word to the destination RT (RT B).\n3.  RT A transmits its data words onto the bus.\n4.  RT B receives the data words.\n5.  RT A sends its status word.\n6.  RT B sends its status word.\nThe BC mediates but does not directly handle the data itself.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond physical redundancy, list at least three mechanisms MIL-STD-1553 employs to ensure data integrity and error detection at the protocol level.",
+      "back": "1.  **Odd Parity Bit:** Each 16-bit data/command/status word includes an odd parity bit, allowing detection of single-bit errors.\n2.  **Message Validation:** Remote Terminals (RTs) validate incoming messages by checking sync, word count, and parity before processing or responding.\n3.  **Status Word:** RTs return a status word after each valid command, indicating their current state and any errors encountered (e.g., `Message Error`, `Busy`, `Subsystem Flag`).\n4.  **Command/Response Protocol & Timeouts:** The Bus Controller (BC) expects a specific response within a defined timeframe. Failure to receive a response or an invalid response indicates an error, prompting retries or error handling.",
+      "difficulty": "hard"
+    }
+  ]
+}

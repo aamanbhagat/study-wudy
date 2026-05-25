@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-clairaut-s-theorem-mixed-partials-are-equal-under-conditions",
+  "subtopicTitle": "Clairaut's theorem — mixed partials are equal (under conditions)",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:36.336Z",
+  "cards": [
+    {
+      "front": "State Clairaut's Theorem (also known as Schwarz's Theorem or Young's Theorem) for a function $f(x, y)$.",
+      "back": "If $f(x, y)$ is a function of two variables and the mixed second-order partial derivatives $f_{xy}$ and $f_{yx}$ are continuous on an open disk, then $f_{xy}(x, y) = f_{yx}(x, y)$ for all $(x, y)$ in that disk.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the crucial condition for Clairaut's Theorem to guarantee that $f_{xy} = f_{yx}$?",
+      "back": "The crucial condition is that the mixed partial derivatives $f_{xy}$ and $f_{yx}$ themselves must be continuous on an open disk containing the point in question. If they are not continuous, the theorem does not apply, and they might not be equal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two common notations for the mixed partial derivative where we differentiate with respect to $x$ first, then $y$.",
+      "back": "1. $f_{xy}$\n2. $\\frac{\\partial^2 f}{\\partial y \\partial x}$ (Note: In this notation, the order of differentiation is read from right to left in the denominator, meaning $x$ first, then $y$.)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For $f(x, y) = x^3 y^2 + e^{xy}$, calculate $f_{xy}$ and $f_{yx}$.",
+      "back": "First, find $f_x$ and $f_y$:\n$f_x = \\frac{\\partial}{\\partial x}(x^3 y^2 + e^{xy}) = 3x^2 y^2 + y e^{xy}$\n$f_y = \\frac{\\partial}{\\partial y}(x^3 y^2 + e^{xy}) = 2x^3 y + x e^{xy}$\n\nNow, find $f_{xy}$ and $f_{yx}$:\n$f_{xy} = \\frac{\\partial}{\\partial y}(f_x) = \\frac{\\partial}{\\partial y}(3x^2 y^2 + y e^{xy}) = 6x^2 y + (1 \\cdot e^{xy} + y \\cdot x e^{xy}) = 6x^2 y + e^{xy} + xy e^{xy}$\n$f_{yx} = \\frac{\\partial}{\\partial x}(f_y) = \\frac{\\partial}{\\partial x}(2x^3 y + x e^{xy}) = 6x^2 y + (1 \\cdot e^{xy} + x \\cdot y e^{xy}) = 6x^2 y + e^{xy} + xy e^{xy}$\n\nSince $f_{xy}$ and $f_{yx}$ are continuous (as sums and products of continuous functions), Clairaut's Theorem applies, and indeed $f_{xy} = f_{yx}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why does the order of differentiation often not matter for mixed partials?",
+      "back": "Differentiation measures the rate of change. When we differentiate with respect to one variable, say $x$, we treat other variables as constants. When we then differentiate with respect to another variable, say $y$, we are essentially looking at how the rate of change with respect to $x$ *changes* as $y$ changes. If the function is \"smooth enough\" (i.e., its mixed partials are continuous), the infinitesimal changes due to $x$ and $y$ can be thought of as commuting. The operations of taking partial derivatives with respect to different independent variables are largely independent of each other, and their order of application typically doesn't affect the final outcome when the function behaves nicely.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an example of a function $f(x,y)$ where $f_{xy}(0,0) \\neq f_{yx}(0,0)$.",
+      "back": "Consider the function:\n$$ f(x,y) = \\begin{cases} \\frac{xy(x^2-y^2)}{x^2+y^2} & (x,y) \\neq (0,0) \\\\ 0 & (x,y) = (0,0) \\end{cases} $$\n\nCalculating the partial derivatives at $(0,0)$ using the limit definition:\n$f_x(0,0) = 0$ and $f_y(0,0) = 0$.\n\nFor $(x,y) \\neq (0,0)$, we can find $f_x(x,y)$ and $f_y(x,y)$:\n$f_x(x,y) = \\frac{y(x^4+4x^2y^2-y^4)}{(x^2+y^2)^2}$\n$f_y(x,y) = \\frac{x(x^4-4x^2y^2-y^4)}{(x^2+y^2)^2}$\n\nNow, calculate the mixed partials at $(0,0)$:\n$f_{xy}(0,0) = \\lim_{k \\to 0} \\frac{f_x(0,k)-f_x(0,0)}{k} = \\lim_{k \\to 0} \\frac{\\frac{k(0+0-k^4)}{(0+k^2)^2} - 0}{k} = \\lim_{k \\to 0} \\frac{-k^5/k^4}{k} = \\lim_{k \\to 0} \\frac{-k}{k} = -1$\n\n$f_{yx}(0,0) = \\lim_{h \\to 0} \\frac{f_y(h,0)-f_y(0,0)}{h} = \\lim_{h \\to 0} \\frac{\\frac{h(h^4-0-0)}{(h^2+0)^2} - 0}{h} = \\lim_{h \\to 0} \\frac{h^5/h^4}{h} = \\lim_{h \\to 0} \\frac{h}{h} = 1$\n\nHere, $f_{xy}(0,0) = -1 \\neq 1 = f_{yx}(0,0)$. This occurs because the mixed partial derivatives $f_{xy}$ and $f_{yx}$ are not continuous at $(0,0)$, violating the condition of Clairaut's Theorem.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Does Clairaut's Theorem generalize to functions of more than two variables, e.g., $f(x,y,z)$?",
+      "back": "Yes, Clairaut's Theorem generalizes. For a function $f(x_1, x_2, \\ldots, x_n)$, if all second-order partial derivatives are continuous in an open region, then the order of differentiation does not matter for any pair of variables. For example, for $f(x,y,z)$, if $f_{xy}$, $f_{yx}$, $f_{xz}$, $f_{zx}$, $f_{yz}$, $f_{zy}$ are all continuous, then $f_{xy} = f_{yx}$, $f_{xz} = f_{zx}$, and $f_{yz} = f_{zy}$. More generally, if all partial derivatives up to order $k$ are continuous, then any mixed partial derivative of order $k$ is independent of the order of differentiation.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-3-exception-handling-try-except-specific-else-finally",
+  "subtopicTitle": "Exception handling — try, except (specific), else, finally",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:15.822Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `try` block in Python's exception handling?",
+      "back": "The `try` block encloses the code segment that is *expected* to potentially raise an exception. If an exception occurs within this block, Python will attempt to find a matching `except` block to handle it.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what condition does the code inside an `except` block execute?",
+      "back": "An `except` block executes only if an exception is raised within its corresponding `try` block and the type of the raised exception matches the exception type specified (or implied) by the `except` clause.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a Python snippet to catch *only* `ValueError` and `TypeError` exceptions, printing \"Invalid value\" for the first and \"Invalid type\" for the second.",
+      "back": "```python\ntry:\n    # Code that might raise ValueError or TypeError\n    value = int(\"abc\") # Example for ValueError\n    # value = 1 + \"2\" # Example for TypeError\nexcept ValueError:\n    print(\"Invalid value\")\nexcept TypeError:\n    print(\"Invalid type\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the execution flow of the `else` block in a `try...except...else` statement.",
+      "back": "The `else` block executes *only if no exception was raised* within the `try` block. It runs after the `try` block has completed successfully and before any `finally` block (if present). It's useful for code that should run only when the `try` block succeeds.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary guarantee of the `finally` block, and what is its most common use case?",
+      "back": "The `finally` block is *guaranteed to execute* regardless of whether an exception occurred in the `try` block, was handled by an `except` block, or if control flow statements like `return`, `break`, or `continue` were used. Its most common use case is for cleanup operations, such as closing files, releasing locks, or ensuring resources are properly deallocated.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If you have `except ValueError:` followed by `except Exception:`, and a `ValueError` occurs, which `except` block will execute? Explain why.",
+      "back": "Only the `except ValueError:` block will execute. Python evaluates `except` blocks sequentially. Once an exception matches an `except` clause, that block is executed, and subsequent `except` blocks for the same `try` statement are skipped, even if they would also match (e.g., `ValueError` is a subclass of `Exception`).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you access the specific exception object that was caught, and what type of information can it provide?",
+      "back": "You can access the exception object using `except SomeError as e:`. The variable `e` will hold the exception instance. This object can provide details such as the error message (`str(e)`), arguments passed to the exception, and sometimes specific attributes depending on the exception type. It's crucial for logging or providing more informative error messages.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a `try...except...else...finally` structure, if an exception is raised within the `else` block, will the `finally` block execute? Will the `except` block execute?",
+      "back": "Yes, the `finally` block will still execute, as it's guaranteed to run regardless of exceptions. However, the `except` block will *not* execute because it only catches exceptions raised within the `try` block, not those raised in the `else` block. An exception raised in the `else` block would propagate normally (or be caught by an outer `try...except` if one exists).",
+      "difficulty": "hard"
+    }
+  ]
+}

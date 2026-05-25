@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-lift-kutta-joukowski-theorem-l-v",
+  "subtopicTitle": "Lift — Kutta-Joukowski theorem L = ρV∞Γ",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:54.206Z",
+  "cards": [
+    {
+      "front": "What does the Kutta-Joukowski theorem primarily calculate in fluid mechanics?",
+      "back": "The Kutta-Joukowski theorem calculates the lift per unit span ($L'$) acting on a two-dimensional body (like an airfoil) immersed in a steady, incompressible, inviscid flow.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Kutta-Joukowski theorem formula and define each variable.",
+      "back": "The formula is $L' = \\rho V_\\infty \\Gamma$.\n- $L'$: Lift per unit span (force per unit length, e.g., N/m).\n- $\\rho$: Fluid density (e.g., kg/m$^3$).\n- $V_\\infty$: Freestream velocity (velocity of the fluid far from the body, e.g., m/s).\n- $\\Gamma$: Circulation around the body (e.g., m$^2$/s).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define 'circulation' ($\\Gamma$) in the context of fluid mechanics and its significance for lift.",
+      "back": "Circulation ($\\Gamma$) is the line integral of the velocity vector around a closed contour in the fluid: $\\Gamma = \\oint_C \\vec{v} \\cdot d\\vec{l}$. For lift, it quantifies the net rotation or swirling motion of the fluid around an airfoil. A non-zero circulation is essential for generating lift, as it creates a velocity difference (and thus a pressure difference via Bernoulli's principle) above and below the airfoil.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how an airfoil generates the necessary circulation for lift, referencing the Kutta condition.",
+      "back": "An airfoil generates circulation by deflecting fluid downwards. As flow starts, a starting vortex is shed at the trailing edge due to viscosity. To satisfy the Kutta condition (which states that flow must leave the trailing edge smoothly, without infinite velocity or separation), an equal and opposite circulation is simultaneously induced around the airfoil itself. This bound circulation is what creates lift.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the physical intuition linking circulation to lift, using Bernoulli's principle.",
+      "back": "Circulation around an airfoil superimposes a rotational flow onto the freestream. This results in higher fluid velocity over the top surface of the airfoil (freestream + circulation component) and lower velocity under the bottom surface (freestream - circulation component). According to Bernoulli's principle ($P + \\frac{1}{2}\\rho V^2 = \\text{constant}$), higher velocity corresponds to lower pressure, and lower velocity to higher pressure. This pressure differential (lower pressure above, higher pressure below) integrates to produce an upward lift force.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the SI units for circulation ($\\Gamma$) and lift per unit span ($L'$)?",
+      "back": "The SI unit for circulation ($\\Gamma$) is square meters per second (m$^2$/s).\nThe SI unit for lift per unit span ($L'$) is Newtons per meter (N/m).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the primary assumptions under which the Kutta-Joukowski theorem is strictly valid, and why these are important.",
+      "back": "The Kutta-Joukowski theorem is strictly valid under the assumptions of:\n1.  **Two-dimensional flow:** Assumes infinite span, neglecting wingtip effects.\n2.  **Incompressible flow:** Fluid density is constant.\n3.  **Inviscid flow:** Neglects fluid viscosity, simplifying the equations.\n4.  **Steady flow:** Flow properties at any point do not change with time.\nThese assumptions simplify the fluid dynamics equations, allowing for a direct, elegant relationship between circulation and lift. In reality, viscous effects, compressibility, and 3D flow necessitate corrections or more complex models.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does increasing the angle of attack of an airfoil generally affect the circulation ($\\Gamma$) and the resulting lift, according to the Kutta-Joukowski theorem?",
+      "back": "Increasing the angle of attack of an airfoil generally increases the effective camber and the amount of fluid deflected downwards. This causes a stronger starting vortex to be shed, which in turn induces a greater magnitude of circulation ($\\Gamma$) around the airfoil. According to the Kutta-Joukowski theorem ($L' = \\rho V_\\infty \\Gamma$), a larger circulation directly results in an increase in lift per unit span, assuming constant fluid density and freestream velocity.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-ode-solvers-euler-s-method-derivation-global-error",
+  "subtopicTitle": "ODE solvers — Euler's method (derivation, global error)",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:19.494Z",
+  "cards": [
+    {
+      "front": "What type of differential equation does Euler's method approximate solutions for, and what is its core geometric idea?",
+      "back": "Euler's method approximates solutions for first-order ordinary differential equations (ODEs) of the form $y'(t) = f(t, y(t))$ with an initial condition $y(t_0) = y_0$. Its core geometric idea is to approximate the solution curve by a sequence of line segments, using the tangent at the current point to predict the next point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the Euler's method formula using a first-order Taylor series expansion of $y(t_{i+1})$ around $t_i$.",
+      "back": "The Taylor series expansion of $y(t_{i+1})$ around $t_i$ is:\n$$y(t_{i+1}) = y(t_i + h) = y(t_i) + h y'(t_i) + \\frac{h^2}{2!} y''(\\xi)$$\nfor some $\\xi \\in (t_i, t_{i+1})$.\nSubstituting $y'(t_i) = f(t_i, y(t_i))$ from the ODE and truncating the series after the first derivative term (ignoring terms $O(h^2)$ and higher) gives the approximation:\n$$y_{i+1} \\approx y_i + h f(t_i, y_i)$$\nwhere $y_i$ is the numerical approximation of $y(t_i)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the explicit iterative formula for Euler's method to approximate $y(t_{i+1})$ given $y_i$ and step size $h$.",
+      "back": "The explicit iterative formula for Euler's method is:\n$$y_{i+1} = y_i + h f(t_i, y_i)$$\nwhere $y_i$ is the numerical approximation of $y(t_i)$, $h$ is the step size, and $f(t,y)$ is the right-hand side of the ODE $y' = f(t,y)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define and state the order of the local truncation error (LTE) for a single step of Euler's method.",
+      "back": "The **local truncation error (LTE)** for a single step of Euler's method is the error incurred in that step, assuming the starting point $y(t_i)$ was exact. It is the difference between the true solution at $t_{i+1}$ and the value predicted by the method from the true solution at $t_i$:\n$$T_{i+1} = y(t_{i+1}) - (y(t_i) + h f(t_i, y(t_i)))$$\nFrom the Taylor expansion, this error is $T_{i+1} = \\frac{h^2}{2!} y''(\\xi)$, so the local truncation error is of order $O(h^2)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between local truncation error and global error in the context of ODE solvers.",
+      "back": "<ul>\n<li><b>Local Truncation Error (LTE):</b> The error introduced in a single step, assuming the starting point for that step was exact. It measures how well the method approximates the exact solution over one step. It does not account for errors propagated from previous steps.</li>\n<li><b>Global Error (GE):</b> The accumulated error from the initial point $t_0$ up to a specific time $t_N$. It is the difference between the true solution $y(t_N)$ and the numerical approximation $y_N$ obtained after $N$ steps. It represents the total error, including both the local errors and their propagation/amplification over many steps.</li>\n</ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the order of the global error for Euler's method, and briefly explain why it's different from the local truncation error's order.",
+      "back": "The global error for Euler's method is $O(h)$.\n\nWhile the local truncation error (LTE) for a single step is $O(h^2)$, the global error accumulates over many steps. If we integrate from $t_0$ to $t_N$ with a step size $h$, the number of steps is $N = (t_N - t_0)/h$. Each of these $N$ steps contributes an LTE of $O(h^2)$. Summing these contributions (and considering error propagation), the total global error is approximately $N \\cdot O(h^2) = \\frac{t_N - t_0}{h} \\cdot O(h^2) = (t_N - t_0) \\cdot O(h) = O(h)$. Thus, the global error is one order lower than the local truncation error.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does reducing the step size $h$ affect both the accuracy and computational cost of Euler's method?",
+      "back": "<ul>\n<li><b>Accuracy:</b> Reducing $h$ generally increases the accuracy of Euler's method. Since the global error is $O(h)$, halving the step size $h$ approximately halves the global error.</li>\n<li><b>Computational Cost:</b> Reducing $h$ increases the computational cost. If $h$ is halved, the number of steps $N = (t_N - t_0)/h$ required to reach the same final time $t_N$ doubles. This means twice as many function evaluations of $f(t,y)$ and twice as many arithmetic operations are needed, significantly increasing computation time.</li>\n</ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

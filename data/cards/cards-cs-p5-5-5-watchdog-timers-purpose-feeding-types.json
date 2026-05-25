@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-watchdog-timers-purpose-feeding-types",
+  "subtopicTitle": "Watchdog timers — purpose, feeding, types",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:57.446Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a watchdog timer (WDT) in an embedded system?",
+      "back": "The primary purpose of a WDT is to detect and recover from system malfunctions (e.g., infinite loops, deadlocks, software crashes) by initiating a system reset if the main program stops executing correctly or within an expected timeframe.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the 'feeding' or 'petting' mechanism of a watchdog timer.",
+      "back": "The 'feeding' or 'petting' mechanism involves the main program periodically writing a specific value or sequence (or toggling a bit) to a WDT control register before the timer's internal counter reaches zero. This action resets the WDT's counter, preventing a timeout and signaling that the system is still operational.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the typical action taken by a hardware watchdog timer when its counter reaches zero because the main program failed to 'feed' it?",
+      "back": "When a hardware watchdog timer's counter reaches zero due to a lack of feeding, it typically triggers a system reset. This action forces the embedded system to restart, bringing it back to a known, hopefully functional, state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the key advantage of a 'windowed watchdog timer' over a simple watchdog timer, and what specific failure mode it addresses.",
+      "back": "A windowed watchdog timer requires feeding within a specific time window – not too early and not too late. Its key advantage is detecting not only when the program hangs (too late feeding) but also when it's executing too fast (too early feeding), which can indicate a software bug like an infinite tight loop or a missed critical task. A simple WDT only detects too-late feeding.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Differentiate between a hardware watchdog timer and a software watchdog timer. Which is generally more robust?",
+      "back": "A **hardware WDT** is a dedicated peripheral, independent of the CPU, making it robust against CPU crashes or software failures. A **software WDT** is implemented purely in code, relying on the CPU's correct execution. Hardware WDTs are generally more robust because they can reset the system even if the CPU itself is completely unresponsive.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When configuring a watchdog timer, what critical factor determines the appropriate timeout period?",
+      "back": "The critical factor is the longest expected execution path or cycle time of the main program's critical tasks between successive WDT feeds. The timeout period must be longer than this maximum expected duration to avoid spurious resets, but short enough to detect actual failures promptly and initiate recovery.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a minimal C code snippet demonstrating how to feed a hypothetical hardware watchdog timer and explain one common pitfall it avoids.",
+      "back": "```c\n// Assuming WDT_REG_KEY and WDT_FEED_VALUE are defined\nvoid feed_watchdog_timer() {\n    // This function should be called periodically from the main application loop\n    // or a high-level task that reflects overall system health.\n    WDT_REG_KEY = WDT_FEED_VALUE; \n}\n```\n**Common Pitfall Avoided:** Feeding the WDT from an Interrupt Service Routine (ISR) or a low-priority task. This snippet implies feeding from the main application logic, which is crucial because an ISR might still execute even if the main application loop is stuck, giving a false sense of system health.",
+      "difficulty": "hard"
+    }
+  ]
+}

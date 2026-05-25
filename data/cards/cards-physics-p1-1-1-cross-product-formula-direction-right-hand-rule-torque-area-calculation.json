@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-1-cross-product-formula-direction-right-hand-rule-torque-area-calculation",
+  "subtopicTitle": "Cross product — formula, direction (right-hand rule), torque/area calculation",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:24.750Z",
+  "cards": [
+    {
+      "front": "What is the scalar magnitude formula for the cross product of two vectors, $\\vec{A}$ and $\\vec{B}$?",
+      "back": "The magnitude of the cross product is given by: $$||\\vec{A} \\times \\vec{B}|| = ||\\vec{A}|| \\cdot ||\\vec{B}|| \\cdot \\sin(\\theta)$$ where $\\theta$ is the angle between vectors $\\vec{A}$ and $\\vec{B}$ ($0 \\le \\theta \\le \\pi$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you determine the direction of the cross product vector $\\vec{C} = \\vec{A} \\times \\vec{B}$?",
+      "back": "The direction is determined by the **Right-Hand Rule**: Point the fingers of your right hand in the direction of the first vector ($\\vec{A}$), then curl them towards the second vector ($\\vec{B}$) through the smaller angle. Your thumb will point in the direction of the resulting cross product vector ($\\vec{C}$). This direction is perpendicular to the plane containing both $\\vec{A}$ and $\\vec{B}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the geometric interpretation of the magnitude of the cross product, $||\\vec{A} \\times \\vec{B}||$?",
+      "back": "The magnitude $||\\vec{A} \\times \\vec{B}||$ represents the area of the parallelogram formed by placing vectors $\\vec{A}$ and $\\vec{B}$ tail-to-tail.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is torque ($\\vec{\\tau}$) defined using the cross product of the position vector ($\\vec{r}$) and force vector ($\\vec{F}$)?",
+      "back": "Torque is defined as: $$\\vec{\\tau} = \\vec{r} \\times \\vec{F}$$ The magnitude is $||\\vec{\\tau}|| = ||\\vec{r}|| \\cdot ||\\vec{F}|| \\cdot \\sin(\\theta)$, where $\\theta$ is the angle between $\\vec{r}$ and $\\vec{F}$. The direction of the torque vector is perpendicular to the plane containing $\\vec{r}$ and $\\vec{F}$, determined by the right-hand rule.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $\\vec{A} = A_x\\hat{i} + A_y\\hat{j} + A_z\\hat{k}$ and $\\vec{B} = B_x\\hat{i} + B_y\\hat{j} + B_z\\hat{k}$, write $\\vec{A} \\times \\vec{B}$ in determinant form and expand it.",
+      "back": "Determinant form: $$\\vec{A} \\times \\vec{B} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ A_x & A_y & A_z \\\\ B_x & B_y & B_z \\end{vmatrix}$$ Expanded form: $$\\vec{A} \\times \\vec{B} = (A_yB_z - A_zB_y)\\hat{i} - (A_xB_z - A_zB_x)\\hat{j} + (A_xB_y - A_yB_x)\\hat{k}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the cross product of two parallel vectors, $\\vec{A} \\times \\vec{B}$, and why?",
+      "back": "The cross product of two parallel vectors is the zero vector: $\\vec{A} \\times \\vec{B} = \\vec{0}$. This is because the angle $\\theta$ between parallel vectors is either $0^\\circ$ or $180^\\circ$. Since $\\sin(0^\\circ) = 0$ and $\\sin(180^\\circ) = 0$, the magnitude $||\\vec{A} \\times \\vec{B}|| = ||\\vec{A}|| \\cdot ||\\vec{B}|| \\cdot \\sin(\\theta)$ becomes zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is the cross product commutative? If not, how does $\\vec{B} \\times \\vec{A}$ relate to $\\vec{A} \\times \\vec{B}$?",
+      "back": "No, the cross product is not commutative. It is **anti-commutative**. This means that reversing the order of the vectors reverses the direction of the resulting vector: $$\\vec{B} \\times \\vec{A} = -(\\vec{A} \\times \\vec{B})$$ The magnitude remains the same, but the direction is opposite, as dictated by the right-hand rule.",
+      "difficulty": "medium"
+    }
+  ]
+}

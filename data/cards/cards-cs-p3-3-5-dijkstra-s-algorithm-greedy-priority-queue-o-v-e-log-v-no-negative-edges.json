@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-dijkstra-s-algorithm-greedy-priority-queue-o-v-e-log-v-no-negative-edges",
+  "subtopicTitle": "Dijkstra's algorithm — greedy, priority queue, O((V+E) log V) — no negative edges",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:36.051Z",
+  "cards": [
+    {
+      "front": "Dijkstra's algorithm is designed to solve which specific graph problem?",
+      "back": "The Single-Source Shortest Path (SSSP) problem for graphs where all edge weights are non-negative.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What type of algorithmic paradigm does Dijkstra's algorithm primarily follow?",
+      "back": "Dijkstra's algorithm is a greedy algorithm. At each step, it selects the unvisited vertex with the smallest known distance from the source and adds it to the set of visited vertices.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What data structure is crucial for efficiently selecting the next vertex to process in Dijkstra's algorithm, and why?",
+      "back": "A Priority Queue. It efficiently stores vertices based on their current shortest distance estimates from the source, allowing the algorithm to quickly extract the vertex with the minimum distance (an $O(\\log V)$ operation) at each step.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the critical constraint on edge weights for Dijkstra's algorithm to guarantee correctness?",
+      "back": "All edge weights must be non-negative ($w(u,v) \\ge 0$). If negative edge weights are present, Dijkstra's may incorrectly determine shortest paths because it assumes that once a vertex's distance is finalized, it cannot be improved further.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the time complexity of Dijkstra's algorithm using a binary heap-based priority queue.",
+      "back": "Let $V$ be the number of vertices and $E$ be the number of edges.\n1. Each vertex is extracted from the priority queue once: $V$ extract-min operations, each $O(\\log V)$. Total: $O(V \\log V)$.\n2. Each edge is processed (relaxed) once: $E$ potential decrease-key operations. In a binary heap, decrease-key is $O(\\log V)$. Total: $O(E \\log V)$.\nTherefore, the total time complexity is $O(V \\log V + E \\log V) = O((V+E) \\log V)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the 'relaxation' step for an edge $(u,v)$ with weight $w$ in Dijkstra's algorithm.",
+      "back": "Relaxation is the process of updating the shortest path estimate to a vertex $v$ if a shorter path is found through an adjacent vertex $u$. If $dist[u] + w < dist[v]$, then $dist[v]$ is updated to $dist[u] + w$, and $v$'s priority in the priority queue is updated accordingly (a 'decrease-key' operation).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does Dijkstra's algorithm fail with negative edge weights, even without negative cycles?",
+      "back": "Dijkstra's makes a greedy choice, finalizing a vertex's distance once it's extracted from the priority queue. It assumes this distance is final because all other paths to it would involve edges with non-negative weights, making them longer. A negative edge can invalidate this assumption, allowing a path through a 'later' processed vertex to yield a shorter path to an 'already finalized' vertex, which Dijkstra's won't re-evaluate.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are initial distances and the source vertex set up before Dijkstra's algorithm begins?",
+      "back": "The distance to the source vertex $S$ is initialized to $0$ ($dist[S] = 0$). All other vertices $v \\ne S$ are initialized with an 'infinite' distance ($dist[v] = \\infty$) to indicate they are currently unreachable.",
+      "difficulty": "medium"
+    }
+  ]
+}

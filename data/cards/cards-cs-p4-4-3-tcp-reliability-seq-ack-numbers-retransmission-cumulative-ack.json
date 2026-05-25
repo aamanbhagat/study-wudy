@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-tcp-reliability-seq-ack-numbers-retransmission-cumulative-ack",
+  "subtopicTitle": "TCP reliability — seq/ack numbers, retransmission, cumulative ACK",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:33.075Z",
+  "cards": [
+    {
+      "front": "In TCP, what does the sequence number of a segment represent?",
+      "back": "The sequence number of a TCP segment indicates the byte number of the first byte of data in that segment. For example, if a segment carries bytes 1001-2000, its sequence number would be $1001$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the acknowledgment (ACK) number in a TCP segment signify, and what is \"cumulative ACK\"?",
+      "back": "The ACK number indicates the sequence number of the *next expected byte* from the sender. \"Cumulative ACK\" means that an ACK for sequence number $N$ implicitly acknowledges all bytes up to $N-1$ have been successfully received, even if earlier ACKs for previous bytes were lost.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Host A sends a segment with 1000 bytes of data, starting with sequence number $5000$. What is the sequence number of this segment, and what ACK number would Host B send if it received it correctly?",
+      "back": "The sequence number of the segment is $5000$. If Host B receives it correctly, it would send an ACK with ACK number $5000 + 1000 = 6000$, indicating it expects byte $6000$ next.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary mechanism TCP uses to detect and recover from lost segments.",
+      "back": "TCP uses a Retransmission Timeout (RTO). When a segment is sent, a timer starts. If an ACK for that segment isn't received before the timer expires, the segment is assumed lost and is retransmitted. The RTO value is dynamically adjusted based on network conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Host A sends segment S1 (seq #100). It's lost. Host A then sends segment S2 (seq #1100). How does Host A eventually recover from the loss of S1?",
+      "back": "Host A will start a retransmission timer for S1. If an ACK for S1 (or a higher ACK number that implicitly acknowledges S1) is not received before the timer expires, Host A will retransmit S1. The later transmission of S2 does not prevent the timer for S1 from expiring.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Host A sends segments S1 (seq #100, 1000 bytes) and then S2 (seq #1100, 1000 bytes). S1 is lost, but S2 arrives at Host B. What ACK number does Host B send back to Host A, and why?",
+      "back": "Host B will send an ACK with ACK number $100$. This is because TCP uses cumulative ACKs. Host B is still waiting for byte $100$ (the first byte of S1). It will buffer S2 but cannot acknowledge it yet because S1 has not been received in order.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what specific condition does TCP's \"Fast Retransmission\" mechanism trigger, and why is it faster than RTO?",
+      "back": "Fast Retransmission triggers when the sender receives three duplicate ACKs for the same segment. This indicates that a segment was likely lost, but subsequent segments arrived, causing the receiver to repeatedly send ACKs for the *missing* segment. It's faster because it doesn't wait for the potentially long RTO to expire before retransmitting.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Host A sends segment S1. Host B receives S1 and sends ACK1. ACK1 is lost. What happens next from Host A's perspective, and how does TCP handle duplicates?",
+      "back": "Host A's retransmission timer for S1 will eventually expire. Host A will then retransmit S1. Host B, having already received S1, will discard the duplicate S1 (using the sequence number to identify it as a duplicate) and re-send ACK1. This retransmission of S1 is harmless due to TCP's idempotent nature (duplicates are handled gracefully).",
+      "difficulty": "medium"
+    }
+  ]
+}

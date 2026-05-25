@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-integrating-factors-for-non-exact-equations",
+  "subtopicTitle": "Integrating factors for non-exact equations",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:53.852Z",
+  "cards": [
+    {
+      "front": "How do you determine if a first-order ODE of the form $M(x,y)dx + N(x,y)dy = 0$ is exact?",
+      "back": "An ODE of the form $M(x,y)dx + N(x,y)dy = 0$ is exact if and only if the partial derivative condition $\\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x}$ holds true throughout a simply connected region. If this condition is not met, the equation is non-exact.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is an integrating factor $\\mu(x,y)$ for a non-exact ODE, and what is its primary purpose?",
+      "back": "An integrating factor $\\mu(x,y)$ is a non-zero function that, when multiplied throughout a non-exact ODE $M(x,y)dx + N(x,y)dy = 0$, transforms it into an exact ODE: $\\mu(x,y)M(x,y)dx + \\mu(x,y)N(x,y)dy = 0$. Its primary purpose is to make the non-exact equation solvable by the methods for exact equations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for an integrating factor $\\mu(x)$ that depends only on $x$ for a non-exact ODE $M(x,y)dx + N(x,y)dy = 0$.",
+      "back": "If $\\mu(x)$ is an integrating factor, then the transformed equation $(\\mu M)dx + (\\mu N)dy = 0$ must be exact. Thus, it must satisfy $\\frac{\\partial}{\\partial y}(\\mu M) = \\frac{\\partial}{\\partial x}(\\mu N)$.\nSince $\\mu$ depends only on $x$, $\\frac{\\partial \\mu}{\\partial y} = 0$.\nExpanding the exactness condition:\n$\\mu \\frac{\\partial M}{\\partial y} = N \\frac{d\\mu}{dx} + \\mu \\frac{\\partial N}{\\partial x}$\nRearranging to solve for $\\frac{d\\mu}{dx}$:\n$N \\frac{d\\mu}{dx} = \\mu \\left( \\frac{\\partial M}{\\partial y} - \\frac{\\partial N}{\\partial x} \\right)$\n$\\frac{1}{\\mu} \\frac{d\\mu}{dx} = \\frac{\\frac{\\partial M}{\\partial y} - \\frac{\\partial N}{\\partial x}}{N}$\nIf the right-hand side is a function of $x$ only (let's call it $f(x)$), then we can integrate:\n$\\int \\frac{d\\mu}{\\mu} = \\int f(x)dx \\implies \\ln|\\mu| = \\int f(x)dx \\implies \\mu(x) = e^{\\int f(x)dx}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for an integrating factor $\\mu(x)$ and the condition under which it applies.",
+      "back": "An integrating factor $\\mu(x)$ depending only on $x$ exists if the expression $\\frac{1}{N} \\left( \\frac{\\partial M}{\\partial y} - \\frac{\\partial N}{\\partial x} \\right)$ is a function of $x$ only (let's call it $f(x)$). In this case, the integrating factor is given by the formula:\n$$\\mu(x) = e^{\\int f(x)dx} = e^{\\int \\frac{1}{N} \\left( \\frac{\\partial M}{\\partial y} - \\frac{\\partial N}{\\partial x} \\right) dx}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for an integrating factor $\\mu(y)$ and the condition under which it applies.",
+      "back": "An integrating factor $\\mu(y)$ depending only on $y$ exists if the expression $\\frac{1}{M} \\left( \\frac{\\partial N}{\\partial x} - \\frac{\\partial M}{\\partial y} \\right)$ is a function of $y$ only (let's call it $g(y)$). In this case, the integrating factor is given by the formula:\n$$\\mu(y) = e^{\\int g(y)dy} = e^{\\int \\frac{1}{M} \\left( \\frac{\\partial N}{\\partial x} - \\frac{\\partial M}{\\partial y} \\right) dy}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find an integrating factor for the ODE $(3xy + y^2)dx + (x^2 + xy)dy = 0$.",
+      "back": "Given $M = 3xy + y^2$ and $N = x^2 + xy$.\n1.  Check for exactness:\n    $\\frac{\\partial M}{\\partial y} = 3x + 2y$\n    $\\frac{\\partial N}{\\partial x} = 2x + y$\n    Since $\\frac{\\partial M}{\\partial y} \\neq \\frac{\\partial N}{\\partial x}$, the equation is non-exact.\n2.  Check for an integrating factor depending on $x$ only:\n    $\\frac{1}{N} \\left( \\frac{\\partial M}{\\partial y} - \\frac{\\partial N}{\\partial x} \\right) = \\frac{(3x+2y) - (2x+y)}{x^2+xy} = \\frac{x+y}{x(x+y)} = \\frac{1}{x}$.\n    Since this is a function of $x$ only, an integrating factor $\\mu(x)$ exists.\n3.  Calculate $\\mu(x)$:\n    $\\mu(x) = e^{\\int \\frac{1}{x}dx} = e^{\\ln|x|} = |x|$. We can choose $\\mu(x) = x$ (assuming $x>0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond $\\mu(x)$ and $\\mu(y)$, what are some other common strategies or forms for finding integrating factors for non-exact ODEs?",
+      "back": "Other strategies for finding integrating factors include:\n1.  **Homogeneous Equations:** If $Mdx + Ndy = 0$ is homogeneous and $Mx+Ny \\neq 0$, then $\\mu(x,y) = \\frac{1}{Mx+Ny}$ is an integrating factor.\n2.  **Specific Grouping / Inspection:** Recognizing specific differential forms, e.g., $y dx - x dy$. Common integrating factors for this term include $\\frac{1}{y^2}$ (giving $d(-\\frac{x}{y})$), $\\frac{1}{x^2}$ (giving $d(\\frac{y}{x})$), $\\frac{1}{xy}$ (giving $d(\\ln|\\frac{y}{x}|)$), or $\\frac{1}{x^2+y^2}$ (giving $d(\\arctan(\\frac{y}{x}))$).\n3.  **Equations of the form $y f(xy) dx + x g(xy) dy = 0$:** If $Mx-Ny \\neq 0$, then $\\mu(x,y) = \\frac{1}{Mx-Ny}$ can be an integrating factor.\n4.  **Trial and Error with $x^a y^b$:** Sometimes, an integrating factor of the form $x^a y^b$ can be found by multiplying the ODE by it and then determining $a$ and $b$ to satisfy the exactness condition.",
+      "difficulty": "hard"
+    }
+  ]
+}

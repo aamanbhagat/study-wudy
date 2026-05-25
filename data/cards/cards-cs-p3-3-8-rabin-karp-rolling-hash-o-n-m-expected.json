@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-8-rabin-karp-rolling-hash-o-n-m-expected",
+  "subtopicTitle": "Rabin-Karp — rolling hash, O(n+m) expected",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:50.871Z",
+  "cards": [
+    {
+      "front": "What fundamental problem does the Rabin-Karp algorithm address, and what is its primary technique?",
+      "back": "Rabin-Karp addresses the **string matching problem** (finding all occurrences of a pattern string $P$ in a text string $T$). Its primary technique is using a **rolling hash function** to efficiently compare substrings.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the concept of a \"rolling hash\" in Rabin-Karp and why it's essential for efficiency.",
+      "back": "A rolling hash allows computing the hash of a new window (substring) in constant time $O(1)$ by updating the hash of the previous window, rather than recomputing it from scratch. This is crucial because it reduces the overall time complexity for checking all $N-M+1$ windows from $O(NM)$ to $O(N)$ for hash computations, leading to an expected $O(N+M)$ total complexity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the polynomial hash function used in Rabin-Karp for a string $S$ of length $m$, using base $b$ and modulus $q$.",
+      "back": "The polynomial hash function for a string $S = S[0]S[1]\\dots S[m-1]$ is:\n$$H(S) = (S[0] \\cdot b^{m-1} + S[1] \\cdot b^{m-2} + \\dots + S[m-1] \\cdot b^0) \\pmod q$$\nEach character $S[i]$ is typically treated as its ASCII value or an integer representation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the rolling hash update formula to compute $H(T[i+1 \\dots i+m])$ from $H(T[i \\dots i+m-1])$.",
+      "back": "Let $H_{old} = H(T[i \\dots i+m-1])$. To get $H_{new} = H(T[i+1 \\dots i+m])$:\n1. Remove the leading character $T[i]$: Subtract $T[i] \\cdot b^{m-1}$.\n2. Shift remaining characters left: Multiply by $b$.\n3. Add the new trailing character $T[i+m]$: Add $T[i+m] \\cdot b^0$.\nAll operations are modulo $q$. The formula is:\n$$H_{new} = (b \\cdot ((H_{old} - T[i] \\cdot b^{m-1} \\% q + q) \\% q) + T[i+m]) \\% q$$\n(The `+ q) % q` handles potential negative results from subtraction before the outer modulo.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why Rabin-Karp has an *expected* time complexity of $O(N+M)$ but a worst-case complexity of $O(NM)$.",
+      "back": "<ul><li>**Expected $O(N+M)$:** Hash computation for pattern $P$ is $O(M)$. Rolling hash for $N-M+1$ windows in text $T$ is $O(N)$ (each update is $O(1)$). If hash collisions (spurious hits) are rare, character-by-character verification is infrequent. The total time is dominated by hash computations, leading to $O(N+M)$.</li><li>**Worst-case $O(NM)$:** Occurs when there are many hash collisions. If the hash function frequently produces the same hash for different substrings, or if the pattern and text are designed to cause many false positives (e.g., \"aaaaa\" in \"aaaaaaaa...\"), then a character-by-character comparison (which takes $O(M)$ time) might be performed for almost every window. This degenerates to $O(NM)$.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are \"spurious hits\" in Rabin-Karp, and how are they handled? What parameters help minimize their occurrence?",
+      "back": "Spurious hits (or hash collisions) occur when the hash of a text substring matches the pattern's hash, but the substrings themselves are not identical.\nThey are handled by performing a **character-by-character comparison** between the pattern and the text substring whenever their hashes match. If the characters also match, a true occurrence is found; otherwise, it's a spurious hit.\nTo minimize spurious hits, choose:\n*   A large prime modulus $q$.\n*   A good base $b$ (e.g., a prime larger than the alphabet size).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Rabin-Karp, what is the significance of choosing a prime number for the modulus $q$?",
+      "back": "Choosing a large prime number for the modulus $q$ significantly reduces the probability of hash collisions (spurious hits). A prime modulus helps distribute hash values more uniformly across the range $[0, q-1]$, making it less likely for two different strings to produce the same hash value. This is crucial for maintaining the algorithm's expected $O(N+M)$ time complexity.",
+      "difficulty": "medium"
+    }
+  ]
+}

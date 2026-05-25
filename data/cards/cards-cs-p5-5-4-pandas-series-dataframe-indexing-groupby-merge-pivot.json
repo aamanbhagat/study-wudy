@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-4-pandas-series-dataframe-indexing-groupby-merge-pivot",
+  "subtopicTitle": "Pandas — Series, DataFrame, indexing, groupby, merge, pivot",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:43.932Z",
+  "cards": [
+    {
+      "front": "In Pandas, what is a Series? Provide a simple Python code snippet to create one from a list.",
+      "back": "A Pandas Series is a one-dimensional labeled array capable of holding any data type (integers, strings, floats, Python objects, etc.). It's essentially a column in a spreadsheet or a SQL table.\n```python\nimport pandas as pd\ns = pd.Series([10, 20, 30, 40], name='MyData')\n# s will have default integer index 0, 1, 2, 3\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a Pandas DataFrame, and how does it fundamentally differ from a Series?",
+      "back": "A Pandas DataFrame is a two-dimensional labeled data structure with columns of potentially different types. It's like a spreadsheet or a SQL table.\n\nIt differs from a Series in that a DataFrame is a collection of Series objects sharing the same index, forming a tabular structure, whereas a Series is a single column of data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you select rows and columns from a Pandas DataFrame using label-based indexing with `.loc[]`? Give an example.",
+      "back": "The `.loc[]` accessor is used for label-based indexing. You specify row labels first, then column labels.\n```python\nimport pandas as pd\ndf = pd.DataFrame({'A': [1,2,3], 'B': [4,5,6]}, index=['x','y','z'])\n# Select row 'y' and column 'B'\nvalue = df.loc['y', 'B'] # value is 5\n# Select all rows from 'x' to 'z' and columns 'A'\nsubset = df.loc['x':'z', ['A']]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary difference between `.iloc[]` and boolean indexing for selecting data in a Pandas DataFrame.",
+      "back": "`.iloc[]` is used for integer-position-based indexing. You select data by its numerical position (0-indexed).\n```python\ndf.iloc[0, 1] # Selects value at row 0, column 1\n```\nBoolean indexing (or boolean masking) selects data based on a condition that evaluates to `True` or `False` for each row/element.\n```python\ndf[df['ColumnA'] > 5] # Selects all rows where 'ColumnA' is greater than 5\n```\n`.iloc[]` cares about *where* the data is, while boolean indexing cares about *what* the data is.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a DataFrame `df` with columns 'Category' and 'Value', write Python code to calculate the mean 'Value' for each unique 'Category'.",
+      "back": "This is a classic use case for `groupby()`.\n```python\nimport pandas as pd\ndata = {'Category': ['A', 'B', 'A', 'C', 'B'],\n        'Value': [10, 20, 15, 25, 30]}\ndf = pd.DataFrame(data)\n# Group by 'Category' and calculate the mean of 'Value'\nmean_by_category = df.groupby('Category')['Value'].mean()\n# Output:\n# Category\n# A    12.5\n# B    25.0\n# C    25.0\n# Name: Value, dtype: float64\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the four main types of joins (merges) in Pandas (`pd.merge`) and when you would typically use each.",
+      "back": "The four main types of joins in `pd.merge()` are:\n1.  **`inner` (default):** Returns only rows where the merge keys exist in *both* DataFrames. Use when you only want matching records.\n2.  **`left`:** Returns all rows from the left DataFrame, and matching rows from the right DataFrame. If no match, `NaN` for right DataFrame's columns. Use to keep all records from the left.\n3.  **`right`:** Returns all rows from the right DataFrame, and matching rows from the left DataFrame. If no match, `NaN` for left DataFrame's columns. Use to keep all records from the right.\n4.  **`outer`:** Returns all rows when there is a match in *either* the left or right DataFrame. If no match, `NaN` where data is missing. Use to keep all records from both DataFrames.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the primary purpose of `df.pivot_table()` in Pandas and provide a minimal example demonstrating its use.",
+      "back": "`df.pivot_table()` is used to summarize and aggregate data from a DataFrame, creating a new table (DataFrame) where unique values from one or more columns become new column headers or index labels. It's powerful for reshaping and analyzing data.\n```python\nimport pandas as pd\ndata = {'Date': ['2023-01-01', '2023-01-01', '2023-01-02', '2023-01-02'],\n        'Region': ['East', 'West', 'East', 'West'],\n        'Sales': [100, 150, 120, 180]}\ndf = pd.DataFrame(data)\n# Pivot to see total sales by Region for each Date\npivot = df.pivot_table(values='Sales', index='Date', columns='Region', aggfunc='sum')\n# Output:\n# Region        East  West\n# Date\n# 2023-01-01   100   150\n# 2023-01-02   120   180\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

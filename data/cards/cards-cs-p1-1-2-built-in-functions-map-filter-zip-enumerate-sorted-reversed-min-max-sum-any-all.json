@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p1-1-2-built-in-functions-map-filter-zip-enumerate-sorted-reversed-min-max-sum-any-all",
+  "subtopicTitle": "Built-in functions — map, filter, zip, enumerate, sorted, reversed, min, max, sum, any, all",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:13.432Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Python's built-in `map()` function?",
+      "back": "The `map()` function applies a given function to each item in an iterable (e.g., list, tuple) and returns a `map` object (an iterator) containing the results. It's useful for transforming all elements uniformly.\n```python\nnumbers = [1, 2, 3]\nsquared = map(lambda x: x*x, numbers)\nprint(list(squared)) # Output: [1, 4, 9]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a Python one-liner using `filter()` to extract all even numbers from `[1, 2, 3, 4, 5, 6]`.",
+      "back": "```python\nnumbers = [1, 2, 3, 4, 5, 6]\nevens = list(filter(lambda x: x % 2 == 0, numbers))\n# evens will be [2, 4, 6]\n```\nThe `filter()` function constructs an iterator from elements of an iterable for which a function returns true (a predicate function).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the output of `list(zip(['a', 'b', 'c'], [1, 2]))` and why?",
+      "back": "Output: `[('a', 1), ('b', 2)]`.\nThe `zip()` function aggregates elements from each of the iterables. If the iterables are of unequal length, `zip()` stops when the shortest iterable is exhausted. In this case, `[1, 2]` is shorter, so 'c' from the first list is ignored.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you iterate over a list `['apple', 'banana', 'cherry']` to get both the index and the item, starting the index count from 1 instead of 0?",
+      "back": "You use the `enumerate()` function with the `start` parameter:\n```python\nfruits = ['apple', 'banana', 'cherry']\nfor index, fruit in enumerate(fruits, start=1):\n    print(f'{index}: {fruit}')\n# Output:\n# 1: apple\n# 2: banana\n# 3: cherry\n```\n`enumerate()` returns an iterator of tuples, where each tuple contains an index and the corresponding item.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between `sorted(my_list)` and `my_list.sort()` in terms of return value and modification.",
+      "back": "`sorted(my_list)`:\n- Returns a *new* sorted list.\n- Does *not* modify the original `my_list`.\n- Can be used on any iterable (not just lists).\n\n`my_list.sort()`:\n- Sorts the list *in-place* (modifies `my_list` directly).\n- Returns `None`.\n- Is a method of list objects, so it only works on lists.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `words = ['apple', 'banana', 'kiwi', 'grapefruit']`, how would you use `max()` to find the longest word?",
+      "back": "You can use the `key` argument with `max()`:\n```python\nwords = ['apple', 'banana', 'kiwi', 'grapefruit']\nlongest_word = max(words, key=len)\n# longest_word will be 'grapefruit'\n```\nThe `key` argument specifies a function of one argument that is used to extract a comparison key from each list element. `max()` then finds the element with the largest key value.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the result of `any([])` in Python, and why?",
+      "back": "The result is `False`.\nThe `any()` function returns `True` if any element of the iterable is true. If the iterable is empty, `any()` returns `False` because there are no elements to satisfy the condition.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the result of `all([])` in Python, and why?",
+      "back": "The result is `True`.\nThe `all()` function returns `True` if all elements of the iterable are true. If the iterable is empty, `all()` returns `True` because there are no elements that are false. This is often referred to as 'vacuously true'.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare `reversed(my_list)` with `my_list[::-1]` for a large list, considering memory efficiency and return type.",
+      "back": "`reversed(my_list)`:\n- Returns a *reverse iterator*.\n- Is memory efficient, especially for large lists, as it doesn't create a new list in memory immediately. It generates elements on demand.\n\n`my_list[::-1]` (slicing):\n- Returns a *new list* that is a reversed copy of `my_list`.\n- For large lists, this can be less memory efficient as it requires allocating memory for the entire new list.\n\nChoose `reversed()` when you only need to iterate once or process elements one by one without needing the full reversed list in memory.",
+      "difficulty": "hard"
+    }
+  ]
+}

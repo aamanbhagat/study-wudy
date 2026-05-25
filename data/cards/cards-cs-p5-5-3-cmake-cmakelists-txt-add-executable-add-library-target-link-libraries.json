@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-cmake-cmakelists-txt-add-executable-add-library-target-link-libraries",
+  "subtopicTitle": "CMake — CMakeLists.txt, add_executable, add_library, target_link_libraries",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:21.343Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a `CMakeLists.txt` file in a CMake project?",
+      "back": "The `CMakeLists.txt` file is the main input script for CMake. It defines how a project is built, specifying source files, targets (executables, libraries), dependencies, and various build settings and options.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the basic syntax and explain the purpose of the `add_executable` command in CMake.",
+      "back": "Syntax: `add_executable(<name> [source1 [source2 ...]])`. Its purpose is to create an executable target named `<name>` from the specified source files. When the build system (e.g., Make, Ninja, Visual Studio) is invoked, this target will produce a runnable binary file.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you define a static library named `my_static_lib` from `src/static.cpp` and a shared library named `my_shared_lib` from `src/shared.cpp` using `add_library`?",
+      "back": "```cmake\nadd_library(my_static_lib STATIC src/static.cpp)\nadd_library(my_shared_lib SHARED src/shared.cpp)\n```\n`STATIC` creates an archive (e.g., `.a`, `.lib`) linked directly into executables at compile time. `SHARED` creates a dynamic link library (e.g., `.so`, `.dll`, `.dylib`) linked at runtime.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `target_link_libraries` command, and why is it essential in multi-target CMake projects?",
+      "back": "`target_link_libraries` specifies which libraries a given target (executable or another library) needs to link against. It's essential because it informs the linker about the locations of external symbols (functions, variables) used by the target, resolving dependencies and ensuring the final binary can execute correctly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You have an executable target `my_app` (from `main.cpp`) and a shared library target `my_lib` (from `lib_src.cpp`). How would you link `my_lib` to `my_app` in your `CMakeLists.txt`?",
+      "back": "```cmake\nadd_executable(my_app main.cpp)\nadd_library(my_lib SHARED lib_src.cpp)\ntarget_link_libraries(my_app PRIVATE my_lib)\n```\nThe `PRIVATE` keyword indicates that `my_lib` is a dependency only for `my_app`'s internal linking and compilation, and not for any other target that might link against `my_app` (if `my_app` were a library itself).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A static library `lib_a` (from `a_src.cpp`) depends on another static library `lib_b` (from `b_src.cpp`). How do you express this dependency using `target_link_libraries` such that consumers of `lib_a` also automatically link against `lib_b`?",
+      "back": "```cmake\nadd_library(lib_b STATIC b_src.cpp)\nadd_library(lib_a STATIC a_src.cpp)\ntarget_link_libraries(lib_a PUBLIC lib_b)\n```\nThe `PUBLIC` keyword means `lib_b` is required for `lib_a`'s own compilation/linking AND for any target that links against `lib_a`. CMake automatically propagates this dependency, so targets linking `lib_a` will also link `lib_b`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write a minimal `CMakeLists.txt` that defines an executable `my_program` which uses a function from a shared library `my_utility_lib`. Assume `main.cpp` for the program and `utility.cpp`/`utility.h` for the library.",
+      "back": "```cmake\ncmake_minimum_required(VERSION 3.10)\nproject(MyProject CXX)\n\nadd_library(my_utility_lib SHARED utility.cpp utility.h)\nadd_executable(my_program main.cpp)\ntarget_link_libraries(my_program PRIVATE my_utility_lib)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the difference between `PRIVATE`, `PUBLIC`, and `INTERFACE` keywords when used with `target_link_libraries`.",
+      "back": "-   `PRIVATE`: The dependency is required only for the current target's own compilation and linking. It is not propagated to targets that link against the current target.\n-   `PUBLIC`: The dependency is required for the current target's own compilation and linking, AND it is also required for any target that links against the current target. It is propagated.\n-   `INTERFACE`: The dependency is NOT required for the current target's own compilation or linking, but it IS required for any target that links against the current target. It is propagated.\nThese keywords control the visibility and propagation of build properties (like include directories, compile definitions, and link libraries) to dependent targets.",
+      "difficulty": "hard"
+    }
+  ]
+}

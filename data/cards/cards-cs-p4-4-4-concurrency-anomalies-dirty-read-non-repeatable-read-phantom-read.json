@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-4-concurrency-anomalies-dirty-read-non-repeatable-read-phantom-read",
+  "subtopicTitle": "Concurrency anomalies — dirty read, non-repeatable read, phantom read",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:47.931Z",
+  "cards": [
+    {
+      "front": "What is a 'concurrency anomaly' in the context of database transactions?",
+      "back": "A situation where the concurrent execution of multiple transactions leads to incorrect or inconsistent results, as if the transactions were not executed in isolation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a 'dirty read' anomaly.",
+      "back": "A dirty read occurs when a transaction reads data that has been written by another concurrent transaction, but that data has not yet been committed. If the writing transaction later rolls back, the reading transaction will have read invalid (or 'dirty') data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Illustrate a dirty read scenario with two concurrent transactions, A and B, involving an account balance.",
+      "back": "Transaction A updates an account balance but doesn't commit. Transaction B then reads this uncommitted (dirty) balance. If Transaction A subsequently rolls back, Transaction B has read and potentially acted upon incorrect data.\n```sql\n-- Transaction A\nSTART TRANSACTION;\nUPDATE Accounts SET Balance = Balance - 100 WHERE AccountID = 1;\n-- Transaction B (concurrently)\nSELECT Balance FROM Accounts WHERE AccountID = 1; -- Reads uncommitted data\n-- Transaction A\nROLLBACK; -- Balance reverts, B now holds invalid data\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a 'non-repeatable read' anomaly.",
+      "back": "A non-repeatable read occurs when a transaction reads the same row multiple times, but gets different values each time because another *committed* transaction modified that row in between the reads.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe a scenario leading to a non-repeatable read with two concurrent transactions.",
+      "back": "Transaction A reads a specific row. Concurrently, Transaction B updates that same row and commits its changes. When Transaction A attempts to read the same row again, it retrieves the new, committed value, leading to an inconsistent view within Transaction A.\n```sql\n-- Transaction A\nSTART TRANSACTION;\nSELECT Balance FROM Accounts WHERE AccountID = 1; -- First read\n-- Transaction B (concurrently)\nSTART TRANSACTION;\nUPDATE Accounts SET Balance = Balance + 50 WHERE AccountID = 1;\nCOMMIT;\n-- Transaction A\nSELECT Balance FROM Accounts WHERE AccountID = 1; -- Second read, different value\nCOMMIT;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a 'phantom read' anomaly.",
+      "back": "A phantom read occurs when a transaction executes a query that returns a set of rows (e.g., `SELECT ... WHERE ...`) twice, and the second execution returns a different set of rows (more or fewer) than the first. This happens because another *committed* transaction inserted or deleted rows matching the query's `WHERE` clause in between the two reads.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide an example of a phantom read scenario involving a count of products.",
+      "back": "Transaction A queries the count of products in a specific category. Concurrently, Transaction B inserts a new product into that same category and commits. When Transaction A executes the same count query again, it finds a different (higher) number of rows.\n```sql\n-- Transaction A\nSTART TRANSACTION;\nSELECT COUNT(*) FROM Products WHERE Category = 'Electronics'; -- First read\n-- Transaction B (concurrently)\nSTART TRANSACTION;\nINSERT INTO Products (Name, Category) VALUES ('New Gadget', 'Electronics');\nCOMMIT;\n-- Transaction A\nSELECT COUNT(*) FROM Products WHERE Category = 'Electronics'; -- Second read, different count\nCOMMIT;\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key difference between a non-repeatable read and a phantom read?",
+      "back": "A **non-repeatable read** involves changes to *existing* rows (updates to column values) that are read multiple times within a single transaction, yielding different values. A **phantom read** involves changes to the *set of rows* returned by a query (insertions or deletions of rows) that occur between two identical queries within a single transaction. Non-repeatable reads deal with changes to specific data values, while phantom reads deal with changes to the existence of rows matching a predicate.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which standard SQL isolation levels prevent dirty reads, non-repeatable reads, and phantom reads, respectively?",
+      "back": "The prevention of these anomalies is tied to SQL isolation levels:\n*   **Dirty Reads:** Prevented by `READ COMMITTED` (and higher: `REPEATABLE READ`, `SERIALIZABLE`). `READ UNCOMMITTED` allows dirty reads.\n*   **Non-Repeatable Reads:** Prevented by `REPEATABLE READ` (and higher: `SERIALIZABLE`). `READ COMMITTED` allows non-repeatable reads.\n*   **Phantom Reads:** Prevented by `SERIALIZABLE`. `REPEATABLE READ` allows phantom reads.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-symbol-resolution-order-matters",
+  "subtopicTitle": "Symbol resolution — order matters",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:25.098Z",
+  "cards": [
+    {
+      "front": "In the context of linking, what is \"symbol resolution\"?",
+      "back": "Symbol resolution is the process by which a linker matches references to symbols (e.g., functions, global variables) in one object file or library with their actual definitions in another. This process is crucial for creating a complete, executable program or shared library.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why the order of libraries specified to a linker is crucial for successful symbol resolution.",
+      "back": "Linkers typically process input files and libraries from left to right. When an undefined symbol is encountered in an object file or a previously processed library, the linker searches subsequent libraries *only* for that specific undefined symbol. Once a definition is found, the search for that symbol stops. If a library defining a symbol comes *before* a file that references it, the definition might be missed because the symbol wasn't yet marked as undefined when the library was processed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"left-to-right, satisfy as needed\" rule governing how most linkers resolve symbols from static libraries.",
+      "back": "When linking, a linker processes input files and static libraries in the order they appear on the command line. For each object file, it notes undefined symbols. When it encounters a static library, it scans it *only* for definitions of symbols that are currently undefined. Once a symbol is defined, it is removed from the list of undefined symbols. Libraries are not searched for symbols that are already defined or not yet referenced by prior inputs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `main.o` (references `foo`), `libA.a` (defines `foo`). Which linking command will fail and why?\n1. `gcc main.o libA.a`\n2. `gcc libA.a main.o`",
+      "back": "Command 2 (`gcc libA.a main.o`) will likely fail.\n\n*   In command 1, `main.o` is processed first, making `foo` an undefined symbol. Then `libA.a` is searched, `foo` is found and resolved. Success.\n*   In command 2, `libA.a` is processed first. Since no symbols are undefined yet, the linker doesn't extract `foo`'s definition from `libA.a`. Then `main.o` is processed, `foo` becomes undefined. With no more libraries to search, `foo` remains undefined, leading to a linker error.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can a circular dependency between two static libraries (`libA.a` needs `funcB` from `libB.a`, and `libB.a` needs `funcA` from `libA.a`) be resolved during linking?",
+      "back": "To resolve a circular dependency between static libraries, you must list them multiple times on the linker command line, ensuring each library is processed after the one it depends on. A common pattern is:\n```bash\ngcc main.o -L. -lA -lB -lA\n```\nAlternatively, some linkers (like GNU ld) support grouping libraries, which allows for iterative resolution:\n```bash\ngcc main.o -L. -Wl,--start-group -lA -lB -Wl,--end-group\n```\nThe `--start-group`/`--end-group` option tells the linker to repeatedly scan the libraries within the group until all references are resolved and no new undefined references are created.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical consequence of defining the *same* non-`static` global symbol in multiple object files or static libraries included in a single link?",
+      "back": "This typically results in a \"multiple definition\" linker error. Unlike undefined symbols where the linker searches for *one* definition, if it finds the same symbol defined more than once (and it's not a weak symbol or subject to specific common block rules), it cannot decide which definition to use and halts the linking process. This is distinct from an \"undefined reference\" error.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why placing a library like `-lm` (math library) at the beginning of a `gcc` command line (e.g., `gcc -lm main.o`) often leads to an \"undefined reference\" error.",
+      "back": "When `gcc -lm main.o` is executed:\n1.  `-lm` is processed first. At this point, `main.o` hasn't been seen, so there are no undefined symbols. The linker sees the math library but doesn't extract any functions from it because nothing *needs* them.\n2.  `main.o` is processed. It contains calls to math functions (e.g., `sin`, `cos`), which become undefined symbols.\n3.  The linker has no more libraries to search. The undefined math functions remain unresolved, leading to a linker error.\n\nConversely, `gcc main.o -lm` works because `main.o` creates the undefined references *before* `-lm` is processed, allowing the linker to find and resolve them.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary best practice for ordering libraries on the linker command line to avoid \"undefined reference\" errors?",
+      "back": "The primary best practice is to list libraries in dependency order: a library that depends on another library should appear *before* the library it depends on. More generally, place libraries that provide definitions *after* the object files or libraries that reference those definitions. Think of it as \"producers after consumers\" or \"dependencies after dependers.\"",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-vector-representation-magnitude-direction-components",
+  "subtopicTitle": "Vector representation — magnitude, direction, components",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:25.207Z",
+  "cards": [
+    {
+      "front": "What is the fundamental difference between a scalar and a vector quantity?",
+      "back": "A scalar quantity is fully described by its magnitude alone (e.g., mass, temperature, speed). A vector quantity requires both magnitude and direction for its complete description (e.g., displacement, velocity, force).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is a vector typically represented graphically and symbolically?",
+      "back": "Graphically, a vector is represented by an arrow where the length indicates its magnitude and the arrowhead points in its direction. Symbolically, it's often denoted by a bold letter (e.g., $\\mathbf{A}$) or a letter with an arrow above it (e.g., $\\vec{A}$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a 2D vector $\\mathbf{A}$ with magnitude $A$ and direction $\\theta$ (angle with positive x-axis), what are its Cartesian components $A_x$ and $A_y$?",
+      "back": "The Cartesian components are:\n$$A_x = A \\cos(\\theta)$$\n$$A_y = A \\sin(\\theta)$$\nThese components represent the projections of the vector onto the x and y axes, respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a 2D vector $\\mathbf{V}$ has Cartesian components $V_x$ and $V_y$, what is its magnitude, $|\\mathbf{V}|$?",
+      "back": "The magnitude of the vector $\\mathbf{V}$ is given by the Pythagorean theorem:\n$$|\\mathbf{V}| = \\sqrt{V_x^2 + V_y^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find the direction $\\theta$ (angle with positive x-axis) of a 2D vector $\\mathbf{V} = (V_x, V_y)$ using its components?",
+      "back": "The angle $\\theta$ can be found using the arctangent function:\n$$\\tan(\\theta) = \\frac{V_y}{V_x}$$\n$$\\theta = \\arctan\\left(\\frac{V_y}{V_x}\\right)$$\n*Care must be taken to adjust the angle based on the specific quadrant of $(V_x, V_y)$ to get the correct direction, as $\\arctan$ typically returns values in $(-\\pi/2, \\pi/2)$ or $(-90^\\circ, 90^\\circ)$.*",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a unit vector and explain how to find the unit vector $\\hat{\\mathbf{A}}$ for any non-zero vector $\\mathbf{A}$.",
+      "back": "A unit vector is a vector with a magnitude of 1, used solely to indicate direction. For any non-zero vector $\\mathbf{A}$, its unit vector $\\hat{\\mathbf{A}}$ is found by dividing the vector by its own magnitude:\n$$\\hat{\\mathbf{A}} = \\frac{\\mathbf{A}}{|\\mathbf{A}|}$$\nIf $\\mathbf{A} = (A_x, A_y, A_z)$, then $\\hat{\\mathbf{A}} = \\left(\\frac{A_x}{|\\mathbf{A}|}, \\frac{A_y}{|\\mathbf{A}|}, \\frac{A_z}{|\\mathbf{A}|}\\right)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A 3D vector $\\mathbf{F}$ makes angles $\\alpha, \\beta, \\gamma$ with the positive x, y, and z axes, respectively. How are its components $F_x, F_y, F_z$ related to its magnitude $|\\mathbf{F}|$?",
+      "back": "The components are given by:\n$$F_x = |\\mathbf{F}| \\cos(\\alpha)$$\n$$F_y = |\\mathbf{F}| \\cos(\\beta)$$\n$$F_z = |\\mathbf{F}| \\cos(\\gamma)$$\nThese $\\cos(\\alpha)$, $\\cos(\\beta)$, $\\cos(\\gamma)$ are known as the direction cosines of the vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the magnitude, direction, and components of a vector are intrinsically linked, using the example of a 2D vector $\\mathbf{A} = A_x \\hat{\\mathbf{i}} + A_y \\hat{\\mathbf{j}}$.",
+      "back": "The components ($A_x, A_y$) provide a complete algebraic description of the vector by defining its projections along the coordinate axes. The magnitude ($|\\mathbf{A}| = \\sqrt{A_x^2 + A_y^2}$) is the length of the vector, which is directly derived from these components via the Pythagorean theorem. The direction (e.g., $\\theta = \\arctan(A_y/A_x)$) is the angle the vector makes with an axis, also derived from the ratio of its components. Thus, components provide the fundamental building blocks from which both magnitude and direction can be uniquely and unambiguously determined.",
+      "difficulty": "hard"
+    }
+  ]
+}

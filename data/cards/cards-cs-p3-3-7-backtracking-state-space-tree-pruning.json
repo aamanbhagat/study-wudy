@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-7-backtracking-state-space-tree-pruning",
+  "subtopicTitle": "Backtracking — state-space tree, pruning",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:42.128Z",
+  "cards": [
+    {
+      "front": "What is the core idea behind the Backtracking algorithmic paradigm?",
+      "back": "Backtracking is a general algorithmic technique for finding all (or some) solutions to computational problems, especially constraint satisfaction problems. It incrementally builds candidates to the solutions and \"backtracks\" (abandons) a candidate as soon as it determines that the candidate cannot possibly be completed to a valid solution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of Backtracking, what does a \"state-space tree\" represent?",
+      "back": "A state-space tree is a conceptual tree that represents all possible configurations (states) or partial solutions of a problem. Each node in the tree corresponds to a partial solution, and edges represent choices made to extend that partial solution. A path from the root to a leaf represents a complete solution or an invalid path.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is \"pruning\" in a Backtracking algorithm, and why is it crucial?",
+      "back": "Pruning is the technique of eliminating (cutting off) branches of the state-space tree that cannot lead to a valid or optimal solution. It is crucial because it drastically reduces the search space, improving the algorithm's efficiency by avoiding unnecessary computations and exploring only promising paths.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the condition under which a Backtracking algorithm decides to \"prune\" a branch of the state-space tree.",
+      "back": "A branch is pruned when the current partial solution violates any problem constraints or when it's determined that extending this partial solution further will never lead to a valid or better solution. This check is performed at each step of building the solution, typically before making the next choice.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the N-Queens problem, how would a Backtracking algorithm use \"pruning\" when placing queens?",
+      "back": "When attempting to place a queen at a specific $(row, col)$ position, the algorithm checks if this placement attacks any previously placed queens (i.e., if it shares the same row, column, or diagonal with an existing queen). If it does, this specific placement is invalid, and the algorithm \"prunes\" this branch, moving to the next possible column for the current row without exploring further placements from this invalid state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general recursive structure of a Backtracking algorithm using pseudocode.",
+      "back": "```\nfunction solve(current_state):\n    if current_state is a complete and valid solution:\n        add current_state to solutions\n        return\n\n    if current_state is invalid (violates constraints, cannot lead to solution): // Pruning check\n        return\n\n    for each choice in possible_choices_from(current_state):\n        // Make a choice\n        new_state = apply_choice(current_state, choice)\n        solve(new_state) // Recurse\n        // Backtrack (undo the choice if necessary for other branches/state restoration)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does pruning fundamentally affect the *worst-case* time complexity of a Backtracking algorithm compared to exhaustive search without pruning?",
+      "back": "Without pruning, a backtracking algorithm might explore the entire state-space tree, leading to exponential worst-case complexity, often $O(b^d)$ where $b$ is the branching factor and $d$ is the maximum depth. Pruning can significantly reduce the *average-case* complexity by cutting off large portions of the tree. However, the *worst-case* complexity often remains exponential, as pruning might not be effective in all scenarios (e.g., if all paths are valid until the very end, or if constraints are weak). The benefit is typically in practical performance rather than a theoretical worst-case bound improvement.",
+      "difficulty": "hard"
+    }
+  ]
+}

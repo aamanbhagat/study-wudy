@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-truth-tables-all-16-binary-operations",
+  "subtopicTitle": "Truth tables — all 16 binary operations",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:16:53.478Z",
+  "cards": [
+    {
+      "front": "In digital logic, what is a truth table, and what is its primary purpose?",
+      "back": "A truth table is a mathematical table used in Boolean algebra to compute the functional values of logical expressions. It lists all possible input combinations for one or more logical variables and shows the resulting output (typically 1/0 or true/false) for each combination. Its primary purpose is to define the behavior of a logic gate or a complex logical circuit unequivocally.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For two binary inputs, $A$ and $B$, how many distinct binary logical operations are possible, and what is the general formula for $n$ inputs?",
+      "back": "For two binary inputs ($A$, $B$), there are $2^{2^2} = 2^4 = 16$ distinct binary logical operations possible.\n\nThe general formula for $n$ binary inputs is $2^{2^n}$. This is because there are $2^n$ possible input combinations, and for each combination, the output can be either 0 or 1, leading to $2^{2^n}$ unique output patterns.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the logical operation represented by the following truth table:\n```\nA | B | Q\n--|---|--\n0 | 0 | 0\n0 | 1 | 0\n1 | 0 | 0\n1 | 1 | 1\n```",
+      "back": "This truth table represents the **AND** operation (conjunction), denoted as $A \\land B$ or $A \\cdot B$. The output $Q$ is 1 only if both inputs $A$ and $B$ are 1; otherwise, it is 0.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the logical operation represented by the following truth table:\n```\nA | B | Q\n--|---|--\n0 | 0 | 0\n0 | 1 | 1\n1 | 0 | 1\n1 | 1 | 0\n```",
+      "back": "This truth table represents the **XOR** (Exclusive OR) operation, denoted as $A \\oplus B$. The output $Q$ is 1 if and only if exactly one of the inputs $A$ or $B$ is 1 (i.e., they are different); otherwise, it is 0.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the logical operation represented by the following truth table:\n```\nA | B | Q\n--|---|--\n0 | 0 | 1\n0 | 1 | 1\n1 | 0 | 1\n1 | 1 | 0\n```",
+      "back": "This truth table represents the **NAND** (NOT AND) operation, denoted as $A \\uparrow B$ or $\\overline{A \\cdot B}$. The output $Q$ is 0 only if both inputs $A$ and $B$ are 1; otherwise, it is 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify the logical operation represented by the following truth table:\n```\nA | B | Q\n--|---|--\n0 | 0 | 1\n0 | 1 | 1\n1 | 0 | 0\n1 | 1 | 1\n```",
+      "back": "This truth table represents the **Implication** operation, denoted as $A \\implies B$. It is equivalent to $\\neg A \\lor B$. The output $Q$ is 0 only when $A$ is 1 and $B$ is 0 (i.e., a true premise leads to a false conclusion); otherwise, it is 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Construct the complete truth table for the logical expression $(A \\land B) \\lor (\\neg A \\land B)$.",
+      "back": "To construct the truth table for $(A \\land B) \\lor (\\neg A \\land B)$:\n\n| A | B | $\\neg A$ | $A \\land B$ | $\\neg A \\land B$ | $(A \\land B) \\lor (\\neg A \\land B)$ |\n|---|---|--------|-------------|------------------|------------------------------------|\n| 0 | 0 | 1      | 0           | 0                | 0                                  |\n| 0 | 1 | 1      | 0           | 1                | 1                                  |\n| 1 | 0 | 0      | 0           | 0                | 0                                  |\n| 1 | 1 | 0      | 1           | 0                | 1                                  |\n\nThis expression simplifies to $B$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a \"universal logic gate\"? Provide the truth table for one such gate and demonstrate how to implement the NOT operation using only that gate.",
+      "back": "A **universal logic gate** is a type of logic gate that can be used to construct any other Boolean function or logic gate (e.g., AND, OR, NOT, XOR). The **NAND** gate and **NOR** gate are universal gates.\n\n**NAND Gate Truth Table:**\n```\nA | B | Q\n--|---|--\n0 | 0 | 1\n0 | 1 | 1\n1 | 0 | 1\n1 | 1 | 0\n```\n**Implementing NOT using NAND:**\nTo implement the NOT $A$ operation using only a NAND gate, connect both inputs of the NAND gate to $A$:\n```\nA | A | Q = A NAND A = NOT (A AND A) = NOT A\n--|---|-----------------------------------\n0 | 0 | 1\n1 | 1 | 0\n```\nThus, $A \\uparrow A \\equiv \\neg A$.",
+      "difficulty": "hard"
+    }
+  ]
+}

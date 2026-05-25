@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-refactoring-code-smells-common-refactorings-extract-method-rename-etc",
+  "subtopicTitle": "Refactoring — code smells, common refactorings (extract method, rename, etc.)",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:10.628Z",
+  "cards": [
+    {
+      "front": "Define \"refactoring\" in the context of software development.",
+      "back": "Refactoring is the process of restructuring existing computer code without changing its external behavior, with the goal of improving nonfunctional attributes of the software, such as readability, maintainability, and complexity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name three common \"code smells\" that indicate potential problems in code.",
+      "back": "Common code smells include:\n1.  **Duplicated Code**: Identical or very similar code blocks in multiple places.\n2.  **Long Method**: A method that contains too many lines of code or too many responsibilities.\n3.  **Large Class**: A class that has too many fields, methods, or responsibilities.\n4.  **Feature Envy**: A method that seems more interested in a class other than the one it actually lives in.\n5.  **Data Clumps**: Groups of data that frequently appear together (e.g., `street`, `city`, `state`, `zipCode`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You encounter a `Long Method` code smell. What refactoring would you apply and how?",
+      "back": "Apply \"Extract Method\". Identify a coherent block of code within the long method that performs a specific, distinct task. Move this block into a new, well-named private method, and replace the original block with a call to the new method. This improves readability, reduces complexity, and potentially allows for reuse.\n```java\n// Before\nvoid processOrder(Order order) {\n    // ... setup ...\n    double total = 0;\n    for (Item item : order.getItems()) {\n        total += item.getPrice() * item.getQuantity(); // Coherent block\n    }\n    // ... logging ...\n}\n\n// After\nvoid processOrder(Order order) {\n    // ... setup ...\n    double total = calculateOrderTotal(order);\n    // ... logging ...\n}\n\nprivate double calculateOrderTotal(Order order) {\n    double total = 0;\n    for (Item item : order.getItems()) {\n        total += item.getPrice() * item.getQuantity();\n    }\n    return total;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A method in `ClassA` frequently accesses data and calls methods from `ClassB`. What code smell is this, and what refactoring might apply?",
+      "back": "This is \"Feature Envy\". It suggests the method might be better placed in `ClassB` or a new class that encapsulates the behavior. The primary refactoring is \"Move Method\" to relocate the method to `ClassB`. If `ClassA` is also accumulating too many responsibilities related to `ClassB`'s data, \"Extract Class\" might be used to create a new class that holds both the data and the envying methods.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how to refactor a large `switch` statement (or `if/else if` chain) that varies behavior based on an object's type code or attribute.",
+      "back": "Apply \"Replace Conditional with Polymorphism\":\n1.  Create a common interface or abstract class (e.g., `Shape`) for the varying types.\n2.  For each case in the `switch`, create a concrete subclass (e.g., `Circle`, `Square`) that implements the common interface/abstract class.\n3.  Move the specific logic from each `case` into a corresponding method (e.g., `draw()`) in its respective subclass.\n4.  Replace the `switch` statement with a polymorphic call on the object. The original object now holds an instance of the specific type, and calling a common method on that instance executes the correct behavior.\nThis eliminates the conditional, adheres to the Open/Closed Principle, and makes adding new types easier.\n```java\n// Concept: Before\nvoid drawShape(Shape shape) {\n    switch (shape.getType()) {\n        case CIRCLE: // draw circle logic\n        case SQUARE: // draw square logic\n    }\n}\n\n// Concept: After\ninterface Shape { void draw(); }\nclass Circle implements Shape { public void draw() { /* circle logic */ } }\nclass Square implements Shape { public void draw() { /* square logic */ } }\n// Now, simply: shape.draw();\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain \"Divergent Change\" as a code smell and name a refactoring to address it.",
+      "back": "\"Divergent Change\" occurs when one class is changed in many different ways for different reasons. For example, a `Product` class might require modifications for pricing rules, inventory management, and display formatting. This indicates the class has too many responsibilities (violating the Single Responsibility Principle). It can be addressed by \"Extract Class\" to separate distinct responsibilities into their own classes (e.g., `PricingStrategy`, `InventoryManager`, `ProductDisplay`), or \"Move Method/Field\" to relocate specific behaviors or data to more appropriate existing classes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the \"Rename\" refactoring (e.g., method, variable, class) considered crucial for code quality?",
+      "back": "The \"Rename\" refactoring is crucial because clear, descriptive names are fundamental for code readability and understanding. Good names make the code's intent explicit, reduce cognitive load for developers, and minimize the need for comments. Renaming improves code comprehension, maintainability, and reduces the likelihood of errors, all without altering the code's external behavior. Modern IDEs provide safe, automated renaming across an entire codebase.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the \"Data Clumps\" code smell and a common refactoring to fix it.",
+      "back": "\"Data Clumps\" occurs when a group of data items (e.g., `firstName`, `lastName`, `phoneNumber`) frequently appear together as parameters in multiple method signatures or as fields in various classes. This suggests there's a missing object that should encapsulate these related data items. The common refactoring to fix it is \"Extract Class\" (or \"Introduce Parameter Object\"). You create a new, well-named class (e.g., `ContactInfo`) to hold these data items, and then replace the individual data items with an instance of the new class wherever they appeared together. This improves cohesion and reduces parameter list length.",
+      "difficulty": "medium"
+    }
+  ]
+}

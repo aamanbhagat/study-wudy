@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-memory-allocation-contiguous-first-fit-best-fit-worst-fit",
+  "subtopicTitle": "Memory allocation — contiguous (first-fit, best-fit, worst-fit)",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:04.179Z",
+  "cards": [
+    {
+      "front": "What is contiguous memory allocation?",
+      "back": "Contiguous memory allocation is a scheme where each process is allocated a single, unbroken block of memory. This block must be large enough to hold the entire process.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define external fragmentation in the context of contiguous memory allocation.",
+      "back": "External fragmentation occurs when the total available memory is sufficient to satisfy a request, but it is not contiguous. It's scattered in small, non-adjacent free blocks, making it unusable for a process requiring a single large block.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the First-Fit memory allocation algorithm.",
+      "back": "First-Fit scans the memory from the beginning (or from the last allocation point) and allocates the first free block that is large enough to satisfy the process's request. It stops searching once a suitable block is found.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the Best-Fit memory allocation algorithm.",
+      "back": "Best-Fit scans the entire list of free memory blocks and allocates the smallest free block that is large enough to satisfy the process's request. This strategy aims to minimize the leftover \"hole\" size.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the Worst-Fit memory allocation algorithm.",
+      "back": "Worst-Fit scans the entire list of free memory blocks and allocates the largest free block available. The idea is to leave a large remaining hole, hoping it will be useful for future large allocations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given free blocks: $[100KB, 500KB, 200KB, 300KB, 600KB]$. A process requests $250KB$. Which block is allocated by First-Fit, Best-Fit, and Worst-Fit?",
+      "back": "Assuming the list is ordered by address:\n*   **First-Fit:** Allocates from the $500KB$ block (the first one large enough).\n*   **Best-Fit:** Allocates from the $300KB$ block (the smallest block $\\ge 250KB$).\n*   **Worst-Fit:** Allocates from the $600KB$ block (the largest block available).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare First-Fit and Best-Fit in terms of allocation speed and external fragmentation.",
+      "back": "First-Fit is generally faster as it stops at the first suitable block, while Best-Fit must scan the entire list. Best-Fit often leads to less external fragmentation because it tries to leave the smallest possible leftover hole, preserving larger blocks. First-Fit can leave many small, unusable holes at the beginning of memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why might the Worst-Fit algorithm be considered useful, despite often leaving a large, potentially unused, remainder?",
+      "back": "Worst-Fit aims to leave the largest possible remaining hole after an allocation. The rationale is that this large remaining hole might be more useful for future *larger* process requests than the smaller holes left by Best-Fit or First-Fit. It attempts to reduce the *number* of very small, unusable fragments, potentially mitigating external fragmentation in the long run by consolidating free space into larger chunks.",
+      "difficulty": "hard"
+    }
+  ]
+}

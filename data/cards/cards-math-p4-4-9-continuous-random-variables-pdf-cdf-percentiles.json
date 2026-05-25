@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-continuous-random-variables-pdf-cdf-percentiles",
+  "subtopicTitle": "Continuous random variables — PDF, CDF, percentiles",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:39.955Z",
+  "cards": [
+    {
+      "front": "Define a continuous random variable (CRV) and provide an example.",
+      "back": "A continuous random variable (CRV) is a random variable whose possible values are real numbers within a continuous range (e.g., an interval). It can take on any value within that range, not just discrete points.\n\nExample: The height of a randomly selected person, the exact time it takes for a chemical reaction to complete, or the temperature in a room.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the two essential properties that a function $f(x)$ must satisfy to be a valid Probability Density Function (PDF) for a continuous random variable $X$.",
+      "back": "For $f(x)$ to be a valid Probability Density Function (PDF):\n1.  **Non-negativity**: $f(x) \\ge 0$ for all $x$ in the domain of $X$.\n2.  **Normalization**: The total area under the curve must be 1: $$\\int_{-\\infty}^{\\infty} f(x) \\, dx = 1$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a continuous random variable $X$, what is $P(X=x)$ for any specific value $x$, and why? How does this fundamentally differ from discrete random variables?",
+      "back": "For a continuous random variable $X$, $P(X=x) = 0$ for any specific value $x$. This is because probability for continuous variables is defined over intervals (as area under the PDF curve), not single points. The 'area' at a single point is zero.\n\nThis fundamentally differs from discrete random variables, where $P(X=x)$ can be a non-zero value, representing the probability mass at that specific point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Cumulative Distribution Function (CDF), $F(x)$, for a continuous random variable $X$. How is it related to the Probability Density Function (PDF), $f(x)$?",
+      "back": "The Cumulative Distribution Function (CDF), $F(x)$, is defined as $F(x) = P(X \\le x)$. It represents the probability that the random variable $X$ takes a value less than or equal to $x$.\n\nIts relationship to the PDF, $f(x)$, is given by:\n$$F(x) = \\int_{-\\infty}^{x} f(t) \\, dt$$\nConversely, the PDF is the derivative of the CDF where the derivative exists:\n$$f(x) = \\frac{d}{dx} F(x)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the CDF $F(x)$ of a continuous random variable $X$, write the formula to calculate the probability $P(a < X \\le b)$.",
+      "back": "To calculate $P(a < X \\le b)$ using the CDF $F(x)$:\n$$P(a < X \\le b) = F(b) - F(a)$$\nNote: For continuous variables, $P(a < X \\le b) = P(a \\le X \\le b) = P(a < X < b) = P(a \\le X < b)$ because $P(X=x)=0$ for any specific $x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three key properties that any Cumulative Distribution Function (CDF), $F(x)$, for a continuous random variable must satisfy.",
+      "back": "Three key properties of a CDF $F(x)$ for a continuous random variable:\n1.  **Monotonically Non-decreasing**: If $a < b$, then $F(a) \\le F(b)$. (As $x$ increases, the accumulated probability cannot decrease).\n2.  **Limits**: $\\lim_{x \\to -\\infty} F(x) = 0$ and $\\lim_{x \\to \\infty} F(x) = 1$. (Probability accumulates from 0 to 1).\n3.  **Continuity**: $F(x)$ is continuous for all $x$. (Specifically, it's continuous everywhere, not just right-continuous like general CDFs).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the $p$-th percentile (or $p$-quantile) for a continuous random variable $X$. If $F(x)$ is its CDF, how is the $p$-th percentile, $x_p$, found?",
+      "back": "The $p$-th percentile (or $p$-quantile) for a continuous random variable $X$ is the value $x_p$ such that $P(X \\le x_p) = p$, where $0 < p < 1$. In other words, $p \\times 100\\%$ of the values fall below or at $x_p$.\n\nUsing the CDF, $F(x)$, the $p$-th percentile $x_p$ is found by solving the equation:\n$$F(x_p) = p$$\nThis means $x_p = F^{-1}(p)$, assuming $F(x)$ is strictly increasing. For example, the median is the $0.5$-th percentile ($x_{0.5}$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A continuous random variable $X$ has a probability density function given by $f(x) = cx^2$ for $0 \\le x \\le 3$, and $f(x) = 0$ otherwise. Find the value of the constant $c$.",
+      "back": "For $f(x)$ to be a valid PDF, it must satisfy the normalization condition: $\\int_{-\\infty}^{\\infty} f(x) \\, dx = 1$.\n\nIn this case:\n$$\\int_{-\\infty}^{\\infty} f(x) \\, dx = \\int_{0}^{3} cx^2 \\, dx = 1$$\n$$c \\int_{0}^{3} x^2 \\, dx = 1$$\n$$c \\left[ \\frac{x^3}{3} \\right]_{0}^{3} = 1$$\n$$c \\left( \\frac{3^3}{3} - \\frac{0^3}{3} \\right) = 1$$\n$$c \\left( \\frac{27}{3} - 0 \\right) = 1$$\n$$c(9) = 1$$\n$$c = \\frac{1}{9}$$",
+      "difficulty": "hard"
+    }
+  ]
+}

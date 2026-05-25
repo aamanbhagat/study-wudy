@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-directory-structure-tree-dag-hard-links-symbolic-links",
+  "subtopicTitle": "Directory structure — tree, DAG (hard links, symbolic links)",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:13.092Z",
+  "cards": [
+    {
+      "front": "What is the fundamental structure used to organize files and directories in most modern operating systems, and what characteristic defines it?",
+      "back": "The fundamental structure is a **tree structure**. It is a hierarchical structure where each directory (node) has exactly one parent, except for the root, and there are no cycles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a typical Unix-like file system, if you create a hard link to an existing file, what happens to the file's inode and data blocks?",
+      "back": "A hard link creates a new directory entry that points to the *same* inode as the original file. The inode's reference count (link count) is incremented. The data blocks themselves are not duplicated; both links refer to the identical data on disk.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary limitation of a strict tree-based directory structure that leads to the need for more complex structures like Directed Acyclic Graphs (DAGs)?",
+      "back": "A strict tree structure prevents a file or directory from appearing in multiple locations simultaneously without physically duplicating its content. This makes sharing files across different parts of the hierarchy cumbersome and inefficient.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe how a symbolic link (soft link) differs from a hard link in terms of how it stores the 'link' and its ability to span filesystems.",
+      "back": "A symbolic link is a special file that contains the *path* to another file or directory. It has its own unique inode. Unlike hard links, symbolic links can point to files or directories on different filesystems because they store a path string, not a direct inode reference.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a file `original.txt` with a hard link `hardlink.txt` and a symbolic link `softlink.txt`. If `original.txt` is deleted, what is the status of `hardlink.txt` and `softlink.txt`?",
+      "back": "1. `hardlink.txt`: Remains valid and accessible. The file data is only deleted when its inode's reference count drops to zero. Deleting `original.txt` decrements the count, but `hardlink.txt` still points to the data.\n2. `softlink.txt`: Becomes a \"dangling link\" or \"broken link.\" It still exists as a file containing the path \"original.txt\", but the target file no longer exists, so attempts to access it will fail.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you identify if a given file path, say `/path/to/item`, is a symbolic link using a common Unix command?",
+      "back": "The `ls -l` command is commonly used. If `/path/to/item` is a symbolic link, its listing will show `l` at the beginning of the permissions (e.g., `lrwxrwxrwx`) and will typically display `-> target_path` after its name.\n```bash\nls -l /path/to/item\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why hard links cannot typically be created for directories in Unix-like systems, even though they are allowed for regular files.",
+      "back": "Allowing hard links to directories could create cycles in the directory graph, violating the Directed Acyclic Graph (DAG) property that the file system relies on for traversal and integrity. Such cycles would make it impossible for utilities like `du` (disk usage) to correctly calculate sizes, and could lead to infinite loops during recursive operations (e.g., `rm -rf`). It would also complicate maintaining the 'parent' (`..`) entries and ensuring a consistent filesystem state.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You need to create a link to a file located on a different mounted filesystem. Which type of link, hard or symbolic, must you use and why?",
+      "back": "You must use a **symbolic link**. Hard links can only refer to inodes within the same filesystem because an inode number is unique only within its own filesystem. Symbolic links, by contrast, store a path string, which can point to any location accessible via the filesystem hierarchy, regardless of which physical filesystem it resides on.",
+      "difficulty": "medium"
+    }
+  ]
+}

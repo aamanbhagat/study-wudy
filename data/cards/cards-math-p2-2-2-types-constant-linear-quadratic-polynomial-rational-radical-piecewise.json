@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-2-types-constant-linear-quadratic-polynomial-rational-radical-piecewise",
+  "subtopicTitle": "Types — constant, linear, quadratic, polynomial, rational, radical, piecewise",
+  "topicId": "math-p2-2-2-functions",
+  "topicTitle": "Functions",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:26.583Z",
+  "cards": [
+    {
+      "front": "Define a constant function and describe its graph.",
+      "back": "A constant function is of the form $f(x) = c$, where $c$ is a real number. Its graph is a horizontal line in the Cartesian plane, passing through the y-axis at the point $(0, c)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the general form of a linear function, and what do its parameters $m$ and $b$ represent?",
+      "back": "The general form is $f(x) = mx + b$. Here, $m$ represents the slope of the line, which indicates the rate of change of $y$ with respect to $x$. The parameter $b$ represents the y-intercept, which is the point $(0, b)$ where the line crosses the y-axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the standard form of a quadratic function and describe how to find its vertex.",
+      "back": "The standard form of a quadratic function is $f(x) = ax^2 + bx + c$, where $a \\neq 0$. The graph of a quadratic function is a parabola. The x-coordinate of the vertex is given by the formula $x = -\\frac{b}{2a}$. The y-coordinate of the vertex is found by substituting this x-value back into the function: $y = f\\left(-\\frac{b}{2a}\\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a polynomial function of degree $n$ and explain the \"leading term test\" for end behavior.",
+      "back": "A polynomial function of degree $n$ is defined as $P(x) = a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0$, where $a_n \\neq 0$, and $n$ is a non-negative integer. The \"leading term test\" states that the end behavior of a polynomial function (as $x \\to \\pm\\infty$) is determined solely by its leading term, $a_n x^n$. For example, if $n$ is even and $a_n > 0$, then $P(x) \\to \\infty$ as $x \\to \\pm\\infty$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find the domain and vertical asymptotes of a rational function $f(x) = \\frac{N(x)}{D(x)}$?",
+      "back": "The domain of a rational function consists of all real numbers for which the denominator $D(x)$ is not equal to zero. To find vertical asymptotes, first simplify the function by canceling any common factors between the numerator $N(x)$ and the denominator $D(x)$. Then, set the denominator of the *simplified* function equal to zero and solve for $x$. These $x$-values are the equations of the vertical asymptotes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the domain of the radical function $f(x) = \\sqrt{5-3x}$?",
+      "back": "For the function $f(x) = \\sqrt{5-3x}$ to be defined in the set of real numbers, the expression under the square root must be non-negative. Therefore, we set up the inequality:\n$$5-3x \\ge 0$$\n$$-3x \\ge -5$$\n$$x \\le \\frac{-5}{-3}$$\n$$x \\le \\frac{5}{3}$$\nThe domain of the function is $\\left(-\\infty, \\frac{5}{3}\\right]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $f(x) = \\begin{cases} x^2 & \\text{if } x < 0 \\\\ x+1 & \\text{if } x \\ge 0 \\end{cases}$, evaluate $f(-2)$, $f(0)$, and $f(3)$.",
+      "back": "To evaluate a piecewise function, determine which condition the input value satisfies and use the corresponding rule:\n*   For $f(-2)$: Since $-2 < 0$, use the first rule: $f(-2) = (-2)^2 = 4$.\n*   For $f(0)$: Since $0 \\ge 0$, use the second rule: $f(0) = 0+1 = 1$.\n*   For $f(3)$: Since $3 \\ge 0$, use the second rule: $f(3) = 3+1 = 4$.",
+      "difficulty": "medium"
+    }
+  ]
+}

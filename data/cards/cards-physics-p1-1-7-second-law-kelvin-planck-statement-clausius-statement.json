@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-7-second-law-kelvin-planck-statement-clausius-statement",
+  "subtopicTitle": "Second law — Kelvin-Planck statement, Clausius statement",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:18.273Z",
+  "cards": [
+    {
+      "front": "State the Kelvin-Planck statement of the Second Law of Thermodynamics.",
+      "back": "It is impossible for any device that operates on a cycle to receive heat from a single thermal reservoir and produce a net amount of work.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Clausius statement of the Second Law of Thermodynamics.",
+      "back": "It is impossible to construct a device that operates in a cycle and produces no effect other than the transfer of heat from a cooler body to a hotter body.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What type of hypothetical machine is directly forbidden by the Kelvin-Planck statement?",
+      "back": "A perpetual motion machine of the second kind (PMM2). This machine would continuously extract heat from a single reservoir and convert it entirely into work, achieving 100% thermal efficiency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A refrigerator is left unplugged in a warm room, yet it somehow cools its contents and warms the room further. Which statement of the Second Law does this violate?",
+      "back": "This violates the Clausius statement. The refrigerator is transferring heat from a cooler body (its contents) to a hotter body (the room) without any work input, which is impossible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a violation of the Kelvin-Planck statement implies a violation of the Clausius statement.",
+      "back": "If the Kelvin-Planck statement is violated, a device (PMM2) can take heat $Q_H$ from a single reservoir $T_H$ and convert it entirely into work $W = Q_H$. This work $W$ can then be used to drive a reversible refrigerator operating between $T_L$ and $T_H$. This refrigerator takes heat $Q_L$ from $T_L$ and rejects $Q_H' = Q_L + W$ to $T_H$. By coupling the PMM2 and the refrigerator, the net effect is that the system takes $Q_L$ from $T_L$ and transfers it to $T_H$ (since $Q_H$ from PMM2 is offset by $Q_H'$ to refrigerator, resulting in net $Q_H' - Q_H = Q_L + W - W = Q_L$ transferred to $T_H$) without any net work input, which violates the Clausius statement.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how a violation of the Clausius statement implies a violation of the Kelvin-Planck statement.",
+      "back": "If the Clausius statement is violated, a device can transfer heat $Q_L$ from a cold reservoir $T_L$ to a hot reservoir $T_H$ without any work input. This device can be coupled with a normal heat engine operating between $T_H$ and $T_L$. The engine takes $Q_H'$ from $T_H$, rejects $Q_L'$ to $T_L$, and produces work $W = Q_H' - Q_L'$. If we adjust the engine such that $Q_L' = Q_L$, the net effect on the cold reservoir $T_L$ is zero. The combined system then takes a net heat $Q_{net,H} = Q_H' - Q_L$ from the single hot reservoir $T_H$ and produces an equal amount of work $W = Q_H' - Q_L$. This converts heat from a single reservoir entirely into work, violating the Kelvin-Planck statement.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the maximum theoretical efficiency of a heat engine operating between a hot reservoir at $T_H$ and a cold reservoir at $T_L$?",
+      "back": "The maximum theoretical efficiency is the Carnot efficiency: $\\eta_{max} = 1 - \\frac{T_L}{T_H}$, where $T_H$ and $T_L$ are absolute temperatures (in Kelvin). This is a direct consequence of the Second Law, implying no engine can be more efficient than a reversible Carnot engine.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "From the perspective of the Kelvin-Planck statement, why must a heat engine reject some heat to a cold reservoir to produce net work?",
+      "back": "To operate in a cycle and produce net work, a heat engine must have a temperature difference across which heat can flow. Without a cold reservoir to reject some heat to, the working fluid cannot return to its initial state to complete the cycle and extract more work. Rejecting heat allows the cycle to continue, ensuring that not all absorbed heat is converted to work, thus upholding the Kelvin-Planck statement.",
+      "difficulty": "medium"
+    }
+  ]
+}

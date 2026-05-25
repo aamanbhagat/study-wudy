@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p1-1-1-division-long-division-remainder-dividend-divisor-quotient-vocabulary",
+  "subtopicTitle": "Division — long division, remainder, dividend/divisor/quotient vocabulary",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:40.746Z",
+  "cards": [
+    {
+      "front": "In the expression $a \\div b = q$ with a remainder $r$, identify the terms $a, b, q, r$.",
+      "back": "$a$ is the **dividend**.\n$b$ is the **divisor**.\n$q$ is the **quotient**.\n$r$ is the **remainder**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Division Algorithm, expressing the relationship between dividend ($a$), divisor ($b$), quotient ($q$), and remainder ($r$). What are the conditions on $r$?",
+      "back": "For any integers $a$ (dividend) and $b$ (divisor) with $b > 0$, there exist unique integers $q$ (quotient) and $r$ (remainder) such that:\n$$a = bq + r$$\nwhere $0 \\le r < b$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using long division, find the quotient and remainder for $123 \\div 5$.",
+      "back": "```\n  24\n5|123\n  -10\n  ---\n   23\n  -20\n  ---\n    3\n```\nQuotient $q = 24$, Remainder $r = 3$.\nCheck: $5 \\times 24 + 3 = 120 + 3 = 123$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the remainder of a division $a \\div b$ is $0$, what does this imply about $b$ and $a$?",
+      "back": "If the remainder is $0$, it means $b$ is a **factor** of $a$ (or $a$ is **divisible** by $b$). In this case, $a = bq$ for some integer $q$, meaning $a$ is an exact multiple of $b$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is division by zero ($a \\div 0$) undefined?",
+      "back": "Assume $a \\div 0 = q$. This implies $a = 0 \\times q$.\n1. If $a \\ne 0$: Then $a = 0 \\times q$ means $a = 0$, which contradicts $a \\ne 0$. So no solution for $q$.\n2. If $a = 0$: Then $0 = 0 \\times q$. This equation is true for *any* value of $q$. Since $q$ is not unique, the operation is undefined.\nTherefore, division by zero is undefined because it either leads to a contradiction or has infinitely many solutions, violating the uniqueness requirement of an operation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a dividend is $157$, the quotient is $12$, and the remainder is $1$, what is the divisor?",
+      "back": "Using the Division Algorithm $a = bq + r$:\n$157 = b \\times 12 + 1$\n$157 - 1 = 12b$\n$156 = 12b$\n$b = \\frac{156}{12}$\n$b = 13$\nThe divisor is $13$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively, or prove, why the remainder ($r$) must always be less than the divisor ($b$) in the Division Algorithm ($0 \\le r < b$).",
+      "back": "The remainder represents the 'leftover' amount after dividing the dividend into as many full groups of the divisor as possible. If $r \\ge b$, it means we could have formed at least one more full group of $b$ from the remainder. For example, if we divide $10$ by $3$ and get a quotient of $2$ with a remainder of $4$ ($10 = 3 \\times 2 + 4$), this is incorrect because we can take another $3$ from $4$, leaving $1$. The correct quotient is $3$ with a remainder of $1$ ($10 = 3 \\times 3 + 1$). The process of division continues until the amount left over is too small to form another full group of the divisor, which means the remainder must be strictly less than the divisor.",
+      "difficulty": "hard"
+    }
+  ]
+}

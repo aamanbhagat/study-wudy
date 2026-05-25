@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-freertos-ipc-queues-semaphores-mutexes-event-groups",
+  "subtopicTitle": "FreeRTOS IPC — queues, semaphores, mutexes, event groups",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:15.959Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Inter-Process Communication (IPC) in an RTOS like FreeRTOS?",
+      "back": "IPC in FreeRTOS enables different tasks and Interrupt Service Routines (ISRs) to exchange data, synchronize their execution, and manage shared resources safely.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Distinguish between a FreeRTOS binary semaphore and a counting semaphore.",
+      "back": "A **binary semaphore** has a maximum count of 1 (0 or 1), typically used for mutual exclusion (like a mutex, but simpler) or simple task synchronization/signaling. A **counting semaphore** can have an arbitrary maximum count, used for managing a limited number of resources or signaling multiple events.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When would you choose a FreeRTOS Queue over a Counting Semaphore for inter-task communication?",
+      "back": "Use a **FreeRTOS Queue** when tasks need to exchange actual data (e.g., sensor readings, command structures) in a FIFO manner. Use a **Counting Semaphore** when tasks only need to signal events or track the availability of a limited number of identical resources, without passing specific data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the role of the `xTicksToWait` parameter in FreeRTOS IPC functions like `xQueueReceive`.",
+      "back": "The `xTicksToWait` parameter specifies the maximum amount of time (in RTOS ticks) a calling task should remain in the Blocked state to wait for an item to become available (e.g., in a queue) or a resource to be freed (e.g., a semaphore).\n*   `0`: The function returns immediately if the operation cannot be performed.\n*   `portMAX_DELAY`: The task will block indefinitely until the operation can be performed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define 'priority inversion' in an RTOS and how FreeRTOS mutexes help mitigate it.",
+      "back": "**Priority inversion** occurs when a high-priority task is indirectly blocked by a lower-priority task holding a shared resource, while a medium-priority task preempts the lower-priority task, further delaying the high-priority task. FreeRTOS mutexes, by default, implement **priority inheritance**. When a high-priority task attempts to take a mutex held by a lower-priority task, the lower-priority task's priority is temporarily boosted to that of the waiting high-priority task, allowing it to complete its critical section faster and release the mutex.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a FreeRTOS code snippet to create a queue for 3 `uint32_t` values and send `0xDEADBEEF` to it from a task.",
+      "back": "```c\nQueueHandle_t xMyQueue;\nuint32_t ulValueToSend = 0xDEADBEEF;\n\n// Create the queue\nxMyQueue = xQueueCreate(3, sizeof(uint32_t));\n\nif (xMyQueue != NULL) {\n    // Send the value to the queue, blocking indefinitely if full\n    xQueueSend(xMyQueue, &ulValueToSend, portMAX_DELAY);\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is a FreeRTOS Event Group a better choice for task synchronization than multiple binary semaphores?",
+      "back": "Event Groups are superior when a task needs to wait for a *combination* of multiple distinct events (e.g., 'event A OR event B' or 'event C AND event D') to occur before proceeding. Using multiple binary semaphores for such complex logic would require cumbersome polling or nested blocking calls, whereas `xEventGroupWaitBits` allows waiting on a bitmask with logical AND/OR conditions in a single, efficient call.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary conceptual difference between a FreeRTOS mutex and a binary semaphore, beyond priority inheritance?",
+      "back": "While both can provide mutual exclusion, a **mutex** is designed for *resource ownership* and includes mechanisms like priority inheritance (as discussed) and deletion safety. A mutex can also be taken recursively by the *same task* that already holds it. A **binary semaphore** is primarily a simple signaling mechanism; it doesn't track ownership and typically should not be taken recursively by the same task, nor does it inherently prevent priority inversion without additional mechanisms.",
+      "difficulty": "medium"
+    }
+  ]
+}

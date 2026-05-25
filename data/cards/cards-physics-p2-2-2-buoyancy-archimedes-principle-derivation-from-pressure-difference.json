@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-buoyancy-archimedes-principle-derivation-from-pressure-difference",
+  "subtopicTitle": "Buoyancy — Archimedes' principle, derivation from pressure difference",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:32.704Z",
+  "cards": [
+    {
+      "front": "Define buoyancy.",
+      "back": "Buoyancy is the upward force exerted by a fluid that opposes the weight of an immersed object.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Archimedes' Principle.",
+      "back": "Archimedes' Principle states that any object, wholly or partially immersed in a fluid, is buoyed up by a force equal to the weight of the fluid displaced by the object.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for buoyant force ($F_B$)? Define each term.",
+      "back": "$F_B = \\rho_f V_d g$, where:\n- $\\rho_f$ is the density of the fluid.\n- $V_d$ is the volume of the displaced fluid (which is the volume of the submerged part of the object).\n- $g$ is the acceleration due to gravity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a submerged cylinder in a fluid, what are the vertical forces acting on its top and bottom surfaces due to fluid pressure?",
+      "back": "Let the cylinder have cross-sectional area $A$ and height $h$.\n- Force on top surface: $F_{top} = P_{top} A = (\\rho_f g y_1) A$, acting downwards.\n- Force on bottom surface: $F_{bottom} = P_{bottom} A = (\\rho_f g y_2) A$, acting upwards.\nWhere $y_1$ and $y_2$ are the depths of the top and bottom surfaces, respectively, from the fluid surface.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the buoyant force ($F_B$) on a fully submerged cylinder from the pressure difference between its top and bottom surfaces.",
+      "back": "Consider a cylinder of cross-sectional area $A$ and height $h$ fully submerged.\n1. Pressure at top surface (depth $y_1$): $P_1 = \\rho_f g y_1$.\n2. Pressure at bottom surface (depth $y_2 = y_1 + h$): $P_2 = \\rho_f g (y_1 + h)$.\n3. Force on top surface: $F_1 = P_1 A = \\rho_f g y_1 A$ (downwards).\n4. Force on bottom surface: $F_2 = P_2 A = \\rho_f g (y_1 + h) A$ (upwards).\n5. The net upward force (buoyant force) is $F_B = F_2 - F_1$.\n$F_B = \\rho_f g (y_1 + h) A - \\rho_f g y_1 A$\n$F_B = \\rho_f g A (y_1 + h - y_1)$\n$F_B = \\rho_f g A h$\nSince $A h$ is the volume of the cylinder, $V_c$, which is also the volume of the displaced fluid, $V_d$, we have:\n$F_B = \\rho_f g V_d$. This is the weight of the displaced fluid.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An object floats if its average density is ______ than the fluid's density, sinks if it's ______ than, and is neutrally buoyant if it's ______ to.",
+      "back": "An object floats if its average density is **less** than the fluid's density, sinks if it's **greater** than, and is neutrally buoyant if it's **equal** to.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why an object feels lighter when submerged in a fluid, relating it to buoyant force.",
+      "back": "When an object is submerged in a fluid, the buoyant force acts upwards, directly opposing the object's actual weight (gravitational force) acting downwards. The \"apparent weight\" of the object is its actual weight minus the buoyant force ($W_{apparent} = W_{actual} - F_B$). Since $F_B$ reduces the net downward force, the object feels lighter.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A wooden block of volume $V = 0.01 \\text{ m}^3$ and density $\\rho_w = 700 \\text{ kg/m}^3$ floats in water ($\\rho_f = 1000 \\text{ kg/m}^3$). What volume of the block is submerged?",
+      "back": "For a floating object, the buoyant force equals the object's weight: $F_B = W_{object}$.\n$\\rho_f V_d g = \\rho_w V g$\n$V_d = \\frac{\\rho_w V}{\\rho_f}$\n$V_d = \\frac{700 \\text{ kg/m}^3 \\times 0.01 \\text{ m}^3}{1000 \\text{ kg/m}^3}$\n$V_d = 0.007 \\text{ m}^3$.\nSo, $0.007 \\text{ m}^3$ (or 70% of the block's volume) is submerged.",
+      "difficulty": "medium"
+    }
+  ]
+}

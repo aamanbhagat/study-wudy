@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-5-bellman-ford-algorithm-dp-approach-negative-cycles-detection-o-ve",
+  "subtopicTitle": "Bellman-Ford algorithm — DP approach, negative cycles detection, O(VE)",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:15.028Z",
+  "cards": [
+    {
+      "front": "The Bellman-Ford algorithm finds the Single-Source Shortest Path (SSSP) in a graph with _______, unlike Dijkstra's which requires _______.",
+      "back": "The Bellman-Ford algorithm finds the Single-Source Shortest Path (SSSP) in a graph with **negative edge weights**, unlike Dijkstra's which requires **non-negative edge weights**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Bellman-Ford DP recurrence for updating the shortest distance to a vertex $v$ from source $s$ via an edge $(u, v)$ with weight $w(u,v)$.",
+      "back": "The core DP recurrence for Bellman-Ford is:\n$$dist[v] = \\min(dist[v], dist[u] + w(u,v))$$\nThis means the shortest distance to $v$ is either its current shortest distance or the shortest distance to $u$ plus the weight of the edge from $u$ to $v$. This relaxation step is applied for all edges repeatedly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The Bellman-Ford algorithm performs $V-1$ iterations of relaxing all edges because...",
+      "back": "The Bellman-Ford algorithm performs $V-1$ iterations because, in a shortest path with no negative cycles, a simple path can have at most $V-1$ edges. Each iteration guarantees that shortest paths involving one more edge are found. After $k$ iterations, all shortest paths with up to $k$ edges are guaranteed to be found. Thus, $V-1$ iterations ensure all shortest paths are found.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how Bellman-Ford detects a negative cycle and explain why such a cycle makes SSSP undefined.",
+      "back": "After $V-1$ iterations, if we can still relax any edge $(u, v)$ such that $dist[u] + w(u,v) < dist[v]$, then a negative cycle exists. This is because all shortest paths (with at most $V-1$ edges) should have been found. If a path can still be shortened, it means traversing a cycle further decreases the path length indefinitely. In such cases, the SSSP to any node reachable from the negative cycle is undefined (approaches $-\\infty$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "The time complexity of Bellman-Ford is _______ because it performs _______ iterations, and in each iteration, it _______. ",
+      "back": "The time complexity of Bellman-Ford is $\\mathcal{O}(VE)$ because it performs $V-1$ iterations (which is $\\mathcal{O}(V)$), and in each iteration, it relaxes all $E$ edges. Thus, $\\mathcal{O}(V) \\times \\mathcal{O}(E) = \\mathcal{O}(VE)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Fill in the blanks to complete the core Bellman-Ford algorithm pseudocode for calculating shortest distances from a source `s`.",
+      "back": "```\nfunction BellmanFord(graph, source):\n    dist = array of size V, initialized to infinity\n    dist[source] = 0\n\n    for i from 1 to V-1:\n        for each edge (u, v, weight) in graph:\n            if dist[u] + weight < dist[v]:\n                dist[v] = dist[u] + weight\n\n    // Check for negative cycles\n    for each edge (u, v, weight) in graph:\n        if dist[u] + weight < dist[v]:\n            return \"Graph contains a negative cycle\"\n\n    return dist\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To reconstruct the shortest path from the source to a target node $t$ after running Bellman-Ford, what additional data structure is typically maintained, and how is it used?",
+      "back": "To reconstruct the path, a `predecessor` (or `parent`) array/map is typically maintained. When $dist[u] + w(u,v)$ updates $dist[v]$, we also set $predecessor[v] = u$. After the algorithm finishes, we can reconstruct the path by starting from the target node $t$ and repeatedly moving to $predecessor[current\\_node]$ until the source node is reached. The path is then the reverse of this sequence of nodes.",
+      "difficulty": "hard"
+    }
+  ]
+}

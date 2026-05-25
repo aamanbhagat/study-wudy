@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-parametric-differentiation-dy-dx-d-y-dx",
+  "subtopicTitle": "Parametric differentiation — dy/dx, d²y/dx²",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:02.526Z",
+  "cards": [
+    {
+      "front": "When is parametric differentiation useful, and what does it mean to express $x$ and $y$ parametrically?",
+      "back": "Parametric differentiation is useful when $y$ cannot be easily expressed as a function of $x$ (or vice versa), but both $x$ and $y$ can be expressed as functions of a third variable, $t$ (the parameter). This means we have $x=f(t)$ and $y=g(t)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for $\\frac{dy}{dx}$ when $x=f(t)$ and $y=g(t)$, and explain its derivation using the chain rule.",
+      "back": "The formula is $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$, provided that $\\frac{dx}{dt} \\neq 0$. It's derived from the chain rule: if $y$ is a function of $x$, and $x$ is a function of $t$, then $\\frac{dy}{dt} = \\frac{dy}{dx} \\cdot \\frac{dx}{dt}$. Rearranging for $\\frac{dy}{dx}$ gives the formula.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $x = 4\\cos t$ and $y = 3\\sin t$, find $\\frac{dy}{dx}$.",
+      "back": "First, find the derivatives with respect to $t$:\n$\\frac{dx}{dt} = \\frac{d}{dt}(4\\cos t) = -4\\sin t$\n$\\frac{dy}{dt} = \\frac{d}{dt}(3\\sin t) = 3\\cos t$\nNow, apply the formula for $\\frac{dy}{dx}$:\n$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt} = \\frac{3\\cos t}{-4\\sin t} = -\\frac{3}{4}\\cot t$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does $\\frac{d^2y}{dx^2}$ represent intuitively in the context of parametric equations?",
+      "back": "Intuitively, $\\frac{d^2y}{dx^2}$ represents the rate of change of the slope ($\\frac{dy}{dx}$) with respect to $x$. Geometrically, it describes the concavity of the curve defined by the parametric equations. A positive value indicates concave up, and a negative value indicates concave down.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for $\\frac{d^2y}{dx^2}$ in terms of $t$ when $x=f(t)$ and $y=g(t)$.",
+      "back": "We know $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$. To find $\\frac{d^2y}{dx^2}$, we need to differentiate $\\frac{dy}{dx}$ with respect to $x$. Using the chain rule, $\\frac{d}{dx} = \\frac{d}{dt} \\cdot \\frac{dt}{dx}$. Since $\\frac{dt}{dx} = \\frac{1}{dx/dt}$, we get:\n$\\frac{d^2y}{dx^2} = \\frac{d}{dx}\\left(\\frac{dy}{dx}\\right) = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}\\left(\\frac{dy}{dx}\\right)}{\\frac{dx}{dt}}$.\nThis is the formula: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{1}{dx/dt}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $x = t^3$ and $y = t^2$, find $\\frac{d^2y}{dx^2}$.",
+      "back": "1. Find $\\frac{dy}{dx}$:\n   $\\frac{dx}{dt} = 3t^2$\n   $\\frac{dy}{dt} = 2t$\n   $\\frac{dy}{dx} = \\frac{2t}{3t^2} = \\frac{2}{3t}$\n2. Find $\\frac{d}{dt}\\left(\\frac{dy}{dx}\\right)$:\n   $\\frac{d}{dt}\\left(\\frac{2}{3t}\\right) = \\frac{d}{dt}\\left(\\frac{2}{3}t^{-1}\\right) = -\\frac{2}{3}t^{-2} = -\\frac{2}{3t^2}$\n3. Apply the formula for $\\frac{d^2y}{dx^2}$:\n   $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}\\left(\\frac{dy}{dx}\\right)}{\\frac{dx}{dt}} = \\frac{-2/(3t^2)}{3t^2} = -\\frac{2}{9t^4}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What condition must be met for $\\frac{dy}{dx}$ and $\\frac{d^2y}{dx^2}$ to be defined in parametric differentiation? What happens if this condition is not met?",
+      "back": "For both $\\frac{dy}{dx}$ and $\\frac{d^2y}{dx^2}$ to be defined, we must have $\\frac{dx}{dt} \\neq 0$. If $\\frac{dx}{dt} = 0$ at a certain value of $t$, it means that the tangent to the curve is vertical at that point. In such cases, $\\frac{dy}{dx}$ (and consequently $\\frac{d^2y}{dx^2}$) is undefined, indicating a vertical tangent where the curve's slope is infinite.",
+      "difficulty": "medium"
+    }
+  ]
+}

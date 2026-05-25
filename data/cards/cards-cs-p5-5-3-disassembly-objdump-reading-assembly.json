@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-disassembly-objdump-reading-assembly",
+  "subtopicTitle": "Disassembly — objdump, reading assembly",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:27.084Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of 'disassembly' in computer science?",
+      "back": "Disassembly is the process of translating machine code (binary instructions) back into human-readable assembly language. Its primary purpose is to understand the low-level execution flow of a program, often used for debugging, reverse engineering, security analysis, or performance optimization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which `binutils` command is commonly used on Linux to disassemble an executable or object file, and what is its most common flag for this purpose?",
+      "back": "The `objdump` command. The most common flag for disassembling all executable sections is `-d` (or `--disassemble`). For example:\n```bash\nobjdump -d my_program\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given the `objdump` output line `0x40052d: 89 f8 mov %edi,%eax`, identify the: 1. Memory Address, 2. Machine Code (Opcode), 3. Assembly Mnemonic, 4. Operands.",
+      "back": "1. **Memory Address:** `0x40052d` (the virtual memory address where the instruction resides).\n2. **Machine Code (Opcode):** `89 f8` (the raw hexadecimal bytes representing the instruction).\n3. **Assembly Mnemonic:** `mov` (the human-readable instruction name).\n4. **Operands:** `%edi,%eax` (the source and destination registers for the `mov` instruction).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Match the x86-64 assembly instruction with its high-level function: `mov`, `add`, `sub`, `call`, `ret`.\nA) Function return\nB) Arithmetic addition\nC) Move data\nD) Function call\nE) Arithmetic subtraction",
+      "back": "C) `mov` - Move data\nB) `add` - Arithmetic addition\nE) `sub` - Arithmetic subtraction\nD) `call` - Function call\nA) `ret` - Function return",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In x86-64 assembly, what are the primary roles of the `%rsp` and `%rbp` registers, and what do they typically point to?",
+      "back": "`%rsp` (Stack Pointer) points to the *top* of the current stack frame (the lowest memory address of the current stack frame). It is decremented for `push` operations and incremented for `pop` operations.\n`%rbp` (Base Pointer) typically points to the *base* of the current stack frame (a fixed reference point within the frame), often used for accessing function arguments and local variables relative to a stable address.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the effect of the `push %rax` instruction on the `%rsp` register and the stack memory, assuming a downward-growing stack.",
+      "back": "When `push %rax` is executed:\n1. The `%rsp` (Stack Pointer) register is decremented by 8 (the size of a 64-bit register).\n2. The 64-bit value currently stored in the `%rax` register is then written to the memory address now pointed to by the *new* `%rsp`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the `cmp` instruction typically works with a conditional jump instruction like `je` (jump if equal) to implement conditional logic in x86-64 assembly.",
+      "back": "The `cmp` (compare) instruction performs a subtraction of its second operand from its first operand, but *discards the result*. Instead, it sets various CPU flags (e.g., Zero Flag, Sign Flag, Carry Flag) based on the comparison. A subsequent conditional jump instruction, like `je` (jump if equal), then inspects these flags. If the Zero Flag is set (meaning the operands were equal, making their difference zero), `je` will transfer control to the specified target address; otherwise, execution continues to the next instruction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical sequence of instructions found at the beginning (prologue) and end (epilogue) of a function in x86-64 assembly, and what is their purpose?",
+      "back": "A typical **prologue** sequence:\n```assembly\npush %rbp       ; Save caller's base pointer\nmov %rsp, %rbp  ; Set current stack pointer as new base pointer\nsub $0xN, %rsp  ; Allocate space for local variables (optional)\n```\nPurpose: To set up a new stack frame for the function, save the caller's `%rbp`, and reserve space for local variables.\n\nA typical **epilogue** sequence:\n```assembly\nleave           ; Equivalent to: mov %rbp, %rsp; pop %rbp\nret             ; Return to caller\n```\nPurpose: To restore the caller's stack frame and return control to the calling function.",
+      "difficulty": "hard"
+    }
+  ]
+}

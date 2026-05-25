@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-logistic-regression-sigmoid-cross-entropy-loss",
+  "subtopicTitle": "Logistic regression — sigmoid, cross-entropy loss",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:34.420Z",
+  "cards": [
+    {
+      "front": "What is the primary problem type that Logistic Regression is designed to solve in Machine Learning?",
+      "back": "Logistic Regression is primarily used for **binary classification** problems, where the goal is to predict one of two possible outcomes (e.g., 'yes' or 'no', 'spam' or 'not spam').",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical formula for the sigmoid function, $\\sigma(z)$, which is central to Logistic Regression.",
+      "back": "The sigmoid function is defined as: $$\\sigma(z) = \\frac{1}{1 + e^{-z}}$$ It maps any real-valued input $z$ to a value between 0 and 1, making it suitable for interpreting as a probability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why the sigmoid function is crucial in Logistic Regression for transforming the linear model output into a probability.",
+      "back": "The sigmoid function takes the real-valued output of a linear model ($z = w^T x + b$) and squashes it into the range $[0, 1]$. This output can then be directly interpreted as the probability of the positive class ($P(y=1|x)$), which is essential for classification tasks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is Mean Squared Error (MSE) generally not used as a loss function for Logistic Regression, especially when combined with the sigmoid activation?",
+      "back": "When MSE is used with the sigmoid activation, the resulting loss function becomes non-convex. This means it has multiple local minima, making it difficult for gradient descent algorithms to find the global optimum and converge effectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the binary cross-entropy loss function, $L(y, \\hat{y})$, for a single training example, where $y$ is the true label (0 or 1) and $\\hat{y}$ is the predicted probability.",
+      "back": "The binary cross-entropy loss function is: $$L(y, \\hat{y}) = -[y \\log(\\hat{y}) + (1-y) \\log(1-\\hat{y})]$$ This function is convex when used with the sigmoid activation, ensuring that gradient descent can find the global minimum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain how binary cross-entropy loss penalizes incorrect predictions in Logistic Regression.",
+      "back": "Binary cross-entropy heavily penalizes confident wrong predictions. If the true label $y=1$ but the model predicts a very low probability $\\hat{y} \\approx 0$, the $-\\log(\\hat{y})$ term becomes very large. Conversely, if $y=0$ but $\\hat{y} \\approx 1$, the $-\\log(1-\\hat{y})$ term becomes very large. When predictions are correct (e.g., $y=1, \\hat{y} \\approx 1$), the loss approaches zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the gradient of the binary cross-entropy loss with respect to the input to the sigmoid function, $z$, assuming $\\hat{y} = \\sigma(z)$.",
+      "back": "Given $L = -[y \\log(\\hat{y}) + (1-y) \\log(1-\\hat{y})]$ and $\\hat{y} = \\frac{1}{1+e^{-z}}$.\nWe need $\\frac{\\partial L}{\\partial z}$.\n1. $\\frac{\\partial L}{\\partial \\hat{y}} = -\\left[\\frac{y}{\\hat{y}} - \\frac{1-y}{1-\\hat{y}}\\right] = -\\left[\\frac{y(1-\\hat{y}) - (1-y)\\hat{y}}{\\hat{y}(1-\\hat{y})}\\right] = \\frac{\\hat{y} - y}{\\hat{y}(1-\\hat{y})}$\n2. $\\frac{\\partial \\hat{y}}{\\partial z} = \\frac{\\partial}{\\partial z}(1+e^{-z})^{-1} = -1(1+e^{-z})^{-2}(-e^{-z}) = \\frac{e^{-z}}{(1+e^{-z})^2} = \\hat{y}(1-\\hat{y})$\nUsing the chain rule: $\\frac{\\partial L}{\\partial z} = \\frac{\\partial L}{\\partial \\hat{y}} \\cdot \\frac{\\partial \\hat{y}}{\\partial z} = \\frac{\\hat{y} - y}{\\hat{y}(1-\\hat{y})} \\cdot \\hat{y}(1-\\hat{y}) = \\hat{y} - y$.\nThis simple gradient makes optimization efficient.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a sigmoid output $\\hat{y}$, how is the final binary classification (0 or 1) typically determined in Logistic Regression?",
+      "back": "The final binary classification is typically determined by applying a threshold, usually 0.5. If $\\hat{y} \\ge 0.5$, the model predicts the positive class (1); otherwise, it predicts the negative class (0). This threshold corresponds to the point where the linear model output $z = w^T x + b$ is equal to 0.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-1-average-velocity-vs-instantaneous-velocity",
+  "subtopicTitle": "Average velocity vs instantaneous velocity",
+  "topicId": "physics-p1-1-1-measurement-vectors-kinematics",
+  "topicTitle": "Measurement, Vectors & Kinematics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:04.831Z",
+  "cards": [
+    {
+      "front": "Define average velocity and provide its formula.",
+      "back": "Average velocity is the total displacement ($\\Delta \\vec{r}$) divided by the total time interval ($\\Delta t$) over which the displacement occurred. It represents the overall rate of change of position.\nFormula: $\\vec{v}_{avg} = \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{\\vec{r}_f - \\vec{r}_i}{t_f - t_i}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define instantaneous velocity and provide its formula.",
+      "back": "Instantaneous velocity is the velocity of an object at a specific moment in time. It describes how fast an object is moving and in what direction at that precise instant.\nFormula: $\\vec{v}(t) = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "On a position-time graph, what does the slope of a secant line between two points represent?",
+      "back": "The slope of a secant line connecting two points $(\\vec{r}_1, t_1)$ and $(\\vec{r}_2, t_2)$ on a position-time graph represents the **average velocity** over the time interval $\\Delta t = t_2 - t_1$. It is given by $\\frac{\\Delta \\vec{r}}{\\Delta t}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "On a position-time graph, what does the slope of the tangent line at a specific point represent?",
+      "back": "The slope of the tangent line at a specific point $(\\vec{r}(t), t)$ on a position-time graph represents the **instantaneous velocity** at that exact moment in time $t$. It is given by $\\frac{d\\vec{r}}{dt}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A car travels 100 km North in 2 hours, then 50 km South in 1 hour. What is its average velocity for the entire trip?",
+      "back": "Total displacement: $\\Delta \\vec{r} = (100 \\text{ km North}) + (50 \\text{ km South}) = 100 \\text{ km} - 50 \\text{ km} = 50 \\text{ km North}$.\nTotal time: $\\Delta t = 2 \\text{ hours} + 1 \\text{ hour} = 3 \\text{ hours}$.\nAverage velocity: $\\vec{v}_{avg} = \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{50 \\text{ km North}}{3 \\text{ hours}} \\approx 16.67 \\text{ km/h North}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the mathematical relationship between average velocity and instantaneous velocity using limits.",
+      "back": "Instantaneous velocity $\\vec{v}(t)$ is the limit of the average velocity as the time interval $\\Delta t$ approaches zero.\n$$ \\vec{v}(t) = \\lim_{\\Delta t \\to 0} \\frac{\\vec{r}(t + \\Delta t) - \\vec{r}(t)}{\\Delta t} $$\nThis limit is the definition of the derivative of the position vector $\\vec{r}(t)$ with respect to time $t$, i.e., $\\vec{v}(t) = \\frac{d\\vec{r}}{dt}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can an object have zero average velocity but non-zero instantaneous velocity at various points? Provide an example.",
+      "back": "Yes. If an object starts at a certain position, moves, and then returns to its *exact starting position*, its total displacement ($\\Delta \\vec{r}$) will be zero. Consequently, its average velocity ($\\vec{v}_{avg} = \\frac{\\Delta \\vec{r}}{\\Delta t}$) will be zero, even though its instantaneous velocity was non-zero throughout most of the journey.\nExample: A car driving around a race track and finishing exactly where it started.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When are average velocity and instantaneous velocity numerically equal for a moving object?",
+      "back": "Average velocity and instantaneous velocity are numerically equal (and in the same direction) when an object moves with **constant velocity** (i.e., constant speed in a constant direction). In this specific case, the position-time graph is a straight line, and the slope of any secant line is equal to the slope of the tangent line at any point.",
+      "difficulty": "medium"
+    }
+  ]
+}

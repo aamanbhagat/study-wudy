@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-8-series-and-parallel-capacitors-derivations",
+  "subtopicTitle": "Series and parallel capacitors — derivations",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:33.769Z",
+  "cards": [
+    {
+      "front": "What is the fundamental definition of capacitance, $C$, in terms of charge ($Q$) and potential difference ($V$)?",
+      "back": "Capacitance ($C$) is defined as the ratio of the magnitude of the charge ($Q$) stored on one of the plates to the magnitude of the potential difference ($V$) between the plates:\n$$C = \\frac{Q}{V}$$\nThe SI unit for capacitance is the Farad (F), which is equal to one Coulomb per Volt (C/V).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When capacitors are connected in parallel, which electrical quantity is common across all capacitors, and which quantity adds up?",
+      "back": "When capacitors are connected in parallel, the potential difference ($V$) across each capacitor is the same. The total charge ($Q_{total}$) stored in the combination is the sum of the charges on each individual capacitor ($Q_1 + Q_2 + ... + Q_n$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the equivalent capacitance ($C_{eq}$) of $n$ capacitors connected in parallel.",
+      "back": "For capacitors in parallel, the total charge is the sum of individual charges, and the voltage across each is the same:\n$$Q_{total} = Q_1 + Q_2 + ... + Q_n$$\nSince $Q = CV$ and $V$ is common for all capacitors ($V_{total} = V_1 = V_2 = ... = V_n = V$):\n$$C_{eq}V = C_1V + C_2V + ... + C_nV$$\nDividing both sides by $V$ gives:\n$$C_{eq} = C_1 + C_2 + ... + C_n$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When capacitors are connected in series, which electrical quantity is common across all capacitors, and which quantity adds up?",
+      "back": "When capacitors are connected in series, the charge ($Q$) on each capacitor is the same. The total potential difference ($V_{total}$) across the combination is the sum of the potential differences across individual capacitors ($V_1 + V_2 + ... + V_n$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the equivalent capacitance ($C_{eq}$) of $n$ capacitors connected in series.",
+      "back": "For capacitors in series, the total potential difference is the sum of individual potential differences, and the charge on each is the same:\n$$V_{total} = V_1 + V_2 + ... + V_n$$\nSince $V = Q/C$ and $Q$ is common for all capacitors ($Q_{total} = Q_1 = Q_2 = ... = Q_n = Q$):\n$$\\frac{Q}{C_{eq}} = \\frac{Q}{C_1} + \\frac{Q}{C_2} + ... + \\frac{Q}{C_n}$$\nDividing both sides by $Q$ gives:\n$$\\frac{1}{C_{eq}} = \\frac{1}{C_1} + \\frac{1}{C_2} + ... + \\frac{1}{C_n}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Two capacitors, $C_1$ and $C_2$, are connected in series to a voltage source $V$. Derive the expression for the voltage across $C_1$ ($V_1$) in terms of $C_1, C_2,$ and $V$.",
+      "back": "For capacitors in series, the charge ($Q$) on each capacitor is the same. The equivalent capacitance is $C_{eq} = \\frac{C_1C_2}{C_1+C_2}$.\nThe total charge stored in the series combination is $Q = C_{eq}V = \\frac{C_1C_2}{C_1+C_2}V$.\nThe voltage across $C_1$ is $V_1 = \\frac{Q}{C_1}$.\nSubstituting the expression for $Q$:\n$$V_1 = \\frac{1}{C_1} \\left( \\frac{C_1C_2}{C_1+C_2}V \\right)$$\n$$V_1 = \\frac{C_2}{C_1+C_2}V$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If you want to store a large amount of charge with a limited voltage supply, would you connect capacitors in series or parallel? Explain.",
+      "back": "You would connect capacitors in **parallel**. \n\nIn parallel, the equivalent capacitance $C_{eq} = C_1 + C_2 + ... + C_n$ is greater than any individual capacitance. Since $Q = C_{eq}V$, a larger equivalent capacitance for a given voltage $V$ will store a greater total charge $Q$. Also, the voltage across each capacitor is the same as the supply voltage, so individual capacitors are not subjected to higher voltages than the source.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-10-tensor-analysis-scalars-vectors-rank-2-tensors",
+  "subtopicTitle": "Tensor analysis — scalars, vectors, rank-2 tensors",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:51.601Z",
+  "cards": [
+    {
+      "front": "In tensor analysis, define a scalar. How do its components transform under a coordinate transformation $x^i \\to \\bar{x}^j$?",
+      "back": "A scalar is a tensor of rank $(0,0)$. It is a quantity whose value is independent of the coordinate system. Its components remain unchanged under coordinate transformations: $\\bar{\\phi}(\\bar{x}) = \\phi(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a contravariant vector. Write its transformation rule for components $A^i$ under a coordinate change $x^i \\to \\bar{x}^j$.",
+      "back": "A contravariant vector (or vector) is a tensor of rank $(1,0)$. Its components $A^i$ transform as $\\bar{A}^j = \\frac{\\partial \\bar{x}^j}{\\partial x^i} A^i$. This describes how the components of a vector (e.g., position, velocity) change when the basis vectors change in the opposite direction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a covariant vector (covector). Write its transformation rule for components $A_i$ under a coordinate change $x^i \\to \\bar{x}^j$.",
+      "back": "A covariant vector (or covector) is a tensor of rank $(0,1)$. Its components $A_i$ transform as $\\bar{A}_j = \\frac{\\partial x^i}{\\partial \\bar{x}^j} A_i$. This describes how the components of a covector (e.g., a gradient) change when the basis covectors change in the same direction as the coordinate axes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a general rank-2 tensor. Write the transformation rule for a mixed tensor $T^i_j$ under $x^i \\to \\bar{x}^k$.",
+      "back": "A rank-2 tensor is a mathematical object with two indices, representing a linear map from vectors to covectors, covectors to vectors, or vectors to vectors. A mixed tensor $T^i_j$ (rank $(1,1)$) transforms as $\\bar{T}^k_l = \\frac{\\partial \\bar{x}^k}{\\partial x^i} \\frac{\\partial x^j}{\\partial \\bar{x}^l} T^i_j$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the transformation rule for a contravariant rank-2 tensor $T^{ij}$ from the definition of a contravariant vector.",
+      "back": "A contravariant rank-2 tensor $T^{ij}$ can be thought of as an outer product of two contravariant vectors, say $U^i$ and $V^j$, so $T^{ij} = U^i V^j$. The transformation for $U^i$ is $\\bar{U}^k = \\frac{\\partial \\bar{x}^k}{\\partial x^i} U^i$. The transformation for $V^j$ is $\\bar{V}^l = \\frac{\\partial \\bar{x}^l}{\\partial x^j} V^j$. Therefore, $\\bar{T}^{kl} = \\bar{U}^k \\bar{V}^l = \\left(\\frac{\\partial \\bar{x}^k}{\\partial x^i} U^i\\right) \\left(\\frac{\\partial \\bar{x}^l}{\\partial x^j} V^j\\right) = \\frac{\\partial \\bar{x}^k}{\\partial x^i} \\frac{\\partial \\bar{x}^l}{\\partial x^j} (U^i V^j) = \\frac{\\partial \\bar{x}^k}{\\partial x^i} \\frac{\\partial \\bar{x}^l}{\\partial x^j} T^{ij}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the difference between the outer product (tensor product) and the contraction operation for tensors.",
+      "back": "<ul><li><b>Outer Product (Tensor Product):</b> Combines two tensors to form a new tensor whose rank is the sum of the ranks of the original tensors. For example, if $U^i$ is a $(1,0)$-tensor and $V_j$ is a $(0,1)$-tensor, their outer product $P^i_j = U^i V_j$ is a $(1,1)$-tensor.</li><li><b>Contraction:</b> Reduces the rank of a tensor by two by summing over one contravariant and one covariant index. For example, contracting the mixed tensor $T^i_j$ yields a scalar $T^i_i = \\sum_i T^i_i$. This operation is only possible if the tensor has at least one contravariant and one covariant index.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why the metric tensor $g_{ij}$ is a covariant rank-2 tensor, relating it to the dot product of basis vectors.",
+      "back": "The metric tensor $g_{ij}$ defines the inner product (dot product) in a given coordinate system. Specifically, $g_{ij} = \\mathbf{e}_i \\cdot \\mathbf{e}_j$, where $\\mathbf{e}_i$ are the basis vectors. The dot product of two vectors $\\mathbf{A}$ and $\\mathbf{B}$ is $\\mathbf{A} \\cdot \\mathbf{B} = A^i B^j g_{ij}$. Since basis vectors $\\mathbf{e}_i$ transform covariantly (like covectors, $\\bar{\\mathbf{e}}_k = \\frac{\\partial x^j}{\\partial \\bar{x}^k} \\mathbf{e}_j$), their dot product $g_{ij}$ transforms with two covariant indices: $\\bar{g}_{kl} = \\frac{\\partial x^i}{\\partial \\bar{x}^k} \\frac{\\partial x^j}{\\partial \\bar{x}^l} g_{ij}$. This confirms it's a covariant rank-2 tensor. It measures distances and angles, which are coordinate-independent, but its components depend on the chosen basis.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-ext4-structure-superblock-block-groups-inodes",
+  "subtopicTitle": "ext4 structure — superblock, block groups, inodes",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:17.672Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the ext4 filesystem's superblock?",
+      "back": "It stores critical metadata about the entire filesystem, such as its total size, block size, number of free blocks/inodes, filesystem state, and pointers to the group descriptor table. It's essential for mounting and proper operation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Where is the primary ext4 superblock located, and why are backup superblocks crucial?",
+      "back": "The primary superblock is typically at block 0 (offset 1024 bytes from partition start). Backup superblocks are stored in other block groups (e.g., groups 1, 3, 5, 7, etc., depending on the `sparse_superblock` feature) to provide redundancy. If the primary is corrupted, a backup can be used for recovery, preventing data loss.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is an ext4 \"block group,\" and what problem does it help solve?",
+      "back": "A block group is a logical subdivision of the filesystem into smaller, manageable units. It helps solve performance and reliability issues by localizing related data (metadata and data blocks) and distributing metadata structures, reducing seek times and improving fault tolerance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the essential components found within an ext4 block group.",
+      "back": "Each block group typically contains:\n1.  **Block Group Descriptor Table (or part of it)**\n2.  **Block Bitmap**: Tracks free/used data blocks.\n3.  **Inode Bitmap**: Tracks free/used inodes.\n4.  **Inode Table**: Stores the actual inodes.\n5.  **Data Blocks**: Where file contents are stored.\n(Optionally, a backup superblock and its descriptor).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define an ext4 \"inode\" and specify what information it stores about a file.",
+      "back": "An inode (index node) is a data structure that stores all metadata about a regular file, directory, or other filesystem object. This includes file type, permissions, owner/group IDs, timestamps (creation, modification, access), file size, link count, and pointers to the data blocks that contain the file's actual content. It *does not* store the filename or the file's data itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how an ext4 inode uses direct and indirect pointers to locate a file's data blocks.",
+      "back": "An inode contains 15 pointers. The first 12 are **direct pointers**, each pointing to a data block. The 13th is a **single indirect pointer** (points to a block containing more direct pointers). The 14th is a **double indirect pointer** (points to a block containing single indirect pointers). The 15th is a **triple indirect pointer** (points to a block containing double indirect pointers). This scheme allows for very large files.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A user tries to create a new file on an ext4 filesystem but receives \"No space left on device,\" even though `df -h` shows ample free data space. What is the likely cause?",
+      "back": "The filesystem has likely run out of available inodes. Each file or directory requires exactly one inode. Even if there are plenty of free data blocks, if all inodes are allocated, no new files can be created. This often happens with applications that create many small files.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the distinct roles of the Block Bitmap and Inode Bitmap within an ext4 block group.",
+      "back": "The **Block Bitmap** is a bitmask where each bit corresponds to a data block within its block group. A `1` indicates the block is used, and `0` indicates it's free. It's used by the filesystem to allocate and deallocate data blocks efficiently.\nThe **Inode Bitmap** is similar, but each bit corresponds to an inode within its block group. A `1` means the inode is allocated (in use by a file/directory), and `0` means it's free. It's used for inode allocation.",
+      "difficulty": "medium"
+    }
+  ]
+}

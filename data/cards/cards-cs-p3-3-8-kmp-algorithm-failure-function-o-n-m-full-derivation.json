@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-8-kmp-algorithm-failure-function-o-n-m-full-derivation",
+  "subtopicTitle": "KMP algorithm — failure function, O(n+m) — full derivation",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:47.201Z",
+  "cards": [
+    {
+      "front": "What fundamental problem does the Knuth-Morris-Pratt (KMP) algorithm solve efficiently?",
+      "back": "The KMP algorithm efficiently solves the **string matching problem**, which involves finding all occurrences of a shorter pattern string ($P$) within a longer text string ($T$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does KMP improve upon naive string matching algorithms by avoiding redundant comparisons in the text string?",
+      "back": "KMP avoids re-scanning text characters by pre-processing the pattern string to build a **failure function (also known as the LPS array or prefix function)**. This function dictates how many characters to shift the pattern when a mismatch occurs, leveraging information about previously matched characters.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the 'failure function' (or LPS array) for a pattern $P$ of length $m$. What information does $\\pi[i]$ store?",
+      "back": "For a pattern $P$ of length $m$, the failure function (LPS array), denoted as $\\pi$ (or `lps`), is an array of length $m$. $\\pi[i]$ stores the length of the **longest proper prefix of $P[0 \\dots i]$ that is also a suffix of $P[0 \\dots i]$**. A 'proper prefix' means it cannot be the string itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the algorithm to compute the failure function (LPS array) $\\pi$ for a given pattern $P$ of length $m$.",
+      "back": "To compute $\\pi[i]$ for $P[0 \\dots m-1]$:\nInitialize $\\pi[0] = 0$.\n```\nlength = 0 // Length of the previous longest proper prefix suffix\ni = 1      // Pointer for current character in pattern\nwhile i < m:\n    if P[i] == P[length]:\n        length += 1\n        pi[i] = length\n        i += 1\n    else:\n        if length != 0:\n            length = pi[length - 1] // Mismatch, shift length back using previous LPS value\n        else:\n            pi[i] = 0 // No proper prefix is also a suffix\n            i += 1\n```\nThis algorithm computes the failure function in $O(m)$ time.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compute the failure function (LPS array) for the pattern $P = \\text{\"ABABCABAB\"}$.",
+      "back": "For $P = \\text{\"ABABCABAB\"}$:\n$P = \\text{A B A B C A B A B}$\n$\\pi = [0, 0, 1, 2, 0, 1, 2, 3, 4]$\n\nExplanation:\n- $\\pi[0]$ (A) = 0\n- $\\pi[1]$ (AB) = 0\n- $\\pi[2]$ (ABA) = 1 (prefix \"A\", suffix \"A\")\n- $\\pi[3]$ (ABAB) = 2 (prefix \"AB\", suffix \"AB\")\n- $\\pi[4]$ (ABABC) = 0\n- $\\pi[5]$ (ABABCA) = 1 (prefix \"A\", suffix \"A\")\n- $\\pi[6]$ (ABABCAB) = 2 (prefix \"AB\", suffix \"AB\")\n- $\\pi[7]$ (ABABCABA) = 3 (prefix \"ABA\", suffix \"ABA\")\n- $\\pi[8]$ (ABABCABAB) = 4 (prefix \"ABAB\", suffix \"ABAB\")",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the main KMP pattern matching algorithm using the precomputed failure function $\\pi$.",
+      "back": "Let $T$ be the text (length $n$), $P$ be the pattern (length $m$), and $\\pi$ be the failure function.\n```\nj = 0 // pointer for pattern P (matched characters)\ni = 0 // pointer for text T\nwhile i < n:\n    if P[j] == T[i]:\n        i += 1\n        j += 1\n    if j == m:\n        // Match found at index (i - j) in T\n        // To find subsequent matches:\n        j = pi[j - 1] // Shift pattern based on failure function\n    elif i < n and P[j] != T[i]:\n        // Mismatch after j characters have matched\n        if j != 0:\n            j = pi[j - 1] // Shift pattern using failure function\n        else:\n            i += 1 // No prefix to match, move to next char in T\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove the overall time complexity of the KMP algorithm (including failure function computation and matching phase) is $O(n+m)$.",
+      "back": "1.  **Failure Function Computation:** The `length` pointer increments at most $m-1$ times. When `P[i] != P[length]`, `length` decreases by setting `length = pi[length - 1]`. The total decrements of `length` cannot exceed its total increments. Each character `P[i]` is visited by `i` once. Thus, computing $\\pi$ is $O(m)$.\n2.  **Pattern Matching Phase:** The text pointer `i` increments from $0$ to $n-1$, making $n$ increments. The pattern pointer `j` increments at most $n$ times. When a mismatch occurs, `j` is reset using `pi[j-1]`. `j` never decreases below 0. The total decrements of `j` cannot exceed its total increments. Since `i` advances $n$ times and `j` advances at most $n$ times, the matching phase is $O(n)$.\n\nOverall time complexity: $O(m) + O(n) = O(n+m)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

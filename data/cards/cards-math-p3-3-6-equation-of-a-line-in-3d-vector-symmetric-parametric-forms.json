@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-6-equation-of-a-line-in-3d-vector-symmetric-parametric-forms",
+  "subtopicTitle": "Equation of a line in 3D — vector, symmetric, parametric forms",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:20.678Z",
+  "cards": [
+    {
+      "front": "What two fundamental pieces of information are required to uniquely define a line in 3D space?",
+      "back": "To define a line in 3D space, you need:\n1.  A specific point that lies on the line.\n2.  A non-zero vector that is parallel to the line (its direction vector).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general vector equation of a line passing through a point with position vector $\\vec{a}$ and parallel to a direction vector $\\vec{b}$.",
+      "back": "The vector equation of a line is given by:\n$$\\vec{r} = \\vec{a} + t\\vec{b}$$\nwhere $\\vec{r}$ is the position vector of any point on the line, $\\vec{a}$ is the position vector of a known point on the line, $\\vec{b}$ is the direction vector of the line, and $t$ is a scalar parameter ($t \\in \\mathbb{R}$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the parametric equations of a line from its vector form $\\vec{r} = \\vec{a} + t\\vec{b}$, given $\\vec{a} = (x_0, y_0, z_0)$ and $\\vec{b} = (a, b, c)$.",
+      "back": "Let $\\vec{r} = (x, y, z)$. Substituting the component forms into the vector equation:\n$$(x, y, z) = (x_0, y_0, z_0) + t(a, b, c)$$\n$$(x, y, z) = (x_0 + ta, y_0 + tb, z_0 + tc)$$\nEquating the corresponding components gives the parametric equations:\n$$x = x_0 + ta$$\n$$y = y_0 + tb$$\n$$z = z_0 + tc$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the symmetric equations of a line from its parametric form, $x = x_0 + ta$, $y = y_0 + tb$, $z = z_0 + tc$, assuming $a, b, c \\neq 0$.",
+      "back": "From each parametric equation, we can solve for the parameter $t$:\n1.  $x = x_0 + ta \\implies t = \\frac{x - x_0}{a}$\n2.  $y = y_0 + tb \\implies t = \\frac{y - y_0}{b}$\n3.  $z = z_0 + tc \\implies t = \\frac{z - z_0}{c}$\nSince all these expressions equal $t$, we can equate them to get the symmetric equations:\n$$\\frac{x - x_0}{a} = \\frac{y - y_0}{b} = \\frac{z - z_0}{c}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the symmetric form of a line expressed if one or more components of its direction vector are zero? For example, if $\\vec{b} = (a, b, 0)$.",
+      "back": "If a component of the direction vector is zero, the corresponding denominator in the symmetric form would be zero, which is undefined. Instead, that coordinate is fixed.\nFor $\\vec{b} = (a, b, 0)$ and point $(x_0, y_0, z_0)$:\nParametric equations are $x = x_0 + ta$, $y = y_0 + tb$, $z = z_0 + t(0) \\implies z = z_0$.\nThe symmetric form becomes:\n$$\\frac{x - x_0}{a} = \\frac{y - y_0}{b}, \\quad z = z_0$$\nThis indicates the line lies entirely in the plane $z = z_0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the vector, parametric, and symmetric equations of the line passing through points $P(1, 2, -1)$ and $Q(3, 0, 1)$.",
+      "back": "1.  **Point on the line**: Use $P(1, 2, -1)$, so $\\vec{a} = (1, 2, -1)$.\n2.  **Direction vector**: $\\vec{b} = \\vec{Q} - \\vec{P} = (3-1, 0-2, 1-(-1)) = (2, -2, 2)$.\n\n*   **Vector Equation**: $\\vec{r} = (1, 2, -1) + t(2, -2, 2)$\n*   **Parametric Equations**: $x = 1 + 2t$, $y = 2 - 2t$, $z = -1 + 2t$\n*   **Symmetric Equations**: $\\frac{x - 1}{2} = \\frac{y - 2}{-2} = \\frac{z + 1}{2}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the vector equation $\\vec{r} = \\vec{a} + t\\vec{b}$, what is the physical interpretation of the scalar parameter $t$?",
+      "back": "The scalar parameter $t$ represents a scaling factor for the direction vector $\\vec{b}$. It dictates the position along the line relative to the fixed point $\\vec{a}$.\n*   If $t=0$, $\\vec{r} = \\vec{a}$ (the starting point).\n*   If $t>0$, the point $\\vec{r}$ is in the direction of $\\vec{b}$ from $\\vec{a}$.\n*   If $t<0$, the point $\\vec{r}$ is in the opposite direction of $\\vec{b}$ from $\\vec{a}$.\nEssentially, $t$ parameterizes the entire line, with each real value of $t$ corresponding to a unique point on the line.",
+      "difficulty": "hard"
+    }
+  ]
+}

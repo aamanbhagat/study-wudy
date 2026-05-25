@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-2-gravitational-field-intensity-g-gm-r",
+  "subtopicTitle": "Gravitational field intensity g = GM/r²",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:52.419Z",
+  "cards": [
+    {
+      "front": "Define gravitational field intensity, $g$, including its units.",
+      "back": "Gravitational field intensity, $g$, at a point is the gravitational force experienced per unit test mass placed at that point. Mathematically, $g = F/m_{test}$. Its units are N/kg or m/s².",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for gravitational field intensity, $g$, around a central mass $M$.",
+      "back": "The formula for gravitational field intensity, $g$, at a distance $r$ from the center of a central mass $M$ is: $$g = \\frac{GM}{r^2}$$ where $G$ is the Universal Gravitational Constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for gravitational field intensity, $g$, starting from Newton's Law of Universal Gravitation.",
+      "back": "Newton's Law of Universal Gravitation states that the force $F$ between two masses $M$ and $m_{test}$ separated by a distance $r$ is $F = \\frac{GMm_{test}}{r^2}$. By definition, gravitational field intensity $g$ is the force per unit test mass: $g = \\frac{F}{m_{test}}$. Substitute the expression for $F$: $$g = \\frac{\\frac{GMm_{test}}{r^2}}{m_{test}}$$ $$g = \\frac{GM}{r^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the formula $g = GM/r^2$, what specifically do $M$ and $r$ represent?",
+      "back": "$M$ represents the mass of the central body (e.g., planet, star) that is creating the gravitational field. $r$ represents the distance from the *center* of the central body to the point where the gravitational field intensity $g$ is being measured. It's crucial that $r$ is from the center, not just the surface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the direction of the gravitational field intensity vector at any point outside a spherical mass $M$.",
+      "back": "The gravitational field intensity vector, $\\vec{g}$, always points radially inward, directly towards the center of the central mass $M$ that is creating the field. It represents the direction a small test mass would accelerate if placed at that point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the gravitational field intensity at an altitude of 400 km (Low Earth Orbit) compare to that at Earth's surface? (Earth's radius $R_E \\approx 6371$ km)",
+      "back": "At Earth's surface, $r = R_E$. At 400 km altitude, $r_h = R_E + 400 \\text{ km} = 6371 + 400 = 6771 \\text{ km}$. The ratio of $g$ at altitude ($g_h$) to $g$ at surface ($g_s$) is: $$\\frac{g_h}{g_s} = \\frac{GM/r_h^2}{GM/R_E^2} = \\frac{R_E^2}{r_h^2} = \\left(\\frac{R_E}{r_h}\\right)^2$$ $$\\frac{g_h}{g_s} = \\left(\\frac{6371 \\text{ km}}{6771 \\text{ km}}\\right)^2 \\approx (0.9409)^2 \\approx 0.885$$ So, $g$ in LEO is approximately 88.5% of $g$ at the Earth's surface, meaning it's still quite strong, not zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the conceptual difference between \"gravitational field intensity\" and \"acceleration due to gravity.\"",
+      "back": "*   **Gravitational field intensity ($g = F/m_{test}$):** A property of space around a mass, representing the force exerted per unit mass. It exists whether a mass is present or not. Its units are N/kg.\n*   **Acceleration due to gravity ($a = F/m$):** The actual acceleration experienced by an object due to the gravitational force. Its units are m/s².\nNumerically, they are equivalent ($1 \\text{ N/kg} = 1 \\text{ m/s}^2$). This equivalence arises because the gravitational force is proportional to the mass of the object experiencing the force ($F = mg$), so the acceleration ($a = F/m$) becomes equal to the field intensity ($g$).",
+      "difficulty": "hard"
+    }
+  ]
+}

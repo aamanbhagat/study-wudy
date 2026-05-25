@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-inclusion-exclusion-principle",
+  "subtopicTitle": "Inclusion-exclusion principle",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:24.477Z",
+  "cards": [
+    {
+      "front": "State the Inclusion-Exclusion Principle for two finite sets $A$ and $B$.",
+      "back": "$$ |A \\cup B| = |A| + |B| - |A \\cap B| $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain intuitively why the term $|A \\cap B|$ is subtracted in the Inclusion-Exclusion Principle for two sets.",
+      "back": "When summing $|A|$ and $|B|$, elements belonging to the intersection $A \\cap B$ are counted twice (once in $A$ and once in $B$). Subtracting $|A \\cap B|$ once corrects this double-counting, ensuring each element in $A \\cup B$ is counted exactly once.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Inclusion-Exclusion Principle for three finite sets $A, B,$ and $C$.",
+      "back": "$$ |A \\cup B \\cup C| = |A| + |B| + |C| - (|A \\cap B| + |A \\cap C| + |B \\cap C|) + |A \\cap B \\cap C| $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the general formula for the Inclusion-Exclusion Principle for $n$ finite sets $A_1, A_2, \\dots, A_n$.",
+      "back": "$$ \\left| \\bigcup_{i=1}^n A_i \\right| = \\sum_{k=1}^n (-1)^{k-1} \\sum_{1 \\le i_1 < i_2 < \\dots < i_k \\le n} |A_{i_1} \\cap A_{i_2} \\cap \\dots \\cap A_{i_k}| $$ This means summing the sizes of all single sets, subtracting the sizes of all pairwise intersections, adding the sizes of all triple intersections, and so on, alternating signs.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the Inclusion-Exclusion Principle applied to find the probability of the union of two events, $P(A \\cup B)$?",
+      "back": "The principle directly translates to probabilities: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$. This holds because probability measures are additive for disjoint events, and the principle effectively decomposes the union into disjoint parts or corrects for overlap.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the Inclusion-Exclusion Principle simplify to if events $A$ and $B$ are mutually exclusive?",
+      "back": "If $A$ and $B$ are mutually exclusive, their intersection is empty, i.e., $A \\cap B = \\emptyset$. Therefore, $|A \\cap B| = 0$ (or $P(A \\cap B) = 0$). The principle simplifies to $|A \\cup B| = |A| + |B|$ (or $P(A \\cup B) = P(A) + P(B)$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a class of 30 students, 15 like math, 10 like physics, and 5 like both. How many students like math or physics?",
+      "back": "Let $M$ be the set of students who like math and $P$ be the set of students who like physics. We are given: $|M| = 15$, $|P| = 10$, and $|M \\cap P| = 5$. Using the Inclusion-Exclusion Principle for two sets: $$ |M \\cup P| = |M| + |P| - |M \\cap P| = 15 + 10 - 5 = 20 $$ So, 20 students like math or physics.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how the Inclusion-Exclusion Principle can be used in combinatorics to count elements that satisfy *none* of several given properties.",
+      "back": "To count elements satisfying *none* of properties $P_1, P_2, \\dots, P_n$ within a universal set $S$, we first identify the sets $A_i$ representing elements that *do* satisfy property $P_i$. We then want to find $|S| - |\\bigcup_{i=1}^n A_i|$. The Inclusion-Exclusion Principle is used to calculate $|\\bigcup_{i=1}^n A_i|$, which is the number of elements satisfying *at least one* of the properties. A classic application is counting derangements, where $A_i$ is the set of permutations fixing element $i$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-5-interrupts-isr-design-nvic-priority-interrupt-latency",
+  "subtopicTitle": "Interrupts — ISR design, NVIC priority, interrupt latency",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:52.729Z",
+  "cards": [
+    {
+      "front": "What are the two primary design goals for an Interrupt Service Routine (ISR) to ensure real-time responsiveness and system stability?",
+      "back": "ISRs should be designed to be **short** and **fast**. They should perform only the minimum necessary work (e.g., clearing the interrupt flag, reading a register) and defer complex processing to the main loop or a lower-priority task. This minimizes the time interrupts are disabled and reduces interrupt latency for other sources.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an ARM Cortex-M microcontroller with an NVIC, what does it mean for an interrupt to \"preempt\" another active interrupt?",
+      "back": "Preemption occurs when a higher-priority interrupt requests service while a lower-priority interrupt's ISR is currently executing. The CPU will immediately suspend the lower-priority ISR, save its context, and begin executing the higher-priority ISR. Once the higher-priority ISR completes, the CPU restores the context of the lower-priority ISR and resumes its execution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"interrupt latency\" and list its three main contributing components.",
+      "back": "**Interrupt latency** is the time delay between an interrupt event occurring (e.g., a peripheral signaling an interrupt) and the first instruction of the corresponding Interrupt Service Routine (ISR) beginning execution. Its main components are:\n1.  **Hardware Latency:** Time for the peripheral to signal the CPU and the CPU to recognize the interrupt.\n2.  **Interrupt Disable Latency:** Time spent with interrupts globally disabled (e.g., during critical sections in main code or other ISRs). This is often the dominant factor.\n3.  **ISR Entry Overhead:** Time for the CPU to save context (registers) and jump to the ISR vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When an ISR needs to pass data or signal an event to the main application loop, what are common techniques to ensure data integrity and avoid race conditions?",
+      "back": "Common techniques include:\n1.  **Volatile Flags:** Using `volatile` boolean flags set in the ISR and checked in the main loop.\n2.  **Atomic Variables/Operations:** For single-word data, ensuring reads/writes are atomic (e.g., using `std::atomic` in C++ or specific CPU instructions).\n3.  **Ring Buffers/Queues:** For larger data or multiple events, using a thread-safe ring buffer or message queue, often protected by temporarily disabling interrupts during critical sections of access.\n4.  **Mutexes/Semaphores:** In RTOS environments, using synchronization primitives, though careful consideration is needed to avoid blocking ISRs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the `BASEPRI` register in an ARM Cortex-M microcontroller be used to temporarily block interrupts below a certain priority level, and what is its primary benefit?",
+      "back": "The `BASEPRI` register allows a programmer to define a priority threshold. Any interrupt with a priority number *higher* than the value in `BASEPRI` (meaning *lower* logical priority) will be masked and prevented from executing. Interrupts with a priority number *equal to or lower than* `BASEPRI` (meaning *higher* logical priority) will still preempt.\nIts primary benefit is to create **critical sections** in the main application code where certain interrupts must not occur, without globally disabling *all* configurable interrupts. This allows high-priority interrupts (e.g., a watchdog timer) to still function, improving system robustness compared to `CPSID I` (which disables all configurable interrupts).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List three practical strategies to minimize interrupt latency in an embedded system.",
+      "back": "1.  **Keep ISRs short and fast:** Minimize the amount of code executed within an ISR to reduce the time interrupts are implicitly disabled or higher-priority interrupts are delayed.\n2.  **Minimize global interrupt disable time:** Avoid or reduce critical sections in the main code where interrupts are globally disabled (`CPSID I` or equivalent). Use `BASEPRI` or specific peripheral interrupt disables instead where possible.\n3.  **Optimize compiler settings:** Ensure the compiler is optimizing for speed and that ISRs are placed in fast memory.\n4.  **Proper NVIC priority configuration:** Assign appropriate priorities to ensure critical interrupts can preempt less critical ones.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of reentrancy in the context of ISRs and describe a common scenario where it can lead to problems.",
+      "back": "An ISR is **reentrant** if it can be safely interrupted and then called again (or itself) before its previous execution has completed, without causing data corruption or incorrect behavior. ISRs are generally *not* reentrant by default if they access shared global data without protection.\nA common problem scenario:\n1.  ISR `A` starts execution, modifies a global variable `X`.\n2.  A higher-priority interrupt `B` occurs and preempts `A`.\n3.  ISR `B` also modifies `X` without knowing `A` was in the middle of an update.\n4.  `B` finishes, `A` resumes, and `X` is now in an inconsistent state due to `B`'s modification, leading to a bug.\nTo prevent this, shared data access must be protected (e.g., by temporarily disabling interrupts or using atomic operations).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is \"context switching overhead\" in the context of an interrupt, and what CPU components are typically saved and restored?",
+      "back": "**Context switching overhead** refers to the time and resources (CPU cycles, memory) required by the CPU to save the state of the currently executing task/code (main loop or lower-priority ISR) and load the state required for the new task (the ISR).\nDuring an interrupt, the CPU typically saves:\n*   **General-purpose registers:** R0-R12 (depending on architecture/compiler)\n*   **Link Register (LR):** Return address\n*   **Program Counter (PC):** Current instruction pointer\n*   **Program Status Register (PSR):** CPU flags and status bits\n*   **Stack Pointer (SP):** The current stack pointer\nThese are usually pushed onto the stack automatically by hardware before the ISR begins, and popped back upon ISR completion.",
+      "difficulty": "medium"
+    }
+  ]
+}

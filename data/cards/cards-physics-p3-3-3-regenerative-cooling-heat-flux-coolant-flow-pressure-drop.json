@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-regenerative-cooling-heat-flux-coolant-flow-pressure-drop",
+  "subtopicTitle": "Regenerative cooling — heat flux, coolant flow, pressure drop",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:18.651Z",
+  "cards": [
+    {
+      "front": "What is regenerative cooling in the context of liquid rocket engines?",
+      "back": "Regenerative cooling is a method where a propellant (typically the fuel) is circulated through channels in the walls of the combustion chamber and nozzle *before* being injected into the combustion chamber. This cools the engine walls and preheats the propellant, improving engine performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of regenerative cooling in a rocket engine nozzle, besides preheating the propellant?",
+      "back": "The primary purpose is to protect the engine's structural integrity by preventing the hot combustion gases (up to 3500 K) from melting or severely weakening the nozzle and combustion chamber walls.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the typical flow path of a propellant used as a regenerative coolant in a liquid rocket engine.",
+      "back": "The propellant is first pumped from the tank, then flows through an inlet manifold into small channels or tubes embedded within the combustion chamber and nozzle walls. After absorbing heat, it collects in an outlet manifold and is then injected into the combustion chamber for combustion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is \"heat flux\" in regenerative cooling, and what is its primary source?",
+      "back": "Heat flux ($q''$) is the rate of heat transfer per unit area from the hot combustion gases through the engine wall to the coolant. Its primary source is convective heat transfer from the high-temperature, high-velocity combustion products inside the chamber and nozzle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the key factors that significantly influence the magnitude of heat flux from the combustion gases to the engine wall in a regeneratively cooled rocket engine.",
+      "back": "Key factors include:\n1.  **Combustion gas temperature:** Higher temperature leads to higher heat flux.\n2.  **Combustion gas pressure:** Higher pressure increases gas density and thus convective heat transfer.\n3.  **Gas velocity:** Higher velocity (especially in the nozzle throat) increases convective heat transfer.\n4.  **Nozzle geometry:** Influences gas velocity and boundary layer thickness.\n5.  **Wall material properties:** Thermal conductivity and emissivity.\n6.  **Boundary layer characteristics:** Turbulence and thickness.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"pressure drop\" in the context of regenerative cooling channels and explain why it's a critical design constraint.",
+      "back": "Pressure drop ($\\Delta P$) is the reduction in static pressure of the coolant as it flows through the cooling channels due to friction with the channel walls and flow acceleration/deceleration. It's critical because the coolant must maintain sufficient pressure to overcome combustion chamber pressure for stable injection, requiring higher pump work if $\\Delta P$ is large.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does increasing the coolant flow velocity within the cooling channels impact both the coolant-side heat transfer coefficient ($h_c$) and the overall pressure drop ($\\Delta P$)?",
+      "back": "Increasing coolant flow velocity generally:\n1.  **Increases $h_c$**: Higher velocity leads to a thinner thermal boundary layer and more turbulent flow, enhancing convective heat transfer from the wall to the coolant.\n2.  **Increases $\\Delta P$**: Pressure drop is roughly proportional to the square of the velocity ($ \\Delta P \\propto V^2 $). Higher velocity means greater frictional losses and dynamic pressure changes, requiring more pump power.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides flow velocity, what other key properties of the coolant itself primarily influence the coolant-side heat transfer coefficient ($h_c$) in regenerative cooling?",
+      "back": "The coolant-side heat transfer coefficient ($h_c$) is also strongly influenced by:\n1.  **Thermal conductivity ($k$):** Higher $k$ allows heat to transfer more readily within the coolant.\n2.  **Specific heat capacity ($c_p$):** Higher $c_p$ means the coolant can absorb more heat for a given temperature rise.\n3.  **Density ($\\rho$):** Affects mass flow rate and heat capacity per unit volume.\n4.  **Viscosity ($\\mu$):** Lower viscosity generally leads to more turbulent flow and better heat transfer, but also affects pressure drop.\nThese properties are often grouped into dimensionless numbers like the Prandtl number ($Pr = \\mu c_p / k$) and Reynolds number ($Re = \\rho V D_h / \\mu$).",
+      "difficulty": "hard"
+    }
+  ]
+}

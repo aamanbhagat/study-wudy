@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-implementing-root-finding-from-scratch-newton-raphson-bisection",
+  "subtopicTitle": "Implementing root-finding from scratch — Newton-Raphson, bisection",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:05.650Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of a root-finding algorithm for a function $f(x)$?",
+      "back": "The primary goal is to find one or more values of $x$ for which $f(x) = 0$. These values are commonly referred to as the roots or zeros of the function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which fundamental theorem guarantees that the bisection method will find a root within an interval $[a, b]$ if $f(a)$ and $f(b)$ have opposite signs?",
+      "back": "The Intermediate Value Theorem (IVT). It states that if $f$ is a continuous function on a closed interval $[a, b]$ and $f(a) \\cdot f(b) < 0$, then there must exist at least one value $c \\in (a, b)$ such that $f(c) = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core iterative step of the bisection method to narrow down the interval $[a, b]$ containing a root.",
+      "back": "Given an interval $[a, b]$ where $f(a) \\cdot f(b) < 0$: \\n1. Calculate the midpoint $m = (a+b)/2$. \\n2. Evaluate $f(m)$. \\n3. If $f(m) = 0$, then $m$ is the root. \\n4. If $f(a) \\cdot f(m) < 0$, the root is in $[a, m]$. Set $b = m$. \\n5. Else (if $f(b) \\cdot f(m) < 0$), the root is in $[m, b]$. Set $a = m$. \\nThis process halves the interval size in each iteration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the iterative formula for the Newton-Raphson method to find a root of $f(x)$, given an initial guess $x_n$.",
+      "back": "The iterative formula for the Newton-Raphson method is: $$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$ where $f'(x_n)$ is the derivative of $f(x)$ evaluated at $x_n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the geometric intuition behind the Newton-Raphson method and how its formula is derived using tangent lines.",
+      "back": "The method starts with an initial guess $x_n$. It approximates the function $f(x)$ with its tangent line at the point $(x_n, f(x_n))$. The next guess, $x_{n+1}$, is taken as the x-intercept of this tangent line. \\n\\nThe tangent line equation at $(x_n, f(x_n))$ is $y - f(x_n) = f'(x_n)(x - x_n)$. To find the x-intercept, set $y=0$ and solve for $x_{n+1}$: \\n$0 - f(x_n) = f'(x_n)(x_{n+1} - x_n)$ \\n$-f(x_n) / f'(x_n) = x_{n+1} - x_n$ \\n$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the convergence speed and robustness (reliability) of the Bisection method versus the Newton-Raphson method.",
+      "back": "- **Bisection Method:** Exhibits linear convergence (slow but predictable). It is highly robust and guaranteed to converge if the initial interval satisfies $f(a) \\cdot f(b) < 0$. It does not require derivative information. \\n- **Newton-Raphson Method:** Exhibits quadratic convergence (very fast) when close to the root. However, it is less robust; it requires the derivative $f'(x)$ and can diverge or converge to a different root if the initial guess is poor or if $f'(x)$ is near zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When might the Newton-Raphson method fail or perform poorly, even if a root exists and the function is continuous?",
+      "back": "The Newton-Raphson method can fail or perform poorly in several scenarios: \\n1.  **$f'(x_n) \\approx 0$**: If the derivative is close to zero at any iteration, the tangent line is nearly horizontal, leading to a very large step and potential divergence or oscillation. \\n2.  **Poor initial guess**: Can lead to divergence, oscillation, or convergence to a different root far from the desired one. \\n3.  **Oscillation**: The method might oscillate around a local extremum without converging to a root. \\n4.  **Non-differentiable function**: The method requires the function to be differentiable at the current guess.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a Python function signature for a bisection root-finding algorithm, including parameters for the function, interval, tolerance, and maximum iterations.",
+      "back": "```python\\ndef bisection_method(f, a, b, tol=1e-6, max_iter=100):\\n    # f: The function for which to find the root (e.g., lambda x: x**2 - 2)\\n    # a, b: The endpoints of the initial interval where f(a) and f(b) have opposite signs\\n    # tol: The desired tolerance for the root (stopping criterion)\\n    # max_iter: The maximum number of iterations to perform\\n    pass\\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

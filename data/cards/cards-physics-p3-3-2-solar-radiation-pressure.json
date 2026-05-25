@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-solar-radiation-pressure",
+  "subtopicTitle": "Solar radiation pressure",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:11.803Z",
+  "cards": [
+    {
+      "front": "Define Solar Radiation Pressure (SRP).",
+      "back": "Solar Radiation Pressure is the force per unit area exerted by electromagnetic radiation (photons) from the Sun as they impact and transfer momentum to a surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the fundamental physical mechanism by which photons exert pressure.",
+      "back": "Photons, despite being massless, carry momentum $p = E/c$, where $E$ is photon energy and $c$ is the speed of light. When photons strike a surface, they transfer this momentum. For absorption, momentum $p$ is transferred. For perfect specular reflection, $2p$ is transferred (due to the change in direction). This continuous transfer of momentum creates a force.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the general formula for the force due to Solar Radiation Pressure ($F_{SRP}$) on a surface, considering absorption and reflection.",
+      "back": "The force $F_{SRP}$ on a surface of area $A$ exposed to solar flux $S$ is given by:\n$$F_{SRP} = \\frac{S A}{c} (1 + \\rho)$$\nwhere $c$ is the speed of light, and $\\rho$ is the reflectivity coefficient (0 for perfect absorption, 1 for perfect specular reflection).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the acceleration ($a_{SRP}$) due to Solar Radiation Pressure for a spacecraft of mass $m$ and area $A$, assuming perfect reflection.",
+      "back": "For perfect reflection ($\\rho=1$), the force is $F_{SRP} = \\frac{2 S A}{c}$.\nBy Newton's second law, $F = ma$, so $a_{SRP} = \\frac{F_{SRP}}{m}$.\nTherefore, the acceleration is:\n$$a_{SRP} = \\frac{2 S A}{m c}$$\nThis formula highlights the importance of the area-to-mass ratio ($A/m$) for SRP effects.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the solar flux ($S$) and thus the Solar Radiation Pressure change with distance ($r$) from the Sun?",
+      "back": "Solar flux follows an inverse square law with distance from the Sun. If $S_0$ is the solar constant at 1 Astronomical Unit (AU), then at a distance $r$ (in AU), the flux is $S = S_0 / r^2$. Consequently, SRP also decreases with the square of the distance from the Sun.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe how Solar Radiation Pressure perturbs the orbit of a spacecraft, particularly for Earth-orbiting satellites.",
+      "back": "SRP primarily causes long-term changes in orbital elements, especially eccentricity and argument of perigee. For Earth-orbiting satellites, the force is always directed away from the Sun. This 'push' can increase or decrease orbital energy depending on the satellite's position relative to the Sun, causing the orbit to expand or contract over time. It's particularly significant for high area-to-mass ratio spacecraft.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Besides direct solar radiation, what other forms of radiation pressure can affect spacecraft, especially in Earth orbit?",
+      "back": "1.  **Albedo Radiation Pressure:** Sunlight reflected off Earth (or other planets) can exert a secondary pressure on spacecraft.\n2.  **Infrared (IR) Radiation Pressure:** Thermal radiation emitted by Earth itself can also exert a small pressure.\nBoth are generally much weaker than direct SRP but can be significant for very precise missions or high area-to-mass ratio objects.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give two examples of how Solar Radiation Pressure is either mitigated or actively utilized in spacecraft design and operations.",
+      "back": "1.  **Mitigation:** For precision missions (e.g., gravity mapping), spacecraft are designed with low area-to-mass ratios or use complex attitude control to minimize or predict SRP effects. For geostationary satellites, SRP can be used for station-keeping maneuvers (e.g., north-south station-keeping).\n2.  **Utilization:** Solar sails are a prime example, using large, highly reflective membranes to generate thrust for propulsion. It's also used for attitude control (e.g., using small vanes or differential reflectivity).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-operator-overloading-dunder-methods-add-eq-lt-len-str-repr-hash",
+  "subtopicTitle": "Operator overloading — dunder methods (__add__, __eq__, __lt__, __len__, __str__, __repr__, __hash__)",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:26.652Z",
+  "cards": [
+    {
+      "front": "What is operator overloading in OOP, and why is it useful?",
+      "back": "Operator overloading allows you to define how standard operators (like `+`, `-`, `==`, `<`, etc.) behave when applied to instances of your custom classes. It's useful because it makes code more readable, intuitive, and consistent with built-in types, allowing objects to interact in a natural way.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you overload the addition operator (`+`) for a custom class in Python, and what should your dunder method typically return?",
+      "back": "You overload the `+` operator by implementing the `__add__(self, other)` dunder method. It should typically return a *new* instance of the class (or a compatible type) representing the result of the addition, rather than modifying `self` in-place.\n\n```python\nclass Vector:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __add__(self, other):\n        if isinstance(other, Vector):\n            return Vector(self.x + other.x, self.y + other.y)\n        raise TypeError(\"Can only add Vector to Vector\")\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of `__eq__(self, other)` and why type checking within this method is often good practice.",
+      "back": "`__eq__(self, other)` overloads the equality operator (`==`). It should return `True` if `self` and `other` are considered equal, and `False` otherwise. Type checking (e.g., `isinstance(other, type(self))`) is good practice to ensure you're comparing objects of compatible types. Without it, comparing a `MyClass` object to an `int` might incorrectly return `False` when it should raise `NotImplemented` (allowing the other object's `__eq__` or `__ne__` to be called) or `TypeError`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you overload the less-than operator (`<`) using `__lt__`? What helper can simplify implementing all rich comparison operators (`<`, `<=`, `>`, `>=`, `!=`)?",
+      "back": "You overload the `<` operator by implementing `__lt__(self, other)`. It should return `True` if `self` is less than `other`, `False` otherwise. To simplify implementing all rich comparison operators, you can implement only `__eq__` and `__lt__` (or any other single rich comparison) and then use the `@functools.total_ordering` decorator. It will automatically fill in the remaining comparison methods.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of `__len__(self)`? What must it return, and what happens if it returns an invalid value?",
+      "back": "`__len__(self)` overloads the built-in `len()` function for instances of your class. It should return the number of items or elements contained within the object. It *must* return a non-negative integer. If it returns a non-integer or a negative integer, Python will raise a `TypeError` or `ValueError`, respectively.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between `__str__(self)` and `__repr__(self)` in terms of their intended audience and typical return values.",
+      "back": "`__str__(self)`: Intended for the *end-user*. It should return a human-readable, concise string representation of the object. Called by `str()`, `print()`, and `format()`.\n\n`__repr__(self)`: Intended for the *developer*. It should return an unambiguous string representation that, ideally, could be used to recreate the object (e.g., `eval(repr(obj)) == obj`). Called by `repr()`, and as a fallback for `str()` if `__str__` is not defined.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is `__hash__(self)` required, and what are the two critical requirements for its implementation?",
+      "back": "`__hash__(self)` is required if you want instances of your class to be stored in hash-based collections like `dict` keys or `set` members. It must return an integer hash value.\n\nCritical requirements:\n1.  **Consistency with `__eq__`**: If `a == b` is `True`, then `hash(a)` *must* equal `hash(b)`.\n2.  **Immutability**: An object's hash value must *never* change during its lifetime. This implies that any attributes used in `__hash__` must be immutable or not change after object creation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a `Point` class with `x` and `y` coordinates. Write a minimal `__eq__` and `__hash__` implementation that allows `Point` objects to be used as dictionary keys.",
+      "back": "```python\nclass Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    # For __hash__ to work, objects must be immutable or treated as such.\n    # For simplicity, we assume x and y are not modified after creation.\n\n    def __eq__(self, other):\n        if not isinstance(other, Point):\n            return NotImplemented\n        return self.x == other.x and self.y == other.y\n\n    def __hash__(self):\n        # Tuple hashing is commonly used for immutable objects\n        return hash((self.x, self.y))\n\n    def __repr__(self):\n        return f\"Point({self.x}, {self.y})\"\n\n# Example usage:\np1 = Point(1, 2)\np2 = Point(1, 2)\np3 = Point(3, 4)\n\nmy_dict = {p1: \"first point\"}\nprint(my_dict[p2]) # Output: first point (because p1 == p2 and hash(p1) == hash(p2))\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

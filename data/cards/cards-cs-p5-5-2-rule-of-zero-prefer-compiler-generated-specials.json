@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-rule-of-zero-prefer-compiler-generated-specials",
+  "subtopicTitle": "Rule of Zero — prefer compiler-generated specials",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:02.321Z",
+  "cards": [
+    {
+      "front": "What is the C++ \"Rule of Zero\"?",
+      "back": "It states that if a class does not manage any resources (e.g., raw pointers, file handles, network sockets), then it should not declare *any* user-defined special member functions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary advantage of adhering to the C++ Rule of Zero?",
+      "back": "It simplifies class design by allowing the compiler to generate all special member functions (constructor, destructor, copy/move operations) correctly, avoiding the complexities and common errors associated with manual resource management and the Rule of Three/Five/Six.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List all the special member functions that the C++ compiler will implicitly generate if they are not user-declared.",
+      "back": "Default constructor, destructor, copy constructor, copy assignment operator, move constructor, move assignment operator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to the Rule of Zero, how should a C++ class manage dynamic memory or other resources?",
+      "back": "A class should *delegate* resource management to dedicated resource-managing classes (e.g., `std::unique_ptr`, `std::shared_ptr`, `std::vector`, `std::string`, `std::fstream`). The class itself should only contain these resource-managing objects, not raw resources.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the relationship between the Rule of Zero and the Rule of Three/Five/Six.",
+      "back": "The Rule of Three/Five/Six states that if you define *any* of the special member functions (destructor, copy ctor/assign, move ctor/assign) manually, you likely need to define *all* of them. The Rule of Zero provides a simpler alternative: by *not* managing resources directly, you don't need to define *any* of them, thus completely sidestepping the complexities of the Rule of Three/Five/Six.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the class `struct Vec2 { double x, y; };`, does the Rule of Zero suggest defining any special member functions? Explain.",
+      "back": "No. `Vec2` only contains built-in types (`double`), which do not manage any resources. The compiler-generated default constructor, destructor, copy/move constructors, and copy/move assignment operators will all perform the correct member-wise operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a minimal C++ class example that *violates* the Rule of Zero and thus *requires* user-defined special member functions.",
+      "back": "```cpp\nclass MyBuffer {\npublic:\n    int* data;\n    size_t size;\n    MyBuffer(size_t s) : data(new int[s]), size(s) {} // Manages raw array\n    ~MyBuffer() { delete[] data; } // User-defined destructor\n    // Now also needs copy constructor, copy assignment,\n    // move constructor, and move assignment to be correctly implemented.\n};\n```\nThis class directly manages a raw C-style array `data`, requiring a user-defined destructor. This immediately triggers the Rule of Three/Five/Six.",
+      "difficulty": "hard"
+    }
+  ]
+}

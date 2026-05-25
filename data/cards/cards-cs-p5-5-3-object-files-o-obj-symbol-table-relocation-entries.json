@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-3-object-files-o-obj-symbol-table-relocation-entries",
+  "subtopicTitle": "Object files — .o / .obj, symbol table, relocation entries",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:40.666Z",
+  "cards": [
+    {
+      "front": "What is an object file (e.g., `.o` or `.obj`) and what stage of compilation produces it?",
+      "back": "An object file is an intermediate file produced by the compiler (after preprocessing and compilation) from a single source code file. It contains machine code, data, a symbol table, and relocation entries, but is not yet an executable program.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of a symbol table within an object file?",
+      "back": "The symbol table lists all symbols (e.g., variables, functions) defined or referenced in that object file. It provides information like symbol name, type (function, data), size, and its address within its section (if defined) or flags indicating it's undefined (external).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between 'defined' and 'undefined' (or 'external') symbols in a symbol table.",
+      "back": "A **defined symbol** is one whose definition (e.g., function body, variable allocation) is found within the current object file. An **undefined symbol** is referenced by the current object file but its definition resides in another object file or a library, requiring the linker to resolve it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are relocation entries necessary in an object file?",
+      "back": "Relocation entries tell the linker which parts of the machine code or data sections need to be modified (relocated) once the final addresses of external symbols or section base addresses are known. This is because the compiler often generates code with placeholder or relative addresses.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider `main.c` calling `foo()` from `lib.c`. When `main.o` is linked, how do relocation entries help resolve the call to `foo`?",
+      "back": "In `main.o`, the call to `foo` will likely have a placeholder address (e.g., 0) and a relocation entry. This entry specifies the location in `main.o`'s code that needs modification and indicates it's for `foo`. The linker finds `foo`'s actual address in `lib.o`'s symbol table, then uses the relocation entry to patch `main.o`'s machine code with `foo`'s correct address.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name three essential sections or components found in a typical object file.",
+      "back": "1. **Header:** Metadata about the file (e.g., architecture, number of sections).\n2. **Text (.text) section:** Contains compiled machine code.\n3. **Data (.data/.rodata/.bss) section:** Contains initialized/uninitialized global/static variables.\n4. **Symbol Table:** Lists symbols.\n5. **Relocation Entries:** Instructions for the linker.\n(Any three of these are essential.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If `main.o` references a global variable `int counter;` defined in `utils.o`, describe a conceptual relocation entry for `counter` in `main.o`.",
+      "back": "A conceptual relocation entry for `counter` in `main.o` would specify:\n*   **Offset:** The address within `main.o`'s `.text` or `.data` section where the reference to `counter` needs to be patched.\n*   **Type:** The type of relocation (e.g., absolute, PC-relative, 32-bit, 64-bit).\n*   **Symbol:** The name of the symbol to resolve, which is `counter`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary difference between `.o` and `.obj` file extensions?",
+      "back": "The `.o` extension is typically used on Unix-like systems (Linux, macOS) for object files, often following the ELF (Executable and Linkable Format) standard. The `.obj` extension is typically used on Windows systems, often following the COFF (Common Object File Format) or PE (Portable Executable) format. Both serve the same purpose as intermediate object files.",
+      "difficulty": "easy"
+    }
+  ]
+}

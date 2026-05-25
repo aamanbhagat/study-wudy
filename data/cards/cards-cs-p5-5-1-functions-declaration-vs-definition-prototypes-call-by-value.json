@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-functions-declaration-vs-definition-prototypes-call-by-value",
+  "subtopicTitle": "Functions — declaration vs definition, prototypes, call by value",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:35.405Z",
+  "cards": [
+    {
+      "front": "In C, what is the primary purpose of a function **declaration**?",
+      "back": "A function declaration (or prototype) informs the compiler about a function's existence, its return type, and the types of its parameters. It allows the compiler to check calls to the function before its actual definition is encountered.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does a function **definition** in C provide, distinct from a declaration?",
+      "back": "A function definition provides the complete implementation of the function. It includes the function header (return type, name, parameters with names) and the function body (the block of code that executes when the function is called).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the key difference between a C function's **declaration** and its **definition**.",
+      "back": "A declaration *describes* the function's interface (signature) to the compiler, allowing it to validate calls. A definition *implements* the function's behavior (its executable code). A function can be declared multiple times but defined only once.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are **function prototypes** considered crucial in C programming, especially when functions are ordered non-sequentially?",
+      "back": "Prototypes are crucial because they act as forward declarations. They tell the compiler the function's signature *before* its definition. This allows the compiler to perform strict type checking on all function calls, preventing implicit declarations (which default to `int` return type) and catching potential type mismatches or incorrect argument counts at compile time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a C function prototype for a function named `calculateArea` that takes a `float` and an `int` as arguments and returns a `double`.",
+      "back": "```c\ndouble calculateArea(float radius, int count);\n// or\ndouble calculateArea(float, int);\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the mechanism of **\"call by value\"** for arguments passed to a function in C.",
+      "back": "When arguments are passed \"by value,\" the function receives a *copy* of the actual argument's value. Any modifications made to these parameters inside the function affect only these local copies, leaving the original variables in the calling scope unchanged.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider: `int val = 5; void inc(int x) { x++; } inc(val);` What is `val` after `inc(val)`? Explain.",
+      "back": "The value of `val` remains `5`. In C, arguments are passed \"by value,\" meaning `inc` receives a *copy* of `val`. The `x++` operation increments only this local copy (`x`), not the original `val` variable in the calling scope.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the absence of a function prototype impact a C program if a function is called *before* its definition?",
+      "back": "Without a prototype, if a function is called before its definition, the C compiler will implicitly declare it. This implicit declaration assumes the function returns `int` and takes an unspecified number of arguments. If the actual definition differs, this can lead to incorrect type checking, stack corruption, or linker errors, especially with non-`int` return types or varying argument counts.",
+      "difficulty": "hard"
+    }
+  ]
+}

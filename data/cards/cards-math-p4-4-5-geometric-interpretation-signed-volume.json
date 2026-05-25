@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-geometric-interpretation-signed-volume",
+  "subtopicTitle": "Geometric interpretation — signed volume",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:23.997Z",
+  "cards": [
+    {
+      "front": "What is the geometric interpretation of the determinant of a $2 \\times 2$ matrix with columns $\\mathbf{v}_1, \\mathbf{v}_2$?",
+      "back": "It represents the signed area of the parallelogram formed by the vectors $\\mathbf{v}_1$ and $\\mathbf{v}_2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of \"signed volume,\" what does the \"sign\" (positive or negative) indicate?",
+      "back": "The sign indicates the orientation of the basis formed by the vectors. For 3D, a positive sign typically means a right-handed orientation, and a negative sign means a left-handed orientation, relative to the standard basis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given three vectors $\\mathbf{v}_1, \\mathbf{v}_2, \\mathbf{v}_3$ in $\\mathbb{R}^3$, how is the signed volume of the parallelepiped they define calculated?",
+      "back": "Form a matrix $A$ where the columns (or rows) are $\\mathbf{v}_1, \\mathbf{v}_2, \\mathbf{v}_3$. The signed volume is then $\\det(A)$.\n$$ A = \\begin{pmatrix} | & | & | \\\\ \\mathbf{v}_1 & \\mathbf{v}_2 & \\mathbf{v}_3 \\\\ | & | & | \\end{pmatrix} \\implies \\text{Signed Volume} = \\det(A) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the determinant of a $3 \\times 3$ matrix $A$ is $\\det(A) < 0$, what does this tell us about the orientation of the column vectors of $A$?",
+      "back": "The column vectors of $A$ form a left-handed system (or basis), meaning their orientation is opposite to that of the standard basis vectors (which form a right-handed system).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does a signed volume of zero for a set of vectors imply about their linear dependence?",
+      "back": "A signed volume of zero implies that the vectors are linearly dependent. This means they do not span the full $n$-dimensional space (e.g., 3 vectors in $\\mathbb{R}^3$ are coplanar or collinear, forming a \"flat\" or \"collapsed\" shape).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the determinant of a transformation matrix $T$ relates to the scaling of volume in $\\mathbb{R}^n$.",
+      "back": "The absolute value of the determinant, $|\\det(T)|$, represents the factor by which $T$ scales any $n$-dimensional volume. The signed determinant $\\det(T)$ also indicates whether the transformation preserves or reverses the orientation of space. For example, the unit hypercube is transformed into a parallelepiped whose signed volume is $\\det(T)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does swapping two adjacent column vectors in a matrix affect the signed volume of the parallelepiped they define?",
+      "back": "Swapping two adjacent column vectors (or any two columns) of a matrix changes the orientation of the basis, which results in negating the determinant. Thus, the signed volume also changes its sign. For example, $\\det(\\mathbf{v}_1, \\mathbf{v}_2, \\mathbf{v}_3) = - \\det(\\mathbf{v}_2, \\mathbf{v}_1, \\mathbf{v}_3)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

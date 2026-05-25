@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p1-1-2-transformations-translation-reflection-rotation-enlargement-basic",
+  "subtopicTitle": "Transformations — translation, reflection, rotation, enlargement (basic)",
+  "topicId": "math-p1-1-2-basic-geometry",
+  "topicTitle": "Basic Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:58.762Z",
+  "cards": [
+    {
+      "front": "Define a geometric \"translation\" and state the single piece of information required to fully describe it.",
+      "back": "A translation is a transformation that moves every point of a figure by the same distance in a given direction. It is fully described by a **translation vector** $\\mathbf{v} = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$. If a point $P=(a,b)$ is translated, its image $P'$ will be $P'=(a+x, b+y)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a geometric \"reflection\" and list two key properties of the image relative to the object.",
+      "back": "A reflection (or flip) is a transformation that maps every point of a figure to a point on the opposite side of a fixed line, called the **line of reflection**. Key properties:\n1. The line segment connecting a point to its image is perpendicular to the line of reflection.\n2. The line of reflection is the perpendicular bisector of the segment connecting a point to its image.\n3. The orientation of the figure is reversed (e.g., clockwise becomes anti-clockwise).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a point $P=(x,y)$ is reflected across the x-axis, what are the coordinates of its image $P'$?",
+      "back": "If $P=(x,y)$ is reflected across the x-axis (the line $y=0$), its image $P'$ will be $P'=(x, -y)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a geometric \"rotation\" and list the three pieces of information required to fully describe it.",
+      "back": "A rotation (or turn) is a transformation that turns a figure about a fixed point, called the **center of rotation**, by a certain **angle** in a specified **direction**. The three required pieces of information are:\n1. Center of rotation (a point).\n2. Angle of rotation (e.g., $90^\\circ$, $180^\\circ$).\n3. Direction of rotation (clockwise or anti-clockwise; anti-clockwise is positive by convention).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a point $P=(x,y)$ undergoes a $90^\\circ$ anti-clockwise rotation about the origin $(0,0)$, what are the coordinates of its image $P'$?",
+      "back": "If $P=(x,y)$ is rotated $90^\\circ$ anti-clockwise about the origin, its image $P'$ will be $P'=(-y, x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a geometric \"enlargement\" (or dilation) and list the two pieces of information required to fully describe it.",
+      "back": "An enlargement is a transformation that changes the size of a figure by a specific **scale factor** about a fixed point, called the **center of enlargement**. The two required pieces of information are:\n1. Center of enlargement (a point).\n2. Scale factor $k$ (a number, $k \\neq 0$). If $|k|>1$, the figure gets larger; if $0<|k|<1$, it gets smaller; if $k<0$, it's enlarged and reflected through the center.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a point $P=(x,y)$, what are the coordinates of its image $P'$ after an enlargement with center $C=(a,b)$ and scale factor $k$?",
+      "back": "To find $P'=(x',y')$:\n1. Find the vector from the center to the point: $\\vec{CP} = \\begin{pmatrix} x-a \\\\ y-b \\end{pmatrix}$.\n2. Multiply this vector by the scale factor: $k \\cdot \\vec{CP} = \\begin{pmatrix} k(x-a) \\\\ k(y-b) \\end{pmatrix}$.\n3. Add this scaled vector to the center's coordinates:\n   $P' = (a + k(x-a), b + k(y-b))$.\n   Alternatively, $x' = kx + (1-k)a$ and $y' = ky + (1-k)b$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which of translation, reflection, rotation, and enlargement are considered **isometries**? What characteristic defines an isometry?",
+      "back": "**Translation, reflection, and rotation** are isometries. An isometry (from Greek \"iso\" meaning \"same\" and \"metron\" meaning \"measure\") is a transformation that preserves distance and angle measures. This means the shape and size of the figure remain unchanged; only its position or orientation in space changes. Enlargement is *not* an isometry because it changes the size of the figure.",
+      "difficulty": "medium"
+    }
+  ]
+}

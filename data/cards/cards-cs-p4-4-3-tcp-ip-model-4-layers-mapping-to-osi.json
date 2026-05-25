@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-3-tcp-ip-model-4-layers-mapping-to-osi",
+  "subtopicTitle": "TCP/IP model — 4 layers, mapping to OSI",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:20.137Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the TCP/IP model in computer networking?",
+      "back": "The TCP/IP model is a conceptual framework and a set of communication protocols used to describe how data is communicated between devices over a network. It serves as the foundation for the Internet and many private networks.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the four layers of the TCP/IP model in order from the highest level (closest to the user application) to the lowest level (closest to physical transmission).",
+      "back": "The four layers of the TCP/IP model are:\n1.  Application Layer\n2.  Transport Layer\n3.  Internet Layer\n4.  Network Access Layer (or Link Layer)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which TCP/IP layer is responsible for logical addressing (e.g., IP addresses) and routing data packets across different networks?",
+      "back": "The **Internet Layer** (sometimes called the Network Layer in the context of OSI). Its primary protocol is IP (Internet Protocol), which handles packet addressing and routing decisions to deliver data between source and destination hosts, potentially across multiple interconnected networks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between TCP and UDP, both key protocols at the TCP/IP Transport Layer, in terms of reliability and common use cases.",
+      "back": "1.  **TCP (Transmission Control Protocol):** Connection-oriented, reliable (guarantees delivery, in-order packets, flow control, congestion control). Slower due to overhead. Used for web browsing (HTTP/HTTPS), email (SMTP), file transfer (FTP).\n2.  **UDP (User Datagram Protocol):** Connectionless, unreliable (no guarantees of delivery or order), faster, lower overhead. Used for DNS, VoIP, video streaming, online gaming.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The TCP/IP Application Layer combines the functionalities of which three OSI model layers?",
+      "back": "The TCP/IP Application Layer combines the functionalities of the OSI model's:\n1.  **Application Layer (Layer 7)**\n2.  **Presentation Layer (Layer 6)**\n3.  **Session Layer (Layer 5)**\nIt handles all application-specific protocols and data formatting/session management aspects.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the mapping of the TCP/IP Network Access Layer to the OSI model, detailing why it's often considered two OSI layers.",
+      "back": "The TCP/IP **Network Access Layer** (or Link Layer) maps to the OSI model's **Data Link Layer (Layer 2)** and **Physical Layer (Layer 1)**.\n\nIt encompasses the physical transmission details (cabling, connectors, voltage levels, bit encoding) like OSI Layer 1, and also handles frame formatting, MAC addressing, error detection, and media access control (e.g., CSMA/CD for Ethernet) like OSI Layer 2. The TCP/IP model abstracts these two layers into one because the Internet Protocol (IP) at the layer above can operate independently of the underlying physical network technology.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A client's web browser requests a page from a server. Describe the encapsulation process as this HTTP request traverses the TCP/IP layers on the client side, mentioning the key information added at each layer.",
+      "back": "1.  **Application Layer (HTTP):** The browser creates an HTTP request (e.g., `GET /index.html`).\n2.  **Transport Layer (TCP):** The HTTP request is encapsulated into a TCP **segment**. A TCP header is added, including source/destination port numbers (e.g., client ephemeral port, server port 80/443), sequence/acknowledgment numbers, and flags.\n3.  **Internet Layer (IP):** The TCP segment is encapsulated into an IP **packet** (or datagram). An IP header is added, containing the source/destination IP addresses, Time-To-Live (TTL), and protocol type.\n4.  **Network Access Layer (e.g., Ethernet):** The IP packet is encapsulated into a network **frame**. A frame header is added, including source/destination MAC addresses, and a frame trailer (e.g., Frame Check Sequence for error detection). This frame is then converted into electrical/optical signals for physical transmission.",
+      "difficulty": "hard"
+    }
+  ]
+}

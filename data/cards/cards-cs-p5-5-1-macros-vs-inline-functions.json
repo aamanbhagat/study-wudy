@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-macros-vs-inline-functions",
+  "subtopicTitle": "Macros vs inline functions",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:49.644Z",
+  "cards": [
+    {
+      "front": "What is the primary mechanism by which C preprocessor macros operate?",
+      "back": "Macros operate via **text substitution** performed by the preprocessor *before* compilation. The macro name is replaced directly with its body wherever it appears in the code.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do inline functions differ from macros regarding type checking?",
+      "back": "Inline functions are **type-checked** by the compiler, just like regular functions, ensuring arguments match expected types. Macros perform **no type checking**; they are simply text substitutions, which can lead to subtle type-related bugs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the potential issue with side effects when using an argument multiple times within a C macro, providing an example.",
+      "back": "If an argument with side effects (e.g., `x++`) is used multiple times in a macro body, it will be evaluated multiple times, leading to unexpected behavior.\n```c\n#define SQUARE(x) ((x) * (x))\nint a = 5;\nint result = SQUARE(a++); // Expands to ((a++) * (a++))\n// 'a' would be incremented twice (to 7), and result would be 5 * 6 = 30, not 5 * 5 = 25.\n```\nInline functions evaluate arguments only once before execution, like regular functions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it crucial to parenthesize arguments and the entire body of a C macro, especially in expressions?",
+      "back": "Parenthesizing prevents **operator precedence issues** when the macro is expanded. Without them, the expanded text might interact unexpectedly with surrounding operators or other parts of the expression.\n```c\n#define ADD(a, b) a + b\nint x = ADD(2, 3) * 4; // Expands to 2 + 3 * 4 = 14, not (2 + 3) * 4 = 20.\n// Correct: #define ADD(a, b) ((a) + (b))\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference in *when* macros and inline functions are processed, and what implications does this have for compiler optimization?",
+      "back": "Macros are processed by the **preprocessor** *before* compilation, purely as text substitution. Inline functions are processed by the **compiler** *during* compilation. This means the compiler has full semantic understanding of inline functions (types, scope, etc.) and can make intelligent decisions about whether to actually inline them for optimization, whereas macros are \"blindly\" substituted without semantic analysis.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which is generally easier to debug, a macro or an inline function, and why?",
+      "back": "**Inline functions** are generally easier to debug. They behave like regular functions, allowing debuggers to step into them, set breakpoints, and inspect arguments/local variables (even if ultimately inlined, the debugger can often reconstruct the call stack). Macros are text substitutions, so they don't have a call stack, and debugging tools often show the expanded code, making it harder to trace.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Discuss the potential impact on code size and performance for both macros and inline functions, considering compiler behavior.",
+      "back": "Both can lead to **code bloat** if used extensively with large bodies, as their code is replicated at each call site.\n*   **Macros:** Always expand, potentially increasing code size. They eliminate function call overhead entirely.\n*   **Inline functions:** The `inline` keyword is a *hint* to the compiler. The compiler may choose to inline or not, based on heuristics (e.g., function size, optimization level). If inlined, they eliminate call overhead; if not, they incur standard function call overhead but avoid code bloat. The compiler's intelligence can lead to better overall performance and code size balance than blind macro expansion.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can a multi-statement C macro be safely defined to behave more like a single statement in terms of syntax?",
+      "back": "A multi-statement macro should be wrapped in a `do { ... } while(0)` block. This ensures that the macro behaves like a single statement syntactically, preventing issues when used in `if-else` constructs without braces or with semicolons immediately after the macro call.\n```c\n#define SWAP(a, b) do { \\\n    typeof(a) temp = (a); \\\n    (a) = (b); \\\n    (b) = temp; \\\n} while(0)\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-default-parameters-keyword-arguments",
+  "subtopicTitle": "Default parameters, keyword arguments",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:04.911Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a default parameter in a Python function definition?",
+      "back": "A default parameter allows a function argument to have a predefined value if no argument is explicitly passed for that parameter during the function call. This makes the parameter optional.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a Python function `greet` that takes a `name` and an optional `message` which defaults to \"Hello\".",
+      "back": "```python\ndef greet(name, message=\"Hello\"):\n    return f\"{message}, {name}!\"\n\n# Example usage:\n# greet(\"Alice\")  # Returns \"Hello, Alice!\"\n# greet(\"Bob\", \"Hi\") # Returns \"Hi, Bob!\"\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do keyword arguments enhance the readability and flexibility of function calls in Python?",
+      "back": "Keyword arguments improve readability by explicitly naming the parameters being passed, making the code self-documenting. They enhance flexibility by allowing arguments to be passed in any order, as long as their names match the function's parameter names, and by easily overriding default parameter values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `def configure(host=\"localhost\", port=8080, timeout=30):`, how would you call it to set `port` to 9000 and `timeout` to 60, keeping `host` as default?",
+      "back": "```python\ndef configure(host=\"localhost\", port=8080, timeout=30):\n    return f\"Host: {host}, Port: {port}, Timeout: {timeout}\"\n\n# Call using keyword arguments to override defaults\nresult = configure(port=9000, timeout=60)\n# result will be \"Host: localhost, Port: 9000, Timeout: 60\"\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"mutable default argument\" pitfall in Python and provide a common solution.",
+      "back": "The \"mutable default argument\" pitfall occurs when a mutable object (like a list or dictionary) is used as a default parameter. The default value is created *once* when the function is defined, not on each call. Subsequent calls that modify this default object will affect all future calls that don't explicitly pass a new value.\nSolution: Use `None` as the default, and initialize the mutable object inside the function if `None` is received.\n```python\ndef add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the mandatory order for defining parameters in a Python function signature, considering positional, default, and keyword-only arguments?",
+      "back": "The correct order is:\n1. Positional-only parameters (before `/`)\n2. Positional or keyword parameters (regular parameters)\n3. Default parameters (always come after non-default positional parameters)\n4. Arbitrary positional arguments (`*args`)\n5. Keyword-only parameters (after `*` or `*args`)\n6. Arbitrary keyword arguments (`**kwargs`)\n\nExample: `def func(pos_only, /, pos_or_kw, default_val=None, *args, kw_only, **kwargs):`",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When are default parameter values evaluated in Python: at function definition time or each time the function is called? Illustrate with an example.",
+      "back": "Default parameter values are evaluated **once** at the time the function is *defined*, not each time the function is called.\n```python\ni = 5\ndef f(arg=i):\n    print(arg)\n\ni = 6\nf() # Output: 5 (not 6)\n\n# This is why mutable default arguments are problematic:\n# the list is created once when f2 is defined.\n# def f2(a, L=[]):\n#    L.append(a)\n#    return L\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

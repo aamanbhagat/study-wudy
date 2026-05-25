@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-bode-plot-magnitude-and-phase-vs-frequency",
+  "subtopicTitle": "Bode plot — magnitude and phase vs frequency",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:48.167Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a Bode plot in control system analysis?",
+      "back": "A Bode plot graphically represents the frequency response of a linear time-invariant (LTI) system, showing how the system's gain and phase shift vary with input frequency. It's crucial for stability analysis (e.g., gain/phase margins) and controller design.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A Bode plot consists of two sub-plots. Name them and specify their vertical and horizontal axis units.",
+      "back": "The two sub-plots are:\n1.  **Magnitude Plot**: Vertical axis is gain in decibels (dB), horizontal axis is frequency in radians/second (rad/s) or Hertz (Hz) on a logarithmic scale.\n2.  **Phase Plot**: Vertical axis is phase shift in degrees or radians, horizontal axis is frequency in rad/s or Hz on a logarithmic scale.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $G(s)$, how is the magnitude $M(\\omega)$ for a Bode plot calculated and expressed in decibels (dB)?",
+      "back": "Substitute $s = j\\omega$ into $G(s)$ to get $G(j\\omega)$. The magnitude is then $|G(j\\omega)|$. In decibels, it's calculated as:\n$$ M(\\omega)_{\\text{dB}} = 20 \\log_{10} |G(j\\omega)| $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $G(s)$, how is the phase $\\phi(\\omega)$ for a Bode plot calculated and expressed?",
+      "back": "Substitute $s = j\\omega$ into $G(s)$ to get $G(j\\omega)$. The phase is the argument of this complex number:\n$$ \\phi(\\omega) = \\arg(G(j\\omega)) $$\nIt is typically expressed in degrees, ranging from $-180^\\circ$ to $180^\\circ$ or $0^\\circ$ to $360^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $G(s) = \\frac{1}{Ts+1}$, describe the asymptotic behavior of its magnitude Bode plot.",
+      "back": "The magnitude plot for $G(s) = \\frac{1}{Ts+1}$ has two asymptotes:\n1.  For $\\omega \\ll 1/T$: The magnitude is approximately $20 \\log_{10}(1) = 0 \\text{ dB}$.\n2.  For $\\omega \\gg 1/T$: The magnitude decreases with a slope of $-20 \\text{ dB/decade}$ (or $-6 \\text{ dB/octave}$). \nThe intersection of these asymptotes is at the corner frequency $\\omega_c = 1/T$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $G(s) = \\frac{1}{Ts+1}$, describe the asymptotic behavior of its phase Bode plot.",
+      "back": "The phase plot for $G(s) = \\frac{1}{Ts+1}$ has three key asymptotic points:\n1.  For $\\omega \\ll 0.1/T$: Phase is approximately $0^\\circ$.\n2.  For $\\omega = 1/T$: Phase is exactly $-45^\\circ$.\n3.  For $\\omega \\gg 10/T$: Phase is approximately $-90^\\circ$.\nThe phase changes from $0^\\circ$ to $-90^\\circ$ over two decades centered at the corner frequency $\\omega_c = 1/T$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do individual poles and zeros contribute to the overall magnitude and phase plots in a complex system's Bode plot?",
+      "back": "*   **Poles**: Each simple pole ($1/(Ts+1)$ or $1/s$) contributes a slope of $-20 \\text{ dB/decade}$ to the magnitude plot above its corner frequency and a phase lag of $-90^\\circ$ at high frequencies.\n*   **Zeros**: Each simple zero ($Ts+1$ or $s$) contributes a slope of $+20 \\text{ dB/decade}$ to the magnitude plot above its corner frequency and a phase lead of $+90^\\circ$ at high frequencies.\nThe overall Bode plot is the sum of the individual contributions.",
+      "difficulty": "hard"
+    }
+  ]
+}

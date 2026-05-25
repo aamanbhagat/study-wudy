@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-quantum-tunneling-concept-transmission-coefficient",
+  "subtopicTitle": "Quantum tunneling — concept, transmission coefficient",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:07.936Z",
+  "cards": [
+    {
+      "front": "Define quantum tunneling.",
+      "back": "Quantum tunneling is a quantum mechanical phenomenon where a particle can penetrate a potential energy barrier even if it does not have enough kinetic energy to classically overcome it. It is a probabilistic event.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does quantum tunneling contradict classical physics expectations?",
+      "back": "Classically, a particle with energy $E$ less than a potential barrier height $V_0$ would be reflected. Quantum mechanically, the particle's wave function can penetrate the barrier, meaning there's a non-zero probability of finding the particle on the other side, effectively \"tunneling\" through.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the behavior of a particle's wave function *inside* a potential barrier where its total energy $E$ is less than the barrier height $V_0$.",
+      "back": "Inside the barrier, where $V_0 > E$, the wave function does not become zero. Instead, it decays exponentially. The general form is $\\psi(x) \\propto e^{-\\kappa x}$, where $\\kappa = \\sqrt{\\frac{2m(V_0 - E)}{\\hbar^2}}$ is the decay constant. This exponential decay implies a reduced but non-zero probability of finding the particle within and beyond the barrier.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the approximate formula for the transmission coefficient $T$ for a thick rectangular potential barrier when $E < V_0$?",
+      "back": "The approximate formula for the transmission coefficient $T$ for a thick rectangular barrier (where $\\kappa L \\gg 1$) is: $$T \\approx e^{-2\\kappa L} = e^{-2L\\sqrt{\\frac{2m(V_0 - E)}{\\hbar^2}}}$$ where $m$ is the particle's mass, $E$ its energy, $V_0$ the barrier height, $L$ the barrier width, and $\\hbar$ is the reduced Planck constant.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how the transmission coefficient $T$ for a rectangular barrier depends on barrier width $L$, barrier height $V_0$, and particle mass $m$.",
+      "back": "From the approximate formula $T \\approx e^{-2L\\sqrt{\\frac{2m(V_0 - E)}{\\hbar^2}}}$:\n*   **Barrier Width ($L$)**: $T$ decreases exponentially with increasing $L$. A wider barrier significantly reduces tunneling probability.\n*   **Barrier Height ($V_0$)**: $T$ decreases exponentially with increasing $(V_0 - E)$. A higher barrier (relative to particle energy) significantly reduces tunneling probability.\n*   **Particle Mass ($m$)**: $T$ decreases exponentially with increasing $m$. Heavier particles are much less likely to tunnel.\nThese dependencies highlight the extreme sensitivity of tunneling to these parameters.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Increasing which two barrier properties exponentially *reduces* the probability of quantum tunneling?",
+      "back": "Increasing the **width ($L$)** of the barrier and increasing the **height ($V_0$)** of the barrier (relative to the particle's energy $E$) both exponentially reduce the probability of quantum tunneling. This is evident from the $e^{-2L\\sqrt{\\frac{2m(V_0 - E)}{\\hbar^2}}}$ term in the transmission coefficient.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two important real-world applications or phenomena where quantum tunneling is crucial.",
+      "back": "1.  **Alpha Decay**: Alpha particles tunnel through the Coulomb barrier of atomic nuclei.\n2.  **Scanning Tunneling Microscopy (STM)**: Electrons tunnel between a sharp tip and a conductive surface for atomic-resolution imaging.\n3.  **Nuclear Fusion in Stars**: Protons tunnel through the Coulomb barrier to initiate fusion.\n4.  **Tunnel Diodes**: Electrons tunnel through a depletion region in semiconductor devices.\n(Any two are sufficient)",
+      "difficulty": "medium"
+    }
+  ]
+}

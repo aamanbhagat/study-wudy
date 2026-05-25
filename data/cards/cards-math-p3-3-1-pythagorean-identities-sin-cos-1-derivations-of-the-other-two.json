@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-1-pythagorean-identities-sin-cos-1-derivations-of-the-other-two",
+  "subtopicTitle": "Pythagorean identities — sin²+cos²=1, derivations of the other two",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:33.101Z",
+  "cards": [
+    {
+      "front": "State the fundamental Pythagorean identity involving $\\sin\\theta$ and $\\cos\\theta$.",
+      "back": "$\\sin^2\\theta + \\cos^2\\theta = 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the identity $\\sin^2\\theta + \\cos^2\\theta = 1$ using a unit circle and a right triangle.",
+      "back": "Consider a point $(x, y)$ on the unit circle at an angle $\\theta$ from the positive x-axis. By definition, $x = \\cos\\theta$ and $y = \\sin\\theta$. The distance from the origin to $(x, y)$ is the radius, which is $1$. By the Pythagorean theorem for the right triangle formed by $(0,0)$, $(x,0)$, and $(x,y)$, we have $x^2 + y^2 = 1^2$. Substituting $x = \\cos\\theta$ and $y = \\sin\\theta$, we get $(\\cos\\theta)^2 + (\\sin\\theta)^2 = 1$, which simplifies to $\\cos^2\\theta + \\sin^2\\theta = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the identity $1 + \\tan^2\\theta = \\sec^2\\theta$ from $\\sin^2\\theta + \\cos^2\\theta = 1$.",
+      "back": "Start with $\\sin^2\\theta + \\cos^2\\theta = 1$. Divide every term by $\\cos^2\\theta$ (assuming $\\cos\\theta \\neq 0$):\n$$ \\frac{\\sin^2\\theta}{\\cos^2\\theta} + \\frac{\\cos^2\\theta}{\\cos^2\\theta} = \\frac{1}{\\cos^2\\theta} $$\nSince $\\frac{\\sin\\theta}{\\cos\\theta} = \\tan\\theta$ and $\\frac{1}{\\cos\\theta} = \\sec\\theta$, we substitute these:\n$$ (\\tan\\theta)^2 + 1 = (\\sec\\theta)^2 $$\n$$ \\tan^2\\theta + 1 = \\sec^2\\theta $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the identity $1 + \\cot^2\\theta = \\csc^2\\theta$ from $\\sin^2\\theta + \\cos^2\\theta = 1$.",
+      "back": "Start with $\\sin^2\\theta + \\cos^2\\theta = 1$. Divide every term by $\\sin^2\\theta$ (assuming $\\sin\\theta \\neq 0$):\n$$ \\frac{\\sin^2\\theta}{\\sin^2\\theta} + \\frac{\\cos^2\\theta}{\\sin^2\\theta} = \\frac{1}{\\sin^2\\theta} $$\nSince $\\frac{\\cos\\theta}{\\sin\\theta} = \\cot\\theta$ and $\\frac{1}{\\sin\\theta} = \\csc\\theta$, we substitute these:\n$$ 1 + (\\cot\\theta)^2 = (\\csc\\theta)^2 $$\n$$ 1 + \\cot^2\\theta = \\csc^2\\theta $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Pythagorean identity involving $\\tan\\theta$ and $\\sec\\theta$.",
+      "back": "$1 + \\tan^2\\theta = \\sec^2\\theta$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Pythagorean identity involving $\\cot\\theta$ and $\\csc\\theta$.",
+      "back": "$1 + \\cot^2\\theta = \\csc^2\\theta$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $\\tan\\theta = \\frac{3}{4}$ and $\\theta$ is in Quadrant III, find the exact value of $\\sec\\theta$.",
+      "back": "Use the identity $1 + \\tan^2\\theta = \\sec^2\\theta$.\n$$ 1 + \\left(\\frac{3}{4}\\right)^2 = \\sec^2\\theta $$\n$$ 1 + \\frac{9}{16} = \\sec^2\\theta $$\n$$ \\frac{16}{16} + \\frac{9}{16} = \\sec^2\\theta $$\n$$ \\frac{25}{16} = \\sec^2\\theta $$\nTaking the square root of both sides:\n$$ \\sec\\theta = \\pm\\sqrt{\\frac{25}{16}} = \\pm\\frac{5}{4} $$\nSince $\\theta$ is in Quadrant III, cosine (and thus secant) is negative.\nTherefore, $\\sec\\theta = -\\frac{5}{4}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For which values of $\\theta$ are the identities $1 + \\tan^2\\theta = \\sec^2\\theta$ and $1 + \\cot^2\\theta = \\csc^2\\theta$ undefined?",
+      "back": "For $1 + \\tan^2\\theta = \\sec^2\\theta$: This identity is derived by dividing by $\\cos^2\\theta$. It is undefined when $\\cos\\theta = 0$. This occurs when $\\theta = \\frac{\\pi}{2} + n\\pi$, where $n$ is any integer.\nFor $1 + \\cot^2\\theta = \\csc^2\\theta$: This identity is derived by dividing by $\\sin^2\\theta$. It is undefined when $\\sin\\theta = 0$. This occurs when $\\theta = n\\pi$, where $n$ is any integer.",
+      "difficulty": "medium"
+    }
+  ]
+}

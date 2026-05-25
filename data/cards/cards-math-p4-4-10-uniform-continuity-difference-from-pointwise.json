@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-uniform-continuity-difference-from-pointwise",
+  "subtopicTitle": "Uniform continuity — difference from pointwise",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:35.680Z",
+  "cards": [
+    {
+      "front": "Define pointwise continuity for a function $f: S \\to \\mathbb{R}$ at a point $c \\in S$.",
+      "back": "A function $f$ is pointwise continuous at $c \\in S$ if for every $\\epsilon > 0$, there exists a $\\delta > 0$ (which may depend on $\\epsilon$ and $c$) such that for all $x \\in S$ with $|x-c| < \\delta$, we have $|f(x)-f(c)| < \\epsilon$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define uniform continuity for a function $f: S \\to \\mathbb{R}$ on a set $S$.",
+      "back": "A function $f$ is uniformly continuous on $S$ if for every $\\epsilon > 0$, there exists a $\\delta > 0$ (which depends only on $\\epsilon$, not on any specific point in $S$) such that for all $x, y \\in S$ with $|x-y| < \\delta$, we have $|f(x)-f(y)| < \\epsilon$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the crucial difference in the order of quantifiers between the definitions of pointwise and uniform continuity?",
+      "back": "For pointwise continuity, $\\forall \\epsilon > 0 \\, \\forall c \\in S \\, \\exists \\delta > 0$. The $\\delta$ can depend on both $\\epsilon$ and $c$. For uniform continuity, $\\forall \\epsilon > 0 \\, \\exists \\delta > 0 \\, \\forall x, y \\in S$. The $\\delta$ depends only on $\\epsilon$, and must work for *all* pairs of points $x,y$ in $S$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, what does it mean for a function to be uniformly continuous versus merely pointwise continuous?",
+      "back": "Pointwise continuity means the function doesn't 'jump' at any single point. Uniform continuity means the function's 'slope' or rate of change is bounded in a way that allows us to control the output difference $|f(x)-f(y)|$ by controlling the input difference $|x-y|$ with a *single* $\\delta$ value, regardless of where $x$ and $y$ are in the domain. There are no 'steep parts' that get arbitrarily steep.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an example of a function that is continuous on an interval but *not* uniformly continuous on that interval, and briefly explain why.",
+      "back": "Consider $f(x) = 1/x$ on the interval $(0, 1)$. It is continuous on $(0,1)$. However, it is not uniformly continuous. As $x \\to 0^+$, the function becomes arbitrarily steep. For any given $\\epsilon > 0$, as $x$ gets closer to $0$, the required $\\delta$ to satisfy $|f(x)-f(y)| < \\epsilon$ for points near $x$ becomes arbitrarily small. No single $\\delta$ can work for all $x \\in (0,1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Heine-Cantor Theorem regarding uniform continuity.",
+      "back": "The Heine-Cantor Theorem states that if a function $f: K \\to \\mathbb{R}$ is continuous on a compact set $K$, then $f$ is uniformly continuous on $K$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give an example of a function that is uniformly continuous on an unbounded interval, and briefly justify why.",
+      "back": "Consider $f(x) = \\sin(x)$ on $\\mathbb{R}$. This function is uniformly continuous. Its derivative $f'(x) = \\cos(x)$ is bounded ($|f'(x)| \\le 1$). By the Mean Value Theorem, $|f(x)-f(y)| = |f'(c)||x-y| \\le 1 \\cdot |x-y|$. So, for any $\\epsilon > 0$, choosing $\\delta = \\epsilon$ works for all $x,y \\in \\mathbb{R}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Formally state the negation of the definition of uniform continuity for a function $f$ on a set $S$.",
+      "back": "A function $f$ is *not* uniformly continuous on $S$ if there exists an $\\epsilon_0 > 0$ such that for every $\\delta > 0$, there exist points $x, y \\in S$ with $|x-y| < \\delta$ but $|f(x)-f(y)| \\ge \\epsilon_0$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-sets-unique-elements-set-operations-union-intersection-difference",
+  "subtopicTitle": "Sets — unique elements, set operations (union, intersection, difference)",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:05.039Z",
+  "cards": [
+    {
+      "front": "What is a Python `set` and its primary distinguishing characteristic regarding elements?",
+      "back": "A Python `set` is an unordered collection of unique and immutable elements. Its primary distinguishing characteristic is that it automatically ensures all its elements are unique, removing any duplicates upon creation or addition.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you create an empty set and a set with initial elements in Python? What element types are disallowed in sets?",
+      "back": "To create an empty set: `my_set = set()`. To create a set with elements: `my_set = {1, 2, 3}` or `my_set = set([1, 2, 3])`.\nElements must be hashable (immutable); thus, mutable types like lists, dictionaries, or other sets cannot be direct members. Tuples, numbers, strings, and frozensets are allowed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $A = \\{1, 2, 3\\}$ and $B = \\{3, 4, 5\\}$, write Python code to find their union.",
+      "back": "The union includes all unique elements from both sets.\n```python\nA = {1, 2, 3}\nB = {3, 4, 5}\nunion_set = A.union(B) # or A | B\n# union_set will be {1, 2, 3, 4, 5}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $S_1 = \\{\\text{'apple'}, \\text{'banana'}, \\text{'cherry'}\\}$ and $S_2 = \\{\\text{'banana'}, \\text{'grape'}, \\text{'cherry'}\\}$, what is $S_1 \\cap S_2$ in Python?",
+      "back": "The intersection contains elements common to both sets.\n```python\nS1 = {'apple', 'banana', 'cherry'}\nS2 = {'banana', 'grape', 'cherry'}\nintersection_set = S1.intersection(S2) # or S1 & S2\n# intersection_set will be {'banana', 'cherry'}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the result of $X - Y$ if $X = \\{10, 20, 30, 40\\}$ and $Y = \\{30, 40, 50\\}$ in Python?",
+      "back": "The difference $X - Y$ (or `X.difference(Y)`) contains elements present in $X$ that are not present in $Y$.\n```python\nX = {10, 20, 30, 40}\nY = {30, 40, 50}\ndifference_set = X.difference(Y) # or X - Y\n# difference_set will be {10, 20}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the symmetric difference of sets $A$ and $B$, and provide its Python syntax.",
+      "back": "The symmetric difference ($A \\Delta B$) contains elements that are in either $A$ or $B$, but not in both. It can be expressed as $(A \\cup B) - (A \\cap B)$ or $(A - B) \\cup (B - A)$.\nPython syntax: `A.symmetric_difference(B)` or `A ^ B`.\nExample: `A = {1,2,3}, B = {3,4,5}`. `A ^ B` is `{1,2,4,5}`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $A = \\{1, 2, 3\\}$ and $B = \\{1, 2, 3\\}$, what are $A - B$ and $B - A$? What does this imply about $A$ and $B$?",
+      "back": "```python\nA = {1, 2, 3}\nB = {1, 2, 3}\ndiff_AB = A - B # Result: set()\ndiff_BA = B - A # Result: set()\n```\nThis implies that $A$ and $B$ are identical sets. When the difference between two sets in both directions results in an empty set, the sets are equal.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you efficiently remove duplicate elements from a list `my_list = [1, 2, 2, 3, 4, 4, 5]` using sets?",
+      "back": "Convert the list to a set to automatically remove duplicates, then convert it back to a list if the original data type is required.\n```python\nmy_list = [1, 2, 2, 3, 4, 4, 5]\nunique_elements = list(set(my_list))\n# unique_elements will be [1, 2, 3, 4, 5] (order is not guaranteed as sets are unordered)\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

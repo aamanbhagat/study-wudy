@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-von-neumann-architecture-components-bottleneck",
+  "subtopicTitle": "Von Neumann architecture — components, bottleneck",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:25.095Z",
+  "cards": [
+    {
+      "front": "List the five fundamental components of a Von Neumann architecture.",
+      "back": "The five components are: 1. Central Processing Unit (CPU), 2. Memory Unit, 3. Input Unit, 4. Output Unit, and 5. Bus System (or Interconnection Structure).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two main sub-components of the CPU and their primary functions in a Von Neumann machine?",
+      "back": "The CPU comprises the Arithmetic Logic Unit (ALU), which performs arithmetic and logical operations, and the Control Unit (CU), which fetches instructions, decodes them, and manages the execution flow by coordinating other components.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the significance of the Memory Unit's unified storage for both instructions and data in Von Neumann architecture.",
+      "back": "In a Von Neumann architecture, the Memory Unit stores both program instructions and data in the same address space. This \"stored-program concept\" allows the CPU to access instructions and data interchangeably from memory, enabling program modification and self-modifying code, but also contributing to the bottleneck.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the role of the \"Bus System\" in a Von Neumann architecture and its three main types.",
+      "back": "The Bus System is a set of parallel electrical pathways that provides communication channels between the CPU, Memory, and I/O devices. Its three main types are: 1. Data Bus (transfers data), 2. Address Bus (specifies memory locations), and 3. Control Bus (carries control signals and commands).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"Von Neumann bottleneck.\"",
+      "back": "The Von Neumann bottleneck is the fundamental limitation on the throughput of a computer caused by the physical separation of the CPU and memory, and the use of a single, shared bus for both data and instruction transfers. This creates a sequential access constraint.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary architectural reason *why* the Von Neumann bottleneck limits performance.",
+      "back": "The bottleneck arises because the CPU cannot simultaneously fetch an instruction and read/write data from/to memory if both operations require the same single bus. This forces sequential access for instructions and data, even if the CPU could process them in parallel, effectively creating a choke point for data flow.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the main performance consequence of the Von Neumann bottleneck in modern computing?",
+      "back": "The main consequence is that the rate at which the CPU can execute instructions is limited by the bandwidth and latency of the data transfer path between the CPU and memory. This means that increasing CPU speed alone often yields diminishing returns unless memory access speed also improves proportionally.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name and briefly describe one common architectural strategy used to mitigate the Von Neumann bottleneck.",
+      "back": "Caching is a primary strategy. Small, fast memory (cache) is placed closer to the CPU to store frequently accessed instructions and data. This reduces the number of slower main memory accesses, improving average memory access time and overall system performance.",
+      "difficulty": "medium"
+    }
+  ]
+}

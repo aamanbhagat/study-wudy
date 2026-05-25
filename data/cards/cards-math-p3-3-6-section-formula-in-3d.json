@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-6-section-formula-in-3d",
+  "subtopicTitle": "Section formula in 3D",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:32.077Z",
+  "cards": [
+    {
+      "front": "In 3D geometry, what does the section formula help us find?",
+      "back": "The coordinates of a point that divides a line segment joining two given points in a specific ratio, either internally or externally.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the 3D section formula for a point $P(x,y,z)$ dividing the line segment joining $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$ internally in the ratio $m:n$.",
+      "back": "$P(x,y,z) = \\left( \\frac{mx_2 + nx_1}{m+n}, \\frac{my_2 + ny_1}{m+n}, \\frac{mz_2 + nz_1}{m+n} \\right)$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the 3D section formula change if point $P$ divides the line segment joining $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$ *externally* in the ratio $m:n$?",
+      "back": "For external division, the formula becomes: $P(x,y,z) = \\left( \\frac{mx_2 - nx_1}{m-n}, \\frac{my_2 - ny_1}{m-n}, \\frac{mz_2 - nz_1}{m-n} \\right)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the midpoint formula for a line segment joining $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$ using the 3D section formula.",
+      "back": "A midpoint divides the segment internally in the ratio $1:1$. Using the internal section formula with $m=1, n=1$: $P(x,y,z) = \\left( \\frac{1 \\cdot x_2 + 1 \\cdot x_1}{1+1}, \\frac{1 \\cdot y_2 + 1 \\cdot y_1}{1+1}, \\frac{1 \\cdot z_2 + 1 \\cdot z_1}{1+1} \\right) = \\left( \\frac{x_1+x_2}{2}, \\frac{y_1+y_2}{2}, \\frac{z_1+z_2}{2} \\right)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the vector approach to derive the 3D section formula for internal division.",
+      "back": "Let $A$ and $B$ be position vectors $\\vec{a}$ and $\\vec{b}$. If $P$ divides $AB$ internally in ratio $m:n$, then $n\\vec{AP} = m\\vec{PB}$. Substituting $\\vec{AP} = \\vec{p} - \\vec{a}$ and $\\vec{PB} = \\vec{b} - \\vec{p}$: $n(\\vec{p} - \\vec{a}) = m(\\vec{b} - \\vec{p})$. Expanding: $n\\vec{p} - n\\vec{a} = m\\vec{b} - m\\vec{p}$. Rearranging: $(m+n)\\vec{p} = m\\vec{b} + n\\vec{a}$. Thus, $\\vec{p} = \\frac{m\\vec{b} + n\\vec{a}}{m+n}$. Converting to coordinates gives the formula.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the coordinates of the point that divides the line segment joining $A(1, -2, 3)$ and $B(4, 7, -6)$ internally in the ratio $2:1$.",
+      "back": "Using the internal section formula with $(x_1,y_1,z_1)=(1,-2,3)$, $(x_2,y_2,z_2)=(4,7,-6)$, $m=2$, $n=1$: $x = \\frac{2(4) + 1(1)}{2+1} = \\frac{8+1}{3} = 3$ $y = \\frac{2(7) + 1(-2)}{2+1} = \\frac{14-2}{3} = 4$ $z = \\frac{2(-6) + 1(3)}{2+1} = \\frac{-12+3}{3} = -3$ The point is $(3, 4, -3)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Point $P(1, 0, 1)$ divides the line segment joining $A(2, -1, 3)$ and $B(-1, 2, -3)$. Find the ratio in which $P$ divides $AB$.",
+      "back": "Let $P$ divide $AB$ in the ratio $k:1$. Using the internal section formula for $x$-coordinate: $1 = \\frac{k(-1) + 1(2)}{k+1} \\Rightarrow k+1 = -k+2 \\Rightarrow 2k = 1 \\Rightarrow k = 1/2$. Checking with $y$-coordinate: $0 = \\frac{k(2) + 1(-1)}{k+1} \\Rightarrow 0 = 2k-1 \\Rightarrow 2k = 1 \\Rightarrow k = 1/2$. Checking with $z$-coordinate: $1 = \\frac{k(-3) + 1(3)}{k+1} \\Rightarrow k+1 = -3k+3 \\Rightarrow 4k = 2 \\Rightarrow k = 1/2$. The ratio is $1:2$ internally.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If applying the section formula yields a negative ratio (e.g., $k:-1$), what does this imply about the division?",
+      "back": "A negative ratio implies external division. For example, if $k:1$ calculation gives $k = -2$, it means the point divides the segment externally in the ratio $2:1$. The point $P$ lies outside the segment $AB$, on the line containing $AB$ but not between $A$ and $B$.",
+      "difficulty": "medium"
+    }
+  ]
+}

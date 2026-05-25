@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-7-fourier-transform-definition-properties",
+  "subtopicTitle": "Fourier transform — definition, properties",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:04.298Z",
+  "cards": [
+    {
+      "front": "State the definition of the continuous Fourier transform $ \\mathcal{F}[f(x)] $ of a function $f(x)$.",
+      "back": "The Fourier transform $ \\hat{f}(\\omega) $ is defined as: $$ \\hat{f}(\\omega) = \\mathcal{F}[f(x)](\\omega) = \\int_{-\\infty}^{\\infty} f(x) e^{-i\\omega x} dx $$ where $ \\omega $ is the angular frequency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the definition of the inverse Fourier transform $ \\mathcal{F}^{-1}[\\hat{f}(\\omega)] $ of $ \\hat{f}(\\omega) $.",
+      "back": "The inverse Fourier transform $ f(x) $ is defined as: $$ f(x) = \\mathcal{F}^{-1}[\\hat{f}(\\omega)](x) = \\frac{1}{2\\pi} \\int_{-\\infty}^{\\infty} \\hat{f}(\\omega) e^{i\\omega x} d\\omega $$ Note the $ 1/(2\\pi) $ factor and the positive sign in the exponent.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary condition for the Fourier transform of a function $f(x)$ to exist?",
+      "back": "The function $f(x)$ must be absolutely integrable, meaning $ \\int_{-\\infty}^{\\infty} |f(x)| dx < \\infty $. This ensures the integral defining the transform converges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the linearity property of the Fourier transform for functions $f(x), g(x)$ and constants $a, b$.",
+      "back": "The Fourier transform is linear: $$ \\mathcal{F}[af(x) + bg(x)] = a\\mathcal{F}[f(x)] + b\\mathcal{F}[g(x)] = a\\hat{f}(\\omega) + b\\hat{g}(\\omega) $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does differentiation in the $x$-domain relate to the Fourier transform? State the property for $f'(x)$.",
+      "back": "Differentiation in the $x$-domain becomes multiplication by $i\\omega$ in the frequency domain: $$ \\mathcal{F}[f'(x)] = i\\omega\\hat{f}(\\omega) $$ This property is fundamental for converting PDEs into algebraic equations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Fourier transform property for a shifted function $f(x-x_0)$.",
+      "back": "A shift in the $x$-domain corresponds to multiplication by a phase factor in the frequency domain: $$ \\mathcal{F}[f(x-x_0)] = e^{-i\\omega x_0}\\hat{f}(\\omega) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Convolution Theorem for Fourier transforms. Why is it powerful for solving PDEs?",
+      "back": "The Fourier transform of a convolution is the product of the individual transforms: $$ \\mathcal{F}[f*g] = \\hat{f}(\\omega)\\hat{g}(\\omega) $$ This transforms complex convolution operations in the $x$-domain into simpler multiplications in the frequency domain, greatly simplifying PDE solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the scaling property of the Fourier transform: $ \\mathcal{F}[f(ax)] $.",
+      "back": "Let $y = ax$, so $dy = a dx$. If $a>0$, $dx = dy/a$. $$ \\mathcal{F}[f(ax)] = \\int_{-\\infty}^{\\infty} f(ax) e^{-i\\omega x} dx = \\int_{-\\infty}^{\\infty} f(y) e^{-i\\omega (y/a)} \\frac{dy}{a} = \\frac{1}{a} \\int_{-\\infty}^{\\infty} f(y) e^{-i(\\omega/a) y} dy = \\frac{1}{a}\\hat{f}\\left(\\frac{\\omega}{a}\\right) $$ If $a<0$, $dx = dy/a$. The integral limits reverse, introducing a negative sign, which cancels with $1/a$ becoming $1/|a|$. Thus, $ \\mathcal{F}[f(ax)] = \\frac{1}{|a|}\\hat{f}\\left(\\frac{\\omega}{a}\\right) $. This shows compression/expansion in one domain leads to expansion/compression in the other.",
+      "difficulty": "hard"
+    }
+  ]
+}

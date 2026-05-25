@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-7-box-and-whisker-plots-quartiles-iqr",
+  "subtopicTitle": "Box-and-whisker plots — quartiles, IQR",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:57.938Z",
+  "cards": [
+    {
+      "front": "What are the five key summary statistics represented in a box-and-whisker plot?",
+      "back": "The five-number summary: Minimum, First Quartile ($Q_1$), Median ($Q_2$), Third Quartile ($Q_3$), and Maximum.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the first quartile ($Q_1$) and the third quartile ($Q_3$).",
+      "back": "$Q_1$ (First Quartile): The median of the lower half of the data set (all values below the overall median).\n$Q_3$ (Third Quartile): The median of the upper half of the data set (all values above the overall median).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the Interquartile Range (IQR) and what does it measure?",
+      "back": "The formula is $\\text{IQR} = Q_3 - Q_1$. It represents the range of the middle 50% of the data, indicating the spread or variability of the central portion of the distribution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the general method for calculating $Q_1$ and $Q_3$ for a dataset, specifically addressing how to handle the median's inclusion/exclusion.",
+      "back": "First, order the data from smallest to largest. Find the median ($Q_2$).\n- If the number of data points $n$ is odd, *exclude* the median when forming the lower and upper halves.\n- If $n$ is even, split the data exactly in half.\n$Q_1$ is then the median of the lower half, and $Q_3$ is the median of the upper half.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are the \"whiskers\" of a standard box-and-whisker plot typically determined, and what do they indicate?",
+      "back": "The whiskers extend from the box to the minimum and maximum data values that are *not* considered outliers. They typically extend to the smallest value greater than or equal to $Q_1 - 1.5 \\times \\text{IQR}$ and the largest value less than or equal to $Q_3 + 1.5 \\times \\text{IQR}$. They show the spread of the bulk of the data, excluding extreme values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the mathematical criteria for identifying outliers in a dataset using the Interquartile Range (IQR).",
+      "back": "A data point $x$ is considered an outlier if:\n- $x < Q_1 - 1.5 \\times \\text{IQR}$ (Lower Outlier)\nOR\n- $x > Q_3 + 1.5 \\times \\text{IQR}$ (Upper Outlier)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can a box-and-whisker plot visually indicate whether a data distribution is skewed left or skewed right?",
+      "back": "- **Skewed Right (Positively Skewed):** The right whisker is longer than the left whisker, and the median line ($Q_2$) is closer to $Q_1$ (the left side) of the box. This indicates a longer tail towards higher values.\n- **Skewed Left (Negatively Skewed):** The left whisker is longer than the right whisker, and the median line ($Q_2$) is closer to $Q_3$ (the right side) of the box. This indicates a longer tail towards lower values.",
+      "difficulty": "hard"
+    }
+  ]
+}

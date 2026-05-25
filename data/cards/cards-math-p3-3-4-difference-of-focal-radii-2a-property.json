@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-4-difference-of-focal-radii-2a-property",
+  "subtopicTitle": "Difference of focal radii = 2a property",
+  "topicId": "math-p3-3-4-conic-sections",
+  "topicTitle": "Conic Sections",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:10.394Z",
+  "cards": [
+    {
+      "front": "Which conic section is defined by the property that the absolute difference of the distances from any point on the curve to two fixed points (foci) is a constant?",
+      "back": "The hyperbola. This constant difference is equal to $2a$, where $a$ is the distance from the center to a vertex along the transverse axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the hyperbola property $|PF_1 - PF_2| = 2a$, what do $P$, $F_1$, $F_2$, and $2a$ represent?",
+      "back": "$P$ is any point on the hyperbola. $F_1$ and $F_2$ are the two foci of the hyperbola. $2a$ is the constant difference of the focal radii, which is also the length of the transverse axis (the distance between the two vertices).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can we show that the constant difference of focal radii for a hyperbola, $|PF_1 - PF_2|$, is equal to $2a$?",
+      "back": "Consider a vertex $V_1$ on the hyperbola. By definition, $|V_1F_1 - V_1F_2| = \\text{constant}$. Let the center be $C(0,0)$, foci $F_1(-c,0)$, $F_2(c,0)$, and vertices $V_1(-a,0)$, $V_2(a,0)$.\nThen $V_1F_1 = |-a - (-c)| = |c-a|$ and $V_1F_2 = |-a - c| = |-(a+c)| = a+c$.\nSo, $|V_1F_1 - V_1F_2| = |(c-a) - (a+c)| = |-2a| = 2a$. Thus, the constant difference is $2a$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A hyperbola has foci at $(\\pm 5, 0)$ and a constant difference of focal radii of $6$. What are the values of $a$ and $c$?",
+      "back": "The foci are at $(\\pm c, 0)$, so $c=5$. The constant difference of focal radii is $2a$. Given $2a=6$, we have $a=3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the \"difference of focal radii = 2a\" property geometrically distinguishes a hyperbola from an ellipse, which uses a *sum* of focal radii.",
+      "back": "For an ellipse, the *sum* of distances from any point to the foci is constant ($PF_1 + PF_2 = 2a$). This means points are \"trapped\" between the foci, forming a closed curve. For a hyperbola, the *absolute difference* is constant ($|PF_1 - PF_2| = 2a$). This implies that points are \"pushed away\" from the region between the foci, resulting in two separate, open branches. One branch is always closer to one focus than the other, maintaining the constant difference.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a hyperbola defined by $|PF_1 - PF_2| = 2a$, what is the fundamental relationship between $a$ (semi-transverse axis), $b$ (semi-conjugate axis), and $c$ (distance from center to focus)?",
+      "back": "The fundamental relationship is $c^2 = a^2 + b^2$. This equation connects the distances defining the hyperbola's shape and is crucial for deriving its standard form from the definition involving focal radii.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the initial steps to derive the standard equation of a hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ using its definition $|PF_1 - PF_2| = 2a$.",
+      "back": "Let $P(x,y)$ be a point on the hyperbola, and foci $F_1(-c,0)$ and $F_2(c,0)$.\n1. Start with the definition: $\\sqrt{(x+c)^2 + y^2} - \\sqrt{(x-c)^2 + y^2} = \\pm 2a$.\n2. Isolate one radical: $\\sqrt{(x+c)^2 + y^2} = \\pm 2a + \\sqrt{(x-c)^2 + y^2}$.\n3. Square both sides: $(x+c)^2 + y^2 = 4a^2 \\pm 4a\\sqrt{(x-c)^2 + y^2} + (x-c)^2 + y^2$.\n4. Expand and simplify: $x^2 + 2cx + c^2 + y^2 = 4a^2 \\pm 4a\\sqrt{(x-c)^2 + y^2} + x^2 - 2cx + c^2 + y^2$.\n5. Further simplification leads to: $4cx - 4a^2 = \\pm 4a\\sqrt{(x-c)^2 + y^2}$, which simplifies to $cx - a^2 = \\pm a\\sqrt{(x-c)^2 + y^2}$. This is the point before squaring again to eliminate the last radical and substitute $b^2 = c^2 - a^2$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-double-integrals-in-polar-coordinates-jacobian-r",
+  "subtopicTitle": "Double integrals in polar coordinates — Jacobian r",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:27.402Z",
+  "cards": [
+    {
+      "front": "For what types of regions or integrands are polar coordinates particularly advantageous when evaluating double integrals?",
+      "back": "Polar coordinates are most advantageous for regions with circular symmetry (e.g., circles, annuli, sectors) or for integrands that involve the expression $x^2+y^2$ (which simplifies to $r^2$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the conversion formulas from Cartesian $(x,y)$ to polar $(r,\\theta)$ and vice-versa.",
+      "back": "From polar to Cartesian: $x = r \\cos \\theta$, $y = r \\sin \\theta$. From Cartesian to polar: $r^2 = x^2 + y^2$, $\\tan \\theta = y/x$ (with $\\theta$ chosen appropriately based on the quadrant of $(x,y)$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the correct differential area element $dA$ in polar coordinates, and what is the significance of the extra factor?",
+      "back": "The correct differential area element is $dA = r \\, dr \\, d\\theta$. The extra factor $r$ is the Jacobian determinant for the transformation from Cartesian to polar coordinates. It accounts for the fact that the area of an infinitesimal region in polar coordinates changes with its distance $r$ from the origin.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, why does the area of an infinitesimal \"polar rectangle\" with dimensions $dr$ and $d\\theta$ approximate $r \\, dr \\, d\\theta$?",
+      "back": "Consider a small polar rectangle bounded by radii $r$ and $r+dr$, and angles $\\theta$ and $\\theta+d\\theta$. The radial length is $dr$. The arc length along the inner radius $r$ is $r \\, d\\theta$. The arc length along the outer radius $r+dr$ is $(r+dr) \\, d\\theta$. For infinitesimal $dr$ and $d\\theta$, this shape approximates a rectangle with sides $dr$ and $r \\, d\\theta$, so its area is approximately $(dr)(r \\, d\\theta) = r \\, dr \\, d\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Jacobian determinant $J$ for the transformation $x = r \\cos \\theta$, $y = r \\sin \\theta$.",
+      "back": "The Jacobian determinant is $J = \\det \\begin{pmatrix} \\frac{\\partial x}{\\partial r} & \\frac{\\partial x}{\\partial \\theta} \\\\ \\frac{\\partial y}{\\partial r} & \\frac{\\partial y}{\\partial \\theta} \\end{pmatrix}$.\nWe have:\n$\\frac{\\partial x}{\\partial r} = \\cos \\theta$, $\\frac{\\partial x}{\\partial \\theta} = -r \\sin \\theta$\n$\\frac{\\partial y}{\\partial r} = \\sin \\theta$, $\\frac{\\partial y}{\\partial \\theta} = r \\cos \\theta$\nSo, $J = (\\cos \\theta)(r \\cos \\theta) - (-r \\sin \\theta)(\\sin \\theta) = r \\cos^2 \\theta + r \\sin^2 \\theta = r(\\cos^2 \\theta + \\sin^2 \\theta) = r$. Thus, $dA = |J| \\, dr \\, d\\theta = r \\, dr \\, d\\theta$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Set up the double integral $\\iint_R f(x,y) \\, dA$ in polar coordinates where $R$ is the region inside $x^2+y^2=9$ and outside $x^2+y^2=1$.",
+      "back": "In polar coordinates, $x^2+y^2=r^2$. The region $R$ is an annulus defined by $1 \\le r \\le 3$ and $0 \\le \\theta \\le 2\\pi$. The integral becomes:\n$$\\int_0^{2\\pi} \\int_1^3 f(r \\cos \\theta, r \\sin \\theta) \\, r \\, dr \\, d\\theta$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\iint_R e^{-(x^2+y^2)} \\, dA$ where $R$ is the region in the first quadrant bounded by $x^2+y^2=4$.",
+      "back": "In polar coordinates, $x^2+y^2=r^2$. The region $R$ is defined by $0 \\le r \\le 2$ and $0 \\le \\theta \\le \\pi/2$. The integral becomes:\n$$\\int_0^{\\pi/2} \\int_0^2 e^{-r^2} \\, r \\, dr \\, d\\theta$$\nFirst, evaluate the inner integral: Let $u = -r^2$, so $du = -2r \\, dr \\implies r \\, dr = -\\frac{1}{2} du$. When $r=0, u=0$. When $r=2, u=-4$.\n$\\int_0^2 e^{-r^2} \\, r \\, dr = \\int_0^{-4} e^u \\left(-\\frac{1}{2}\\right) \\, du = -\\frac{1}{2} [e^u]_0^{-4} = -\\frac{1}{2}(e^{-4} - e^0) = \\frac{1}{2}(1 - e^{-4})$.\nNow, evaluate the outer integral:\n$$\\int_0^{\\pi/2} \\frac{1}{2}(1 - e^{-4}) \\, d\\theta = \\frac{1}{2}(1 - e^{-4}) [\\theta]_0^{\\pi/2} = \\frac{1}{2}(1 - e^{-4}) \\frac{\\pi}{2} = \\frac{\\pi}{4}(1 - e^{-4})$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If one mistakenly calculates a double integral in polar coordinates using $dr \\, d\\theta$ instead of $r \\, dr \\, d\\theta$, what kind of error would result?",
+      "back": "The calculated value would be incorrect because the area element $dr \\, d\\theta$ does not accurately represent the differential area in polar coordinates. It would effectively be integrating over a region where area elements are considered uniform in $r$ and $\\theta$, which is not true for polar coordinates (area elements grow linearly with $r$). The result would generally be an underestimation of the true integral value, especially for regions far from the origin, as larger areas would be given less weight than they should have.",
+      "difficulty": "medium"
+    }
+  ]
+}

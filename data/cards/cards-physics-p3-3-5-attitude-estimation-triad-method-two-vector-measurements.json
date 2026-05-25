@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-attitude-estimation-triad-method-two-vector-measurements",
+  "subtopicTitle": "Attitude estimation — triad method (two vector measurements)",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:51.883Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of \"attitude estimation\" in aerospace engineering?",
+      "back": "Attitude estimation aims to determine the orientation of a rigid body (e.g., spacecraft, aircraft) relative to a known reference frame. This orientation is typically represented by a rotation matrix, quaternion, or Euler angles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Briefly describe the \"triad method\" for attitude estimation.",
+      "back": "The triad method is a deterministic algorithm that computes a spacecraft's attitude by constructing an orthonormal basis (a \"triad\") from two non-collinear vector measurements in the body frame and their known corresponding directions in the reference frame.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why does the triad method require at least two non-collinear vector measurements to determine 3D attitude?",
+      "back": "A single vector measurement only constrains two degrees of freedom (e.g., azimuth and elevation), leaving one degree of freedom (rotation about the vector) undetermined. To uniquely resolve the full 3D orientation (3 degrees of freedom), a second non-collinear vector is needed to fix this remaining rotational ambiguity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given two non-collinear body frame vectors $\\mathbf{v}_{b1}$ and $\\mathbf{v}_{b2}$, provide the formulas to construct an orthonormal basis $[\\mathbf{u}_1 \\ \\mathbf{u}_2 \\ \\mathbf{u}_3]$.",
+      "back": "The orthonormal basis vectors are constructed using Gram-Schmidt orthogonalization and a cross product:\n$$ \\mathbf{u}_1 = \\frac{\\mathbf{v}_{b1}}{|\\|\\mathbf{v}_{b1}\\||} $$\n$$ \\mathbf{u}_2' = \\mathbf{v}_{b2} - (\\mathbf{v}_{b2} \\cdot \\mathbf{u}_1)\\mathbf{u}_1 $$\n$$ \\mathbf{u}_2 = \\frac{\\mathbf{u}_2'}{|\\|\\mathbf{u}_2'\\||} $$\n$$ \\mathbf{u}_3 = \\mathbf{u}_1 \\times \\mathbf{u}_2 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $B = [\\mathbf{u}_1 \\ \\mathbf{u}_2 \\ \\mathbf{u}_3]$ is the body frame triad and $R = [\\mathbf{w}_1 \\ \\mathbf{w}_2 \\ \\mathbf{w}_3]$ is the reference frame triad, what is the rotation matrix $C_{b \\leftarrow r}$?",
+      "back": "The rotation matrix $C_{b \\leftarrow r}$ that transforms a vector from the reference frame to the body frame is given by:\n$$ C_{b \\leftarrow r} = B R^T $$\nwhere $R^T$ is the transpose of $R$. This matrix satisfies $\\mathbf{x}_b = C_{b \\leftarrow r} \\mathbf{x}_r$ for a vector $\\mathbf{x}$ in the body and reference frames.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What critical issue arises in the triad method if the two measured vectors $\\mathbf{v}_{b1}$ and $\\mathbf{v}_{b2}$ are collinear, and how does it manifest mathematically?",
+      "back": "If $\\mathbf{v}_{b1}$ and $\\mathbf{v}_{b2}$ are collinear, the intermediate vector $\\mathbf{u}_2' = \\mathbf{v}_{b2} - (\\mathbf{v}_{b2} \\cdot \\mathbf{u}_1)\\mathbf{u}_1$ will be a zero vector. This makes normalization to find $\\mathbf{u}_2$ impossible (division by zero), preventing the construction of a unique orthonormal basis and thus the attitude matrix.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a key advantage of the triad method regarding computational complexity compared to iterative or statistically optimal methods?",
+      "back": "The triad method is a direct, non-iterative algorithm. It involves a fixed number of vector normalizations, dot products, cross products, and matrix multiplications, making it computationally very inexpensive and suitable for real-time applications with limited processing power.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the triad method is particularly sensitive to measurement noise, especially when the two measured vectors are nearly collinear.",
+      "back": "The triad method is deterministic and treats measurements as exact. Noise in $\\mathbf{v}_{b1}$ or $\\mathbf{v}_{b2}$ directly propagates into the constructed body frame triad. When vectors are nearly collinear, the calculation of $\\mathbf{u}_2'$ and subsequent normalization, or the cross product for $\\mathbf{u}_3$, becomes highly sensitive to small errors, leading to large uncertainties in the estimated attitude. It does not provide a statistically optimal estimate.",
+      "difficulty": "hard"
+    }
+  ]
+}

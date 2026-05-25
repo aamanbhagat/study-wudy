@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-case-1-two-distinct-real-roots",
+  "subtopicTitle": "Case 1: two distinct real roots",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:17.696Z",
+  "cards": [
+    {
+      "front": "The 'Case 1: two distinct real roots' solution method applies to which type of ODE, and what condition must its characteristic equation satisfy?",
+      "back": "It applies to second-order linear homogeneous ODEs with constant coefficients, $ay'' + by' + cy = 0$. Its characteristic equation, $ar^2 + br + c = 0$, must have two distinct real roots.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a second-order linear homogeneous ODE with constant coefficients yielding two distinct real roots $r_1$ and $r_2$, what is the general solution $y(x)$?",
+      "back": "The general solution is $y(x) = c_1 e^{r_1 x} + c_2 e^{r_2 x}$, where $c_1$ and $c_2$ are arbitrary constants determined by initial/boundary conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the quadratic characteristic equation $ar^2 + br + c = 0$ to have two distinct real roots, what condition must the discriminant satisfy?",
+      "back": "The discriminant, $\\Delta = b^2 - 4ac$, must be strictly positive: $\\Delta > 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the characteristic equation and its roots for the ODE: $y'' + 5y' + 6y = 0$.",
+      "back": "The characteristic equation is $r^2 + 5r + 6 = 0$. Factoring gives $(r+2)(r+3) = 0$. The roots are $r_1 = -2$ and $r_2 = -3$. (These are distinct real roots).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve the ODE: $y'' - y' - 2y = 0$.",
+      "back": "The characteristic equation is $r^2 - r - 2 = 0$. Factoring gives $(r-2)(r+1) = 0$. The roots are $r_1 = 2$ and $r_2 = -1$. The general solution is $y(x) = c_1 e^{2x} + c_2 e^{-x}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the two solutions $y_1(x) = e^{r_1 x}$ and $y_2(x) = e^{r_2 x}$ (where $r_1 \\neq r_2$) are linearly independent, forming a fundamental set of solutions.",
+      "back": "Their linear independence can be shown using the Wronskian. $$W(y_1, y_2)(x) = \\det \\begin{pmatrix} e^{r_1 x} & e^{r_2 x} \\\\ r_1 e^{r_1 x} & r_2 e^{r_2 x} \\end{pmatrix}$$ $$W(y_1, y_2)(x) = r_2 e^{r_1 x} e^{r_2 x} - r_1 e^{r_1 x} e^{r_2 x}$$ $$W(y_1, y_2)(x) = (r_2 - r_1) e^{(r_1 + r_2) x}$$ Since $r_1 \\neq r_2$, $(r_2 - r_1) \\neq 0$. Also, $e^{(r_1 + r_2) x}$ is never zero. Thus, $W(y_1, y_2)(x) \\neq 0$ for all $x$, proving linear independence.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Solve the initial value problem: $y'' - 4y = 0$, with $y(0)=1$ and $y'(0)=4$.",
+      "back": "The characteristic equation is $r^2 - 4 = 0 \\Rightarrow (r-2)(r+2) = 0$. Roots are $r_1 = 2, r_2 = -2$. The general solution is $y(x) = c_1 e^{2x} + c_2 e^{-2x}$. Its derivative is $y'(x) = 2c_1 e^{2x} - 2c_2 e^{-2x}$. Using initial conditions: $y(0) = 1 \\Rightarrow c_1 + c_2 = 1$. $y'(0) = 4 \\Rightarrow 2c_1 - 2c_2 = 4 \\Rightarrow c_1 - c_2 = 2$. Adding the two equations: $2c_1 = 3 \\Rightarrow c_1 = 3/2$. Substituting $c_1$ into $c_1 + c_2 = 1 \\Rightarrow 3/2 + c_2 = 1 \\Rightarrow c_2 = -1/2$. The particular solution is $y(x) = \\frac{3}{2} e^{2x} - \\frac{1}{2} e^{-2x}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-4-blackbody-radiation-from-statistical-mechanics-planck-distribution",
+  "subtopicTitle": "Blackbody radiation from statistical mechanics — Planck distribution",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:51.564Z",
+  "cards": [
+    {
+      "front": "Define a 'blackbody' in the context of thermal radiation.",
+      "back": "An idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence. It emits thermal radiation in a characteristic continuous spectrum that depends only on its temperature, not its composition or shape.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What was the 'ultraviolet catastrophe' and which classical law predicted it for blackbody radiation?",
+      "back": "The ultraviolet catastrophe was the failure of classical physics to explain the observed blackbody spectrum at high frequencies (short wavelengths). The Rayleigh-Jeans law, derived from classical electromagnetism and statistical mechanics, predicted that the power radiated would increase indefinitely with frequency, leading to an infinite total power output.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What radical hypothesis did Max Planck propose to resolve the ultraviolet catastrophe?",
+      "back": "Planck hypothesized that the energy of the oscillators (atoms in the blackbody walls) that emit and absorb electromagnetic radiation is quantized. Instead of continuous values, energy could only take discrete values, $E = nh\\nu$, where $n$ is a non-negative integer, $h$ is Planck's constant, and $\\nu$ is the frequency of the oscillator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using Planck's hypothesis, derive the average energy $\\langle E \\rangle$ of a quantum harmonic oscillator at temperature $T$.",
+      "back": "The possible energy levels are $E_n = nh\\nu$ for $n=0, 1, 2, ...$. The probability of an oscillator being in state $n$ is $P_n = \\frac{e^{-E_n/k_B T}}{Z}$, where $Z = \\sum_{n=0}^{\\infty} e^{-nh\\nu/k_B T} = \\frac{1}{1 - e^{-h\\nu/k_B T}}$.\n$\\langle E \\rangle = \\sum_{n=0}^{\\infty} E_n P_n = - \\frac{\\partial}{\\partial \\beta} \\ln Z$, where $\\beta = 1/k_B T$.\n$\\langle E \\rangle = - \\frac{\\partial}{\\partial \\beta} \\ln \\left( \\frac{1}{1 - e^{-\\beta h\\nu}} \\right) = - \\frac{\\partial}{\\partial \\beta} [-\\ln(1 - e^{-\\beta h\\nu})]$ \n$= \\frac{1}{1 - e^{-\\beta h\\nu}} (-e^{-\\beta h\\nu})(-h\\nu) = \\frac{h\\nu e^{-\\beta h\\nu}}{1 - e^{-\\beta h\\nu}} = \\frac{h\\nu}{e^{\\beta h\\nu} - 1} = \\frac{h\\nu}{e^{h\\nu/k_B T} - 1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the density of states $g(\\nu) d\\nu$ for electromagnetic modes in a 3D cavity of volume $V$?",
+      "back": "For EM waves in a cavity, the number of modes in a frequency interval $\\nu$ to $\\nu+d\\nu$ per unit volume is $g(\\nu) d\\nu = \\frac{8\\pi\\nu^2}{c^3} d\\nu$. The factor of 8 accounts for the volume in k-space and the factor of 2 accounts for the two independent polarizations of electromagnetic waves.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Planck's law for the spectral radiance $B_\\nu(T)$ (power per unit area per unit solid angle per unit frequency) of a blackbody.",
+      "back": "Planck's law for spectral radiance is given by:\n$$B_\\nu(T) = \\frac{2h\\nu^3}{c^2} \\frac{1}{e^{h\\nu/k_B T} - 1}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show how Planck's law reduces to the Rayleigh-Jeans law at low frequencies and Wien's law at high frequencies.",
+      "back": "Planck's law: $B_\\nu(T) = \\frac{2h\\nu^3}{c^2} \\frac{1}{e^{h\\nu/k_B T} - 1}$\n1.  **Low Frequencies ($h\\nu \\ll k_B T$):** Expand $e^{h\\nu/k_B T} \\approx 1 + \\frac{h\\nu}{k_B T}$.\n    $B_\\nu(T) \\approx \\frac{2h\\nu^3}{c^2} \\frac{1}{(1 + \\frac{h\\nu}{k_B T}) - 1} = \\frac{2h\\nu^3}{c^2} \\frac{1}{\\frac{h\\nu}{k_B T}} = \\frac{2\\nu^2 k_B T}{c^2}$. This is the **Rayleigh-Jeans law**.\n2.  **High Frequencies ($h\\nu \\gg k_B T$):** In this limit, $e^{h\\nu/k_B T} - 1 \\approx e^{h\\nu/k_B T}$.\n    $B_\\nu(T) \\approx \\frac{2h\\nu^3}{c^2} e^{-h\\nu/k_B T}$. This is **Wien's approximation law**.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond resolving the ultraviolet catastrophe, what fundamental shift in physics did Planck's distribution introduce?",
+      "back": "Planck's distribution introduced the revolutionary concept of energy quantization, marking the birth of quantum mechanics. It showed that energy is not continuously variable but comes in discrete packets (quanta), laying the groundwork for Einstein's explanation of the photoelectric effect, Bohr's model of the atom, and the development of modern quantum theory.",
+      "difficulty": "medium"
+    }
+  ]
+}

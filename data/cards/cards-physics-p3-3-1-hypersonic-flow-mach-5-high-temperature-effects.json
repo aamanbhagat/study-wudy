@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-hypersonic-flow-mach-5-high-temperature-effects",
+  "subtopicTitle": "Hypersonic flow — Mach 5+, high temperature effects",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:36.436Z",
+  "cards": [
+    {
+      "front": "What Mach number range typically defines hypersonic flow, and what are its two most distinguishing physical characteristics?",
+      "back": "Hypersonic flow is generally defined as $M \\gtrsim 5$. Its distinguishing characteristics are: 1) Extremely strong shock waves, leading to very high temperatures. 2) Significant real gas effects due to these high temperatures (e.g., dissociation, ionization).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for stagnation temperature ($T_0$) for a calorically perfect gas, and explain its implication for hypersonic flight.",
+      "back": "The stagnation temperature is $T_0 = T \\left(1 + \\frac{\\gamma-1}{2}M^2\\right)$. At hypersonic speeds ($M \\gg 1$), $T_0 \\approx T \\frac{\\gamma-1}{2}M^2$. This shows that the stagnation temperature, and thus the thermal energy that must be dissipated, increases quadratically with Mach number, leading to severe aerodynamic heating.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List and briefly describe the three primary 'real gas effects' that become significant in hypersonic flow due to high temperatures.",
+      "back": "The three primary real gas effects are:\n1.  **Vibrational Excitation**: At elevated temperatures, molecules absorb energy into vibrational modes, increasing their internal energy.\n2.  **Dissociation**: Chemical bonds break (e.g., $O_2 \\to 2O$, $N_2 \\to 2N$), absorbing significant energy and changing the number of particles.\n3.  **Ionization**: Atoms lose electrons (e.g., $O \\to O^+ + e^-$), forming a plasma and further changing thermodynamic properties and electrical conductivity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do vibrational excitation, dissociation, and ionization affect the effective ratio of specific heats, $\\gamma$, in hypersonic flow?",
+      "back": "These real gas effects cause the specific heats ($C_p, C_v$) to increase, as more energy is required to raise the temperature of the gas (due to energy absorption into vibrational modes, dissociation, and ionization). Consequently, the effective ratio of specific heats, $\\gamma = C_p/C_v$, *decreases* from its ideal gas value (e.g., 1.4 for air) towards 1, approaching 1 for highly dissociated/ionized gases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the fundamental assumption of Newtonian flow theory and its primary utility for hypersonic blunt bodies.",
+      "back": "Newtonian flow theory assumes that at very high Mach numbers, gas particles impacting a body transfer all their normal momentum to the surface but retain their tangential momentum. This implies:\n1.  Shocks are attached to the body surface.\n2.  Pressure on a surface element is proportional to the square of the normal component of the free-stream velocity: $C_p = 2 \\sin^2 \\theta$, where $\\theta$ is the local angle between the surface normal and the free-stream velocity.\nIts utility lies in providing a simple, first-order estimate for pressure distribution and drag on blunt bodies at high hypersonic Mach numbers, especially where the shock layer is thin.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the two primary mechanisms of stagnation point heating in hypersonic flow, and how real gas effects influence them.",
+      "back": "The two primary mechanisms are:\n1.  **Convective Heating**: Energy transfer from the hot shock layer gas to the body surface through the boundary layer. Real gas effects (dissociation, ionization) increase the thermal conductivity and specific heat of the gas, enhancing convective heat transfer significantly. Recombination reactions at the surface can also release substantial energy.\n2.  **Radiative Heating**: Emission of thermal radiation from the extremely hot, often luminous, shock layer gas (especially at very high Mach numbers, $M > 10$). Real gas effects create species (e.g., atomic oxygen, nitrogen, ions) that are strong radiators, making radiative heating a dominant factor for large, blunt bodies at very high Mach numbers.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a calorically perfect gas, what is the limiting density ratio across a normal shock as $M_1 \\to \\infty$? How do real gas effects alter this limit?",
+      "back": "For a calorically perfect gas, the density ratio across a normal shock is $\\frac{\\rho_2}{\\rho_1} = \\frac{(\\gamma+1)M_1^2}{2 + (\\gamma-1)M_1^2}$. As $M_1 \\to \\infty$, this ratio approaches $\\frac{\\gamma+1}{\\gamma-1}$. For air ($\\gamma=1.4$), this limit is $\\frac{2.4}{0.4} = 6$.\nReal gas effects (vibrational excitation, dissociation, ionization) cause the effective $\\gamma$ to decrease towards 1. As $\\gamma \\to 1$, the limit $\\frac{\\gamma+1}{\\gamma-1}$ approaches $\\infty$. Thus, real gas effects lead to significantly *higher* density ratios across strong shocks (i.e., a much thinner shock layer) than predicted by ideal gas theory.",
+      "difficulty": "hard"
+    }
+  ]
+}

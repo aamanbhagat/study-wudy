@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-4-er-diagrams-entities-attributes-relationships-cardinality",
+  "subtopicTitle": "ER diagrams — entities, attributes, relationships, cardinality",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:55.305Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of an Entity-Relationship (ER) diagram in database design?",
+      "back": "An ER diagram is a high-level conceptual data model that visually represents the logical structure of a database. Its primary purpose is to illustrate how different entities (data objects) relate to each other, aiding in the design phase before physical implementation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an ER diagram, how are entities represented, and what do they signify?",
+      "back": "Entities are represented by rectangles. They signify real-world objects or concepts (e.g., `Student`, `Course`, `Book`) that have an independent existence and can be uniquely identified within the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between a simple, a composite, and a multi-valued attribute, providing an example for each.",
+      "back": "<ul><li><b>Simple Attribute:</b> Cannot be divided into smaller components (e.g., `StudentID`).</li><li><b>Composite Attribute:</b> Can be divided into smaller sub-attributes (e.g., `Address` composed of `Street`, `City`, `Zip`).</li><li><b>Multi-valued Attribute:</b> Can have multiple values for a single entity instance (e.g., `PhoneNumber` for a `Person`).</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a primary key, and how is it typically indicated in an ER diagram?",
+      "back": "A primary key is an attribute (or a set of attributes) that uniquely identifies each instance of an entity. It ensures that every record in a table can be distinctly identified. In an ER diagram, the primary key attribute is usually underlined.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is a relationship represented in an ER diagram, and what does its 'degree' refer to?",
+      "back": "A relationship is represented by a diamond shape and describes an association between two or more entities. The <b>degree</b> of a relationship refers to the number of entity types participating in it:\n<ul><li><b>Unary (Recursive):</b> One entity type (e.g., `Employee` `manages` `Employee`).</li><li><b>Binary:</b> Two entity types (e.g., `Student` `enrolls_in` `Course`).</li><li><b>Ternary:</b> Three entity types (e.g., `Supplier` `supplies` `Part` `to` `Project`).</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of cardinality in ER diagrams. List and briefly describe the three main types of binary relationship cardinalities.",
+      "back": "Cardinality specifies the number of instances of one entity that can be associated with the number of instances of another entity in a relationship. It defines the minimum and maximum participation.\n<ul><li><b>One-to-One (1:1):</b> An instance of Entity A is associated with at most one instance of Entity B, and vice-versa.</li><li><b>One-to-Many (1:M):</b> An instance of Entity A can be associated with many instances of Entity B, but an instance of Entity B is associated with at most one instance of Entity A.</li><li><b>Many-to-Many (M:N):</b> An instance of Entity A can be associated with many instances of Entity B, and vice-versa.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using Crow's Foot notation, illustrate the cardinality for a relationship where a `Professor` can `teach` multiple `Courses` (including zero), but each `Course` is taught by exactly one `Professor`.",
+      "back": "```\nProfessor ---o< ---| Course\n```\nExplanation:\n*   The `o<` (circle and crow's foot) on the `Course` side of the relationship indicates that a `Professor` can teach 'zero or many' `Courses`.\n*   The `|` (single vertical line) on the `Professor` side of the relationship indicates that a `Course` is taught by 'exactly one' `Professor`.",
+      "difficulty": "hard"
+    }
+  ]
+}

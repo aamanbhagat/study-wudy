@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-line-integrals-scalar-and-vector-work-done",
+  "subtopicTitle": "Line integrals — scalar and vector, work done",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:03.419Z",
+  "cards": [
+    {
+      "front": "Define the scalar line integral of a function $f(x,y,z)$ along a curve $C$.",
+      "back": "The scalar line integral of $f$ along $C$ is given by $\\int_C f(x,y,z) \\, ds$. It represents the integral of $f$ with respect to arc length. Geometrically, if $f(x,y,z) \\ge 0$, it can represent the area of a 'fence' whose height is $f$ along the curve $C$, or the total mass of a wire with density $f$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the vector line integral of a vector field $\\mathbf{F}(x,y,z)$ along a curve $C$.",
+      "back": "The vector line integral of $\\mathbf{F}$ along $C$ is given by $\\int_C \\mathbf{F} \\cdot d\\mathbf{r}$. It represents the sum of the tangential components of the vector field along the curve. A common physical interpretation is the work done by a force field $\\mathbf{F}$ on a particle moving along $C$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a curve $C$ is parameterized by $\\mathbf{r}(t) = \\langle x(t), y(t), z(t) \\rangle$ for $a \\le t \\le b$, how do you express $ds$ and $d\\mathbf{r}$ for line integral calculations?",
+      "back": "For a scalar line integral, $ds = ||\\mathbf{r}'(t)|| \\, dt = \\sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} \\, dt$. For a vector line integral, $d\\mathbf{r} = \\mathbf{r}'(t) \\, dt = \\langle x'(t), y'(t), z'(t) \\rangle \\, dt$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A wire has linear density $\\rho(x,y,z)$. How is its total mass $M$ calculated using a scalar line integral along the curve $C$ representing the wire?",
+      "back": "The total mass $M$ of the wire is calculated as the scalar line integral of its density function along the curve $C$: $$M = \\int_C \\rho(x,y,z) \\, ds$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A force field $\\mathbf{F}(x,y,z)$ acts on a particle moving along a curve $C$. What is the formula for the work $W$ done by the force field?",
+      "back": "The work $W$ done by the force field $\\mathbf{F}$ on a particle moving along the curve $C$ is given by the vector line integral: $$W = \\int_C \\mathbf{F} \\cdot d\\mathbf{r}$$ This integral sums the dot product of the force and infinitesimal displacement vectors along the path, effectively calculating the component of the force acting in the direction of motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the work done formula $W = \\int_C \\mathbf{F} \\cdot d\\mathbf{r}$ from the concept of work done by a constant force over a small displacement.",
+      "back": "Consider a small displacement $d\\mathbf{r}$ along the curve $C$. If the force $\\mathbf{F}$ is approximately constant over this small displacement, the infinitesimal work done $dW$ is $dW = \\mathbf{F} \\cdot d\\mathbf{r}$. To find the total work $W$ done along the entire curve $C$, we sum up all these infinitesimal contributions by integrating along the curve: $$W = \\int_C dW = \\int_C \\mathbf{F} \\cdot d\\mathbf{r}$$ This generalizes the definition of work $W = \\mathbf{F} \\cdot \\mathbf{d}$ for a constant force over a straight displacement.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does reversing the orientation of a curve $C$ to $-C$ affect the value of a scalar line integral $\\int_C f \\, ds$ versus a vector line integral $\\int_C \\mathbf{F} \\cdot d\\mathbf{r}$?",
+      "back": "For a scalar line integral, reversing the orientation does NOT change the value: $\\int_{-C} f \\, ds = \\int_C f \\, ds$. This is because $ds = ||\\mathbf{r}'(t)|| \\, dt$ is always positive, regardless of the direction of parameterization.\nFor a vector line integral, reversing the orientation changes the sign: $\\int_{-C} \\mathbf{F} \\cdot d\\mathbf{r} = -\\int_C \\mathbf{F} \\cdot d\\mathbf{r}$. This is because $d\\mathbf{r} = \\mathbf{r}'(t) \\, dt$ changes direction (becomes $-\\mathbf{r}'(t) \\, dt$) when the path is traversed in the opposite direction.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what condition is a vector line integral $\\int_C \\mathbf{F} \\cdot d\\mathbf{r}$ path independent in a simply-connected domain, and what does this imply about the vector field $\\mathbf{F}$?",
+      "back": "A vector line integral $\\int_C \\mathbf{F} \\cdot d\\mathbf{r}$ is path independent if and only if the vector field $\\mathbf{F}$ is conservative. This means that $\\mathbf{F}$ can be expressed as the gradient of some scalar potential function $f$, i.e., $\\mathbf{F} = \\nabla f$. In a simply-connected domain, this condition is equivalent to $\\text{curl}(\\mathbf{F}) = \\mathbf{0}$. If $\\mathbf{F} = \\nabla f$, then $\\int_C \\mathbf{F} \\cdot d\\mathbf{r} = f(B) - f(A)$, where $A$ and $B$ are the initial and final points of the curve $C$, respectively.",
+      "difficulty": "hard"
+    }
+  ]
+}

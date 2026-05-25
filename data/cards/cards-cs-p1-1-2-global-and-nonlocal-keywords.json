@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p1-1-2-global-and-nonlocal-keywords",
+  "subtopicTitle": "global and nonlocal keywords",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:07.291Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `global` keyword in Python?",
+      "back": "The `global` keyword is used inside a function to declare that a variable refers to and modifies a variable in the global scope, rather than creating a new local variable with the same name.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the difference in behavior when assigning to a variable inside a function, with and without the `global` keyword, given a global variable of the same name.",
+      "back": "Without `global`: If you assign `x = 10` inside a function, it creates a *new local* variable `x`, leaving the global `x` unchanged.\nWith `global`: If you declare `global x` and then assign `x = 10` inside a function, it modifies the *existing global* variable `x`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of the `nonlocal` keyword in Python?",
+      "back": "The `nonlocal` keyword is used inside a *nested* function to declare that a variable refers to and modifies a variable in the *nearest enclosing (non-global)* scope, rather than creating a new local variable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Demonstrate how to modify a variable from an outer (but not global) scope within a nested function using `nonlocal`.",
+      "back": "```python\ndef outer_function():\n    message = 'Hello'\n    def inner_function():\n        nonlocal message\n        message = 'Goodbye'\n    inner_function()\n    print(message) # Output: Goodbye\n\nouter_function()\n```\nHere, `inner_function` modifies `message` in `outer_function`'s scope.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if you try to use `nonlocal` for a variable that exists only in the global scope or doesn't exist at all in any enclosing non-global scope?",
+      "back": "If `nonlocal` is used for a variable that doesn't exist in any enclosing *non-global* scope (e.g., it only exists globally or not at all), Python will raise a `SyntaxError: no binding for nonlocal 'variable_name' found`. `nonlocal` specifically targets the 'E' (Enclosing function locals) part of the LEGB rule.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the following Python code. What will be the output?\n```python\nx = 10\ndef outer():\n    x = 20\n    def inner():\n        global x\n        x = 30\n    inner()\n    print(f\"Outer x: {x}\")\nouter()\nprint(f\"Global x: {x}\")\n```",
+      "back": "Output:\n```\nOuter x: 20\nGlobal x: 30\n```\nExplanation: `inner()` uses `global x`, so it modifies the global `x` to 30. The `x` inside `outer()` (which is 20) remains untouched because `inner()` did not use `nonlocal` to target it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the following Python code. What will be the output?\n```python\nx = 10\ndef outer():\n    x = 20\n    def inner():\n        nonlocal x\n        x = 30\n    inner()\n    print(f\"Outer x: {x}\")\nouter()\nprint(f\"Global x: {x}\")\n```",
+      "back": "Output:\n```\nOuter x: 30\nGlobal x: 10\n```\nExplanation: `inner()` uses `nonlocal x`, so it modifies the `x` in its nearest enclosing scope, which is `outer()`'s `x`. This changes `outer()`'s `x` to 30. The global `x` remains 10, as it was not targeted by either `global` or `nonlocal`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can `nonlocal` be used in the outermost function of a module (i.e., not nested within another function)?",
+      "back": "No. `nonlocal` requires an *enclosing non-global* scope to operate on. The outermost function's scope is considered either global or module-level, which `nonlocal` explicitly excludes. Attempting to use `nonlocal` in such a context will raise a `SyntaxError`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does Python require explicit keywords like `global` and `nonlocal` for variable modification across scopes, unlike some other languages?",
+      "back": "Python's design philosophy, particularly \"explicit is better than implicit,\" aims to prevent unexpected side effects and make code clearer. Requiring `global` or `nonlocal` makes it immediately obvious when a variable in an outer scope is being modified, reducing ambiguity and making debugging easier by preventing \"action at a distance\" where a function implicitly modifies a variable far away from its definition.",
+      "difficulty": "hard"
+    }
+  ]
+}

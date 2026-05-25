@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-common-memory-errors-null-dereference-buffer-overflow-use-after-free-double-free-memory-leak",
+  "subtopicTitle": "Common memory errors — null dereference, buffer overflow, use-after-free, double free, memory leak",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:42.746Z",
+  "cards": [
+    {
+      "front": "What C memory error occurs when a program attempts to access memory through a pointer that holds the `NULL` value?",
+      "back": "This error is called a **null dereference**. It typically leads to a segmentation fault or program crash because the `NULL` address (often `0x0`) is not a valid memory location for user programs to access.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the memory error in the C code below and its type.\n```c\nchar buffer[10];\nstrcpy(buffer, \"This string is too long.\");\n```",
+      "back": "This code causes a **buffer overflow**. The `strcpy` function does not check the size of the destination buffer. The source string \"This string is too long.\" (24 characters + null terminator) is larger than `buffer` (10 characters), leading to data being written past the end of `buffer` into adjacent memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What memory error occurs in the following C snippet, and why?\n```c\nint *ptr = (int *)malloc(sizeof(int));\nfree(ptr);\n*ptr = 10; // Problem here\n```",
+      "back": "This is a **use-after-free** error. After `free(ptr)`, the memory block pointed to by `ptr` is returned to the system and is no longer valid for use by the program. Attempting to dereference `*ptr` afterwards accesses deallocated memory, which can lead to crashes, unpredictable behavior, or security vulnerabilities if the memory has been reallocated for another purpose.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After calling `free(ptr)` in C, what immediate action should typically be taken with `ptr` to help prevent a double-free vulnerability?",
+      "back": "After `free(ptr)`, `ptr` should be immediately set to `NULL` (e.g., `ptr = NULL;`). This practice helps prevent accidental double-free errors because subsequent attempts to `free(NULL)` are defined by the C standard to have no effect, whereas `free()`ing a non-`NULL` dangling pointer twice leads to undefined behavior and potential corruption of the heap metadata.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a \"memory leak\" in C programming and describe its primary long-term consequence.",
+      "back": "A **memory leak** occurs when a program allocates memory dynamically (e.g., using `malloc`, `calloc`) but fails to deallocate it (e.g., using `free`) when it's no longer needed. The primary long-term consequence is that the program's memory consumption continuously grows, potentially exhausting available system memory and leading to performance degradation or system instability over time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Beyond program crashes, explain how a buffer overflow can be exploited for malicious purposes, specifically mentioning return address manipulation.",
+      "back": "A buffer overflow can be a severe security vulnerability. By overflowing a buffer on the stack, an attacker can overwrite the stored return address of a function. When the function attempts to return, it will jump to an address controlled by the attacker, typically pointing to malicious code (shellcode) injected into the program's memory. This allows the attacker to execute arbitrary code with the privileges of the vulnerable program.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a \"dangling pointer\" in C, and how does it relate to use-after-free and double-free errors?",
+      "back": "A **dangling pointer** is a pointer that points to a memory location that has been deallocated (e.g., via `free()`) or is no longer valid. It relates to:\n*   **Use-after-free:** Dereferencing a dangling pointer leads to a use-after-free error.\n*   **Double-free:** Passing a dangling pointer to `free()` again can lead to a double-free error.\nSetting pointers to `NULL` after `free()` prevents them from becoming dangling pointers.",
+      "difficulty": "hard"
+    }
+  ]
+}

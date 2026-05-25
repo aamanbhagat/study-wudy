@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-6-bubble-sort-selection-sort-insertion-sort-o-n-when-insertion-sort-wins",
+  "subtopicTitle": "Bubble sort, selection sort, insertion sort — O(n²), when insertion sort wins",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:22.421Z",
+  "cards": [
+    {
+      "front": "What is the primary mechanism of Bubble Sort?",
+      "back": "Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process is repeated until no swaps are needed, indicating the list is sorted.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core operation of Selection Sort.",
+      "back": "Selection Sort divides the list into sorted and unsorted parts. It repeatedly finds the minimum element from the unsorted sublist and swaps it with the first element of the unsorted sublist, effectively extending the sorted part.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does Insertion Sort build a sorted list?",
+      "back": "Insertion Sort builds the final sorted array one item at a time. It iterates through the input elements, taking each element and inserting it into its correct position within the already sorted portion of the array, shifting larger elements to the right.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why Bubble Sort, Selection Sort, and Insertion Sort all share an average-case time complexity of $O(n^2)$.",
+      "back": "For an input array of size $n$, each algorithm involves nested loops. The outer loop typically runs $n$ times. The inner loop, performing comparisons or shifts, also runs approximately $n$ times on average. This leads to roughly $n \\times n = n^2$ operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which of the $O(n^2)$ sorts performs best on a nearly sorted array, and what is its best-case time complexity?",
+      "back": "Insertion Sort performs best. Its best-case time complexity is $O(n)$. If the array is nearly sorted, the inner loop (for shifting elements) runs very few times, often just one comparison per element, making total operations proportional to $n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which of Bubble Sort, Selection Sort, or Insertion Sort is inherently unstable, and what does \"stable\" mean in sorting?",
+      "back": "Selection Sort is generally unstable. A stable sorting algorithm maintains the relative order of elements with equal values. Selection Sort's swapping of the minimum element with the element at the current position can disrupt this relative order.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three specific scenarios where Insertion Sort might be preferred over more efficient $O(n \\log n)$ algorithms.",
+      "back": "Insertion Sort is preferred for:\n1.  **Small datasets:** Its low constant factor makes it faster for $n < \\approx 15-20$.\n2.  **Nearly sorted datasets:** It achieves $O(n)$ best-case complexity.\n3.  **Online algorithms:** When elements arrive one by one and need immediate sorting, it efficiently integrates new elements into the already sorted portion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does Selection Sort always have an $O(n^2)$ time complexity, even in its best case, unlike Bubble Sort or Insertion Sort?",
+      "back": "Selection Sort always performs $N-1$ passes. In each pass $i$, it scans the entire unsorted portion of the array (size $N-i$) to find the minimum element. This means it always performs $\\sum_{i=1}^{N-1} (N-i)$ comparisons, which simplifies to $N(N-1)/2 = O(N^2)$, regardless of the initial order of elements. Only the number of swaps changes.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-5-rest-api-design-resources-http-methods-status-codes-versioning-pagination",
+  "subtopicTitle": "REST API design — resources, HTTP methods, status codes, versioning, pagination",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:58.361Z",
+  "cards": [
+    {
+      "front": "In REST, what fundamental concept represents any information the API can provide or manipulate, and how is it uniquely identified?",
+      "back": "A **resource** represents any piece of information, data, or service that can be named and addressed. It is uniquely identified by a **Uniform Resource Identifier (URI)**. URIs should be noun-based, hierarchical, and reflect the resource's structure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the five most common HTTP methods used in REST APIs and briefly describe their primary purpose.",
+      "back": "1. `GET`: Retrieve a representation of a resource. Safe and Idempotent.\n2. `POST`: Submit data to be processed to a specified resource, often resulting in a new resource. Neither Safe nor Idempotent.\n3. `PUT`: Update an existing resource or create one if it doesn't exist at the specified URI. Idempotent.\n4. `DELETE`: Remove a specified resource. Idempotent.\n5. `PATCH`: Apply partial modifications to a resource. Neither Safe nor Idempotent (though often implemented idempotently).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concepts of \"idempotency\" and \"safety\" in the context of HTTP methods, providing an example of a method that is idempotent but not safe.",
+      "back": "**Safe methods**: Do not alter the state of the server (e.g., `GET`, `HEAD`).\n**Idempotent methods**: Produce the same result on the server whether executed once or multiple times (e.g., `GET`, `PUT`, `DELETE`).\nExample: `PUT /users/123` to update user 123. It's idempotent because sending it multiple times will still result in user 123 having the same state. It's not safe because it modifies the server state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "HTTP status codes are grouped into five categories. What do the `2xx`, `4xx`, and `5xx` categories generally signify?",
+      "back": "`2xx` (Success): The action was successfully received, understood, and accepted.\n`4xx` (Client Error): The request contains bad syntax or cannot be fulfilled.\n`5xx` (Server Error): The server failed to fulfill an apparently valid request.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the HTTP status codes for the following common REST API scenarios:\n1. Successful resource creation.\n2. Resource not found.\n3. Unauthorized access (authentication failed).\n4. Forbidden access (authorization failed).",
+      "back": "1. `201 Created`\n2. `404 Not Found`\n3. `401 Unauthorized`\n4. `403 Forbidden`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is API versioning crucial, and what are the two most common strategies for implementing it, along with their primary trade-offs?",
+      "back": "API versioning is crucial for evolving an API without breaking existing client applications.\n1.  **URI Versioning**: Includes the version number directly in the URL (e.g., `/v1/users`).\n    *   *Pros*: Simple, clear, easily cacheable.\n    *   *Cons*: \"Pollutes\" the URI, requires changing URLs for new versions.\n2.  **Header Versioning**: Includes the version in an HTTP header (e.g., `Accept: application/vnd.myapi.v1+json`).\n    *   *Pros*: Keeps URIs clean, allows content negotiation.\n    *   *Cons*: Less discoverable, can be harder to test in browsers/simple tools.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why pagination is necessary for APIs dealing with large collections and compare the \"offset/limit\" and \"cursor-based\" pagination strategies, highlighting a key advantage of the latter.",
+      "back": "Pagination is necessary to manage large datasets, preventing overwhelming responses, improving performance, and reducing server load.\n*   **Offset/Limit**: Clients specify `offset` (skip N items) and `limit` (take M items).\n    *   Example: `/users?offset=10&limit=5`\n    *   Issue: Prone to inconsistencies (e.g., duplicate or missed items) if the underlying data changes between requests.\n*   **Cursor-based**: Clients receive a \"cursor\" (an opaque string, often an encoded ID or timestamp) pointing to the last item of the previous page, then request items \"after\" that cursor.\n    *   Example: `/users?after=eyJpZCI6IjEyMyIsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTAxVDAwOjAwOjAwWiJ9&limit=5`\n    *   Advantage: More robust against data changes, as it always fetches relative to a stable point, ensuring consistent results even if items are added/deleted.",
+      "difficulty": "hard"
+    }
+  ]
+}

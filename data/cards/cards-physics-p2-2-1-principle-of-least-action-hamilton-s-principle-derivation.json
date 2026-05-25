@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-1-principle-of-least-action-hamilton-s-principle-derivation",
+  "subtopicTitle": "Principle of least action — Hamilton's principle derivation",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:58.729Z",
+  "cards": [
+    {
+      "front": "What is the fundamental statement of Hamilton's Principle (Principle of Least Action)?",
+      "back": "Hamilton's Principle states that the path taken by a physical system between two specified states at two specified times is one for which the action integral, $S$, is stationary (i.e., its first variation is zero).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Action Integral, $S$, for a system described by a Lagrangian $L(q_i, \\dot{q}_i, t)$.",
+      "back": "The Action Integral is defined as $S = \\int_{t_1}^{t_2} L(q_i, \\dot{q}_i, t) dt$, where $L = T - V$ is the Lagrangian, $T$ is the kinetic energy, and $V$ is the potential energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does it mean mathematically for the action integral to be \"stationary\" in the context of Hamilton's Principle?",
+      "back": "It means that for any small, arbitrary variation $\\delta q_i(t)$ in the path (with fixed endpoints), the first variation of the action integral, $\\delta S$, is zero. That is, $\\delta S = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Euler-Lagrange equations from Hamilton's Principle ($\\delta S = 0$), showing all key steps.",
+      "back": "Starting with $\\delta S = \\int_{t_1}^{t_2} \\delta L dt = 0$. Expanding $\\delta L$: $$ \\delta L = \\sum_i \\left( \\frac{\\partial L}{\\partial q_i} \\delta q_i + \\frac{\\partial L}{\\partial \\dot{q}_i} \\delta \\dot{q}_i \\right) $$ Since $\\delta \\dot{q}_i = \\frac{d}{dt}(\\delta q_i)$, we integrate the second term by parts: $$ \\int_{t_1}^{t_2} \\frac{\\partial L}{\\partial \\dot{q}_i} \\frac{d}{dt}(\\delta q_i) dt = \\left[ \\frac{\\partial L}{\\partial \\dot{q}_i} \\delta q_i \\right]_{t_1}^{t_2} - \\int_{t_1}^{t_2} \\frac{d}{dt}\\left( \\frac{\\partial L}{\\partial \\dot{q}_i} \\right) \\delta q_i dt $$ Due to fixed endpoints, $\\delta q_i(t_1) = \\delta q_i(t_2) = 0$, so the boundary term vanishes. Thus, $\\delta S$ becomes: $$ \\delta S = \\sum_i \\int_{t_1}^{t_2} \\left( \\frac{\\partial L}{\\partial q_i} - \\frac{d}{dt}\\left( \\frac{\\partial L}{\\partial \\dot{q}_i} \\right) \\right) \\delta q_i dt = 0 $$ Since the variations $\\delta q_i(t)$ are arbitrary, the terms in the parentheses must be zero for each $i$, leading to the Euler-Lagrange equations: $$ \\frac{\\partial L}{\\partial q_i} - \\frac{d}{dt}\\left( \\frac{\\partial L}{\\partial \\dot{q}_i} \\right) = 0 $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the crucial boundary conditions on the generalized coordinates, $q_i(t)$, for Hamilton's Principle to be valid?",
+      "back": "The initial and final configurations of the system must be fixed. This means that the variations in the generalized coordinates at the start and end times must be zero: $\\delta q_i(t_1) = 0$ and $\\delta q_i(t_2) = 0$ for all $i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is Hamilton's Principle often called the \"Principle of Least Action,\" even though the action can be a maximum or saddle point?",
+      "back": "The term \"least action\" is a historical misnomer. The principle states that the action is *stationary* (an extremum), not necessarily a minimum. While for sufficiently short time intervals the action is often a minimum, for longer intervals it can be a maximum or a saddle point. \"Principle of Stationary Action\" is a more accurate name.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show how the Euler-Lagrange equations, derived from $L = T - V$, reduce to Newton's second law for a single particle in one Cartesian dimension.",
+      "back": "For a single particle in 1D, $T = \\frac{1}{2}m\\dot{x}^2$ and $V = V(x)$. The Lagrangian is $L = \\frac{1}{2}m\\dot{x}^2 - V(x)$. The Euler-Lagrange equation is: $$ \\frac{\\partial L}{\\partial x} - \\frac{d}{dt}\\left( \\frac{\\partial L}{\\partial \\dot{x}} \\right) = 0 $$ Calculate the partial derivatives: $$\\frac{\\partial L}{\\partial x} = -\\frac{\\partial V}{\\partial x} = F_x$$ (since force is the negative gradient of potential energy). And: $$ \\frac{\\partial L}{\\partial \\dot{x}} = m\\dot{x} $$ Taking the time derivative: $$ \\frac{d}{dt}\\left( \\frac{\\partial L}{\\partial \\dot{x}} \\right) = \\frac{d}{dt}(m\\dot{x}) = m\\ddot{x} $$ Substituting these into the Euler-Lagrange equation yields: $$ F_x - m\\ddot{x} = 0 \\implies F_x = m\\ddot{x} $$ which is Newton's second law.",
+      "difficulty": "medium"
+    }
+  ]
+}

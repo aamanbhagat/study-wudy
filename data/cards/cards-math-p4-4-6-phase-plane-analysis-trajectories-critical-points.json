@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-phase-plane-analysis-trajectories-critical-points",
+  "subtopicTitle": "Phase plane analysis — trajectories, critical points",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:07.962Z",
+  "cards": [
+    {
+      "front": "Define the \"phase plane\" and \"phase portrait\" for a system of ODEs.",
+      "back": "The **phase plane** is the coordinate plane (e.g., $xy$-plane) where the dependent variables of a 2D autonomous system are plotted. A **phase portrait** is a graphical representation of various trajectories (solutions) in the phase plane, illustrating the qualitative behavior of the system over time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an autonomous system $\\frac{dx}{dt} = f(x,y)$, $\\frac{dy}{dt} = g(x,y)$, define critical points and state how to find them.",
+      "back": "Critical points (also known as equilibrium points or stationary points) are points $(x_0, y_0)$ in the phase plane where the system is at equilibrium, meaning both rates of change are zero: $f(x_0, y_0) = 0$ and $g(x_0, y_0) = 0$. To find them, one must solve this system of algebraic equations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a linear system $\\mathbf{x}' = A\\mathbf{x}$, how do you classify the critical point at the origin based on the eigenvalues of $A$?",
+      "back": "Let $\\lambda_1, \\lambda_2$ be the eigenvalues of $A$.\n*   **Real, distinct, same sign:** Node (stable if both negative, unstable if both positive).\n*   **Real, distinct, opposite sign:** Saddle Point (unstable).\n*   **Complex conjugate, non-zero real part:** Spiral Point (stable if real part $< 0$, unstable if real part $> 0$).\n*   **Pure imaginary:** Center (stable, but not asymptotically stable).\n*   **Real, repeated:** Degenerate Node or Star (stable if negative, unstable if positive).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is linearization used to analyze critical points of a non-linear system $\\mathbf{x}' = \\mathbf{f}(\\mathbf{x})$? What is the Jacobian matrix?",
+      "back": "Near a critical point $\\mathbf{x}_0$ of a non-linear system $\\mathbf{x}' = \\mathbf{f}(\\mathbf{x})$, we can approximate the system by its linear part: $\\mathbf{x}' \\approx J(\\mathbf{x}_0)(\\mathbf{x} - \\mathbf{x}_0)$. Here, $J(\\mathbf{x}_0)$ is the **Jacobian matrix** of $\\mathbf{f}$ evaluated at $\\mathbf{x}_0$. For $\\mathbf{f}(x,y) = (f(x,y), g(x,y))^T$, $J = \\begin{pmatrix} \\partial f/\\partial x & \\partial f/\\partial y \\\\ \\partial g/\\partial x & \\partial g/\\partial y \\end{pmatrix}$. The type and stability of the critical point of the linearized system often predict those of the original non-linear system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a linear system $\\mathbf{x}' = A\\mathbf{x}$ where $A$ is a $2 \\times 2$ matrix, what conditions on $\\mathrm{Tr}(A)$ and $\\mathrm{Det}(A)$ guarantee the origin is a saddle point?",
+      "back": "A saddle point occurs when the eigenvalues $\\lambda_1, \\lambda_2$ are real and have opposite signs. This implies their product $\\lambda_1 \\lambda_2 < 0$. Since $\\mathrm{Det}(A) = \\lambda_1 \\lambda_2$, the condition for a saddle point is $\\mathrm{Det}(A) < 0$. The trace $\\mathrm{Tr}(A) = \\lambda_1 + \\lambda_2$ can be any real number, as its sign does not uniquely determine the signs of $\\lambda_1, \\lambda_2$ when their product is negative.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Distinguish between an \"asymptotically stable\" critical point and a \"stable\" (but not asymptotically stable) critical point.",
+      "back": "A critical point is **stable** if, for any small neighborhood around it, there exists a smaller neighborhood such that all trajectories starting within the smaller neighborhood remain within the larger one for all future time. It is **asymptotically stable** if, in addition to being stable, all trajectories starting sufficiently close to it actually approach the critical point as $t \\to \\infty$. A center is an example of a stable but not asymptotically stable critical point, as trajectories orbit it but do not converge to it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In what specific cases might linearization fail to correctly classify the type or stability of a critical point for a non-linear system?",
+      "back": "Linearization fails when the eigenvalues of the Jacobian matrix evaluated at the critical point have zero real parts. Specifically:\n1.  **Pure Imaginary Eigenvalues (Center Case):** If the linearized system has a center (eigenvalues are $\\pm i\\beta$ for $\\beta \\neq 0$), the non-linear system could exhibit a center, a stable spiral, an unstable spiral, or more complex behavior.\n2.  **Zero Eigenvalues:** If one or both eigenvalues are zero, higher-order non-linear terms become dominant, and the linear approximation is insufficient to determine stability or type. In these cases, further analysis (e.g., using Lyapunov functions or examining higher-order terms) is required.",
+      "difficulty": "hard"
+    }
+  ]
+}

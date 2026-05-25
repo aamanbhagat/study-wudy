@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-memory-models-sequential-consistency-tso-relaxed",
+  "subtopicTitle": "Memory models — sequential consistency, TSO, relaxed",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:16.762Z",
+  "cards": [
+    {
+      "front": "In computer architecture, what fundamental concept defines the permissible orderings of memory operations (reads and writes) from the perspective of multiple processors?",
+      "back": "A memory model (or memory consistency model) defines the rules for how memory operations from different processors or threads appear to be ordered, especially in a multiprocessor system. It dictates what values a read operation can return.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the two conditions that define Lamport's concept of Sequential Consistency (SC) for a multiprocessor system.",
+      "back": "Sequential Consistency (SC) states that:\n1. The result of any execution is the same as if the operations of all the processors were executed in some sequential order.\n2. The operations of each individual processor appear in this sequence in the order specified by its program.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary motivation for hardware architects to implement relaxed memory models instead of strictly adhering to Sequential Consistency?",
+      "back": "The primary motivation is performance. Strictly enforcing Sequential Consistency often requires stalling processors or caches, preventing optimizations like write buffers, out-of-order execution, and aggressive caching, which can significantly reduce memory latency and improve throughput.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the key characteristic of the Total Store Order (TSO) memory model and identify which specific reordering it allows compared to Sequential Consistency.",
+      "back": "TSO maintains a global order for all writes (stores) but allows a processor to read its own previous writes *before* they become visible to other processors. Specifically, it allows a `Load` to be reordered *before* an earlier `Store` from the *same* processor (`Store-Load` reordering). This is often implemented using a write buffer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider two processors, P1 and P2, with shared variables $A=0$, $B=0$. If P1 executes `A=1; r1=B;` and P2 executes `B=1; r2=A;`, what is the *only* impossible outcome for $(r1, r2)$ under Sequential Consistency, and why is this outcome possible under TSO?",
+      "back": "Under Sequential Consistency, the only impossible outcome for $(r1, r2)$ is $(0, 0)$. This is because if $r1=0$, P1's `A=1` must have occurred after P2's `B=1` and `r2=A`. If $r2=0$, P2's `B=1` must have occurred after P1's `A=1` and `r1=B`. These conditions are contradictory.\nUnder TSO, $(0, 0)$ is possible. P1 can write `A=1` to its write buffer, then read `B=0` (before P2's `B=1` reaches global memory). P2 can similarly write `B=1` to its write buffer, then read `A=0` (before P1's `A=1` reaches global memory). This `Store-Load` reordering allows both reads to see the initial values.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name the four fundamental types of memory operation reorderings that can be relaxed in various memory models.",
+      "back": "The four fundamental types of reorderings are:\n1. **Load-Load:** A later `Load` operation completes before an earlier `Load`.\n2. **Load-Store:** A `Store` operation completes before an earlier `Load`.\n3. **Store-Load:** A `Load` operation completes before an earlier `Store`. (This is the primary relaxation in TSO).\n4. **Store-Store:** A later `Store` operation completes before an earlier `Store`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a relaxed memory model, what mechanism do programmers use to enforce specific ordering constraints on memory operations that would otherwise be reordered by the hardware?",
+      "back": "Programmers use **memory barriers** (also known as memory fences or synchronization primitives). These are special instructions that prevent the reordering of memory operations across the barrier, ensuring that all operations before the barrier complete before any operations after it begin (for specific types of operations, depending on the barrier type).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Which well-known relaxed memory model is the x86 architecture often described as implementing, closely resembling TSO but with additional guarantees for locked operations?",
+      "back": "The x86 memory model is often described as implementing a variant of **Total Store Order (TSO)**. It is stronger than many other relaxed models but weaker than SC. Key characteristics include `Store-Load` reordering being allowed, but `Load-Load`, `Load-Store`, and `Store-Store` reorderings are generally not visible to other processors. Locked operations provide full memory barriers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the presence of a data race (concurrent unsynchronized access where at least one is a write) interact with the guarantees provided by *any* memory model, including Sequential Consistency?",
+      "back": "When a data race occurs, the behavior of the program becomes **undefined** or **unspecified** by the memory model. Memory models, even Sequential Consistency, typically only provide guarantees for *correctly synchronized* programs. If a data race exists, the observed behavior can be arbitrary, varying across executions, and may not conform to any intuitive sequential ordering, even if the underlying hardware *could* support SC for synchronized code. Programmers must use synchronization primitives (locks, atomics, barriers) to avoid data races.",
+      "difficulty": "hard"
+    }
+  ]
+}

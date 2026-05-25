@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-6-reliability-mttf-mtbf-exponential-failure-model",
+  "subtopicTitle": "Reliability — MTTF, MTBF, exponential failure model",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:07.878Z",
+  "cards": [
+    {
+      "front": "In spacecraft engineering, what does \"reliability\" fundamentally refer to?",
+      "back": "Reliability is the probability that a system or component will perform its intended function, without failure, for a specified period, under specified operating conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define Mean Time To Failure (MTTF) and provide its formula for a constant failure rate.",
+      "back": "MTTF is the expected (average) time a non-repairable system or component operates before it fails. For a constant failure rate $\\lambda$, its formula is: $$MTTF = \\frac{1}{\\lambda}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define Mean Time Between Failures (MTBF), explain its key distinction from MTTF, and provide its formula for a constant failure rate.",
+      "back": "MTBF is the expected (average) time between successive failures of a repairable system. The key distinction is that MTBF applies to repairable systems that are put back into service after failure, whereas MTTF applies to non-repairable systems or the first failure of a repairable system. For a constant failure rate $\\lambda$, its formula is: $$MTBF = \\frac{1}{\\lambda}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental assumption of the exponential failure model, and how does it simplify the failure rate?",
+      "back": "The fundamental assumption of the exponential failure model is that the failure rate ($\\lambda$) is **constant over time**. This implies that the component has no \"memory\" of past operation; its probability of failure in the next instant is independent of how long it has already been operating. This is characteristic of random, chance failures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the reliability function $R(t)$ for a component with a constant failure rate $\\lambda$, starting from the definition of instantaneous failure rate.",
+      "back": "The instantaneous failure rate $h(t)$ (or $\\lambda(t)$) is defined as the probability density of failure at time $t$, given survival up to time $t$: $$h(t) = \\frac{f(t)}{R(t)}$$ where $f(t) = -\\frac{dR(t)}{dt}$ is the probability density function of failure times and $R(t)$ is the reliability function.\nFor a constant failure rate, $h(t) = \\lambda$.\nSo, $$\\lambda = \\frac{-dR(t)/dt}{R(t)}$$\nRearranging: $$\\frac{dR(t)}{R(t)} = -\\lambda dt$$\nIntegrating both sides from $0$ to $t$:\n$$\\int_{R(0)}^{R(t)} \\frac{dR}{R} = \\int_0^t -\\lambda dt$$\n$$[\\ln R]_{R(0)}^{R(t)} = [-\\lambda t]_0^t$$\n$$\\ln R(t) - \\ln R(0) = -\\lambda t$$\nSince $R(0) = 1$ (probability of survival at time 0 is 1), $\\ln R(0) = 0$.\n$$\\ln R(t) = -\\lambda t$$\n$$R(t) = e^{-\\lambda t}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A satellite's reaction wheel has an MTTF of 15 years. Assuming an exponential failure model, what is the probability it will still be functioning after 5 years?",
+      "back": "For an exponential failure model, the reliability function is $R(t) = e^{-\\lambda t}$.\nGiven $MTTF = 15$ years. For the exponential model, $MTTF = 1/\\lambda$.\nSo, $\\lambda = 1/MTTF = 1/15$ failures per year.\nWe want to find $R(5)$, the probability of functioning after 5 years.\n$$R(5) = e^{-(1/15) \\times 5} = e^{-5/15} = e^{-1/3}$$\n$$R(5) \\approx e^{-0.3333} \\approx 0.7165$$\nThe probability that the reaction wheel will still be functioning after 5 years is approximately 71.65%.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the exponential failure model is often appropriate for the \"useful life\" phase of a component but not necessarily for its \"early life\" or \"wear-out\" phases.",
+      "back": "The exponential failure model assumes a **constant failure rate ($\\lambda$)**, meaning failures occur randomly and are independent of age.\n*   **Early Life (Infant Mortality)**: Components often exhibit a *decreasing* failure rate due to manufacturing defects or initial stress. The exponential model is not suitable here.\n*   **Useful Life**: After initial burn-in, components enter a phase where failures are typically random (e.g., due to sudden overstress, external events, or latent defects), and the failure rate is relatively constant. This is where the exponential model is most applicable.\n*   **Wear-Out Phase**: As components age, wear and tear mechanisms (fatigue, corrosion, material degradation) cause an *increasing* failure rate. The exponential model, with its constant $\\lambda$, fails to capture this age-dependent behavior.",
+      "difficulty": "hard"
+    }
+  ]
+}

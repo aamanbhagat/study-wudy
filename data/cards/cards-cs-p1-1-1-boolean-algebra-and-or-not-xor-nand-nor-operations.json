@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-boolean-algebra-and-or-not-xor-nand-nor-operations",
+  "subtopicTitle": "Boolean algebra — AND, OR, NOT, XOR, NAND, NOR operations",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:29.281Z",
+  "cards": [
+    {
+      "front": "For a Boolean variable $A$, what is the output of the NOT operation, $\\neg A$, when $A=1$?",
+      "back": "The output is $0$. The NOT operation (also called inversion) flips the input: $\\neg 0 = 1$ and $\\neg 1 = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Complete the truth table for the AND operation, $A \\land B$.",
+      "back": "| $A$ | $B$ | $A \\land B$ |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 0 |\n| 1 | 0 | 0 |\n| 1 | 1 | 1 |\nThe AND operation outputs $1$ only if *all* inputs are $1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the key difference between the OR operation ($A \\lor B$) and the XOR operation ($A \\oplus B$) in terms of their truth tables?",
+      "back": "The key difference lies when both inputs are $1$.\n*   OR ($A \\lor B$): If $A=1$ and $B=1$, the output is $1$. (Inclusive OR)\n*   XOR ($A \\oplus B$): If $A=1$ and $B=1$, the output is $0$. (Exclusive OR)\nXOR outputs $1$ only when inputs are different. OR outputs $1$ if *at least one* input is $1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the NAND operation ($A \\text{ NAND } B$) using a combination of AND and NOT operations.",
+      "back": "The NAND operation is equivalent to NOT(A AND B).\nMathematically: $A \\text{ NAND } B \\equiv \\neg (A \\land B)$.\nIts truth table is the inverse of the AND operation's truth table.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given Boolean inputs $A=1$ and $B=0$, what is the result of the NOR operation, $A \\text{ NOR } B$?",
+      "back": "The NOR operation is equivalent to NOT(A OR B), or $\\neg (A \\lor B)$.\n1.  First, calculate $A \\lor B$: $1 \\lor 0 = 1$.\n2.  Then, apply NOT to the result: $\\neg 1 = 0$.\nSo, $1 \\text{ NOR } 0 = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using only NAND gates, how would you construct a NOT gate? Provide the input configuration.",
+      "back": "A NOT gate can be constructed from a NAND gate by connecting both inputs of the NAND gate together to the single input variable.\nIf the input is $A$, then $A \\text{ NAND } A \\equiv \\neg (A \\land A) \\equiv \\neg A$.\n```\nInput A --+\n          |-- NAND -- Output (NOT A)\nInput A --+\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are NAND and NOR gates referred to as \"universal gates\" in digital logic?",
+      "back": "NAND and NOR gates are universal gates because *any* other Boolean function (AND, OR, NOT, XOR) can be implemented using *only* NAND gates or *only* NOR gates. This property is crucial in circuit design as it allows for the simplification of manufacturing processes by using a single type of gate for all logic implementations. For example, a NOT gate is $A \\text{ NAND } A$, an AND gate is $(A \\text{ NAND } B) \\text{ NAND } (A \\text{ NAND } B)$, and an OR gate is $(\\neg A \\text{ NAND } \\neg B)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate the following Python expression: `(True and False) or not (False xor True)`.",
+      "back": "Let's break it down:\n1.  `(True and False)` evaluates to `False`.\n2.  `(False xor True)` evaluates to `True` (since inputs are different).\n3.  `not (False xor True)` becomes `not True`, which evaluates to `False`.\n4.  Finally, `False or False` evaluates to `False`.\nThe result is `False`.",
+      "difficulty": "medium"
+    }
+  ]
+}

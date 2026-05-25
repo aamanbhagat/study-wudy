@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-2-circular-motion-centripetal-acceleration-derivation",
+  "subtopicTitle": "Circular motion — centripetal acceleration derivation",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:47.856Z",
+  "cards": [
+    {
+      "front": "What defines Uniform Circular Motion (UCM)?",
+      "back": "Uniform Circular Motion (UCM) is the movement of an object in a circular path at a constant *speed*. While the speed is constant, the *direction* of the velocity vector is continuously changing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If an object moves in a circle at a constant speed, why does it still experience acceleration?",
+      "back": "Acceleration is the rate of change of *velocity*. Velocity is a vector quantity, possessing both magnitude (speed) and direction. Even if the speed (magnitude) is constant, the continuous change in the *direction* of the velocity vector means there is a non-zero acceleration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In uniform circular motion, what is the direction of the centripetal acceleration?",
+      "back": "The centripetal acceleration is always directed towards the *center* of the circular path. It is always perpendicular to the instantaneous velocity vector of the object.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To derive centripetal acceleration, consider position vectors $\\vec{r}_1, \\vec{r}_2$ and velocity vectors $\\vec{v}_1, \\vec{v}_2$ over a small time $\\Delta t$. How are the triangles formed by these vectors related?",
+      "back": "For small $\\Delta t$, the triangle formed by position vectors $\\vec{r}_1$, $\\vec{r}_2$ (both with magnitude $R$) and $\\Delta \\vec{r}$ is similar to the triangle formed by velocity vectors $\\vec{v}_1$, $\\vec{v}_2$ (both with magnitude $v$) and $\\Delta \\vec{v}$. This is because the angle between $\\vec{r}_1$ and $\\vec{r}_2$ ($\\Delta \\theta$) is the same as the angle between $\\vec{v}_1$ and $\\vec{v}_2$ (also $\\Delta \\theta$), and both are isosceles triangles.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using the similarity relation $\\frac{|\\Delta \\vec{v}|}{v} = \\frac{|\\Delta \\vec{r}|}{R}$ from the previous step, derive the formula for centripetal acceleration $a_c$.",
+      "back": "From similarity, we have $|\\Delta \\vec{v}| = \\frac{v}{R} |\\Delta \\vec{r}|$.<br>Centripetal acceleration is defined as $a_c = \\lim_{\\Delta t \\to 0} \\frac{|\\Delta \\vec{v}|}{\\Delta t}$.<br>Substitute $|\\Delta \\vec{v}|$: $a_c = \\lim_{\\Delta t \\to 0} \\frac{v}{R} \\frac{|\\Delta \\vec{r}|}{\\Delta t}$.<br>As $\\Delta t \\to 0$, $\\frac{|\\Delta \\vec{r}|}{\\Delta t}$ becomes the instantaneous speed $v$.<br>Therefore, $a_c = \\frac{v}{R} \\cdot v = \\frac{v^2}{R}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the formula for centripetal acceleration ($a_c$) in terms of linear speed ($v$) and radius ($R$)?",
+      "back": "The formula for centripetal acceleration is: $$a_c = \\frac{v^2}{R}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the centripetal acceleration formula $a_c = \\frac{v^2}{R}$ in terms of angular velocity ($\\omega$) and radius ($R$).",
+      "back": "The relationship between linear speed $v$ and angular velocity $\\omega$ is $v = R\\omega$.<br>Substitute this into the formula:<br>$$a_c = \\frac{(R\\omega)^2}{R} = \\frac{R^2\\omega^2}{R} = R\\omega^2$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical cause of centripetal acceleration, and what is the term for the net force responsible for it?",
+      "back": "Centripetal acceleration is caused by a *net force* acting towards the center of the circular path. This net force is called the *centripetal force* ($F_c$). By Newton's Second Law, $F_c = ma_c = m\\frac{v^2}{R} = mR\\omega^2$. It's not a new type of force, but rather the *net* force that *provides* the necessary acceleration for circular motion.",
+      "difficulty": "medium"
+    }
+  ]
+}

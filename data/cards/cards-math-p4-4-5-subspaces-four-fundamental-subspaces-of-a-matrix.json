@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-5-subspaces-four-fundamental-subspaces-of-a-matrix",
+  "subtopicTitle": "Subspaces — four fundamental subspaces of a matrix",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:04.696Z",
+  "cards": [
+    {
+      "front": "Define the Column Space of a matrix $A$.",
+      "back": "The Column Space of $A$, denoted $C(A)$ or $Im(A)$, is the set of all possible linear combinations of the columns of $A$. Mathematically, $C(A) = \\{ Ax \\mid x \\in \\mathbb{R}^n \\}$. It represents all vectors $b$ for which $Ax=b$ has a solution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Null Space of a matrix $A$.",
+      "back": "The Null Space of $A$, denoted $N(A)$ or $Ker(A)$, is the set of all vectors $x$ such that $Ax = 0$. Mathematically, $N(A) = \\{ x \\in \\mathbb{R}^n \\mid Ax = 0 \\}$. It describes the non-trivial solutions to the homogeneous equation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you find a basis for the Column Space of a matrix $A$?",
+      "back": "Row reduce $A$ to its Echelon Form. The columns of the *original* matrix $A$ that correspond to the pivot columns in the Echelon Form constitute a basis for $C(A)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find a basis for the Null Space of a matrix $A$?",
+      "back": "1. Row reduce $A$ to its Reduced Row Echelon Form (RREF).\n2. Identify pivot variables and free variables.\n3. Express each pivot variable in terms of the free variables.\n4. Write the general solution $x$ as a linear combination of vectors, where each vector corresponds to a free variable. These vectors form a basis for $N(A)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Row Space of $A$ and explain its relation to $A^T$.",
+      "back": "The Row Space of $A$, denoted $C(A^T)$ or $Im(A^T)$, is the Column Space of its transpose $A^T$. It is the span of the row vectors of $A$. A basis for $C(A^T)$ can be found by taking the non-zero rows of the Reduced Row Echelon Form of $A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Left Null Space of $A$ and explain its relation to $A^T$.",
+      "back": "The Left Null Space of $A$, denoted $N(A^T)$ or $Ker(A^T)$, is the Null Space of its transpose $A^T$. It consists of all vectors $y$ such that $A^T y = 0$, which is equivalent to $y^T A = 0^T$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the orthogonality relationships between the four fundamental subspaces.",
+      "back": "1. The Null Space $N(A)$ is the orthogonal complement of the Row Space $C(A^T)$ in $\\mathbb{R}^n$. ($N(A) = C(A^T)^\\perp$)\n2. The Left Null Space $N(A^T)$ is the orthogonal complement of the Column Space $C(A)$ in $\\mathbb{R}^m$. ($N(A^T) = C(A)^\\perp$)\nThis means every vector in $N(A)$ is orthogonal to every vector in $C(A^T)$, and similarly for $N(A^T)$ and $C(A)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For an $m \\times n$ matrix $A$ with rank $r$, state the dimensions of all four fundamental subspaces.",
+      "back": "*   Dimension of Column Space: $\\dim(C(A)) = r$\n*   Dimension of Null Space: $\\dim(N(A)) = n - r$ (by the Rank-Nullity Theorem)\n*   Dimension of Row Space: $\\dim(C(A^T)) = r$\n*   Dimension of Left Null Space: $\\dim(N(A^T)) = m - r$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What condition must $b$ satisfy for the system $Ax=b$ to have a solution?",
+      "back": "For the system $Ax=b$ to have a solution, the vector $b$ must be in the Column Space of $A$, i.e., $b \\in C(A)$. This means $b$ must be a linear combination of the columns of $A$.",
+      "difficulty": "medium"
+    }
+  ]
+}

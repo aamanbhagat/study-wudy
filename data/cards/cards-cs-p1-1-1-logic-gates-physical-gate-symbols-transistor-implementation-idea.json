@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-1-logic-gates-physical-gate-symbols-transistor-implementation-idea",
+  "subtopicTitle": "Logic gates — physical gate symbols, transistor implementation idea",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:29.018Z",
+  "cards": [
+    {
+      "front": "What is a logic gate, and what fundamental operation does it perform in digital electronics?",
+      "back": "A logic gate is an elementary building block of a digital circuit that implements a Boolean function. It takes one or more binary inputs (0 or 1) and produces a single binary output based on a specific logical relationship.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Draw the standard physical symbol for an AND gate and provide its truth table for two inputs, $A$ and $B$.",
+      "back": "The standard symbol for an AND gate is a 'D' shape, with inputs on the flat side and output on the curved side.\n\nTruth Table for AND gate:\n| $A$ | $B$ | $Y = A \\cdot B$ |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 0 |\n| 1 | 0 | 0 |\n| 1 | 1 | 1 |",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Draw the standard physical symbol for an OR gate and provide its truth table for two inputs, $A$ and $B$.",
+      "back": "The standard symbol for an OR gate is a curved shape resembling a shield or crescent, with inputs on the flatter side and output on the pointed side.\n\nTruth Table for OR gate:\n| $A$ | $B$ | $Y = A + B$ |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 1 |\n| 1 | 0 | 1 |\n| 1 | 1 | 1 |",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Draw the standard physical symbol for a NOT gate (inverter) and provide its truth table for input $A$.",
+      "back": "The standard symbol for a NOT gate is a triangle pointing towards the output, with a small circle (inversion bubble) at the tip. It has one input and one output.\n\nTruth Table for NOT gate:\n| $A$ | $Y = \\bar{A}$ |\n|---|---|\n| 0 | 1 |\n| 1 | 0 |",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Briefly explain how a single NPN transistor, configured with a resistor, can act as a NOT gate (inverter).",
+      "back": "In a basic NPN transistor inverter circuit, the input is applied to the base. When the input is HIGH (logic 1), the transistor turns ON, creating a low-resistance path from collector to emitter, effectively grounding the output (pulling it LOW). When the input is LOW (logic 0), the transistor turns OFF, blocking current flow. A pull-up resistor connected to the collector then pulls the output HIGH, thus inverting the input.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the basic arrangement of NPN transistors used to implement a 2-input NAND gate.",
+      "back": "A 2-input NAND gate can be formed by connecting two NPN transistors in series. Both transistors' collectors are connected to a voltage supply via a pull-up resistor, and their emitters are connected to ground. The output is taken from the point between the pull-up resistor and the series-connected transistors. For the output to be LOW, both transistors must be ON (both inputs HIGH), completing the series path to ground. If either input is LOW, its transistor turns OFF, breaking the series path, and the pull-up resistor pulls the output HIGH.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the basic arrangement of NPN transistors used to implement a 2-input NOR gate.",
+      "back": "A 2-input NOR gate can be formed by connecting two NPN transistors in parallel. Both transistors' collectors are connected to a common point, which is then connected to a voltage supply via a pull-up resistor. Their emitters are both connected to ground. The output is taken from the common collector point. If either input is HIGH, its corresponding transistor turns ON, creating a path to ground and pulling the output LOW. Only when both inputs are LOW will both transistors be OFF, blocking all paths to ground, allowing the pull-up resistor to pull the output HIGH.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why NAND and NOR gates are referred to as \"universal gates\" in digital logic.",
+      "back": "NAND and NOR gates are called \"universal gates\" because any other logic gate (such as AND, OR, NOT, XOR, XNOR) can be constructed solely by using combinations of either NAND gates or NOR gates. This property is crucial in integrated circuit design, as it allows for the manufacturing of a single type of gate that can then be configured to implement any complex logic function, simplifying manufacturing processes.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-complex-integration-contour-integrals",
+  "subtopicTitle": "Complex integration — contour integrals",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:16.653Z",
+  "cards": [
+    {
+      "front": "Define the contour integral of a complex function $f(z)$ along a smooth curve $\\gamma$ parameterized by $z(t)$ for $a \\le t \\le b$.",
+      "back": "The contour integral is defined as $\\int_\\gamma f(z) dz = \\int_a^b f(z(t)) z'(t) dt$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Cauchy's Integral Theorem.",
+      "back": "If $f(z)$ is analytic on and within a simple closed contour $C$, then $\\oint_C f(z) dz = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Cauchy's Integral Formula for a function $f(z)$ analytic within and on a simple closed contour $C$, and a point $z_0$ inside $C$.",
+      "back": "$\\oint_C \\frac{f(z)}{z - z_0} dz = 2\\pi i f(z_0)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the residue of a function $f(z)$ at an isolated singularity $z_0$, and give the formula for a simple pole.",
+      "back": "The residue of $f(z)$ at $z_0$, denoted $\\text{Res}(f, z_0)$, is the coefficient $a_{-1}$ of $(z-z_0)^{-1}$ in its Laurent series expansion around $z_0$. For a simple pole $z_0$, $\\text{Res}(f, z_0) = \\lim_{z \\to z_0} (z - z_0) f(z)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\oint_C \\frac{e^z}{z(z-2)^2} dz$ where $C$ is the circle $|z|=3$ traversed counterclockwise.",
+      "back": "Singularities are $z=0$ (simple pole) and $z=2$ (pole of order 2). Both are inside $|z|=3$.<br/>$\\text{Res}(f, 0) = \\lim_{z \\to 0} z \\frac{e^z}{z(z-2)^2} = \\frac{e^0}{(0-2)^2} = \\frac{1}{4}$.<br/>$\\text{Res}(f, 2) = \\frac{1}{(2-1)!} \\lim_{z \\to 2} \\frac{d}{dz} \\left( (z-2)^2 \\frac{e^z}{z(z-2)^2} \\right) = \\lim_{z \\to 2} \\frac{d}{dz} \\left( \\frac{e^z}{z} \\right)$<br/>$= \\lim_{z \\to 2} \\frac{z e^z - e^z}{z^2} = \\frac{2e^2 - e^2}{2^2} = \\frac{e^2}{4}$.<br/>By Residue Theorem, $\\oint_C f(z) dz = 2\\pi i (\\text{Res}(f, 0) + \\text{Res}(f, 2)) = 2\\pi i \\left( \\frac{1}{4} + \\frac{e^2}{4} \\right) = \\frac{\\pi i}{2} (1 + e^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State Jordan's Lemma and its typical application in contour integration.",
+      "back": "If $f(z)$ is a function such that $\\lim_{R \\to \\infty} \\max_{z \\in C_R} |f(z)| = 0$, where $C_R$ is the semicircle $|z|=R, \\text{Im}(z) \\ge 0$, then for $k > 0$, $\\lim_{R \\to \\infty} \\int_{C_R} f(z) e^{ikz} dz = 0$. It is used to show that the integral over a large semicircular arc vanishes when evaluating improper real integrals of the form $\\int_{-\\infty}^\\infty f(x) \\cos(kx) dx$ or $\\int_{-\\infty}^\\infty f(x) \\sin(kx) dx$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Argument Principle for a function $f(z)$ analytic inside and on a simple closed contour $C$, with no zeros or poles on $C$.",
+      "back": "$\\frac{1}{2\\pi i} \\oint_C \\frac{f'(z)}{f(z)} dz = N - P$, where $N$ is the number of zeros of $f(z)$ inside $C$ (counted with multiplicity) and $P$ is the number of poles of $f(z)$ inside $C$ (counted with multiplicity).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Rouché's Theorem.",
+      "back": "If $f(z)$ and $g(z)$ are analytic inside and on a simple closed contour $C$, and $|g(z)| < |f(z)|$ on $C$, then $f(z)$ and $f(z) + g(z)$ have the same number of zeros inside $C$ (counted with multiplicity).",
+      "difficulty": "hard"
+    }
+  ]
+}

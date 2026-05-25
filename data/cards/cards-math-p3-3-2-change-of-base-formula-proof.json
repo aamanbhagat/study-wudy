@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-2-change-of-base-formula-proof",
+  "subtopicTitle": "Change of base formula — proof",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:44.702Z",
+  "cards": [
+    {
+      "front": "State the change of base formula for $\\log_b x$ in terms of a new base $c$.",
+      "back": "The change of base formula is: $$\\log_b x = \\frac{\\log_c x}{\\log_c b}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the change of base formula for logarithms particularly useful when using standard calculators?",
+      "back": "Most calculators only provide functions for the natural logarithm (base $e$, denoted $\\ln$) and the common logarithm (base $10$, denoted $\\log$). The change of base formula allows us to compute logarithms with any arbitrary base using these readily available functions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To begin the proof of the change of base formula for $\\log_b x$, what is the initial step after setting $y = \\log_b x$?",
+      "back": "The first step is to convert the logarithmic equation $y = \\log_b x$ into its equivalent exponential form: $$b^y = x$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $b^y = x$ (from $y = \\log_b x$), what is the next crucial step to introduce a new base $c$ and apply a logarithm property?",
+      "back": "Take the logarithm with base $c$ on both sides of the exponential equation $b^y = x$: $$\\log_c (b^y) = \\log_c x$$ Then, apply the power rule of logarithms, which states $\\log_c (M^p) = p \\log_c M$: $$y \\log_c b = \\log_c x$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After applying the power rule to obtain $y \\log_c b = \\log_c x$, what is the final step to complete the derivation of the change of base formula?",
+      "back": "To isolate $y$, divide both sides of the equation by $\\log_c b$: $$y = \\frac{\\log_c x}{\\log_c b}$$ Since we initially defined $y = \\log_b x$, substitute $y$ back to get the final formula: $$\\log_b x = \\frac{\\log_c x}{\\log_c b}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using the change of base formula, express $\\log_5 125$ in terms of the common logarithm (base 10) and then evaluate it.",
+      "back": "Using the change of base formula $\\log_b x = \\frac{\\log x}{\\log b}$ (where $\\log$ denotes base 10):\n$$\\log_5 125 = \\frac{\\log 125}{\\log 5}$$ Since $125 = 5^3$, we know $\\log_5 125 = 3$. Let's verify with the formula:\n$$\\frac{\\log 5^3}{\\log 5} = \\frac{3 \\log 5}{\\log 5} = 3$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the change of base formula be used to derive the reciprocal property of logarithms: $\\log_b a = \\frac{1}{\\log_a b}$?",
+      "back": "Start with the change of base formula: $\\log_b a = \\frac{\\log_c a}{\\log_c b}$.\nChoose the new base $c$ to be $a$. Then, the formula becomes:\n$$\\log_b a = \\frac{\\log_a a}{\\log_a b}$$ Since $\\log_a a = 1$ (any logarithm of its base is 1), the expression simplifies to:\n$$\\log_b a = \\frac{1}{\\log_a b}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

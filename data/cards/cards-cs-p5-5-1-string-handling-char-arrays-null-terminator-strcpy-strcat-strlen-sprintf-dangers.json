@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-string-handling-char-arrays-null-terminator-strcpy-strcat-strlen-sprintf-dangers",
+  "subtopicTitle": "String handling — char arrays, null terminator, strcpy, strcat, strlen, sprintf (dangers)",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:44.144Z",
+  "cards": [
+    {
+      "front": "In C, what defines a \"string\" and what special character marks its end?",
+      "back": "A C string is a null-terminated sequence of characters stored in a `char` array. It is terminated by the null character `\\0`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Declare a `char` array named `greeting` initialized with the string \"Hello\" and show its memory representation including the null terminator.",
+      "back": "```c\nchar greeting[] = \"Hello\";\n// Or: char greeting[6] = \"Hello\";\n```\nMemory representation: `| 'H' | 'e' | 'l' | 'l' | 'o' | '\\0' |`\nThe array size is 6, not 5, to accommodate the implicit null terminator.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the null terminator `\\0` absolutely crucial for C string functions like `strlen`, `strcpy`, and `strcat`?",
+      "back": "The null terminator `\\0` acts as a sentinel value, indicating the end of the string. Functions like `strlen`, `strcpy`, and `strcat` iterate character by character until they encounter `\\0`. Without it, these functions would read or write past the intended string boundary, leading to buffer overflows, segmentation faults, or corrupted data.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary security vulnerability associated with `strcpy` and `strcat`, and how does it occur?",
+      "back": "The primary vulnerability is a **buffer overflow**. Both `strcpy` and `strcat` do not perform bounds checking. If the source string (or combined strings for `strcat`) is larger than the destination buffer, they will write past the allocated memory, corrupting adjacent data, potentially leading to crashes, or enabling arbitrary code execution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does `size_t strlen(const char *s)` determine the length of a string, and what value does it return for `s = \"C++\\0Java\"`?",
+      "back": "`strlen` iterates through the characters of the string `s` starting from the beginning until it encounters the null terminator `\\0`. It returns the number of characters *before* the null terminator.\nFor `s = \"C++\\0Java\"`, `strlen(s)` would return `3` because it stops at the first `\\0`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how `strncpy` can be used to prevent buffer overflows, and describe a common pitfall when using it.",
+      "back": "`strncpy(dest, src, n)` copies at most `n` characters from `src` to `dest`. This prevents writing beyond `dest`'s allocated size.\n**Pitfall:** If `src` is longer than or equal to `n`, `strncpy` *does not automatically null-terminate* `dest`. The destination buffer must be explicitly null-terminated by the programmer:\n```c\nchar buffer[10];\nstrncpy(buffer, \"A very long string\", sizeof(buffer) - 1);\nbuffer[sizeof(buffer) - 1] = '\\0'; // Manual null termination\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Identify two distinct dangers of using `sprintf` and explain how they can lead to vulnerabilities.",
+      "back": "1.  **Buffer Overflow:** Similar to `strcpy`/`strcat`, `sprintf` does not check if the formatted output will fit into the destination buffer. If the resulting string is too long, it will write past the buffer's end.\n2.  **Format String Vulnerability:** If the format string argument to `sprintf` (or `printf`) is taken directly from untrusted user input, an attacker can inject format specifiers (e.g., `%x`, `%n`, `%s`) to read from or write to arbitrary memory locations, potentially executing malicious code or leaking sensitive information.",
+      "difficulty": "hard"
+    }
+  ]
+}

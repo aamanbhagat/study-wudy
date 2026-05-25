@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-ctes-with-clause-recursive-ctes",
+  "subtopicTitle": "CTEs (WITH clause) — recursive CTEs",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:45.263Z",
+  "cards": [
+    {
+      "front": "What is a Recursive Common Table Expression (CTE)?",
+      "back": "A Recursive CTE is a Common Table Expression that references itself. It allows for iterative processing of data, making it ideal for querying hierarchical data (e.g., organizational charts, bill of materials) or traversing graph-like structures.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the two main parts of a Recursive CTE and the operator that combines them.",
+      "back": "A Recursive CTE consists of:\n1.  **Anchor Member:** The initial query that establishes the base result set for the recursion. It does not reference the CTE itself.\n2.  **Recursive Member:** The query that references the CTE itself, processing the results from the previous iteration.\nThese two members are combined using the `UNION ALL` operator.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the step-by-step execution process of a Recursive CTE.",
+      "back": "The execution flow is:\n1.  The **anchor member** is executed once, and its result set forms the base for the first iteration. This result is added to the final result set and also stored as the 'current working table'.\n2.  The **recursive member** is executed, referencing the 'current working table' from the previous step/iteration.\n3.  The results of the recursive member are added to the final result set and become the new 'current working table' for the next iteration.\n4.  Steps 2 and 3 repeat until the recursive member returns an empty set, at which point the recursion terminates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the most crucial mechanism to prevent infinite loops in a Recursive CTE, and how is it typically implemented?",
+      "back": "The most crucial mechanism is a **well-defined termination condition**. This is typically implemented by ensuring that the `WHERE` clause in the recursive member eventually limits the result set to be empty. For hierarchical data, this often means stopping when a 'leaf' node is reached or a maximum depth is exceeded. For graph traversal, it involves tracking visited nodes to avoid revisiting them within the same path (detecting cycles).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Recursive CTE to find all direct and indirect subordinates of `employee_id = 1` from `employees (employee_id, manager_id, name)`.",
+      "back": "```sql\nWITH RECURSIVE EmployeeHierarchy AS (\n    -- Anchor Member: Start with the initial employee\n    SELECT employee_id, name, manager_id, 0 AS level\n    FROM employees\n    WHERE employee_id = 1\n\n    UNION ALL\n\n    -- Recursive Member: Find direct subordinates of the previous level\n    SELECT e.employee_id, e.name, e.manager_id, eh.level + 1\n    FROM employees e\n    JOIN EmployeeHierarchy eh ON e.manager_id = eh.employee_id\n)\nSELECT employee_id, name, level\nFROM EmployeeHierarchy;\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you modify a Recursive CTE for graph traversal to prevent infinite loops when cycles might exist in the graph?",
+      "back": "To prevent infinite loops in graphs with cycles, you must track the path or visited nodes within each recursive branch. This is commonly done by maintaining an array or string of node IDs visited so far in the path. The recursive member's `WHERE` clause then checks if the current node is already present in the path for the current branch, thus preventing revisiting a node in the same path and breaking cycles.\n\nExample (conceptual `path` array): `WHERE NOT (n.node_id = ANY(gp.path))`",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is `UNION ALL` typically used instead of `UNION` in Recursive CTEs?",
+      "back": "`UNION ALL` is preferred because it includes all rows from both the anchor and recursive members, including duplicates. `UNION` would implicitly remove duplicate rows at each step of the recursion, which can significantly alter the intended logic (e.g., preventing a path from being fully explored if an intermediate node was already visited in a different branch) and incur a performance penalty due to the duplicate removal process. For most recursive traversals, duplicates are either expected or necessary to correctly build the full result set.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a common database-specific setting that can limit Recursive CTE execution, and what is its default value in SQL Server?",
+      "back": "Many database systems, like SQL Server, have a `MAXRECURSION` option that limits the number of times the recursive member can be executed. This prevents runaway queries from consuming excessive resources. In SQL Server, the default value for `MAXRECURSION` is 100. If this limit is exceeded, the query will terminate with an error. You can set `OPTION (MAXRECURSION 0)` to remove the limit.",
+      "difficulty": "medium"
+    }
+  ]
+}

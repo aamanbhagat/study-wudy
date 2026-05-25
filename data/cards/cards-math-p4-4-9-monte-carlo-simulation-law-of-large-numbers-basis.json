@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-monte-carlo-simulation-law-of-large-numbers-basis",
+  "subtopicTitle": "Monte Carlo simulation — law of large numbers basis",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:18.087Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Monte Carlo simulation in numerical estimation?",
+      "back": "The primary purpose of Monte Carlo simulation is to estimate a numerical value (e.g., a probability, an expected value, an integral, or a parameter) by repeatedly sampling random numbers and observing the outcomes of a simulated process.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental theorem of probability theory provides the theoretical basis for the convergence of Monte Carlo estimates?",
+      "back": "The Law of Large Numbers (LLN).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Weak Law of Large Numbers (WLLN) for a sequence of i.i.d. random variables $X_1, X_2, \\dots$ with finite mean $\\mu$.",
+      "back": "For a sequence of independent and identically distributed (i.i.d.) random variables $X_1, X_2, \\dots$ with finite expected value $E[X_i] = \\mu$, the sample mean $\\bar{X}_n = \\frac{1}{n}\\sum_{i=1}^n X_i$ converges in probability to $\\mu$ as $n \\to \\infty$. Formally, for any $\\epsilon > 0$, $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\epsilon) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively how the Law of Large Numbers allows us to estimate an unknown expected value $E[X]$ using Monte Carlo simulation.",
+      "back": "The LLN states that as the number of independent trials (samples) increases, the average of the observed outcomes (the sample mean) will converge to the true expected value of the underlying random variable. In Monte Carlo, we generate many random samples from a process, compute their average, and this average serves as an increasingly accurate estimate of the true expected value as the number of samples grows.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how Monte Carlo simulation, leveraging the LLN, can be used to estimate the value of $\\pi$.",
+      "back": "Simulate points $(x, y)$ uniformly distributed within a square of side length 2 (e.g., from $(-1, -1)$ to $(1, 1)$). The area of this square is 4. Inscribe a circle of radius 1 within this square, centered at the origin. The area of the circle is $\\pi$. The probability of a randomly generated point falling within the circle is the ratio of the areas: $P(\\text{in circle}) = \\frac{\\pi r^2}{(2r)^2} = \\frac{\\pi}{4}$. By generating many points ($N_{total}$) and counting how many fall inside the circle ($N_{in}$), the ratio $\\frac{N_{in}}{N_{total}}$ approximates this probability. Thus, $\\pi \\approx 4 \\times \\frac{N_{in}}{N_{total}}$. The LLN ensures that this approximation improves as $N_{total}$ increases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly outline the key idea behind proving the Weak Law of Large Numbers using Chebyshev's inequality.",
+      "back": "Chebyshev's inequality states $P(|Y - E[Y]| \\ge k) \\le \\frac{Var(Y)}{k^2}$. Let $Y = \\bar{X}_n = \\frac{1}{n}\\sum_{i=1}^n X_i$. For i.i.d. $X_i$ with mean $\\mu$ and variance $\\sigma^2$, we have $E[\\bar{X}_n] = \\mu$ and $Var(\\bar{X}_n) = \\frac{\\sigma^2}{n}$. Substituting these into Chebyshev's inequality with $k=\\epsilon$: $P(|\\bar{X}_n - \\mu| \\ge \\epsilon) \\le \\frac{\\sigma^2/n}{\\epsilon^2} = \\frac{\\sigma^2}{n\\epsilon^2}$. As $n \\to \\infty$, $\\frac{\\sigma^2}{n\\epsilon^2} \\to 0$, thus $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\epsilon) = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the \"randomness\" of samples crucial for the validity of Monte Carlo simulations based on the Law of Large Numbers?",
+      "back": "The Law of Large Numbers relies on the samples being independent and identically distributed (i.i.d.). If samples are not truly random (e.g., biased, correlated, or drawn from a different distribution than intended), the sample mean will not necessarily converge to the true expected value of the target distribution. This leads to inaccurate or misleading estimates, undermining the entire premise of the Monte Carlo approach. High-quality pseudo-random number generators are essential to approximate true randomness.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if the expected value of the underlying random variable does not exist or is infinite, in the context of the Law of Large Numbers and Monte Carlo simulation?",
+      "back": "The standard versions of the Law of Large Numbers (both Weak and Strong) require the expected value $E[X]$ to exist and be finite. If $E[X]$ is infinite or undefined (e.g., for a Cauchy distribution), the sample mean $\\bar{X}_n$ will not converge to a finite value. In such cases, Monte Carlo simulation based on averaging will fail to provide a meaningful estimate, as the sample average will continue to fluctuate wildly or diverge as the number of samples increases.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-3-open-addressing-linear-probing-quadratic-probing-double-hashing",
+  "subtopicTitle": "Open addressing — linear probing, quadratic probing, double hashing",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:51.326Z",
+  "cards": [
+    {
+      "front": "In hash tables, what is the fundamental principle of \"open addressing\" for collision resolution?",
+      "back": "Open addressing stores all elements directly within the hash table array. When a collision occurs, it resolves it by systematically searching for the next *empty* slot within the table itself, using a predefined probing sequence. No auxiliary data structures (like linked lists in separate chaining) are used.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the probe sequence formula for linear probing when a collision occurs for a key $k$ at initial hash $h(k)$.",
+      "back": "The probe sequence for linear probing is given by:\n$$h(k, i) = (h(k) + i) \\pmod{m}$$\nwhere $h(k)$ is the initial hash value, $i$ is the probe number ($0, 1, 2, \\dots, m-1$), and $m$ is the size of the hash table.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"primary clustering\" in the context of open addressing, and identify which technique is most susceptible to it.",
+      "back": "Primary clustering is the tendency for occupied slots to group together into long contiguous blocks within the hash table. As these blocks grow, any new insertion or search that lands within or near such a block will have to traverse the entire block, significantly increasing the average probe length. Linear probing is highly susceptible to primary clustering.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the probe sequence formula for quadratic probing when a collision occurs for a key $k$ at initial hash $h(k)$.",
+      "back": "The probe sequence for quadratic probing is given by:\n$$h(k, i) = (h(k) + c_1 i + c_2 i^2) \\pmod{m}$$\nwhere $h(k)$ is the initial hash value, $i$ is the probe number ($0, 1, 2, \\dots, m-1$), $c_1$ and $c_2$ are constants (often $c_1=0, c_2=1$ for simplicity, yielding $(h(k) + i^2) \\pmod{m}$), and $m$ is the table size.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For quadratic probing, under what specific conditions is it guaranteed that an empty slot will always be found if the table is at most half full?",
+      "back": "If the hash table size $m$ is a prime number, and the load factor ($\\alpha = \\text{number of elements} / m$) is less than or equal to $0.5$, then quadratic probing is guaranteed to find an empty slot. This is because the first $m/2$ probes ($i=0, 1, \\dots, (m-1)/2$) will visit distinct locations in the table.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is \"secondary clustering,\" and which open addressing technique is specifically designed to overcome it?",
+      "back": "Secondary clustering occurs when multiple keys hash to the *same initial hash value* ($h(k_1) = h(k_2)$) and subsequently follow the *exact same* probe sequence. This can still lead to performance degradation, even if the probe sequence itself is non-linear (like in quadratic probing). Double hashing is specifically designed to mitigate secondary clustering by using a second hash function to vary the step size for probing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the probe sequence formula for double hashing when a collision occurs for a key $k$ at initial hash $h_1(k)$.",
+      "back": "The probe sequence for double hashing is given by:\n$$h(k, i) = (h_1(k) + i \\cdot h_2(k)) \\pmod{m}$$\nwhere $h_1(k)$ is the primary hash function, $h_2(k)$ is the secondary hash function (which determines the step size), $i$ is the probe number ($0, 1, 2, \\dots, m-1$), and $m$ is the table size.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For double hashing, what critical property must the second hash function, $h_2(k)$, possess to ensure all table slots can be potentially probed?",
+      "back": "The second hash function $h_2(k)$ must satisfy two critical properties:\n1.  It must *never* evaluate to 0 for any key $k$.\n2.  Its output $h_2(k)$ must be relatively prime to the table size $m$.\nA common way to achieve this is to choose $m$ as a prime number and define $h_2(k) = 1 + (k \\pmod{m'})$, where $m'$ is a prime slightly less than $m$. These properties ensure that the probe sequence can visit every slot in the table, preventing premature cycling.",
+      "difficulty": "hard"
+    }
+  ]
+}

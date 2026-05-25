@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-3-load-factor-when-to-resize-rehashing-cost",
+  "subtopicTitle": "Load factor — when to resize, rehashing cost",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:48.659Z",
+  "cards": [
+    {
+      "front": "Define the 'load factor' of a hash table and provide its formula.",
+      "back": "The load factor (often denoted as $\\alpha$) is a measure of how full a hash table is. It's the ratio of the number of elements (or key-value pairs) stored in the table to the total number of buckets (or slots) available.\n\nFormula: $\\alpha = \\frac{\\text{Number of elements (N)}}{\\text{Number of buckets (M)}}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the consequences of a hash table having a load factor that is too high or too low.",
+      "back": "If the load factor is **too high**, it means too many elements are competing for a limited number of buckets. This increases the probability of hash collisions, leading to longer chains in separate chaining or more probes in open addressing, degrading average-case performance (e.g., lookups, insertions, deletions) towards $O(N)$.\n\nIf the load factor is **too low**, the hash table is sparsely populated, meaning a significant portion of its memory is unused. This wastes memory resources without providing a substantial benefit in performance over a moderately loaded table.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When does a hash table typically trigger a resize (expansion) operation based on its load factor?",
+      "back": "A hash table typically triggers a resize operation when its load factor exceeds a predefined **threshold** (e.g., 0.7 or 0.75 for separate chaining, or 0.5 for open addressing to maintain good performance). Once $\\alpha \\ge \\text{threshold}$, the table expands its capacity (e.g., doubles the number of buckets) to reduce the load factor and maintain efficient operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the step-by-step process of 'rehashing' that occurs when a hash table resizes.",
+      "back": "Rehashing is the process of rebuilding the hash table when its capacity changes:\n1.  **Allocate New Array:** A new, larger array (or set of buckets) is allocated, typically with double the previous capacity.\n2.  **Iterate Old Elements:** Each key-value pair from the *old* hash table is retrieved.\n3.  **Re-hash and Insert:** For each retrieved key, its hash code is recomputed (or the existing hash code is used with the new table size) to determine its new bucket index in the *new* array.\n4.  **Insert into New Table:** The key-value pair is then inserted into its appropriate location in the new, larger hash table.\n5.  **Discard Old Array:** Once all elements are moved, the old, smaller array is deallocated.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Analyze the time complexity of a single rehashing operation in a hash table with $N$ elements.",
+      "back": "A single rehashing operation has a time complexity of $O(N)$, where $N$ is the number of elements currently in the hash table. This is because:\n1.  **Iteration:** Every one of the $N$ existing elements must be iterated over to be moved.\n2.  **Re-hashing & Insertion:** For each of these $N$ elements, its hash value must be recomputed (or adjusted for the new size), and it must be inserted into the new table. Assuming a good hash function and proper collision resolution, a single insertion into the new table takes $O(1)$ on average.\n\nSince $N$ elements each require an $O(1)$ average-case operation (re-hashing and insertion), the total cost for rehashing all $N$ elements is $N \\times O(1) = O(N)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the amortized time complexity for an insertion operation in a dynamically resizing hash table is $O(1)$, despite $O(N)$ rehashing costs.",
+      "back": "The amortized $O(1)$ cost for insertion is achieved by using a **doubling strategy** for resizing. When the table resizes, it doubles its capacity. This means that a resize operation of $N$ elements (costing $O(N)$) only occurs after approximately $N/2$ insertions since the *last* resize.\n\nConsider the total cost over a sequence of $N$ insertions starting from an empty table. The costs are mostly $O(1)$ for individual insertions, with occasional $O(k)$ costs for rehashing when the table reaches capacity $k$. If the table doubles, the rehashing costs are $1+2+4+...+N/2 = N-1$. Summing the $O(1)$ costs for $N$ insertions and the $O(N)$ rehashing costs, the total cost for $N$ insertions is $O(N)$.\n\nTherefore, the average cost per insertion over the sequence is $\\frac{O(N)}{N} = O(1)$. The expensive $O(N)$ resize operations are infrequent enough that their cost is 'amortized' or spread out over many cheaper $O(1)$ insertions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do the 'growth factor' and 'initial capacity' of a hash table affect rehashing frequency and cost?",
+      "back": "1.  **Growth Factor:** This determines how much the table's capacity increases during a resize (e.g., doubling, or increasing by a fixed amount). A larger growth factor (e.g., doubling) leads to less frequent rehashing but consumes more memory immediately. A smaller growth factor (e.g., adding a fixed small number of buckets) leads to more frequent rehashing, increasing the total number of $O(N)$ operations over time, but uses memory more conservatively.\n2.  **Initial Capacity:** This is the starting number of buckets. A small initial capacity might lead to an early resize if many elements are inserted quickly. A larger initial capacity reduces the likelihood of early rehashing but might waste memory if only a few elements are ever stored. Choosing an appropriate initial capacity can prevent unnecessary rehashing for small datasets.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the key trade-offs to consider when choosing an optimal load factor threshold for resizing?",
+      "back": "Choosing the optimal load factor threshold involves balancing performance (speed) and memory usage:\n\n*   **Lower Threshold (e.g., 0.5):**\n    *   **Pros:** Fewer collisions, faster average-case operations ($O(1)$ closer to ideal), better performance.\n    *   **Cons:** More frequent rehashing (more $O(N)$ operations), higher memory consumption (more empty buckets).\n\n*   **Higher Threshold (e.g., 0.9):**\n    *   **Pros:** Less frequent rehashing, lower memory consumption (fewer empty buckets).\n    *   **Cons:** More collisions, slower average-case operations (approaching $O(N)$), degraded performance.\n\nThe choice often depends on the collision resolution strategy (open addressing typically needs a lower threshold than separate chaining) and application requirements (e.g., memory-constrained systems might tolerate higher thresholds).",
+      "difficulty": "medium"
+    }
+  ]
+}

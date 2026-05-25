@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-3-mass-flow-rate-and-its-relation-to-throat-area",
+  "subtopicTitle": "Mass flow rate ṁ and its relation to throat area",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:47.466Z",
+  "cards": [
+    {
+      "front": "Define mass flow rate $\\dot{m}$ and state its SI units.",
+      "back": "Mass flow rate $\\dot{m}$ is the mass of fluid passing through a given cross-sectional area per unit time. Its SI units are kilograms per second (kg/s).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general formula for mass flow rate $\\dot{m}$ in terms of fluid density $\\rho$, flow velocity $v$, and cross-sectional area $A$.",
+      "back": "The general formula for mass flow rate is: $$ \\dot{m} = \\rho A v $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a converging-diverging rocket nozzle, why is the mass flow rate $\\dot{m}$ primarily determined by conditions at the throat?",
+      "back": "At the throat of a converging-diverging nozzle, the flow reaches sonic velocity ($M=1$) under choked conditions. Once choked, the mass flow rate becomes fixed and cannot increase further by lowering the downstream pressure. This critical condition at the throat dictates the maximum possible mass flow rate through the entire nozzle, making it the primary determinant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the key formula for mass flow rate $\\dot{m}$ through a choked nozzle throat, using throat area $A_t$, stagnation pressure $P_0$, stagnation temperature $T_0$, specific heat ratio $\\gamma$, and specific gas constant $R$.",
+      "back": "The mass flow rate through a choked nozzle throat is given by: $$ \\dot{m} = A_t P_0 \\sqrt{\\frac{\\gamma}{R T_0}} \\left(\\frac{2}{\\gamma+1}\\right)^{\\frac{\\gamma+1}{2(\\gamma-1)}} $$ This formula assumes ideal gas, isentropic flow, and choked conditions ($M=1$ at the throat).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the critical temperature $T_t$ at the throat in terms of stagnation temperature $T_0$ for isentropic flow of an ideal gas.",
+      "back": "For isentropic flow of an ideal gas, the relation between stagnation temperature $T_0$ and static temperature $T$ is $T_0/T = 1 + \\frac{\\gamma-1}{2}M^2$. At the throat, the Mach number $M=1$. Substituting this: $$ \\frac{T_0}{T_t} = 1 + \\frac{\\gamma-1}{2}(1)^2 = \\frac{2 + \\gamma - 1}{2} = \\frac{\\gamma+1}{2} $$ Rearranging for $T_t$: $$ T_t = T_0 \\left(\\frac{2}{\\gamma+1}\\right) $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the critical pressure $P_t$ at the throat in terms of stagnation pressure $P_0$ for isentropic flow of an ideal gas.",
+      "back": "For isentropic flow, the relation between stagnation pressure $P_0$ and static pressure $P$ is $P_0/P = (T_0/T)^{\\frac{\\gamma}{\\gamma-1}}$. At the throat, $M=1$, and we know $T_t = T_0 \\left(\\frac{2}{\\gamma+1}\\right)$. Substituting $T_t$: $$ \\frac{P_0}{P_t} = \\left(\\frac{T_0}{T_t}\\right)^{\\frac{\\gamma}{\\gamma-1}} = \\left(\\frac{T_0}{T_0 \\left(\\frac{2}{\\gamma+1}\\right)}\\right)^{\\frac{\\gamma}{\\gamma-1}} = \\left(\\frac{\\gamma+1}{2}\\right)^{\\frac{\\gamma}{\\gamma-1}} $$ Rearranging for $P_t$: $$ P_t = P_0 \\left(\\frac{2}{\\gamma+1}\\right)^{\\frac{\\gamma}{\\gamma-1}} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Assuming constant chamber conditions ($P_0, T_0$), how does increasing the throat area $A_t$ affect the thrust of a rocket engine?",
+      "back": "Increasing the throat area $A_t$ directly increases the mass flow rate $\\dot{m}$ through the nozzle, as the mass flow rate is proportional to $A_t$ (as shown in the choked flow formula). Since rocket thrust is primarily proportional to the mass flow rate and exhaust velocity ($F \\approx \\dot{m} v_e$), a larger throat area leads to a higher mass flow rate and, consequently, greater thrust for a given propellant and chamber conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the primary assumptions made when applying the standard mass flow rate formula for a choked nozzle throat.",
+      "back": "The primary assumptions are:\n1.  **Ideal Gas:** The exhaust gases behave as an ideal gas.\n2.  **Isentropic Flow:** The flow is adiabatic and reversible (no friction, no heat transfer).\n3.  **Steady Flow:** Flow properties at any point do not change with time.\n4.  **One-Dimensional Flow:** Flow properties are uniform across any cross-section.\n5.  **Choked Flow:** The flow velocity at the throat is exactly sonic ($M=1$).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-5-applications-solving-polynomial-equations-with-complex-roots",
+  "subtopicTitle": "Applications — solving polynomial equations with complex roots",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:14:38.191Z",
+  "cards": [
+    {
+      "front": "State the Fundamental Theorem of Algebra.",
+      "back": "Every non-constant single-variable polynomial with complex coefficients has at least one complex root.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the Fundamental Theorem of Algebra imply about the total number of roots for a polynomial of degree $n$?",
+      "back": "A polynomial of degree $n \\ge 1$ has exactly $n$ complex roots, counting multiplicity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Conjugate Root Theorem for polynomials.",
+      "back": "If a polynomial $P(x)$ with *real coefficients* has a complex root $a+bi$ (where $b \\ne 0$), then its complex conjugate $a-bi$ is also a root.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the \"real coefficients\" condition crucial for the Conjugate Root Theorem to hold?",
+      "back": "If $P(x) = a_n x^n + \\dots + a_1 x + a_0$ has real coefficients, then $P(\\bar{z}) = \\overline{P(z)}$. If $P(z)=0$, then $\\overline{P(z)}=0$, so $P(\\bar{z})=0$. If coefficients are complex, this doesn't hold, e.g., $P(x) = x - i$ has root $i$, but $\\bar{i} = -i$ is not a root.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve $x^2 - 4x + 13 = 0$ for $x$.",
+      "back": "Using the quadratic formula $x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$:\n$x = \\frac{4 \\pm \\sqrt{(-4)^2 - 4(1)(13)}}{2(1)}$\n$x = \\frac{4 \\pm \\sqrt{16 - 52}}{2}$\n$x = \\frac{4 \\pm \\sqrt{-36}}{2}$\n$x = \\frac{4 \\pm 6i}{2}$\n$x = 2 \\pm 3i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A polynomial $P(x)$ with real coefficients has a root $3-i$. What is the simplest quadratic factor of $P(x)$ with real coefficients?",
+      "back": "Since the coefficients are real, if $3-i$ is a root, then its conjugate $3+i$ must also be a root.\nThe factors are $(x - (3-i))$ and $(x - (3+i))$.\nTheir product is $((x-3) + i)((x-3) - i) = (x-3)^2 - i^2 = (x-3)^2 + 1 = x^2 - 6x + 9 + 1 = x^2 - 6x + 10$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given that $1+2i$ is a root of $P(x) = x^3 - 2x^2 + 5x - 10 = 0$, find all other roots.",
+      "back": "Since coefficients are real, if $1+2i$ is a root, then $1-2i$ is also a root.\nThe quadratic factor from these roots is $(x-(1+2i))(x-(1-2i)) = ((x-1)-2i)((x-1)+2i) = (x-1)^2 - (2i)^2 = (x-1)^2 + 4 = x^2 - 2x + 5$.\nDivide $P(x)$ by $x^2 - 2x + 5$:\n$(x^3 - 2x^2 + 5x - 10) \\div (x^2 - 2x + 5) = x - 2$.\nSo, the third root is $x=2$.\nThe roots are $1+2i$, $1-2i$, and $2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How many distinct complex $n$-th roots does any non-zero complex number $w$ have?",
+      "back": "Any non-zero complex number $w$ has exactly $n$ distinct complex $n$-th roots. These can be found using De Moivre's Theorem for roots, where $w = r(\\cos \\theta + i \\sin \\theta)$, and the roots are $\\sqrt[n]{r}\\left(\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i \\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right)$ for $k=0, 1, \\dots, n-1$.",
+      "difficulty": "medium"
+    }
+  ]
+}

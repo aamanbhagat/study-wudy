@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-1-sum-to-product-formulas",
+  "subtopicTitle": "Sum-to-product formulas",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:39.985Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of sum-to-product trigonometric formulas?",
+      "back": "Sum-to-product formulas are used to transform sums or differences of trigonometric functions (sines or cosines) into products. This is often useful for simplifying expressions, solving trigonometric equations, or performing integration.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the sum-to-product formula for $\\sin A + \\sin B$.",
+      "back": "$$\\sin A + \\sin B = 2 \\sin\\left(\\frac{A+B}{2}\\right) \\cos\\left(\\frac{A-B}{2}\\right)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the sum-to-product formula for $\\cos A - \\cos B$. Pay close attention to the sign.",
+      "back": "$$\\cos A - \\cos B = -2 \\sin\\left(\\frac{A+B}{2}\\right) \\sin\\left(\\frac{A-B}{2}\\right)$$ (Note the negative sign, or alternatively, $2 \\sin\\left(\\frac{A+B}{2}\\right) \\sin\\left(\\frac{B-A}{2}\\right)$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the sum-to-product formula for $\\sin A + \\sin B$ starting from the angle sum and difference formulas for sine.",
+      "back": "Let $A = x+y$ and $B = x-y$. Then $x = \\frac{A+B}{2}$ and $y = \\frac{A-B}{2}$.\nWe know:\n$\\sin(x+y) = \\sin x \\cos y + \\cos x \\sin y$\n$\\sin(x-y) = \\sin x \\cos y - \\cos x \\sin y$\nAdding these two equations:\n$\\sin(x+y) + \\sin(x-y) = (\\sin x \\cos y + \\cos x \\sin y) + (\\sin x \\cos y - \\cos x \\sin y)$\n$= 2 \\sin x \\cos y$\nSubstituting $x$ and $y$ back in terms of $A$ and $B$:\n$$\\sin A + \\sin B = 2 \\sin\\left(\\frac{A+B}{2}\\right) \\cos\\left(\\frac{A-B}{2}\\right)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Simplify the expression $\\cos(7\\theta) + \\cos(3\\theta)$ using a sum-to-product formula.",
+      "back": "Using the formula $\\cos A + \\cos B = 2 \\cos\\left(\\frac{A+B}{2}\\right) \\cos\\left(\\frac{A-B}{2}\\right)$:\n$\\cos(7\\theta) + \\cos(3\\theta) = 2 \\cos\\left(\\frac{7\\theta+3\\theta}{2}\\right) \\cos\\left(\\frac{7\\theta-3\\theta}{2}\\right)$\n$= 2 \\cos\\left(\\frac{10\\theta}{2}\\right) \\cos\\left(\\frac{4\\theta}{2}\\right)$\n$= 2 \\cos(5\\theta) \\cos(2\\theta)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve the equation $\\sin(5x) - \\sin(x) = 0$ for $x \\in [0, \\pi]$.",
+      "back": "Using the sum-to-product formula $\\sin A - \\sin B = 2 \\cos\\left(\\frac{A+B}{2}\\right) \\sin\\left(\\frac{A-B}{2}\\right)$:\n$2 \\cos\\left(\\frac{5x+x}{2}\\right) \\sin\\left(\\frac{5x-x}{2}\\right) = 0$\n$2 \\cos(3x) \\sin(2x) = 0$\nThis implies either $\\cos(3x) = 0$ or $\\sin(2x) = 0$.\n\nFor $\\cos(3x) = 0$:\n$3x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}, \\frac{5\\pi}{2}, \\dots$\n$x = \\frac{\\pi}{6}, \\frac{\\pi}{2}, \\frac{5\\pi}{6}$ (The next value $7\\pi/6$ is outside $[0, \\pi]$).\n\nFor $\\sin(2x) = 0$:\n$2x = 0, \\pi, 2\\pi, \\dots$\n$x = 0, \\frac{\\pi}{2}, \\pi$ (The next value $3\\pi/2$ is outside $[0, \\pi]$).\n\nCombining unique solutions, for $x \\in [0, \\pi]$, the solutions are:\n$x = 0, \\frac{\\pi}{6}, \\frac{\\pi}{2}, \\frac{5\\pi}{6}, \\pi$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a simple mnemonic to distinguish between the sum-to-product formulas for $\\sin A + \\sin B$ and $\\cos A + \\cos B$?",
+      "back": "A common mnemonic relates the type of functions on the left to the type of functions in the product on the right:\n*   $\\sin A + \\sin B$: \"Sine + Sine gives Sine Cosine\" ($2 \\sin \\left(\\frac{A+B}{2}\\right) \\cos \\left(\\frac{A-B}{2}\\right)$)\n*   $\\cos A + \\cos B$: \"Cosine + Cosine gives Cosine Cosine\" ($2 \\cos \\left(\\frac{A+B}{2}\\right) \\cos \\left(\\frac{A-B}{2}\\right)$)\n\nSimilarly:\n*   $\\sin A - \\sin B$: \"Sine - Sine gives Cosine Sine\" ($2 \\cos \\left(\\frac{A+B}{2}\\right) \\sin \\left(\\frac{A-B}{2}\\right)$)\n*   $\\cos A - \\cos B$: \"Cosine - Cosine gives negative Sine Sine\" ($-2 \\sin \\left(\\frac{A+B}{2}\\right) \\sin \\left(\\frac{A-B}{2}\\right)$)",
+      "difficulty": "medium"
+    }
+  ]
+}

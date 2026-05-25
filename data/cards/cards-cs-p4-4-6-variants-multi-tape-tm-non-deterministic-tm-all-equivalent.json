@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-variants-multi-tape-tm-non-deterministic-tm-all-equivalent",
+  "subtopicTitle": "Variants — multi-tape TM, non-deterministic TM, all equivalent",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:20.034Z",
+  "cards": [
+    {
+      "front": "A standard Turing Machine has one tape. How does a multi-tape Turing Machine differ in its fundamental structure?",
+      "back": "A multi-tape TM has a finite number of tapes, each with its own independent read/write head. These heads can move independently and read/write simultaneously in a single transition step, based on the symbols read by all heads.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the core idea for a single-tape TM to simulate a $k$-tape TM?",
+      "back": "The single tape is divided into $k$ \"tracks\" or sections. Each track represents one of the $k$ tapes of the multi-tape TM. Special symbols on each track mark the current positions of the $k$ heads.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the formal representation on a single tape for simulating a $k$-tape TM, including how head positions are indicated.",
+      "back": "Each cell of the single tape stores a $k$-tuple of symbols $(s_1, \\dots, s_k)$, where $s_i$ is the symbol on tape $i$. Additionally, each $s_i$ is augmented with a \"dot\" or special marker symbol (e.g., $\\dot{s_i}$) to indicate if the head for tape $i$ is currently positioned at that cell. For example, a cell might store $(a, \\dot{b}, c)$ meaning tape 1 has 'a', tape 2 has 'b' with its head here, and tape 3 has 'c'.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the key difference in the transition function $\\delta$ that makes a Turing Machine non-deterministic?",
+      "back": "For a given state $q$ and tape symbol $a$, a Deterministic TM has at most one possible next configuration. A Non-deterministic TM's transition function $\\delta(q, a)$ can yield a *set* of multiple possible next states, symbols to write, and head movements, allowing for branching computations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a Non-deterministic Turing Machine (NDTM) determine if it \"accepts\" an input string $w$?",
+      "back": "An NDTM accepts an input $w$ if there exists *at least one* sequence of choices (computational path or branch) from its initial configuration that eventually leads to an accepting state. If all paths halt in a non-accepting state or loop, the string is rejected/not accepted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the high-level strategy a Deterministic TM (DTM) uses to simulate a Non-deterministic TM (NDTM).",
+      "back": "The DTM simulates the NDTM by systematically exploring all possible computation paths of the NDTM. It conceptually builds a \"computation tree\" where each node is an NDTM configuration. The DTM performs a search (typically Breadth-First Search) through this tree, looking for an accepting configuration. If one is found, the DTM accepts.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a common multi-tape DTM setup used to simulate an NDTM, specifying the purpose of each tape.",
+      "back": "A 3-tape DTM can simulate an NDTM:\n1.  **Input Tape:** Holds the original input, read-only, never modified.\n2.  **Simulation Tape:** Stores the current configuration (state, tape contents, head position) of the NDTM being explored in the current path.\n3.  **Address Tape:** Stores a string representing the \"path\" taken in the NDTM's computation tree (e.g., a sequence of branch choices). This tape is used to systematically generate and explore new configurations in a BFS manner, acting like a queue of computation paths to try.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the fundamental implication of the fact that multi-tape TMs, non-deterministic TMs, and standard TMs are all equivalent in computational power?",
+      "back": "They all define the same class of languages (recursively enumerable languages) and compute the same class of functions. This robustness supports the Church-Turing Thesis, suggesting that the concept of \"algorithm\" is not tied to specific implementation details or minor variations of the Turing Machine model.",
+      "difficulty": "medium"
+    }
+  ]
+}

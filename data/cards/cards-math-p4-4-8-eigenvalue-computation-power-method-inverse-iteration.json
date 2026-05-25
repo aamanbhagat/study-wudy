@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-eigenvalue-computation-power-method-inverse-iteration",
+  "subtopicTitle": "Eigenvalue computation — power method, inverse iteration",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:22.451Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Power Method, and what type of eigenvalue does it find?",
+      "back": "The Power Method is used to find the *dominant eigenvalue* (largest in magnitude) and its corresponding eigenvector of a matrix $A$. It works by repeatedly multiplying a vector by $A$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the iterative steps of the Power Method for a matrix $A$ and initial vector $x_0$.",
+      "back": "1. Choose an initial non-zero vector $x_0$.\n2. For $k = 0, 1, 2, \\dots$:\n    a. Compute $y_{k+1} = A x_k$.\n    b. Normalize $x_{k+1} = \\frac{y_{k+1}}{||y_{k+1}||_\\infty}$.\n    c. Estimate $\\lambda_{k+1} = \\frac{x_{k+1}^T A x_{k+1}}{x_{k+1}^T x_{k+1}}$ (Rayleigh quotient).\nThe sequence $x_k$ converges to the dominant eigenvector, and $\\lambda_k$ to the dominant eigenvalue.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the primary condition for the Power Method to converge, and describe its rate of convergence.",
+      "back": "The Power Method converges if the matrix $A$ has a *strictly dominant eigenvalue*, meaning $|\\lambda_1| > |\\lambda_2| \\ge \\dots \\ge |\\lambda_n|$, where $\\lambda_1$ is the dominant eigenvalue. The rate of convergence is linear, proportional to $|\\lambda_2 / \\lambda_1|^k$. A smaller ratio leads to faster convergence. If $|\\lambda_1| = |\\lambda_2|$, the method may not converge to a single eigenvector.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the main goal of the Inverse Iteration method, and how does it relate to the Power Method?",
+      "back": "The Inverse Iteration method is used to find an eigenvalue of $A$ that is *closest to a given shift $\\mu$*, and its corresponding eigenvector. It is essentially the Power Method applied to the matrix $(A - \\mu I)^{-1}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the iterative steps of the Inverse Iteration for a matrix $A$, initial vector $x_0$, and shift $\\mu$.",
+      "back": "1. Choose an initial non-zero vector $x_0$ and a shift $\\mu$.\n2. For $k = 0, 1, 2, \\dots$:\n    a. Solve $(A - \\mu I) y_{k+1} = x_k$ for $y_{k+1}$.\n    b. Normalize $x_{k+1} = \\frac{y_{k+1}}{||y_{k+1}||_\\infty}$.\n    c. Estimate $\\lambda_{k+1} = \\frac{x_{k+1}^T A x_{k+1}}{x_{k+1}^T x_{k+1}}$.\nThe sequence $x_k$ converges to the eigenvector for the eigenvalue closest to $\\mu$, and $\\lambda_k$ converges to that eigenvalue.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the convergence behavior and rate of Inverse Iteration. What makes it powerful?",
+      "back": "Inverse Iteration converges to the eigenvalue $\\lambda_j$ of $A$ that is closest to the shift $\\mu$. The convergence rate is linear and proportional to $\\left|\\frac{\\lambda_j - \\mu}{\\lambda_k - \\mu}\\right|^k$, where $\\lambda_k$ is the next closest eigenvalue to $\\mu$. It is powerful because by choosing $\\mu$ very close to a desired eigenvalue, the ratio $|\\lambda_j - \\mu|$ becomes very small, leading to *very rapid convergence*.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When would you prefer to use the Power Method over Inverse Iteration, and vice-versa?",
+      "back": "*   **Power Method:** Preferred when only the *dominant eigenvalue* (largest magnitude) and its eigenvector are needed, and computational cost of matrix inversion is high. Simpler to implement.\n*   **Inverse Iteration:** Preferred when a *specific eigenvalue* (e.g., smallest, or one near a particular value) and its eigenvector are needed. It offers much faster convergence if a good estimate for the eigenvalue (the shift $\\mu$) is available.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the most significant computational challenge in each step of Inverse Iteration, and how is it typically addressed?",
+      "back": "The most significant challenge is solving the linear system $(A - \\mu I) y_{k+1} = x_k$ in each iteration. Directly computing $(A - \\mu I)^{-1}$ is generally too expensive. Instead, the matrix $(A - \\mu I)$ is typically factorized once (e.g., using LU decomposition) at the beginning. Then, in each iteration, two triangular systems are solved, which is much faster.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-4-segment-tree-build-range-query-point-update",
+  "subtopicTitle": "Segment tree — build, range query, point update",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:06.734Z",
+  "cards": [
+    {
+      "front": "A Segment Tree is a binary tree data structure used for efficiently answering _______ queries and performing _______ updates on an array.",
+      "back": "range, point. It allows these operations in $O(\\log N)$ time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the range a segment tree node covering $[L, R]$ typically represents, and how its children's ranges are determined.",
+      "back": "A node covering $[L, R]$ stores information about the segment from index $L$ to $R$ (inclusive) of the original array. Its left child covers $[L, \\lfloor(L+R)/2\\rfloor]$ and its right child covers $[\\lfloor(L+R)/2\\rfloor + 1, R]$. Leaf nodes correspond to individual elements of the array.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity to build a segment tree for an array of size $N$, and what operation does a parent node perform on its children's values?",
+      "back": "Building a segment tree takes $O(N)$ time. Each node recursively computes its value from its children's values. For a sum segment tree, a parent node sums the values of its left and right children. For a min/max tree, it takes the min/max.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When performing a range query for $[Q_L, Q_R]$ on a segment tree node covering $[N_L, N_R]$, describe the three main cases for the node's range relative to the query range.",
+      "back": "1.  **No Overlap:** If $[N_L, N_R]$ is completely outside $[Q_L, Q_R]$ (i.e., $N_R < Q_L$ or $N_L > Q_R$), return an identity element (e.g., 0 for sum, $\\infty$ for min).\n2.  **Complete Overlap:** If $[N_L, N_R]$ is completely inside $[Q_L, Q_R]$ (i.e., $Q_L \\le N_L$ and $N_R \\le Q_R$), return the value stored in the current node.\n3.  **Partial Overlap:** Otherwise, recursively query both children and combine their results.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the time complexity of a range query (e.g., sum, min, max) on a segment tree for an array of size $N$? Explain why.",
+      "back": "$O(\\log N)$. At each level of the tree, the query range can split into at most two paths. Since the height of the tree is $O(\\log N)$, the total number of nodes visited is proportional to the height.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the recursive process for updating the value at a specific index `idx` in a segment tree.",
+      "back": "To update `idx`:\n1.  If the current node's range is a leaf node covering `idx`, update its value directly.\n2.  Otherwise, determine which child's range contains `idx`.\n3.  Recursively call update on that child.\n4.  After the recursive call returns, update the current node's value by combining its children's (e.g., sum for sum tree).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity of a point update operation on a segment tree for an array of size $N$?",
+      "back": "$O(\\log N)$. An update traverses a single path from the root to the leaf node corresponding to the updated index. The height of the tree is $O(\\log N)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the space complexity of a segment tree for an array of size $N$?",
+      "back": "$O(N)$. A complete binary tree with $N$ leaves has $2N-1$ nodes. In practice, due to padding for non-power-of-2 $N$, it's often implemented with an array of size $4N$.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-fem-software-nastran-abaqus-concepts-and-use",
+  "subtopicTitle": "FEM software — NASTRAN, ABAQUS (concepts and use)",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:03.163Z",
+  "cards": [
+    {
+      "front": "What does FEM stand for, and what is its fundamental purpose in structural analysis for spacecraft?",
+      "back": "FEM stands for **Finite Element Method**. Its fundamental purpose is to numerically approximate solutions to complex engineering problems (like stress, strain, heat transfer, fluid flow) by dividing a continuous domain into a finite number of discrete, interconnected elements. For spacecraft, it's crucial for predicting structural behavior under launch and orbital loads.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is NASTRAN primarily known for in aerospace structural analysis, and what types of problems does it excel at?",
+      "back": "NASTRAN (NASA STRuctural ANalysis) is primarily known for its robust capabilities in **linear static, dynamic, and thermal analysis** of large, complex structures. It excels at problems involving small deformations, linear elastic materials, and well-defined boundary conditions, making it a staple for aerospace applications like aircraft and spacecraft primary structures.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the primary input and output file types for a typical NASTRAN analysis run.",
+      "back": "The primary input file for NASTRAN is the **Bulk Data File (.bdf or .dat)**, which contains model geometry, material properties, loads, and boundary conditions. Key output files include the **Print File (.f06)** for detailed text results and the **Output2 File (.op2)** for binary results (e.g., displacements, stresses) used by post-processors.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is ABAQUS primarily known for, and what types of engineering problems is it particularly well-suited to solve?",
+      "back": "ABAQUS is primarily known for its advanced capabilities in **nonlinear analysis**, including large deformations, complex contact interactions, and sophisticated material models (e.g., plasticity, hyperelasticity, creep). It excels at problems where material or geometric nonlinearities are significant, such as impact simulations, manufacturing processes, and highly deformable structures.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a spacecraft component analysis, when would an engineer typically choose ABAQUS over NASTRAN?",
+      "back": "An engineer would typically choose ABAQUS over NASTRAN when the analysis involves significant **nonlinearities**. This includes:\n1.  **Geometric Nonlinearity:** Large deformations or rotations where equilibrium equations must be formulated on the deformed geometry.\n2.  **Material Nonlinearity:** Materials exhibiting plasticity, hyperelasticity (e.g., rubber seals), creep, or damage.\n3.  **Contact Nonlinearity:** Complex contact interactions between multiple parts, especially with friction.\nNASTRAN is generally preferred for linear problems due to its computational efficiency for such cases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the Finite Element Method, define \"elements\" and \"nodes\" and explain their role in discretizing a continuous structure.",
+      "back": "In FEM:\n*   **Nodes:** Discrete points in space where the unknown primary variables (e.g., displacement components) are calculated. They define the geometry of the elements and connect them.\n*   **Elements:** Subdomains (e.g., 1D beams, 2D shells, 3D solids) that approximate the behavior of the continuous structure. Each element has a defined shape, material properties, and a set of nodes.\nTogether, elements and nodes discretize the continuous structure into a finite number of simpler parts, allowing the complex differential equations governing the structure's behavior to be approximated by a system of algebraic equations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general workflow for performing a nonlinear structural analysis of a spacecraft component using an FEM software like ABAQUS.",
+      "back": "The general workflow involves three phases:\n1.  **Pre-processing:**\n    *   **Geometry Definition:** Import or create the component's geometry.\n    *   **Material Properties:** Define nonlinear material models (e.g., stress-strain curves for plasticity).\n    *   **Meshing:** Discretize the geometry into a finite element mesh (elements and nodes).\n    *   **Boundary Conditions & Loads:** Apply constraints (e.g., fixed supports) and loads (e.g., pressure, forces, accelerations).\n    *   **Interaction/Contact:** Define contact surfaces and properties between parts.\n2.  **Solving:** Submit the prepared input file to the solver. The solver iteratively solves the nonlinear equations until convergence criteria are met.\n3.  **Post-processing:** Interpret the results (e.g., stress contours, displacement plots, reaction forces) using graphical tools to assess structural integrity and performance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are \"SOLs\" in NASTRAN, and provide an example of a common SOL used for linear static analysis.",
+      "back": "\"SOLs\" in NASTRAN refer to **Solution Sequences** or **Solvers**. They are predefined analysis procedures that instruct NASTRAN on the type of analysis to perform (e.g., static, modal, buckling, transient). Each SOL corresponds to a specific set of equations and algorithms.\nA common SOL used for linear static analysis is **SOL 101**.",
+      "difficulty": "medium"
+    }
+  ]
+}

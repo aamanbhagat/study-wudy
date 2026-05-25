@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-p-vs-np-statement-why-it-matters",
+  "subtopicTitle": "P vs NP — statement, why it matters",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:25.690Z",
+  "cards": [
+    {
+      "front": "In computational complexity theory, the class P consists of decision problems that can be solved by a deterministic Turing machine in __________ time.",
+      "back": "polynomial time. Formally, a problem is in P if there exists an algorithm that solves it in $O(n^k)$ time for some constant $k$, where $n$ is the input size. These problems are considered \"tractable\" or \"efficiently solvable.\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The class NP includes decision problems for which a given solution (or \"certificate\") can be __________ by a deterministic Turing machine in polynomial time.",
+      "back": "verified. Formally, a problem is in NP if, given a \"yes\" instance and a \"certificate\" for that instance, we can check if the certificate is valid in $O(n^k)$ time. NP stands for \"Nondeterministic Polynomial time,\" referring to a hypothetical nondeterministic Turing machine that could *find* a solution in polynomial time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental question posed by the P vs NP problem.",
+      "back": "The P vs NP problem asks whether every decision problem for which a solution can be *verified* in polynomial time (i.e., problems in NP) can also be *solved* in polynomial time (i.e., problems in P). In simpler terms: Is P = NP?",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the crucial distinction between problems in class P and problems in class NP, even if they both involve polynomial time?",
+      "back": "The crucial distinction is between *finding* a solution and *verifying* a proposed solution.\n*   **P:** Problems where finding a solution is efficient (polynomial time).\n*   **NP:** Problems where *if* you're given a solution, verifying its correctness is efficient (polynomial time). Finding the solution itself might be exponentially hard. This implies P $\\subseteq$ NP, as if you can solve it efficiently, you can certainly verify it efficiently (just solve it and check).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the P vs NP problem is one of the most significant unsolved problems in computer science, impacting fields like cryptography and optimization.",
+      "back": "It dictates the fundamental limits of efficient computation.\n*   **Optimization:** Many real-world optimization problems (e.g., scheduling, logistics, drug discovery, protein folding) are in NP. If P=NP, we'd have efficient algorithms for these, revolutionizing industries.\n*   **Cryptography:** Modern cryptography (e.g., RSA) relies on the assumption that certain problems (like factoring large numbers) are computationally hard (not in P). If P=NP, these systems could be broken efficiently, compromising secure communication.\n*   **Artificial Intelligence:** Could lead to efficient algorithms for currently intractable AI problems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the transformative implications for humanity if P were proven equal to NP.",
+      "back": "If P = NP, it would mean that for any problem whose solution can be quickly checked, there's also a quick way to find that solution. This would have profound impacts:\n*   **Science & Engineering:** Breakthroughs in drug design, materials science, weather prediction, and protein folding.\n*   **Optimization:** Perfect scheduling, logistics, and resource allocation.\n*   **Artificial Intelligence:** Ability to efficiently solve many currently intractable AI problems.\n*   **Mathematics:** Efficient algorithms for proving theorems, potentially automating much of mathematical discovery.\n*   **Cryptography:** Most current public-key cryptography would be rendered insecure.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the current widely accepted belief regarding the relationship between P and NP, and what does this imply for practical problem-solving?",
+      "back": "The widely accepted belief is that **P $\\neq$ NP**. This means there are problems whose solutions can be quickly verified, but for which no efficient (polynomial-time) algorithm exists to *find* the solution.\nThis implies that for many important problems (like those that are NP-complete), we must resort to:\n1.  Heuristics or approximation algorithms (find good, but not necessarily optimal, solutions).\n2.  Exponential-time algorithms (only feasible for small inputs).\n3.  Specialized algorithms that work well for specific instances.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an example of a problem in P and an example of a problem in NP that is widely believed not to be in P.",
+      "back": "*   **Problem in P:** *Searching a sorted list.* Given a sorted list of $n$ numbers and a target value, determine if the target is in the list. Binary search solves this in $O(\\log n)$ time.\n*   **Problem in NP (believed not in P):** *Boolean Satisfiability Problem (SAT).* Given a Boolean formula, determine if there is an assignment of truth values to its variables that makes the formula true. If you're given an assignment, checking if it satisfies the formula is easy (polynomial time), but finding such an assignment is generally hard.",
+      "difficulty": "medium"
+    }
+  ]
+}

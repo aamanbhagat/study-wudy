@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-density-specific-gravity",
+  "subtopicTitle": "Density, specific gravity",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:25.185Z",
+  "cards": [
+    {
+      "front": "Define mass density ($\\rho$) and state its standard SI units.",
+      "back": "Mass density is the mass per unit volume of a substance. Its formula is $\\rho = \\frac{m}{V}$, where $m$ is mass and $V$ is volume. The standard SI unit for mass density is kilograms per cubic meter ($\\text{kg/m}^3$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does increasing temperature generally affect the density of most substances, and why?",
+      "back": "Increasing temperature generally decreases the density of most substances. As temperature rises, particles gain kinetic energy, move further apart, and the volume ($V$) of the substance expands while its mass ($m$) remains constant. This expansion leads to a decrease in density, as $\\rho = m/V$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A rocket fuel tank has a volume of $5 \\text{ m}^3$. If the liquid oxygen (LOX) inside has a density of $1141 \\text{ kg/m}^3$, what is the mass of the LOX?",
+      "back": "Given $\\rho = 1141 \\text{ kg/m}^3$ and $V = 5 \\text{ m}^3$. Using the formula $\\rho = \\frac{m}{V}$, we can rearrange to solve for mass: $m = \\rho V$. Therefore, $m = (1141 \\text{ kg/m}^3)(5 \\text{ m}^3) = 5705 \\text{ kg}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define specific gravity ($SG$) and provide its formula. What is the standard reference substance for liquids and solids?",
+      "back": "Specific gravity is the ratio of the density of a substance to the density of a reference substance. Its formula is $SG = \\frac{\\rho_{\\text{substance}}}{\\rho_{\\text{reference}}}$. For liquids and solids, the standard reference substance is water, typically at $4^\\circ \\text{C}$ (where its density is $1000 \\text{ kg/m}^3$ or $1 \\text{ g/cm}^3$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why specific gravity is a dimensionless quantity.",
+      "back": "Specific gravity is defined as a ratio of two densities: $SG = \\frac{\\rho_{\\text{substance}}}{\\rho_{\\text{reference}}}$. Since density has units of mass per volume (e.g., $\\text{kg/m}^3$ or $\\text{g/cm}^3$), the units in the numerator and the denominator are identical and thus cancel out. This cancellation leaves specific gravity as a pure, dimensionless number without any units.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a hydraulic fluid has a specific gravity of $0.87$, what is its density in $\\text{kg/m}^3$ and $\\text{g/cm}^3$?",
+      "back": "Given $SG = 0.87$. The density of water at $4^\\circ \\text{C}$ is $\\rho_{\\text{water}} = 1000 \\text{ kg/m}^3 = 1 \\text{ g/cm}^3$. Using $SG = \\frac{\\rho_{\\text{fluid}}}{\\rho_{\\text{water}}}$, we find $\\rho_{\\text{fluid}} = SG \\times \\rho_{\\text{water}}$.\n\nIn $\\text{kg/m}^3$: $\\rho_{\\text{fluid}} = 0.87 \\times 1000 \\text{ kg/m}^3 = 870 \\text{ kg/m}^3$.\nIn $\\text{g/cm}^3$: $\\rho_{\\text{fluid}} = 0.87 \\times 1 \\text{ g/cm}^3 = 0.87 \\text{ g/cm}^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship between specific weight ($\\gamma$) and specific gravity ($SG$) for a substance.",
+      "back": "Specific weight ($\\gamma$) is defined as $\\gamma = \\rho g$, where $\\rho$ is mass density and $g$ is the acceleration due to gravity.\nSpecific gravity ($SG$) is defined as $SG = \\frac{\\rho_{\\text{substance}}}{\\rho_{\\text{water}}}$.\nFrom the $SG$ definition, we can express the density of the substance as $\\rho_{\\text{substance}} = SG \\cdot \\rho_{\\text{water}}$.\nSubstitute this expression for $\\rho_{\\text{substance}}$ into the specific weight formula:\n$\\gamma_{\\text{substance}} = (SG \\cdot \\rho_{\\text{water}}) g$.\nSince $\\rho_{\\text{water}} g$ is the specific weight of water ($\\gamma_{\\text{water}}$), the relationship becomes:\n$\\gamma_{\\text{substance}} = SG \\cdot \\gamma_{\\text{water}}$.\nThis shows that specific gravity is also the ratio of the specific weight of a substance to the specific weight of water.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You have two unknown liquids. Liquid A has $SG=1.2$ and Liquid B has $SG=0.9$. If you drop a solid object with $SG=1.05$ into each, what will happen in each case?",
+      "back": "The specific gravity of an object relative to a fluid determines whether it floats or sinks. If $SG_{\\text{object}} < SG_{\\text{fluid}}$, it floats; if $SG_{\\text{object}} > SG_{\\text{fluid}}$, it sinks.\n\n1.  **Into Liquid A ($SG=1.2$)**: The object's $SG=1.05$ is less than Liquid A's $SG=1.2$. Therefore, the object will **float** in Liquid A.\n2.  **Into Liquid B ($SG=0.9$)**: The object's $SG=1.05$ is greater than Liquid B's $SG=0.9$. Therefore, the object will **sink** in Liquid B.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-4-trie-prefix-tree-insert-search-startswith-applications-autocomplete-spell-check",
+  "subtopicTitle": "Trie (prefix tree) — insert, search, startsWith, applications (autocomplete, spell check)",
+  "topicId": "cs-p3-3-4-trees",
+  "topicTitle": "Trees",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:24.212Z",
+  "cards": [
+    {
+      "front": "What is a Trie, and what is its primary characteristic that gives it the alternative name \"prefix tree\"?",
+      "back": "A Trie (pronounced \"try\"), or prefix tree, is a tree-like data structure used to store a dynamic set or associative array where keys are usually strings. Its primary characteristic is that each node represents a common prefix of the strings stored in the tree. All descendants of a node share the common prefix represented by that node.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the typical structure of a Trie node, including necessary components for storing strings and marking word endings.",
+      "back": "A Trie node typically contains:\n1.  An array or hash map of child pointers (e.g., `children[26]` for lowercase English letters, or `Map<Character, TrieNode>`). Each entry points to a child node representing the next character in a prefix.\n2.  A boolean flag (e.g., `isEndOfWord`) indicating whether the path to this node from the root forms a complete word.\n```java\nclass TrieNode {\n    Map<Character, TrieNode> children;\n    boolean isEndOfWord;\n\n    public TrieNode() {\n        children = new HashMap<>();\n        isEndOfWord = false;\n    }\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the steps to insert a string into a Trie. What is its time complexity for a string of length $L$?",
+      "back": "To insert a string:\n1.  Start at the root.\n2.  For each character in the string:\n    a.  If the current character's child node doesn't exist, create it.\n    b.  Move to that child node.\n3.  After processing all characters, mark the final node as `isEndOfWord = true`.\nTime complexity: $O(L)$, where $L$ is the length of the string, as we traverse each character once.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how to search for a complete word in a Trie. What must be true about the final node for a successful search?",
+      "back": "To search for a complete word:\n1.  Start at the root.\n2.  For each character in the target word:\n    a.  If the current character's child node doesn't exist, the word is not in the Trie; return `false`.\n    b.  Move to that child node.\n3.  After traversing all characters, check if the final node's `isEndOfWord` flag is `true`. If it is, the word exists; otherwise, it's a prefix but not a complete word.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the `startsWith` operation in a Trie. How does it differ from a full `search` operation?",
+      "back": "The `startsWith` operation checks if any word in the Trie begins with a given prefix.\n1.  Start at the root.\n2.  For each character in the target prefix:\n    a.  If the current character's child node doesn't exist, no word starts with this prefix; return `false`.\n    b.  Move to that child node.\n3.  If all characters of the prefix are successfully traversed, it means a path exists for that prefix, so return `true`.\nIt differs from `search` because it does *not* require the final node to have `isEndOfWord = true`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can a Trie be efficiently used to implement an autocomplete feature?",
+      "back": "For autocomplete:\n1.  First, use the `startsWith` logic to find the node corresponding to the given prefix. If the prefix doesn't exist, there are no suggestions.\n2.  If the prefix node is found, perform a Depth-First Search (DFS) or Breadth-First Search (BFS) starting from that node.\n3.  Collect all words found by traversing down from this node (i.e., paths that lead to nodes with `isEndOfWord = true`), appending the characters traversed from the prefix node to the original prefix. This yields all words that begin with the given prefix.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Analyze the space complexity of a Trie storing $N$ words with an average length of $L$. Assume an alphabet size of $A$.",
+      "back": "The space complexity depends on the number of nodes and the size of the alphabet ($A$).\n*   Each distinct character in a word path typically creates a node.\n*   The total number of nodes is at most the sum of the lengths of all unique prefixes of all words stored. In the worst case, this can be $O(N \\times L)$, where $N$ is the number of words and $L$ is the average word length.\n*   Each node requires space for its children pointers (e.g., $A$ pointers for an array, or $O(1)$ to $O(A)$ for a hash map) and the `isEndOfWord` flag.\n*   Therefore, the space complexity is roughly $O(\\text{total characters in all words})$ for a map-based Trie (as only existing children are stored), or $O(\\text{total characters in all words} \\times A)$ for an array-based Trie (as all $A$ pointers are allocated per node).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-git-workflows-gitflow-trunk-based-development",
+  "subtopicTitle": "Git workflows — Gitflow, trunk-based development",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:57.857Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a Git workflow?",
+      "back": "A Git workflow provides a consistent, agreed-upon set of rules and practices for a team to use Git, ensuring efficient collaboration, maintaining code quality, and streamlining release cycles.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Gitflow, what are the two main long-lived branches, and what is their primary purpose?",
+      "back": "The two main long-lived branches are `master` (or `main`) and `develop`.\n- `master`: Stores the official release history, containing only production-ready, stable code.\n- `develop`: Integrates all completed features for the next upcoming release, serving as the main branch for ongoing development.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the typical lifecycle of a `feature` branch in Gitflow, from creation to integration.",
+      "back": "A `feature` branch is created from `develop` for a specific new feature or enhancement. Developers work on it, committing frequently. Once the feature is complete and reviewed, it is merged back into `develop` (often using a `--no-ff` merge to preserve history) and then deleted.\n```bash\ngit checkout develop\ngit pull origin develop\ngit checkout -b feature/my-new-feature\n# ... work and commit ...\ngit checkout develop\ngit merge --no-ff feature/my-new-feature\ngit branch -d feature/my-new-feature\ngit push origin develop\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When and why is a `release` branch created in Gitflow, and what happens to it after the release?",
+      "back": "A `release` branch is created from `develop` when `develop` has enough features for an upcoming release. It's used for final bug fixes, testing, and preparing for the release (e.g., version bumping). Once stable, it's merged into both `master` (and tagged with the release version) and `develop` to propagate any fixes made during the release cycle, then deleted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose and typical origin/destination of a `hotfix` branch in Gitflow.",
+      "back": "A `hotfix` branch is created from `master` (or `main`) to quickly address critical bugs found in production. It allows immediate fixes without disrupting ongoing development in `develop`. Once the fix is applied and tested, it's merged into both `master` (and tagged) and `develop` to ensure the fix is included in future releases, then deleted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the core principle of Trunk-Based Development (TBD)?",
+      "back": "The core principle of Trunk-Based Development is that developers commit small, frequent changes directly to a single main branch (the \"trunk\" or `main`), or to very short-lived feature branches that are merged back into the trunk at least once a day. The goal is to keep the main branch always deployable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do \"feature flags\" (or \"feature toggles\") enable TBD to release code frequently without deploying unfinished features to users?",
+      "back": "Feature flags are conditional logic within the codebase that allows specific features to be turned on or off at runtime without requiring a new code deployment. In TBD, unfinished features are committed to the trunk behind a feature flag, keeping them hidden from users until they are complete, stable, and ready for release. This allows continuous integration and deployment while controlling feature visibility.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare Gitflow and Trunk-Based Development (TBD) in terms of release frequency, complexity, and suitability for continuous delivery (CD).",
+      "back": "- **Release Frequency:** Gitflow typically supports less frequent, more structured releases. TBD enables very high release frequency and continuous delivery.\n- **Complexity:** Gitflow has a more complex branching model with multiple long-lived branches. TBD has a simpler model, primarily focusing on a single main branch and very short-lived feature branches.\n- **Suitability for CD:** TBD is highly optimized for CD, as the `main` branch is always intended to be deployable. Gitflow can make CD harder due to the separation of `develop` and `master` and the stabilization period required for `release` branches.",
+      "difficulty": "hard"
+    }
+  ]
+}

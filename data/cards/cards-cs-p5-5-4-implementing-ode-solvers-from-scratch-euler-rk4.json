@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-4-implementing-ode-solvers-from-scratch-euler-rk4",
+  "subtopicTitle": "Implementing ODE solvers from scratch — Euler, RK4",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:45.139Z",
+  "cards": [
+    {
+      "front": "Define an Initial Value Problem (IVP) for an Ordinary Differential Equation (ODE).",
+      "back": "An IVP consists of an ordinary differential equation of the form $\\frac{dy}{dt} = f(t, y)$ along with an initial condition $y(t_0) = y_0$. The goal is to find the function $y(t)$ that satisfies both the ODE and the initial condition for $t > t_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the explicit Euler method to approximate $y(t_{i+1})$ given $y_i$ at $t_i$.",
+      "back": "The explicit Euler method approximates $y(t_{i+1})$ using the formula:\n$$y_{i+1} = y_i + h \\cdot f(t_i, y_i)$$\nwhere $h$ is the step size, $y_i$ is the approximate solution at $t_i$, and $f(t, y)$ is the right-hand side of the ODE $\\frac{dy}{dt} = f(t, y)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuition behind the Euler method's approximation using a Taylor series expansion.",
+      "back": "The Euler method approximates the solution by truncating the Taylor series expansion of $y(t_{i+1})$ around $t_i$ after the first-order term: $y(t_{i+1}) = y(t_i) + h y'(t_i) + O(h^2)$. Since $y'(t_i) = f(t_i, y_i)$, we get $y_{i+1} \\approx y_i + h f(t_i, y_i)$. Intuitively, it approximates the curve over an interval using the tangent line at the beginning of the interval.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the order of accuracy for the Euler method, and what does it imply about its global error?",
+      "back": "The Euler method is a **first-order** method. This means its local truncation error (error per step) is $O(h^2)$, and its global truncation error (error accumulated over many steps) is $O(h)$. Consequently, if you halve the step size $h$, the global error is roughly halved.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the four slope evaluations ($k_1, k_2, k_3, k_4$) and the final update rule for the Runge-Kutta 4 (RK4) method.",
+      "back": "For the ODE $\\frac{dy}{dt} = f(t, y)$:\n$$k_1 = f(t_i, y_i)$$\n$$k_2 = f(t_i + \\frac{h}{2}, y_i + \\frac{h}{2} k_1)$$\n$$k_3 = f(t_i + \\frac{h}{2}, y_i + \\frac{h}{2} k_2)$$\n$$k_4 = f(t_i + h, y_i + h k_3)$$\nThen, the update rule is: $$y_{i+1} = y_i + \\frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core idea behind RK4's improved accuracy compared to Euler, specifically how it uses multiple slope evaluations.",
+      "back": "RK4 achieves higher accuracy by taking a weighted average of four slope estimates across the interval $[t_i, t_{i+1}]$.\n*   $k_1$: Slope at the beginning of the interval.\n*   $k_2$: Slope at the midpoint, estimated using $k_1$.\n*   $k_3$: A refined slope at the midpoint, using $k_2$.\n*   $k_4$: Slope at the end of the interval, estimated using $k_3$.\nThis averaging provides a much more representative and accurate estimate of the average slope over the entire interval than Euler's single slope estimate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Python function `euler_solve(f, y0, t_span, h)` to solve an ODE using the Euler method.",
+      "back": "```python\nimport numpy as np\n\ndef euler_solve(f, y0, t_span, h):\n    t_start, t_end = t_span\n    num_steps = int((t_end - t_start) / h)\n    t = np.linspace(t_start, t_end, num_steps + 1)\n    y = np.zeros(num_steps + 1)\n    y[0] = y0\n\n    for i in range(num_steps):\n        y[i+1] = y[i] + h * f(t[i], y[i])\n    return t, y\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a Python function `rk4_solve(f, y0, t_span, h)` to solve an ODE using the RK4 method.",
+      "back": "```python\nimport numpy as np\n\ndef rk4_solve(f, y0, t_span, h):\n    t_start, t_end = t_span\n    num_steps = int((t_end - t_start) / h)\n    t = np.linspace(t_start, t_end, num_steps + 1)\n    y = np.zeros(num_steps + 1)\n    y[0] = y0\n\n    for i in range(num_steps):\n        k1 = f(t[i], y[i])\n        k2 = f(t[i] + h/2, y[i] + h/2 * k1)\n        k3 = f(t[i] + h/2, y[i] + h/2 * k2)\n        k4 = f(t[i] + h, y[i] + h * k3)\n        y[i+1] = y[i] + (h/6) * (k1 + 2*k2 + 2*k3 + k4)\n    return t, y\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the order of accuracy and computational cost per step between the Euler and RK4 methods.",
+      "back": "**Order of Accuracy:**\n*   **Euler:** First-order ($O(h)$ global error).\n*   **RK4:** Fourth-order ($O(h^4)$ global error). RK4 converges much faster to the true solution as $h \\to 0$.\n\n**Computational Cost per Step:**\n*   **Euler:** Requires one function evaluation ($f(t,y)$) per step.\n*   **RK4:** Requires four function evaluations ($k_1, k_2, k_3, k_4$) per step.\n\n**Trade-off:** RK4 is significantly more accurate for a given step size, but each step is more computationally expensive. For a desired level of accuracy, RK4 often allows for a much larger step size $h$, leading to fewer total steps and potentially lower overall computational cost despite its higher per-step cost.",
+      "difficulty": "hard"
+    }
+  ]
+}

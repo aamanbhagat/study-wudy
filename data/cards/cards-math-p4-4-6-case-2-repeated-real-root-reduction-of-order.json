@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-case-2-repeated-real-root-reduction-of-order",
+  "subtopicTitle": "Case 2: repeated real root — reduction of order",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:29.287Z",
+  "cards": [
+    {
+      "front": "For $ay'' + by' + cy = 0$, what condition on the characteristic equation defines \"Case 2: repeated real root\"?",
+      "back": "The characteristic equation $ar^2 + br + c = 0$ has a discriminant $b^2 - 4ac = 0$, resulting in exactly one real root $r = -b/(2a)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $r$ is a repeated real root of $ar^2 + br + c = 0$, what is the first solution $y_1(x)$ to the ODE?",
+      "back": "$y_1(x) = e^{rx}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is $y_2(x) = k \\cdot e^{rx}$ (where $k$ is a constant) not a valid second linearly independent solution for a repeated root $r$?",
+      "back": "If $y_2(x) = k \\cdot e^{rx}$, then $y_2(x)$ is a constant multiple of $y_1(x) = e^{rx}$. This means they are linearly dependent, and their Wronskian $W(y_1, y_2)$ would be zero, failing to form a fundamental set of solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the general \"reduction of order\" method to find a second solution $y_2(x)$ for $y'' + P(x)y' + Q(x)y = 0$, given one solution $y_1(x)$.",
+      "back": "Assume $y_2(x) = v(x)y_1(x)$ for some unknown function $v(x)$. Substitute $y_2$, $y_2'$, and $y_2''$ into the ODE. This process transforms the second-order ODE for $y$ into a first-order ODE for $v'(x)$, which can then be solved by integration.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $y_1(x) = e^{rx}$ for a repeated root $r$, derive $y_2(x) = xe^{rx}$ using reduction of order for $ay'' + by' + cy = 0$.",
+      "back": "Let $y_2 = v(x)e^{rx}$.\n$y_2' = v'e^{rx} + rve^{rx}$\n$y_2'' = v''e^{rx} + v're^{rx} + rv'e^{rx} + r^2ve^{rx} = v''e^{rx} + 2rv'e^{rx} + r^2ve^{rx}$\nSubstitute into $ay'' + by' + cy = 0$:\n$a(v''e^{rx} + 2rv'e^{rx} + r^2ve^{rx}) + b(v'e^{rx} + rve^{rx}) + c(ve^{rx}) = 0$\nDivide by $e^{rx}$ (since $e^{rx} \\ne 0$):\n$av'' + (2ar+b)v' + (ar^2+br+c)v = 0$\nSince $r$ is a repeated root of $ar^2+br+c=0$, we have:\n1. $ar^2+br+c=0$\n2. $2ar+b=0$ (from derivative of characteristic polynomial, or vertex formula $r = -b/2a \\Rightarrow 2ar+b=0$)\nSo the equation simplifies to $av'' = 0$.\nSince $a \\ne 0$, we have $v'' = 0$.\nIntegrating twice: $v'(x) = C_1 \\Rightarrow v(x) = C_1x + C_2$.\nFor a second linearly independent solution, we can choose $C_1=1, C_2=0$, so $v(x) = x$.\nTherefore, $y_2(x) = xe^{rx}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the general solution for $ay'' + by' + cy = 0$ when its characteristic equation has a repeated real root $r$.",
+      "back": "The general solution is $y(x) = c_1e^{rx} + c_2xe^{rx}$, where $c_1$ and $c_2$ are arbitrary constants.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the general solution to the ODE: $y'' + 4y' + 4y = 0$.",
+      "back": "The characteristic equation is $r^2 + 4r + 4 = 0$.\nThis factors as $(r+2)^2 = 0$.\nSo, $r = -2$ is a repeated real root.\nThe general solution is $y(x) = c_1e^{-2x} + c_2xe^{-2x}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

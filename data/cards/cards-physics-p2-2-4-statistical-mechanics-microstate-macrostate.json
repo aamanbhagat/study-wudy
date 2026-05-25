@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-4-statistical-mechanics-microstate-macrostate",
+  "subtopicTitle": "Statistical mechanics — microstate, macrostate",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:36.841Z",
+  "cards": [
+    {
+      "front": "In statistical mechanics, define a **microstate**.",
+      "back": "A microstate specifies the exact, microscopic configuration of a system at a given instant. For classical systems, this means specifying the position and momentum of every single particle. For quantum systems, it means specifying the exact quantum state of every particle (e.g., energy levels, spin orientations).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In statistical mechanics, define a **macrostate**.",
+      "back": "A macrostate describes the macroscopic properties of a system, such as its total energy ($E$), volume ($V$), number of particles ($N$), pressure ($P$), and temperature ($T$). It does not specify the exact microscopic configuration but rather statistical averages or coarse-grained properties.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do **microstates** and **macrostates** relate? Illustrate with a simple example.",
+      "back": "A single macrostate can correspond to a vast number of different microstates. The macrostate is a coarse-grained description, while microstates are the specific, underlying microscopic arrangements that realize that macrostate.\nExample: For 2 distinguishable particles in 2 boxes, the macrostate \"1 particle in each box\" corresponds to 2 microstates: (Particle 1 in Box A, Particle 2 in Box B) and (Particle 1 in Box B, Particle 2 in Box A).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the term for the number of microstates consistent with a given macrostate, and what symbol represents it?",
+      "back": "This is called the **multiplicity** or **thermodynamic probability** (sometimes \"degeneracy\"). It is commonly denoted by $\\Omega$. A macrostate with higher multiplicity is more probable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider $N$ distinguishable particles, each able to occupy one of two states. What is the multiplicity $\\Omega$ for the macrostate with $n$ particles in state 1 and $N-n$ particles in state 2?",
+      "back": "The multiplicity $\\Omega$ for $n$ particles in state 1 and $N-n$ particles in state 2, from $N$ distinguishable particles, is given by the binomial coefficient:\n$$ \\Omega(n) = \\binom{N}{n} = \\frac{N!}{n!(N-n)!} $$\nThis formula counts the number of ways to choose $n$ items from $N$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the **Fundamental Postulate of Statistical Mechanics** and explain its significance for calculating macroscopic properties.",
+      "back": "The Fundamental Postulate states that for an isolated system in thermal equilibrium, all accessible microstates are equally probable.\nSignificance: This postulate allows us to calculate macroscopic properties by averaging over all possible microstates. Since each microstate is equally likely, the probability of observing a particular macrostate is proportional to its multiplicity $\\Omega$. This is crucial for deriving thermodynamic quantities from microscopic principles.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the multiplicity ($\\Omega$) of a macrostate relate to the thermodynamic concept of **entropy** ($S$)? State the formula.",
+      "back": "The entropy $S$ of a macrostate is directly related to its multiplicity $\\Omega$ by the Boltzmann formula:\n$$ S = k_B \\ln \\Omega $$\nwhere $k_B$ is the Boltzmann constant ($1.380649 \\times 10^{-23} \\text{ J/K}$). This formula provides the fundamental link between the microscopic world (number of microstates) and macroscopic thermodynamics (entropy). A higher multiplicity means higher entropy.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the macrostate with the **largest multiplicity** often considered the **equilibrium** macrostate for an isolated system?",
+      "back": "For an isolated system, all accessible microstates are equally probable (Fundamental Postulate). Therefore, the macrostate that corresponds to the largest number of microstates (i.e., has the largest multiplicity $\\Omega$) is statistically the most probable macrostate. Systems naturally evolve towards these most probable macrostates, which we identify as thermodynamic equilibrium.",
+      "difficulty": "medium"
+    }
+  ]
+}

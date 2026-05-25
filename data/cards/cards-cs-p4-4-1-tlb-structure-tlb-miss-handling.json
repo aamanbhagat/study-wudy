@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-tlb-structure-tlb-miss-handling",
+  "subtopicTitle": "TLB — structure, TLB miss handling",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:43.639Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Translation Lookaside Buffer (TLB) in a memory management unit (MMU)?",
+      "back": "The primary purpose of the TLB is to speed up the virtual-to-physical address translation process. It acts as a cache for recently used page table entries (PTEs), reducing the need to access the main memory-resident page tables for every memory access.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What essential information does a typical TLB entry store to facilitate virtual-to-physical address translation?",
+      "back": "A typical TLB entry stores:\n1.  **Virtual Page Number (VPN)**: The tag for lookup.\n2.  **Physical Page Number (PPN)**: The translated physical address component.\n3.  **Valid bit**: Indicates if the entry is valid.\n4.  **Dirty bit**: Indicates if the page has been modified (needs to be written back).\n5.  **Access bits**: Permissions like Read, Write, Execute.\n6.  **Address Space Identifier (ASID)**: (Optional) Identifies the process's address space.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the sequence of operations for a CPU to translate a virtual address to a physical address when a TLB *hit* occurs.",
+      "back": "When a TLB hit occurs:\n1.  The CPU's Memory Management Unit (MMU) extracts the Virtual Page Number (VPN) from the virtual address.\n2.  The MMU searches the TLB for an entry matching the VPN (and ASID, if used).\n3.  If a match is found (TLB hit), the corresponding Physical Page Number (PPN) is retrieved from the TLB entry.\n4.  The PPN is then concatenated with the page offset (from the original virtual address) to form the complete physical address.\n5.  The MMU then uses this physical address to access main memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between hardware-managed and software-managed TLB miss handling, outlining the primary entity responsible in each case.",
+      "back": "1.  **Hardware-managed TLB miss**: The CPU's MMU automatically handles the miss. It performs a page table walk (accessing the main memory-resident page tables) to find the correct Physical Page Number (PPN) and then updates the TLB with the new entry. The OS is not directly involved in the resolution.\n2.  **Software-managed TLB miss**: When a TLB miss occurs, the CPU traps to the operating system (OS) via a TLB miss exception. The OS's TLB miss handler then performs the page table walk, retrieves the PPN, and uses a special instruction to load the new VPN-PPN mapping into the TLB. The OS has more flexibility in managing page tables and TLB entries.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A system uses 4KB pages and has a 32-bit virtual address space. For a 36-bit physical address space, how many bits are needed for the VPN and PPN in a TLB entry?",
+      "back": "Given a 4KB page size, the page offset is $log_2(4KB) = log_2(2^{12}) = 12$ bits.\n\n1.  **Virtual Page Number (VPN) bits**: \n    Virtual Address bits - Page Offset bits = $32 - 12 = 20$ bits.\n\n2.  **Physical Page Number (PPN) bits**: \n    Physical Address bits - Page Offset bits = $36 - 12 = 24$ bits.\n\nTherefore, the TLB entry needs 20 bits for the VPN and 24 bits for the PPN.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the role of an Address Space Identifier (ASID) in a TLB entry and how its use improves system performance, especially during context switches.",
+      "back": "An ASID is a small integer tag associated with each process's address space. When stored in a TLB entry, it uniquely identifies which process's virtual-to-physical mapping that entry belongs to.\n\nDuring a context switch, if the new process has a *different* ASID, the TLB entries from the *previous* process do not need to be flushed (invalidated). The MMU simply ignores entries with a non-matching ASID. This significantly reduces TLB flush overhead, as the TLB can retain valid entries for multiple processes, improving performance by avoiding costly page table walks for frequently accessed pages after a context switch.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a software-managed TLB system, outline the complete sequence of events when a TLB miss occurs, the page table entry is found, but its 'Valid' bit is 0.",
+      "back": "1.  **TLB Miss**: The CPU attempts a virtual address translation, but no matching entry is found in the TLB.\n2.  **Trap to OS**: The CPU raises a TLB miss exception, trapping to the OS's TLB miss handler.\n3.  **Page Table Walk**: The OS handler walks the page tables in main memory to find the Page Table Entry (PTE) corresponding to the Virtual Page Number (VPN).\n4.  **Valid Bit Check**: The OS finds the PTE, but its 'Valid' bit is 0, indicating the page is currently not in physical memory (e.g., it has been swapped out to disk).\n5.  **Page Fault**: The OS then triggers a page fault handler.\n6.  **Page Load**: The page fault handler initiates an I/O operation to load the required page from secondary storage (e.g., disk) into an available physical frame in main memory.\n7.  **PTE Update**: Once the page is loaded, the OS updates the PTE in main memory: sets the 'Valid' bit to 1 and updates the Physical Page Number (PPN).\n8.  **TLB Update**: The OS then inserts the new VPN-PPN mapping into the TLB.\n9.  **Resume Execution**: The OS returns control to the interrupted process, which re-attempts the instruction that caused the TLB miss, now likely resulting in a TLB hit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what circumstances are TLB entries typically invalidated or flushed, and why is this critical for correct system operation?",
+      "back": "TLB entries are invalidated or flushed in several scenarios:\n1.  **Page Table Modification**: When a Page Table Entry (PTE) in main memory is changed (e.g., page permissions are altered, a page is swapped out, or a new mapping is created), the corresponding TLB entry must be invalidated to prevent the CPU from using stale information.\n2.  **Context Switch (without ASIDs or ASID mismatch)**: If the system doesn't use ASIDs, or if a context switch occurs to a process with a different ASID, the TLB must be flushed to ensure the new process uses its own address space mappings.\n3.  **Memory Management Operations**: When the OS reclaims physical page frames or changes memory mappings for other reasons.\n\nThis invalidation is critical to maintain **coherency** between the TLB and the actual page tables in main memory, preventing incorrect address translations and ensuring memory protection and data integrity.",
+      "difficulty": "medium"
+    }
+  ]
+}

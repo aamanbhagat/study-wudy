@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-copy-constructor-and-copy-assignment-rule-of-three",
+  "subtopicTitle": "Copy constructor and copy assignment — Rule of Three",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:04.768Z",
+  "cards": [
+    {
+      "front": "In C++, what is a copy constructor, and when is it invoked?",
+      "back": "A copy constructor is a special constructor that creates a new object as a copy of an existing object. It is invoked when:\n1. An object is initialized with another object of the same type (e.g., `MyClass obj2 = obj1;` or `MyClass obj2(obj1);`).\n2. An object is passed by value to a function.\n3. An object is returned by value from a function.\n4. The compiler generates a temporary object.\nIts signature is typically `ClassName(const ClassName& other);`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In C++, what is a copy assignment operator, and when is it invoked?",
+      "back": "A copy assignment operator is a special member function used to assign the value of one existing object to another existing object of the same type. It is invoked when an assignment occurs between two already constructed objects (e.g., `obj2 = obj1;`).\nIts signature is typically `ClassName& operator=(const ClassName& other);`. It usually returns a reference to `*this` to allow chaining assignments.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the C++ \"Rule of Three.\" Which three special member functions does it refer to, and why are they often needed together?",
+      "back": "The \"Rule of Three\" states that if a class defines any of the following three special member functions, it should probably define all three:\n1. **Destructor** (`~ClassName()`)\n2. **Copy Constructor** (`ClassName(const ClassName& other)`)\n3. **Copy Assignment Operator** (`ClassName& operator=(const ClassName& other)`)\nThey are needed together when a class manages a raw resource (like dynamic memory, file handles, network connections). If you manually manage a resource in one of these (e.g., allocate memory in a constructor and deallocate in a destructor), the default compiler-generated versions of the other two will likely perform a shallow copy, leading to resource leaks, double-free errors, or dangling pointers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between a \"shallow copy\" and a \"deep copy\" in C++. What problem does a shallow copy typically cause with dynamically allocated memory?",
+      "back": "**Shallow Copy:** Copies the values of an object's member variables directly. If a member is a pointer, only the pointer's address is copied, not the data it points to. Both objects then share the same underlying resource.\n**Deep Copy:** Creates new, independent copies of all resources pointed to by the original object's pointers. Each object gets its own distinct copy of the underlying data.\nA shallow copy with dynamically allocated memory leads to **double-free errors** or **dangling pointers**. When the original or copied object is destroyed, it frees the shared memory. If the other object then tries to free it again, it's a double-free. If the other object tries to access the freed memory, it's a dangling pointer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a class `MyString` managing a `char*` buffer, provide a C++ code snippet for a correctly implemented **copy constructor** for deep copying.",
+      "back": "```cpp\nclass MyString {\nprivate:\n    char* _data;\n    size_t _length;\npublic:\n    // Constructor\n    MyString(const char* str = \"\") : _length(strlen(str)) {\n        _data = new char[_length + 1];\n        strcpy(_data, str);\n    }\n\n    // Destructor\n    ~MyString() {\n        delete[] _data;\n    }\n\n    // Copy Constructor (Deep Copy)\n    MyString(const MyString& other) : _length(other._length) {\n        _data = new char[_length + 1]; // Allocate new memory\n        strcpy(_data, other._data);   // Copy contents\n    }\n\n    // ... other members like operator=, getters ...\n};\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a class `MyString` managing a `char*` buffer, provide a C++ code snippet for a correctly implemented **copy assignment operator** for deep copying, including self-assignment protection.",
+      "back": "```cpp\nclass MyString {\nprivate:\n    char* _data;\n    size_t _length;\npublic:\n    // ... constructors, destructor, copy constructor from previous card ...\n\n    // Copy Assignment Operator (Deep Copy with self-assignment protection)\n    MyString& operator=(const MyString& other) {\n        if (this == &other) { // Self-assignment check\n            return *this;\n        }\n\n        // 1. Deallocate old resources\n        delete[] _data;\n\n        // 2. Allocate new resources\n        _length = other._length;\n        _data = new char[_length + 1];\n\n        // 3. Copy data\n        strcpy(_data, other._data);\n\n        return *this; // Return reference to *this\n    }\n    // ... other members ...\n};\n```\n*Self-assignment protection* (`if (this == &other)`) prevents deleting the source data before copying it, which would lead to data loss. The *copy-and-swap idiom* is a more robust, exception-safe alternative.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the destructor (`~ClassName()`) an integral part of the \"Rule of Three\" in C++?",
+      "back": "The destructor is crucial because it's responsible for releasing any resources (e.g., dynamically allocated memory, file handles, network connections) that the object acquired during its lifetime.\nIf a class manages a resource that needs explicit cleanup, and you implement a custom copy constructor or copy assignment operator to handle deep copying of that resource, then you *must* also implement a custom destructor to ensure the resource is properly freed when an object is destroyed. Without it, you'd have memory leaks for every object that goes out of scope. It completes the resource management cycle: acquire (constructor), copy (copy constructor/assignment), release (destructor).",
+      "difficulty": "medium"
+    }
+  ]
+}

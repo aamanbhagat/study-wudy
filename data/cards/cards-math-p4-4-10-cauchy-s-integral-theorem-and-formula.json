@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-cauchy-s-integral-theorem-and-formula",
+  "subtopicTitle": "Cauchy's integral theorem and formula",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:44.436Z",
+  "cards": [
+    {
+      "front": "State Cauchy's Integral Theorem for a simply connected domain.",
+      "back": "If $f(z)$ is analytic inside and on a simple closed contour $C$ in a simply connected domain, then $\\oint_C f(z) dz = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does Cauchy's Integral Theorem imply path independence for integrals of analytic functions?",
+      "back": "If $f(z)$ is analytic in a simply connected domain $D$, and $C_1, C_2$ are two paths from $z_1$ to $z_2$ in $D$, then $C_1$ followed by $-C_2$ forms a simple closed contour. By CIT, $\\oint_{C_1-C_2} f(z) dz = 0$, which means $\\int_{C_1} f(z) dz - \\int_{C_2} f(z) dz = 0$, hence $\\int_{C_1} f(z) dz = \\int_{C_2} f(z) dz$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Cauchy's Integral Formula for $f(z_0)$.",
+      "back": "If $f(z)$ is analytic inside and on a simple closed contour $C$ and $z_0$ is any point inside $C$, then $f(z_0) = \\frac{1}{2\\pi i} \\oint_C \\frac{f(z)}{z-z_0} dz$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive Cauchy's Integral Formula for $f(z_0)$ using Cauchy's Integral Theorem.",
+      "back": "Consider $\\oint_C \\frac{f(z)}{z-z_0} dz$. By path deformation (generalized CIT), this equals $\\oint_{C_r} \\frac{f(z)}{z-z_0} dz$ for a small circle $C_r$ around $z_0$. We write $f(z) = f(z_0) + (f(z)-f(z_0))$.\n$\\oint_{C_r} \\frac{f(z)}{z-z_0} dz = \\oint_{C_r} \\frac{f(z_0)}{z-z_0} dz + \\oint_{C_r} \\frac{f(z)-f(z_0)}{z-z_0} dz$.\nThe first integral is $f(z_0) \\cdot 2\\pi i$. For the second, since $f(z)$ is analytic, $\\lim_{z \\to z_0} \\frac{f(z)-f(z_0)}{z-z_0} = f'(z_0)$, so $\\frac{f(z)-f(z_0)}{z-z_0}$ is bounded near $z_0$. By the ML-inequality, as $r \\to 0$, the second integral goes to 0 (its magnitude is $\\le M \\cdot 2\\pi r$). Thus, $\\oint_C \\frac{f(z)}{z-z_0} dz = 2\\pi i f(z_0)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate $\\oint_C \\frac{e^{iz}}{z^2+1} dz$ where $C$ is the circle $|z-i|=1$.",
+      "back": "The integrand is $\\frac{e^{iz}}{(z-i)(z+i)}$. The singularity $z=i$ is inside $C$, while $z=-i$ is outside $C$. We set $f(z) = \\frac{e^{iz}}{z+i}$ and $z_0 = i$. By CIF, $\\oint_C \\frac{f(z)}{z-i} dz = 2\\pi i f(i) = 2\\pi i \\frac{e^{i(i)}}{i+i} = 2\\pi i \\frac{e^{-1}}{2i} = \\pi e^{-1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Cauchy's Integral Formula for the $n$-th derivative $f^{(n)}(z_0)$.",
+      "back": "If $f(z)$ is analytic inside and on a simple closed contour $C$ and $z_0$ is any point inside $C$, then $f^{(n)}(z_0) = \\frac{n!}{2\\pi i} \\oint_C \\frac{f(z)}{(z-z_0)^{n+1}} dz$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $\\oint_C \\frac{\\cos(z)}{(z-\\pi/2)^3} dz$ where $C$ is the circle $|z|=2$.",
+      "back": "Here, $f(z) = \\cos(z)$, $z_0 = \\pi/2$, and $n+1=3 \\implies n=2$. Note that $z_0 = \\pi/2 \\approx 1.57$ is inside $|z|=2$. Using CIF for derivatives: $\\oint_C \\frac{f(z)}{(z-z_0)^{n+1}} dz = \\frac{2\\pi i}{n!} f^{(n)}(z_0)$.\nSo, $\\oint_C \\frac{\\cos(z)}{(z-\\pi/2)^3} dz = \\frac{2\\pi i}{2!} f''(\\pi/2)$.\n$f(z) = \\cos(z) \\implies f'(z) = -\\sin(z) \\implies f''(z) = -\\cos(z)$.\n$f''(\\pi/2) = -\\cos(\\pi/2) = 0$.\nTherefore, the integral is $\\frac{2\\pi i}{2} \\cdot 0 = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What profound consequence regarding differentiability does Cauchy's Integral Formula (for derivatives) imply for analytic functions?",
+      "back": "Cauchy's Integral Formula for derivatives implies that if a function $f(z)$ is analytic (i.e., once complex differentiable) in a domain, then it is infinitely complex differentiable in that domain. This is a fundamental and powerful result, contrasting sharply with real analysis where a function can be once differentiable but not twice.",
+      "difficulty": "medium"
+    }
+  ]
+}

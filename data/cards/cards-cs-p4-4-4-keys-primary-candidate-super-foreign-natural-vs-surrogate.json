@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-keys-primary-candidate-super-foreign-natural-vs-surrogate",
+  "subtopicTitle": "Keys — primary, candidate, super, foreign, natural vs surrogate",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:39.105Z",
+  "cards": [
+    {
+      "front": "Define a Super Key in a relational database.",
+      "back": "A Super Key is an attribute or a set of attributes that uniquely identifies a tuple (row) in a relation (table). It can contain extraneous attributes that are not strictly necessary for uniqueness.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a Candidate Key differ from a Super Key?",
+      "back": "A Candidate Key is a Super Key with the additional property of minimality (irreducibility). This means no proper subset of its attributes can uniquely identify tuples. If any attribute is removed from a Candidate Key, it ceases to be unique.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a Primary Key, and what are its two main properties?",
+      "back": "A Primary Key is a Candidate Key chosen by the database designer to uniquely identify each tuple in a relation. Its two main properties are:\n1.  **Uniqueness**: No two tuples can have the same primary key value.\n2.  **Non-nullability**: A primary key attribute (or any part of a composite primary key) cannot contain NULL values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of a Foreign Key and its role in maintaining referential integrity.",
+      "back": "A Foreign Key is a set of attributes in one table (the referencing table) that refers to the Primary Key (or a Candidate Key) in another table (the referenced table). Its purpose is to establish and enforce a link between the data in two tables.\nReferential integrity ensures that relationships between tables remain consistent. It dictates that for every foreign key value, there must be a matching primary key value in the referenced table, or the foreign key value must be NULL.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a Natural Key, and what are its potential advantages?",
+      "back": "A Natural Key is a key formed using one or more attributes that are naturally present in the entity and have real-world meaning (e.g., `SSN`, `ISBN`, `email`).\nAdvantages:\n*   Business meaning, often intuitive.\n*   No need to generate new values.\n*   Can sometimes reduce the number of joins if the natural key is also used as a foreign key in related tables.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a Surrogate Key. When is it typically preferred over a Natural Key?",
+      "back": "A Surrogate Key is an artificial key, typically a single column with a system-generated, unique, non-null value (e.g., an auto-incrementing integer or a UUID) that has no intrinsic meaning to the business data.\nIt's preferred when:\n*   Natural keys are too long, complex, or composite.\n*   Natural keys might change over time.\n*   Natural keys might contain NULLs or duplicates (making them unsuitable as keys).\n*   Performance is critical for joins (simpler, smaller keys are faster).\n*   Privacy concerns prevent using sensitive natural identifiers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the hierarchical relationship between Super Keys, Candidate Keys, and the Primary Key using set notation.",
+      "back": "Let $S$ be the set of all Super Keys, $C$ be the set of all Candidate Keys, and $P$ be the Primary Key.\nThe relationship is:\n1.  Every Candidate Key is a Super Key: $C \\subseteq S$.\n2.  A Candidate Key is a minimal Super Key. This means if $K \\in C$, then for any proper subset $K' \\subset K$, $K' \\notin S$.\n3.  The Primary Key is one specific Candidate Key chosen by the designer: $P \\in C$.\nTherefore, the overall hierarchy is $P \\in C \\subseteq S$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a `STUDENT_ENROLLMENT` table with attributes `(StudentID, CourseID, Semester, Grade)`. If `(StudentID, CourseID, Semester)` uniquely identifies an enrollment, identify its type of key and explain why.",
+      "back": "`(StudentID, CourseID, Semester)` is a **Composite Primary Key** (and thus also a Candidate Key and Super Key).\nIt's a composite key because it consists of multiple attributes. It's a Primary Key because it uniquely identifies each tuple (enrollment record) and adheres to non-nullability for all its constituent attributes. It's also a Candidate Key because no proper subset (e.g., `StudentID, CourseID`) would be sufficient to uniquely identify an enrollment across different semesters, thus satisfying minimality.",
+      "difficulty": "hard"
+    }
+  ]
+}

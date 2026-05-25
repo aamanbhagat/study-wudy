@@ -1,0 +1,60 @@
+{
+  "subtopicId": "physics-p3-3-5-pid-tuning-ziegler-nichols-loop-shaping",
+  "subtopicTitle": "PID tuning — Ziegler-Nichols, loop shaping",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:48.051Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of PID tuning?",
+      "back": "To find optimal values for the proportional ($K_p$), integral ($K_i$), and derivative ($K_d$) gains of a PID controller such that the closed-loop system meets desired performance specifications (e.g., stability, rise time, overshoot, settling time, steady-state error, disturbance rejection, noise sensitivity).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the main purpose of the Ziegler-Nichols (ZN) tuning methods?",
+      "back": "The Ziegler-Nichols methods are empirical rules-of-thumb for obtaining initial PID gain estimates for a controller, typically used when a precise mathematical model of the plant is unavailable or too complex. They aim for a quarter-amplitude decay response.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the steps for the Ziegler-Nichols \"oscillation method\" (continuous cycling method).",
+      "back": "1. Set $K_i$ and $K_d$ to zero.\n2. Increase $K_p$ from zero until the system exhibits sustained oscillations (marginally stable).\n3. Record this proportional gain as the ultimate gain, $K_u$.\n4. Measure the period of these oscillations, $T_u$.\n5. Use the ZN tuning table to calculate $K_p, K_i, K_d$ based on $K_u$ and $T_u$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the Ziegler-Nichols tuning formulas for a PID controller using the ultimate gain ($K_u$) and ultimate period ($T_u$).",
+      "back": "For a PID controller:\n$K_p = 0.6 K_u$\n$K_i = K_p / (T_u / 2)$\n$K_d = K_p \\cdot (T_u / 8)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the procedure for the Ziegler-Nichols \"reaction curve method\" (open-loop method).",
+      "back": "1. Place the controller in manual mode (open-loop).\n2. Introduce a small step change to the controller output (e.g., 5-10%).\n3. Record the process variable's response (reaction curve).\n4. Estimate the process gain ($K_p'$), dead time ($L$), and time constant ($\\tau$) from the S-shaped curve.\n5. Use the ZN tuning table (based on $K_p'$, $L$, $\\tau$) to calculate $K_p, K_i, K_d$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the Ziegler-Nichols reaction curve method, what are the PID formulas based on process gain ($K_p'$), dead time ($L$), and time constant ($\\tau$)?",
+      "back": "For a PID controller:\n$K_p = \\frac{1.2}{K_p'} \\frac{\\tau}{L}$\n$K_i = K_p / (2 L)$\n$K_d = K_p \\cdot (0.5 L)$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two significant drawbacks of the Ziegler-Nichols tuning methods?",
+      "back": "1.  **Aggressive Tuning:** Often results in aggressive control, leading to high overshoot and poor disturbance rejection, which may be unacceptable for many industrial processes or safety-critical systems.\n2.  **Limited Applicability:** The oscillation method requires the system to be driven to the verge of instability, which can be dangerous. The reaction curve method requires open-loop stability and is less accurate for noisy or highly oscillatory systems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"loop shaping\" in the context of control system design and state its primary goal.",
+      "back": "Loop shaping is a frequency-domain control design technique where the open-loop transfer function $L(s) = C(s)P(s)$ (controller $C(s)$ and plant $P(s)$) is directly manipulated to achieve desired closed-loop performance and robustness specifications. The primary goal is to shape the magnitude and phase of $L(j\\omega)$ across different frequencies to meet criteria like disturbance rejection, noise attenuation, stability margins, and tracking performance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the P, I, and D terms of a PID controller typically affect the open-loop frequency response magnitude ($|L(j\\omega)|$) at low, mid, and high frequencies?",
+      "back": "1.  **Proportional ($K_p$):** Provides a constant gain across all frequencies, shifting the entire magnitude plot up or down. Primarily affects mid-frequency gain and crossover frequency.\n2.  **Integral ($K_i$):** Adds a pole at the origin (integrator), increasing low-frequency gain (slope of -20 dB/decade) to reduce steady-state error. Decreases phase at low frequencies.\n3.  **Derivative ($K_d$):** Adds a zero, increasing high-frequency gain (slope of +20 dB/decade) and phase. Improves stability and response to rapid changes but amplifies high-frequency noise.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In loop shaping, what are Gain Margin (GM) and Phase Margin (PM), and why are they crucial?",
+      "back": "1.  **Gain Margin (GM):** The amount of gain increase (in dB) required at the phase crossover frequency ($\\omega_{pc}$, where phase is $-180^\\circ$) to make the system unstable. A larger GM indicates better robustness to gain variations.\n2.  **Phase Margin (PM):** The amount of phase lag (in degrees) required at the gain crossover frequency ($\\omega_{gc}$, where magnitude is 0 dB) to make the system unstable. A larger PM indicates better robustness to time delays and generally corresponds to less overshoot and better damping.\nThey are crucial because they are direct measures of a system's *robustness* to uncertainties and provide insights into the damping and stability of the closed-loop system.",
+      "difficulty": "hard"
+    }
+  ]
+}

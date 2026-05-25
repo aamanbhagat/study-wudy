@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-chamber-to-exit-relation-all-quantities-as-f-m-e",
+  "subtopicTitle": "Chamber-to-exit relation: all quantities as f(M_e, γ)",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:37.655Z",
+  "cards": [
+    {
+      "front": "In rocket propulsion, what do $P_0, T_0, \\rho_0$ represent, and how do they relate to the chamber conditions?",
+      "back": "$P_0, T_0, \\rho_0$ represent the stagnation (or total) pressure, temperature, and density, respectively. In an ideal rocket engine, these are assumed to be the conditions within the combustion chamber, where the flow velocity is negligible. They represent the total energy content of the propellant before expansion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the static-to-stagnation temperature ratio, $T_e/T_0$, for isentropic flow in terms of exit Mach number $M_e$ and specific heat ratio $\\gamma$.",
+      "back": "For isentropic flow, the energy equation relates static and stagnation temperature:\n$$h_0 = h_e + \\frac{v_e^2}{2}$$\nFor an ideal gas, $h = c_p T$. So, $c_p T_0 = c_p T_e + \\frac{v_e^2}{2}$.\nDividing by $c_p T_e$: $T_0/T_e = 1 + \\frac{v_e^2}{2c_p T_e}$.\nWe know $c_p = \\frac{\\gamma R}{\\gamma-1}$ and $a_e = \\sqrt{\\gamma R T_e}$, so $v_e = M_e a_e = M_e \\sqrt{\\gamma R T_e}$.\nSubstituting these:\n$$ \\frac{T_0}{T_e} = 1 + \\frac{M_e^2 \\gamma R T_e}{2 \\frac{\\gamma R}{\\gamma-1} T_e} = 1 + \\frac{M_e^2 (\\gamma-1)}{2} $$\nThus, the ratio is:\n$$ \\frac{T_e}{T_0} = \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the static-to-stagnation pressure ratio, $P_e/P_0$, for isentropic flow in terms of $M_e$ and $\\gamma$.",
+      "back": "For isentropic flow, the relation between pressure and temperature is $P/P_0 = (T/T_0)^{\\gamma/(\\gamma-1)}$.\nUsing the previously derived temperature ratio $T_e/T_0 = \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1}$:\n$$ \\frac{P_e}{P_0} = \\left[\\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1}\\right]^{\\frac{\\gamma}{\\gamma-1}} $$\n$$ \\frac{P_e}{P_0} = \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-\\frac{\\gamma}{\\gamma-1}} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the static-to-stagnation density ratio, $\\rho_e/\\rho_0$, for isentropic flow in terms of $M_e$ and $\\gamma$.",
+      "back": "For isentropic flow, the relation between density and temperature is $\\rho/\\rho_0 = (T/T_0)^{1/(\\gamma-1)}$.\nUsing the temperature ratio $T_e/T_0 = \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1}$:\n$$ \\frac{\\rho_e}{\\rho_0} = \\left[\\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1}\\right]^{\\frac{1}{\\gamma-1}} $$\n$$ \\frac{\\rho_e}{\\rho_0} = \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-\\frac{1}{\\gamma-1}} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the exit velocity $v_e$ in terms of exit Mach number $M_e$, specific heat ratio $\\gamma$, specific gas constant $R$, and stagnation temperature $T_0$.",
+      "back": "The exit velocity $v_e$ is defined as $v_e = M_e a_e$, where $a_e$ is the speed of sound at the exit.\n$a_e = \\sqrt{\\gamma R T_e}$.\nWe know $T_e/T_0 = \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1}$, so $T_e = T_0 \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1}$.\nSubstituting $T_e$ into the expression for $a_e$:\n$$ v_e = M_e \\sqrt{\\gamma R T_0 \\left(1 + \\frac{\\gamma-1}{2}M_e^2\\right)^{-1}} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the area ratio $A_e/A^*$ (exit area to throat area) as a function of $M_e$ and $\\gamma$, assuming isentropic flow.",
+      "back": "From mass flow conservation, $\\dot{m} = \\rho A v = \\rho^* A^* v^* = \\rho_e A_e v_e$.\nSo, $A_e/A^* = (\\rho^* v^*) / (\\rho_e v_e)$.\nUsing $v = M a = M \\sqrt{\\gamma R T}$ and $\\rho = P/(RT)$:\n$A_e/A^* = \\frac{(P^*/RT^*) M^* \\sqrt{\\gamma R T^*}}{(P_e/RT_e) M_e \\sqrt{\\gamma R T_e}} = \\frac{P^* M^* \\sqrt{T_e}}{P_e M_e \\sqrt{T^*}}$\nAt the throat, $M^*=1$. Using isentropic relations for $P/P_0$ and $T/T_0$:\n$P^*/P_0 = (1 + \\frac{\\gamma-1}{2})^{-\\frac{\\gamma}{\\gamma-1}} = (\\frac{\\gamma+1}{2})^{-\\frac{\\gamma}{\\gamma-1}}$\n$T^*/T_0 = (1 + \\frac{\\gamma-1}{2})^{-1} = (\\frac{\\gamma+1}{2})^{-1}$\n$P_e/P_0 = (1 + \\frac{\\gamma-1}{2}M_e^2)^{-\\frac{\\gamma}{\\gamma-1}}$\n$T_e/T_0 = (1 + \\frac{\\gamma-1}{2}M_e^2)^{-1}$\nSubstituting these into the area ratio expression and simplifying:\n$$ \\frac{A_e}{A^*} = \\frac{1}{M_e} \\left[ \\left( \\frac{2}{\\gamma+1} \\right) \\left( 1 + \\frac{\\gamma-1}{2}M_e^2 \\right) \\right]^{\\frac{\\gamma+1}{2(\\gamma-1)}} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the physical significance of the throat ($A^*$) in a converging-diverging nozzle for achieving supersonic exit velocities.",
+      "back": "The throat ($A^*$) is the narrowest point in a converging-diverging nozzle. Its significance lies in the fact that for maximum mass flow rate and to achieve supersonic flow in the diverging section, the flow must reach Mach 1 ($M=1$) precisely at the throat. This condition is known as 'choked flow'. Once choked, the flow accelerates subsonically in the converging section, reaches sonic speed at the throat, and then continues to accelerate supersonically in the diverging section, converting thermal energy into kinetic energy efficiently. Without a throat, or if the flow doesn't choke, supersonic speeds cannot be achieved.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given chamber pressure $P_0$, exit Mach number $M_e$, specific heat ratio $\\gamma$, and specific gas constant $R$, outline the steps to calculate the exit pressure $P_e$.",
+      "back": "1.  **Identify the relevant relation:** The static-to-stagnation pressure ratio for isentropic flow is $P_e/P_0 = (1 + \\frac{\\gamma-1}{2}M_e^2)^{-\\frac{\\gamma}{\\gamma-1}}$.\n2.  **Substitute known values:** Plug in the given values for $M_e$ and $\\gamma$.\n3.  **Calculate the ratio:** Compute the value of $(1 + \\frac{\\gamma-1}{2}M_e^2)^{-\\frac{\\gamma}{\\gamma-1}}$.\n4.  **Solve for $P_e$:** Multiply the calculated ratio by $P_0$ to find $P_e$. The specific gas constant $R$ is not directly needed for this calculation, as it cancels out in the pressure ratio derivation.",
+      "difficulty": "medium"
+    }
+  ]
+}

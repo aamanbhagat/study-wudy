@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-augmented-proportional-navigation-gravity-compensation",
+  "subtopicTitle": "Augmented proportional navigation — gravity compensation",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:37.820Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of adding an 'augmentation' term in Augmented Proportional Navigation (APN) compared to basic Proportional Navigation (PN)?",
+      "back": "The primary purpose of augmentation in APN is to account for known external disturbances or non-ideal forces (such as gravity, drag, or target maneuvers) that would otherwise degrade the performance of basic Proportional Navigation, leading to increased miss distance or inefficient maneuvers.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is gravity compensation particularly important for long-range or high-altitude missile guidance using Proportional Navigation?",
+      "back": "For long-range or high-altitude trajectories, the constant downward acceleration due to gravity significantly alters the missile's flight path over time. Without gravity compensation, the basic PN guidance law would continuously perceive a deviation from the ideal intercept course caused by gravity, leading it to command unnecessary or incorrect maneuvers, increasing fuel consumption, and potentially missing the target.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the general form of the acceleration command for Augmented Proportional Navigation (APN) that explicitly includes a gravity compensation term.",
+      "back": "The acceleration command $\\vec{a}_c$ for APN with gravity compensation is typically given by:\n$$ \\vec{a}_c = N \\dot{\\vec{R}}_L + \\vec{a}_{grav\\_comp} $$\nwhere $N$ is the navigation constant, $\\dot{\\vec{R}}_L$ is the line-of-sight rate vector, and $\\vec{a}_{grav\\_comp}$ is the gravity compensation term.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive or explain the most common specific form of the gravity compensation term $\\vec{a}_{grav\\_comp}$ used in APN, assuming constant gravitational acceleration $\\vec{g}_M$ acting on the missile.",
+      "back": "The most common specific form of the gravity compensation term $\\vec{a}_{grav\\_comp}$ in APN, especially when the target's gravitational acceleration relative to the missile is negligible, is:\n$$ \\vec{a}_{grav\\_comp} = \\frac{N}{2} \\vec{g}_M $$\nwhere $N$ is the navigation constant and $\\vec{g}_M$ is the gravitational acceleration vector acting on the missile. This term is added to the standard PN command to pre-compensate for the expected deflection due to gravity, effectively allowing the PN term to operate as if gravity were absent. The factor of $\\frac{N}{2}$ arises from considering the effect of gravity on the line-of-sight rate over the remaining time-to-go and how the PN law would otherwise attempt to correct for it.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a missile using APN with gravity compensation is flying horizontally and gravity acts purely downwards, in what general direction would the gravity compensation term primarily command acceleration?",
+      "back": "The gravity compensation term would primarily command an upward acceleration. This command directly counteracts the downward pull of gravity, allowing the proportional navigation term to focus solely on nulling the line-of-sight rate relative to the target, as if the missile were operating in a gravity-free environment.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the typical range for the navigation constant $N$ in Proportional Navigation, and how does its value influence the magnitude of the $\\frac{N}{2} \\vec{g}_M$ gravity compensation term?",
+      "back": "The navigation constant $N$ typically ranges from 3 to 5. A higher value of $N$ means the guidance law commands larger accelerations for a given line-of-sight rate. Consequently, for the $\\frac{N}{2} \\vec{g}_M$ gravity compensation term, a higher $N$ would directly result in a larger commanded acceleration to counteract gravity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what conditions might the simplified $\\frac{N}{2} \\vec{g}_M$ gravity compensation term in APN be insufficient or require more sophisticated modeling?",
+      "back": "The simplified $\\frac{N}{2} \\vec{g}_M$ gravity compensation term might be insufficient under several conditions:\n1.  **Non-uniform Gravity Field:** For very long-range trajectories (e.g., interplanetary missions) or when significant altitude changes occur, the assumption of a constant $\\vec{g}_M$ is inaccurate, as gravity varies with distance and direction.\n2.  **Maneuvering or Gravitationally Affected Target:** If the target is also accelerating due to gravity (e.g., another spacecraft in orbit) or performing significant maneuvers, the relative effect of gravity might be more complex, requiring consideration of $\\vec{g}_T$ (gravity on target).\n3.  **Other Dominant Disturbances:** While not gravity, if other non-ideal forces like significant atmospheric drag are present and not separately compensated, the overall APN performance might still be suboptimal despite gravity compensation.\n4.  **High Precision Requirements:** For extremely precise guidance, higher-order effects or more complex models of gravity's influence on relative kinematics might be necessary.",
+      "difficulty": "hard"
+    }
+  ]
+}

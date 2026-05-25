@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-mean-value-theorem-proof-rolle-s-theorem",
+  "subtopicTitle": "Mean Value Theorem — proof, Rolle's theorem",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:10.790Z",
+  "cards": [
+    {
+      "front": "State Rolle's Theorem, including its conditions.",
+      "back": "If a function $f$ is continuous on the closed interval $[a, b]$ and differentiable on the open interval $(a, b)$, and if $f(a) = f(b)$, then there exists at least one number $c$ in $(a, b)$ such that $f'(c) = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the geometric interpretation of Rolle's Theorem?",
+      "back": "If a continuous and differentiable function starts and ends at the same height, there must be at least one point between the endpoints where the tangent line to the curve is horizontal (i.e., the instantaneous rate of change is zero).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Mean Value Theorem (MVT), including its conditions.",
+      "back": "If a function $f$ is continuous on the closed interval $[a, b]$ and differentiable on the open interval $(a, b)$, then there exists at least one number $c$ in $(a, b)$ such that $f'(c) = \\frac{f(b) - f(a)}{b - a}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the geometric interpretation of the Mean Value Theorem?",
+      "back": "There is at least one point $c$ in $(a, b)$ where the tangent line to the graph of $f$ at $(c, f(c))$ is parallel to the secant line connecting the endpoints $(a, f(a))$ and $(b, f(b))$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the proof of the Mean Value Theorem using Rolle's Theorem.",
+      "back": "1. Define an auxiliary function $g(x) = f(x) - \\left( f(a) + \\frac{f(b) - f(a)}{b - a}(x - a) \\right)$. This function represents the vertical distance between $f(x)$ and the secant line connecting $(a, f(a))$ and $(b, f(b))$.\n2. Show $g(x)$ satisfies Rolle's Theorem conditions:\n   * $g(x)$ is continuous on $[a, b]$ and differentiable on $(a, b)$ because $f(x)$ is, and the secant line is a polynomial.\n   * $g(a) = f(a) - (f(a) + 0) = 0$.\n   * $g(b) = f(b) - \\left( f(a) + \\frac{f(b) - f(a)}{b - a}(b - a) \\right) = f(b) - (f(a) + f(b) - f(a)) = 0$.\n   * Since $g(a) = g(b) = 0$, Rolle's Theorem applies to $g(x)$.\n3. By Rolle's Theorem, there exists $c \\in (a, b)$ such that $g'(c) = 0$.\n4. Calculate $g'(x) = f'(x) - \\frac{f(b) - f(a)}{b - a}$.\n5. Setting $g'(c) = 0$, we get $f'(c) - \\frac{f(b) - f(a)}{b - a} = 0$, which implies $f'(c) = \\frac{f(b) - f(a)}{b - a}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $f(x) = x^3 - 3x$ on $[0, 2]$, find all $c \\in (0, 2)$ that satisfy the MVT.",
+      "back": "1. $f(x)$ is continuous on $[0, 2]$ and differentiable on $(0, 2)$.\n2. $f(0) = 0^3 - 3(0) = 0$.\n3. $f(2) = 2^3 - 3(2) = 8 - 6 = 2$.\n4. Average rate of change: $\\frac{f(2) - f(0)}{2 - 0} = \\frac{2 - 0}{2} = 1$.\n5. $f'(x) = 3x^2 - 3$.\n6. Set $f'(c) = 1$: $3c^2 - 3 = 1 \\implies 3c^2 = 4 \\implies c^2 = \\frac{4}{3}$.\n7. $c = \\pm \\sqrt{\\frac{4}{3}} = \\pm \\frac{2}{\\sqrt{3}} = \\pm \\frac{2\\sqrt{3}}{3}$.\n8. Only $c = \\frac{2\\sqrt{3}}{3}$ is in the interval $(0, 2)$ (since $\\sqrt{3} \\approx 1.732$, $c \\approx 1.15$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the Mean Value Theorem not apply to $f(x) = |x-1|$ on $[0, 2]$?",
+      "back": "The function $f(x) = |x-1|$ is not differentiable at $x=1$ because its graph has a sharp corner (a cusp) at $x=1$. The MVT requires the function to be differentiable on the open interval $(a, b)$, and since $1 \\in (0, 2)$, this condition is not met.",
+      "difficulty": "hard"
+    }
+  ]
+}

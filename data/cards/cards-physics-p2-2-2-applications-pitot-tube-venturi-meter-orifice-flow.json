@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-applications-pitot-tube-venturi-meter-orifice-flow",
+  "subtopicTitle": "Applications — Pitot tube, Venturi meter, orifice flow",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:34.934Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a Pitot tube in fluid mechanics?",
+      "back": "A Pitot tube is used to measure the local fluid velocity at a specific point within a flow stream. It does this by measuring the difference between the stagnation pressure and the static pressure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the ideal fluid velocity formula for a Pitot tube, explaining its underlying principle.",
+      "back": "The Pitot tube relies on Bernoulli's principle between a free-stream point (1) and a stagnation point (2). For incompressible, inviscid flow: $P_1 + \\frac{1}{2}\\rho v_1^2 = P_2 + \\frac{1}{2}\\rho v_2^2$. At the stagnation point, $v_2 = 0$ and $P_2 = P_{stagnation}$. $P_1$ is the static pressure $P_{static}$ of the undisturbed flow. Thus, $P_{static} + \\frac{1}{2}\\rho v^2 = P_{stagnation}$. Solving for velocity $v$: $$v = \\sqrt{\\frac{2(P_{stagnation} - P_{static})}{\\rho}}$$ This measures local fluid velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the main application of a Venturi meter?",
+      "back": "A Venturi meter is primarily used to measure the volumetric flow rate ($Q$) or mass flow rate ($\\dot{m}$) of an incompressible fluid flowing through a pipe. It achieves this by measuring the pressure drop caused by a constriction (throat) in the pipe.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the ideal volumetric flow rate ($Q$) formula for a Venturi meter, assuming incompressible, inviscid flow.",
+      "back": "Using Bernoulli's equation between pipe section 1 and throat section 2: $P_1 + \\frac{1}{2}\\rho v_1^2 = P_2 + \\frac{1}{2}\\rho v_2^2$. From the continuity equation: $A_1 v_1 = A_2 v_2 = Q$. So $v_1 = Q/A_1$ and $v_2 = Q/A_2$. Substitute velocities into Bernoulli: $P_1 - P_2 = \\frac{1}{2}\\rho (v_2^2 - v_1^2) = \\frac{1}{2}\\rho \\left( \\left(\\frac{Q}{A_2}\\right)^2 - \\left(\\frac{Q}{A_1}\\right)^2 \\right)$. This simplifies to $P_1 - P_2 = \\frac{1}{2}\\rho Q^2 \\frac{A_1^2 - A_2^2}{A_1^2 A_2^2}$. Solving for $Q$: $$Q = \\frac{A_1 A_2}{\\sqrt{A_1^2 - A_2^2}} \\sqrt{\\frac{2(P_1 - P_2)}{\\rho}}$$ This formula gives the ideal flow rate based on pressure difference and areas.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does an orifice meter differ from a Venturi meter in terms of construction and energy loss?",
+      "back": "An **orifice meter** uses a thin plate with a sharp-edged hole, causing an abrupt flow contraction and expansion. This leads to significant turbulence and higher permanent pressure loss (energy loss).\n\nA **Venturi meter** has a smooth converging cone, a cylindrical throat, and a diverging cone. Its gradual changes minimize turbulence, resulting in much lower permanent pressure loss and more efficient pressure recovery.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is a discharge coefficient ($C_d$) necessary for practical Venturi and orifice meters, and what does it account for?",
+      "back": "A discharge coefficient ($C_d$) is necessary because ideal flow formulas assume inviscid, incompressible flow with no energy losses. $C_d$ corrects for real-world effects, including:\n1.  **Viscous effects:** Friction between fluid layers and pipe walls.\n2.  **Turbulence and flow separation:** Energy losses not accounted for by ideal Bernoulli.\n3.  **Non-uniform velocity profiles:** Actual velocity distribution may not be uniform.\n4.  **Vena contracta (for orifice meters):** The actual minimum flow area is smaller than the orifice hole itself. \nThe actual flow rate is $Q_{actual} = C_d Q_{ideal}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the 'vena contracta' and why is it significant for orifice flow measurement?",
+      "back": "The 'vena contracta' is the point downstream of an orifice plate where the fluid jet achieves its minimum cross-sectional area. This area is typically smaller than the physical area of the orifice hole itself. It is significant because the actual minimum flow area, not the orifice area, is the effective area for calculating the fluid velocity and flow rate. This effect is incorporated into the discharge coefficient ($C_d$) for orifice meters.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When would you choose an orifice meter over a Venturi meter, and vice-versa?",
+      "back": "Choose an **Orifice Meter** when:\n*   Cost is a primary concern (it's cheaper).\n*   Ease of installation/replacement is important.\n*   Permanent pressure loss is acceptable.\n*   Space is limited (it's more compact).\n\nChoose a **Venturi Meter** when:\n*   Low permanent pressure loss is critical (energy efficiency).\n*   Higher accuracy is required.\n*   Measuring dirty fluids or slurries (less prone to clogging, though orifice meters can be designed for this).\n*   Long-term stability and minimal maintenance are desired.",
+      "difficulty": "hard"
+    }
+  ]
+}

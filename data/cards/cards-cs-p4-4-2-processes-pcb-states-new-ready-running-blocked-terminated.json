@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-processes-pcb-states-new-ready-running-blocked-terminated",
+  "subtopicTitle": "Processes — PCB, states (new/ready/running/blocked/terminated)",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:55.792Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a Process Control Block (PCB)?",
+      "back": "The PCB (also known as a task control block) is a data structure maintained by the operating system for each process. It stores all the information needed to manage a process, including its current state, program counter, CPU registers, memory limits, and I/O status. It's crucial for context switching.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name three distinct categories of information typically stored within a Process Control Block (PCB).",
+      "back": "1.  **Process State:** (e.g., new, ready, running, blocked, terminated)\n2.  **Program Counter:** Address of the next instruction to be executed.\n3.  **CPU Registers:** Contents of all CPU registers (accumulators, index registers, stack pointers, etc.)\n4.  **Memory-Management Information:** Base and limit registers, page tables, or segment tables.\n5.  **I/O Status Information:** List of open files, list of I/O devices allocated to the process.\n(Any three of these or similar categories are acceptable.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the 'New' state of a process.",
+      "back": "A process is in the 'New' state when it is being created. It has not yet been loaded into main memory or had its resources allocated by the operating system's scheduler. It is not yet ready to be executed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A process is in the 'Running' state. What two distinct events would typically cause it to transition to the 'Ready' state?",
+      "back": "1.  **Time Slice Expiration (Preemption):** The CPU scheduler's timer interrupt signals that the process has exhausted its allocated CPU time, and a context switch occurs.\n2.  **Higher Priority Process:** A higher-priority process becomes 'Ready' (e.g., an I/O operation completes for a high-priority process), prompting the scheduler to preempt the current process.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A 'Running' process attempts to read data from a disk. To which state does it transition, and what is the immediate reason?",
+      "back": "It transitions to the 'Blocked' (or 'Waiting') state. The immediate reason is that the process must wait for the slow I/O operation (disk read) to complete before it can continue execution, thus relinquishing the CPU.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A process is in the 'Blocked' state. What specific event must occur for it to transition back to the 'Ready' state?",
+      "back": "The event it was waiting for must complete. For example, if it was waiting for an I/O operation, the I/O completion interrupt must occur. If it was waiting for a resource, that resource must become available.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a process cannot directly transition from the 'Blocked' state to the 'Running' state.",
+      "back": "A process in the 'Blocked' state is waiting for an event (e.g., I/O completion). Once that event occurs, the process transitions to the 'Ready' state, indicating it is now eligible for CPU execution. It must then wait in the 'Ready' queue for the CPU scheduler to select it and dispatch it to the CPU, at which point it enters the 'Running' state. The scheduler's role cannot be bypassed.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What defines a process in the 'Terminated' state?",
+      "back": "A process enters the 'Terminated' state after it has finished executing its final instruction or has been explicitly terminated by its parent process or the operating system. Its resources are deallocated, but its PCB may still exist for a short period to allow the parent process to collect its exit status (a process known as 'zombie' state until the parent calls `wait()`).",
+      "difficulty": "easy"
+    }
+  ]
+}

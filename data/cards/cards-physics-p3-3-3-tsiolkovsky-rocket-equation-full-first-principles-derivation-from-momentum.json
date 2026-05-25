@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-3-tsiolkovsky-rocket-equation-full-first-principles-derivation-from-momentum",
+  "subtopicTitle": "Tsiolkovsky rocket equation — full first-principles derivation from momentum",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:13.485Z",
+  "cards": [
+    {
+      "front": "What fundamental physical principle is the Tsiolkovsky rocket equation derived from?",
+      "back": "The principle of **conservation of momentum**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When deriving the Tsiolkovsky rocket equation, describe the \"system\" whose momentum is conserved over an infinitesimal time interval $dt$.",
+      "back": "The system consists of the **rocket (with its remaining propellant)** and the **infinitesimal mass of propellant $dm$ that is expelled** during the time interval $dt$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a rocket with mass $m$ and velocity $v$. If it expels an infinitesimal mass $dm$ of propellant with exhaust velocity $v_e$ (relative to the rocket) in time $dt$, derive the change in the rocket's momentum using conservation of momentum.",
+      "back": "Let the initial momentum of the system (rocket + propellant) be $P_1 = m v$.\nAfter expelling $dm$ of propellant:\n- The rocket's mass becomes $m - dm$.\n- The rocket's velocity becomes $v + dv$.\n- The expelled propellant $dm$ has a velocity $v - v_e$ relative to an inertial frame (rocket's velocity minus exhaust velocity relative to rocket).\n\nThe final momentum of the system $P_2$ is:\n$$P_2 = (m - dm)(v + dv) + dm(v - v_e)$$\nBy conservation of momentum, $P_1 = P_2$:\n$$m v = (m - dm)(v + dv) + dm(v - v_e)$$\n$$m v = m v + m dv - v dm - dm dv + v dm - v_e dm$$\nIgnoring the second-order differential term $dm dv$:\n$$0 = m dv - v_e dm$$\nSo, $$m dv = v_e dm$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "From the infinitesimal momentum equation $m dv = v_e dm$, explain why $dm$ is typically negative and how this is handled during integration to find the total change in velocity.",
+      "back": "The term $dm$ in $m dv = v_e dm$ represents the *change* in the rocket's mass. As propellant is expelled, the rocket's mass *decreases*, so $dm$ is negative. To make the mass term positive for integration (representing the mass of propellant expelled), we rewrite the equation as $dv = -v_e \\frac{dM}{m}$, where $dM$ is the positive infinitesimal mass of propellant expelled. The negative sign accounts for the decrease in rocket mass.\n\nIntegrating from initial mass $m_0$ to final mass $m_f$ (where $m_f < m_0$) then naturally yields:\n$$\\int_{v_0}^{v_f} dv = \\int_{m_0}^{m_f} -v_e \\frac{dm}{m}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the differential form $dv = -v_e \\frac{dm}{m}$ (where $dm$ is the infinitesimal mass *change* of the rocket, hence negative), derive the Tsiolkovsky rocket equation for $\\Delta v$. Assume $v_e$ is constant.",
+      "back": "We start with the differential equation:\n$$dv = -v_e \\frac{dm}{m}$$\nTo find the total change in velocity $\\Delta v = v_f - v_0$, we integrate both sides. The velocity changes from $v_0$ to $v_f$, and the mass changes from $m_0$ (initial total mass) to $m_f$ (final mass after all propellant is expelled).\n$$\\int_{v_0}^{v_f} dv = \\int_{m_0}^{m_f} -v_e \\frac{dm}{m}$$\nSince $v_e$ (exhaust velocity relative to the rocket) is assumed constant, we can pull it out of the integral:\n$$\\int_{v_0}^{v_f} dv = -v_e \\int_{m_0}^{m_f} \\frac{1}{m} dm$$\nPerforming the integration:\n$$[v]_{v_0}^{v_f} = -v_e [\\ln|m|]_{m_0}^{m_f}$$\n$$v_f - v_0 = -v_e (\\ln m_f - \\ln m_0)$$\n$$\\Delta v = -v_e \\ln\\left(\\frac{m_f}{m_0}\\right)$$\nUsing the logarithm property $-\\ln(x) = \\ln(1/x)$:\n$$\\Delta v = v_e \\ln\\left(\\frac{m_0}{m_f}\\right)$$\nThis is the Tsiolkovsky rocket equation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Tsiolkovsky rocket equation and define all its variables.",
+      "back": "The Tsiolkovsky rocket equation is:\n$$\\Delta v = v_e \\ln\\left(\\frac{m_0}{m_f}\\right)$$\nWhere:\n*   $\\Delta v$ (delta-v): The maximum possible change in velocity of the rocket (the impulse delivered).\n*   $v_e$: The effective exhaust velocity of the propellant relative to the rocket.\n*   $m_0$: The initial total mass of the rocket (payload + structure + propellant).\n*   $m_f$: The final mass of the rocket (payload + structure) after all propellant is expended.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain intuitively why the Tsiolkovsky rocket equation uses a natural logarithm of the mass ratio, rather than a linear relationship.",
+      "back": "The logarithmic relationship arises because the rocket's mass *decreases* as it expels propellant. This means that for each subsequent unit of propellant expelled, there is less total mass to accelerate, leading to a proportionally larger increase in velocity for the same amount of momentum change. The logarithm captures this effect: while increasing the mass ratio significantly boosts $\\Delta v$, each successive doubling of the mass ratio yields the same *additional* $\\Delta v$, not a linearly increasing one. The rocket becomes more efficient at gaining speed as it gets lighter.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List at least three significant assumptions or limitations of the basic Tsiolkovsky rocket equation.",
+      "back": "1.  **Constant Exhaust Velocity ($v_e$):** Assumes the exhaust velocity is constant throughout the burn, which isn't always true for real engines.\n2.  **No External Forces:** Assumes no external forces like gravity or atmospheric drag are acting on the rocket. It calculates $\\Delta v$ in a vacuum.\n3.  **Single Stage:** The equation applies to a single rocket stage. For multi-stage rockets, it must be applied sequentially to each stage.\n4.  **Instantaneous Mass Expulsion:** The derivation treats propellant expulsion as a continuous, infinitesimal process, which is a good approximation but not perfectly discrete.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-machine-epsilon-what-it-means-in-practice",
+  "subtopicTitle": "Machine epsilon — what it means in practice",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:36.434Z",
+  "cards": [
+    {
+      "front": "Define machine epsilon ($\\epsilon_m$). What does it signify?",
+      "back": "Machine epsilon ($\\epsilon_m$) is the smallest positive number such that $1 + \\epsilon_m \\neq 1$ in floating-point arithmetic. It signifies the maximum relative error for rounding floating-point numbers to the nearest representable value.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical definition for machine epsilon ($\\epsilon_m$) for a base-$\beta$ system with $p$ precision digits. How is it often found programmatically?",
+      "back": "For a base-$\beta$ system with $p$ precision digits, machine epsilon is $\\beta^{1-p}$ (for rounding to nearest) or $\\beta^{1-p}$ (for chopping). Programmatically, it's often found by repeatedly dividing 1 by 2 until $1 + \\text{current\\_value} == 1$:\n```python\neps = 1.0\nwhile (1.0 + eps) != 1.0:\n    eps /= 2.0\neps *= 2.0 # The last value before 1+eps == 1\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the practical meaning of machine epsilon ($\\epsilon_m$) regarding floating-point precision.",
+      "back": "Machine epsilon represents the maximum relative error when rounding a number to the nearest representable floating-point number. It also defines the smallest possible difference between $1$ and the next representable floating-point number. Any number $x$ such that $1 < x < 1 + \\epsilon_m$ will be rounded to $1$ in floating-point arithmetic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is direct equality comparison (`a == b`) generally unreliable for floating-point numbers $a$ and $b$?",
+      "back": "Due to finite precision and rounding errors inherent in floating-point representation, two numbers that are mathematically equal might not have identical binary representations. Small computational inaccuracies can lead to tiny differences, causing direct equality checks to fail even if the numbers are practically the same.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How should two floating-point numbers, $a$ and $b$, be safely compared for 'equality' in practice?",
+      "back": "Instead of `a == b`, check if their absolute difference is less than a small tolerance. A common robust approach uses a combination of absolute and relative tolerance:\n$$ |a - b| \\le \\text{max}(\\text{abs\\_tol}, \\text{rel\\_tol} \\cdot \\text{max}(|a|, |b|)) $$\nwhere $\\text{abs\\_tol}$ is a small fixed value (e.g., $10^{-9}$) and $\\text{rel\\_tol}$ is often set to `machine_epsilon` for the given data type.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does machine epsilon differ between `float` (single precision) and `double` (double precision) data types in typical IEEE 754 systems?",
+      "back": "`double` precision numbers use more bits (typically 64) for their mantissa and exponent compared to `float` (typically 32 bits). This increased precision means `double` has a significantly smaller machine epsilon (e.g., approximately $2.22 \\times 10^{-16}$) than `float` (e.g., approximately $1.19 \\times 10^{-7}$), indicating `double` can represent numbers with much higher accuracy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how machine epsilon contributes to the accumulation of rounding errors in long computations. Provide a simple example.",
+      "back": "Each floating-point arithmetic operation (addition, multiplication, etc.) may introduce a small rounding error, with its magnitude related to machine epsilon. In iterative algorithms or long sequences of calculations, these small, individual errors can accumulate. This accumulation can lead to a final result that significantly deviates from the true mathematical value.\nExample: Summing $N$ very small numbers. If each addition introduces an error of magnitude related to $\\epsilon_m$, the total error could grow proportionally to $N \\cdot \\epsilon_m$, becoming substantial for large $N$.",
+      "difficulty": "hard"
+    }
+  ]
+}

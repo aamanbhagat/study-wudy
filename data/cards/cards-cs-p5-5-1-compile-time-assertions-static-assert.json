@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-compile-time-assertions-static-assert",
+  "subtopicTitle": "Compile-time assertions — static_assert",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:50.616Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of `static_assert` in C programming?",
+      "back": "The primary purpose of `static_assert` is to perform an assertion check at **compile-time**. It ensures that certain conditions, which must be integer constant expressions, are met before the program is even built. If the condition is false, compilation fails with an error message, preventing the creation of an executable with incorrect assumptions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the correct syntax for `static_assert` in C, including both its arguments?",
+      "back": "The correct syntax is `_Static_assert(constant_expression, string_literal);`.\n\nAlternatively, using the more common macro from `<assert.h>`:\n`static_assert(constant_expression, string_literal);`\n\n- `constant_expression`: An integer constant expression that evaluates to non-zero (true) or zero (false).\n- `string_literal`: A string literal that serves as the error message if the assertion fails.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the consequence if the `constant_expression` in a `static_assert` evaluates to zero (false) during compilation?",
+      "back": "If the `constant_expression` evaluates to zero (false), the compilation process will **terminate with a diagnostic error message**. This error message typically includes the `string_literal` provided as the second argument to `static_assert`, clearly indicating why the build failed. No executable will be produced.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The first argument of `static_assert` must be a specific type of expression. What is it, and why is this restriction important?",
+      "back": "The first argument must be an **integer constant expression**. This restriction is crucial because `static_assert` operates entirely at **compile-time**. The compiler needs to be able to evaluate the expression's truthiness without actually running any code, which is only possible if the expression's value is fixed and known at compile-time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between `static_assert` and the traditional `assert` macro (from `<assert.h>`) regarding when the check occurs and what happens upon failure.",
+      "back": "`static_assert` performs its check at **compile-time**. If the condition is false, compilation fails, preventing the program from being built.\n\n`assert` performs its check at **run-time**. If the condition is false, the program terminates abnormally (usually by calling `abort()`), typically printing a message to `stderr` indicating the file, line number, and expression that failed. `static_assert` catches errors much earlier in the development cycle.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a practical C code example where `static_assert` would be useful to enforce a data type size constraint.",
+      "back": "```c\n#include <stddef.h> // For sizeof\n#include <assert.h> // For static_assert\n\n// Ensure that 'long' is exactly 8 bytes on this system\nstatic_assert(sizeof(long) == 8, \"'long' must be 8 bytes on this platform\");\n\n// Ensure a specific struct's total size matches an expected value\nstruct NetworkHeader {\n    unsigned char version;\n    unsigned char flags;\n    unsigned short length;\n    unsigned int checksum;\n};\nstatic_assert(sizeof(struct NetworkHeader) == 8, \"NetworkHeader must be exactly 8 bytes\");\n\nint main() {\n    // Program logic that relies on these sizes...\n    return 0;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In which C standard was `static_assert` (as a keyword `_Static_assert` and macro `static_assert`) officially introduced?",
+      "back": "`static_assert` (and its keyword form `_Static_assert`) was officially introduced in the **C11 standard** (ISO/IEC 9899:2011).",
+      "difficulty": "easy"
+    }
+  ]
+}

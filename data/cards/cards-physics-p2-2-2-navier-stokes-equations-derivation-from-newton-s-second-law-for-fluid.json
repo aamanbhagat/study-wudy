@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-2-navier-stokes-equations-derivation-from-newton-s-second-law-for-fluid",
+  "subtopicTitle": "Navier-Stokes equations — derivation from Newton's second law for fluid",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:43.207Z",
+  "cards": [
+    {
+      "front": "The Navier-Stokes equations are a statement of _______ applied to a fluid continuum.",
+      "back": "Newton's Second Law of Motion ($F=ma$ or $\\frac{d(mv)}{dt}$), adapted for a continuous medium.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two fundamental types of forces considered when applying Newton's Second Law to a fluid element in the derivation of the Navier-Stokes equations?",
+      "back": "1. **Body forces**: Act on the volume/mass of the fluid element (e.g., gravity, electromagnetic forces).\n2. **Surface forces**: Act on the surface of the fluid element (e.g., pressure, viscous stresses).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the material derivative (or substantial derivative) $\\frac{D}{Dt}$ for a scalar field $\\phi(\\mathbf{x}, t)$ and explain its physical meaning in fluid mechanics.",
+      "back": "The material derivative is given by $\\frac{D\\phi}{Dt} = \\frac{\\partial\\phi}{\\partial t} + (\\mathbf{u} \\cdot \\nabla)\\phi$. It represents the total rate of change of a property of a specific fluid particle as it moves through the fluid, accounting for both local (temporal) changes and convective (spatial) changes due to the particle's motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the derivation of Navier-Stokes, the total stress tensor $\\sigma_{ij}$ acting on a fluid element is decomposed into two main components. Name and briefly describe them.",
+      "back": "The total stress tensor $\\sigma_{ij}$ is decomposed into:\n1.  **Isotropic pressure ($p$)**: Represents the normal force per unit area acting inward, independent of orientation. It's related to the thermodynamic pressure.\n2.  **Viscous stress tensor ($\\tau_{ij}$)**: Represents the deviatoric (non-isotropic) stresses arising from fluid viscosity, which resist deformation. So, $\\sigma_{ij} = -p\\delta_{ij} + \\tau_{ij}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an incompressible Newtonian fluid, express the components of the viscous stress tensor $\\tau_{ij}$ in terms of the dynamic viscosity $\\mu$ and velocity gradients.",
+      "back": "For an incompressible Newtonian fluid, the viscous stress tensor components are given by:\n$$ \\tau_{ij} = \\mu \\left( \\frac{\\partial u_i}{\\partial x_j} + \\frac{\\partial u_j}{\\partial x_i} \\right) $$\nThis equation relates viscous stresses directly to the rate of strain (deformation) of the fluid element.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Starting from the general momentum equation for a fluid continuum, $\\rho \\frac{D\\mathbf{u}}{Dt} = \\nabla \\cdot \\sigma + \\rho \\mathbf{f}_b$, explain how the divergence of the stress tensor $\\nabla \\cdot \\sigma$ accounts for the net surface forces.",
+      "back": "The term $\\nabla \\cdot \\sigma$ represents the net surface force per unit volume acting on the fluid element. By applying Gauss's divergence theorem to the surface integral of stress over the fluid element's boundary, $\\oint_S \\sigma \\cdot \\mathbf{n} \\, dA$, we convert it to a volume integral $\\int_V (\\nabla \\cdot \\sigma) \\, dV$. Thus, $\\nabla \\cdot \\sigma$ is the volumetric force density due to all surface stresses (both pressure and viscous forces).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write down the incompressible Navier-Stokes equations for a Newtonian fluid under the influence of gravity $\\mathbf{g}$, and identify each term.",
+      "back": "$$ \\rho \\left( \\frac{\\partial \\mathbf{u}}{\\partial t} + (\\mathbf{u} \\cdot \\nabla)\\mathbf{u} \\right) = - \\nabla p + \\mu \\nabla^2 \\mathbf{u} + \\rho \\mathbf{g} $$\nWhere:\n*   $\\rho$: fluid density\n*   $\\mathbf{u}$: fluid velocity vector\n*   $\\frac{\\partial \\mathbf{u}}{\\partial t}$: local acceleration term (rate of change of velocity at a fixed point)\n*   $(\\mathbf{u} \\cdot \\nabla)\\mathbf{u}$: convective acceleration term (rate of change of velocity due to movement of fluid particle)\n*   $- \\nabla p$: pressure gradient force per unit volume\n*   $\\mu \\nabla^2 \\mathbf{u}$: viscous force per unit volume (from $\\nabla \\cdot \\tau$, where $\\tau_{ij} = \\mu (\\frac{\\partial u_i}{\\partial x_j} + \\frac{\\partial u_j}{\\partial x_i})$ for incompressible flow)\n*   $\\rho \\mathbf{g}$: body force per unit volume (e.g., gravity)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond the conservation of momentum, what other fundamental conservation law is implicitly assumed when deriving the incompressible Navier-Stokes equations?",
+      "back": "The conservation of mass, specifically in its incompressible form, which is the continuity equation: $\\nabla \\cdot \\mathbf{u} = 0$. This assumption simplifies the viscous stress tensor, eliminates the bulk viscosity term, and allows the density $\\rho$ to be treated as constant.",
+      "difficulty": "medium"
+    }
+  ]
+}

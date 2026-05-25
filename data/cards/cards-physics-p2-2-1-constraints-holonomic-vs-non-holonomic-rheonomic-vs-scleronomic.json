@@ -1,0 +1,60 @@
+{
+  "subtopicId": "physics-p2-2-1-constraints-holonomic-vs-non-holonomic-rheonomic-vs-scleronomic",
+  "subtopicTitle": "Constraints — holonomic vs non-holonomic, rheonomic vs scleronomic",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:45.581Z",
+  "cards": [
+    {
+      "front": "In analytical mechanics, what is a \"constraint\"?",
+      "back": "A constraint is a restriction on the motion of a system's particles, reducing the number of independent coordinates needed to describe its configuration. These restrictions are often expressed as mathematical relationships between the coordinates and sometimes time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a holonomic constraint and provide its general mathematical form.",
+      "back": "A holonomic constraint is one that can be expressed as an algebraic equation relating the coordinates of the particles and possibly time, in the form $f(q_1, q_2, ..., q_N, t) = 0$. These constraints can be used to reduce the number of degrees of freedom by eliminating dependent coordinates.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a non-holonomic constraint and describe its mathematical characteristics.",
+      "back": "A non-holonomic constraint cannot be expressed solely as an algebraic equation of the form $f(q_1, ..., q_N, t) = 0$. Instead, they often involve inequalities, velocities, or non-integrable differential forms. Examples include $f(q_i, \\dot{q}_i, t) = 0$ (non-integrable) or $f(q_i, t) \\ge 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle is constrained to move on the surface of a sphere of radius $R$ centered at the origin. Is this constraint holonomic or non-holonomic?",
+      "back": "This is a **holonomic** constraint. It can be expressed as $x^2 + y^2 + z^2 - R^2 = 0$. This is an algebraic equation relating the coordinates, fitting the form $f(x, y, z) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle is constrained to remain *inside or on* a sphere of radius $R$ centered at the origin. Is this constraint holonomic or non-holonomic?",
+      "back": "This is a **non-holonomic** constraint. It is expressed as an inequality: $x^2 + y^2 + z^2 - R^2 \\le 0$. Since it's an inequality, it cannot be written in the $f(q_i, t) = 0$ form, making it non-holonomic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between rheonomic and scleronomic constraints.",
+      "back": "<ul><li>**Scleronomic:** A constraint that is *independent of time* explicitly. Its mathematical form does not contain the time variable $t$. E.g., $f(q_1, ..., q_N) = 0$.</li><li>**Rheonomic:** A constraint that is *explicitly dependent on time*. Its mathematical form contains the time variable $t$. E.g., $f(q_1, ..., q_N, t) = 0$.</li></ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A particle is constrained to move on a plane whose height is changing with time, $z = h_0 + v_0 t$. Is this constraint scleronomic or rheonomic?",
+      "back": "This is a **rheonomic** constraint. The constraint equation is $z - (h_0 + v_0 t) = 0$. Since the time variable $t$ appears explicitly in the constraint equation, it is rheonomic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A pendulum of fixed length $L$ swings in a vertical plane. Is the constraint on the pendulum bob scleronomic or rheonomic?",
+      "back": "This is a **scleronomic** constraint. If the pivot is at the origin, the constraint equation is $x^2 + y^2 - L^2 = 0$. This equation does not explicitly depend on time $t$, so it is scleronomic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle is constrained to remain *inside or on* a sphere whose radius is shrinking with time, $R(t) = R_0 - kt$. Classify this constraint.",
+      "back": "This constraint is **non-holonomic** because it's an inequality: $x^2 + y^2 + z^2 - (R_0 - kt)^2 \\le 0$. It is also **rheonomic** because the time variable $t$ appears explicitly in the constraint equation (via $R(t)$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are holonomic constraints particularly important and advantageous in Lagrangian mechanics?",
+      "back": "Holonomic constraints allow for the reduction of the number of generalized coordinates. If there are $k$ holonomic constraints on $N$ particles (with $3N$ Cartesian coordinates), the system can be described by $3N-k$ independent generalized coordinates. This simplifies the Lagrangian formulation as constraint forces do no virtual work and thus do not need to be explicitly included in the equations of motion (if generalized coordinates are chosen appropriately).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-6-beats-derivation-applications",
+  "subtopicTitle": "Beats — derivation, applications",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:59.103Z",
+  "cards": [
+    {
+      "front": "Define \"beats\" in the context of wave superposition.",
+      "back": "Beats are the periodic variations in amplitude (and thus intensity or loudness) that occur when two waves of slightly different frequencies superpose. They are perceived as a pulsating sound or intensity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What two conditions are essential for observing beats, and why?",
+      "back": "1. **Slightly different frequencies ($f_1 \\approx f_2$):** If frequencies are too different, the amplitude variation is too rapid to be perceived as distinct beats. If they are identical, no beats occur.\n2. **Similar amplitudes:** For significant constructive and destructive interference, leading to noticeable amplitude variations, the two waves should have comparable amplitudes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the mathematical expression for beats from the superposition of two sinusoidal waves with slightly different frequencies.",
+      "back": "Consider two waves with equal amplitude $A$ and slightly different angular frequencies $\\omega_1$ and $\\omega_2$:\n$y_1 = A \\cos(\\omega_1 t)$\n$y_2 = A \\cos(\\omega_2 t)$\nBy the principle of superposition, the resultant wave is $y = y_1 + y_2$:\n$y = A (\\cos(\\omega_1 t) + \\cos(\\omega_2 t))$\nUsing the trigonometric identity $\\cos C + \\cos D = 2 \\cos\\left(\\frac{C+D}{2}\\right) \\cos\\left(\\frac{C-D}{2}\\right)$:\n$y = 2A \\cos\\left(\\frac{(\\omega_1 - \\omega_2)t}{2}\\right) \\cos\\left(\\frac{(\\omega_1 + \\omega_2)t}{2}\\right)$\nLet $\\omega_{avg} = \\frac{\\omega_1 + \\omega_2}{2}$ and $\\omega_{mod} = \\frac{|\\omega_1 - \\omega_2|}{2}$.\n$y = \\left[2A \\cos(\\omega_{mod} t)\\right] \\cos(\\omega_{avg} t)$\nThis equation describes a wave with the average frequency $\\omega_{avg}$ whose amplitude is modulated by the term $2A \\cos(\\omega_{mod} t)$. The amplitude varies slowly with frequency $\\omega_{mod}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for beat frequency ($f_{beat}$) in terms of individual wave frequencies ($f_1, f_2$) and angular frequencies ($\\omega_1, \\omega_2$).",
+      "back": "The beat frequency is the absolute difference between the two individual wave frequencies:\n$$f_{beat} = |f_1 - f_2|$$\nIn terms of angular frequencies, since $f = \\omega / (2\\pi)$:\n$$f_{beat} = \\frac{|\\omega_1 - \\omega_2|}{2\\pi}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A piano tuner hears 3 beats/s when comparing a 440 Hz tuning fork to a piano string. What are the possible frequencies of the piano string?",
+      "back": "The beat frequency is given by $f_{beat} = |f_1 - f_2|$.\nGiven $f_{beat} = 3$ Hz and $f_1 = 440$ Hz.\n$3 = |440 - f_2|$\nThis equation has two possible solutions:\n1. $440 - f_2 = 3 \\Rightarrow f_2 = 440 - 3 = 437$ Hz\n2. $440 - f_2 = -3 \\Rightarrow f_2 = 440 + 3 = 443$ Hz\nThe piano string's frequency could be either 437 Hz or 443 Hz.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the perceived beat frequency is $|f_1 - f_2|$, even though the amplitude modulation frequency in the derivation is $\\frac{|f_1 - f_2|}{2}$.",
+      "back": "The amplitude of the resultant wave is $A_{mod}(t) = 2A \\cos\\left(\\frac{(\\omega_1 - \\omega_2)t}{2}\\right)$. The frequency of this modulating cosine term is $f_{mod} = \\frac{|f_1 - f_2|}{2}$. However, a 'beat' (a peak in loudness) is heard whenever the amplitude reaches its maximum absolute value, which occurs when $\\cos\\left(\\frac{(\\omega_1 - \\omega_2)t}{2}\\right)$ is either $+1$ or $-1$. Both $+1$ and $-1$ correspond to maximum amplitude and thus maximum loudness. Since the cosine function completes one full cycle (from $+1$ to $-1$ and back to $+1$) in one period of $f_{mod}$, it reaches maximum amplitude twice within that period. Therefore, the perceived beat frequency is twice the modulating frequency: $f_{beat} = 2 \\times f_{mod} = 2 \\times \\frac{|f_1 - f_2|}{2} = |f_1 - f_2|$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe how the phenomenon of beats is utilized in tuning musical instruments.",
+      "back": "In tuning musical instruments, beats provide an audible indicator of frequency difference. A musician or tuner plays a reference tone (e.g., from a tuning fork or electronic tuner) and the instrument's note simultaneously. If the instrument is out of tune, beats will be heard. The tuner then adjusts the instrument's pitch (e.g., tightening or loosening a string, adjusting a valve) until the beat frequency decreases. When the instrument is perfectly in tune with the reference, the beat frequency becomes zero, meaning no beats are heard, indicating that the instrument's frequency precisely matches the reference frequency.",
+      "difficulty": "medium"
+    }
+  ]
+}

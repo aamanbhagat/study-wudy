@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-turing-machines-formal-definition-computation-configurations",
+  "subtopicTitle": "Turing machines — formal definition, computation, configurations",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:22.984Z",
+  "cards": [
+    {
+      "front": "List the seven components of a Turing Machine's formal definition.",
+      "back": "A Turing Machine $M$ is formally defined as a 7-tuple: $M = (Q, \\Sigma, \\Gamma, \\delta, q_0, q_{accept}, q_{reject})$, where:\n1. $Q$: finite set of states.\n2. $\\Sigma$: finite input alphabet (does not contain blank symbol $\\sqcup$).\n3. $\\Gamma$: finite tape alphabet, where $\\Sigma \\subseteq \\Gamma$ and $\\sqcup \\in \\Gamma$.\n4. $\\delta$: transition function.\n5. $q_0$: start state, $q_0 \\in Q$.\n6. $q_{accept}$: accept state, $q_{accept} \\in Q$.\n7. $q_{reject}$: reject state, $q_{reject} \\in Q$, and $q_{accept} \\ne q_{reject}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Formally define the transition function $\\delta$ for a Turing Machine and explain its output.",
+      "back": "The transition function $\\delta$ for a Turing Machine is defined as $\\delta: Q \\times \\Gamma \\to Q \\times \\Gamma \\times \\{L, R\\}$.\n\nFor a given current state $q \\in Q$ and symbol $a \\in \\Gamma$ under the tape head, $\\delta(q, a) = (q', b, D)$ means:\n- The TM transitions to the next state $q' \\in Q$.\n- The symbol $b \\in \\Gamma$ is written to the current tape cell, replacing $a$.\n- The tape head moves in direction $D \\in \\{L, R\\}$ (Left or Right).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a configuration (or instantaneous description) of a Turing Machine, and how is it represented?",
+      "back": "A configuration (or instantaneous description) captures the complete state of a Turing Machine at any given moment during its computation. It includes the current state, the contents of the tape, and the position of the tape head.\n\nIt is typically represented as $u q v$, where:\n- $q \\in Q$ is the current state.\n- $u$ is the string of non-blank symbols on the tape to the left of the head.\n- $v$ is the string of non-blank symbols on the tape from the head's current position to the right.\n- The tape head is implicitly positioned on the first symbol of $v$. If $v$ is empty, the head is on a blank symbol.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an input string $w$, what is the initial configuration of a Turing Machine? Assume $\\sqcup$ is the blank symbol.",
+      "back": "For an input string $w \\in \\Sigma^*$, the initial configuration of a Turing Machine $M$ is $q_0 w$.\n\nThis means:\n- The machine starts in its initial state $q_0$.\n- The input string $w$ is written on the tape, starting at the leftmost cell.\n- All other tape cells are filled with the blank symbol $\\sqcup$.\n- The tape head is positioned on the leftmost symbol of $w$. If $w = \\epsilon$ (the empty string), the initial configuration is $q_0 \\sqcup$, with the head on the blank symbol.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how a configuration $u q a v$ yields a new configuration when the head moves Right, given $\\delta(q, a) = (q', b, R)$.",
+      "back": "If the current configuration is $u q a v$ and the transition function dictates $\\delta(q, a) = (q', b, R)$, then the machine transitions as follows:\n1. The symbol $a$ under the head is replaced by $b$.\n2. The machine enters state $q'$.\n3. The head moves one position to the right.\n\nThus, the configuration $u q a v$ yields $u b q' v$. If $v = \\epsilon$ (meaning $a$ was the rightmost non-blank symbol), the configuration $u q a$ yields $u b q' \\sqcup$, effectively extending the tape with a blank symbol to the right.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how a configuration $u c q a v$ yields a new configuration when the head moves Left, given $\\delta(q, a) = (q', b, L)$.",
+      "back": "If the current configuration is $u c q a v$ (where $c$ is the symbol immediately to the left of the head) and $\\delta(q, a) = (q', b, L)$, then the machine transitions as follows:\n1. The symbol $a$ under the head is replaced by $b$.\n2. The machine enters state $q'$.\n3. The head moves one position to the left, now positioned over symbol $c$.\n\nThus, the configuration $u c q a v$ yields $u q' c b v$.\n\nEdge case: If $u = \\epsilon$ (meaning the head is at the leftmost non-blank symbol, so there's no $c$ to its left), the configuration $q a v$ yields $q' \\sqcup b v$. The tape is effectively extended with a blank symbol to the left, and the head moves onto that new blank.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the three possible outcomes for a Turing Machine's computation on a given input string?",
+      "back": "For any input string, a Turing Machine's computation can have one of three outcomes:\n1.  **Accept:** The TM eventually reaches the $q_{accept}$ state and halts. The input string is considered accepted.\n2.  **Reject:** The TM eventually reaches the $q_{reject}$ state and halts. The input string is considered rejected.\n3.  **Loop (or Run Forever):** The TM never reaches either $q_{accept}$ or $q_{reject}$ and continues to make transitions indefinitely. In this case, the input string is implicitly rejected (it's not accepted).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When does a Turing Machine $M$ accept a language $L$?",
+      "back": "A Turing Machine $M$ is said to accept a language $L$ if, for every string $w$:\n1. If $w \\in L$, then $M$ halts in its $q_{accept}$ state when given $w$ as input.\n2. If $w \\notin L$, then $M$ either halts in its $q_{reject}$ state or loops forever (never halts) when given $w$ as input.\n\nThis means that $M$ correctly identifies all strings in $L$ by accepting them, and does not accept any strings not in $L$.",
+      "difficulty": "medium"
+    }
+  ]
+}

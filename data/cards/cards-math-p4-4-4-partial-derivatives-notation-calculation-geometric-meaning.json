@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-partial-derivatives-notation-calculation-geometric-meaning",
+  "subtopicTitle": "Partial derivatives — notation, calculation, geometric meaning",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:55.028Z",
+  "cards": [
+    {
+      "front": "What are three common notations for the partial derivative of a function $f(x, y)$ with respect to $x$?",
+      "back": "The three common notations are:\n1.  $\\frac{\\partial f}{\\partial x}$\n2.  $f_x(x, y)$ (or simply $f_x$)\n3.  $\\partial_x f$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the limit definition for the partial derivative of $f(x, y)$ with respect to $y$ at a point $(a, b)$.",
+      "back": "The limit definition for the partial derivative of $f(x, y)$ with respect to $y$ at $(a, b)$ is:\n$$ \\frac{\\partial f}{\\partial y}(a, b) = \\lim_{h \\to 0} \\frac{f(a, b+h) - f(a, b)}{h} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate $\\frac{\\partial f}{\\partial x}$ for the function $f(x, y) = x^3 y^2 + \\sin(xy)$.",
+      "back": "To calculate $\\frac{\\partial f}{\\partial x}$, we treat $y$ as a constant and differentiate with respect to $x$:\n$$ \\frac{\\partial f}{\\partial x} = \\frac{\\partial}{\\partial x}(x^3 y^2) + \\frac{\\partial}{\\partial x}(\\sin(xy)) $$\n$$ \\frac{\\partial f}{\\partial x} = (3x^2 y^2) + (\\cos(xy) \\cdot y) $$\n$$ \\frac{\\partial f}{\\partial x} = 3x^2 y^2 + y\\cos(xy) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does $\\frac{\\partial f}{\\partial y}(a, b)$ represent for a surface $z = f(x, y)$?",
+      "back": "It represents the slope of the tangent line to the curve formed by the intersection of the surface $z = f(x, y)$ and the plane $x=a$, at the point $(a, b, f(a, b))$. It is the instantaneous rate of change of $f$ with respect to $y$ when $x$ is held constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $g(x, y) = e^{x^2+y}$ and $h(x, y) = \\ln(x^2 y)$, calculate $\\frac{\\partial}{\\partial y}(g(x, y) \\cdot h(x, y))$.",
+      "back": "We use the product rule and chain rule, treating $x$ as a constant:\nLet $u = g(x, y)$ and $v = h(x, y)$.\n$\\frac{\\partial}{\\partial y}(uv) = u \\frac{\\partial v}{\\partial y} + v \\frac{\\partial u}{\\partial y}$\n\nFirst, find the partial derivatives of $u$ and $v$ with respect to $y$:\n$\\frac{\\partial u}{\\partial y} = \\frac{\\partial}{\\partial y}(e^{x^2+y}) = e^{x^2+y} \\cdot \\frac{\\partial}{\\partial y}(x^2+y) = e^{x^2+y} \\cdot 1 = e^{x^2+y}$\n$\\frac{\\partial v}{\\partial y} = \\frac{\\partial}{\\partial y}(\\ln(x^2 y)) = \\frac{1}{x^2 y} \\cdot \\frac{\\partial}{\\partial y}(x^2 y) = \\frac{1}{x^2 y} \\cdot x^2 = \\frac{1}{y}$\n\nNow, apply the product rule:\n$\\frac{\\partial}{\\partial y}(g(x, y) \\cdot h(x, y)) = e^{x^2+y} \\cdot \\frac{1}{y} + \\ln(x^2 y) \\cdot e^{x^2+y}$\n$= e^{x^2+y} \\left( \\frac{1}{y} + \\ln(x^2 y) \\right)$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $f(x, y) = x^2 y^3$, calculate the mixed second-order partial derivative $\\frac{\\partial^2 f}{\\partial y \\partial x}$.",
+      "back": "To calculate $\\frac{\\partial^2 f}{\\partial y \\partial x}$, we first find the partial derivative with respect to $x$, then differentiate that result with respect to $y$.\n\n1.  Find $\\frac{\\partial f}{\\partial x}$:\n    $$ \\frac{\\partial f}{\\partial x} = \\frac{\\partial}{\\partial x}(x^2 y^3) = 2xy^3 $$\n2.  Differentiate this result with respect to $y$:\n    $$ \\frac{\\partial^2 f}{\\partial y \\partial x} = \\frac{\\partial}{\\partial y}\\left(2xy^3\\right) = 2x \\cdot 3y^2 = 6xy^2 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why partial derivatives alone are not sufficient to describe the 'steepness' of a surface $z=f(x,y)$ in *any* arbitrary direction.",
+      "back": "Partial derivatives, such as $\\frac{\\partial f}{\\partial x}$ and $\\frac{\\partial f}{\\partial y}$, describe the instantaneous rate of change (or steepness) of the surface $z=f(x,y)$ *only* in directions parallel to the coordinate axes (i.e., along lines where $y$ is constant or $x$ is constant).\n\nImagine a point on a mountain. $\\frac{\\partial f}{\\partial x}$ tells you how steep it is if you walk directly east or west, and $\\frac{\\partial f}{\\partial y}$ tells you how steep it is if you walk directly north or south. However, the mountain might be much steeper if you walk diagonally (e.g., northeast or northwest). Partial derivatives do not provide information about the rate of change in these intermediate directions. To describe steepness in an arbitrary direction, one needs the concept of a **directional derivative**, which combines the partial derivatives with a specific direction vector.",
+      "difficulty": "hard"
+    }
+  ]
+}

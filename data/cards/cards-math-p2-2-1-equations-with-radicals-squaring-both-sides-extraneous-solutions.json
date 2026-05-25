@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-1-equations-with-radicals-squaring-both-sides-extraneous-solutions",
+  "subtopicTitle": "Equations with radicals — squaring both sides, extraneous solutions",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:25.795Z",
+  "cards": [
+    {
+      "front": "What is a radical equation?",
+      "back": "An equation that contains at least one variable inside a radical symbol (e.g., square root, cube root, etc.).\n\nExamples:\n$\\sqrt{x+3} = 5$\n$\\sqrt[3]{2x-1} = x$\n$x - \\sqrt{x} = 6$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Squaring both sides of an equation ($A=B \\implies A^2=B^2$) can introduce extraneous solutions. Explain why.",
+      "back": "Squaring both sides transforms the equation $A=B$ into $A^2=B^2$. This is equivalent to $A^2-B^2=0$, which factors as $(A-B)(A+B)=0$.\n\nThis means that either $A-B=0$ (i.e., $A=B$, the original solutions) OR $A+B=0$ (i.e., $A=-B$). Solutions arising from $A=-B$ are extraneous if they do not satisfy the original equation $A=B$. For example, if $A=1$ and $B=-1$, then $A \\neq B$, but $A^2=B^2$ (i.e., $1^2=(-1)^2 \\implies 1=1$) is true.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve for $x$: $\\sqrt{2x+1} = x-1$. Check for extraneous solutions.",
+      "back": "1. Square both sides: $(\\sqrt{2x+1})^2 = (x-1)^2 \\implies 2x+1 = x^2 - 2x + 1$.\n2. Rearrange into a quadratic equation: $x^2 - 4x = 0$.\n3. Factor: $x(x-4) = 0$.\n4. Potential solutions: $x=0$ or $x=4$.\n5. Check in the original equation:\n   * For $x=0$: $\\sqrt{2(0)+1} = 0-1 \\implies \\sqrt{1} = -1 \\implies 1 = -1$ (False). So $x=0$ is extraneous.\n   * For $x=4$: $\\sqrt{2(4)+1} = 4-1 \\implies \\sqrt{9} = 3 \\implies 3 = 3$ (True). So $x=4$ is a valid solution.\n\nThe only solution is $x=4$. (Note: $x-1$ must be $\\ge 0$, so $x \\ge 1$. This immediately rules out $x=0$.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the indispensable final step when solving radical equations, and why is it necessary?",
+      "back": "The indispensable final step is to **check all potential solutions in the original equation**.\n\nThis is necessary because the process of squaring both sides (or raising to any even power) can introduce extraneous solutions. These are values that satisfy the transformed equation but do not satisfy the original radical equation, often because they violate domain restrictions (e.g., radicand must be non-negative) or the principal root definition (e.g., $\\sqrt{x}$ is always non-negative).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For an equation of the form $\\sqrt{f(x)} = g(x)$, what are the two crucial implicit domain restrictions that must be satisfied by any valid solution?",
+      "back": "1.  **Radicand must be non-negative**: $f(x) \\ge 0$. This ensures that the square root is a real number.\n2.  **Right-hand side must be non-negative**: $g(x) \\ge 0$. This is because the principal square root symbol ($\\sqrt{\\cdot}$) by definition always yields a non-negative value. If $g(x)$ were negative, then $\\sqrt{f(x)} = g(x)$ would have no real solutions.\n\nBoth conditions must hold for a solution to be valid, even before squaring.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the general strategy to solve an equation with two radical terms, such as $\\sqrt{A} + \\sqrt{B} = C$.",
+      "back": "1.  **Isolate one radical**: Move one of the radical terms to one side of the equation, leaving it by itself. (e.g., $\\sqrt{A} = C - \\sqrt{B}$).\n2.  **Square both sides**: Square both sides of the equation. This will eliminate the isolated radical but will likely leave the other radical term within the expansion of the squared binomial (e.g., $A = C^2 - 2C\\sqrt{B} + B$).\n3.  **Isolate the remaining radical**: Rearrange the equation to isolate the second radical term.\n4.  **Square both sides again**: Square both sides a second time to eliminate the final radical.\n5.  **Solve the resulting polynomial**: Solve the algebraic equation that results.\n6.  **Check all solutions**: Crucially, substitute all potential solutions back into the *original* equation to identify and discard any extraneous solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When solving an equation like $\\sqrt{x+1} + \\sqrt{x-2} = 3$, what is a common algebraic error made when squaring both sides directly?",
+      "back": "A common algebraic error is incorrectly squaring the sum of two terms. Students often make the mistake of writing:\n$(\\sqrt{x+1} + \\sqrt{x-2})^2 = (x+1) + (x-2)$.\n\nThis is incorrect. The correct expansion using the formula $(a+b)^2 = a^2 + 2ab + b^2$ is:\n$(\\sqrt{x+1} + \\sqrt{x-2})^2 = (\\sqrt{x+1})^2 + 2(\\sqrt{x+1})(\\sqrt{x-2}) + (\\sqrt{x-2})^2$\n$= (x+1) + 2\\sqrt{(x+1)(x-2)} + (x-2)$\n$= 2x - 1 + 2\\sqrt{x^2 - x - 2}$.\n\nFailing to include the $2ab$ cross-term is a frequent mistake.",
+      "difficulty": "medium"
+    }
+  ]
+}

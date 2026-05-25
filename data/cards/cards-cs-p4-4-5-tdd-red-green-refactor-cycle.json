@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-tdd-red-green-refactor-cycle",
+  "subtopicTitle": "TDD — Red-Green-Refactor cycle",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:04.581Z",
+  "cards": [
+    {
+      "front": "What does TDD stand for, and what is its primary goal in software development?",
+      "back": "TDD stands for Test-Driven Development. Its primary goal is to improve software quality and design by writing automated tests *before* writing the production code, guiding development with immediate feedback.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three distinct phases of the TDD cycle in their correct order.",
+      "back": "The three phases of the TDD cycle are: Red, Green, and Refactor.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"Red\" phase of the TDD cycle, including what action is taken and its immediate expected outcome.",
+      "back": "In the \"Red\" phase, you write a new, failing automated test case for a small piece of functionality that doesn't yet exist. The immediate expected outcome is that the test fails, typically with a compilation error or an assertion failure, indicating that the new functionality is not yet implemented or is incorrect.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"Green\" phase of the TDD cycle. What is the *sole* objective during this phase, and what is *not* a priority?",
+      "back": "The \"Green\" phase involves writing *just enough* production code to make the previously failing test pass. The sole objective is to get all tests (including the new one) to pass as quickly and simply as possible, even if the code is not yet elegant or optimized. Code quality, design, and refactoring are *not* priorities here.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the \"Refactor\" phase in the TDD cycle? What kind of changes are typically made, and what crucial rule must be followed?",
+      "back": "The \"Refactor\" phase aims to improve the internal structure, readability, and maintainability of the code without changing its external behavior. Changes include removing duplication, clarifying names, simplifying logic, and improving design. The crucial rule is that *all tests must continue to pass* after refactoring, ensuring no new bugs are introduced.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it crucial to write the *smallest possible* failing test in the Red phase, and then *just enough* code to pass it in the Green phase?",
+      "back": "This approach minimizes cognitive load and potential for errors. Writing the smallest failing test ensures focus on one specific requirement. Writing just enough code avoids over-engineering and keeps the feedback loop tight, making it easier to pinpoint failure causes and ensuring only necessary functionality is implemented. It also helps drive incremental design.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You're implementing a `Calculator.add(a, b)` method. Show a minimal \"Red\" phase test for `add(1, 1)` in pseudocode and explain why it's red.",
+      "back": "```java\n// Test for Calculator.add(1, 1)\n@Test\nvoid testAddTwoNumbers() {\n    Calculator calculator = new Calculator();\n    assertEquals(2, calculator.add(1, 1)); // Expected: 2\n}\n```\nThis test is \"Red\" because the `Calculator` class or its `add` method likely doesn't exist yet, leading to a compilation error. If they exist, the `add` method probably returns a default value (e.g., 0) or throws an exception, causing the `assertEquals` to fail.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the \"Red-Green-Refactor\" cycle inherently promote good software design, even without explicit design sessions?",
+      "back": "The cycle promotes good design by:\n1.  **Forcing testability:** Code must be testable, leading to smaller, more modular units.\n2.  **Driving minimal design:** Only features required by tests are built, preventing over-engineering.\n3.  **Encouraging refactoring:** Regular refactoring improves code structure and reduces technical debt.\n4.  **Providing rapid feedback:** Small, incremental changes with immediate test feedback guide the design towards a robust solution.",
+      "difficulty": "medium"
+    }
+  ]
+}

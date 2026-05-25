@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-np-hard-harder-than-np-may-not-be-in-np",
+  "subtopicTitle": "NP-hard — harder than NP, may not be in NP",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:31.737Z",
+  "cards": [
+    {
+      "front": "Define an **NP-hard** problem in terms of reducibility.",
+      "back": "A problem $H$ is NP-hard if every problem $L \\in \\text{NP}$ can be polynomial-time reduced to $H$ (i.e., $L \\le_p H$). This means if you had a polynomial-time algorithm for $H$, you could use it to solve any problem in NP in polynomial time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental property defines an NP-hard problem regarding polynomial-time reductions?",
+      "back": "A problem $H$ is NP-hard if for *any* problem $L$ in the complexity class NP, there exists a polynomial-time many-one reduction from $L$ to $H$ ($L \\le_p H$). This implies that an efficient algorithm for $H$ could be adapted to efficiently solve any problem in NP.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why might an NP-hard problem \"not be in NP\"? Provide a classic example.",
+      "back": "An NP-hard problem is not necessarily in NP because its definition only requires that *all* problems in NP are reducible to it. It doesn't require the NP-hard problem itself to have a polynomial-time verifier. For example, the Halting Problem is NP-hard but is undecidable, meaning it cannot be solved by *any* algorithm, thus it cannot be in NP.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between an **NP-hard** problem and an **NP-complete** problem.",
+      "back": "An **NP-complete** problem is a problem that is both in NP *and* NP-hard. This means it has a polynomial-time verifier *and* every problem in NP can be reduced to it. An **NP-hard** problem, however, only satisfies the second condition (every problem in NP reduces to it) and may or may not be in NP. All NP-complete problems are NP-hard, but not all NP-hard problems are NP-complete.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it imply about a problem's practical solvability if it's proven to be NP-hard?",
+      "back": "If a problem is NP-hard, it implies it's at least as hard as the hardest problems in NP. If P $\\ne$ NP (widely believed), then no known polynomial-time algorithm exists to solve it. For large inputs, finding an exact solution in a reasonable amount of time is generally intractable, necessitating heuristics, approximation algorithms, or exponential-time exact algorithms.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Formally define polynomial-time many-one reduction ($L_1 \\le_p L_2$) between two languages $L_1$ and $L_2$.",
+      "back": "A language $L_1$ is polynomial-time many-one reducible to $L_2$ if there exists a polynomial-time computable function $f$ such that for all strings $w$, $w \\in L_1 \\iff f(w) \\in L_2$. The function $f$ transforms an instance of $L_1$ into an equivalent instance of $L_2$ in polynomial time.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Give an example of a problem that is NP-hard but *not* in NP, explaining why it fits this classification.",
+      "back": "The **Halting Problem** is NP-hard but not in NP. It's NP-hard because even undecidable problems can be NP-hard (e.g., by reducing SAT to a modified Halting Problem). However, it is not in NP (or even decidable) because there's no algorithm that can determine for all program-input pairs whether the program will halt. Without decidability, it cannot have a polynomial-time verifier.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the \"optimization version\" of a problem (e.g., TSP) relates to the NP-hard class.",
+      "back": "The *decision version* of TSP (is there a tour with cost $\\le K$?) is NP-complete. The *optimization version* (find the shortest possible tour) is NP-hard. Optimization problems are generally at least as hard as their decision counterparts. If you can solve the optimization problem, you can solve the decision problem. Thus, optimization problems are often NP-hard.",
+      "difficulty": "medium"
+    }
+  ]
+}

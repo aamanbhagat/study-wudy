@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-7-measures-of-central-tendency-mean-grouped-ungrouped-median-grouped-mode-grouped",
+  "subtopicTitle": "Measures of central tendency — mean (grouped/ungrouped), median (grouped), mode (grouped)",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:38.974Z",
+  "cards": [
+    {
+      "front": "What is the fundamental purpose of calculating measures of central tendency in statistics?",
+      "back": "To identify a single, representative value that describes the center or typical value of a dataset, providing a concise summary of its distribution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the arithmetic mean for ungrouped data and provide its formula.",
+      "back": "The arithmetic mean is the sum of all values in a dataset divided by the number of values.\nFormula: $\\bar{x} = \\frac{\\sum_{i=1}^{n} x_i}{n}$\nwhere $x_i$ are the individual data points and $n$ is the total number of data points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For grouped data, state the formula for the arithmetic mean and explain the key assumption made about data within class intervals.",
+      "back": "Formula: $\\bar{x} = \\frac{\\sum f_i m_i}{\\sum f_i}$\nwhere $f_i$ is the frequency of the $i$-th class interval and $m_i$ is the midpoint of the $i$-th class interval.\nAssumption: All data points within a given class interval are assumed to be concentrated at its midpoint. This is an approximation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the modal class identified for grouped data, and what is the formula for calculating the mode using interpolation?",
+      "back": "The **modal class** is the class interval with the highest frequency.\nThe formula for the mode (using interpolation) is:\n$$ \\text{Mode} = L + \\left( \\frac{f_m - f_{m-1}}{2f_m - f_{m-1} - f_{m+1}} \\right) \\times w $$\nWhere:\n*   $L$ = lower boundary of the modal class\n*   $f_m$ = frequency of the modal class\n*   $f_{m-1}$ = frequency of the class preceding the modal class\n*   $f_{m+1}$ = frequency of the class succeeding the modal class\n*   $w$ = width of the modal class",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the steps to locate the median class for grouped data and provide the formula for calculating the median.",
+      "back": "**Steps to locate median class:**\n1.  Calculate the cumulative frequencies for all class intervals.\n2.  Determine the position of the median: $N/2$, where $N$ is the total frequency ($\\sum f_i$).\n3.  Identify the median class as the first class interval whose cumulative frequency is greater than or equal to $N/2$.\n**Formula for Median:**\n$$ \\text{Median} = L + \\left( \\frac{\\frac{N}{2} - CF_{prev}}{f_m} \\right) \\times w $$\nWhere:\n*   $L$ = lower boundary of the median class\n*   $N$ = total number of observations ($\\sum f_i$)\n*   $CF_{prev}$ = cumulative frequency of the class preceding the median class\n*   $f_m$ = frequency of the median class\n*   $w$ = width of the median class",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a highly skewed distribution, which measure of central tendency (mean, median, mode) is generally most affected by extreme values, and which is considered most robust?",
+      "back": "The **mean** is most affected by extreme values (outliers) because it takes into account the magnitude of every data point. It is pulled towards the tail of the skew.\nThe **median** is considered most robust to extreme values because it is based on the position of data points, not their exact values. It represents the middle value regardless of how far out the outliers are. The mode is also robust, but less stable if frequencies are similar.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the underlying intuition behind using linear interpolation to calculate the median for grouped data.",
+      "back": "The interpolation formula assumes that the data points within the median class are uniformly distributed across that interval. It essentially estimates the exact position of the $N/2$-th observation within the median class by proportionally dividing the class width. If the median position ($N/2$) is, for example, halfway into the frequency of the median class, the formula adds half of the class width to the lower boundary of that class.",
+      "difficulty": "hard"
+    }
+  ]
+}

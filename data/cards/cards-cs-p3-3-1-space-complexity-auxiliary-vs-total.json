@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-1-space-complexity-auxiliary-vs-total",
+  "subtopicTitle": "Space complexity — auxiliary vs total",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:38.863Z",
+  "cards": [
+    {
+      "front": "In complexity analysis, what does \"space complexity\" primarily measure?",
+      "back": "Space complexity measures the total amount of memory an algorithm requires to run to completion, relative to the size of its input. It encompasses both the space for the input itself and any additional working space used by the algorithm.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"total space complexity\" for an algorithm, including its mathematical relationship.",
+      "back": "Total space complexity is the sum of the space taken by the input itself and the additional space (auxiliary space) used by the algorithm during its execution.\n$$S_{total}(n) = S_{input}(n) + S_{auxiliary}(n)$$\nWhere $n$ is the size of the input.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is \"auxiliary space complexity\" and why is it often the primary focus in algorithm analysis?",
+      "back": "Auxiliary space complexity refers to the *extra* or temporary space used by an algorithm *beyond* the space required for the input itself. It's often the focus because it represents the algorithm's *own* memory footprint, independent of the input's inherent size, allowing for a clearer comparison of algorithms' efficiency.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List common components that contribute to an algorithm's auxiliary space complexity.",
+      "back": "Common components contributing to auxiliary space include:\n*   Variables (local, global, temporary)\n*   Data structures (arrays, lists, maps, etc.) created by the algorithm\n*   Function call stack (for recursive algorithms)\n*   Memory allocated dynamically (e.g., `new` in C++, `malloc` in C)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the auxiliary space complexity of the following Python function?",
+      "back": "The auxiliary space complexity is $O(1)$ (constant space).\n*   `a` and `b` are inputs, their space is part of input space.\n*   `result` is a single variable, taking constant extra space.\n*   No data structures grow with input size.\n```python\ndef sum_two_numbers(a, b):\n    result = a + b\n    return result\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine the auxiliary space complexity of this function:\n```python\ndef create_list_of_n_zeros(n):\n    my_list = [0] * n\n    return my_list\n```",
+      "back": "The auxiliary space complexity is $O(n)$ (linear space).\n*   The `my_list` variable stores a list of $n$ zeros. The space required for this list grows directly proportionally to the input $n$.\n*   Even though `my_list` is returned, the space for its creation *during* execution is considered auxiliary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the auxiliary space complexity of a standard recursive factorial function `factorial(n)`?",
+      "back": "The auxiliary space complexity is $O(n)$ (linear space).\nEach recursive call `factorial(n-1)` adds a new stack frame to the call stack, storing local variables and return addresses. For `factorial(n)`, there will be $n$ nested calls before the base case is reached, leading to a call stack depth proportional to $n$.\n```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "While auxiliary space is often prioritized, in what scenarios might \"total space complexity\" be the more critical metric for an algorithm?",
+      "back": "Total space complexity becomes critical when:\n1.  **Input size is extremely large:** If the input itself consumes a significant portion of available memory (e.g., processing a multi-gigabyte file), even an algorithm with $O(1)$ auxiliary space might exceed memory limits due to the input alone.\n2.  **Memory-constrained environments:** In embedded systems or devices with very limited RAM, every byte counts, and the total memory footprint (input + auxiliary) is crucial.\n3.  **Comparing in-place vs. out-of-place algorithms:** When an algorithm modifies the input directly (\"in-place\"), its auxiliary space might be $O(1)$, but its total space still includes the input. An algorithm that copies the input to process it will have higher auxiliary space, and potentially higher total space if the input is large.",
+      "difficulty": "hard"
+    }
+  ]
+}

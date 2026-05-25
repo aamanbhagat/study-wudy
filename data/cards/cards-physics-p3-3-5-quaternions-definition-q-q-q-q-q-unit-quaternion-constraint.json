@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-quaternions-definition-q-q-q-q-q-unit-quaternion-constraint",
+  "subtopicTitle": "Quaternions — definition q = (q₀, q₁, q₂, q₃), unit quaternion constraint",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:42.767Z",
+  "cards": [
+    {
+      "front": "How is a quaternion $q$ typically defined and represented in its algebraic and component forms?",
+      "back": "A quaternion $q$ is an extension of complex numbers, defined as:\nAlgebraic form: $q = q_0 + q_1i + q_2j + q_3k$\nComponent form: $q = (q_0, q_1, q_2, q_3)$\nwhere $q_0, q_1, q_2, q_3$ are real numbers, and $i, j, k$ are imaginary units.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a quaternion $q = q_0 + q_1i + q_2j + q_3k$, identify its scalar part and its vector part.",
+      "back": "The scalar part of $q$ is $q_0$.\nThe vector part of $q$ is $\\mathbf{v} = q_1i + q_2j + q_3k$, or equivalently, the vector $(q_1, q_2, q_3)$.\nSo, $q$ can be written as $q = (q_0, \\mathbf{v})$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental algebraic multiplication rules for the imaginary units $i, j, k$ that define quaternion algebra.",
+      "back": "The imaginary units $i, j, k$ satisfy the following rules:\n$i^2 = j^2 = k^2 = ijk = -1$\nFrom these, we derive:\n$ij = k$, $ji = -k$\n$jk = i$, $kj = -i$\n$ki = j$, $ik = -j$\nThis demonstrates their non-commutative nature.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the \"norm\" (or magnitude) of a quaternion $q = (q_0, q_1, q_2, q_3)$, and how is it calculated?",
+      "back": "The norm (or magnitude) of a quaternion $q$ is denoted as $||q||$ and is calculated as the square root of the sum of the squares of its components:\n$$||q|| = \\sqrt{q_0^2 + q_1^2 + q_2^2 + q_3^2}$$\nIt is analogous to the magnitude of a vector in Euclidean space.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a \"unit quaternion\" and state its mathematical constraint.",
+      "back": "A unit quaternion is a quaternion whose norm (magnitude) is equal to 1.\nIts mathematical constraint is:\n$$||q|| = \\sqrt{q_0^2 + q_1^2 + q_2^2 + q_3^2} = 1$$\nThis implies that the sum of the squares of its components must be 1: $q_0^2 + q_1^2 + q_2^2 + q_3^2 = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the \"unit quaternion constraint\" ($||q|| = 1$) essential for representing rotations in 3D space?",
+      "back": "The unit quaternion constraint is crucial because:\n1.  **Preserves Length/Scale:** Quaternions with $||q|| \\neq 1$ represent rotations combined with scaling. For pure rotations, objects should not change size.\n2.  **Uniqueness (up to sign):** While $q$ and $-q$ represent the same rotation, enforcing $||q||=1$ ensures the quaternion strictly defines a rotation on the unit sphere in 4D space, preventing arbitrary scaling factors.\n3.  **Simplifies Operations:** Many quaternion operations (e.g., inverse, multiplication for rotation composition) are significantly simplified when dealing with unit quaternions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given an arbitrary non-zero quaternion $q = (q_0, q_1, q_2, q_3)$, how do you normalize it to obtain a unit quaternion $\\hat{q}$?",
+      "back": "To normalize a non-zero quaternion $q$, you divide each of its components by its norm $||q||$:\n$$\\hat{q} = \\frac{q}{||q||} = \\left(\\frac{q_0}{||q||}, \\frac{q_1}{||q||}, \\frac{q_2}{||q||}, \\frac{q_3}{||q||}\\right)$$\nwhere $||q|| = \\sqrt{q_0^2 + q_1^2 + q_2^2 + q_3^2}$.\nIf $q$ is the zero quaternion $(0,0,0,0)$, it cannot be normalized.",
+      "difficulty": "medium"
+    }
+  ]
+}

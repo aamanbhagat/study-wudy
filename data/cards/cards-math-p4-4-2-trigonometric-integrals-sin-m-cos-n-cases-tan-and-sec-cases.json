@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-2-trigonometric-integrals-sin-m-cos-n-cases-tan-and-sec-cases",
+  "subtopicTitle": "Trigonometric integrals — sin^m·cos^n cases, tan and sec cases",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:20.143Z",
+  "cards": [
+    {
+      "front": "What is the strategy for $\\int \\sin^m x \\cos^n x \\, dx$ when $m$ is odd?",
+      "back": "Factor out $\\sin x$. Convert the remaining even power of $\\sin x$ to terms of $\\cos x$ using $\\sin^2 x = 1 - \\cos^2 x$. Then, substitute $u = \\cos x$, so $du = -\\sin x \\, dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the strategy for $\\int \\sin^m x \\cos^n x \\, dx$ when $n$ is odd?",
+      "back": "Factor out $\\cos x$. Convert the remaining even power of $\\cos x$ to terms of $\\sin x$ using $\\cos^2 x = 1 - \\sin^2 x$. Then, substitute $u = \\sin x$, so $du = \\cos x \\, dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the strategy for $\\int \\sin^m x \\cos^n x \\, dx$ when both $m$ and $n$ are even?",
+      "back": "Use the half-angle identities to reduce the powers: $\\sin^2 x = \\frac{1-\\cos(2x)}{2}$ and $\\cos^2 x = \\frac{1+\\cos(2x)}{2}$. Repeat this process until all powers are eliminated or reduced to forms that can be integrated.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the strategy for $\\int \\tan^m x \\sec^n x \\, dx$ when $n$ is even and $n \\ge 2$?",
+      "back": "Factor out $\\sec^2 x$. Convert the remaining even power of $\\sec x$ to terms of $\\tan x$ using $\\sec^2 x = 1 + \\tan^2 x$. Then, substitute $u = \\tan x$, so $du = \\sec^2 x \\, dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the strategy for $\\int \\tan^m x \\sec^n x \\, dx$ when $m$ is odd and $m \\ge 1$?",
+      "back": "Factor out $\\tan x \\sec x$. Convert the remaining even power of $\\tan x$ to terms of $\\sec x$ using $\\tan^2 x = \\sec^2 x - 1$. Then, substitute $u = \\sec x$, so $du = \\sec x \\tan x \\, dx$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you integrate $\\int \\tan^m x \\, dx$ for $m \\ge 2$?",
+      "back": "Use the identity $\\tan^2 x = \\sec^2 x - 1$. Rewrite the integral as $\\int \\tan^{m-2} x (\\sec^2 x - 1) \\, dx = \\int \\tan^{m-2} x \\sec^2 x \\, dx - \\int \\tan^{m-2} x \\, dx$. The first integral is a $u$-substitution ($u=\\tan x$), and the second is a reduction formula.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the general approach for $\\int \\sec^n x \\, dx$ when $n > 2$?",
+      "back": "Use integration by parts. Rewrite the integral as $\\int \\sec^{n-2} x \\cdot \\sec^2 x \\, dx$. Let $u = \\sec^{n-2} x$ and $dv = \\sec^2 x \\, dx$. This leads to a reduction formula for $\\int \\sec^n x \\, dx$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What fundamental trigonometric identity is crucial for $\\int \\sin^m x \\cos^n x \\, dx$ when $m$ or $n$ is odd?",
+      "back": "The Pythagorean identity: $\\sin^2 x + \\cos^2 x = 1$. This allows conversion of $\\sin^2 x$ to $1-\\cos^2 x$ or $\\cos^2 x$ to $1-\\sin^2 x$ after factoring out a single $\\sin x$ or $\\cos x$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental trigonometric identity is crucial for $\\int \\tan^m x \\sec^n x \\, dx$?",
+      "back": "The Pythagorean identity: $\\tan^2 x + 1 = \\sec^2 x$. This allows conversion of $\\tan^2 x$ to $\\sec^2 x - 1$ or $\\sec^2 x$ to $1+\\tan^2 x$ as needed for substitution.",
+      "difficulty": "easy"
+    }
+  ]
+}

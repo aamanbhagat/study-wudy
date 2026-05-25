@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-7-dp-problems-fibonacci-coin-change-count-min-0-1-knapsack",
+  "subtopicTitle": "DP problems — Fibonacci, coin change (count + min), 0/1 knapsack",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:42.378Z",
+  "cards": [
+    {
+      "front": "What is the recursive definition of the $n$-th Fibonacci number, $F(n)$?",
+      "back": "The recursive definition for $F(n)$ is:\n$$F(n) = F(n-1) + F(n-2) \\quad \\text{for } n > 1$$\nwith base cases:\n$$F(0) = 0$$\n$$F(1) = 1$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does dynamic programming (memoization or tabulation) optimize the Fibonacci sequence calculation compared to naive recursion?",
+      "back": "Naive recursion for Fibonacci has an exponential time complexity $O(2^n)$ because it recomputes the same subproblems multiple times (e.g., $F(n-2)$ is computed by $F(n)$ and $F(n-1)$). Dynamic programming (either memoization/top-down or tabulation/bottom-up) stores the results of these subproblems in an array or hash map. When a subproblem is encountered again, its precomputed result is reused, reducing the time complexity to $O(n)$ and space complexity to $O(n)$.\n\nExample (Memoization):\n```python\nmemo = {}\ndef fib_memo(n):\n    if n <= 1: return n\n    if n not in memo:\n        memo[n] = fib_memo(n-1) + fib_memo(n-2)\n    return memo[n]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the \"Coin Change (Count Ways)\" problem.",
+      "back": "Given a set of coin denominations `coins` (e.g., $[1, 2, 5]$) and a target `amount` (e.g., $10$), the \"Coin Change (Count Ways)\" problem asks for the total number of distinct ways to make change for that `amount` using any number of coins of each denomination. The order of coins does not matter (e.g., $1+2$ is the same as $2+1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For \"Coin Change (Count Ways)\", define the DP state $dp[i]$ and its recurrence relation.",
+      "back": "$dp[i]$ represents the number of ways to make change for amount $i$.\n\nThe recurrence relation is:\n$$dp[i] = \\sum_{c \\in \\text{coins}} dp[i-c]$$\nBase case: $dp[0] = 1$ (there is one way to make change for 0: use no coins).\n\nTo correctly count combinations (distinct ways, not permutations), the outer loop should iterate through coins, and the inner loop through amounts:\n```python\ndp = [0] * (amount + 1)\ndp[0] = 1\nfor coin in coins:\n    for i in range(coin, amount + 1):\n        dp[i] += dp[i - coin]\nreturn dp[amount]\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the \"Coin Change (Minimum Coins)\" problem.",
+      "back": "Given a set of coin denominations `coins` (e.g., $[1, 2, 5]$) and a target `amount` (e.g., $11$), the \"Coin Change (Minimum Coins)\" problem asks for the minimum number of coins required to make change for that `amount`. If the `amount` cannot be made using the given coins, return -1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For \"Coin Change (Minimum Coins)\", define the DP state $dp[i]$ and its recurrence relation.",
+      "back": "$dp[i]$ represents the minimum number of coins required to make change for amount $i$.\n\nThe recurrence relation is:\n$$dp[i] = \\min_{c \\in \\text{coins}, i-c \\ge 0} (dp[i-c] + 1)$$\nBase case: $dp[0] = 0$.\n\nInitialize $dp[1 \\dots \\text{amount}]$ to a very large number (e.g., `float('inf')`) to signify that these amounts are currently unreachable. If $dp[\\text{amount}]$ remains `inf` after computation, it means the amount cannot be made.\n```python\ndp = [float('inf')] * (amount + 1)\ndp[0] = 0\nfor i in range(1, amount + 1):\n    for coin in coins:\n        if i - coin >= 0:\n            dp[i] = min(dp[i], dp[i - coin] + 1)\nreturn dp[amount] if dp[amount] != float('inf') else -1\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the \"0/1 Knapsack Problem\".",
+      "back": "Given a set of $N$ items, each with a weight $w_i$ and a value $v_i$, and a knapsack with a maximum capacity $W$. The \"0/1 Knapsack Problem\" determines the maximum total value of items that can be placed into the knapsack such that their total weight does not exceed $W$. Each item can either be fully included (1) or not included (0) — it cannot be partially included.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the 0/1 Knapsack problem, define the DP state $dp[i][j]$ and its recurrence relation.",
+      "back": "$dp[i][j]$ represents the maximum value that can be obtained using items from the first $i$ items with a knapsack capacity of $j$.\n\nThe recurrence relation is:\n$$dp[i][j] = \\begin{cases}\n    dp[i-1][j] & \\text{if } w_i > j \\quad (\\text{item } i \\text{ cannot be included})\n    \\\\ \n    \\max(dp[i-1][j], dp[i-1][j - w_i] + v_i) & \\text{if } w_i \\le j \\quad (\\text{item } i \\text{ can be included or not})\n\\end{cases}$$\nBase cases: $dp[0][j] = 0$ for all $j$ (no items, no value). $dp[i][0] = 0$ for all $i$ (no capacity, no value).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can the 0/1 Knapsack DP be optimized from $O(NW)$ space to $O(W)$ space?",
+      "back": "The 2D DP state $dp[i][j]$ only depends on values from the previous row ($dp[i-1][\\dots]$). This allows for a space optimization to a 1D array, $dp[j]$, where $dp[j]$ represents the maximum value for capacity $j$ using items considered so far.\n\nTo ensure that each item is considered only once (0/1 property) when using a 1D array, the inner loop for capacity $j$ must iterate in *descending* order (from $W$ down to the current item's weight $w_i$). This prevents an item from being used multiple times within the same iteration (which would be the unbounded knapsack problem).\n\n```python\n# n_items, W, weights, values are given\ndp = [0] * (W + 1)\nfor item_idx in range(n_items):\n    weight, value = weights[item_idx], values[item_idx]\n    for j in range(W, weight - 1, -1): # Iterate backwards\n        dp[j] = max(dp[j], dp[j - weight] + value)\nreturn dp[W]\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

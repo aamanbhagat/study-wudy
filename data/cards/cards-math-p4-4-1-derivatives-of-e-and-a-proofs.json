@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-1-derivatives-of-e-and-a-proofs",
+  "subtopicTitle": "Derivatives of eˣ and aˣ — proofs",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:01.182Z",
+  "cards": [
+    {
+      "front": "State the derivative of the exponential function $f(x) = e^x$.",
+      "back": "$$\\frac{d}{dx}(e^x) = e^x$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive $\\frac{d}{dx}(e^x)$ from the limit definition of the derivative.",
+      "back": "Let $f(x) = e^x$. Using the limit definition:\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$\n$$f'(x) = \\lim_{h \\to 0} \\frac{e^{x+h} - e^x}{h}$$\n$$f'(x) = \\lim_{h \\to 0} \\frac{e^x e^h - e^x}{h}$$\n$$f'(x) = \\lim_{h \\to 0} e^x \\left(\\frac{e^h - 1}{h}\\right)$$\nSince $e^x$ is constant with respect to $h$, we can pull it out of the limit:\n$$f'(x) = e^x \\lim_{h \\to 0} \\left(\\frac{e^h - 1}{h}\\right)$$\nIt is a fundamental limit that $\\lim_{h \\to 0} \\frac{e^h - 1}{h} = 1$.\nTherefore, $$f'(x) = e^x \\cdot 1 = e^x$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the derivative of the general exponential function $f(x) = a^x$, where $a > 0$ and $a \\neq 1$.",
+      "back": "$$\\frac{d}{dx}(a^x) = a^x \\ln a$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive $\\frac{d}{dx}(a^x)$ from the limit definition of the derivative.",
+      "back": "Let $f(x) = a^x$. Using the limit definition:\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$\n$$f'(x) = \\lim_{h \\to 0} \\frac{a^{x+h} - a^x}{h}$$\n$$f'(x) = \\lim_{h \\to 0} \\frac{a^x a^h - a^x}{h}$$\n$$f'(x) = \\lim_{h \\to 0} a^x \\left(\\frac{a^h - 1}{h}\\right)$$\nSince $a^x$ is constant with respect to $h$, we can pull it out of the limit:\n$$f'(x) = a^x \\lim_{h \\to 0} \\left(\\frac{a^h - 1}{h}\\right)$$\nIt is a fundamental limit that $\\lim_{h \\to 0} \\frac{a^h - 1}{h} = \\ln a$.\nTherefore, $$f'(x) = a^x \\ln a$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove the derivative of $a^x$ using the chain rule and the identity $a^x = e^{x \\ln a}$.",
+      "back": "Given $f(x) = a^x$. We can rewrite $a^x$ using the natural exponential function:\n$$a^x = (e^{\\ln a})^x = e^{x \\ln a}$$\nLet $u = x \\ln a$. Then $f(x) = e^u$.\nUsing the chain rule, $\\frac{d}{dx}(f(x)) = \\frac{d}{du}(e^u) \\cdot \\frac{du}{dx}$.\nWe know $\\frac{d}{du}(e^u) = e^u$.\nAnd $\\frac{du}{dx} = \\frac{d}{dx}(x \\ln a) = \\ln a$ (since $\\ln a$ is a constant).\nSubstituting these back:\n$$\\frac{d}{dx}(a^x) = e^u \\cdot \\ln a$$\nSubstitute $u = x \\ln a$ back:\n$$\\frac{d}{dx}(a^x) = e^{x \\ln a} \\cdot \\ln a$$\nFinally, recall that $e^{x \\ln a} = a^x$.\nThus, $$\\frac{d}{dx}(a^x) = a^x \\ln a$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What specific limit must be known to derive $\\frac{d}{dx}(e^x)$ from the limit definition?",
+      "back": "The crucial limit is $$\\lim_{h \\to 0} \\frac{e^h - 1}{h} = 1$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why $e$ is considered the \"natural\" base for exponential functions in calculus.",
+      "back": "The number $e$ is \"natural\" because it is the unique base for which the derivative of $f(x) = e^x$ is simply itself, $f'(x) = e^x$. This means the rate of change of $e^x$ at any point $x$ is equal to the value of $e^x$ at that point. For any other base $a$, $\\frac{d}{dx}(a^x) = a^x \\ln a$, which includes an extra factor of $\\ln a$. The simplicity of $\\frac{d}{dx}(e^x) = e^x$ makes $e$ particularly convenient and fundamental in calculus.",
+      "difficulty": "medium"
+    }
+  ]
+}

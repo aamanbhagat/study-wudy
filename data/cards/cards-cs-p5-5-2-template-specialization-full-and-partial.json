@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-template-specialization-full-and-partial",
+  "subtopicTitle": "Template specialization — full and partial",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:07.456Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of C++ template specialization?",
+      "back": "Template specialization allows providing a different implementation for a template (class or function) when it is instantiated with specific template arguments, or a subset of them. This is useful for optimizing performance, handling specific types differently, or working around limitations of the generic template.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the syntax for a full template specialization of a class template `MyClass<T, U>` for types `int` and `double`.",
+      "back": "```cpp\ntemplate<>\nclass MyClass<int, double> {\n    // Specialized implementation for int, double\n};\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Demonstrate the syntax for a full template specialization of a function template `void print(T val)` for type `char*`.",
+      "back": "```cpp\ntemplate<>\nvoid print<char*>(char* val) {\n    // Specialized implementation for char*\n    std::cout << \"Specialized char*: \" << val << std::endl;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain partial template specialization. Provide its basic syntax for a class template `MyClass<T, U>` specializing `U` to `int`.",
+      "back": "Partial template specialization provides a specialized version of a class template for a *subset* of its template parameters, leaving some generic. It's like an 'overload' for class templates.\n```cpp\ntemplate<typename T>\nclass MyClass<T, int> {\n    // Specialized implementation for U = int\n};\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does C++ *not* allow partial specialization for function templates?",
+      "back": "Function templates use *overload resolution* instead of partial specialization. If you want a function to behave differently for specific types or patterns, you simply provide overloaded function templates (or non-template functions) that are more specialized. The compiler's overload resolution rules will then select the best match.\n```cpp\n// Primary template\ntemplate<typename T> void func(T val) {}\n// \"Partial specialization\" via overloading\ntemplate<typename T> void func(T* val) {}\n// Full specialization via overloading\nvoid func(int* val) {}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a primary template, a partial specialization, and a full specialization, in what order does the C++ compiler prefer them during instantiation?",
+      "back": "The compiler prefers the *most specialized* template that matches the provided arguments. The order of preference is:\n1.  **Full Specialization:** If an exact match exists.\n2.  **Partial Specialization:** If multiple partial specializations match, the 'most specialized' one (determined by template argument deduction rules, similar to overload resolution) is chosen.\n3.  **Primary Template:** If no specializations match, or if the primary template is the best match among partial specializations.\nThis process is analogous to overload resolution for functions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write a class template `Wrapper<T>` and a partial specialization for pointer types `T*`.",
+      "back": "```cpp\ntemplate<typename T>\nclass Wrapper {\npublic:\n    void print() { std::cout << \"Generic Wrapper\" << std::endl; }\n};\n\ntemplate<typename T>\nclass Wrapper<T*> { // Partial specialization for any pointer type\npublic:\n    void print() { std::cout << \"Pointer Wrapper\" << std::endl; }\n};\n// Usage:\n// Wrapper<int> w1; w1.print(); // Generic\n// Wrapper<int*> w2; w2.print(); // Pointer\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Create a class template `Array<T, N>` with a non-type parameter $N$. Add a partial specialization for when $N$ is $0$.",
+      "back": "```cpp\ntemplate<typename T, int N>\nclass Array {\n    // T data[N]; // This would fail for N=0\npublic:\n    void printSize() { std::cout << \"Array size: \" << N << std::endl; }\n};\n\ntemplate<typename T>\nclass Array<T, 0> { // Partial specialization for N = 0\npublic:\n    void printSize() { std::cout << \"Empty Array (size 0)\" << std::endl; }\n};\n// Usage:\n// Array<int, 5> a1; a1.printSize(); // Array size: 5\n// Array<double, 0> a2; a2.printSize(); // Empty Array (size 0)\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

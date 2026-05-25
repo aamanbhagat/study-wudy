@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-invertible-matrix-theorem-12-equivalent-conditions",
+  "subtopicTitle": "Invertible matrix theorem — 12+ equivalent conditions",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:13.829Z",
+  "cards": [
+    {
+      "front": "Define an invertible matrix $A$ of size $n \\times n$.",
+      "back": "$A$ is invertible if there exists an $n \\times n$ matrix $C$ such that $AC = CA = I_n$, where $I_n$ is the $n \\times n$ identity matrix. $C$ is called the inverse of $A$, denoted $A^{-1}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If an $n \\times n$ matrix $A$ is invertible, what can be said about its row echelon form and pivot positions?",
+      "back": "If $A$ is invertible, it is row equivalent to the $n \\times n$ identity matrix $I_n$. This implies that $A$ has $n$ pivot positions, one in each row and each column.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an $n \\times n$ matrix $A$, how does the solution set of $Ax = 0$ relate to its invertibility?",
+      "back": "$A$ is invertible if and only if the homogeneous equation $Ax = 0$ has only the trivial solution ($x = 0$). This is equivalent to the columns of $A$ forming a linearly independent set.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If an $n \\times n$ matrix $A$ is invertible, describe the properties of the linear transformation $T(x) = Ax$.",
+      "back": "If $A$ is invertible, the linear transformation $T(x) = Ax$ is both one-to-one (injective) and onto (surjective).\n1. One-to-one: For $x_1 \\neq x_2$, $T(x_1) \\neq T(x_2)$. (Equivalent to $Ax=0$ having only trivial solution).\n2. Onto: For every $b \\in \\mathbb{R}^n$, the equation $Ax=b$ has at least one solution. (Equivalent to columns of $A$ spanning $\\mathbb{R}^n$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State two conditions related to $\\det(A)$ and eigenvalues that are equivalent to an $n \\times n$ matrix $A$ being invertible.",
+      "back": "1. The determinant of $A$ is non-zero: $\\det(A) \\neq 0$.\n2. The number 0 is not an eigenvalue of $A$. (If 0 were an eigenvalue, $Ax = 0x = 0$ would have a non-trivial solution, implying $A$ is not invertible).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If an $n \\times n$ matrix $A$ is invertible, what can be concluded about its columns in $\\mathbb{R}^n$?",
+      "back": "If $A$ is invertible, its columns:\n1. Form a linearly independent set.\n2. Span $\\mathbb{R}^n$.\n3. Therefore, they form a basis for $\\mathbb{R}^n$.\nThis means the column space $\\text{Col } A = \\mathbb{R}^n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an $n \\times n$ matrix $A$, relate its rank and nullity to its invertibility.",
+      "back": "$A$ is invertible if and only if:\n1. The rank of $A$ is $n$ ($\\text{rank } A = n$). This means the dimension of the column space is $n$.\n2. The dimension of the null space of $A$ is 0 ($\\text{dim Nul } A = 0$). This means the null space contains only the zero vector, $\\text{Nul } A = \\{0\\}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $A$ is an invertible $n \\times n$ matrix, what can be said about its transpose $A^T$?",
+      "back": "If $A$ is an invertible $n \\times n$ matrix, then its transpose $A^T$ is also invertible. Furthermore, $(A^T)^{-1} = (A^{-1})^T$.",
+      "difficulty": "easy"
+    }
+  ]
+}

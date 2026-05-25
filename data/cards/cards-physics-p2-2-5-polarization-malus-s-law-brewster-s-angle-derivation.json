@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-5-polarization-malus-s-law-brewster-s-angle-derivation",
+  "subtopicTitle": "Polarization — Malus's law, Brewster's angle derivation",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:03.618Z",
+  "cards": [
+    {
+      "front": "What defines linearly polarized light?",
+      "back": "Linearly polarized light (or plane-polarized light) is electromagnetic radiation in which the electric field vector oscillates in a single, fixed plane perpendicular to the direction of wave propagation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Malus's Law, including the meaning of each variable.",
+      "back": "Malus's Law states that when a perfectly linearly polarized light beam of intensity $I_0$ passes through an ideal polarizer (analyzer), the transmitted intensity $I$ is given by: $$I = I_0 \\cos^2 \\theta$$ where $\\theta$ is the angle between the polarization direction of the incident light and the transmission axis of the polarizer.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A linearly polarized laser beam with intensity $I_0$ passes through an ideal polarizer. If the polarizer's transmission axis is oriented $45^\\circ$ to the beam's polarization, what fraction of $I_0$ is transmitted?",
+      "back": "According to Malus's Law, $I = I_0 \\cos^2 \\theta$. Given $\\theta = 45^\\circ$, we have: $$I = I_0 \\cos^2(45^\\circ) = I_0 \\left(\\frac{\\sqrt{2}}{2}\\right)^2 = I_0 \\left(\\frac{2}{4}\\right) = \\frac{1}{2}I_0$$ Thus, half or $50\\%$ of the original intensity is transmitted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is Brewster's Angle ($\\theta_B$) and what unique phenomenon occurs at this angle for reflected light?",
+      "back": "Brewster's Angle is the angle of incidence at which light with a particular polarization (p-polarized, or parallel to the plane of incidence) is perfectly transmitted through a dielectric surface, with no reflection. At this angle, the reflected light is entirely s-polarized (perpendicular to the plane of incidence).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Brewster's Angle formula, $\\tan \\theta_B = n_2/n_1$, using Snell's Law and the condition that reflected and refracted rays are perpendicular.",
+      "back": "At Brewster's angle ($\\theta_B$), the reflected ray and the refracted ray are perpendicular, meaning the angle between them is $90^\\circ$. Let $\\theta_r$ be the angle of reflection and $\\theta_t$ be the angle of refraction.\n1.  From the law of reflection, $\\theta_r = \\theta_B$.\n2.  The perpendicular condition implies $\\theta_r + \\theta_t = 90^\\circ$. Substituting $\\theta_r = \\theta_B$, we get $\\theta_B + \\theta_t = 90^\\circ$, so $\\theta_t = 90^\\circ - \\theta_B$.\n3.  Snell's Law states $n_1 \\sin \\theta_B = n_2 \\sin \\theta_t$.\n4.  Substitute $\\theta_t = 90^\\circ - \\theta_B$ into Snell's Law: $n_1 \\sin \\theta_B = n_2 \\sin (90^\\circ - \\theta_B)$.\n5.  Using the trigonometric identity $\\sin(90^\\circ - x) = \\cos x$: $n_1 \\sin \\theta_B = n_2 \\cos \\theta_B$.\n6.  Rearrange to solve for $\\tan \\theta_B$: $$\\frac{\\sin \\theta_B}{\\cos \\theta_B} = \\frac{n_2}{n_1} \\implies \\tan \\theta_B = \\frac{n_2}{n_1}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When unpolarized light is incident on a surface at Brewster's angle, describe the polarization state of the *transmitted* light.",
+      "back": "When unpolarized light is incident at Brewster's angle, the reflected light is entirely s-polarized. This means the p-polarized component of the incident light is completely transmitted. Therefore, the transmitted light will be partially polarized, with a stronger p-polarized component than s-polarized component.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it incorrect to apply Malus's Law directly to calculate the intensity of unpolarized light passing through a *single* ideal polarizer?",
+      "back": "Malus's Law ($I = I_0 \\cos^2 \\theta$) specifically describes how the intensity of *already linearly polarized* light changes after passing through an analyzer. Unpolarized light consists of electric fields oscillating in all possible planes. When unpolarized light passes through a single ideal polarizer, its intensity is simply halved ($I = I_0/2$), regardless of the polarizer's orientation, because on average, half of the incident electric field components are aligned with the transmission axis.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-firewalls-stateless-vs-stateful-packet-filtering",
+  "subtopicTitle": "Firewalls — stateless vs stateful packet filtering",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:40.365Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a packet filtering firewall?",
+      "back": "To inspect incoming and outgoing network packets against a set of predefined rules to determine whether to permit or deny their passage based on header information.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the common packet header fields a *stateless* packet filtering firewall uses for decision-making.",
+      "back": "Source IP address, Destination IP address, Source Port, Destination Port, Protocol (e.g., TCP, UDP, ICMP). It evaluates each packet in isolation, without regard for prior packets.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why a stateless firewall cannot prevent an attacker from spoofing a response packet that appears to originate from a legitimate internal host.",
+      "back": "A stateless firewall examines each packet independently. If an outbound rule allows traffic from an internal IP, it has no context to know if an *inbound* packet with that internal IP as the *source* is a legitimate reply or a spoofed packet. It lacks the 'memory' of an established connection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond basic header fields, what crucial information does a *stateful* packet filtering firewall maintain to make more intelligent decisions?",
+      "back": "A stateful firewall maintains a 'state table' or 'connection table' that tracks the state of active network connections (e.g., TCP connections in SYN_SENT, ESTABLISHED states). This includes tracking sequence numbers, acknowledgment numbers, and dynamic port assignments.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A client behind a stateful firewall initiates an outbound TCP connection to a web server. How does the firewall handle the *return* HTTP response packets without an explicit inbound rule for port 80?",
+      "back": "When the client sends the initial SYN, the stateful firewall creates a state table entry. It records the client's IP/port, server's IP/port, and expected sequence numbers. When the server's SYN-ACK and subsequent data packets arrive, the firewall checks its state table. Since these packets match an *established* outbound connection, they are permitted, as they are part of a recognized, legitimate session.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does stateful packet filtering offer better protection against SYN flood attacks compared to stateless filtering?",
+      "back": "A stateless firewall would permit all SYN packets if the destination port is open. A stateful firewall tracks half-open connections. It can detect an excessive number of uncompleted SYN handshakes to a target, identify a SYN flood, and then drop subsequent SYN packets or apply rate-limiting to protect the internal server.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how a stateful firewall handles return traffic for connectionless protocols like UDP, which lack TCP's explicit connection states.",
+      "back": "For UDP, a stateful firewall creates a 'pseudo-connection' entry in its state table for a short timeout period after an outbound UDP packet. It expects a return UDP packet from the destination IP and port within this window. If a matching return packet arrives, it's allowed. After the timeout, the entry is removed. This supports applications like DNS queries.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are two primary disadvantages of stateful packet filtering compared to stateless filtering, related to its operational requirements?",
+      "back": "Increased complexity and higher resource consumption (CPU, memory) are primary disadvantages. Maintaining and constantly updating the state table for potentially millions of concurrent connections requires significant processing power and memory.",
+      "difficulty": "medium"
+    }
+  ]
+}

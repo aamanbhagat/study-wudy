@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-bipartite-graphs-2-coloring-test-bipartite-matching-hopcroft-karp",
+  "subtopicTitle": "Bipartite graphs — 2-coloring test, bipartite matching — Hopcroft-Karp",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:20.114Z",
+  "cards": [
+    {
+      "front": "Define a bipartite graph $G=(V, E)$.",
+      "back": "A graph $G=(V, E)$ is bipartite if its vertices $V$ can be partitioned into two disjoint and independent sets, $U$ and $W$, such that every edge $(u, w) \\in E$ connects a vertex in $U$ to one in $W$. No edges exist within $U$ or within $W$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the algorithm to test if a given graph is bipartite using a 2-coloring approach.",
+      "back": "Start a traversal (BFS or DFS) from an arbitrary uncolored vertex, assigning it color 1. All its neighbors must be assigned color 2. All neighbors of color 2 vertices must be color 1, and so on. If at any point an edge connects two vertices of the same color, the graph is not bipartite. If the traversal completes without conflict for all connected components, the graph is bipartite.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A graph is bipartite if and only if it contains no ______.",
+      "back": "A graph is bipartite if and only if it contains no **odd-length cycles**. An odd-length cycle forces at least two vertices in the cycle to have the same color if we attempt a 2-coloring, leading to a conflict.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a bipartite graph $G=(U \\cup W, E)$, what is a matching, and what is a maximum matching?",
+      "back": "A **matching** $M$ is a subset of edges $E$ such that no two edges in $M$ share a common vertex. A **maximum matching** is a matching with the largest possible number of edges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Give a real-world problem that can be modeled and solved using bipartite matching.",
+      "back": "**Job Assignment Problem**: Given a set of applicants and a set of jobs, where each applicant is qualified for a subset of jobs, assign as many applicants to jobs as possible such that each applicant gets at most one job and each job gets at most one applicant. This can be modeled by creating a bipartite graph with applicants on one side, jobs on the other, and edges representing qualifications. A maximum matching finds the optimal assignments.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key concept that Hopcroft-Karp uses to find a maximum bipartite matching more efficiently than simple augmenting path algorithms?",
+      "back": "Hopcroft-Karp finds a **maximal set of shortest augmenting paths** in each phase. Instead of finding one augmenting path at a time (which could be long and lead to many phases), it identifies all shortest augmenting paths of a certain length simultaneously and uses them to augment the matching. This significantly reduces the number of phases.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly outline the two main steps (phases) of each iteration in the Hopcroft-Karp algorithm.",
+      "back": "Each iteration of Hopcroft-Karp involves:\n1.  **BFS Phase**: Build a layered graph by running a BFS from all unmatched vertices in $U$. The BFS identifies all shortest augmenting paths from $U$ to unmatched vertices in $W$.\n2.  **DFS Phase**: Use a DFS to find a maximal set of vertex-disjoint augmenting paths within the layered graph constructed by BFS. These paths are guaranteed to be shortest. Augment the matching along these paths.\nRepeat until no more augmenting paths can be found.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the time complexity of the Hopcroft-Karp algorithm for a bipartite graph $G=(V, E)$? Explain the intuition behind it.",
+      "back": "The time complexity is $O(E\\sqrt{V})$.\n**Intuition**: Simple augmenting path algorithms can take $O(VE)$ time. Hopcroft-Karp improves this by finding multiple shortest augmenting paths in each phase. It's proven that after $O(\\sqrt{V})$ phases, the length of the shortest augmenting path must increase significantly, or the matching is already close to maximum. Each phase (BFS + DFS) takes $O(E)$ time. Since there are at most $O(\\sqrt{V})$ such phases, the total time is $O(E\\sqrt{V})$.",
+      "difficulty": "hard"
+    }
+  ]
+}

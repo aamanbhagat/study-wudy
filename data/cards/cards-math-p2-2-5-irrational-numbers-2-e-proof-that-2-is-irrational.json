@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-5-irrational-numbers-2-e-proof-that-2-is-irrational",
+  "subtopicTitle": "Irrational numbers — √2, π, e — proof that √2 is irrational",
+  "topicId": "math-p2-2-5-number-theory-intermediate",
+  "topicTitle": "Number Theory (Intermediate)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:52.731Z",
+  "cards": [
+    {
+      "front": "Define an irrational number.",
+      "back": "An irrational number is a real number that cannot be expressed as a simple fraction $\\frac{p}{q}$, where $p$ and $q$ are integers and $q \\neq 0$. Its decimal expansion is non-terminating and non-repeating.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name three common irrational numbers mentioned in the topic.",
+      "back": "The three common irrational numbers are $\\sqrt{2}$ (the square root of 2), $\\pi$ (pi), and $e$ (Euler's number).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental principle behind a proof by contradiction?",
+      "back": "To prove a statement $P$, one assumes its negation $\\neg P$ is true. If this assumption leads to a logical contradiction, then $\\neg P$ must be false, which implies that the original statement $P$ must be true.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the initial assumption made when proving $\\sqrt{2}$ is irrational using proof by contradiction, and how this assumption is expressed mathematically.",
+      "back": "The initial assumption is that $\\sqrt{2}$ is rational. Mathematically, this means $\\sqrt{2}$ can be written as a fraction $\\frac{a}{b}$, where $a$ and $b$ are integers, $b \\neq 0$, and the fraction is in its simplest form (i.e., $a$ and $b$ have no common factors other than 1, or $gcd(a,b)=1$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the assumption $\\sqrt{2} = \\frac{a}{b}$ (in simplest form), what is the immediate algebraic consequence and what does it imply about $a$?",
+      "back": "Squaring both sides gives $2 = \\frac{a^2}{b^2}$, which rearranges to $a^2 = 2b^2$. This equation shows that $a^2$ is an even number. If $a^2$ is even, then $a$ itself must also be an even number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $a$ is even, we can write $a=2k$ for some integer $k$. Substitute this into $a^2 = 2b^2$ and explain what it implies about $b$.",
+      "back": "Substituting $a=2k$ into $a^2 = 2b^2$ gives $(2k)^2 = 2b^2 \\Rightarrow 4k^2 = 2b^2 \\Rightarrow 2k^2 = b^2$. This equation shows that $b^2$ is an even number. Therefore, $b$ itself must also be an even number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Based on the previous steps, what contradiction arises from assuming $\\sqrt{2}$ is rational?",
+      "back": "From the previous steps, we deduced that both $a$ and $b$ must be even numbers. This implies that $a$ and $b$ share a common factor of 2. However, our initial assumption was that the fraction $\\frac{a}{b}$ was in its simplest form, meaning $a$ and $b$ have no common factors other than 1. The conclusion that $a$ and $b$ are both even directly contradicts the assumption that they are coprime.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the final conclusion of the proof that $\\sqrt{2}$ is irrational, and why?",
+      "back": "The final conclusion is that $\\sqrt{2}$ is irrational. This is because our initial assumption that $\\sqrt{2}$ is rational led to a logical contradiction (that $a$ and $b$ are both even, yet coprime). Since the assumption led to a falsehood, the assumption itself must be false. Therefore, $\\sqrt{2}$ cannot be rational, meaning it must be irrational.",
+      "difficulty": "medium"
+    }
+  ]
+}

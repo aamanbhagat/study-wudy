@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p2-2-1-polynomial-long-division-and-synthetic-division",
+  "subtopicTitle": "Polynomial long division and synthetic division",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:14.985Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of polynomial long division?",
+      "back": "Polynomial long division is used to divide one polynomial by another polynomial, typically to find the quotient and remainder. It's essential when the divisor is of degree 1 or higher, and it can help in factoring polynomials or finding roots if the remainder is zero.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the general steps involved in polynomial long division when dividing $P(x)$ by $D(x)$.",
+      "back": "1. Arrange both polynomials in descending powers, adding zero coefficients for any missing terms in the dividend. 2. Divide the leading term of the dividend by the leading term of the divisor to get the first term of the quotient. 3. Multiply the entire divisor by this quotient term. 4. Subtract the result from the dividend. 5. Bring down the next term of the original dividend. 6. Repeat steps 2-5 with the new polynomial until the degree of the remainder is less than the degree of the divisor.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Perform polynomial long division for $\\frac{x^3 - 2x^2 - 5x + 6}{x - 3}$.",
+      "back": "$$\\begin{array}{r} x^2 + x - 2 \\\\ x-3 \\enclose{longdiv}{x^3 - 2x^2 - 5x + 6} \\\\ \\underline{-(x^3 - 3x^2)} \\\\ x^2 - 5x \\\\ \\underline{-(x^2 - 3x)} \\\\ -2x + 6 \\\\ \\underline{-(-2x + 6)} \\\\ 0 \\end{array}$$ The quotient is $x^2 + x - 2$ and the remainder is $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is synthetic division, and when is it applicable?",
+      "back": "Synthetic division is a shortcut method for dividing a polynomial by a linear binomial of the specific form $(x - c)$. It's a more efficient way to find the quotient and remainder compared to polynomial long division, but only applicable under this condition.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the general steps for performing synthetic division when dividing $P(x)$ by $(x - c)$.",
+      "back": "1. Write $c$ (from $x-c$) to the left of the coefficients. 2. Write the coefficients of the dividend $P(x)$ to the right, ensuring to include zeros for any missing terms. 3. Bring down the first coefficient. 4. Multiply this coefficient by $c$ and write the product under the next coefficient. 5. Add the numbers in that column. 6. Repeat steps 4 and 5 until all coefficients are processed. The last number is the remainder; the preceding numbers are the coefficients of the quotient, in descending order of power.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use synthetic division to divide $3x^3 + 2x^2 - x + 4$ by $x + 2$.",
+      "back": "For the divisor $x+2$, we use $c = -2$.\n```\n-2 | 3   2   -1   4\n   |    -6    8  -14\n   -----------------\n     3  -4    7  -10\n```\nThe coefficients of the quotient are $3, -4, 7$, and the remainder is $-10$. So, the quotient is $3x^2 - 4x + 7$ and the remainder is $-10$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Remainder Theorem and explain its connection to the Factor Theorem.",
+      "back": "**Remainder Theorem:** If a polynomial $P(x)$ is divided by $(x - c)$, then the remainder is $P(c)$.\n**Factor Theorem:** A polynomial $P(x)$ has a factor $(x - c)$ if and only if $P(c) = 0$. This is a direct consequence of the Remainder Theorem: if $P(c) = 0$, it means the remainder when dividing by $(x-c)$ is zero, implying $(x-c)$ divides $P(x)$ evenly and is therefore a factor.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is synthetic division *not* applicable, and why?",
+      "back": "Synthetic division is not applicable when:\n1. The divisor is not a linear binomial (e.g., $x^2 + 1$, $x^3 - 2x$).\n2. The divisor is a linear binomial with a leading coefficient other than 1 (e.g., $2x - 1$, $3x + 4$).\nIt's designed for the simplified structure of $(x-c)$, where $c$ is a single constant. More complex divisors require the full polynomial long division method.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly explain the core intuition or mechanism that makes synthetic division work as a shortcut.",
+      "back": "Synthetic division works by streamlining polynomial long division through: 1. **Coefficient-only operations:** It omits variables, focusing solely on coefficients. 2. **Changing subtraction to addition:** By using $c$ (the root from $x-c$) instead of $-c$, the multiplications are done with the value that turns subsequent subtractions into additions, simplifying the arithmetic. 3. **Compact representation:** It collapses the repetitive steps of long division into a single, efficient row-based calculation, effectively performing the same algebraic operations in a more condensed format.",
+      "difficulty": "hard"
+    }
+  ]
+}

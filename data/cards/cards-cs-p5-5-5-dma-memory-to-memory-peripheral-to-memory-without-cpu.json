@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-dma-memory-to-memory-peripheral-to-memory-without-cpu",
+  "subtopicTitle": "DMA — memory-to-memory, peripheral-to-memory without CPU",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:45.966Z",
+  "cards": [
+    {
+      "front": "What does DMA stand for, and what is its primary purpose in embedded systems?",
+      "back": "DMA stands for Direct Memory Access. Its primary purpose is to allow peripherals (or other memory regions) to transfer data directly to and from main memory without requiring constant CPU intervention, thereby freeing the CPU for other tasks.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Briefly describe the three main steps involved in a typical DMA transfer cycle after the CPU initiates it.",
+      "back": "1. **CPU Configuration:** The CPU programs the DMA controller (DMAC) with the source address, destination address, transfer count, and transfer mode.\n2. **Bus Mastership:** The DMAC requests control of the system bus from the CPU.\n3. **Data Transfer:** Once granted bus mastership, the DMAC performs the data transfer directly between memory and/or peripherals, independent of the CPU.\n4. **Completion Notification:** Upon transfer completion, the DMAC typically generates an interrupt to notify the CPU.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between \"memory-to-memory\" and \"peripheral-to-memory\" DMA transfers, providing a common use case for each.",
+      "back": "- **Memory-to-memory DMA:** Transfers data between two different locations within the main memory. \n  *   *Use Case:* Efficiently copying large blocks of data (e.g., `memcpy` optimization) or initializing memory regions.\n- **Peripheral-to-memory DMA:** Transfers data from a peripheral's register directly into main memory.\n  *   *Use Case:* Storing data from an Analog-to-Digital Converter (ADC) or receiving data from a network interface controller (NIC) into RAM.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does DMA improve overall system performance and CPU efficiency in data-intensive operations?",
+      "back": "DMA significantly improves performance by offloading the data transfer burden from the CPU. This allows the CPU to execute other instructions concurrently while the DMA controller handles data movement, reducing CPU overhead, increasing throughput, and enabling higher data rates for peripherals.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What key registers or configuration parameters does the CPU typically set up in a DMA controller (DMAC) to initiate a transfer?",
+      "back": "The CPU typically configures the following in a DMAC:\n1.  **Source Address Register:** Points to the starting address of the data to be read.\n2.  **Destination Address Register:** Points to the starting address where data should be written.\n3.  **Transfer Count Register:** Specifies the total number of data units (bytes, words, etc.) to be transferred.\n4.  **Control Register:** Defines transfer direction (e.g., peripheral-to-memory), data size (e.g., byte, half-word, word), address increment/decrement modes, and interrupt enable flags.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Imagine an ADC continuously sampling data. How would DMA be used to efficiently store this data into a circular buffer in RAM without constant CPU polling?",
+      "back": "The CPU would configure the DMAC with:\n1.  **Source:** The ADC's data output register.\n2.  **Destination:** The start address of the circular buffer in RAM.\n3.  **Transfer Count:** The size of the circular buffer (or a segment of it).\n4.  **Mode:** Peripheral-to-memory, with destination address auto-increment, and often a 'circular' or 'auto-reload' mode. \nEach time the ADC generates a new sample, the DMAC automatically reads it and writes it to the next available location in the RAM buffer. When the buffer is full (or half-full), the DMAC can generate an interrupt, allowing the CPU to process the collected data while the DMAC continues filling the other half of the buffer.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the \"cache coherency\" problem that can arise with DMA, and suggest a common software-based mitigation strategy.",
+      "back": "The **cache coherency problem** occurs when a DMA controller writes data directly to main memory. The CPU might have a copy of that same memory location in its internal cache, but this cached copy is now *stale* (outdated). If the CPU then reads from that memory location, it might retrieve the old, incorrect data from its cache instead of the new data written by DMA.\n\n**Mitigation:** A common software-based strategy is to explicitly **invalidate** the relevant cache lines before the CPU reads DMA-written data, forcing the CPU to fetch the fresh data from main memory. Conversely, if the CPU writes data that DMA will read, the software might **flush** (write back) dirty cache lines to main memory before initiating the DMA transfer.",
+      "difficulty": "hard"
+    }
+  ]
+}

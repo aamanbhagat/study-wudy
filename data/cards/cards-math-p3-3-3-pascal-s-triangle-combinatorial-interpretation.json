@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-3-pascal-s-triangle-combinatorial-interpretation",
+  "subtopicTitle": "Pascal's triangle — combinatorial interpretation",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:03.114Z",
+  "cards": [
+    {
+      "front": "The entry in row $n$ and position $k$ (0-indexed) of Pascal's triangle represents what combinatorial quantity?",
+      "back": "The entry $\\binom{n}{k}$ represents the number of ways to choose $k$ items from a set of $n$ distinct items, without regard to order. It is also known as 'n choose k'.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Pascal's identity and explain its relation to Pascal's triangle construction.",
+      "back": "Pascal's Identity states: $\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}$. This identity directly reflects the construction of Pascal's triangle, where any entry is the sum of the two entries directly above it (one to the left and one to the right).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the values of $\\binom{n}{0}$ and $\\binom{n}{n}$? Provide their combinatorial interpretations.",
+      "back": "$\\binom{n}{0} = 1$: There is only one way to choose 0 items from a set of $n$ items (i.e., choosing nothing).\n$\\binom{n}{n} = 1$: There is only one way to choose $n$ items from a set of $n$ items (i.e., choosing all of them).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove the symmetry property $\\binom{n}{k} = \\binom{n}{n-k}$ using a combinatorial argument.",
+      "back": "Consider a set of $n$ distinct items. Choosing $k$ items from this set is combinatorially equivalent to choosing which $n-k$ items to *not* choose. For every selection of $k$ items, there is a unique corresponding set of $n-k$ items that were left behind. Therefore, the number of ways to choose $k$ items must be equal to the number of ways to choose $n-k$ items.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove combinatorially that the sum of entries in row $n$ of Pascal's triangle is $2^n$.",
+      "back": "The sum $\\sum_{k=0}^{n} \\binom{n}{k}$ represents the total number of ways to choose $k$ items from a set of $n$ items, for all possible values of $k$ (from 0 to $n$). This is precisely the definition of the total number of subsets of a set with $n$ elements. For a set with $n$ elements, each element can either be included or excluded from a subset. Since there are $n$ elements, there are $2 \\times 2 \\times \\dots \\times 2$ ($n$ times) $= 2^n$ possible subsets. Thus, $\\sum_{k=0}^{n} \\binom{n}{k} = 2^n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Combinatorially explain why $\\binom{n}{k} = 0$ when $k > n$ or $k < 0$ (for $n \\ge 0$).",
+      "back": "If $k > n$: It is impossible to choose more than $n$ distinct items from a set that contains only $n$ items. For example, you cannot select 5 books from a shelf containing only 3 unique books.\nIf $k < 0$: It is impossible to choose a negative number of items. The concept of selecting a negative quantity has no physical or combinatorial meaning in this context.\nIn both scenarios, the number of valid selections is zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How many distinct paths from the top (row 0, pos 0) to $\\binom{n}{k}$ in Pascal's triangle, moving only down-left or down-right?",
+      "back": "There are $\\binom{n}{k}$ distinct paths. To reach the entry $\\binom{n}{k}$, one must make a total of $n$ moves. If $k$ is the 0-indexed position within the row, then $k$ of these moves must be 'down-right' and $n-k$ moves must be 'down-left'. The number of ways to arrange these $k$ 'down-right' moves among $n$ total moves is given by $\\binom{n}{k}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

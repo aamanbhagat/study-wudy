@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-physical-layer-encoding-nrz-manchester-bandwidth-nyquist-shannon-hartley",
+  "subtopicTitle": "Physical layer — encoding (NRZ, Manchester), bandwidth, Nyquist, Shannon-Hartley",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:24.134Z",
+  "cards": [
+    {
+      "front": "What is the primary characteristic of Non-Return-to-Zero (NRZ) encoding?",
+      "back": "In NRZ encoding, the signal level directly maps to the bit value (e.g., high for 1, low for 0) and remains at that level for the entire bit period. The signal does not return to a zero or neutral level within the bit period.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is Manchester encoding often preferred over NRZ in early Ethernet, despite its higher bandwidth requirement?",
+      "back": "Manchester encoding is self-clocking. A transition (from high-to-low or low-to-high) occurs in the middle of every bit period, regardless of the bit's value. This transition allows the receiver to synchronize its clock with the sender's, making clock recovery straightforward and eliminating the need for a separate clock line. NRZ lacks this inherent clocking mechanism, making synchronization difficult over long sequences of identical bits.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"bandwidth\" in the context of an analog communication channel.",
+      "back": "In an analog communication channel, bandwidth ($B$) refers to the range of frequencies that the channel can transmit with acceptable fidelity. It is typically measured in Hertz (Hz) and is calculated as the difference between the highest ($f_{max}$) and lowest ($f_{min}$) frequencies that the channel supports: $B = f_{max} - f_{min}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Nyquist theorem for a noiseless channel and explain what it limits.",
+      "back": "For a noiseless channel, the Nyquist theorem states that the maximum theoretical data rate ($C$) is given by $C = 2B \\log_2 L$ bits/second. Here, $B$ is the bandwidth in Hertz, and $L$ is the number of discrete signal levels used to represent data. It limits the maximum data rate achievable based *only* on the channel's bandwidth and the number of signal levels, assuming no noise interferes with distinguishing these levels.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A noiseless channel has a bandwidth of 5 kHz. If we use 8 distinct signal levels, what is the maximum theoretical data rate according to Nyquist?",
+      "back": "Using the Nyquist formula $C = 2B \\log_2 L$:\n$B = 5 \\text{ kHz} = 5000 \\text{ Hz}$\n$L = 8$\n$C = 2 \\times 5000 \\times \\log_2 8$\n$C = 10000 \\times 3$\n$C = 30000 \\text{ bits/second}$ or $30 \\text{ kbps}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Shannon-Hartley theorem and identify the key factor it introduces that Nyquist does not.",
+      "back": "The Shannon-Hartley theorem states the maximum theoretical data rate ($C$) for a noisy channel: $C = B \\log_2 (1 + \\frac{S}{N})$ bits/second. Here, $B$ is the bandwidth in Hertz, $S$ is the average signal power, and $N$ is the average noise power. The key factor it introduces, which Nyquist's theorem ignores, is the Signal-to-Noise Ratio (SNR), $\\frac{S}{N}$, acknowledging that noise fundamentally limits channel capacity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A channel has a bandwidth of 20 kHz and a Signal-to-Noise Ratio (SNR) of 40 dB. What is its theoretical maximum capacity according to Shannon-Hartley?",
+      "back": "First, convert SNR from dB to a linear ratio:\n$SNR_{dB} = 10 \\log_{10} (\\frac{S}{N})$\n$40 = 10 \\log_{10} (\\frac{S}{N})$\n$4 = \\log_{10} (\\frac{S}{N})$\n$\\frac{S}{N} = 10^4 = 10000$\nNow, apply Shannon-Hartley: $C = B \\log_2 (1 + \\frac{S}{N})$\n$B = 20 \\text{ kHz} = 20000 \\text{ Hz}$\n$C = 20000 \\times \\log_2 (1 + 10000)$\n$C = 20000 \\times \\log_2 (10001)$\nSince $\\log_2 10240 \\approx 13.3$, $\\log_2 10001 \\approx 13.288$.\n$C \\approx 20000 \\times 13.288 \\approx 265760 \\text{ bits/second}$ or $265.76 \\text{ kbps}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why increasing the number of signal levels ($L$) in a noiseless channel (Nyquist) is impractical for increasing data rate in a noisy channel (Shannon-Hartley).",
+      "back": "In a noiseless channel, increasing $L$ allows each symbol to carry more bits ($\\log_2 L$), directly boosting the data rate. However, in a noisy channel, increasing $L$ means the voltage difference between adjacent signal levels becomes smaller. If this difference becomes comparable to the amplitude of the noise, the receiver can easily misinterpret a signal level, leading to frequent errors. Shannon-Hartley implicitly accounts for this by showing that noise fundamentally limits the number of *distinguishable* signal levels, thus setting an ultimate capacity limit regardless of how many levels we attempt to use.",
+      "difficulty": "medium"
+    }
+  ]
+}

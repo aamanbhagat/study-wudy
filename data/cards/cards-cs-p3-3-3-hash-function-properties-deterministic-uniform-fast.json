@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-3-hash-function-properties-deterministic-uniform-fast",
+  "subtopicTitle": "Hash function — properties: deterministic, uniform, fast",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:43.936Z",
+  "cards": [
+    {
+      "front": "What does it mean for a hash function to be \"deterministic\"?",
+      "back": "For any given input key, a deterministic hash function will always produce the exact same hash value (or hash code). It does not rely on external state or random factors.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is the deterministic property crucial for a hash table's functionality, especially for retrieving data?",
+      "back": "If a hash function weren't deterministic, storing a key `K` might produce hash `H1`, but later searching for `K` could produce `H2`. This makes it impossible to reliably locate the data associated with `K`, effectively breaking the hash table's lookup mechanism.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the \"uniformity\" property of a hash function.",
+      "back": "A uniform hash function distributes input keys as evenly as possible across the entire range of possible hash values (and consequently, across the hash table's buckets). This means each bucket has an approximately equal probability of being chosen for any given key.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does a hash function's uniformity directly impact the average-case time complexity of hash table operations (e.g., insertion, lookup)?",
+      "back": "High uniformity minimizes collisions. Fewer collisions mean shorter linked lists (or smaller trees) in each bucket. This keeps the average time complexity for operations like insertion, deletion, and lookup close to $O(1)$, as the time spent traversing collision chains is minimal. Poor uniformity leads to clustering and $O(N)$ worst-case performance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a hash function must be \"fast\" and what \"fast\" implies in this context.",
+      "back": "A hash function is invoked for every insertion, lookup, and deletion operation. If the hash function itself is slow, its computation time will dominate the overall execution time, negating the $O(1)$ average-case advantage of hash tables. \"Fast\" means its computation time should be constant and very small, ideally much faster than comparing keys directly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a hash table with $M$ buckets and $N$ keys, what is the ideal average number of keys per bucket if the hash function is perfectly uniform? What is this ratio called?",
+      "back": "The ideal average number of keys per bucket is $\\frac{N}{M}$. This ratio is known as the **load factor** (often denoted as $\\alpha$). A perfectly uniform hash function aims to keep the actual distribution of keys across buckets close to this average.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a potential trade-off between the \"fast\" and \"uniform\" properties of a hash function.",
+      "back": "Achieving perfect uniformity often requires more complex calculations (e.g., cryptographic hash functions), which can make the hash function slower. Conversely, extremely simple (fast) hash functions might sacrifice uniformity, leading to more collisions and degraded performance despite their speed. A good hash function strikes a balance, being \"fast enough\" while providing \"sufficient uniformity\" for the intended application.",
+      "difficulty": "hard"
+    }
+  ]
+}

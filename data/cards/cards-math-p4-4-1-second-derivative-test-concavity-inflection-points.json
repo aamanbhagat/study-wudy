@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-second-derivative-test-concavity-inflection-points",
+  "subtopicTitle": "Second derivative test — concavity, inflection points",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:15.493Z",
+  "cards": [
+    {
+      "front": "If $f''(x) > 0$ on an interval, what does this imply about the concavity of $f(x)$ on that interval?",
+      "back": "The graph of $f(x)$ is **concave up** (or convex) on that interval. Geometrically, this means the tangent lines to the curve lie below the curve, and the curve 'holds water'.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an inflection point of a function $f(x)$.",
+      "back": "An inflection point is a point on the graph of $f(x)$ where the concavity changes (from concave up to concave down, or vice versa). At an inflection point $(c, f(c))$, either $f''(c) = 0$ or $f''(c)$ is undefined, AND $f''(x)$ must change sign at $x=c$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you find the $x$-coordinates of potential inflection points for a twice-differentiable function $f(x)$?",
+      "back": "First, find the values of $x$ where $f''(x) = 0$ or where $f''(x)$ is undefined. These are candidates for inflection points. Second, verify that $f''(x)$ actually changes sign (from positive to negative or vice versa) at these $x$-values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions for the Second Derivative Test to guarantee a local maximum at a critical point $c$.",
+      "back": "If $f'(c) = 0$ (meaning $c$ is a critical point) AND $f''(c) < 0$, then $f(x)$ has a local maximum at $x=c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions for the Second Derivative Test to guarantee a local minimum at a critical point $c$.",
+      "back": "If $f'(c) = 0$ (meaning $c$ is a critical point) AND $f''(c) > 0$, then $f(x)$ has a local minimum at $x=c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it mean if the Second Derivative Test yields $f'(c) = 0$ and $f''(c) = 0$ at a critical point $c$?",
+      "back": "The Second Derivative Test is **inconclusive**. The function could have a local maximum, a local minimum, or an inflection point at $x=c$. For example:\n*   $f(x) = x^4$: $f'(0)=0, f''(0)=0$, but $x=0$ is a local minimum.\n*   $f(x) = -x^4$: $f'(0)=0, f''(0)=0$, but $x=0$ is a local maximum.\n*   $f(x) = x^3$: $f'(0)=0, f''(0)=0$, but $x=0$ is an inflection point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the geometric intuition behind $f''(x) < 0$ (concave down) in terms of the slopes of tangent lines.",
+      "back": "If $f''(x) < 0$, it means that the first derivative $f'(x)$ is a decreasing function. Geometrically, this implies that the slopes of the tangent lines to the curve are decreasing as $x$ increases. This causes the curve to 'bend downwards,' and the tangent lines lie above the curve.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $f''(x) = x(x-2)^2(x+3)$, identify the $x$-coordinates of the inflection points of $f(x)$.",
+      "back": "Potential inflection points are where $f''(x) = 0$, which are $x = -3, 0, 2$.\nLet's check for sign changes in $f''(x)$:\n*   At $x=-3$: $f''(x)$ changes from positive (for $x < -3$) to negative (for $-3 < x < 0$). Thus, $x=-3$ is an inflection point.\n*   At $x=0$: $f''(x)$ changes from negative (for $-3 < x < 0$) to positive (for $0 < x < 2$). Thus, $x=0$ is an inflection point.\n*   At $x=2$: The factor $(x-2)^2$ ensures $f''(x)$ does not change sign around $x=2$ (it remains positive on both sides of $x=2$). Thus, $x=2$ is NOT an inflection point.\n\nThe inflection points are at $x=-3$ and $x=0$.",
+      "difficulty": "medium"
+    }
+  ]
+}

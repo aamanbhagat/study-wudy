@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-relativistic-momentum-p-mv",
+  "subtopicTitle": "Relativistic momentum p = γmv",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:26.156Z",
+  "cards": [
+    {
+      "front": "Why is the classical momentum formula $p=mv$ insufficient at high speeds, and what concept addresses this?",
+      "back": "Classical momentum $p=mv$ assumes mass is constant and is derived from Newton's laws, which break down at speeds approaching the speed of light. Relativistic momentum is introduced to maintain the conservation of momentum in all inertial frames, consistent with the postulates of special relativity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for relativistic momentum and identify all its terms.",
+      "back": "The formula for relativistic momentum is $p = \\gamma mv$.\n*   $p$: relativistic momentum\n*   $\\gamma$: Lorentz factor\n*   $m$: rest mass of the object\n*   $v$: velocity of the object relative to an observer\n*   Units: $\\text{kg} \\cdot \\text{m/s}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the formula for the Lorentz factor $\\gamma$ and describe its behavior as $v \\to 0$ and $v \\to c$.",
+      "back": "The Lorentz factor is $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$.\n*   As $v \\to 0$, $v^2/c^2 \\to 0$, so $\\gamma \\to \\frac{1}{\\sqrt{1-0}} = 1$.\n*   As $v \\to c$, $v^2/c^2 \\to 1$, so $\\gamma \\to \\frac{1}{\\sqrt{1-1}} = \\frac{1}{0}$, which approaches infinity ($\\gamma \\to \\infty$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what conditions does relativistic momentum $p = \\gamma mv$ approximate classical momentum $p=mv$?",
+      "back": "Relativistic momentum approximates classical momentum when the object's speed $v$ is much less than the speed of light $c$ ($v \\ll c$). In this regime, $v^2/c^2$ is very small, so the Lorentz factor $\\gamma \\approx 1$.\nUsing a binomial expansion: $\\gamma = (1 - v^2/c^2)^{-1/2} \\approx 1 + \\frac{1}{2}\\frac{v^2}{c^2}$ for $v \\ll c$.\nThus, $p \\approx (1 + \\frac{1}{2}\\frac{v^2}{c^2})mv \\approx mv$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the relativistic momentum formula imply about accelerating an object with non-zero rest mass to the speed of light?",
+      "back": "As an object with non-zero rest mass approaches the speed of light ($v \\to c$), its Lorentz factor $\\gamma$ approaches infinity. Consequently, its relativistic momentum $p = \\gamma mv$ also approaches infinity. To achieve infinite momentum would require an infinite amount of energy, which is impossible. Therefore, the relativistic momentum formula implies that an object with non-zero rest mass cannot be accelerated to or beyond the speed of light $c$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is relativistic momentum conserved in isolated systems? Explain briefly.",
+      "back": "Yes, relativistic momentum is conserved in isolated systems. The primary motivation for defining relativistic momentum in this way ($p = \\gamma mv$) was precisely to ensure that the principle of conservation of momentum holds true in all inertial frames of reference, consistent with the postulates of special relativity, especially for high-speed interactions where classical momentum conservation fails.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the conceptual approach used to derive or motivate the relativistic momentum formula $p = \\gamma mv$.",
+      "back": "The derivation of relativistic momentum starts by reconsidering collisions (e.g., elastic collisions) observed from different inertial frames. If classical momentum $p=mv$ were used, momentum would not be conserved in all frames. To restore conservation, it's found that the mass term must be modified by the Lorentz factor.\nOne common approach involves defining momentum using proper time $\\tau$, which is invariant: $p = m \\frac{d\\mathbf{x}}{d\\tau}$. Since $d\\tau = dt/\\gamma$, substituting this yields $p = m \\frac{d\\mathbf{x}}{dt/\\gamma} = \\gamma m \\frac{d\\mathbf{x}}{dt} = \\gamma m \\mathbf{v}$. This definition ensures momentum conservation in all inertial frames.",
+      "difficulty": "hard"
+    }
+  ]
+}

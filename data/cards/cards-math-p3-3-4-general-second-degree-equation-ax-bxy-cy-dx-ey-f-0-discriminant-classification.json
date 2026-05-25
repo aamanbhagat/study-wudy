@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-4-general-second-degree-equation-ax-bxy-cy-dx-ey-f-0-discriminant-classification",
+  "subtopicTitle": "General second-degree equation Ax²+Bxy+Cy²+Dx+Ey+F=0 — discriminant classification",
+  "topicId": "math-p3-3-4-conic-sections",
+  "topicTitle": "Conic Sections",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:40.578Z",
+  "cards": [
+    {
+      "front": "State the general second-degree equation for a conic section.",
+      "back": "$Ax^2+Bxy+Cy^2+Dx+Ey+F=0$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the discriminant, $\\Delta_c$, used to classify conic sections from $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$.",
+      "back": "The discriminant used for classification is $\\Delta_c = B^2-4AC$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the sign of the discriminant $B^2-4AC$ classify the type of non-degenerate conic section?",
+      "back": "<ul><li>If $B^2-4AC < 0$, it's an <b>Ellipse</b> (or Circle).</li><li>If $B^2-4AC = 0$, it's a <b>Parabola</b>.</li><li>If $B^2-4AC > 0$, it's a <b>Hyperbola</b>.</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the equation $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$ to represent a circle, what conditions must $A, B, C$ satisfy?",
+      "back": "For a circle, $B=0$ and $A=C \\ne 0$. This implies $B^2-4AC = 0^2-4A^2 = -4A^2 < 0$, which is consistent with the ellipse classification.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Classify the conic section represented by $3x^2 - 6xy + 3y^2 + 2x - 5y + 1 = 0$.",
+      "back": "Comparing to $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$, we have $A=3, B=-6, C=3$. The discriminant is $B^2-4AC = (-6)^2 - 4(3)(3) = 36 - 36 = 0$. Since $B^2-4AC=0$, it is a <b>Parabola</b>.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively explain why the discriminant $B^2-4AC$ distinguishes conic sections.",
+      "back": "The $Bxy$ term represents rotation. By rotating the coordinate system, this term can be eliminated, transforming the equation into $A'x'^2 + C'y'^2 + \\dots = 0$. The sign of $B^2-4AC$ is invariant under rotation and determines the signs of $A'$ and $C'$. If $A'$ and $C'$ have the same sign (Ellipse), opposite signs (Hyperbola), or one is zero (Parabola), it corresponds to $B^2-4AC < 0$, $>0$, or $=0$ respectively.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the full determinant (discriminant $\\Delta$) used to identify degenerate conic sections from $Ax^2+Bxy+Cy^2+Dx+Ey+F=0$?",
+      "back": "The full determinant $\\Delta$ is given by: $$ \\Delta = \\det \\begin{pmatrix} A & B/2 & D/2 \\\\ B/2 & C & E/2 \\\\ D/2 & E/2 & F \\end{pmatrix} $$ If $\\Delta = 0$, the conic section is degenerate (e.g., two lines, a point, or no locus). If $\\Delta \\ne 0$, it is a non-degenerate conic.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do the signs of $B^2-4AC$ and the full determinant $\\Delta$ classify *degenerate* conic sections?",
+      "back": "If $\\Delta = 0$:<ul><li>If $B^2-4AC < 0$: A point (degenerate ellipse).</li><li>If $B^2-4AC = 0$: Two parallel lines, two coincident lines, or no locus (degenerate parabola).</li><li>If $B^2-4AC > 0$: Two intersecting lines (degenerate hyperbola).</li></ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

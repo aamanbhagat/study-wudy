@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-intuitive-concept-of-a-limit-table-of-values-graphical",
+  "subtopicTitle": "Intuitive concept of a limit — table of values, graphical",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:34.622Z",
+  "cards": [
+    {
+      "front": "Intuitively, what does the notation $\\lim_{x \\to a} f(x) = L$ mean?",
+      "back": "It means that as $x$ gets arbitrarily close to $a$ (but not necessarily equal to $a$), the values of $f(x)$ get arbitrarily close to a single value $L$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To estimate $\\lim_{x \\to a} f(x)$ using a table of values, what $x$-values should you choose?",
+      "back": "Choose $x$-values that approach $a$ from both the left side (e.g., $a-0.1, a-0.01, a-0.001$) and the right side (e.g., $a+0.1, a+0.01, a+0.001$). Then observe the corresponding $f(x)$ values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a graph of $f(x)$, how do you find $\\lim_{x \\to a} f(x)$?",
+      "back": "Trace the graph from both the left and the right sides as $x$ approaches $a$. If the $y$-values (function values) approach a single value $L$, then $\\lim_{x \\to a} f(x) = L$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What do $\\lim_{x \\to a^-} f(x)$ and $\\lim_{x \\to a^+} f(x)$ represent graphically?",
+      "back": "$\\lim_{x \\to a^-} f(x)$ is the value $f(x)$ approaches as $x$ approaches $a$ from values *less than* $a$ (from the left). $\\lim_{x \\to a^+} f(x)$ is the value $f(x)$ approaches as $x$ approaches $a$ from values *greater than* $a$ (from the right).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what condition does $\\lim_{x \\to a} f(x)$ exist, in terms of one-sided limits?",
+      "back": "The limit $\\lim_{x \\to a} f(x)$ exists if and only if both one-sided limits exist and are equal: $$\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = L$$ In this case, $\\lim_{x \\to a} f(x) = L$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is it true that $\\lim_{x \\to a} f(x)$ must equal $f(a)$? Explain.",
+      "back": "No. The limit $\\lim_{x \\to a} f(x)$ describes the behavior of $f(x)$ *near* $a$, not necessarily *at* $a$. $f(a)$ might be undefined, or defined at a different value than the limit. For example, if there's a hole in the graph at $(a, L)$ but $f(a)$ is defined elsewhere or not at all.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $f(x)$ has a jump discontinuity at $x=c$, what can be said about $\\lim_{x \\to c} f(x)$?",
+      "back": "The limit $\\lim_{x \\to c} f(x)$ does not exist. This is because the left-hand limit $\\lim_{x \\to c^-} f(x)$ and the right-hand limit $\\lim_{x \\to c^+} f(x)$ approach different values, violating the condition for the existence of a two-sided limit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $f(x)$ has a vertical asymptote at $x=a$, what does this imply about $\\lim_{x \\to a} f(x)$?",
+      "back": "If $f(x)$ has a vertical asymptote at $x=a$, then $\\lim_{x \\to a} f(x)$ does not exist. The function values $f(x)$ will either approach $\\infty$ or $-\\infty$ as $x$ approaches $a$ from one or both sides. For example, $\\lim_{x \\to 0} \\frac{1}{x^2} = \\infty$ (limit does not exist).",
+      "difficulty": "hard"
+    }
+  ]
+}

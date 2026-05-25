@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-alu-operations-flags-zero-carry-overflow-negative",
+  "subtopicTitle": "ALU — operations, flags (zero, carry, overflow, negative)",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:23.631Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the Arithmetic Logic Unit (ALU) within a CPU?",
+      "back": "The ALU performs all arithmetic operations (e.g., addition, subtraction, increment) and logical operations (e.g., AND, OR, NOT, XOR) on data. It is a fundamental digital circuit that forms the computational core of the CPU.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List at least 5 common operations performed by an ALU.",
+      "back": "Common ALU operations include:\n*   **Arithmetic:** Addition, Subtraction, Increment, Decrement, Multiplication (sometimes), Division (sometimes).\n*   **Logical:** AND, OR, NOT, XOR.\n*   **Shift:** Logical Left Shift, Logical Right Shift, Arithmetic Right Shift, Rotate.\n*   **Comparison:** Set flags based on comparison (e.g., equality, greater than).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the purpose of the Zero Flag (ZF) and provide an example where it would be set.",
+      "back": "The Zero Flag (ZF) is set to 1 if the result of an ALU operation is zero; otherwise, it's 0.\n\nExample:\n*   If an ALU performs $5 - 5$, the result is $0$. The ZF would be set to 1.\n*   If an ALU performs $X \\text{ XOR } X$, the result is $0$. The ZF would be set to 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the Carry Flag (CF) and illustrate when it is set during an 8-bit unsigned addition.",
+      "back": "The Carry Flag (CF) is set to 1 if an arithmetic operation results in a carry-out from the most significant bit (MSB) for addition, or a borrow for subtraction. It's primarily used for unsigned arithmetic to detect overflow or to chain multi-word arithmetic.\n\nExample (8-bit unsigned addition):\n```\n  1111 1111 (255)\n+ 0000 0001 (1)\n-----------\n1 0000 0000 (256)\n```\nHere, a carry-out from the 8th bit occurs, so CF = 1. The result stored would be `0000 0000`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the Overflow Flag (OF) used for, and when is it set during a signed 8-bit addition?",
+      "back": "The Overflow Flag (OF) is set to 1 if a signed arithmetic operation results in a value that cannot be represented within the given number of bits (i.e., the result exceeds the maximum positive or minimum negative value for signed integers). It's crucial for detecting errors in signed arithmetic.\n\nExample (8-bit signed addition, range -128 to 127):\n```\n  0111 1111 (127)  // Max positive\n+ 0000 0001 (1)\n-----------\n  1000 0000 (-128) // Incorrect signed result\n```\nHere, adding two positive numbers yields a negative result, indicating overflow. OF = 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the Negative Flag (NF), also known as the Sign Flag (SF), and how it's determined.",
+      "back": "The Negative Flag (NF) or Sign Flag (SF) is set to 1 if the most significant bit (MSB) of the result of an ALU operation is 1, indicating a negative number in two's complement representation. If the MSB is 0, NF is 0.\n\nExample (8-bit two's complement):\n*   Result: `1000 0000` (-128). MSB is 1, so NF = 1.\n*   Result: `0111 1111` (127). MSB is 0, so NF = 0.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between the Carry Flag (CF) and the Overflow Flag (OF) in the context of addition.",
+      "back": "*   **Carry Flag (CF):** Indicates a carry-out from the most significant bit. Primarily relevant for **unsigned** arithmetic to detect when the result exceeds the maximum representable unsigned value, or for multi-precision arithmetic.\n*   **Overflow Flag (OF):** Indicates that the result of a **signed** arithmetic operation is too large positive or too small negative to be represented in the given number of bits. It's set when the sign of the result is incorrect (e.g., positive + positive = negative, or negative + negative = positive).\n\nThey monitor different types of \"overflow\" for different interpretations of the numbers.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a signed addition $A + B = S$, express the logical condition for when the Overflow Flag (OF) is set.",
+      "back": "The Overflow Flag (OF) is set if:\n1.  Both $A$ and $B$ are positive, but the sum $S$ is negative.\n    *   In terms of MSBs: $MSB(A)=0$, $MSB(B)=0$, but $MSB(S)=1$.\n2.  Both $A$ and $B$ are negative, but the sum $S$ is positive.\n    *   In terms of MSBs: $MSB(A)=1$, $MSB(B)=1$, but $MSB(S)=0$.\n\nThis can be logically expressed as: $OF = (C_{in\\_MSB} \\text{ XOR } C_{out\\_MSB})$, where $C_{in\\_MSB}$ is the carry into the MSB and $C_{out\\_MSB}$ is the carry out of the MSB.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do CPUs typically use ALU flags (ZF, CF, OF, NF) to implement conditional branching in programs?",
+      "back": "After an ALU operation, the status flags are stored in a special CPU register (e.g., EFLAGS on x86). Conditional branch instructions (e.g., `JZ` - Jump if Zero, `JC` - Jump if Carry, `JO` - Jump if Overflow, `JS` - Jump if Sign) inspect these flags. Based on the flag's state, the CPU either alters the Program Counter (PC) to jump to a new instruction address or continues sequential execution. This allows programs to make decisions and control flow based on the results of computations.",
+      "difficulty": "medium"
+    }
+  ]
+}

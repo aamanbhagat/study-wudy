@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-stiff-equations-implicit-methods-backward-euler",
+  "subtopicTitle": "Stiff equations — implicit methods, backward Euler",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:23.341Z",
+  "cards": [
+    {
+      "front": "What characteristic property defines a \"stiff\" ordinary differential equation (ODE)?",
+      "back": "A stiff ODE is characterized by the presence of widely varying time scales in its solution components. This often manifests as eigenvalues of the Jacobian of $f$ that differ greatly in magnitude, particularly when some eigenvalues have large negative real parts.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why explicit numerical methods, such as Forward Euler, are often inefficient or unstable when applied to stiff ODEs.",
+      "back": "Explicit methods have finite stability regions. For stiff ODEs, the large negative eigenvalues of the system's Jacobian require an extremely small step size $h$ to keep $h\\lambda$ within the stability region, even if accuracy requirements would allow a larger step. This leads to excessive computational cost or instability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the Backward Euler method for solving the initial value problem $y'(t) = f(t, y(t))$ with $y(t_0) = y_0$.",
+      "back": "The Backward Euler formula is $y_{n+1} = y_n + h f(t_{n+1}, y_{n+1})$, where $h$ is the step size and $y_n$ approximates $y(t_n)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the Backward Euler method using a first-order Taylor expansion of $y(t_n)$ around $t_{n+1}$.",
+      "back": "Starting with a Taylor expansion of $y(t_n)$ around $t_{n+1}$:\n$$y(t_n) = y(t_{n+1}) + (t_n - t_{n+1})y'(t_{n+1}) + \\frac{(t_n - t_{n+1})^2}{2}y''(t_{n+1}) + O(h^3)$$\nSince $t_n - t_{n+1} = -h$:\n$$y(t_n) = y(t_{n+1}) - h y'(t_{n+1}) + O(h^2)$$\nRearranging and substituting $y'(t_{n+1}) = f(t_{n+1}, y(t_{n+1}))$ and approximating $y(t_n) \\approx y_n$, $y(t_{n+1}) \\approx y_{n+1}$:\n$$y_{n+1} = y_n + h f(t_{n+1}, y_{n+1})$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When applying the Backward Euler method, what type of equation must be solved at each time step for $y_{n+1}$, and what common numerical technique is used if $f$ is non-linear?",
+      "back": "At each step, an implicit equation for $y_{n+1}$ must be solved: $y_{n+1} - h f(t_{n+1}, y_{n+1}) - y_n = 0$. If $f$ is non-linear in $y$, this is a non-linear algebraic equation, typically solved using an iterative method like Newton-Raphson.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"A-stability\" for a numerical method applied to ODEs, and explain why the Backward Euler method's A-stability is crucial for stiff problems.",
+      "back": "A numerical method is A-stable if its region of absolute stability contains the entire left half-plane of the complex plane. For stiff problems, where eigenvalues of the Jacobian can have large negative real parts, A-stability ensures that the numerical solution remains stable regardless of the step size $h$, preventing the amplification of decaying modes and allowing for larger, more efficient time steps.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the computational cost per step of the Backward Euler method versus the Forward Euler method, highlighting the main reason for the difference.",
+      "back": "The Forward Euler method is explicit, requiring only a direct evaluation of $f(t_n, y_n)$ to find $y_{n+1}$. Backward Euler is implicit, requiring the solution of an algebraic equation for $y_{n+1}$ at each step. This typically involves an iterative process (e.g., Newton-Raphson), making the computational cost per step significantly higher for Backward Euler.",
+      "difficulty": "medium"
+    }
+  ]
+}

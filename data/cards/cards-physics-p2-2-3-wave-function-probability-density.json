@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-3-wave-function-probability-density",
+  "subtopicTitle": "Wave function ψ — probability density |ψ|²",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:07.685Z",
+  "cards": [
+    {
+      "front": "In quantum mechanics, what is the primary role of the wave function $\\psi(\\vec{r}, t)$?",
+      "back": "The wave function $\\psi(\\vec{r}, t)$ is a complex-valued amplitude that contains all the measurable information about a quantum system (e.g., a particle). It describes the quantum state of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity does the square of the magnitude of the wave function, $|\\psi(\\vec{r}, t)|^2$, represent?",
+      "back": "$|\\psi(\\vec{r}, t)|^2$ represents the **probability density** of finding the particle at position $\\vec{r}$ at time $t$. It is a real, non-negative quantity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Born Rule for calculating the probability of finding a particle in a specific 1D region $[a, b]$ at time $t$.",
+      "back": "The Born Rule states that the probability $P(a \\le x \\le b, t)$ of finding the particle in the region $[a, b]$ at time $t$ is given by:\n$$P(a \\le x \\le b, t) = \\int_{a}^{b} |\\psi(x, t)|^2 dx$$\nFor 3D, it would be an integral over a volume element $dV$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the SI units for the wave function $\\psi(x,t)$ and the probability density $|\\psi(x,t)|^2$ in one spatial dimension?",
+      "back": "For the probability density $|\\psi(x,t)|^2$: Since $\\int |\\psi(x,t)|^2 dx$ must be dimensionless (a probability), and $dx$ has units of meters (m), then $|\\psi(x,t)|^2$ must have units of $\\text{m}^{-1}$.\nFor the wave function $\\psi(x,t)$: Since $|\\psi(x,t)|^2$ has units of $\\text{m}^{-1}$, $\\psi(x,t)$ must have units of $\\text{m}^{-1/2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical meaning of the normalization condition for a wave function and write its mathematical form for a 1D particle.",
+      "back": "**Physical Meaning:** The normalization condition ensures that the total probability of finding the particle *somewhere* in space is exactly 1 (or 100%). A particle must exist somewhere.\n**Mathematical Form (1D):**\n$$\\int_{-\\infty}^{\\infty} |\\psi(x, t)|^2 dx = 1$$\nFor 3D, it would be $\\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} |\\psi(\\vec{r}, t)|^2 dV = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the three crucial mathematical properties that a physically acceptable wave function $\\psi(x,t)$ must satisfy.",
+      "back": "1.  **Single-valued:** For any given $(x,t)$, $\\psi(x,t)$ must have only one value. (Otherwise, the probability of finding the particle at $(x,t)$ would be ambiguous).\n2.  **Continuous:** $\\psi(x,t)$ and its first spatial derivative $\\frac{\\partial \\psi}{\\partial x}$ must be continuous everywhere. (Ensures that the probability density is well-behaved and that momentum is well-defined and finite).\n3.  **Finite (Square-integrable):** $\\psi(x,t)$ must be finite everywhere, and specifically, $\\int |\\psi(x,t)|^2 dx$ must be finite (and normalizable to 1). (Ensures that the probability of finding the particle is finite and can be normalized).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it acceptable for the wave function $\\psi(x,t)$ to be a complex number, but the probability density $|\\psi(x,t)|^2$ must always be a real, non-negative number?",
+      "back": "**$\\psi(x,t)$ (complex):** The complex nature of $\\psi$ is essential to encode both amplitude and phase information, which is crucial for phenomena like interference and for describing the time evolution of quantum states via the Schrödinger equation. The phase of $\\psi$ affects how wave functions combine.\n**$|\\psi(x,t)|^2$ (real, non-negative):** Probability, by definition, must be a real number between 0 and 1 (inclusive). A negative or complex probability is physically meaningless. Taking the square of the magnitude ($|\\psi|^2 = \\psi^* \\psi$) naturally converts the complex wave function into a real, non-negative quantity suitable for representing probability density.",
+      "difficulty": "hard"
+    }
+  ]
+}

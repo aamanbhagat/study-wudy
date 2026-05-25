@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-linear-quadratic-regulator-lqr-riccati-equation-optimal-gains",
+  "subtopicTitle": "Linear Quadratic Regulator (LQR) — Riccati equation, optimal gains",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:16.058Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of a Linear Quadratic Regulator (LQR) in control systems?",
+      "back": "The LQR's primary objective is to design an optimal state-feedback controller $u(t) = -Kx(t)$ that minimizes a quadratic cost function, driving the system states $x(t)$ to zero while minimizing control effort $u(t)$. It assumes a linear system and a quadratic cost.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What type of system dynamics does LQR assume, and what is its standard state-space representation?",
+      "back": "LQR assumes a Linear Time-Invariant (LTI) system. Its standard state-space representation is given by:\n$$ \\dot{x}(t) = Ax(t) + Bu(t) $$\nwhere $x(t)$ is the state vector, $u(t)$ is the control input vector, $A$ is the state matrix, and $B$ is the input matrix.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the standard infinite-horizon continuous-time LQR cost function $J$ and explain the roles of the $Q$ and $R$ matrices.",
+      "back": "The standard infinite-horizon continuous-time LQR cost function is:\n$$ J = \\int_{0}^{\\infty} (x^T(t)Qx(t) + u^T(t)Ru(t)) dt $$\n$Q$ is a symmetric positive semi-definite state weighting matrix, penalizing deviations of states from zero. $R$ is a symmetric positive definite control weighting matrix, penalizing control effort.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a continuous-time LQR, what is the form of the optimal control law $u^*(t)$ and how is the gain matrix $K$ related to the Riccati solution $P$?",
+      "back": "The optimal control law is a linear state-feedback control:\n$$ u^*(t) = -Kx(t) $$\nThe optimal gain matrix $K$ is given by:\n$$ K = R^{-1}B^TP $$\nwhere $P$ is the unique, symmetric, positive definite solution to the Algebraic Riccati Equation (ARE).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Algebraic Riccati Equation (ARE) for the continuous-time LQR problem.",
+      "back": "The Algebraic Riccati Equation (ARE) for continuous-time LQR is:\n$$ A^TP + PA - PBR^{-1}B^TP + Q = 0 $$\nThis equation arises from applying the Hamilton-Jacobi-Bellman (HJB) equation to the LQR problem and solving for the optimal cost-to-go function, which is found to be quadratic in the states, $x^TPx$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do increasing the values in the $Q$ matrix versus the $R$ matrix affect the LQR controller's behavior?",
+      "back": "<ul>\n<li><b>Increasing $Q$ values</b>: Prioritizes faster state convergence to zero, resulting in a more aggressive controller, larger control efforts, and potentially higher control signal magnitudes.</li>\n<li><b>Increasing $R$ values</b>: Prioritizes minimizing control effort, resulting in a less aggressive controller, slower state convergence, and smaller control signal magnitudes.</li>\n</ul>\nThis trade-off is central to LQR tuning.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the key assumptions or conditions required for a unique, positive definite solution $P$ to the Algebraic Riccati Equation (ARE) to exist, ensuring a stable LQR controller?",
+      "back": "For a unique, positive definite solution $P$ to the ARE to exist, guaranteeing a stable LQR controller, the following conditions are typically required:\n<ol>\n<li>The system $(A, B)$ must be <b>stabilizable</b>.</li>\n<li>The system $(A, C_Q)$ must be <b>detectable</b>, where $C_Q$ is a matrix such that $Q = C_Q^T C_Q$. (Often simplified to $(A, \\sqrt{Q})$ detectable if $Q$ is positive definite).</li>\n</ol>\nThese conditions ensure that all unstable modes are controllable and all unobservable modes are stable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In practice, how is the LQR gain matrix $K$ typically computed, rather than solving the ARE manually?",
+      "back": "In practice, the LQR gain matrix $K$ is typically computed using numerical solvers available in control system toolboxes (e.g., MATLAB's `lqr` function, SciPy's `scipy.signal.lqr`). These functions efficiently solve the Algebraic Riccati Equation (ARE) or related eigenvalue problems to find $P$ and then compute $K = R^{-1}B^TP$.",
+      "difficulty": "medium"
+    }
+  ]
+}

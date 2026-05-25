@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-specific-angular-momentum-h-gmp",
+  "subtopicTitle": "Specific angular momentum h = √(GMp)",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:53.035Z",
+  "cards": [
+    {
+      "front": "Define specific angular momentum, $h$, in orbital mechanics and state its SI units.",
+      "back": "Specific angular momentum is the angular momentum per unit mass of an orbiting body. It is a vector quantity defined as $\\mathbf{h} = \\mathbf{r} \\times \\mathbf{v}$, where $\\mathbf{r}$ is the position vector and $\\mathbf{v}$ is the velocity vector. Its SI units are $m^2/s$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why specific angular momentum is conserved in a two-body problem under an ideal inverse-square gravitational force.",
+      "back": "Specific angular momentum is conserved because the gravitational force is a central force, always acting along the line connecting the two bodies (i.e., parallel to the position vector $\\mathbf{r}$). Therefore, the torque $\\mathbf{\\tau} = \\mathbf{r} \\times \\mathbf{F}$ is zero. Since $\\mathbf{\\tau} = d\\mathbf{L}/dt$ (where $\\mathbf{L}$ is angular momentum) and $\\mathbf{L} = m\\mathbf{h}$, a zero torque implies $d\\mathbf{h}/dt = 0$, meaning the specific angular momentum vector $\\mathbf{h}$ is constant (conserved).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the scalar magnitude of specific angular momentum, $h$, in polar coordinates as $h = r^2 \\frac{d\\theta}{dt}$.",
+      "back": "In polar coordinates, the position vector is $\\mathbf{r} = r \\hat{\\mathbf{r}}$ and the velocity vector is $\\mathbf{v} = \\dot{r} \\hat{\\mathbf{r}} + r \\dot{\\theta} \\hat{\\mathbf{\\theta}}$.\nThe specific angular momentum is $\\mathbf{h} = \\mathbf{r} \\times \\mathbf{v}$.\nSubstituting the polar coordinate expressions:\n$\\mathbf{h} = (r \\hat{\\mathbf{r}}) \\times (\\dot{r} \\hat{\\mathbf{r}} + r \\dot{\\theta} \\hat{\\mathbf{\\theta}})$ \n$\\mathbf{h} = r \\dot{r} (\\hat{\\mathbf{r}} \\times \\hat{\\mathbf{r}}) + r (r \\dot{\\theta}) (\\hat{\\mathbf{r}} \\times \\hat{\\mathbf{\\theta}})$ \nSince $\\hat{\\mathbf{r}} \\times \\hat{\\mathbf{r}} = 0$ and $\\hat{\\mathbf{r}} \\times \\hat{\\mathbf{\\theta}} = \\hat{\\mathbf{k}}$ (unit vector normal to the orbital plane):\n$\\mathbf{h} = r^2 \\dot{\\theta} \\hat{\\mathbf{k}}$\nThe scalar magnitude is $h = r^2 \\frac{d\\theta}{dt}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the general formula for the magnitude of specific angular momentum, $h$, in terms of the gravitational parameter $\\mu$, semi-major axis $a$, and eccentricity $e$.",
+      "back": "The general formula for the magnitude of specific angular momentum is $h = \\sqrt{\\mu a (1 - e^2)}$. This formula applies to elliptical ($0 \\le e < 1$) and hyperbolic ($e > 1$) orbits. For circular orbits ($e=0$), it simplifies to $h = \\sqrt{\\mu a}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the specific angular momentum for a parabolic trajectory, $h = \\sqrt{\\mu p}$, where $p$ is the semi-latus rectum.",
+      "back": "For a parabolic orbit, the eccentricity is $e = 1$. The general formula for specific angular momentum is $h = \\sqrt{\\mu a (1 - e^2)}$. Directly substituting $e=1$ would lead to $h=0$, which is incorrect.\nInstead, we use the definition of the semi-latus rectum, $p = a(1 - e^2)$. For a parabolic orbit, as $e \\to 1$, the semi-major axis $a \\to \\infty$, but their product $a(1-e^2)$ remains finite and equal to $p$.\nTherefore, by substituting $p$ into the general formula, we get $h = \\sqrt{\\mu p}$. (Note: $\\mu = GM$ for a central body of mass $M$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does a larger magnitude of specific angular momentum, $h$, physically imply about an orbit?",
+      "back": "A larger $h$ implies that the orbiting body has a greater tendency to maintain its angular motion around the central body. Physically, it means the orbit is 'wider' or 'more open' for a given central body. This translates to a larger semi-latus rectum ($p = h^2/\\mu$) and generally higher orbital speeds at a given radius, or a larger area swept per unit time (Kepler's Second Law, where $dA/dt = h/2$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A satellite is in a circular orbit around Earth ($r = 7000 \\text{ km}$). Given $\\mu_{Earth} = 3.986 \\times 10^{14} \\text{ m}^3/\\text{s}^2$, calculate its specific angular momentum $h$.",
+      "back": "For a circular orbit, the eccentricity $e=0$ and the semi-major axis $a$ is equal to the orbital radius $r$. \nUsing the formula $h = \\sqrt{\\mu a (1 - e^2)}$, it simplifies to $h = \\sqrt{\\mu r}$.\nGiven: $\\mu = 3.986 \\times 10^{14} \\text{ m}^3/\\text{s}^2$, $r = 7000 \\text{ km} = 7 \\times 10^6 \\text{ m}$.\n$h = \\sqrt{(3.986 \\times 10^{14} \\text{ m}^3/\\text{s}^2) \\times (7 \\times 10^6 \\text{ m})}$\n$h = \\sqrt{2.7902 \\times 10^{21} \\text{ m}^5/\\text{s}^2}$\n$h \\approx 5.282 \\times 10^{10} \\text{ m}^2/\\text{s}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do atmospheric drag or a non-spherical central body affect the conservation of specific angular momentum?",
+      "back": "1.  **Atmospheric Drag:** Drag is a non-conservative force that opposes the direction of motion, creating a torque. This external torque causes the specific angular momentum vector $\\mathbf{h}$ to *decrease* over time, leading to orbital decay (a decrease in semi-major axis and eccentricity).\n2.  **Non-spherical Central Body (e.g., Earth's J2 effect):** A non-spherical central body means its gravitational field is not perfectly central. The non-spherical components (like the J2 term) introduce small, non-central torques. These torques cause the orbital plane to precess (nodal regression) and the argument of perigee to rotate. While the magnitude of $\\mathbf{h}$ might remain nearly constant, its *direction* in inertial space changes, meaning the vector $\\mathbf{h}$ is no longer conserved.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-3-efficiency",
+  "subtopicTitle": "Efficiency",
+  "topicId": "physics-p1-1-3-work-energy-power",
+  "topicTitle": "Work, Energy & Power",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:06.481Z",
+  "cards": [
+    {
+      "front": "Define efficiency ($\\eta$) in the context of energy conversion or work, including its general formula.",
+      "back": "Efficiency ($\\eta$) is a dimensionless measure of how effectively energy is converted from one form to another, or how much useful work is produced from a given energy input. It is typically expressed as a percentage:\n$$\\eta = \\frac{\\text{Useful energy output}}{\\text{Total energy input}} \\times 100\\%$$ \nAlternatively, it can be defined using power:\n$$\\eta = \\frac{\\text{Useful power output}}{\\text{Total power input}} \\times 100\\%$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "According to fundamental physics principles, why can no real-world machine or process achieve 100% efficiency?",
+      "back": "No real-world machine can achieve 100% efficiency due to the Second Law of Thermodynamics. During any energy conversion or work process, some energy is inevitably transformed into less useful forms, primarily thermal energy (heat) due to friction, air resistance, electrical resistance, etc. This \"lost\" energy increases the entropy of the universe and cannot be fully recovered for useful work.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A solar panel receives $1000 \\text{ W}$ of solar power and generates $180 \\text{ W}$ of electrical power. Calculate its efficiency.",
+      "back": "The efficiency ($\\eta$) is calculated as the ratio of useful power output to total power input:\n$$\\eta = \\frac{\\text{Useful power output}}{\\text{Total power input}} = \\frac{180 \\text{ W}}{1000 \\text{ W}} = 0.18$$\nExpressed as a percentage, the efficiency is $18\\%$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify at least three common forms of energy loss that reduce the efficiency of mechanical or electrical systems.",
+      "back": "Common forms of energy loss include:\n1.  **Friction:** Mechanical resistance converting kinetic energy into heat.\n2.  **Air/Fluid Resistance:** Drag forces converting kinetic energy into heat and sound.\n3.  **Electrical Resistance:** Conversion of electrical energy into heat (Joule heating) in conductors.\n4.  **Sound:** Vibrational energy dissipated into the environment.\n5.  **Heat Radiation/Conduction:** Unwanted heat transfer to surroundings.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the overall efficiency $\\eta_{total}$ for a compound system where two components, A and B, are connected in series, with individual efficiencies $\\eta_A$ and $\\eta_B$.",
+      "back": "Let $E_{in}$ be the total energy input to component A.\nThe useful output from A is $E_{out,A} = \\eta_A \\times E_{in}$.\nThis output from A becomes the input for component B. So, $E_{in,B} = E_{out,A}$.\nThe useful output from B is $E_{out,B} = \\eta_B \\times E_{in,B}$.\nSubstituting $E_{in,B}$: $E_{out,B} = \\eta_B \\times (\\eta_A \\times E_{in})$.\nThe overall efficiency $\\eta_{total}$ is $\\frac{E_{out,B}}{E_{in}}$.\nTherefore, $\\eta_{total} = \\frac{\\eta_B \\times \\eta_A \\times E_{in}}{E_{in}} = \\eta_A \\times \\eta_B$.\nFor multiple components in series, the overall efficiency is the product of individual efficiencies.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why efficiency can be calculated using either energy values (Joules) or power values (Watts) and yield the same result.",
+      "back": "Efficiency is defined as $\\eta = \\frac{\\text{Useful Output}}{\\text{Total Input}}$.\nIf using energy: $\\eta_E = \\frac{E_{out}}{E_{in}}$.\nIf using power: $\\eta_P = \\frac{P_{out}}{P_{in}}$.\nSince power is the rate of energy transfer ($P = \\frac{\\Delta E}{\\Delta t}$), we can write $E_{out} = P_{out} \\times \\Delta t$ and $E_{in} = P_{in} \\times \\Delta t$.\nSubstituting these into the energy efficiency formula:\n$$\\eta_E = \\frac{P_{out} \\times \\Delta t}{P_{in} \\times \\Delta t}$$\nAssuming the time interval $\\Delta t$ for both input and output is the same (which it must be for a steady-state process), $\\Delta t$ cancels out, resulting in:\n$$\\eta_E = \\frac{P_{out}}{P_{in}} = \\eta_P$$\nThus, efficiency can be calculated equivalently using either energy or power.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the maximum theoretical efficiency of a heat engine (Carnot efficiency) operating between a hot reservoir at temperature $T_H$ and a cold reservoir at $T_C$. What units must be used for temperature?",
+      "back": "The maximum theoretical efficiency for a heat engine, known as the Carnot efficiency ($\\eta_C$), is given by:\n$$\\eta_C = 1 - \\frac{T_C}{T_H}$$\nWhere:\n*   $T_C$ is the absolute temperature of the cold reservoir.\n*   $T_H$ is the absolute temperature of the hot reservoir.\nBoth temperatures **must be expressed in Kelvin (K)**. This formula sets an upper limit on the efficiency of any heat engine operating between these two temperatures, as per the Second Law of Thermodynamics.",
+      "difficulty": "hard"
+    }
+  ]
+}

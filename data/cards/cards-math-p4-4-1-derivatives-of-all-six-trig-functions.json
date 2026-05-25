@@ -1,0 +1,60 @@
+{
+  "subtopicId": "math-p4-4-1-derivatives-of-all-six-trig-functions",
+  "subtopicTitle": "Derivatives of all six trig functions",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:57.856Z",
+  "cards": [
+    {
+      "front": "What is the derivative of $f(x) = \\sin x$?",
+      "back": "The derivative of $f(x) = \\sin x$ is $f'(x) = \\cos x$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the derivative of $f(x) = \\cos x$?",
+      "back": "The derivative of $f(x) = \\cos x$ is $f'(x) = -\\sin x$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the derivative of $f(x) = \\tan x$.",
+      "back": "The derivative of $f(x) = \\tan x$ is $f'(x) = \\sec^2 x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for $\\frac{d}{dx}(\\tan x)$ using the quotient rule.",
+      "back": "We know $\\tan x = \\frac{\\sin x}{\\cos x}$. Using the quotient rule $\\frac{d}{dx}\\left(\\frac{u}{v}\\right) = \\frac{u'v - uv'}{v^2}$:\n$$ \\frac{d}{dx}\\left(\\frac{\\sin x}{\\cos x}\\right) = \\frac{(\\cos x)(\\cos x) - (\\sin x)(-\\sin x)}{\\cos^2 x} $$\n$$ = \\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x} = \\sec^2 x $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the derivative of $f(x) = \\cot x$?",
+      "back": "The derivative of $f(x) = \\cot x$ is $f'(x) = -\\csc^2 x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the derivative of $f(x) = \\sec x$.",
+      "back": "The derivative of $f(x) = \\sec x$ is $f'(x) = \\sec x \\tan x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for $\\frac{d}{dx}(\\sec x)$ by rewriting it as $\\frac{1}{\\cos x}$ and using the quotient rule.",
+      "back": "We know $\\sec x = \\frac{1}{\\cos x}$. Using the quotient rule $\\frac{d}{dx}\\left(\\frac{u}{v}\\right) = \\frac{u'v - uv'}{v^2}$:\n$$ \\frac{d}{dx}\\left(\\frac{1}{\\cos x}\\right) = \\frac{(0)(\\cos x) - (1)(-\\sin x)}{\\cos^2 x} $$\n$$ = \\frac{\\sin x}{\\cos^2 x} = \\frac{\\sin x}{\\cos x} \\cdot \\frac{1}{\\cos x} = \\tan x \\sec x $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the derivative of $f(x) = \\csc x$?",
+      "back": "The derivative of $f(x) = \\csc x$ is $f'(x) = -\\csc x \\cot x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the chain rule, find the derivative of $f(x) = \\cos(5x)$.",
+      "back": "Let $u = 5x$, so $\\frac{du}{dx} = 5$. Then $f(x) = \\cos u$, so $\\frac{df}{du} = -\\sin u$.\nBy the chain rule, $\\frac{df}{dx} = \\frac{df}{du} \\cdot \\frac{du}{dx} = (-\\sin u) \\cdot 5 = -5\\sin(5x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the derivative of $f(x) = x \\cdot \\csc(2x)$.",
+      "back": "Use the product rule $\\frac{d}{dx}(uv) = u'v + uv'$. Let $u=x$ and $v=\\csc(2x)$.\nThen $u' = 1$.\nFor $v'=\\frac{d}{dx}(\\csc(2x))$, use the chain rule: let $w=2x$, so $w'=2$. Then $\\frac{d}{dw}(\\csc w) = -\\csc w \\cot w$.\nSo $v' = -\\csc(2x)\\cot(2x) \\cdot 2 = -2\\csc(2x)\\cot(2x)$.\nApplying the product rule:\n$$ f'(x) = (1)(\\csc(2x)) + (x)(-2\\csc(2x)\\cot(2x)) $$\n$$ f'(x) = \\csc(2x) - 2x\\csc(2x)\\cot(2x) $$",
+      "difficulty": "hard"
+    }
+  ]
+}

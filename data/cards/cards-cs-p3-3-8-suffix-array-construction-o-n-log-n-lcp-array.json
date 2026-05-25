@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-8-suffix-array-construction-o-n-log-n-lcp-array",
+  "subtopicTitle": "Suffix array — construction O(n log n), LCP array",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:18.946Z",
+  "cards": [
+    {
+      "front": "What is a Suffix Array for a string $S$ of length $n$?",
+      "back": "A Suffix Array $SA$ for a string $S$ is an array containing the starting indices of all suffixes of $S$, sorted lexicographically. $SA[i]$ is the starting index of the $(i+1)$-th lexicographically smallest suffix. For $S = \\text{\"banana\"}$, $SA = [5, 3, 1, 0, 4, 2]$ corresponding to suffixes: $\\text{\"a\"}, \\text{\"ana\"}, \\text{\"anana\"}, \\text{\"banana\"}, \\text{\"na\"}, \\text{\"nana\"}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "The O(n log n) suffix array construction (doubling algorithm) sorts suffixes based on increasing length prefixes. How does it achieve this iteratively?",
+      "back": "It iteratively sorts suffixes based on their first $2^k$ characters. In each step $k$, it uses the rankings from step $k-1$ (for $2^{k-1}$ character prefixes) to sort based on $2^k$ character prefixes. This involves sorting pairs of ranks: $(rank(suffix[i], 2^{k-1}), rank(suffix[i+2^{k-1}], 2^{k-1}))$. The second rank is for the suffix starting $2^{k-1}$ characters after $i$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity of the doubling algorithm for suffix array construction, and what optimization makes it achieve this?",
+      "back": "The time complexity is $O(n \\log n)$. There are $\\log n$ iterations (since prefix length doubles until $2^k \\ge n$). In each iteration, we sort $n$ suffixes based on pairs of ranks. If we use a stable counting sort or radix sort (which takes $O(n)$ time for integer keys in a bounded range) instead of a general comparison sort, each iteration takes $O(n)$ time. Thus, total complexity is $O(n \\log n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the LCP Array for a string $S$ given its Suffix Array $SA$?",
+      "back": "The LCP (Longest Common Prefix) Array $LCP$ stores the lengths of the longest common prefixes between adjacent suffixes in the sorted Suffix Array. Specifically, $LCP[i]$ is the length of the LCP between $S[SA[i-1]...]$ and $S[SA[i]...]$ for $i > 0$. $LCP[0]$ is typically undefined or 0.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core idea behind Kasai's algorithm for computing the LCP Array in $O(n)$ time after the Suffix Array is built.",
+      "back": "Kasai's algorithm computes $LCP[rank[i]]$ for $i=0 \\dots n-1$. It leverages the observation that if $LCP(S_j, S_i) = h$ (where $S_j$ is the suffix preceding $S_i$ in $SA$), then $LCP(S_{j+1}, S_{i+1}) \\ge h-1$. By maintaining a variable `h` for the current LCP length and decrementing it by at most 1 when moving from $S[i...]$ to $S[i+1...]$, the total work for LCP comparisons is amortized to $O(n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In Kasai's algorithm, why does the LCP length `h` for $S[i...]$ with its SA-predecessor never decrease by more than 1 when moving to $S[i+1...]$?",
+      "back": "Let $S_j$ be the suffix preceding $S_i$ in the Suffix Array, and $LCP(S_j, S_i) = h$. This means $S_j$ and $S_i$ share a prefix of length $h$. Consequently, $S_{j+1}$ and $S_{i+1}$ must share a prefix of length at least $h-1$. When considering $S_{i+1}$ and its predecessor in $SA$, say $S_k$, their LCP must be at least $h-1$ (because $S_{j+1}$ is a candidate for $S_k$, or $S_k$ is even closer to $S_{i+1}$ lexicographically). This property allows `h` to be decremented by at most 1, leading to $O(n)$ total work.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can Suffix Array and LCP Array be used to find the longest repeated substring in $O(n)$ time?",
+      "back": "The longest repeated substring corresponds to the maximum value in the LCP Array. If $LCP[i]$ is the maximum value, then the substring $S[SA[i-1]...SA[i-1]+LCP[i]-1]$ (which is identical to $S[SA[i]...SA[i]+LCP[i]-1]$) is the longest repeated substring. We simply iterate through the LCP array to find its maximum element, which takes $O(n)$ time after $SA$ and $LCP$ are constructed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When constructing a Suffix Array, what special character is often appended to the string $S$ and why?",
+      "back": "A unique character, typically lexicographically smaller than any character in $S$ (e.g., '$' or '#'), is appended to $S$. This ensures that all suffixes of $S$ (excluding the appended character) are distinct and have unique lexicographical order, simplifying the comparison logic and preventing issues with suffixes being prefixes of other suffixes (e.g., \"a\" vs \"apple\"). The appended character guarantees that no suffix is a prefix of another.",
+      "difficulty": "medium"
+    }
+  ]
+}

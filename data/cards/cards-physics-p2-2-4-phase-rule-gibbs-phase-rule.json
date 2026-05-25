@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-4-phase-rule-gibbs-phase-rule",
+  "subtopicTitle": "Phase rule — Gibbs phase rule",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:36.847Z",
+  "cards": [
+    {
+      "front": "State the Gibbs Phase Rule formula and define its variables $F$, $C$, and $P$.",
+      "back": "The Gibbs Phase Rule is $F = C - P + 2$.\n\n*   $F$: Degrees of freedom (the number of independent intensive variables, like temperature, pressure, or concentration, that can be changed without altering the number of phases in equilibrium).\n*   $C$: Number of components (the minimum number of independent chemical species required to define the composition of all phases in the system).\n*   $P$: Number of phases (the number of homogeneous, physically distinct, and mechanically separable parts of the system).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the Gibbs Phase Rule, how is the number of components ($C$) determined, especially when chemical reactions are present?",
+      "back": "The number of components ($C$) is the minimum number of independent chemical species needed to describe the composition of all phases in the system. When chemical reactions occur, $C$ is calculated as:\n\n$C = S - R - A$\n\nWhere:\n*   $S$: Total number of distinct chemical species.\n*   $R$: Number of independent chemical reactions at equilibrium.\n*   $A$: Number of additional constraints (e.g., initial stoichiometric ratios, charge neutrality).\n\nExample: For the decomposition CaCO₃(s) $\\rightleftharpoons$ CaO(s) + CO₂(g), $S=3$ (CaCO₃, CaO, CO₂), $R=1$ (one reaction). Thus, $C = 3 - 1 = 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Gibbs Phase Rule ($F = C - P + 2$) from the conditions for thermodynamic equilibrium in a multi-component, multi-phase system.",
+      "back": "For a system at thermodynamic equilibrium, the chemical potential of each component must be the same in all coexisting phases:\n\n$$\\mu_{i}^{\\alpha} = \\mu_{i}^{\\beta} = \\dots = \\mu_{i}^{P} \\quad \\text{for each component } i=1, \\dots, C$$\n\n1.  **Total Intensive Variables:** Each of the $P$ phases has $C-1$ independent mole fractions (since $\\sum x_i = 1$) plus temperature ($T$) and pressure ($P$). So, total variables = $P(C-1) + 2$.\n2.  **Total Constraints (Equilibrium Equations):** For each component $i$, there are $P-1$ independent equality conditions (e.g., $\\mu_{i}^{\\alpha} = \\mu_{i}^{\\beta}$, $\\mu_{i}^{\\beta} = \\mu_{i}^{\\gamma}$, etc.). So, total constraints = $C(P-1)$.\n3.  **Degrees of Freedom ($F$):** The number of degrees of freedom is the total number of variables minus the total number of independent constraints:\n\n    $F = [P(C-1) + 2] - [C(P-1)]$\n    $F = PC - P + 2 - CP + C$\n    $F = C - P + 2$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For pure water at its triple point, calculate the degrees of freedom using the Gibbs Phase Rule and explain its physical meaning.",
+      "back": "At the triple point, pure water coexists in three phases: solid (ice), liquid (water), and gas (vapor).\n\n*   Number of components $C = 1$ (H₂O).\n*   Number of phases $P = 3$ (ice, liquid, vapor).\n\nApplying the Gibbs Phase Rule $F = C - P + 2$:\n$F = 1 - 3 + 2 = 0$\n\n**Physical Meaning:** Zero degrees of freedom means that the triple point is a unique, fixed point for pure water. Both the temperature ($0.01 \\text{ °C}$ or $273.16 \\text{ K}$) and pressure ($611.657 \\text{ Pa}$) are uniquely determined and cannot be varied independently without changing the number of phases present.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider a binary alloy (e.g., Cu-Ni) existing as two distinct solid phases in equilibrium. How many degrees of freedom does this system have?",
+      "back": "For a binary alloy existing as two distinct solid phases in equilibrium:\n\n*   Number of components $C = 2$ (e.g., Copper and Nickel).\n*   Number of phases $P = 2$ (two distinct solid phases, such as $\\alpha$ and $\\beta$ phases).\n\nApplying the Gibbs Phase Rule $F = C - P + 2$:\n$F = 2 - 2 + 2 = 2$\n\nThis means there are two degrees of freedom. For example, temperature and the overall composition of one of the phases (or the overall system composition, if the phases are in equilibrium) can be varied independently while maintaining the two solid phases in equilibrium.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does it imply if a calculation using the Gibbs Phase Rule yields a negative value for the degrees of freedom ($F < 0$)?",
+      "back": "If a calculation using the Gibbs Phase Rule yields $F < 0$, it implies that the assumed number of phases ($P$) cannot coexist in stable thermodynamic equilibrium under the specified number of components ($C$) and typical intensive variables (temperature, pressure). Such a state is thermodynamically impossible or unstable.\n\nFor example, for pure water ($C=1$), if one were to assume four coexisting phases ($P=4$), then $F = 1 - 4 + 2 = -1$. This indicates that four phases of pure water cannot exist simultaneously in stable equilibrium.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the significance of the '+2' term in the Gibbs Phase Rule $F = C - P + 2$. Under what circumstances might this term be different?",
+      "back": "The '+2' term in the Gibbs Phase Rule accounts for the two most commonly varied independent intensive variables: **temperature ($T$)** and **pressure ($P$)**. These are the two external variables that affect the equilibrium of all phases.\n\nThis term might be different if:\n*   **Constant Pressure or Temperature:** If either $T$ or $P$ is held constant, the term becomes '+1' (e.g., $F = C - P + 1$).\n*   **Additional Variables:** If other intensive variables (e.g., magnetic field strength, electric field strength, gravitational field, surface tension in highly dispersed systems) are significant and can be varied independently, the '+2' term would increase accordingly (e.g., $F = C - P + 2 + N_{extra}$, where $N_{extra}$ is the number of additional significant independent variables).",
+      "difficulty": "hard"
+    }
+  ]
+}

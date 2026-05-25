@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-dictionaries-key-value-pairs-access-methods-keys-values-items-get-update",
+  "subtopicTitle": "Dictionaries — key-value pairs, access, methods (keys, values, items, get, update)",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:03.894Z",
+  "cards": [
+    {
+      "front": "What is a Python dictionary, and how does it store data?",
+      "back": "A Python dictionary is an unordered collection of mutable key-value pairs. Each key must be unique and immutable, mapping to a specific value. It's optimized for retrieving values by key, similar to a hash map or associative array.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Create a dictionary `student` with `name: \"Alice\"` and `age: 20`. How do you access Alice's age?",
+      "back": "```python\nstudent = {\"name\": \"Alice\", \"age\": 20}\nage = student[\"age\"] # age will be 20\n```\nValues are accessed using square brackets `[]` with the key inside.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key difference between `my_dict[key]` and `my_dict.get(key)` when `key` might not exist?",
+      "back": "- `my_dict[key]`: If `key` is not found, it raises a `KeyError`, which can crash your program.\n- `my_dict.get(key)`: If `key` is not found, it returns `None` by default, or a specified default value if provided (e.g., `my_dict.get(key, \"default_value\")`). This allows for graceful handling of missing keys.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you add a new key-value pair (`\"major\": \"CS\"`) to `student = {\"name\": \"Alice\", \"age\": 20}`? How would you then change Alice's age to 21?",
+      "back": "```python\nstudent = {\"name\": \"Alice\", \"age\": 20}\n\n# Add new pair\nstudent[\"major\"] = \"CS\"\n# student is now {\"name\": \"Alice\", \"age\": 20, \"major\": \"CS\"}\n\n# Modify existing value\nstudent[\"age\"] = 21\n# student is now {\"name\": \"Alice\", \"age\": 21, \"major\": \"CS\"}\n```\nBoth adding a new pair and modifying an existing value use the same assignment syntax: `dictionary[key] = value`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For `my_dict = {\"a\": 1, \"b\": 2}`, what do `my_dict.keys()`, `my_dict.values()`, and `my_dict.items()` return?",
+      "back": "- `my_dict.keys()`: Returns a `dict_keys` object (view) of all keys, e.g., `dict_keys(['a', 'b'])`.\n- `my_dict.values()`: Returns a `dict_values` object (view) of all values, e.g., `dict_values([1, 2])`.\n- `my_dict.items()`: Returns a `dict_items` object (view) of all key-value pairs as tuples, e.g., `dict_items([('a', 1), ('b', 2)])`.\nThese views provide a dynamic, non-copying look at the dictionary's contents.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the `update()` method. Given `d1 = {\"a\": 1, \"b\": 2}` and `d2 = {\"b\": 3, \"c\": 4}`, what is `d1` after `d1.update(d2)`?",
+      "back": "The `update()` method merges a dictionary (or an iterable of key-value pairs) into the current dictionary. If a key from the update source already exists in the target dictionary, its value is overwritten. If the key does not exist, it's added.\n\n```python\nd1 = {\"a\": 1, \"b\": 2}\nd2 = {\"b\": 3, \"c\": 4}\nd1.update(d2)\n# d1 is now {\"a\": 1, \"b\": 3, \"c\": 4}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the critical requirement for an object to be used as a dictionary key in Python? Provide an example of what *cannot* be a key.",
+      "back": "Dictionary keys must be **immutable**. This means their value (or hash value) cannot change after creation. Immutable types include numbers (integers, floats), strings, and tuples.\n\nMutable objects like lists, sets, or other dictionaries *cannot* be used as keys because their contents can change, which would break the dictionary's internal hashing mechanism and make key lookup unreliable.\n\nExample of an invalid key:\n```python\nmy_list = [1, 2]\n# my_dict = {my_list: \"value\"} # This would raise a TypeError: unhashable type: 'list'\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

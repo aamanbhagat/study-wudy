@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-optimistic-vs-pessimistic-concurrency-control",
+  "subtopicTitle": "Optimistic vs pessimistic concurrency control",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:50.843Z",
+  "cards": [
+    {
+      "front": "What is the primary strategy of Pessimistic Concurrency Control (PCC) in databases?",
+      "back": "PCC assumes conflicts are likely and prevents them by acquiring locks on data *before* any modification. This ensures exclusive access during the transaction's critical sections, blocking other transactions from conflicting operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the core assumption of Optimistic Concurrency Control (OCC)?",
+      "back": "OCC assumes conflicts are rare. Transactions proceed without acquiring locks during execution, only checking for conflicts during a validation phase *before* committing. If a conflict is detected, the transaction is rolled back and restarted.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the typical mechanism PCC uses to prevent concurrent updates to the same data item.",
+      "back": "PCC typically uses two-phase locking (2PL). Transactions acquire shared (read) or exclusive (write) locks. A transaction cannot acquire new locks after releasing any lock. This ensures serializability by preventing other transactions from accessing locked data until the current transaction completes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the three distinct phases of Optimistic Concurrency Control (OCC) for a transaction?",
+      "back": "1.  **Read Phase:** Transaction reads data, performs computations, and stores all writes locally (in a private workspace) without affecting the actual database.\n2.  **Validation Phase:** The system checks if the transaction's local writes conflict with any other committed transactions since its read phase began.\n3.  **Write Phase:** If validation succeeds, the local writes are applied to the database. If validation fails, the transaction is aborted and restarted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a database system with high data contention, which concurrency control method (PCC or OCC) is generally preferred and why?",
+      "back": "Pessimistic Concurrency Control (PCC) is generally preferred in high-contention environments. Although it introduces blocking and potential deadlocks, the cost of rolling back transactions in OCC due to frequent conflicts would be higher than the cost of waiting for locks in PCC. PCC minimizes wasted work from aborts.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a read-heavy database application with low data contention, which concurrency control strategy (PCC or OCC) is typically more efficient?",
+      "back": "Optimistic Concurrency Control (OCC) is typically more efficient for read-heavy applications with low data contention. Since conflicts are rare, transactions can proceed without the overhead of acquiring and releasing locks, leading to higher throughput and lower latency for most transactions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Identify a major problem that can arise in Pessimistic Concurrency Control (PCC) systems and explain its common resolution mechanism.",
+      "back": "A major problem in PCC is **deadlock**. This occurs when two or more transactions are each waiting for a lock held by another, forming a circular dependency. Deadlocks are typically resolved by a deadlock detection algorithm that identifies the cycle and then aborts (rolls back) one or more transactions (the \"victim\") to break the cycle, allowing others to proceed.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If an OCC transaction fails its validation phase, how does the database maintain ACID properties, specifically atomicity and isolation?",
+      "back": "If an OCC transaction fails validation, it is immediately aborted and rolled back. Atomicity is maintained because none of its changes were ever written to the persistent database (they were only in a private workspace). Isolation is maintained because any conflicting changes from other transactions were already committed, and this transaction's uncommitted changes are discarded, preventing dirty reads or inconsistent states.",
+      "difficulty": "medium"
+    }
+  ]
+}

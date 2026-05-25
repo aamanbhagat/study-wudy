@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-deadlock-prevention-break-each-condition",
+  "subtopicTitle": "Deadlock prevention — break each condition",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:25.287Z",
+  "cards": [
+    {
+      "front": "What are the four necessary conditions that must simultaneously hold for a deadlock to occur in an operating system?",
+      "back": "The four necessary conditions for deadlock are:\n1.  **Mutual Exclusion:** At least one resource must be held in a non-sharable mode.\n2.  **Hold and Wait:** A process holding at least one resource is waiting to acquire additional resources held by other processes.\n3.  **No Preemption:** Resources cannot be forcibly taken from a process; they can only be released voluntarily.\n4.  **Circular Wait:** A set of processes exists where each process is waiting for a resource held by the next process in the set, forming a cycle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can deadlock be prevented by breaking the \"Mutual Exclusion\" condition, and what are its practical limitations?",
+      "back": "Deadlock can be prevented by breaking mutual exclusion by allowing resources to be shared among multiple processes simultaneously. For example, read-only files can be shared.\n\n**Limitations:** This method is only applicable to sharable resources. Many resources, such as printers, tape drives, or writeable data files, are inherently non-sharable and require mutual exclusion for correct operation. Thus, this prevention strategy cannot be universally applied.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe one primary strategy to prevent deadlock by breaking the \"Hold and Wait\" condition.",
+      "back": "One strategy to break \"Hold and Wait\" is to require a process to request and be allocated *all* its resources before it begins execution. If all required resources are not available, the process must wait without holding any resources.\n\n**Drawbacks:** This can lead to low resource utilization (resources are held for a long time even if not immediately used) and potential starvation (a process may never get all its resources if they are frequently in use). It also assumes a process knows all its resource needs upfront, which isn't always true.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe an alternative strategy to prevent deadlock by breaking \"Hold and Wait\" that allows processes to acquire resources incrementally.",
+      "back": "An alternative strategy is to require a process to release all currently held resources before requesting additional ones. For example, if a process is holding resource $R_1$ and needs $R_2$, it must first release $R_1$, then request both $R_1$ and $R_2$. If $R_1$ and $R_2$ are available, they are allocated together.\n\n**Drawbacks:** This can be inefficient and lead to data inconsistency if a process has partially completed work with $R_1$ and then has to release it. The process might have to recompute or restore its state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can deadlock be prevented by breaking the \"No Preemption\" condition?",
+      "back": "To break \"No Preemption\", if a process holding some resources requests another resource that cannot be immediately allocated, then *all* resources currently held by the requesting process are preempted (released). The process will then restart only when it can acquire its old resources (which were preempted) and the new resources it requested.\n\nThis method is practical for resources whose state can be easily saved and restored (e.g., CPU registers, memory pages), but it is generally not feasible for resources like printers or tape drives where preemption would lead to complex recovery or data corruption.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the most common method to prevent deadlock by breaking the \"Circular Wait\" condition.",
+      "back": "The most common method to break \"Circular Wait\" is to impose a total ordering (or hierarchy) of all resource types and require each process to request resources only in increasing order of enumeration. If a process needs resource $R_j$ and has already acquired $R_i$, then it must be that $F(R_j) > F(R_i)$, where $F$ is the ordering function.\n\nThis ensures that a cycle cannot form because a process can never request a resource 'backward' in the defined order, thus preventing the necessary condition for a circular wait.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a system with two resources: a printer ($F=1$) and a scanner ($F=2$). Process P1 needs the scanner then the printer. Process P2 needs the printer then the scanner. Which process violates the resource ordering rule to prevent circular wait?",
+      "back": "The resource ordering is $F(\text{printer}) = 1$ and $F(\text{scanner}) = 2$. Processes must request resources in increasing order of enumeration.\n\n*   **Process P1:** Needs scanner ($F=2$) then printer ($F=1$). This violates the rule because it requests $F=1$ after $F=2$. It should request the printer first if it needs both.\n*   **Process P2:** Needs printer ($F=1$) then scanner ($F=2$). This adheres to the rule because $F(\text{printer}) < F(\text{scanner})$.\n\nTherefore, **Process P1** violates the resource ordering rule.",
+      "difficulty": "medium"
+    }
+  ]
+}

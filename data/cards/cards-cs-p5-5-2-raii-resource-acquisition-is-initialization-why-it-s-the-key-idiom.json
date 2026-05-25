@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-raii-resource-acquisition-is-initialization-why-it-s-the-key-idiom",
+  "subtopicTitle": "RAII — resource acquisition is initialization — why it's the key idiom",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:01.621Z",
+  "cards": [
+    {
+      "front": "What does the acronym RAII stand for in C++?",
+      "back": "RAII stands for \"Resource Acquisition Is Initialization\".",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core principle of RAII in C++.",
+      "back": "RAII leverages object lifetimes to manage resources. Resources are acquired in an object's constructor and released automatically in its destructor. This guarantees resource release even if exceptions occur or multiple return paths exist.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What common problem in C++ programming does RAII primarily aim to solve?",
+      "back": "RAII primarily solves the problem of resource leaks (e.g., memory, file handles, mutexes, network sockets, database connections) by ensuring that acquired resources are always released, regardless of how a function exits (normal return, exception, early return).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which fundamental C++ language features are essential for RAII to work effectively, especially in the presence of exceptions?",
+      "back": "The essential features are:\n1.  **Constructors**: To acquire the resource.\n2.  **Destructors**: To release the resource.\n3.  **Automatic Storage Duration (Stack Unwinding)**: Objects on the stack are guaranteed to have their destructors called when they go out of scope.\n4.  **Exception Handling**: The stack unwinding mechanism ensures destructors are called even when an exception propagates up the call stack.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an example of a standard C++ library class that embodies the RAII principle for dynamic memory management.",
+      "back": "`std::unique_ptr` (or `std::shared_ptr`). For example, `std::unique_ptr<int> p(new int(42));` acquires memory in its constructor and automatically calls `delete` on the raw pointer when `p` goes out of scope (via its destructor).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does `std::lock_guard` demonstrate RAII for thread synchronization?",
+      "back": "`std::lock_guard`'s constructor acquires a mutex lock, and its destructor automatically releases the lock when the `lock_guard` object goes out of scope. This prevents deadlocks or forgotten unlocks, even if an exception is thrown between the lock and unlock operations.\n```cpp\nstd::mutex m;\nvoid func() {\n    std::lock_guard<std::mutex> lock(m); // Lock acquired\n    // ... critical section ...\n} // Lock released automatically when 'lock' goes out of scope\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Without RAII, what manual steps would be required to ensure a dynamically allocated resource (e.g., `new int`) is always freed, even if an error occurs mid-function?",
+      "back": "Without RAII, you would need explicit `try-catch` blocks or careful `goto` statements to ensure `delete` is called in all possible exit paths. This leads to verbose, error-prone code with duplicated resource release logic.\n```cpp\nint* p = nullptr;\ntry {\n    p = new int(10);\n    // ... potentially throwing operations ...\n    delete p; // Must be reached\n} catch (...) {\n    delete p; // Must be repeated here\n    throw;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why RAII is considered a \"key idiom\" in modern C++ programming.",
+      "back": "RAII is key because it provides a robust, idiomatic solution for managing resources automatically and safely. It ensures exception safety, eliminates common resource leaks, reduces boilerplate code, and promotes a cleaner, more reliable programming style. By tying resource lifetimes to object lifetimes, it aligns with C++'s object-oriented nature and makes complex resource management simple and declarative.",
+      "difficulty": "hard"
+    }
+  ]
+}

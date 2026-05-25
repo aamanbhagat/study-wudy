@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-5-diffraction-grating-condition-for-maxima",
+  "subtopicTitle": "Diffraction grating — condition for maxima",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:01.811Z",
+  "cards": [
+    {
+      "front": "Define a \"diffraction grating\" and state its primary purpose.",
+      "back": "A diffraction grating is an optical component with a large number of closely spaced parallel lines or slits that diffract light. Its primary purpose is to produce a highly resolved spectrum of light through the principle of interference, allowing for precise measurement of wavelengths.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical condition for constructive interference (maxima) for a diffraction grating.",
+      "back": "The condition for constructive interference (maxima) for a diffraction grating is given by:\n$$d \\sin \\theta = m \\lambda$$\nwhere $d$ is the grating spacing, $\\theta$ is the angle of the maximum, $m$ is the order of the maximum, and $\\lambda$ is the wavelength of light.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the diffraction grating equation $d \\sin \\theta = m \\lambda$, what do $d$, $\\theta$, $m$, and $\\lambda$ represent?",
+      "back": "<ul>\n<li>$d$: The grating spacing, which is the distance between the centers of adjacent slits or lines on the grating.</li>\n<li>$\\theta$: The angle of the $m$-th order maximum relative to the central (normal) axis of the grating.</li>\n<li>$m$: The order of the maximum, an integer ($0, \\pm 1, \\pm 2, \\ldots$) indicating the specific bright fringe.</li>\n<li>$\\lambda$: The wavelength of the incident monochromatic light.</li>\n</ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the condition for constructive interference (maxima) for a diffraction grating, assuming parallel rays and a large number of slits.",
+      "back": "Consider two adjacent slits in a diffraction grating, separated by a distance $d$. When parallel light rays from these slits travel to a distant screen at an angle $\\theta$ relative to the grating normal, a path difference arises between them.\nFrom basic geometry, the path difference $\\Delta L$ between rays from adjacent slits is $d \\sin \\theta$.\nFor constructive interference (a maximum), this path difference must be an integer multiple of the wavelength $\\lambda$.\n$$\\Delta L = d \\sin \\theta = m \\lambda$$\nwhere $m = 0, \\pm 1, \\pm 2, \\ldots$ is the order of the maximum. This condition ensures that all waves arriving at angle $\\theta$ from *all* slits are in phase, leading to a strong bright fringe.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a diffraction grating, what does the $m=0$ order maximum represent, and what is its key characteristic?",
+      "back": "The $m=0$ order maximum represents the central maximum. At this position, the angle $\\theta = 0^\\circ$, which means $d \\sin(0^\\circ) = 0$. This implies that the path difference for all waves arriving at this point is zero, regardless of their wavelength. Therefore, the central maximum is always bright and un-dispersed (if white light is used, it appears white).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a diffraction grating with spacing $d$ and incident light of wavelength $\\lambda$, what is the maximum possible order of a maximum ($m_{max}$) that can be observed?",
+      "back": "The condition for maxima is $d \\sin \\theta = m \\lambda$. Since the sine function has a maximum value of $1$ (i.e., $-1 \\le \\sin \\theta \\le 1$), the largest possible value for $m$ occurs when $\\sin \\theta = 1$ (or $\\theta = 90^\\circ$).\nTherefore, we have $d \\cdot 1 \\ge m_{max} \\lambda$, which implies $m_{max} \\le \\frac{d}{\\lambda}$.\nSince $m$ must be an integer, $m_{max}$ is the largest integer less than or equal to $\\frac{d}{\\lambda}$.\n$$m_{max} = \\left\\lfloor \\frac{d}{\\lambda} \\right\\rfloor$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the appearance of the constructive interference maxima produced by a diffraction grating versus a double-slit experiment.",
+      "back": "<ul>\n<li><b>Double-slit experiment:</b> Produces relatively broad, less intense interference fringes (maxima). The intensity falls off gradually from the center.</li>\n<li><b>Diffraction grating:</b> Produces very sharp, bright, and narrow maxima. The regions between the maxima are very dark due to highly effective destructive interference from the large number of slits. This sharpness makes gratings ideal for spectroscopy.</li>\n</ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

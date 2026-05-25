@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-concurrency-std-thread-std-mutex-std-lock-guard-std-unique-lock",
+  "subtopicTitle": "Concurrency — std::thread, std::mutex, std::lock_guard, std::unique_lock",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:13.194Z",
+  "cards": [
+    {
+      "front": "How do you create a new thread and wait for its completion in C++ using `std::thread`?",
+      "back": "To create a thread, pass a callable object (function, lambda, functor) to the `std::thread` constructor. To wait for its completion, call `join()` on the `std::thread` object.\n\n```cpp\n#include <iostream>\n#include <thread>\n\nvoid task() {\n    std::cout << \"Hello from thread!\\n\";\n}\n\nint main() {\n    std::thread myThread(task);\n    myThread.join(); // Wait for myThread to finish\n    std::cout << \"Main thread finished.\\n\";\n    return 0;\n}\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When passing arguments to a `std::thread` function, what is the default passing mechanism, and how can you explicitly pass an argument by reference?",
+      "back": "By default, arguments passed to a `std::thread`'s function are **copied** into internal storage, even if the function signature takes them by reference. This prevents dangling references if the original argument goes out of scope.\n\nTo explicitly pass an argument by reference, use `std::ref()` (from `<functional>`):\n\n```cpp\n#include <iostream>\n#include <thread>\n#include <functional> // For std::ref\n\nvoid increment(int& x) { x++; }\n\nint main() {\n    int val = 0;\n    std::thread t(increment, std::ref(val));\n    t.join();\n    std::cout << \"Value after thread: \" << val << \" (expected 1)\\n\";\n    return 0;\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What fundamental problem does `std::mutex` solve in concurrent C++ programming, and what is its primary mechanism?",
+      "back": "`std::mutex` primarily solves the problem of **data races**. A data race occurs when multiple threads access the same shared data concurrently, and at least one of the accesses is a write operation, leading to undefined behavior.\n\nIts primary mechanism is **mutual exclusion**. It ensures that only one thread can 'own' the mutex at any given time, thereby guaranteeing exclusive access to the critical section (the code protected by the mutex).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why manually calling `my_mutex.lock()` and `my_mutex.unlock()` is generally discouraged in C++ code, even if done correctly, and what common C++ idiom addresses this.",
+      "back": "Manually calling `my_mutex.lock()` and `my_mutex.unlock()` is discouraged because it's prone to errors, especially regarding **exception safety**. If an exception is thrown between the `lock()` and `unlock()` calls, the `unlock()` might never be reached, leaving the mutex permanently locked and leading to **deadlock** for other threads.\n\nThe common C++ idiom that addresses this is **RAII (Resource Acquisition Is Initialization)**. RAII wrappers like `std::lock_guard` or `std::unique_lock` acquire the mutex in their constructor and automatically release it in their destructor when they go out of scope, guaranteeing proper mutex management even in the presence of exceptions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does `std::lock_guard` simplify mutex management and prevent common errors compared to direct `std::mutex::lock()`/`unlock()` calls?",
+      "back": "`std::lock_guard` simplifies mutex management by leveraging the RAII (Resource Acquisition Is Initialization) principle. It takes a `std::mutex` reference in its constructor, immediately locking the mutex. When the `std::lock_guard` object goes out of scope (either normally or due to an exception), its destructor is automatically called, which then unlocks the mutex.\n\nThis guarantees that the mutex is always released, preventing deadlocks caused by forgotten `unlock()` calls or exceptions, making mutex management safer and less error-prone.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two distinct features or capabilities that `std::unique_lock` provides, which `std::lock_guard` does not, making `std::unique_lock` more flexible.",
+      "back": "Two distinct features of `std::unique_lock` over `std::lock_guard` are:\n\n1.  **Deferred Locking:** `std::unique_lock` can be constructed without immediately locking the mutex (e.g., `std::unique_lock<std::mutex> lk(mtx, std::defer_lock);`). The lock can then be acquired later using `lk.lock()`, or `lk.try_lock()`, or `lk.try_lock_for()`, etc.\n2.  **Manual Unlock/Relocking:** `std::unique_lock` allows explicit calls to `lk.unlock()` to release the mutex before the `unique_lock` object goes out of scope, and `lk.lock()` to reacquire it. `std::lock_guard` automatically locks on construction and unlocks on destruction, with no manual control.\n\nOther features include move semantics (it's movable but not copyable) and suitability for use with `std::condition_variable`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a scenario where `std::unique_lock`'s ability to manually `unlock()` or perform deferred locking is essential, whereas `std::lock_guard` would be insufficient.",
+      "back": "A primary scenario where `std::unique_lock` is essential is when working with `std::condition_variable`.\n\n`std::condition_variable::wait()` requires a `std::unique_lock` because it must temporarily **release the mutex** while the thread is waiting for a notification, and then **reacquire the mutex** upon being woken up. A `std::lock_guard` cannot be manually unlocked and relocked, making it unsuitable for this pattern.\n\nAnother scenario is **fine-grained locking**: If a critical section contains a long-running operation that doesn't require the mutex for its entire duration, `std::unique_lock` allows you to `unlock()` the mutex for that part, letting other threads proceed, and then `lock()` it again later if needed, improving concurrency.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens if a `std::thread` object is destroyed without being either `join()`ed or `detach()`ed?",
+      "back": "If a `std::thread` object is destroyed without having been `join()`ed or `detach()`ed, the program will call `std::terminate()`. This typically results in the program crashing.\n\nThis behavior is by design to prevent resource leaks and ensure that the C++ runtime knows how to manage the thread's resources. An unjoined/undetatched thread implies an unhandled execution path, which the language considers an error state.",
+      "difficulty": "medium"
+    }
+  ]
+}

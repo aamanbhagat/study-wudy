@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-bernoulli-s-equation-derivation-from-f-ma-along-streamline",
+  "subtopicTitle": "Bernoulli's equation — derivation from F = ma along streamline",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:42.880Z",
+  "cards": [
+    {
+      "front": "State the general form of Bernoulli's equation for steady, incompressible, inviscid flow along a streamline.",
+      "back": "$P + \\frac{1}{2}\\rho v^2 + \\rho g z = \\text{constant}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the four primary assumptions required for the derivation of Bernoulli's equation from $F=ma$ along a streamline?",
+      "back": "1.  **Steady flow:** Fluid properties at any point do not change with time ($\\frac{\\partial}{\\partial t} = 0$).\n2.  **Incompressible fluid:** Density ($\\rho$) is constant.\n3.  **Inviscid flow:** No friction or viscous forces.\n4.  **Flow along a streamline:** The equation applies between two points on the same streamline.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a cylindrical fluid element of cross-sectional area $dA$ and length $ds$ along a streamline, what is the net pressure force acting on it in the direction of flow?",
+      "back": "The pressure force on the upstream face is $P \\cdot dA$. The pressure force on the downstream face is $(P + \\frac{dP}{ds}ds) \\cdot dA$, acting opposite to flow.\nNet pressure force $F_P = P \\cdot dA - (P + \\frac{dP}{ds}ds) \\cdot dA = -\\frac{dP}{ds}ds \\cdot dA$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the acceleration of a fluid element along a streamline, $a_s$, expressed using the chain rule, given its velocity $v$ and position $s$?",
+      "back": "The acceleration along a streamline is given by the material derivative component in that direction. For steady flow, the local acceleration term ($\\frac{\\partial v}{\\partial t}$) is zero.\n$a_s = \\frac{Dv}{Dt} = \\frac{\\partial v}{\\partial t} + v \\frac{\\partial v}{\\partial s}$\nSince $\\frac{\\partial v}{\\partial t} = 0$ for steady flow, $a_s = v \\frac{dv}{ds}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Bernoulli's equation ($P + \\frac{1}{2}\\rho v^2 + \\rho g z = \\text{constant}$) from Newton's second law ($F=ma$) for steady, incompressible, inviscid flow along a streamline.",
+      "back": "Consider a fluid element of mass $dm = \\rho \\cdot dA \\cdot ds$ along a streamline.\n\n**Forces acting on the element in the streamline direction ($s$):**\n1.  **Pressure force:** $F_P = -\\frac{dP}{ds}ds \\cdot dA$ (from pressure difference).\n2.  **Gravitational force:** The component of gravity along the streamline. If $z$ is vertical height, then $dz = ds \\sin \\theta$. The gravitational force is $dm \\cdot g = \\rho \\cdot dA \\cdot ds \\cdot g$. The component in the direction of increasing $s$ is $-dm \\cdot g \\sin \\theta = -\\rho \\cdot dA \\cdot ds \\cdot g \\frac{dz}{ds}$.\n    So, $F_G = -\\rho g \\frac{dz}{ds} dA ds$.\n\n**Applying Newton's second law, $F_{net} = dm \\cdot a_s$:**\n$F_P + F_G = (\\rho \\cdot dA \\cdot ds) \\cdot (v \\frac{dv}{ds})$\n$-\\frac{dP}{ds}ds \\cdot dA - \\rho g \\frac{dz}{ds} dA ds = \\rho \\cdot dA \\cdot ds \\cdot v \\frac{dv}{ds}$\n\n**Divide by $dA \\cdot ds$:**\n$-\\frac{dP}{ds} - \\rho g \\frac{dz}{ds} = \\rho v \\frac{dv}{ds}$\n\n**Rearrange and multiply by $ds$:**\n$dP + \\rho v dv + \\rho g dz = 0$\n\n**Integrate along the streamline** (since $\\rho$ is constant for incompressible flow):\n$\\int dP + \\int \\rho v dv + \\int \\rho g dz = \\text{constant}$\n$P + \\frac{1}{2}\\rho v^2 + \\rho g z = \\text{constant}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the Bernoulli equation $P + \\frac{1}{2}\\rho v^2 + \\rho g z = \\text{constant}$, what physical quantity does each term represent when divided by $\\rho g$?",
+      "back": "Dividing by $\\rho g$: $\\frac{P}{\\rho g} + \\frac{v^2}{2g} + z = \\text{constant}$.\n1.  $\\frac{P}{\\rho g}$: **Pressure head** (height of a column of fluid that would produce the static pressure $P$).\n2.  $\\frac{v^2}{2g}$: **Velocity head** (height equivalent to the kinetic energy per unit weight of the fluid).\n3.  $z$: **Elevation head** (potential energy per unit weight of fluid, relative to a datum).\nEach term represents a form of energy per unit weight of fluid, or a \"head\" (height).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would the derivation of Bernoulli's equation from $F=ma$ change if the fluid were (a) viscous or (b) unsteady?",
+      "back": "(a) **Viscous fluid:** An additional force term, the **viscous force**, would need to be included in the $F_{net}$ equation. This force opposes motion and would typically be expressed as a shear stress gradient. The integrated form would no longer be a simple constant, but would include a term representing energy dissipation due to friction.\n(b) **Unsteady flow:** The acceleration term $a_s = v \\frac{dv}{ds}$ would need to include the local acceleration term $\\frac{\\partial v}{\\partial t}$. So, $a_s = \\frac{\\partial v}{\\partial t} + v \\frac{dv}{ds}$. This would introduce a time-dependent integral term into the equation, meaning the \"constant\" would no longer be constant in time.",
+      "difficulty": "hard"
+    }
+  ]
+}

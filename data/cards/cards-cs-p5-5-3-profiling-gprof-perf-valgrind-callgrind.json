@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-3-profiling-gprof-perf-valgrind-callgrind",
+  "subtopicTitle": "Profiling — gprof, perf, Valgrind/Callgrind",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:26.068Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of profiling in software development?",
+      "back": "To identify performance bottlenecks (e.g., CPU-intensive functions, memory access patterns) and resource consumption in a program, guiding optimization efforts.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To generate a flat profile and call graph using `gprof`, what compile-time flag and runtime action are required?",
+      "back": "Compile with `-pg`. Run the program normally (this generates `gmon.out`). The output `gmon.out` is then analyzed with `gprof <executable> gmon.out`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "`gprof` employs a technique called ______ at compile time. A significant limitation is its inability to profile ______ code or dynamic libraries effectively.",
+      "back": "`gprof` employs a technique called **instrumentation** at compile time. A significant limitation is its inability to profile **kernel-level** code or dynamic libraries effectively (it also struggles with accurate timing for very short functions due to its sampling approach).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Unlike `gprof`, `perf` profiles by sampling ______ ______ ______, offering a key advantage of ______ overhead and the ability to profile kernel code.",
+      "back": "Unlike `gprof`, `perf` profiles by sampling **hardware performance counters**, offering a key advantage of **low** overhead and the ability to profile kernel code.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the `perf` command sequence to record CPU cache misses for a program `my_app` and then generate a report showing the functions responsible.",
+      "back": "```bash\nperf record -e cache-misses ./my_app\nperf report\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Valgrind, and specifically Callgrind, works via ______ ______ ______ (DBI). Explain why this mechanism leads to significantly higher overhead compared to `perf`.",
+      "back": "Valgrind, and specifically Callgrind, works via **Dynamic Binary Instrumentation** (DBI). This mechanism involves rewriting and executing the program's machine code on the fly, adding instrumentation code for every instruction. This 'emulation' layer introduces a substantial performance penalty, typically slowing down execution by 5-20x, unlike `perf` which relies on non-intrusive hardware sampling.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You suspect your C++ program has a performance bottleneck due to excessive function calls and poor cache utilization, and you need highly detailed, instruction-level analysis, even if it means slow execution. Which profiling tool (gprof, perf, Callgrind) would you choose and why?",
+      "back": "**Callgrind (part of Valgrind)**.\n\n**Why:** Callgrind provides extremely detailed, instruction-level profiling, including exact instruction counts, comprehensive call graphs, and simulated cache behavior (L1, L2, branch prediction). This level of detail is crucial for identifying specific function call inefficiencies and cache-related bottlenecks. While its overhead is very high, the requirement for 'highly detailed, instruction-level analysis' and acceptance of 'slow execution' makes it the ideal choice over `gprof` (coarser, less accurate sampling) or `perf` (sampling-based, less detailed for call counts/cache simulation).",
+      "difficulty": "hard"
+    }
+  ]
+}

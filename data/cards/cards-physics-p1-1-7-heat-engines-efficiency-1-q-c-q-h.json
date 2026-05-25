@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-7-heat-engines-efficiency-1-q-c-q-h",
+  "subtopicTitle": "Heat engines — efficiency η = 1 - Q_C/Q_H",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:19.410Z",
+  "cards": [
+    {
+      "front": "What is the primary function of a heat engine?",
+      "back": "A heat engine is a device that converts thermal energy (heat) from a high-temperature source into mechanical work, while expelling waste heat to a low-temperature sink. It operates in a continuous cycle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the thermal efficiency ($\\eta$) of a heat engine in terms of work and heat.",
+      "back": "The thermal efficiency ($\\eta$) of a heat engine is the ratio of the net work output ($W_{net}$) to the heat input from the high-temperature reservoir ($Q_H$). Mathematically, it is given by:\n$$ \\eta = \\frac{W_{net}}{Q_H} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the heat engine efficiency formula $\\eta = 1 - Q_C/Q_H$ from the First Law of Thermodynamics for a cyclic process.",
+      "back": "For a cyclic heat engine, the change in internal energy is zero ($\\Delta U = 0$). According to the First Law of Thermodynamics, $W_{net} = Q_{net}$.\nThe net heat transfer ($Q_{net}$) is the heat absorbed from the hot reservoir ($Q_H$) minus the heat rejected to the cold reservoir ($Q_C$), so $Q_{net} = Q_H - Q_C$.\nTherefore, $W_{net} = Q_H - Q_C$.\nSubstituting this into the definition of efficiency $\\eta = \\frac{W_{net}}{Q_H}$:\n$$ \\eta = \\frac{Q_H - Q_C}{Q_H} = \\frac{Q_H}{Q_H} - \\frac{Q_C}{Q_H} = 1 - \\frac{Q_C}{Q_H} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the efficiency formula $\\eta = 1 - Q_C/Q_H$, what do $Q_H$ and $Q_C$ physically represent?",
+      "back": "In the context of heat engine efficiency:\n*   $Q_H$: Represents the magnitude of heat absorbed by the engine from the high-temperature reservoir (heat source). This is the total energy input.\n*   $Q_C$: Represents the magnitude of heat rejected by the engine to the low-temperature reservoir (heat sink). This is the waste heat that could not be converted into work.\nBoth $Q_H$ and $Q_C$ are treated as positive magnitudes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A heat engine absorbs $800 \\text{ J}$ from a hot reservoir and rejects $500 \\text{ J}$ to a cold reservoir. Calculate its thermal efficiency.",
+      "back": "Given $Q_H = 800 \\text{ J}$ and $Q_C = 500 \\text{ J}$.\nThe thermal efficiency is calculated using the formula $\\eta = 1 - \\frac{Q_C}{Q_H}$.\n$$ \\eta = 1 - \\frac{500 \\text{ J}}{800 \\text{ J}} = 1 - 0.625 = 0.375 $$\nThe thermal efficiency is $0.375$ or $37.5\\%$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the maximum theoretical efficiency for a heat engine operating between a hot reservoir at $T_H$ and a cold reservoir at $T_C$? How does it relate to $Q_C/Q_H$?",
+      "back": "The maximum theoretical efficiency for a heat engine is the Carnot efficiency, given by $\\eta_{Carnot} = 1 - \\frac{T_C}{T_H}$, where $T_C$ and $T_H$ are the absolute temperatures (in Kelvin) of the cold and hot reservoirs, respectively.\nFor a reversible (Carnot) engine, the ratio of heat rejected to heat absorbed is equal to the ratio of absolute temperatures: $\\frac{Q_C}{Q_H} = \\frac{T_C}{T_H}$.\nThus, for an ideal Carnot engine, the general efficiency formula $\\eta = 1 - \\frac{Q_C}{Q_H}$ becomes $\\eta_{Carnot} = 1 - \\frac{T_C}{T_H}$. Real engines always have $\\eta < \\eta_{Carnot}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using the formula $\\eta = 1 - Q_C/Q_H$, explain why a heat engine can never achieve 100% efficiency.",
+      "back": "For a heat engine to achieve 100% efficiency ($\\eta = 1$), the term $Q_C/Q_H$ must be zero. This implies that $Q_C = 0$, meaning no heat is rejected to the cold reservoir.\nHowever, the Second Law of Thermodynamics (Kelvin-Planck statement) states that it is impossible for any device operating in a cycle to receive heat from a single reservoir and produce a net amount of work. Some heat ($Q_C$) must always be rejected to a lower-temperature reservoir to complete the cycle and produce net work, making $Q_C > 0$. Therefore, $Q_C/Q_H$ will always be greater than zero, and thus $\\eta$ will always be less than 1 (or 100%).",
+      "difficulty": "medium"
+    }
+  ]
+}

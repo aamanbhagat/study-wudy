@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-eigenvalues-of-a-system-modes-stability",
+  "subtopicTitle": "Eigenvalues of A — system modes, stability",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:15.181Z",
+  "cards": [
+    {
+      "front": "For a linear system $\\dot{\\mathbf{x}} = A\\mathbf{x}$, define eigenvalues ($\\lambda$) and eigenvectors ($\\mathbf{v}$).",
+      "back": "Eigenvalues $\\lambda$ are scalars for which $A\\mathbf{v} = \\lambda\\mathbf{v}$ has non-trivial solutions $\\mathbf{v}$. Eigenvectors $\\mathbf{v}$ are the non-zero vectors satisfying this equation for a given $\\lambda$, representing directions where system evolution is simply scaled.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are the eigenvalues ($\\lambda$) of a square matrix $A$ calculated?",
+      "back": "Eigenvalues $\\lambda$ are found by solving the characteristic equation: $\\det(A - \\lambda I) = 0$, where $I$ is the identity matrix. This polynomial equation's roots are the eigenvalues.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What do eigenvalues of the system matrix $A$ represent as 'system modes' in GNC?",
+      "back": "Each eigenvalue $\\lambda_i$ corresponds to a 'system mode' or natural response. If the system is perturbed along an eigenvector $\\mathbf{v}_i$, its response will be $e^{\\lambda_i t}\\mathbf{v}_i$. The real part of $\\lambda_i$ determines growth/decay, and the imaginary part determines oscillation frequency.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the real part of an eigenvalue, $\\text{Re}(\\lambda)$, determine system mode stability?",
+      "back": "<ul><li>If $\\text{Re}(\\lambda) < 0$: Asymptotically stable (decays to zero).</li><li>If $\\text{Re}(\\lambda) = 0$: Marginally stable (sustained oscillation or constant value).</li><li>If $\\text{Re}(\\lambda) > 0$: Unstable (grows unbounded).</li></ul>",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does a non-zero imaginary part of an eigenvalue, $\\text{Im}(\\lambda) \\neq 0$, indicate?",
+      "back": "A non-zero imaginary part, $\\text{Im}(\\lambda) = \\omega \\neq 0$, indicates that the system mode is oscillatory. The magnitude $|\\omega|$ represents the angular frequency of these oscillations. Complex eigenvalues always appear in conjugate pairs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Analyze the stability of a system with matrix $A = \\begin{pmatrix} -1 & 2 \\\\ -2 & -1 \\end{pmatrix}$ based on its eigenvalues.",
+      "back": "Calculate eigenvalues: $\\det(A - \\lambda I) = \\det \\begin{pmatrix} -1-\\lambda & 2 \\\\ -2 & -1-\\lambda \\end{pmatrix} = (-1-\\lambda)^2 - (2)(-2) = (1+2\\lambda+\\lambda^2) + 4 = \\lambda^2 + 2\\lambda + 5 = 0$. Using quadratic formula: $\\lambda = \\frac{-2 \\pm \\sqrt{2^2 - 4(1)(5)}}{2(1)} = \\frac{-2 \\pm \\sqrt{4 - 20}}{2} = \\frac{-2 \\pm \\sqrt{-16}}{2} = \\frac{-2 \\pm 4i}{2} = -1 \\pm 2i$. Both eigenvalues have $\\text{Re}(\\lambda) = -1 < 0$. Thus, the system is asymptotically stable and exhibits damped oscillations.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the significance of repeated eigenvalues in system stability analysis.",
+      "back": "Repeated eigenvalues (algebraic multiplicity $>1$) may not have enough linearly independent eigenvectors (geometric multiplicity $<\\text{algebraic multiplicity}$). This leads to 'generalized eigenvectors' and modes containing $t e^{\\lambda t}$ terms. For stability, all $\\text{Re}(\\lambda) \\le 0$, AND any eigenvalue with $\\text{Re}(\\lambda)=0$ must have its algebraic multiplicity equal to its geometric multiplicity (i.e., no Jordan blocks for pure imaginary eigenvalues).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-6-relation-between-direction-cosines-l-m-n-1",
+  "subtopicTitle": "Relation between direction cosines: l²+m²+n²=1",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:34.510Z",
+  "cards": [
+    {
+      "front": "Define the direction cosines $l$, $m$, and $n$ for a line in 3D space.",
+      "back": "The direction cosines $l, m, n$ of a line are the cosines of the angles $\\alpha, \\beta, \\gamma$ that the line makes with the positive $x, y, z$ axes respectively. So, $l = \\cos \\alpha$, $m = \\cos \\beta$, $n = \\cos \\gamma$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental relation between the direction cosines $l, m, n$ of any line in 3D space.",
+      "back": "The fundamental relation is $l^2 + m^2 + n^2 = 1$. This means the sum of the squares of the direction cosines of any line is always equal to 1.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the relation $l^2+m^2+n^2=1$ for the direction cosines of a line passing through the origin $(0,0,0)$ and a point $P(x,y,z)$.",
+      "back": "Let $P(x,y,z)$ be a point on the line, and $r$ be the distance from the origin $O(0,0,0)$ to $P$. So $r = \\sqrt{x^2+y^2+z^2}$.\n\nThe direction cosines are defined as:\n$l = \\cos \\alpha = \\frac{x}{r}$\n$m = \\cos \\beta = \\frac{y}{r}$\n$n = \\cos \\gamma = \\frac{z}{r}$\n\nSquaring and adding them:\n$$l^2 + m^2 + n^2 = \\left(\\frac{x}{r}\\right)^2 + \\left(\\frac{y}{r}\\right)^2 + \\left(\\frac{z}{r}\\right)^2$$\n$$= \\frac{x^2}{r^2} + \\frac{y^2}{r^2} + \\frac{z^2}{r^2} = \\frac{x^2+y^2+z^2}{r^2}$$\nSince $r^2 = x^2+y^2+z^2$, we substitute this into the equation:\n$$l^2 + m^2 + n^2 = \\frac{r^2}{r^2} = 1$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a line makes angles of $60^\\circ$ with the positive $x$-axis and $45^\\circ$ with the positive $y$-axis, find the angle(s) it makes with the positive $z$-axis.",
+      "back": "Given $\\alpha = 60^\\circ$ and $\\beta = 45^\\circ$.\n\nFirst, find the direction cosines for these angles:\n$l = \\cos 60^\\circ = \\frac{1}{2}$\n$m = \\cos 45^\\circ = \\frac{\\sqrt{2}}{2}$\n\nUsing the relation $l^2 + m^2 + n^2 = 1$:\n$$\\left(\\frac{1}{2}\\right)^2 + \\left(\\frac{\\sqrt{2}}{2}\\right)^2 + n^2 = 1$$\n$$\\frac{1}{4} + \\frac{2}{4} + n^2 = 1$$\n$$\\frac{3}{4} + n^2 = 1$$\n$$n^2 = 1 - \\frac{3}{4} = \\frac{1}{4}$$\n$$n = \\pm \\frac{1}{2}$$\n\nSo, $\\cos \\gamma = \\pm \\frac{1}{2}$.\nThis means $\\gamma = 60^\\circ$ or $\\gamma = 120^\\circ$. Both are valid angles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does the relation $l^2+m^2+n^2=1$ imply about the point $(l,m,n)$ in 3D space?",
+      "back": "The relation $l^2+m^2+n^2=1$ implies that the point $(l,m,n)$ lies on the surface of a unit sphere (a sphere with radius 1) centered at the origin $(0,0,0)$. Each unique line direction corresponds to a unique point on this unit sphere.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the relation $l^2+m^2+n^2=1$ connect to the concept of a unit vector in the direction of the line?",
+      "back": "If $\\vec{v} = x\\hat{i} + y\\hat{j} + z\\hat{k}$ is a vector along the line, its magnitude is $|\\vec{v}| = \\sqrt{x^2+y^2+z^2}$.\n\nThe unit vector in the direction of $\\vec{v}$ is $\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|} = \\frac{x}{|\\vec{v}|}\\hat{i} + \\frac{y}{|\\vec{v}|}\\hat{j} + \\frac{z}{|\\vec{v}|}\\hat{k}$.\n\nThe components of the unit vector are precisely the direction cosines:\n$l = \\frac{x}{|\\vec{v}|}$, $m = \\frac{y}{|\\vec{v}|}$, $n = \\frac{z}{|\\vec{v}|}$.\n\nThe magnitude of any unit vector is 1. Therefore, $|\\hat{v}|^2 = l^2+m^2+n^2 = 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $a, b, c$ are the direction ratios of a line, express its direction cosines $l, m, n$ in terms of $a, b, c$.",
+      "back": "If $a, b, c$ are direction ratios, then they are proportional to the direction cosines. The direction cosines $l, m, n$ can be found by normalizing the direction ratios:\n$$l = \\frac{a}{\\sqrt{a^2+b^2+c^2}}$$\n$$m = \\frac{b}{\\sqrt{a^2+b^2+c^2}}$$\n$$n = \\frac{c}{\\sqrt{a^2+b^2+c^2}}$$\nThis transformation ensures that $l^2+m^2+n^2 = \\frac{a^2+b^2+c^2}{a^2+b^2+c^2} = 1$.",
+      "difficulty": "medium"
+    }
+  ]
+}

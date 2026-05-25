@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-2-combined-maneuvers-optimal-split-between-plane-change-and-velocity-change",
+  "subtopicTitle": "Combined maneuvers — optimal split between plane change and velocity change",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:46.164Z",
+  "cards": [
+    {
+      "front": "In astrodynamics, what is a \"combined maneuver\"?",
+      "back": "A maneuver that simultaneously changes multiple orbital elements, such as both orbital energy (e.g., radius) and orbital plane (e.g., inclination or RAAN), often designed to reduce total $\\Delta V$ compared to performing separate burns.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the $\\Delta V$ required for a pure plane change of $\\Delta i$ at a velocity $V$, assuming the velocity magnitude does not change.",
+      "back": "The $\\Delta V$ for a pure plane change of $\\Delta i$ at a velocity $V$ is given by $\\Delta V = 2V \\sin(\\frac{\\Delta i}{2})$. This formula highlights that plane changes are expensive, as the $\\Delta V$ cost is directly proportional to the velocity at which the maneuver is performed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the $\\Delta V$ required for a single-burn combined maneuver that changes both velocity magnitude from $V_1$ to $V_2$ and orbital plane by an angle $\\Delta i$.",
+      "back": "Let $\\vec{V_1}$ be the initial velocity vector and $\\vec{V_2}$ be the final velocity vector. The magnitude of the required $\\Delta V$ is given by the magnitude of the vector difference: $\\Delta V = ||\\vec{V_2} - \\vec{V_1}||$. If the angle between $\\vec{V_1}$ and $\\vec{V_2}$ is $\\Delta i$ (the plane change angle), then by the law of cosines:\n$$\\Delta V^2 = V_1^2 + V_2^2 - 2V_1 V_2 \\cos(\\Delta i)$$\nThus, the total $\\Delta V$ for the combined burn is:\n$$\\Delta V = \\sqrt{V_1^2 + V_2^2 - 2V_1 V_2 \\cos(\\Delta i)}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a combined maneuver involving both an orbit raise and a plane change, what is the general principle for minimizing $\\Delta V$ regarding the timing of the plane change?",
+      "back": "The plane change burn should generally be performed at the highest possible altitude (lowest orbital velocity) in the transfer trajectory. This is because the $\\Delta V$ required for a plane change is directly proportional to the velocity at which it is performed ($\\Delta V = 2V \\sin(\\Delta i/2)$). Performing it at lower velocities significantly reduces the fuel cost.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why a bi-elliptic transfer combined with a plane change can be more fuel-efficient than a Hohmann transfer with a plane change for *large* plane change angles.",
+      "back": "A bi-elliptic transfer raises the spacecraft to a very high apogee, where the orbital velocity is significantly lower than at the target circular orbit. Since plane changes are most efficient at low velocities, performing a large plane change at this high-apogee, low-velocity point can result in a lower total $\\Delta V$ than performing it at the higher velocities encountered during a Hohmann transfer. This efficiency gain for the plane change can outweigh the additional $\\Delta V$ required for the extra burns of the bi-elliptic transfer, especially for inclination changes greater than approximately $15^\\circ$ to $20^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When performing a combined plane change and orbit raise from Low Earth Orbit (LEO) to Geostationary Earth Orbit (GEO), describe the optimal sequence of burns.",
+      "back": "The optimal sequence typically involves:\n1.  A perigee kick burn to raise the apogee to GEO altitude (Geostationary Transfer Orbit, GTO insertion).\n2.  At apogee (GEO altitude), perform a single combined burn to:\n    a.  Circularize the orbit (raise perigee to GEO altitude).\n    b.  Perform the plane change to match GEO's $0^\\circ$ inclination.\nThis strategy is optimal because the velocity at GEO altitude (apogee) in GTO is much lower than in LEO, making the plane change component of the burn more efficient at apogee.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific condition would a combined maneuver offer no $\\Delta V$ advantage over performing separate burns for an orbit raise and a plane change?",
+      "back": "If the required plane change angle $\\Delta i$ is $0^\\circ$, then there is no plane change component, and the maneuver is simply an orbit raise. In this case, the 'combined' maneuver simplifies to a standard orbital transfer. Also, if the velocity change is so large that the plane change component becomes negligible, or if the optimal timing for the velocity change and plane change are vastly different and cannot be efficiently combined at a single point.",
+      "difficulty": "easy"
+    }
+  ]
+}

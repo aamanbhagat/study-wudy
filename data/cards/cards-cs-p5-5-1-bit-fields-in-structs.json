@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-bit-fields-in-structs",
+  "subtopicTitle": "Bit fields in structs",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:48.625Z",
+  "cards": [
+    {
+      "front": "What is a bit field in a C struct, and what is its primary purpose?",
+      "back": "A bit field is a struct member that specifies its width in bits. Its primary purpose is to pack multiple small variables into a single machine word or byte, saving memory, especially when interacting with hardware registers or for compact data storage.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you declare a bit field named `status` that can store values from 0 to 7 within a `struct PacketHeader`?",
+      "back": "```c\nstruct PacketHeader {\n    unsigned int status : 3; // 'status' is a bit field 3 bits wide\n    // other members\n};\n```\nThe colon `:` is used to specify the bit width after the member name. A 3-bit field can store $2^3 = 8$ distinct values (0-7).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider `struct S { unsigned int a:3; unsigned int b:5; unsigned int c:10; };`. Assuming `unsigned int` is 4 bytes (32 bits), describe the typical memory layout and `sizeof(struct S)`.",
+      "back": "Bit fields are packed contiguously into the storage unit of their declared type, as long as there's space. For `struct S { unsigned int a:3; unsigned int b:5; unsigned int c:10; };`, all three bit fields ($3+5+10 = 18$ bits) can fit within a single 32-bit `unsigned int`. The compiler would typically allocate one `unsigned int` (4 bytes) for these members, with $32 - 18 = 14$ bits remaining unused at the end of that `unsigned int`.\nTherefore, `sizeof(struct S)` would typically be 4 bytes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two significant limitations or portability concerns when working with bit fields in C.",
+      "back": "1.  **Address-of operator (`&`):** You cannot take the address of a bit field (`&my_struct.my_bitfield`) because a bit field might not start on a byte boundary. This means you cannot use pointers to bit fields.\n2.  **Portability:** The exact memory layout (order of bits, padding, alignment) is implementation-defined. This means a struct with bit fields might have a different `sizeof` or member offsets on different compilers or architectures, making direct binary serialization non-portable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the purpose of an *unnamed* bit field, and provide a small code example?",
+      "back": "An unnamed bit field is used to create padding within a struct to align subsequent members on a specific bit boundary or to reserve space. It cannot be accessed by name.\nExample:\n```c\nstruct DeviceRegister {\n    unsigned char status : 1;\n    unsigned char : 3; // Unnamed bit field, 3 bits of padding\n    unsigned char error_code : 4;\n};\n```\nHere, the 3-bit unnamed field ensures `error_code` starts after `status` with a 3-bit gap.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the effect of a *zero-width* bit field (e.g., `unsigned int : 0;`) in a C struct.",
+      "back": "A zero-width bit field forces the next bit field to start on the next allocation unit boundary of its underlying type. If the zero-width bit field itself is the first member, it forces the next member to start at the beginning of the next allocation unit. It's used for explicit alignment.\nExample:\n```c\nstruct Example {\n    unsigned int a : 5;\n    unsigned int : 0; // Forces 'b' to start in a new unsigned int\n    unsigned int b : 10;\n};\n```\nIn this example, `a` would occupy 5 bits in the first `unsigned int`, and `b` would start in a completely new `unsigned int`, even if there was space remaining in the first one.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does declaring a bit field as `signed` versus `unsigned` affect its behavior, especially regarding value range and representation?",
+      "back": "1.  **`unsigned` bit field:** The value stored is always non-negative. A $k$-bit `unsigned` field can store values from $0$ to $2^k - 1$. All bits contribute to the magnitude.\n2.  **`signed` bit field:** The value can be positive or negative, typically using two's complement representation. A $k$-bit `signed` field can store values from $-2^{k-1}$ to $2^{k-1} - 1$. The most significant bit (MSB) acts as the sign bit.\nExample: A `signed int : 3;` can store values from -4 to 3. An `unsigned int : 3;` can store values from 0 to 7.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the allowed underlying types for bit fields in C, and what happens if a value exceeds the bit field's capacity?",
+      "back": "The allowed underlying types for bit fields are `_Bool`, `signed int`, and `unsigned int`. Other integer types (like `char`, `short`, `long`) may be supported as implementation-defined extensions.\nIf a value assigned to a bit field exceeds its capacity, the value is truncated. Only the least significant bits that fit into the bit field's width are retained.\nExample: `unsigned int flag : 2; flag = 5;` (binary `101`). `flag` will store `01` (decimal 1).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-matrix-representation-of-linear-transformations",
+  "subtopicTitle": "Matrix representation of linear transformations",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:41.251Z",
+  "cards": [
+    {
+      "front": "What is the fundamental principle that allows any linear transformation $T: V \\to W$ to be represented by a matrix?",
+      "back": "A linear transformation $T$ is completely determined by its action on a basis of the domain space $V$. If we know $T(\\mathbf{b}_1), T(\\mathbf{b}_2), \\dots, T(\\mathbf{b}_n)$ for a basis $B = \\{\\mathbf{b}_1, \\dots, \\mathbf{b}_n\\}$ of $V$, then $T(\\mathbf{v})$ can be found for any $\\mathbf{v} \\in V$ by linearity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a linear transformation $T: \\mathbb{R}^n \\to \\mathbb{R}^m$, how do you construct its standard matrix $[T]$?",
+      "back": "The columns of the standard matrix $[T]$ are the images of the standard basis vectors of $\\mathbb{R}^n$ under $T$. Specifically, if $\\mathbf{e}_j$ is the $j$-th standard basis vector of $\\mathbb{R}^n$, then the $j$-th column of $[T]$ is $T(\\mathbf{e}_j)$.\n$$[T] = \\begin{bmatrix} T(\\mathbf{e}_1) & T(\\mathbf{e}_2) & \\dots & T(\\mathbf{e}_n) \\end{bmatrix}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $T: \\mathbb{R}^n \\to \\mathbb{R}^m$ is a linear transformation with standard matrix $A$, how do you compute $T(\\mathbf{x})$ for any vector $\\mathbf{x} \\in \\mathbb{R}^n$?",
+      "back": "To compute $T(\\mathbf{x})$, you simply multiply the standard matrix $A$ by the vector $\\mathbf{x}$: $T(\\mathbf{x}) = A\\mathbf{x}$. This is the core utility of the matrix representation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Find the standard matrix for the linear transformation $T: \\mathbb{R}^2 \\to \\mathbb{R}^2$ that rotates vectors counterclockwise by an angle $\\theta$.",
+      "back": "1. Find $T(\\mathbf{e}_1)$: $T(\\begin{smallmatrix} 1 \\\\ 0 \\end{smallmatrix}) = \\begin{smallmatrix} \\cos\\theta \\\\ \\sin\\theta \\end{smallmatrix}$.\n2. Find $T(\\mathbf{e}_2)$: $T(\\begin{smallmatrix} 0 \\\\ 1 \\end{smallmatrix}) = \\begin{smallmatrix} -\\sin\\theta \\\\ \\cos\\theta \\end{smallmatrix}$.\n3. The standard matrix is formed by these columns:\n$$[T] = \\begin{bmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{bmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Let $V$ and $W$ be finite-dimensional vector spaces with bases $B = \\{\\mathbf{b}_1, \\dots, \\mathbf{b}_n\\}$ and $C = \\{\\mathbf{c}_1, \\dots, \\mathbf{c}_m\\}$ respectively. How do you find the matrix $[T]_{C \\leftarrow B}$ for $T: V \\to W$?",
+      "back": "The columns of the matrix $[T]_{C \\leftarrow B}$ are the coordinate vectors of the images of the basis vectors of $V$ (under $T$) with respect to the basis $C$ of $W$. Specifically, the $j$-th column is $[T(\\mathbf{b}_j)]_C$.\n$$[T]_{C \\leftarrow B} = \\begin{bmatrix} [T(\\mathbf{b}_1)]_C & [T(\\mathbf{b}_2)]_C & \\dots & [T(\\mathbf{b}_n)]_C \\end{bmatrix}$$\nThis matrix allows computing $[T(\\mathbf{v})]_C = [T]_{C \\leftarrow B} [\\mathbf{v}]_B$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is the matrix representation of a linear transformation unique? Explain.",
+      "back": "Yes, for a given choice of bases for the domain and codomain, the matrix representation of a linear transformation is unique. This is because a linear transformation is uniquely determined by its action on a basis, and the coordinate representation of each image vector with respect to the codomain basis is also unique.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Let $T: V \\to V$ be a linear operator. If $A = [T]_B$ is its matrix relative to basis $B$, and $P$ is the change-of-basis matrix from $C$ to $B$ (i.e., $P = [I]_{B \\leftarrow C}$), how do you find $D = [T]_C$?",
+      "back": "The matrix $D = [T]_C$ can be found using the similarity transformation:\n$$D = P^{-1}AP$$\nHere, $P^{-1}$ is the change-of-basis matrix from $B$ to $C$ (i.e., $P^{-1} = [I]_{C \\leftarrow B}$). This formula connects the matrix representations of the same linear transformation under different bases.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $T_1: U \\to V$ and $T_2: V \\to W$ are linear transformations with matrices $[T_1]_{B_V \\leftarrow B_U}$ and $[T_2]_{B_W \\leftarrow B_V}$ respectively, what is the matrix representation for their composition $T_2 \\circ T_1: U \\to W$?",
+      "back": "The matrix representation of the composite transformation $T_2 \\circ T_1$ is the product of their individual matrices (in the correct order):\n$$[T_2 \\circ T_1]_{B_W \\leftarrow B_U} = [T_2]_{B_W \\leftarrow B_V} [T_1]_{B_V \\leftarrow B_U}$$\nThis demonstrates that matrix multiplication corresponds to the composition of linear transformations.",
+      "difficulty": "medium"
+    }
+  ]
+}

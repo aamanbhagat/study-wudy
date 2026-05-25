@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-5-gaussian-elimination-forward-elimination-back-substitution",
+  "subtopicTitle": "Gaussian elimination — forward elimination, back substitution",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:56.527Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of Gaussian elimination when solving a system of linear equations?",
+      "back": "The primary goal of Gaussian elimination is to transform a system of linear equations into an equivalent system that is easier to solve, specifically into row echelon form (an upper triangular matrix), and then solve it using back substitution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three elementary row operations that can be used in Gaussian elimination.",
+      "back": "The three elementary row operations are:\n1. Swapping two rows ($R_i \\leftrightarrow R_j$).\n2. Multiplying a row by a non-zero scalar ($kR_i \\rightarrow R_i$, where $k \\neq 0$).\n3. Adding a multiple of one row to another row ($R_i + kR_j \\rightarrow R_i$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the main objective of the \"forward elimination\" phase of Gaussian elimination.",
+      "back": "The objective of forward elimination is to transform the augmented matrix $[A | \\mathbf{b}]$ into an upper triangular matrix (row echelon form) $[U | \\mathbf{c}]$ using elementary row operations. This process systematically creates zeros below each pivot element in successive columns, starting from the first column.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how \"back substitution\" is performed to find the solution to a system of equations once it is in row echelon form.",
+      "back": "Back substitution starts by solving for the variable in the last non-zero equation (which will typically have only one unknown). This value is then substituted into the second-to-last equation to solve for its corresponding variable. This process continues upwards, substituting known variable values into preceding equations until all variables are solved.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Perform the first step of forward elimination to eliminate $x$ from $R_2$ and $R_3$ in the augmented matrix for the system:\n$$ \\begin{pmatrix} 2 & 1 & -1 \\\\ 4 & 3 & 1 \\\\ -2 & 1 & 5 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 8 \\\\ 14 \\\\ -4 \\end{pmatrix} $$",
+      "back": "The initial augmented matrix is:\n$$ \\begin{pmatrix} 2 & 1 & -1 & | & 8 \\\\ 4 & 3 & 1 & | & 14 \\\\ -2 & 1 & 5 & | & -4 \\end{pmatrix} $$\nTo eliminate $x$ from $R_2$ and $R_3$ using $R_1$:\n1. $R_2 \\leftarrow R_2 - 2R_1$: \n$$ \\begin{pmatrix} 2 & 1 & -1 & | & 8 \\\\ 0 & 1 & 3 & | & -2 \\\\ -2 & 1 & 5 & | & -4 \\end{pmatrix} $$\n2. $R_3 \\leftarrow R_3 + R_1$: \n$$ \\begin{pmatrix} 2 & 1 & -1 & | & 8 \\\\ 0 & 1 & 3 & | & -2 \\\\ 0 & 2 & 4 & | & 4 \\end{pmatrix} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the standard procedure if a pivot element becomes zero during forward elimination, and what is this technique called?",
+      "back": "If a pivot element becomes zero, it cannot be used to eliminate entries below it. The standard procedure is to swap the current row with a row below it that has a non-zero entry in the pivot column. This technique is called partial pivoting. If no such row exists below, it implies the system might have infinite solutions or no solution, and the column does not contain a pivot.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What form is the coefficient matrix in after successful forward elimination, just before back substitution begins?",
+      "back": "After successful forward elimination, the coefficient matrix is in row echelon form, which means it is an upper triangular matrix. All entries below the main diagonal are zero, and any zero rows are at the bottom.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the augmented matrix after forward elimination:\n$$ \\begin{pmatrix} 1 & 2 & -1 & | & 5 \\\\ 0 & 1 & 3 & | & -2 \\\\ 0 & 0 & 1 & | & 1 \\end{pmatrix} $$\nPerform back substitution to find the solution $(x, y, z)$.",
+      "back": "From the last row, $0x + 0y + 1z = 1 \\implies z = 1$.\nSubstitute $z=1$ into the second row: $0x + 1y + 3z = -2 \\implies y + 3(1) = -2 \\implies y = -5$.\nSubstitute $y=-5$ and $z=1$ into the first row: $1x + 2y - 1z = 5 \\implies x + 2(-5) - 1(1) = 5 \\implies x - 10 - 1 = 5 \\implies x - 11 = 5 \\implies x = 16$.\nThe solution is $(x, y, z) = (16, -5, 1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is an \"augmented matrix\" in the context of Gaussian elimination, and what is its purpose?",
+      "back": "An augmented matrix is a matrix formed by combining the coefficient matrix $A$ of a system of linear equations with the constant vector $\\mathbf{b}$, typically separated by a vertical line, written as $[A|\\mathbf{b}]$. Its purpose is to allow elementary row operations to be applied simultaneously to both the coefficients and the constants of the system, simplifying the process of solving.",
+      "difficulty": "medium"
+    }
+  ]
+}

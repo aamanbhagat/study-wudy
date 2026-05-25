@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-scipy-integrate-odeint-solve-ivp-rk45-dop853-quad",
+  "subtopicTitle": "scipy.integrate — odeint, solve_ivp (RK45, DOP853), quad",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:29.299Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `scipy.integrate` module?",
+      "back": "The `scipy.integrate` module provides functions for numerical integration, including computing definite integrals (quadrature) and solving ordinary differential equations (ODEs).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To numerically compute the definite integral of a single-variable function $f(x)$ from $a$ to $b$, which `scipy.integrate` function would you use, and what are its minimal arguments?",
+      "back": "You would use `scipy.integrate.quad`. Its minimal arguments are the function `func` to integrate and the lower and upper limits of integration, `a` and `b`.\n```python\nfrom scipy.integrate import quad\nimport numpy as np\nresult, error = quad(lambda x: np.sin(x), 0, np.pi)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What type of problem is `scipy.integrate.odeint` designed to solve, and what are its three essential arguments?",
+      "back": "`scipy.integrate.odeint` is designed to solve systems of ordinary differential equations (ODEs) of the form $\\frac{dy}{dt} = f(y, t)$. Its three essential arguments are:\n1.  `func`: A Python function that computes the derivative of `y` at a given `t`.\n2.  `y0`: The initial condition (value of `y` at the start of integration).\n3.  `t`: A sequence of time points for which to solve `y`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two significant advantages of `scipy.integrate.solve_ivp` over `odeint` for solving initial value problems (IVPs)?",
+      "back": "Two significant advantages are:\n1.  **Modern API:** `solve_ivp` offers a more flexible and robust API, including event handling, dense output, and explicit control over integration methods.\n2.  **Adaptive Step-Size Methods:** It provides access to a wider range of modern, adaptive step-size ODE solvers (e.g., RK45, DOP853, BDF) that are generally more efficient and reliable, especially for stiff problems or when high precision is required.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare `RK45` and `DOP853` methods available in `solve_ivp` regarding their order and typical use cases.",
+      "back": "*   **`RK45` (Runge-Kutta 4(5))**: This is the default method. It's an explicit Runge-Kutta method of order 5(4), meaning it uses a 4th-order solution for propagation and a 5th-order solution for error estimation. It's a good general-purpose choice for non-stiff problems due to its balance of speed and accuracy.\n*   **`DOP853` (Dormand-Prince 8(5,3))**: This is an explicit Runge-Kutta method of order 8(5,3). It's more accurate than `RK45` and is recommended when very high precision is required for non-stiff problems. It uses a higher order for propagation and error estimation, leading to better accuracy but potentially higher computational cost per step.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you obtain a continuously interpolated solution between the specified time points when using `solve_ivp`, and why is this useful?",
+      "back": "You can obtain a continuously interpolated solution by setting the `dense_output=True` argument in `solve_ivp`. This returns a `sol` attribute in the result object, which is an `OdeSolution` object. This object can then be called as a function, e.g., `sol(t_eval_dense)`, to evaluate the solution at any arbitrary time points within the integration interval. This is useful for plotting smooth curves, finding specific events, or analyzing the solution at high resolution without re-running the solver.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a new project involving solving ODEs, under what specific circumstances might one still choose `scipy.integrate.odeint` over `solve_ivp`?",
+      "back": "While `solve_ivp` is generally preferred, `odeint` might be chosen in specific cases:\n1.  **Legacy Code:** Maintaining or integrating with existing codebases that already use `odeint`.\n2.  **Simplicity for Basic Non-Stiff Problems:** For very simple, non-stiff ODEs where minimal control is needed, `odeint`'s simpler API (fewer arguments) can be slightly quicker to implement.\n3.  **Specific Solver Behavior:** `odeint` internally uses `LSODA` from ODEPACK, which can automatically switch between stiff and non-stiff solvers. If this specific behavior is desired and `solve_ivp`'s methods (like `BDF` for stiff problems) are not tuned correctly, `odeint` might provide a quick solution, though `solve_ivp`'s `BDF` is generally more robust for stiff systems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why adaptive step-size methods, like those used by `solve_ivp`, are generally more efficient and accurate than fixed step-size methods for ODEs.",
+      "back": "Adaptive step-size methods dynamically adjust the integration step size based on an estimate of the local error. Intuitively:\n*   **Efficiency:** When the solution is changing slowly (e.g., a flat region), they take larger steps, saving computational time.\n*   **Accuracy:** When the solution is changing rapidly (e.g., near a singularity or sharp turn), they take smaller steps to maintain the desired accuracy and avoid \"jumping over\" important features.\nFixed step-size methods, in contrast, either waste computation in slow regions or fail to capture details in fast regions, requiring a globally small step size that is often inefficient.",
+      "difficulty": "medium"
+    }
+  ]
+}

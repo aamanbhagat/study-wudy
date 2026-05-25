@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-reynolds-transport-theorem",
+  "subtopicTitle": "Reynolds transport theorem",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:40.794Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Reynolds Transport Theorem (RTT) in fluid mechanics?",
+      "back": "The RTT provides a fundamental link between the Lagrangian description (tracking a system of fixed mass) and the Eulerian description (observing flow through a fixed control volume). It allows us to apply conservation laws, originally formulated for systems, to control volumes, which are more practical for analyzing fluid flow problems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general form of the Reynolds Transport Theorem for an arbitrary extensive property $B$ and its intensive counterpart $b$.",
+      "back": "The general form is:\n$$ \\frac{dB_{sys}}{dt} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho b \\, dV + \\int_{CS} \\rho b (\\vec{V} \\cdot \\vec{n}) \\, dA $$\nwhere $B_{sys}$ is the extensive property of the system, $CV$ is the control volume, $CS$ is the control surface, $\\rho$ is density, $b = B/m$ is the intensive property, $\\vec{V}$ is the absolute velocity, and $\\vec{n}$ is the outward unit normal vector to the control surface.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical meaning of the two terms on the right-hand side of the RTT equation: $\\frac{\\partial}{\\partial t} \\int_{CV} \\rho b \\, dV$ and $\\int_{CS} \\rho b (\\vec{V} \\cdot \\vec{n}) \\, dA$.",
+      "back": "1.  **$\\frac{\\partial}{\\partial t} \\int_{CV} \\rho b \\, dV$**: This is the **time rate of change of the extensive property $B$ *within* the control volume**. It accounts for accumulation or depletion of $B$ inside the fixed region.\n2.  **$\\int_{CS} \\rho b (\\vec{V} \\cdot \\vec{n}) \\, dA$**: This is the **net rate of efflux (outflow minus inflow) of the extensive property $B$ *across* the control surface**. It represents the transport of $B$ by mass crossing the boundaries of the control volume.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the integral form of the continuity equation (conservation of mass) for a control volume using the Reynolds Transport Theorem.",
+      "back": "For mass conservation, the extensive property is mass, $B = m$, and the intensive property is $b = B/m = m/m = 1$.\nThe conservation of mass for a system states that $\\frac{dm_{sys}}{dt} = 0$.\nApplying RTT:\n$$ \\frac{dm_{sys}}{dt} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho (1) \\, dV + \\int_{CS} \\rho (1) (\\vec{V} \\cdot \\vec{n}) \\, dA $$\nSince $\\frac{dm_{sys}}{dt} = 0$:\n$$ \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\, dV + \\int_{CS} \\rho (\\vec{V} \\cdot \\vec{n}) \\, dA = 0 $$\nThis is the integral form of the continuity equation, stating that the rate of change of mass within the CV plus the net rate of mass outflow across the CS is zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the Reynolds Transport Theorem transform Newton's Second Law ($\\vec{F}_{sys} = \\frac{d(m\\vec{V})_{sys}}{dt}$) into a control volume formulation for linear momentum?",
+      "back": "For linear momentum, the extensive property is $\\vec{B} = m\\vec{V}$, and the intensive property is $\\vec{b} = \\vec{B}/m = \\vec{V}$.\nNewton's Second Law for a system is $\\vec{F}_{sys} = \\frac{d(m\\vec{V})_{sys}}{dt}$.\nApplying RTT to the right-hand side:\n$$ \\frac{d(m\\vec{V})_{sys}}{dt} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\vec{V} \\, dV + \\int_{CS} \\rho \\vec{V} (\\vec{V} \\cdot \\vec{n}) \\, dA $$\nTherefore, the control volume form of the linear momentum equation is:\n$$ \\sum \\vec{F}_{CV} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\vec{V} \\, dV + \\int_{CS} \\rho \\vec{V} (\\vec{V} \\cdot \\vec{n}) \\, dA $$\nHere, $\\sum \\vec{F}_{CV}$ represents all external forces acting on the control volume (surface forces like pressure and viscous shear, and body forces like gravity).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a steady flow, what simplification does the Reynolds Transport Theorem undergo, and what does it imply about the property within the control volume?",
+      "back": "For steady flow, all properties at a fixed point in space do not change with time. This means the partial derivative with respect to time of any integral over the control volume becomes zero:\n$$ \\frac{\\partial}{\\partial t} \\int_{CV} \\rho b \\, dV = 0 $$\nThe RTT simplifies to:\n$$ \\frac{dB_{sys}}{dt} = \\int_{CS} \\rho b (\\vec{V} \\cdot \\vec{n}) \\, dA $$\nThis implies that for steady flow, the rate of change of the extensive property of the system is solely due to the net transport of that property across the control surface. There is no accumulation or depletion within the control volume.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide an intuitive analogy to explain the concept behind the Reynolds Transport Theorem, distinguishing between tracking a 'system' and observing a 'control volume.'",
+      "back": "Imagine you're counting the number of people (extensive property $B$) in a specific group of friends (the system). If you want to know how the number of people in a *room* (the control volume) changes, it's not simply about tracking your friends.\nThe RTT states:\n*   **Rate of change of people in your friend group (system)** =\n*   **Rate of change of people *currently inside* the room (accumulation term)**\n*   **PLUS**\n*   **Net rate of people *entering/leaving* the room (flux term)**.\nIt links how a property changes for a specific, identifiable mass of fluid (the system) to how it changes within a fixed region of space (the control volume), which is easier to observe.",
+      "difficulty": "easy"
+    }
+  ]
+}

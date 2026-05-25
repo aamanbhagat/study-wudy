@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-dynamic-memory-malloc-calloc-realloc-free",
+  "subtopicTitle": "Dynamic memory — malloc, calloc, realloc, free",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:42.339Z",
+  "cards": [
+    {
+      "front": "What problem does dynamic memory allocation solve in C, and which memory region is typically used for it?",
+      "back": "Dynamic memory allocation solves the problem of needing to allocate memory whose size is not known at compile time or whose lifetime extends beyond the scope of a function call. It allows programs to request memory during runtime. This memory is typically allocated from the **heap** region.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of `malloc` in C, what does it return on success, and what on failure?",
+      "back": "`malloc` (memory allocate) is used to allocate a block of uninitialized memory of a specified size in bytes from the heap.\n\n*   On success: It returns a `void*` pointer to the beginning of the allocated block.\n*   On failure: It returns `NULL`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare `malloc(num_elements * element_size)` and `calloc(num_elements, element_size)`. What is the crucial difference in their initialization behavior?",
+      "back": "Both allocate memory from the heap.\n\n*   `malloc(size_in_bytes)`: Allocates a block of `size_in_bytes` and returns a pointer to it. The allocated memory is **uninitialized** (contains garbage values).\n*   `calloc(num_elements, element_size)`: Allocates memory for `num_elements` each of `element_size` bytes. The allocated memory is **initialized to all zero bits**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You need to allocate memory for 5 `struct Person` objects. Write the `malloc` call, including a check for allocation failure and proper type casting.",
+      "back": "```c\n#include <stdlib.h> // For malloc and free\n#include <stdio.h>  // For perror\n\nstruct Person {\n    char name[50];\n    int age;\n};\n\n// Inside a function:\nstruct Person *people = (struct Person *)malloc(5 * sizeof(struct Person));\nif (people == NULL) {\n    // Handle allocation failure, e.g., print error and exit\n    perror(\"Failed to allocate memory for people\");\n    // exit(EXIT_FAILURE);\n}\n// Remember to free(people); later when no longer needed.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the behavior of `realloc(ptr, new_size)` under these conditions: 1) `ptr` is `NULL`. 2) `new_size` is `0`. 3) `realloc` fails to allocate memory.",
+      "back": "1.  If `ptr` is `NULL`: `realloc` behaves like `malloc(new_size)`, allocating a new block of memory.\n2.  If `new_size` is `0`: `realloc` behaves like `free(ptr)`, deallocating the memory block pointed to by `ptr`. It returns `NULL`, and the original `ptr` becomes invalid.\n3.  If `realloc` fails to allocate memory (e.g., due to insufficient memory): It returns `NULL`. **Crucially, the original memory block pointed to by `ptr` remains unchanged and is still valid.** You must not lose the original pointer.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a \"memory leak\" in C, and what is the fundamental rule to prevent it when using `malloc`, `calloc`, or `realloc`?",
+      "back": "A \"memory leak\" occurs when a program allocates memory dynamically but fails to deallocate it when it's no longer needed. This leads to a gradual consumption of available memory, potentially causing the program or system to run out of memory.\n\nThe fundamental rule to prevent memory leaks is: **Every successful call to `malloc`, `calloc`, or `realloc` (that returns a non-NULL pointer) must eventually be paired with exactly one call to `free()` for that same pointer.**",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the dangers of a \"dangling pointer\" after a `free()` call. Provide a small C snippet demonstrating how a dangling pointer can lead to undefined behavior.",
+      "back": "A \"dangling pointer\" is a pointer that points to a memory location that has been deallocated (freed). Accessing or dereferencing a dangling pointer leads to **undefined behavior**, which can manifest as crashes (segmentation faults), corrupted data, or security vulnerabilities, as the memory might have been reallocated for other purposes.\n\n```c\n#include <stdlib.h>\n#include <stdio.h>\n\nint main() {\n    int *ptr = (int *)malloc(sizeof(int));\n    if (ptr == NULL) return 1;\n\n    *ptr = 100;\n    printf(\"Before free: %d\\n\", *ptr); // Output: 100\n\n    free(ptr); // Memory is deallocated\n    // ptr is now a dangling pointer\n\n    // Dereferencing a dangling pointer: UNDEFINED BEHAVIOR\n    // It might still print 100, or crash, or print garbage.\n    printf(\"After free (dangling access): %d\\n\", *ptr);\n\n    // Best practice: Set to NULL after freeing\n    ptr = NULL;\n    // Now 'ptr' is a null pointer, not a dangling pointer.\n    // Dereferencing NULL is a defined error (usually a crash).\n    return 0;\n}\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

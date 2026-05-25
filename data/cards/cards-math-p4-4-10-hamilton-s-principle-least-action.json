@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-10-hamilton-s-principle-least-action",
+  "subtopicTitle": "Hamilton's principle — least action",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:32.534Z",
+  "cards": [
+    {
+      "front": "State Hamilton's Principle.",
+      "back": "Hamilton's Principle states that the path taken by a physical system between two specified times $t_1$ and $t_2$ is the one for which the action $S$ is stationary (i.e., $\\delta S = 0$), given fixed initial and final configurations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the action $S$ for a system with generalized coordinates $q_i$ and Lagrangian $L(q_i, \\dot{q}_i, t)$.",
+      "back": "The action $S$ is defined as the time integral of the Lagrangian $L$ between two specified times $t_1$ and $t_2$:$$ S = \\int_{t_1}^{t_2} L(q_i, \\dot{q}_i, t) \\, dt $$where $L = T - V$ (kinetic energy minus potential energy).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the Euler-Lagrange equations from Hamilton's Principle, assuming fixed endpoints.",
+      "back": "Starting from $\\delta S = \\delta \\int_{t_1}^{t_2} L(q, \\dot{q}, t) \\, dt = 0$, we vary the path $q(t) \\to q(t) + \\delta q(t)$.\n$$ \\delta S = \\int_{t_1}^{t_2} \\left( \\frac{\\partial L}{\\partial q} \\delta q + \\frac{\\partial L}{\\partial \\dot{q}} \\delta \\dot{q} \\right) \\, dt = 0 $$\nUsing $\\delta \\dot{q} = \\frac{d}{dt}(\\delta q)$ and integrating the second term by parts:\n$$ \\int_{t_1}^{t_2} \\frac{\\partial L}{\\partial \\dot{q}} \\frac{d}{dt}(\\delta q) \\, dt = \\left[ \\frac{\\partial L}{\\partial \\dot{q}} \\delta q \\right]_{t_1}^{t_2} - \\int_{t_1}^{t_2} \\frac{d}{dt} \\left( \\frac{\\partial L}{\\partial \\dot{q}} \\right) \\delta q \\, dt $$\nSince the endpoints are fixed, $\\delta q(t_1) = \\delta q(t_2) = 0$, so the boundary term vanishes.\n$$ \\int_{t_1}^{t_2} \\left( \\frac{\\partial L}{\\partial q} - \\frac{d}{dt} \\left( \\frac{\\partial L}{\\partial \\dot{q}} \\right) \\right) \\delta q \\, dt = 0 $$\nBy the fundamental lemma of calculus of variations, this implies the Euler-Lagrange equations:\n$$ \\frac{\\partial L}{\\partial q} - \\frac{d}{dt} \\left( \\frac{\\partial L}{\\partial \\dot{q}} \\right) = 0 $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the term \"stationary action\" is more accurate than \"least action\" for Hamilton's Principle.",
+      "back": "While often colloquially called \"least action,\" Hamilton's Principle states that the action integral $S$ is merely *stationary* along the actual path. This means the path could correspond to a local minimum, a local maximum, or a saddle point in the functional space of all possible paths. For sufficiently short time intervals, the action is typically a minimum, but for longer intervals, it can be a maximum or saddle point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using Hamilton's Principle, derive the equation of motion for a free particle in one dimension.",
+      "back": "For a free particle, the potential energy $V=0$, and the kinetic energy is $T = \\frac{1}{2}m\\dot{x}^2$. Thus, the Lagrangian is $L = T - V = \\frac{1}{2}m\\dot{x}^2$.\nApplying the Euler-Lagrange equation:\n$$ \\frac{\\partial L}{\\partial x} - \\frac{d}{dt} \\left( \\frac{\\partial L}{\\partial \\dot{x}} \\right) = 0 $$\nFirst, calculate the partial derivatives:\n$$ \\frac{\\partial L}{\\partial x} = 0 $$\n$$ \\frac{\\partial L}{\\partial \\dot{x}} = m\\dot{x} $$\nSubstitute these into the Euler-Lagrange equation:\n$$ 0 - \\frac{d}{dt} (m\\dot{x}) = 0 $$\n$$ m\\ddot{x} = 0 $$\n$$ \\ddot{x} = 0 $$\nThis is the equation of motion for a free particle, indicating constant velocity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Beyond classical mechanics, what is the fundamental significance and generalization of Hamilton's Principle in physics?",
+      "back": "Hamilton's Principle is a foundational variational principle that extends far beyond classical mechanics. It generalizes to field theories (e.g., electromagnetism, general relativity, quantum field theory) where the action is an integral over spacetime of a Lagrangian density. Its significance lies in its elegance, its connection to conservation laws via Noether's theorem, and its ability to derive fundamental equations of motion and field equations from a single scalar function (the Lagrangian or Lagrangian density), providing a unified and powerful framework for describing physical systems at all scales.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does Hamilton's Principle in mechanics relate to Fermat's Principle in optics?",
+      "back": "Both Hamilton's Principle and Fermat's Principle are variational principles. Fermat's Principle states that light travels between two points along the path that takes the least time. Hamilton's Principle states that a mechanical system evolves along a path of stationary action. In essence, Fermat's Principle can be seen as an optical analog where 'time' for light rays plays a role similar to 'action' for particles in mechanics. Both principles illustrate that nature often chooses paths that optimize (make stationary) a certain integral quantity, reflecting a deep underlying unity in physical laws.",
+      "difficulty": "medium"
+    }
+  ]
+}

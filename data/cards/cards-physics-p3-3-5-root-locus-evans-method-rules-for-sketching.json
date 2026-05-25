@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-root-locus-evans-method-rules-for-sketching",
+  "subtopicTitle": "Root locus — Evans' method, rules for sketching",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:06:40.161Z",
+  "cards": [
+    {
+      "front": "What fundamental information does the root locus method provide about a closed-loop system's poles as a gain parameter varies?",
+      "back": "The root locus method graphically shows the trajectories of the closed-loop poles in the s-plane as an open-loop gain $K$ varies from $0$ to $\\infty$. It helps analyze system stability, transient response, and performance margins.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a system with $n$ open-loop poles and $m$ open-loop zeros, how many branches does the root locus have, and what symmetry does it always possess?",
+      "back": "The root locus has $n$ branches, where $n$ is the number of open-loop poles (assuming $n \\ge m$). It is always symmetrical with respect to the real axis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the rule for determining which segments of the real axis are part of the root locus.",
+      "back": "A point on the real axis belongs to the root locus if the total number of open-loop poles and zeros to its *right* on the real axis is odd.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formulas for the number of asymptotes, their angles, and the centroid for a root locus with $n$ open-loop poles and $m$ open-loop zeros.",
+      "back": "<ul><li>Number of asymptotes: $N_a = n - m$.</li><li>Angles of asymptotes: $\\phi_k = \\frac{(2k+1)\\pi}{n-m}$ for $k=0, 1, \\dots, n-m-1$.</li><li>Centroid of asymptotes: $\\sigma_a = \\frac{\\sum \\text{poles} - \\sum \\text{zeros}}{n-m}$.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how to mathematically find breakaway and break-in points on the real axis for a given open-loop transfer function $G(s)H(s)$.",
+      "back": "Breakaway/break-in points occur where $\\frac{dK}{ds} = 0$. Start with the characteristic equation $1 + K G(s)H(s) = 0$, which can be rearranged to $K = -\\frac{1}{G(s)H(s)}$. Then, differentiate $K$ with respect to $s$ and set the derivative to zero: $\\frac{d}{ds}\\left( \\frac{1}{G(s)H(s)} \\right) = 0$. The real solutions $s$ that lie on a valid root locus segment are the breakaway/break-in points.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are the angle of departure from a complex open-loop pole $p_i$ and the angle of arrival at a complex open-loop zero $z_j$ calculated?",
+      "back": "<ul><li>Angle of Departure $\\phi_{dep}$: $\\phi_{dep} = 180^\\circ - \\sum (\\text{angles from other poles to } p_i) + \\sum (\\text{angles from zeros to } p_i)$.</li><li>Angle of Arrival $\\phi_{arr}$: $\\phi_{arr} = 180^\\circ - \\sum (\\text{angles from other zeros to } z_j) + \\sum (\\text{angles from poles to } z_j)$.</li></ul>All angles are measured from the respective pole/zero to the point in question. This is derived from the phase condition $\\angle G(s)H(s) = (2k+1)180^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are two methods to determine the points where the root locus crosses the imaginary axis, and the gain $K$ at these points?",
+      "back": "1.  **Routh-Hurwitz Criterion:** Form the Routh array from the characteristic equation $1+KG(s)H(s)=0$. Set the first element of a row of zeros to zero to find $K$, then use the auxiliary equation to find the crossing points. 2.  **Direct Substitution:** Substitute $s = j\\omega$ into the characteristic equation $1+KG(j\\omega)H(j\\omega)=0$. Separate into real and imaginary parts, and set both to zero. Solve the resulting two equations for $K$ and $\\omega$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a point $s_0$ on the root locus, how can the value of the open-loop gain $K$ be determined at that specific point?",
+      "back": "The magnitude condition of the root locus states that $|K G(s_0)H(s_0)| = 1$. Therefore, $K = \\frac{1}{|G(s_0)H(s_0)|}$. This can also be expressed as $K = \\frac{\\prod |\\text{vector from } s_0 \\text{ to poles}|}{\\prod |\\text{vector from } s_0 \\text{ to zeros}|}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

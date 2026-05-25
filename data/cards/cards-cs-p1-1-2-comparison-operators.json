@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-comparison-operators",
+  "subtopicTitle": "Comparison operators — ==, !=, <, >, <=, >=",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:51.479Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of comparison operators in Python, and what data type do they always return?",
+      "back": "Comparison operators are used to compare two values. They always return a boolean value (`True` or `False`), indicating the truthfulness of the comparison.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Differentiate between the `==` and `!=` operators in Python. Provide a concise example for each.",
+      "back": "<ul><li>`==` (Equality operator): Checks if the values on both sides are equal.</li><li>`!=` (Inequality operator): Checks if the values on both sides are not equal.</li></ul>```python\nprint(10 == 10) # True\nprint(5 != 7)   # True\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a Python expression using comparison operators to check if a variable `score` is greater than or equal to 90 AND less than 100.",
+      "back": "```python\nscore = 95\nprint(score >= 90 and score < 100) # True\n```\nThis expression uses the `>=` (greater than or equal to) and `<` (less than) operators, combined with the logical `and` operator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Python evaluate chained comparison expressions like `a < b < c`? Is it equivalent to `(a < b) and (b < c)`?",
+      "back": "Yes, `a < b < c` is syntactic sugar for `(a < b) and (b < c)`. Python evaluates these expressions from left to right. Both individual comparisons must evaluate to `True` for the entire chained expression to be `True`.\n```python\nx = 15\nprint(10 < x < 20) # True\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the result of `7 == '7'` in Python? Explain why. What about `7 < 10.0`?",
+      "back": "<ul><li>`7 == '7'` evaluates to `False`. Python does not implicitly convert types for `==` if they are fundamentally different (e.g., an `int` vs. a `str`).</li><li>`7 < 10.0` evaluates to `True`. For numeric comparisons between `int` and `float`, Python promotes the `int` to a `float` (e.g., `7` becomes `7.0`) before performing the comparison.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate `True > False` and `False <= 0` in Python. Explain how boolean values are handled in numeric comparisons.",
+      "back": "<ul><li>`True > False` evaluates to `True`.</li><li>`False <= 0` evaluates to `True`.</li></ul>\nIn numeric contexts, Python treats `True` as the integer `1` and `False` as the integer `0`. So, `True > False` becomes `1 > 0`, and `False <= 0` becomes `0 <= 0`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the Python expression `10 - 2 * 3 > 5 + 1`. Describe the order of operations.",
+      "back": "The expression `10 - 2 * 3 > 5 + 1` evaluates to `False`.\n\nHere's the order of operations:\n1.  **Multiplication:** `2 * 3` becomes `6`. (Arithmetic operators have higher precedence than comparison operators).\n2.  **Subtraction:** `10 - 6` becomes `4`.\n3.  **Addition:** `5 + 1` becomes `6`.\n4.  **Comparison:** The expression simplifies to `4 > 6`, which evaluates to `False`.",
+      "difficulty": "hard"
+    }
+  ]
+}

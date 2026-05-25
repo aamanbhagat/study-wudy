@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-7-convolution-with-fourier-transform",
+  "subtopicTitle": "Convolution with Fourier transform",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:43.760Z",
+  "cards": [
+    {
+      "front": "Define the convolution of two functions $f(x)$ and $g(x)$, denoted $(f * g)(x)$.",
+      "back": "The convolution of $f(x)$ and $g(x)$ is defined as:\n$$(f * g)(x) = \\int_{-\\infty}^{\\infty} f(\\tau) g(x - \\tau) d\\tau$$\nThis operation essentially \"blends\" one function with another, often used to describe the effect of one system on another.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the definition of the Fourier Transform $\\mathcal{F}\\{f(x)\\}$ (or $\\hat{f}(\\xi)$) for a function $f(x)$.",
+      "back": "The Fourier Transform of a function $f(x)$ is defined as:\n$$\\hat{f}(\\xi) = \\mathcal{F}\\{f(x)\\}$$(\\xi) = \\int_{-\\infty}^{\\infty} f(x) e^{-i\\xi x} dx$$\nIt transforms a function from the spatial (or time) domain to the frequency domain.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Convolution Theorem, relating the Fourier Transform of a convolution to the product of Fourier Transforms.",
+      "back": "The Convolution Theorem states that the Fourier Transform of the convolution of two functions is the product of their individual Fourier Transforms:\n$$\\mathcal{F}\\{(f * g)(x)\\}$$(\\xi) = \\mathcal{F}\\{f(x)\\}$$(\\xi) \\cdot \\mathcal{F}\\{g(x)\\}$$(\\xi)$$\nOr, more compactly: $\\widehat{f * g}(\\xi) = \\hat{f}(\\xi) \\hat{g}(\\xi)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Convolution Theorem: $\\mathcal{F}\\{(f * g)(x)\\}$$(\\xi) = \\hat{f}(\\xi) \\hat{g}(\\xi)$.",
+      "back": "Let $H(x) = (f * g)(x) = \\int_{-\\infty}^{\\infty} f(\\tau) g(x - \\tau) d\\tau$.\nApplying the Fourier Transform:\n$$\\mathcal{F}\\{H(x)\\}$$(\\xi) = \\int_{-\\infty}^{\\infty} \\left( \\int_{-\\infty}^{\\infty} f(\\tau) g(x - \\tau) d\\tau \\right) e^{-i\\xi x} dx$$\nSwap the order of integration (by Fubini's Theorem):\n$$= \\int_{-\\infty}^{\\infty} f(\\tau) \\left( \\int_{-\\infty}^{\\infty} g(x - \\tau) e^{-i\\xi x} dx \\right) d\\tau$$\nLet $y = x - \\tau$, so $x = y + \\tau$ and $dx = dy$. The inner integral becomes:\n$$\\int_{-\\infty}^{\\infty} g(y) e^{-i\\xi (y + \\tau)} dy = e^{-i\\xi \\tau} \\int_{-\\infty}^{\\infty} g(y) e^{-i\\xi y} dy = e^{-i\\xi \\tau} \\hat{g}(\\xi)$$\nSubstitute back into the outer integral:\n$$= \\int_{-\\infty}^{\\infty} f(\\tau) e^{-i\\xi \\tau} \\hat{g}(\\xi) d\\tau = \\hat{g}(\\xi) \\int_{-\\infty}^{\\infty} f(\\tau) e^{-i\\xi \\tau} d\\tau = \\hat{g}(\\xi) \\hat{f}(\\xi)$$\nThus, $\\mathcal{F}\\{(f * g)(x)\\}$$(\\xi) = \\hat{f}(\\xi) \\hat{g}(\\xi)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the practical utility of the Convolution Theorem in solving certain Partial Differential Equations (PDEs).",
+      "back": "The Convolution Theorem simplifies solving PDEs by transforming convolution operations in the spatial domain into simple multiplication in the frequency (Fourier) domain. Many linear PDEs with constant coefficients can be solved by convolving the source term or initial condition with a Green's function (or fundamental solution). By taking the Fourier Transform, this convolution becomes a multiplication, making the algebraic solution for the transformed function much easier. The inverse Fourier Transform then yields the solution in the original domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $\\widehat{f * g}(\\xi) = \\hat{f}(\\xi) \\hat{g}(\\xi)$, how would you recover the original convoluted function $(f * g)(x)$?",
+      "back": "To recover the original convoluted function $(f * g)(x)$ from its Fourier Transform product $\\hat{f}(\\xi) \\hat{g}(\\xi)$, one applies the Inverse Fourier Transform:\n$$(f * g)(x) = \\mathcal{F}^{-1}\\{\\hat{f}(\\xi) \\hat{g}(\\xi)\\}$$(x)$$\nThis step is essential after solving a PDE in the frequency domain to obtain the solution in the physical domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the heat equation $u_t = k u_{xx}$ with initial condition $u(x,0) = f(x)$, how does the Convolution Theorem facilitate finding the solution?",
+      "back": "1.  Take the Fourier Transform of the PDE with respect to $x$: $\\hat{u}_t(\\xi, t) = -k\\xi^2 \\hat{u}(\\xi, t)$.\n2.  This is a first-order ODE in $t$: $\\frac{d\\hat{u}}{dt} = -k\\xi^2 \\hat{u}$, with initial condition $\\hat{u}(\\xi, 0) = \\hat{f}(\\xi)$.\n3.  Solving this ODE yields $\\hat{u}(\\xi, t) = \\hat{f}(\\xi) e^{-k\\xi^2 t}$.\n4.  Recognize $e^{-k\\xi^2 t}$ as the Fourier Transform of the heat kernel (fundamental solution) $G(x,t) = \\frac{1}{\\sqrt{4\\pi kt}} e^{-x^2/(4kt)}$.\n5.  By the Convolution Theorem, $\\hat{u}(\\xi, t) = \\hat{f}(\\xi) \\hat{G}(\\xi, t)$ implies $u(x,t) = (f * G)(x,t)$.\n6.  The solution is $u(x,t) = \\int_{-\\infty}^{\\infty} f(y) G(x-y, t) dy = \\int_{-\\infty}^{\\infty} f(y) \\frac{1}{\\sqrt{4\\pi kt}} e^{-(x-y)^2/(4kt)} dy$.",
+      "difficulty": "hard"
+    }
+  ]
+}

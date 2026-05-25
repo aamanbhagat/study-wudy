@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-4-definition-via-focus-directrix-eccentricity-e",
+  "subtopicTitle": "Definition via focus, directrix, eccentricity e",
+  "topicId": "math-p3-3-4-conic-sections",
+  "topicTitle": "Conic Sections",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:04.910Z",
+  "cards": [
+    {
+      "front": "Define a conic section using a fixed point, a fixed line, and a constant ratio.",
+      "back": "A conic section is the locus of a point $P$ such that its distance from a fixed point (the focus $F$) is a constant multiple $e$ (the eccentricity) of its distance from a fixed line (the directrix $L$). Mathematically, this is expressed as $PF = e \\cdot PL$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the names for $F$, $L$, and $e$ in the conic section definition $PF = e \\cdot PL$.",
+      "back": "In the definition $PF = e \\cdot PL$:\n- $F$ is the **focus** (a fixed point).\n- $L$ is the **directrix** (a fixed line).\n- $e$ is the **eccentricity** (a constant ratio).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the value of the eccentricity $e$ classify the type of non-degenerate conic section?",
+      "back": "The value of eccentricity $e$ classifies conic sections as follows:\n- If $e=1$, the conic is a **parabola**.\n- If $0 < e < 1$, the conic is an **ellipse**.\n- If $e > 1$, the conic is a **hyperbola**.\n- If $e=0$, it represents a **circle** (a special case of an ellipse, though its directrix is at infinity).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an ellipse, what does a smaller eccentricity (e.g., $e=0.1$) imply about its shape compared to a larger eccentricity (e.g., $e=0.9$)?",
+      "back": "For an ellipse, a smaller eccentricity ($e \\to 0$) means the ellipse is more 'circular' or less elongated. A larger eccentricity ($e \\to 1$) means the ellipse is more 'flat' or elongated. This is because $PF = e \\cdot PL$; if $e$ is small, $PF$ is small relative to $PL$, meaning points on the ellipse stay closer to the focus, leading to a rounder shape.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the standard equation of a parabola ($y^2=4ax$) using the focus-directrix definition.",
+      "back": "Let the focus be $F=(a,0)$ and the directrix be the line $x=-a$. For a parabola, the eccentricity $e=1$. Let $P=(x,y)$ be any point on the parabola.\n\nDistance from $P$ to $F$: $PF = \\sqrt{(x-a)^2 + (y-0)^2}$\nDistance from $P$ to directrix $x=-a$: $PL = |x - (-a)| = |x+a|$\n\nBy definition, $PF = e \\cdot PL \\Rightarrow PF = PL$ (since $e=1$)\n\n$\\sqrt{(x-a)^2 + y^2} = |x+a|$\n\nSquaring both sides:\n$(x-a)^2 + y^2 = (x+a)^2$\n$x^2 - 2ax + a^2 + y^2 = x^2 + 2ax + a^2$\n\nSubtracting $x^2 + a^2$ from both sides:\n$-2ax + y^2 = 2ax$\n$y^2 = 4ax$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the general equation for a conic section with focus $F=(0,0)$ and directrix $x=k$.",
+      "back": "Let $P=(x,y)$ be a point on the conic. The focus is $F=(0,0)$ and the directrix is the line $x=k$. Let $e$ be the eccentricity.\n\nDistance from $P$ to $F$: $PF = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2+y^2}$\nDistance from $P$ to directrix $x=k$: $PL = |x-k|$\n\nBy definition, $PF = e \\cdot PL$:\n$\\sqrt{x^2+y^2} = e |x-k|$\n\nSquaring both sides:\n$x^2+y^2 = e^2 (x-k)^2$\n$x^2+y^2 = e^2 (x^2 - 2kx + k^2)$\n$x^2+y^2 = e^2 x^2 - 2ke^2 x + k^2 e^2$\n\nRearranging terms to the general form:\n$(1-e^2)x^2 + y^2 + 2ke^2 x - k^2 e^2 = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What value of eccentricity corresponds to a circle, and how does this relate to the focus-directrix definition?",
+      "back": "A circle has an eccentricity $e=0$. If we strictly apply $PF = e \\cdot PL$ with $e=0$, it implies $PF=0$. This means every point $P$ on the curve must coincide with the focus $F$, resulting in a single point (a degenerate circle).\n\nFor a non-degenerate circle (with a positive radius), the focus-directrix definition is typically understood as a limiting case where $e \\to 0$. In this limit, the directrix moves infinitely far away from the focus, and the focus itself becomes the center of the circle. The standard $PF=e \\cdot PL$ form doesn't directly describe a non-degenerate circle without this limiting interpretation.",
+      "difficulty": "medium"
+    }
+  ]
+}

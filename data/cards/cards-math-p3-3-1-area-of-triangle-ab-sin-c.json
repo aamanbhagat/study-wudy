@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-1-area-of-triangle-ab-sin-c",
+  "subtopicTitle": "Area of triangle = ½ab·sin C",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:41.135Z",
+  "cards": [
+    {
+      "front": "State the formula for the area of a triangle given two sides and the included angle.",
+      "back": "The area of a triangle ($A$) is given by the formula: $$A = \\frac{1}{2}ab \\sin C$$ where $a$ and $b$ are the lengths of two sides, and $C$ is the measure of the angle included between sides $a$ and $b$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the formula $A = \\frac{1}{2}ab \\sin C$, what do $a$, $b$, and $C$ specifically represent?",
+      "back": "$a$ and $b$ represent the lengths of two sides of the triangle. $C$ represents the measure of the angle *included* between those two specific sides $a$ and $b$. It is crucial that $C$ is the included angle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula $A = \\frac{1}{2}ab \\sin C$ from the basic area formula $A = \\frac{1}{2} \\text{base} \\times \\text{height}$.",
+      "back": "Consider a triangle $ABC$ with side $b$ as the base. Let $h$ be the altitude (height) from vertex $B$ to side $b$. The basic area formula is $A = \\frac{1}{2} b h$.\n\nNow, consider the right-angled triangle formed by the altitude $h$, side $a$ (hypotenuse), and angle $C$. From trigonometry:\n$$\\sin C = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{h}{a}$$\nSolving for $h$, we get $h = a \\sin C$.\n\nSubstitute this expression for $h$ back into the basic area formula:\n$$A = \\frac{1}{2} b (a \\sin C)$$\n$$A = \\frac{1}{2} ab \\sin C$$\nThis derivation holds even if $C$ is obtuse, as $\\sin C = \\sin(180^\\circ - C)$, and the height calculation remains consistent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A triangle has sides of length $12$ cm and $15$ cm, and the included angle is $30^\\circ$. Calculate its area.",
+      "back": "Using the formula $A = \\frac{1}{2}ab \\sin C$:\n$a = 12$ cm\n$b = 15$ cm\n$C = 30^\\circ$\n\n$A = \\frac{1}{2}(12)(15) \\sin 30^\\circ$\n$A = \\frac{1}{2}(180) \\left(\\frac{1}{2}\\right)$\n$A = 90 \\times \\frac{1}{2}$\n$A = 45$ cm$^2$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a triangle has sides $p, q, r$ and angles $P, Q, R$ opposite them respectively, write two other equivalent formulas for its area using the sine rule.",
+      "back": "The formula $A = \\frac{1}{2}ab \\sin C$ generalizes to any pair of sides and their included angle.\n\nTwo other equivalent formulas are:\n1.  $A = \\frac{1}{2} qr \\sin P$\n2.  $A = \\frac{1}{2} pr \\sin Q$\n\n(The original form would be $A = \\frac{1}{2} pq \\sin R$)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A triangle has an area of $24$ cm$^2$. Two of its sides measure $8$ cm and $10$ cm. Find the possible measures of the angle included between these sides (to one decimal place).",
+      "back": "Using the formula $A = \\frac{1}{2}ab \\sin C$:\n$24 = \\frac{1}{2}(8)(10) \\sin C$\n$24 = \\frac{1}{2}(80) \\sin C$\n$24 = 40 \\sin C$\n$\\sin C = \\frac{24}{40} = \\frac{3}{5} = 0.6$\n\nSince the angle $C$ in a triangle must be between $0^\\circ$ and $180^\\circ$, there are two possible solutions for $C$ when $\\sin C$ is positive:\n1.  $C = \\arcsin(0.6) \\approx 36.9^\\circ$\n2.  $C = 180^\\circ - \\arcsin(0.6) = 180^\\circ - 36.869...^\\circ \\approx 143.1^\\circ$\n\nThe possible measures for the included angle are approximately $36.9^\\circ$ or $143.1^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why the $\\sin C$ term is essential in the area formula $A = \\frac{1}{2}ab \\sin C$, particularly considering what happens when $C=0^\\circ$ or $C=180^\\circ$.",
+      "back": "The $\\sin C$ term effectively acts as a 'height factor' or 'squashing factor' for the triangle. It determines how 'tall' the triangle is relative to its sides $a$ and $b$.\n\n*   If $C=90^\\circ$, then $\\sin 90^\\circ = 1$. The formula becomes $A = \\frac{1}{2}ab$, which is correct for a right-angled triangle where $a$ and $b$ can be considered base and height.\n*   If $C$ approaches $0^\\circ$ or $180^\\circ$, the triangle becomes degenerate, meaning the two sides $a$ and $b$ become nearly or perfectly collinear. In this case, the 'height' of the triangle approaches zero. Since $\\sin 0^\\circ = 0$ and $\\sin 180^\\circ = 0$, the formula correctly yields an area of $0$, reflecting that a degenerate triangle (a line segment) has no area. The sine function precisely captures this geometric intuition, scaling the potential area based on how 'open' the angle is.",
+      "difficulty": "hard"
+    }
+  ]
+}

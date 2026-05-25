@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-1-abstract-base-classes-abc-module-abstractmethod",
+  "subtopicTitle": "Abstract base classes — ABC module, @abstractmethod",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:24.015Z",
+  "cards": [
+    {
+      "front": "In Python OOP, what is the primary purpose of an Abstract Base Class (ABC)?",
+      "back": "An ABC defines a blueprint or interface for other classes, enforcing that derived (concrete) classes implement certain methods. It cannot be instantiated directly.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To declare a class as an Abstract Base Class in Python, it must inherit from the _______ class found in the _______ module.",
+      "back": "To declare a class as an Abstract Base Class in Python, it must inherit from the `ABC` class found in the `abc` module.\n```python\nfrom abc import ABC\nclass MyAbstractClass(ABC):\n    pass\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which decorator is used to mark a method as abstract within an Abstract Base Class in Python?",
+      "back": "The `@abstractmethod` decorator is used to mark a method as abstract within an ABC. This method must then be implemented by any concrete subclass.\n```python\nfrom abc import ABC, abstractmethod\nclass MyAbstractClass(ABC):\n    @abstractmethod\n    def do_something(self):\n        pass\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a concrete class inherits from an ABC but doesn't implement all its abstract methods, what error will occur upon instantiation?",
+      "back": "A `TypeError` will occur upon instantiation. The error message will typically state that the class cannot be instantiated because it has not implemented the abstract methods.\n```python\nfrom abc import ABC, abstractmethod\nclass Shape(ABC):\n    @abstractmethod\n    def area(self): pass\nclass Circle(Shape):\n    def __init__(self, radius): self.radius = radius\ntry:\n    c = Circle(5)\nexcept TypeError as e:\n    print(e) # Output: Can't instantiate abstract class Circle with abstract method area\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can an Abstract Base Class (ABC) be instantiated directly in Python? Explain why.",
+      "back": "No, an ABC cannot be instantiated directly. Its fundamental purpose is to define an interface and enforce method implementation in its subclasses. Instantiating an ABC would violate this principle, as it contains unimplemented abstract methods, making its direct use incomplete or meaningless.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In large Python projects, how do Abstract Base Classes contribute to better code design and maintainability?",
+      "back": "ABCs enforce a common interface (or \"contract\") across a family of related classes. This ensures consistency, prevents bugs from missing method implementations in subclasses, and makes the codebase more predictable, extensible, and easier for other developers to understand and work with. It promotes polymorphism and adherence to a defined structure.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can an Abstract Base Class (ABC) in Python define methods with concrete implementations alongside its abstract methods?",
+      "back": "Yes, an ABC can have both abstract methods (marked with `@abstractmethod`) and concrete methods (with full implementations). Concrete methods in an ABC can provide default behavior, utility functions, or common logic that subclasses can inherit directly or choose to override if needed.\n```python\nfrom abc import ABC, abstractmethod\nimport datetime\nclass Logger(ABC):\n    @abstractmethod\n    def log_message(self, message): pass\n    def get_timestamp(self): # Concrete method\n        return datetime.datetime.now()\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

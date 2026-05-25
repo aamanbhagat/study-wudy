@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-c-as-superset-of-c-key-additions",
+  "subtopicTitle": "C++ as superset of C — key additions",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:56.426Z",
+  "cards": [
+    {
+      "front": "The most significant programming paradigm C++ introduces over C, enabling data and functions to be bundled together, is _________.",
+      "back": "Object-Oriented Programming (OOP), primarily through the introduction of `class` and `object` constructs. This allows for encapsulation, inheritance, and polymorphism.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In C++, the standard library components `std::cin` and `std::cout` replace C's _________ for console input/output operations.",
+      "back": "`printf()` and `scanf()` functions. C++ uses stream insertion (`<<`) and extraction (`>>`) operators for type-safe and extensible I/O.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "C++ provides which operators for dynamic memory allocation and deallocation, improving type safety and resource management over C's `malloc()` and `free()`?",
+      "back": "The `new` and `delete` operators. `new` allocates memory and calls the constructor for objects, while `delete` calls the destructor and deallocates memory. For arrays, `new[]` and `delete[]` are used.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe C++ references. How do they fundamentally differ from C pointers in terms of initialization and reassignment?",
+      "back": "A C++ reference is an alias (another name) for an existing variable. Unlike pointers, references must be initialized at declaration, cannot be null, and cannot be reseated (made to refer to a different variable) after initialization. They do not require dereferencing operators.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain 'function overloading' in C++. Provide a simple example.",
+      "back": "Function overloading allows multiple functions in the same scope to share the same name, provided they have different parameter lists (different number, type, or order of parameters). This enhances code readability and reusability.\n```cpp\nvoid print(int i) { /* ... */ }\nvoid print(double d) { /* ... */ }\nvoid print(const char* s) { /* ... */ }\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "C++ introduces a powerful feature for generic programming. What is it, and how does it allow writing code that works with different data types without duplication?",
+      "back": "Templates. C++ templates allow defining functions or classes that operate on generic types, specified as parameters. The compiler generates specific code for each type used at compile time. This avoids the need for `void*` and manual casting common in C for generic functions.\n```cpp\ntemplate <typename T>\nT maximum(T a, T b) {\n    return (a > b) ? a : b;\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Contrast C++'s exception handling with C's typical error handling. What advantages does `try`, `catch`, `throw` offer?",
+      "back": "C typically uses return codes, global `errno`, or `setjmp`/`longjmp` for error handling. C++'s exception handling (`try`, `catch`, `throw`) provides a more structured and robust mechanism:\n1.  **Separation of Concerns:** Error-handling code is distinct from normal program logic.\n2.  **Propagation:** Exceptions automatically propagate up the call stack until a suitable handler is found, avoiding manual checks at every level.\n3.  **Resource Management:** When combined with RAII (Resource Acquisition Is Initialization), it ensures resources are properly cleaned up even when errors occur, preventing leaks. This leads to cleaner, more maintainable code.",
+      "difficulty": "hard"
+    }
+  ]
+}

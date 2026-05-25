@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-dfs-algorithm-stack-recursion-o-v-e-visited-array",
+  "subtopicTitle": "DFS — algorithm, stack/recursion, O(V+E), visited array",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:12.721Z",
+  "cards": [
+    {
+      "front": "Define Depth-First Search (DFS) in the context of graph traversal.",
+      "back": "Depth-First Search (DFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the root (or an arbitrary node) and explores as far as possible along each branch before backtracking.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the core algorithmic steps for a recursive Depth-First Search (DFS) starting from a given node $u$.",
+      "back": "1. Mark node $u$ as visited.\n2. (Optional) Process node $u$.\n3. For each unvisited neighbor $v$ of $u$:\n   a. Recursively call DFS on $v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "DFS can be implemented using either ______ or ______. Explain the relationship between these two approaches.",
+      "back": "DFS can be implemented using either **recursion** or an **explicit stack**. Recursion implicitly uses the call stack to keep track of nodes to visit and the path taken. An explicit stack can mimic this behavior by manually pushing unvisited neighbors onto the stack and popping them to explore.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the necessity of a \"visited\" array or set in Depth-First Search (DFS).",
+      "back": "A \"visited\" array (or set) is crucial to:\n1.  **Prevent infinite loops:** In graphs with cycles, revisiting a node already on the current path could lead to revisiting nodes indefinitely.\n2.  **Avoid redundant processing:** Ensures each node and its outgoing edges are processed only once, which is essential for achieving the optimal time complexity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity of DFS for a graph with $V$ vertices and $E$ edges? Justify your answer.",
+      "back": "The time complexity of DFS is $O(V+E)$.\n*   Each vertex $v \\in V$ is visited exactly once (due to the `visited` array). The work done per vertex (marking visited, processing) is constant. So, $O(V)$ for vertex processing.\n*   Each edge $e \\in E$ is traversed at most twice (once from $u \\to v$ and once from $v \\to u$ in an undirected graph, or once for a directed edge). The work done per edge traversal (checking if neighbor is visited, making a recursive call) is constant. So, $O(E)$ for edge traversals.\n*   Combining these, the total time complexity is $O(V+E)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the space complexity of Depth-First Search (DFS) and what contributes to it?",
+      "back": "The space complexity of DFS is $O(V)$.\n*   **Recursion/Explicit Stack:** In the worst case, the DFS might traverse a long path without branching (e.g., a linked list-like graph), leading to the recursion stack (or explicit stack) storing up to $V$ nodes. This contributes $O(V)$.\n*   **Visited Array/Set:** The `visited` data structure needs to store up to $V$ nodes, contributing $O(V)$.\nTherefore, the total space complexity is $O(V)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary difference in how DFS explores a graph compared to Breadth-First Search (BFS), focusing on the order of node visitation.",
+      "back": "*   **DFS (Depth-First Search):** Explores as \"deep\" as possible along each branch before backtracking. It fully explores one path from a starting node to its end before considering other branches. Uses a stack (LIFO).\n*   **BFS (Breadth-First Search):** Explores \"wide\" first, visiting all neighbors at the current level before moving to the next level of neighbors. It explores nodes layer by layer. Uses a queue (FIFO).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a basic Python function structure for a recursive DFS traversal, assuming an adjacency list `graph` and a `visited` set.",
+      "back": "```python\ndef dfs(node, graph, visited):\n    visited.add(node)\n    # Optional: Perform operations on 'node' here\n    # print(f\"Visiting node: {node}\")\n\n    for neighbor in graph.get(node, []): # Use .get to handle nodes with no outgoing edges\n        if neighbor not in visited:\n            dfs(neighbor, graph, visited)\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

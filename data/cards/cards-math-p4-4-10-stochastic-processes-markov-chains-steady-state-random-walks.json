@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-10-stochastic-processes-markov-chains-steady-state-random-walks",
+  "subtopicTitle": "Stochastic processes — Markov chains, steady-state, random walks",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:12:34.766Z",
+  "cards": [
+    {
+      "front": "Define a Markov chain and state its fundamental property.",
+      "back": "A Markov chain is a stochastic process where the future state depends only on the current state, not on the sequence of events that preceded it. This is known as the **Markov property**: $P(X_{n+1}=j | X_n=i, X_{n-1}=i_{n-1}, \\dots, X_0=i_0) = P(X_{n+1}=j | X_n=i)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an initial state distribution $\\pi_0$ and transition matrix $P$, how do you find $\\pi_n$?",
+      "back": "The probability distribution over states after $n$ steps, $\\pi_n$, is given by $\\pi_n = \\pi_0 P^n$. Each element $(\\pi_n)_j$ represents $P(X_n = j)$. This is a direct consequence of the Chapman-Kolmogorov equations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What conditions guarantee a unique stationary distribution $\\pi$ for a Markov chain, and how is it calculated?",
+      "back": "A unique stationary distribution $\\pi$ exists if the Markov chain is **irreducible** (all states communicate) and **aperiodic** (no state has a period greater than 1). It is found by solving the system of linear equations $\\pi P = \\pi$ subject to the normalization condition $\\sum_i \\pi_i = 1$. The vector $\\pi$ represents the long-run probabilities of being in each state.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a 1D symmetric random walk, is the origin recurrent or transient? How about 2D and 3D?",
+      "back": "For a 1D symmetric random walk, the origin is **recurrent**. For a 2D symmetric random walk, the origin is also **recurrent**. However, for a 3D symmetric random walk, the origin is **transient**. This is a classic result often summarized as 'a drunk man will find his way home, but a drunk bird may get lost'.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between a recurrent state and a transient state in a Markov chain.",
+      "back": "A state $i$ is **recurrent** if, starting from $i$, the probability of eventually returning to $i$ is 1. A state $i$ is **transient** if, starting from $i$, the probability of eventually returning to $i$ is less than 1. If a state is recurrent, it will be visited infinitely often; if transient, only a finite number of times.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $P = \\begin{pmatrix} 0.5 & 0.5 \\\\ 0.3 & 0.7 \\end{pmatrix}$, find the stationary distribution $\\pi$.",
+      "back": "To find $\\pi = (\\pi_1, \\pi_2)$, solve $\\pi P = \\pi$ and $\\pi_1 + \\pi_2 = 1$. \\begin{align*} \\begin{pmatrix} \\pi_1 & \\pi_2 \\end{pmatrix} \\begin{pmatrix} 0.5 & 0.5 \\\\ 0.3 & 0.7 \\end{pmatrix} &= \\begin{pmatrix} \\pi_1 & \\pi_2 \\end{pmatrix} \\\\ 0.5\\pi_1 + 0.3\\pi_2 &= \\pi_1 \\implies -0.5\\pi_1 + 0.3\\pi_2 = 0 \\implies 5\\pi_1 = 3\\pi_2 \\end{align*} Using $\\pi_1 + \\pi_2 = 1$: $5\\pi_1 = 3(1-\\pi_1) \\implies 5\\pi_1 = 3 - 3\\pi_1 \\implies 8\\pi_1 = 3 \\implies \\pi_1 = 3/8$. \\$\\pi_2 = 1 - 3/8 = 5/8$. So, $\\pi = (3/8, 5/8)$. The chain is irreducible and aperiodic, so a unique steady-state exists.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the concept of 'periodicity' in a Markov chain and its implication for a stationary distribution.",
+      "back": "A state $i$ has period $d$ if any return to state $i$ must occur in a number of steps that is a multiple of $d$. If $d=1$, the state is aperiodic. If a Markov chain is irreducible but has states with period $d>1$, it will not converge to a unique stationary distribution in the limit $n \\to \\infty$. Instead, the distribution will oscillate between $d$ different distributions. Aperiodicity is crucial for convergence to a unique steady-state.",
+      "difficulty": "medium"
+    }
+  ]
+}

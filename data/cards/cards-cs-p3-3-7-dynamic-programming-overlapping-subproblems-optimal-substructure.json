@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-7-dynamic-programming-overlapping-subproblems-optimal-substructure",
+  "subtopicTitle": "Dynamic programming — overlapping subproblems, optimal substructure",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:36.810Z",
+  "cards": [
+    {
+      "front": "A problem can be solved using Dynamic Programming if it exhibits two key properties. What are they?",
+      "back": "1. Overlapping Subproblems\n2. Optimal Substructure",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"overlapping subproblems\" in the context of Dynamic Programming.",
+      "back": "A problem has **overlapping subproblems** if its recursive solution repeatedly solves the same subproblems multiple times. Dynamic Programming addresses this by storing the results of these subproblems (memoization or tabulation) to avoid redundant computations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"optimal substructure\" in the context of Dynamic Programming.",
+      "back": "A problem has **optimal substructure** if an optimal solution to the problem can be constructed from optimal solutions to its subproblems. This property allows us to build up the overall optimal solution by combining optimal solutions of smaller, related instances.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Does the recursive computation of the $n$-th Fibonacci number, $F(n) = F(n-1) + F(n-2)$, exhibit \"overlapping subproblems\"? Explain why.",
+      "back": "Yes. For example, to compute $F(5)$, we need $F(4)$ and $F(3)$. To compute $F(4)$, we need $F(3)$ and $F(2)$. Notice that $F(3)$ is computed twice. As $n$ grows, the number of redundant computations of the same subproblems increases exponentially.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider finding the shortest path between two nodes $A$ and $B$ in a graph. If the shortest path from $A$ to $B$ passes through an intermediate node $C$, what can be said about the subpaths from $A$ to $C$ and $C$ to $B$? Which DP property does this illustrate?",
+      "back": "The subpath from $A$ to $C$ must be a shortest path from $A$ to $C$, and similarly, the subpath from $C$ to $B$ must be a shortest path from $C$ to $B$. If either subpath were not optimal, the overall path $A \\to C \\to B$ would not be the shortest path from $A$ to $B$. This illustrates the **optimal substructure** property.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary role of \"optimal substructure\" in Dynamic Programming, and how does it differ from \"overlapping subproblems\"?",
+      "back": "**Optimal substructure** ensures that combining optimal solutions of subproblems yields an optimal solution for the overall problem, guaranteeing correctness. **Overlapping subproblems**, on the other hand, deals with the *efficiency* of computation by identifying and avoiding redundant work. While both are necessary for DP, optimal substructure ensures the *correctness* of the DP approach, whereas overlapping subproblems ensures its *efficiency*.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does memoization (top-down Dynamic Programming) specifically address the \"overlapping subproblems\" property? Provide a simple Python code snippet for Fibonacci.",
+      "back": "Memoization tackles \"overlapping subproblems\" by storing the results of subproblems in a cache (e.g., a dictionary or array) after their first computation. When the same subproblem is encountered again, the cached result is returned directly, avoiding redundant recalculation.\n```python\nmemo = {}\ndef fib(n):\n    if n in memo:\n        return memo[n]\n    if n <= 1:\n        result = n\n    else:\n        result = fib(n-1) + fib(n-2)\n    memo[n] = result\n    return result\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

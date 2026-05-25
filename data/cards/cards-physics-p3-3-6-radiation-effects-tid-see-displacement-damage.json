@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-radiation-effects-tid-see-displacement-damage",
+  "subtopicTitle": "Radiation effects — TID, SEE, displacement damage",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:16.624Z",
+  "cards": [
+    {
+      "front": "Define Total Ionizing Dose (TID) and state its standard unit in silicon.",
+      "back": "TID is the cumulative energy deposited by ionizing radiation (e.g., electrons, protons, X-rays) per unit mass in a material. It primarily causes electron-hole pair generation. The standard unit in silicon is rad(Si), where $1 \\text{ rad(Si)} = 100 \\text{ erg/g(Si)} = 0.01 \\text{ Gy(Si)}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a Single Event Effect (SEE), and what is its primary cause in space environments?",
+      "back": "A SEE is a transient or permanent change in the state or performance of an electronic device caused by a single high-energy particle (e.g., heavy ion, proton, neutron) striking a sensitive region. In space, galactic cosmic rays (GCRs) and solar energetic particles (SEPs) are primary causes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the concept of Displacement Damage (DD) in semiconductors and name the type of particles most effective at causing it.",
+      "back": "Displacement Damage occurs when incident particles (e.g., protons, neutrons, heavy ions) transfer enough kinetic energy to lattice atoms to dislodge them from their normal sites, creating vacancies and interstitials (Frenkel pairs). This structural damage degrades material properties. Protons and neutrons are particularly effective due to their ability to cause significant non-ionizing energy loss (NIEL).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does Total Ionizing Dose (TID) fundamentally differ from Displacement Damage (DD) in terms of *how* they degrade semiconductor devices?",
+      "back": "TID primarily causes degradation through *ionization*, leading to charge trapping (e.g., in gate oxides) and surface effects, which alter device electrical parameters like threshold voltage and leakage currents. DD, however, causes *structural damage* to the crystal lattice, creating defects that act as recombination centers or traps, primarily degrading minority carrier lifetime and mobility, which is critical for bipolar devices and optoelectronics.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe Single Event Latchup (SEL), its mechanism, and why it is considered a destructive SEE.",
+      "back": "SEL is a potentially destructive SEE where a high-energy particle triggers a parasitic Silicon Controlled Rectifier (SCR) structure inherent in bulk CMOS devices. This creates a low-resistance path between power and ground, leading to a large, uncontrolled current flow. If not quickly detected and mitigated (e.g., by power cycling), the excessive current can cause permanent physical damage (burnout) to the device.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three common hardware or software mitigation strategies used to protect memory devices from Single Event Upsets (SEUs).",
+      "back": "1.  **Error Detection and Correction (EDAC) codes:** Add redundant bits to detect and correct single or multiple bit errors.\n2.  **Triple Modular Redundancy (TMR):** Use three identical circuits, compare their outputs, and use a majority voter to determine the correct output.\n3.  **Hardened processes/devices:** Use radiation-hardened-by-design (RHBD) processes (e.g., SOI, deep submicron) or specific cell designs (e.g., resistor-hardened latches) that are less susceptible to charge collection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the mechanism by which Total Ionizing Dose (TID) causes a negative threshold voltage shift in n-channel MOSFETs.",
+      "back": "In an n-channel MOSFET, ionizing radiation creates electron-hole pairs in the gate oxide ($SiO_2$). Electrons, being highly mobile, quickly drift out. Holes, however, have much lower mobility and become trapped at the $Si/SiO_2$ interface or within the oxide. These trapped positive charges effectively increase the electric field across the oxide, making it easier to invert the channel. This results in a negative shift in the threshold voltage ($V_{TH}$), meaning the device turns on at a lower gate voltage than intended, potentially leading to increased subthreshold leakage or functional failure.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are optoelectronic devices (e.g., solar cells, CCDs) particularly sensitive to Displacement Damage (DD) compared to logic circuits, even at relatively low radiation fluences?",
+      "back": "Optoelectronic devices rely heavily on the efficient collection and transport of minority carriers (e.g., electrons in p-type silicon solar cells, or charge packets in CCDs). Displacement damage creates lattice defects (vacancies, interstitials) that act as recombination centers or traps. These defects significantly reduce the minority carrier lifetime and diffusion length, meaning fewer photogenerated carriers can reach the junction or collection wells before recombining. This directly degrades quantum efficiency, open-circuit voltage, and short-circuit current in solar cells, and increases dark current/noise in CCDs, impacting their primary function much more severely than the parametric shifts caused by TID in logic.",
+      "difficulty": "hard"
+    }
+  ]
+}

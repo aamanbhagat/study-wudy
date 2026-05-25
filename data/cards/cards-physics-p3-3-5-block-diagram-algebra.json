@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-block-diagram-algebra",
+  "subtopicTitle": "Block diagram algebra",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:29.660Z",
+  "cards": [
+    {
+      "front": "Name the three fundamental elements used in block diagrams to represent control systems.",
+      "back": "1. Blocks (representing transfer functions), 2. Summing points (for addition/subtraction of signals), 3. Pickoff points (for branching signals).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the equivalent transfer function for two blocks, $G_1(s)$ and $G_2(s)$, connected in series?",
+      "back": "The equivalent transfer function is the product of the individual transfer functions: $G_{eq}(s) = G_1(s)G_2(s)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Determine the equivalent transfer function for two blocks, $G_1(s)$ and $G_2(s)$, connected in parallel with a summing point.",
+      "back": "The equivalent transfer function is the sum or difference of the individual transfer functions, depending on the signs at the summing point: $G_{eq}(s) = G_1(s) \\pm G_2(s)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the closed-loop transfer function $C(s)/R(s)$ for a standard negative feedback system with forward path $G(s)$ and feedback path $H(s)$.",
+      "back": "Let $E(s) = R(s) - H(s)C(s)$ and $C(s) = G(s)E(s)$. Substitute $E(s)$: $C(s) = G(s)(R(s) - H(s)C(s))$. Expand: $C(s) = G(s)R(s) - G(s)H(s)C(s)$. Rearrange: $C(s) + G(s)H(s)C(s) = G(s)R(s)$. Factor $C(s)$: $C(s)(1 + G(s)H(s)) = G(s)R(s)$. Thus, $\\frac{C(s)}{R(s)} = \\frac{G(s)}{1 + G(s)H(s)}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the rule for moving a summing point *past* a block $G(s)$ in a block diagram, and explain why.",
+      "back": "To move a summing point *past* a block $G(s)$ (i.e., from before to after the block), any signal entering the summing point that does *not* pass through $G(s)$ must be multiplied by $G(s)$ before it reaches the new summing point location. This ensures the output signal remains unchanged.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the rule for moving a pickoff point *before* a block $G(s)$ in a block diagram, and explain why.",
+      "back": "To move a pickoff point *before* a block $G(s)$ (i.e., from after to before the block), the signal taken from the pickoff point must be multiplied by $1/G(s)$ (or passed through a block with transfer function $1/G(s)$). This compensates for the signal no longer passing through $G(s)$ to reach the pickoff.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the general strategy for systematically simplifying a complex block diagram to find its overall transfer function?",
+      "back": "1. Reduce series and parallel blocks. 2. Eliminate inner feedback loops. 3. Move summing points and pickoff points to simplify the diagram (e.g., to create more series/parallel combinations or eliminate loops). 4. Repeat until a single block remains.",
+      "difficulty": "medium"
+    }
+  ]
+}

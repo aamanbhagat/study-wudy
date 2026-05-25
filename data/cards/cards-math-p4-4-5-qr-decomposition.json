@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-qr-decomposition",
+  "subtopicTitle": "QR decomposition",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:48.959Z",
+  "cards": [
+    {
+      "front": "Define the QR decomposition of a matrix $A$.",
+      "back": "The QR decomposition expresses an $m \\times n$ matrix $A$ as the product $A = QR$, where $Q$ is an $m \\times m$ orthogonal matrix and $R$ is an $m \\times n$ upper triangular matrix.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the defining properties of $Q$ and $R$ in a QR decomposition $A=QR$?",
+      "back": "$Q$ is an orthogonal matrix, meaning its columns are orthonormal vectors and $Q^T Q = I$. If $Q$ is square, then $Q^{-1} = Q^T$. $R$ is an upper triangular matrix, meaning all entries below its main diagonal are zero ($R_{ij} = 0$ for $i > j$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the steps to compute the QR decomposition of $A = [a_1 \\dots a_n]$ using the Gram-Schmidt process.",
+      "back": "1. For each column $a_j$ of $A$:\n   a. Compute the orthogonal projection of $a_j$ onto the subspace spanned by the previously orthogonalized vectors $q_1, \\dots, q_{j-1}$.\n   b. Subtract this projection from $a_j$ to get an orthogonal vector $v_j$.\n   c. Normalize $v_j$ to get $q_j = v_j / \\|v_j\\|$.\n2. Form $Q = [q_1 \\dots q_n]$.\n3. Form $R$ such that $R_{ij} = q_i^T a_j$ for $i \\le j$ and $R_{ij} = 0$ for $i > j$. Alternatively, $R = Q^T A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can QR decomposition be used to solve the linear least squares problem $Ax \\approx b$?",
+      "back": "1. Perform QR decomposition: $A = QR$.\n2. Substitute into the normal equations: $(QR)^T (QR)x = (QR)^T b \\implies R^T Q^T Q R x = R^T Q^T b$.\n3. Since $Q^T Q = I$, this simplifies to $R^T R x = R^T Q^T b$.\n4. If $A$ has full column rank, $R$ is invertible, so $R x = Q^T b$.\n5. Solve $Rx = Q^T b$ for $x$ using back-substitution, as $R$ is upper triangular.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core idea behind computing QR decomposition using Householder reflections.",
+      "back": "Householder reflections are orthogonal transformations (matrices $H$) that can zero out all elements below the first entry in a given vector. By applying a sequence of Householder reflections $H_k$ to $A$ from the left, we can systematically zero out elements below the main diagonal, transforming $A$ into an upper triangular matrix $R$. The product of these reflections, $H_n \\dots H_1 A = R$, means $Q^T = H_n \\dots H_1$, so $Q = (H_n \\dots H_1)^T = H_1 \\dots H_n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition does a unique \"reduced\" QR decomposition $A=QR$ exist where $R$ has positive diagonal entries?",
+      "back": "A unique reduced QR decomposition exists if and only if the matrix $A$ has linearly independent columns (i.e., $A$ has full column rank). In this case, $A$ is $m \\times n$ with $m \\ge n$, $Q$ is $m \\times n$ with orthonormal columns ($Q^T Q = I_n$), and $R$ is an $n \\times n$ upper triangular matrix with positive diagonal entries ($R_{ii} > 0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the numerical stability of Gram-Schmidt (classical vs. modified) and Householder reflections for QR decomposition.",
+      "back": "<ul><li><b>Classical Gram-Schmidt (CGS):</b> Numerically unstable, especially for ill-conditioned matrices, leading to loss of orthogonality in $Q$.</li><li><b>Modified Gram-Schmidt (MGS):</b> More stable than CGS, as it maintains orthogonality better by projecting against already orthogonalized vectors. Still less stable than Householder for very ill-conditioned problems.</li><li><b>Householder Reflections:</b> Highly numerically stable. It is the preferred method in practice for its robustness in maintaining orthogonality and accuracy, even with ill-conditioned matrices.</li></ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

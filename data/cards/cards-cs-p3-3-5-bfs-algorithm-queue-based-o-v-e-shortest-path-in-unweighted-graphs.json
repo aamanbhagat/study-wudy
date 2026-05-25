@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-bfs-algorithm-queue-based-o-v-e-shortest-path-in-unweighted-graphs",
+  "subtopicTitle": "BFS — algorithm, queue-based, O(V+E), shortest path in unweighted graphs",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:10.577Z",
+  "cards": [
+    {
+      "front": "What does BFS stand for, and what is its primary goal in graph traversal?",
+      "back": "BFS stands for **Breadth-First Search**. Its primary goal is to explore a graph level by level, visiting all neighbors at the current depth before moving to the next depth level.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which data structure is fundamental to BFS's level-by-level exploration, and why?",
+      "back": "The **queue** data structure is fundamental. It ensures that nodes are visited in the order they are discovered (FIFO - First-In, First-Out), which is crucial for exploring all nodes at one depth before moving to the next.\n```python\nfrom collections import deque\nq = deque()\nq.append(start_node) # Add to back\nnode = q.popleft()   # Remove from front\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does BFS guarantee finding the shortest path (in terms of number of edges) in an *unweighted* graph?",
+      "back": "BFS explores the graph layer by layer. Since it visits all nodes at depth $k$ before any node at depth $k+1$, the first time it reaches a target node, it must have done so via the minimum possible number of edges from the source. This property only holds for unweighted graphs because edge weights would break the 'number of edges = distance' assumption.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the core steps of the BFS algorithm starting from a source node $s$.",
+      "back": "1. Initialize a queue and add the source node $s$ to it.\n2. Mark $s$ as visited.\n3. While the queue is not empty:\n    a. Dequeue a node, let's call it $u$.\n    b. For each unvisited neighbor $v$ of $u$:\n        i. Mark $v$ as visited.\n        ii. Enqueue $v$.\n(Optionally, record parent pointers or distances for path reconstruction/shortest path finding.)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the time complexity of BFS for a graph with $V$ vertices and $E$ edges, explaining each component.",
+      "back": "The time complexity is $O(V+E)$.\n*   **Vertices:** Each vertex is enqueued and dequeued exactly once. This takes $O(V)$ time.\n*   **Edges:** When a vertex is dequeued, we iterate through all its adjacent edges. For an adjacency list representation, each edge $(u, v)$ is traversed at most twice (once from $u$ and once from $v$ if undirected, or once from $u$ if directed). In total, this takes $O(E)$ time.\nSumming these, the total time complexity is $O(V+E)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the space complexity of BFS, and what factors contribute to it?",
+      "back": "The space complexity of BFS is $O(V)$ for auxiliary space (queue and visited set). If the graph's adjacency list representation is included, it's $O(V+E)$.\n*   **Queue:** In the worst case (e.g., a star graph), the queue might hold almost all $V$ vertices simultaneously, thus $O(V)$.\n*   **Visited Set:** A set or array to keep track of visited nodes takes $O(V)$ space.\n*   **Adjacency List:** The graph representation itself typically takes $O(V+E)$ space.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly describe the fundamental difference in how BFS and DFS explore a graph, relating it to their core data structures.",
+      "back": "*   **BFS (Breadth-First Search):** Uses a **queue** (FIFO) to explore nodes layer by layer, visiting all direct neighbors before moving to their neighbors. It expands \"outward\" from the source.\n*   **DFS (Depth-First Search):** Uses a **stack** (LIFO, often implicit via recursion) to explore as deeply as possible along each branch before backtracking. It expands \"inward\" along a path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can BFS be adapted to find all connected components in an undirected graph?",
+      "back": "To find all connected components:\n1.  Maintain a global `visited` set for all nodes.\n2.  Initialize an empty list for `components`.\n3.  Iterate through every node $u$ in the graph (from $0$ to $V-1$).\n4.  If $u$ has not been visited:\n    a.  Start a new BFS traversal from $u$. All nodes discovered in this BFS belong to one component.\n    b.  Add all nodes visited during this BFS to a `current_component` list and mark them as visited.\n    c.  Once the BFS completes, add `current_component` to `components`.\nEach successful BFS traversal from an unvisited node will discover exactly one connected component.",
+      "difficulty": "hard"
+    }
+  ]
+}

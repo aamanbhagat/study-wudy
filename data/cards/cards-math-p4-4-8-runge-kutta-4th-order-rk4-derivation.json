@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-runge-kutta-4th-order-rk4-derivation",
+  "subtopicTitle": "Runge-Kutta 4th order (RK4) — derivation",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:47.452Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of Runge-Kutta methods like RK4?",
+      "back": "To numerically solve initial value problems (IVPs) for ordinary differential equations (ODEs) of the form $dy/dx = f(x, y)$ with an initial condition $y(x_0)=y_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do Runge-Kutta methods generally improve upon Euler's method?",
+      "back": "They improve accuracy by using a weighted average of multiple slope estimates within an interval $[x_n, x_n+h]$, rather than just the slope at the beginning ($f(x_n, y_n)$), to better approximate the true average slope over the interval.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the general update equation for $y_{n+1}$ in the standard RK4 method.",
+      "back": "The RK4 update equation is:\n$$y_{n+1} = y_n + \\frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$$\nwhere $h$ is the step size.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the four slope estimates ($k_1, k_2, k_3, k_4$) used in the standard RK4 method.",
+      "back": "$$k_1 = f(x_n, y_n)$$\n$$k_2 = f(x_n + \\frac{h}{2}, y_n + \\frac{h}{2}k_1)$$\n$$k_3 = f(x_n + \\frac{h}{2}, y_n + \\frac{h}{2}k_2)$$\n$$k_4 = f(x_n + h, y_n + h k_3)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the core mathematical principle used to *derive* the specific weights and arguments for $k_i$ in RK4?",
+      "back": "The core principle is to match the Taylor series expansion of the numerical solution $y_{n+1}$ (obtained from the RK formula) with the exact Taylor series expansion of $y(x_n+h)$ about $x_n$. For RK4, this involves matching coefficients up to and including the $O(h^4)$ term.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the order of accuracy of RK4, and what does this imply about its global truncation error?",
+      "back": "RK4 is a fourth-order method, meaning its local truncation error is $O(h^5)$. Consequently, its global truncation error is $O(h^4)$. This implies that halving the step size $h$ reduces the global error by a factor of $2^4 = 16$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why are $k_2$ and $k_3$ weighted more heavily than $k_1$ and $k_4$ in the RK4 formula?",
+      "back": "$k_1$ and $k_4$ estimate slopes at the interval's start and end, respectively. $k_2$ and $k_3$ estimate slopes at the midpoint ($x_n+h/2$). The midpoint slopes are generally more representative of the average slope over the entire interval, as they account for changes in $y$ and $f(x,y)$ that occur during the step. Weighting them more (2/6 each vs. 1/6 for $k_1, k_4$) provides a better overall average slope approximation, improving accuracy.",
+      "difficulty": "medium"
+    }
+  ]
+}

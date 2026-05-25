@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-case-3-complex-conjugate-roots-euler-s-formula-connection",
+  "subtopicTitle": "Case 3: complex conjugate roots — Euler's formula connection",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:56.645Z",
+  "cards": [
+    {
+      "front": "In the context of second-order linear homogeneous ODEs with constant coefficients, what form do the complex conjugate roots of the characteristic equation take?",
+      "back": "The roots take the form $\\lambda = \\alpha \\pm i\\beta$, where $\\alpha$ and $\\beta$ are real numbers, and importantly, $\\beta \\neq 0$ (otherwise they would be real roots).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Euler's formula, which connects exponential functions to trigonometric functions.",
+      "back": "$e^{i\\theta} = \\cos\\theta + i\\sin\\theta$. This formula is fundamental for transforming complex exponential solutions into real-valued trigonometric solutions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If the characteristic equation yields complex conjugate roots $\\lambda = \\alpha \\pm i\\beta$, what are the two initial complex-valued solutions to the ODE?",
+      "back": "The initial complex-valued solutions are $Y_1(x) = e^{(\\alpha+i\\beta)x}$ and $Y_2(x) = e^{(\\alpha-i\\beta)x}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using properties of exponents and Euler's formula, express the complex solution $e^{(\\alpha+i\\beta)x}$ in terms of real exponential and trigonometric functions.",
+      "back": "$e^{(\\alpha+i\\beta)x} = e^{\\alpha x} \\cdot e^{i\\beta x} = e^{\\alpha x}(\\cos(\\beta x) + i\\sin(\\beta x))$. This separates the real exponential decay/growth from the oscillatory part.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the complex solutions $Y_1(x) = e^{\\alpha x}(\\cos(\\beta x) + i\\sin(\\beta x))$ and $Y_2(x) = e^{\\alpha x}(\\cos(\\beta x) - i\\sin(\\beta x))$, derive the two linearly independent *real-valued* solutions using the principle of superposition.",
+      "back": "Since the ODE is linear and homogeneous, any linear combination of solutions is also a solution.\n1. Add $Y_1$ and $Y_2$: $Y_1 + Y_2 = e^{\\alpha x}(\\cos(\\beta x) + i\\sin(\\beta x)) + e^{\\alpha x}(\\cos(\\beta x) - i\\sin(\\beta x)) = 2e^{\\alpha x}\\cos(\\beta x)$. A real solution is $y_1(x) = \\frac{1}{2}(Y_1 + Y_2) = e^{\\alpha x}\\cos(\\beta x)$.\n2. Subtract $Y_2$ from $Y_1$: $Y_1 - Y_2 = e^{\\alpha x}(\\cos(\\beta x) + i\\sin(\\beta x)) - e^{\\alpha x}(\\cos(\\beta x) - i\\sin(\\beta x)) = 2ie^{\\alpha x}\\sin(\\beta x)$. A real solution is $y_2(x) = \\frac{1}{2i}(Y_1 - Y_2) = e^{\\alpha x}\\sin(\\beta x)$.\nThese two solutions, $e^{\\alpha x}\\cos(\\beta x)$ and $e^{\\alpha x}\\sin(\\beta x)$, are linearly independent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the general real-valued solution for a second-order linear homogeneous ODE with constant coefficients when the characteristic equation has complex conjugate roots $\\lambda = \\alpha \\pm i\\beta$?",
+      "back": "The general solution is $y(x) = c_1 e^{\\alpha x}\\cos(\\beta x) + c_2 e^{\\alpha x}\\sin(\\beta x)$, where $c_1$ and $c_2$ are arbitrary constants determined by initial conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the general solution to the ODE: $y'' + 4y' + 13y = 0$.",
+      "back": "The characteristic equation is $r^2 + 4r + 13 = 0$.\nUsing the quadratic formula, $r = \\frac{-4 \\pm \\sqrt{4^2 - 4(1)(13)}}{2(1)} = \\frac{-4 \\pm \\sqrt{16 - 52}}{2} = \\frac{-4 \\pm \\sqrt{-36}}{2} = \\frac{-4 \\pm 6i}{2} = -2 \\pm 3i$.\nHere, $\\alpha = -2$ and $\\beta = 3$.\nThus, the general solution is $y(x) = c_1 e^{-2x}\\cos(3x) + c_2 e^{-2x}\\sin(3x)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are real-valued solutions (involving $\\cos$ and $\\sin$) typically preferred and used when solving ODEs that model physical phenomena, even when complex roots arise?",
+      "back": "Physical quantities such as position, velocity, temperature, or current are inherently real numbers. While complex exponentials are mathematically valid solutions, they don't directly represent these real-world quantities. The derived real-valued solutions, $e^{\\alpha x}\\cos(\\beta x)$ and $e^{\\alpha x}\\sin(\\beta x)$, directly describe oscillatory behavior (due to $\\cos, \\sin$) that often damps or grows (due to $e^{\\alpha x}$), which is directly observable and interpretable in physical systems.",
+      "difficulty": "medium"
+    }
+  ]
+}

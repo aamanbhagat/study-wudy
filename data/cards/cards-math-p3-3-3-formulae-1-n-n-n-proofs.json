@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p3-3-3-formulae-1-n-n-n-proofs",
+  "subtopicTitle": "Formulae — Σ1, Σn, Σn², Σn³ — proofs",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "model": "gemini-3.1-pro-preview",
+  "generatedAt": "2026-05-25T15:01:02.001Z",
+  "cards": [
+    {
+      "front": "Evaluate the sum of a constant $c$ over $n$ terms: $\\sum_{k=1}^n c$",
+      "back": "$$n \\cdot c$$ \n\nExplanation: You are adding the constant $c$ to itself $n$ times. As a special case, $\\sum_{k=1}^n 1 = n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the sum of the first $n$ positive integers: $\\sum_{k=1}^n k$",
+      "back": "$$\\frac{n(n+1)}{2}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Briefly explain the \"Gauss trick\" to prove the formula for $\\sum_{k=1}^n k$.",
+      "back": "Let $S = 1 + 2 + \\dots + n$. Write $S$ again in reverse: $S = n + (n-1) + \\dots + 1$. \n\nAdding the two equations vertically yields $2S = (n+1) + (n+1) + \\dots + (n+1)$ for $n$ terms. \n\nThus, $2S = n(n+1) \\implies S = \\frac{n(n+1)}{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the sum of the first $n$ squares: $\\sum_{k=1}^n k^2$",
+      "back": "$$\\frac{n(n+1)(2n+1)}{6}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What algebraic identity is used to prove the formula for $\\sum_{k=1}^n k^2$ via a telescoping sum? State the setup.",
+      "back": "Use the identity $(k+1)^3 - k^3 = 3k^2 + 3k + 1$. \n\nSumming both sides from $k=1$ to $n$ creates a telescoping sum on the left:\n$$(n+1)^3 - 1^3 = 3\\sum_{k=1}^n k^2 + 3\\sum_{k=1}^n k + \\sum_{k=1}^n 1$$\n\nYou then substitute the known formulas for $\\sum k$ and $\\sum 1$ and solve algebraically for $\\sum k^2$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the formula for the sum of the first $n$ cubes: $\\sum_{k=1}^n k^3$. How does it relate to $\\sum_{k=1}^n k$?",
+      "back": "$$\\left( \\frac{n(n+1)}{2} \\right)^2$$\n\nIt is exactly the square of the sum of the first $n$ integers. Therefore, $\\sum_{k=1}^n k^3 = \\left( \\sum_{k=1}^n k \\right)^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To prove the formula for $\\sum_{k=1}^n k^3$ using the telescoping method, which algebraic identity should you sum from $k=1$ to $n$?",
+      "back": "You use the binomial expansion of $(k+1)^4$:\n$$(k+1)^4 - k^4 = 4k^3 + 6k^2 + 4k + 1$$\n\nSumming this from $k=1$ to $n$ causes the left side to telescope to $(n+1)^4 - 1^4$. You can then substitute the known sums for $k^2, k,$ and $1$ to isolate and solve for $\\sum k^3$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Use standard summation formulas to express the sum of the first $n$ odd integers, $\\sum_{k=1}^n (2k - 1)$, in its simplest form.",
+      "back": "Split the sum using linearity: \n$$2\\sum_{k=1}^n k - \\sum_{k=1}^n 1$$\n\nSubstitute the formulas:\n$$2\\left(\\frac{n(n+1)}{2}\\right) - n = n(n+1) - n = n^2 + n - n = n^2$$\n\nThus, the sum of the first $n$ odd integers is exactly $n^2$.",
+      "difficulty": "medium"
+    }
+  ]
+}

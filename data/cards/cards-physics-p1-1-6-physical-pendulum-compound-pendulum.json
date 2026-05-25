@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-6-physical-pendulum-compound-pendulum",
+  "subtopicTitle": "Physical pendulum — compound pendulum",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:46.978Z",
+  "cards": [
+    {
+      "front": "What distinguishes a physical pendulum from an ideal simple pendulum?",
+      "back": "A physical pendulum (also known as a compound pendulum) is any rigid body free to oscillate about a fixed horizontal axis that does not pass through its center of mass. Unlike a simple pendulum, its mass is distributed throughout its volume, not concentrated at a single point mass.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the equation of motion for a physical pendulum oscillating about a fixed axis, assuming small angular displacements.",
+      "back": "Let $I$ be the moment of inertia about the pivot, $m$ its mass, and $d$ the distance from the pivot to the center of mass (CM). When displaced by an angle $\\theta$, the restoring torque due to gravity is $\\tau = -mgd \\sin\\theta$. Newton's second law for rotation states $\\tau = I \\alpha = I \\frac{d^2\\theta}{dt^2}$.\nThus, the equation of motion is:\n$$I \\frac{d^2\\theta}{dt^2} = -mgd \\sin\\theta$$\n$$\\frac{d^2\\theta}{dt^2} + \\frac{mgd}{I} \\sin\\theta = 0$$\nFor small angles ($\\sin\\theta \\approx \\theta$), this simplifies to the equation for Simple Harmonic Motion (SHM):\n$$\\frac{d^2\\theta}{dt^2} + \\frac{mgd}{I} \\theta = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For small angular displacements, what is the period of oscillation $T$ for a physical pendulum with moment of inertia $I$, mass $m$, and pivot-to-CM distance $d$?",
+      "back": "From the SHM equation $\\frac{d^2\\theta}{dt^2} + \\frac{mgd}{I} \\theta = 0$, we identify the angular frequency squared as $\\omega^2 = \\frac{mgd}{I}$.\nThe angular frequency is $\\omega = \\sqrt{\\frac{mgd}{I}}$.\nThe period of oscillation is $T = \\frac{2\\pi}{\\omega}$.\nTherefore,\n$$T = 2\\pi \\sqrt{\\frac{I}{mgd}}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the radius of gyration $k$ for a physical pendulum and express its moment of inertia $I$ in terms of $k$ and mass $m$.",
+      "back": "The radius of gyration $k$ is a measure of how the mass of a body is distributed about an axis of rotation. It is defined such that the moment of inertia $I$ of the body about that axis is $I = mk^2$. Here, $k$ represents the distance from the axis of rotation at which the entire mass of the body could be concentrated to have the same moment of inertia.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the period of a physical pendulum using the radius of gyration $k$ and relate it to the equivalent length $L_{eq}$ of a simple pendulum.",
+      "back": "Using $I = mk^2$, the period formula $T = 2\\pi \\sqrt{\\frac{I}{mgd}}$ becomes:\n$$T = 2\\pi \\sqrt{\\frac{mk^2}{mgd}} = 2\\pi \\sqrt{\\frac{k^2}{gd}}$$\nComparing this to the period of a simple pendulum $T_{simple} = 2\\pi \\sqrt{\\frac{L}{g}}$, we find the equivalent length $L_{eq}$ of a simple pendulum that would have the same period:\n$$L_{eq} = \\frac{k^2}{d}$$\nThis means a physical pendulum behaves like a simple pendulum of length $L_{eq}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the center of oscillation (or center of percussion) for a physical pendulum and state its distance from the pivot point.",
+      "back": "The center of oscillation (or center of percussion) is a point on a physical pendulum at the same distance from the pivot as the equivalent length $L_{eq}$ of a simple pendulum. If the pendulum were struck at this point, there would be no reaction force at the pivot. Its distance from the pivot is $L_{eq} = \\frac{k^2}{d}$. Using the parallel axis theorem ($I = I_{CM} + md^2$) and $I_{CM} = mk_{CM}^2$, we can also write $L_{eq} = \\frac{m(k_{CM}^2 + d^2)}{md} = \\frac{k_{CM}^2 + d^2}{d} = \\frac{k_{CM}^2}{d} + d$. This point is always further from the pivot than the center of mass ($L_{eq} > d$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A uniform rod of mass $M$ and length $L$ is pivoted at one end. What is its moment of inertia about the pivot, and what is its period of oscillation for small angles?",
+      "back": "The moment of inertia of a uniform rod about its center of mass is $I_{CM} = \\frac{1}{12}ML^2$. The distance from the pivot to the CM is $d = L/2$. Using the parallel axis theorem, $I = I_{CM} + Md^2 = \\frac{1}{12}ML^2 + M\\left(\\frac{L}{2}\\right)^2 = \\frac{1}{12}ML^2 + \\frac{1}{4}ML^2 = \\frac{1}{3}ML^2$.\nThe period of oscillation is $T = 2\\pi \\sqrt{\\frac{I}{Mgd}} = 2\\pi \\sqrt{\\frac{\\frac{1}{3}ML^2}{Mg\\frac{L}{2}}} = 2\\pi \\sqrt{\\frac{2L}{3g}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a given rigid body, how does the period of a physical pendulum change as the pivot point is moved closer to or further from the center of mass? Is there an optimal pivot point for minimum period?",
+      "back": "Let $I_{CM}$ be the moment of inertia about the CM, and $d$ be the distance from the pivot to the CM. By the parallel axis theorem, $I = I_{CM} + md^2$. The period is $T = 2\\pi \\sqrt{\\frac{I_{CM} + md^2}{mgd}} = 2\\pi \\sqrt{\\frac{I_{CM}}{mgd} + \\frac{d}{g}}$.\nTo find the minimum period, we differentiate the term inside the square root with respect to $d$ and set it to zero: $\\frac{d}{dd}\\left(\\frac{I_{CM}}{mgd} + \\frac{d}{g}\\right) = -\\frac{I_{CM}}{mgd^2} + \\frac{1}{g} = 0$. This gives $d^2 = \\frac{I_{CM}}{m}$. Thus, the minimum period occurs when $d = \\sqrt{\\frac{I_{CM}}{m}}$, which is the radius of gyration about the center of mass, $k_{CM}$. The period increases as $d \\to 0$ (pivot at CM, $T \\to \\infty$) or $d \\to \\infty$ (pivot very far, $T \\to \\infty$).",
+      "difficulty": "hard"
+    }
+  ]
+}

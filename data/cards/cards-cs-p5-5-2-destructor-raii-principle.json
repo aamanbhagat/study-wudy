@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-destructor-raii-principle",
+  "subtopicTitle": "Destructor — RAII principle",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:59.003Z",
+  "cards": [
+    {
+      "front": "What is a C++ destructor, and what is its primary purpose?",
+      "back": "A C++ destructor is a special member function of a class that is automatically invoked when an object of that class goes out of scope or is explicitly deleted. Its primary purpose is to perform cleanup operations, such as releasing dynamically allocated memory, closing file handles, or unlocking mutexes, to prevent resource leaks.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you declare a destructor for a class `MyClass`, and when is it implicitly called?",
+      "back": "A destructor is declared by prefixing the class name with a tilde (`~`).\n```cpp\nclass MyClass {\npublic:\n    ~MyClass() { // Destructor declaration\n        // Cleanup code\n    }\n};\n```\nIt is implicitly called when:\n1. A local object goes out of scope.\n2. A dynamically allocated object is deleted using `delete`.\n3. A temporary object is destroyed.\n4. The program terminates (for static/global objects).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the RAII principle in C++. What does RAII stand for?",
+      "back": "RAII stands for \"Resource Acquisition Is Initialization.\" It's a C++ programming idiom where resource acquisition (like opening a file, allocating memory, or acquiring a lock) is tied to object initialization, and resource release is tied to object destruction. The resource is owned by the object, and its lifetime is managed automatically through the object's scope.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do C++ destructors facilitate the RAII principle?",
+      "back": "Destructors are the cornerstone of RAII. By placing resource release logic (e.g., `fclose()`, `delete[]`, `mutex.unlock()`) within an object's destructor, C++ guarantees that these cleanup operations will automatically execute when the object is destroyed, regardless of how the object's scope is exited (normal return, exception, etc.). This ensures exception safety and prevents resource leaks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Demonstrate how RAII can be used to manage a dynamically allocated integer array to prevent memory leaks, even in the presence of exceptions.",
+      "back": "```cpp\nclass IntArrayWrapper {\n    int* data;\n    size_t size;\npublic:\n    IntArrayWrapper(size_t s) : size(s) {\n        data = new int[size]; // Acquire resource\n        // Potentially throw an exception here\n    }\n    ~IntArrayWrapper() {\n        delete[] data; // Release resource\n    }\n    // ... other member functions\n};\n\nvoid func() {\n    IntArrayWrapper arr(10); // Resource acquired\n    // If an exception occurs here, arr's destructor is still called.\n} // arr goes out of scope, destructor called, memory freed.\n```\nThe destructor `~IntArrayWrapper()` guarantees `delete[] data` is called, preventing leaks.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When should a C++ base class destructor be declared `virtual`, and what problem does it solve?",
+      "back": "A base class destructor should be declared `virtual` if the class is intended to be used polymorphically, meaning objects of derived classes might be deleted through a pointer to the base class.\n```cpp\nBase* ptr = new Derived();\ndelete ptr; // If ~Base() is not virtual, only Base's destructor is called.\n```\nWithout a `virtual` destructor, `delete ptr` would invoke only the base class destructor, leading to undefined behavior and potential resource leaks for the derived class's members (a \"partial destruction\"). A `virtual` destructor ensures the correct derived class destructor is called first, followed by the base class destructor.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a class `Derived` inherits from `Base` and contains a member object `MemberObj`, in what order are their destructors called when a `Derived` object is destroyed?",
+      "back": "When a `Derived` object is destroyed, the destructors are called in the following order:\n1. `Derived` class destructor (`~Derived()`).\n2. Destructors of non-static member objects (e.g., `~MemberObj()`), in reverse order of their declaration in the class.\n3. `Base` class destructor (`~Base()`), if `Derived` inherits from `Base`.\nThis order ensures that the most derived parts are cleaned up first, followed by its components, and finally its base parts.",
+      "difficulty": "medium"
+    }
+  ]
+}

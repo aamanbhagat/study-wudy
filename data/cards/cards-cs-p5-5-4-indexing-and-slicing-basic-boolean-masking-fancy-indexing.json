@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-4-indexing-and-slicing-basic-boolean-masking-fancy-indexing",
+  "subtopicTitle": "Indexing and slicing — basic, boolean masking, fancy indexing",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:30.814Z",
+  "cards": [
+    {
+      "front": "How do you access the element at row 2, column 3 (0-indexed) of a NumPy array `arr`?",
+      "back": "You can use `arr[2, 3]` or `arr[2][3]`. The former is generally preferred in NumPy for clarity and often for performance in multi-dimensional indexing.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the syntax `arr[start:stop:step]` for 1D NumPy arrays and what `stop` signifies.",
+      "back": "`start` is the starting index (inclusive), `stop` is the ending index (exclusive), and `step` is the increment. The `stop` index means the element at this index is *not* included in the slice.\n```python\nimport numpy as np\narr = np.array([0, 1, 2, 3, 4, 5])\nprint(arr[1:4]) # Output: [1 2 3]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a 2D NumPy array `arr = np.arange(12).reshape(3, 4)`, how would you slice to get the sub-array consisting of the first two rows and the last two columns?",
+      "back": "```python\nimport numpy as np\narr = np.arange(12).reshape(3, 4)\n# arr is:\n# [[ 0  1  2  3]\n#  [ 4  5  6  7]\n#  [ 8  9 10 11]]\nsub_arr = arr[:2, 2:]\n# sub_arr will be:\n# [[2 3]\n#  [6 7]]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is boolean masking in NumPy, and what is its primary use case?",
+      "back": "Boolean masking (or boolean indexing) involves using a boolean array of the same shape as the data array to select elements. A `True` value at an index means the corresponding element is selected, while `False` means it's not. Its primary use case is to filter or select elements based on a specific condition, allowing for conditional data extraction or modification.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `arr = np.array([10, 20, 30, 40, 50])`, write Python code to select all elements greater than 30 using boolean masking.",
+      "back": "```python\nimport numpy as np\narr = np.array([10, 20, 30, 40, 50])\nmask = arr > 30 # mask will be [False False False  True  True]\nselected_elements = arr[mask]\n# Or more concisely:\n# selected_elements = arr[arr > 30]\nprint(selected_elements) # Output: [40 50]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"fancy indexing\" in NumPy. How does it differ fundamentally from basic slicing?",
+      "back": "Fancy indexing involves passing an array (or list) of integer indices to select elements. Unlike basic slicing, which returns a *view* into the original array, fancy indexing always returns a *copy* of the data. It allows for non-contiguous, arbitrary selection of elements, and can also be used to reorder or duplicate elements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `arr = np.array(['a', 'b', 'c', 'd', 'e'])`, how would you use fancy indexing to select elements at indices 0, 3, and 1, in that specific order?",
+      "back": "```python\nimport numpy as np\narr = np.array(['a', 'b', 'c', 'd', 'e'])\nindices = [0, 3, 1]\nselected_elements = arr[indices]\nprint(selected_elements) # Output: ['a' 'd' 'b']\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `arr = np.arange(9).reshape(3, 3)`, explain how `arr[[0, 2], [1, 0]]` works and what its output will be.",
+      "back": "This is 2D fancy indexing. The first array `[0, 2]` specifies the row indices, and the second array `[1, 0]` specifies the column indices. NumPy pairs them up: it selects elements at `(row=0, col=1)` and `(row=2, col=0)`.\n```python\nimport numpy as np\narr = np.arange(9).reshape(3, 3)\n# arr is:\n# [[0 1 2]\n#  [3 4 5]\n#  [6 7 8]]\nresult = arr[[0, 2], [1, 0]]\nprint(result) # Output: [1 6]\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When modifying elements, what is a critical difference in behavior between basic slicing and fancy indexing in NumPy regarding whether a copy or a view is returned?",
+      "back": "Basic slicing returns a *view* into the original array. This means that modifying elements of a slice will directly modify the original array.\nFancy indexing, however, always returns a *copy* of the data. Modifying elements of an array obtained via fancy indexing will *not* affect the original array.\n```python\nimport numpy as np\narr_slice = np.array([1, 2, 3])\ns = arr_slice[0:2] # s is a view\ns[0] = 99\nprint(arr_slice) # Output: [99  2  3] - original modified\n\narr_fancy = np.array([1, 2, 3])\nf = arr_fancy[[0, 1]] # f is a copy\nf[0] = 99\nprint(arr_fancy) # Output: [1 2 3] - original NOT modified\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

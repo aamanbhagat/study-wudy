@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-functions-of-several-variables-graphs-level-curves-level-surfaces",
+  "subtopicTitle": "Functions of several variables — graphs, level curves, level surfaces",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:54.253Z",
+  "cards": [
+    {
+      "front": "Define a function of $n$ variables, $f: D \\to \\mathbb{R}$. What are its domain and range?",
+      "back": "A function $f$ of $n$ variables assigns to each ordered $n$-tuple $(x_1, x_2, \\dots, x_n)$ in a set $D \\subset \\mathbb{R}^n$ a unique real number $z = f(x_1, x_2, \\dots, x_n)$. The set $D$ is the **domain** of $f$, and the set of all possible output values $f(x_1, \\dots, x_n)$ is the **range** of $f$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the graph of a function $z = f(x, y)$ defined? What kind of geometric object is it?",
+      "back": "The graph of a function $f$ of two variables is the set of all points $(x, y, z)$ in $\\mathbb{R}^3$ such that $z = f(x, y)$ and $(x, y)$ is in the domain of $f$. Geometrically, it represents a **surface** in three-dimensional space.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the level curves of a function $z = f(x, y)$? What is their primary use?",
+      "back": "A level curve of a function $f(x, y)$ is the set of all points $(x, y)$ in the domain of $f$ where $f(x, y) = k$ for some constant $k$ in the range of $f$. They are 2D curves in the $xy$-plane. Their primary use is to visualize the 3D graph of $f$ by showing where the function has constant values, similar to contour lines on a topographic map.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Sketch the level curves for $f(x, y) = x^2 + y^2$ for $k=0, 1, 4, 9$.",
+      "back": "For $k=0$, $x^2+y^2=0 \\implies (0,0)$, a point. For $k=1$, $x^2+y^2=1$, a circle of radius 1 centered at the origin. For $k=4$, $x^2+y^2=4$, a circle of radius 2. For $k=9$, $x^2+y^2=9$, a circle of radius 3. These are concentric circles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the level surfaces of a function $w = f(x, y, z)$? Why are they useful?",
+      "back": "A level surface of a function $f(x, y, z)$ is the set of all points $(x, y, z)$ in the domain of $f$ where $f(x, y, z) = k$ for some constant $k$ in the range of $f$. They are 3D surfaces in $\\mathbb{R}^3$. They are useful because the graph of $f$ itself is in $\\mathbb{R}^4$ (which cannot be easily visualized), so level surfaces provide a way to visualize where the function has constant values in 3D space.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the geometric relationship between the graph of $z=f(x,y)$ and its level curves $f(x,y)=k$.",
+      "back": "Each level curve $f(x,y)=k$ is a curve in the $xy$-plane. If you lift each point $(x,y)$ on this level curve up to the height $z=k$, you trace out a curve on the surface $z=f(x,y)$. This curve is the intersection of the graph $z=f(x,y)$ with the horizontal plane $z=k$. The collection of all such intersections for different $k$ values forms the entire graph.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the domain of $f(x, y) = \\sqrt{y - x^2}$.",
+      "back": "The expression under the square root must be non-negative. So, $y - x^2 \\ge 0$, which implies $y \\ge x^2$. The domain is the set of all points $(x, y)$ in $\\mathbb{R}^2$ that lie on or above the parabola $y = x^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a contour map of temperature $T(x,y)$, what does it mean if level curves are very close together?",
+      "back": "If the level curves (isotherms) of $T(x,y)$ are very close together, it indicates that the temperature is changing rapidly over a small distance. This means the magnitude of the temperature gradient, $|\\nabla T|$, is large in that region. Conversely, widely spaced level curves suggest a slow change in temperature.",
+      "difficulty": "hard"
+    }
+  ]
+}

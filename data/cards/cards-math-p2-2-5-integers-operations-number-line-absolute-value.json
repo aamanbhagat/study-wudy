@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-5-integers-operations-number-line-absolute-value",
+  "subtopicTitle": "Integers — operations, number line, absolute value",
+  "topicId": "math-p2-2-5-number-theory-intermediate",
+  "topicTitle": "Number Theory (Intermediate)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:58.204Z",
+  "cards": [
+    {
+      "front": "What are integers, and what is their standard mathematical notation?",
+      "back": "Integers are the set of whole numbers and their opposites (negative counterparts), including zero. They can be represented as $\\mathbb{Z} = \\{..., -3, -2, -1, 0, 1, 2, 3, ...\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how to add two integers with different signs, and how to subtract a negative integer.",
+      "back": "1.  **Adding integers with different signs**: Subtract the smaller absolute value from the larger absolute value. The result takes the sign of the integer with the larger absolute value. E.g., $5 + (-8) = -(8-5) = -3$.\n2.  **Subtracting a negative integer**: Subtracting a negative integer is equivalent to adding its positive counterpart. E.g., $a - (-b) = a + b$. So, $5 - (-3) = 5 + 3 = 8$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the sign rules for multiplying or dividing any two non-zero integers.",
+      "back": "*   Positive $\\times$ Positive = Positive ($+ \\times + = +$)\n*   Negative $\\times$ Negative = Positive ($- \\times - = +$)\n*   Positive $\\times$ Negative = Negative ($+ \\times - = -$)\n*   Negative $\\times$ Positive = Negative ($- \\times + = -$)\nThe same rules apply for division.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "On a number line, how do you determine which of two integers, $a$ and $b$, is greater? Illustrate with $a=-4$ and $b=1$.",
+      "back": "On a number line, the integer further to the right is always greater.\nFor $a=-4$ and $b=1$:\n$$ \\dots \\quad -5 \\quad \\mathbf{-4} \\quad -3 \\quad -2 \\quad -1 \\quad \\mathbf{1} \\quad 2 \\quad \\dots $$\nSince $1$ is to the right of $-4$, we conclude that $1 > -4$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the absolute value of an integer $x$, both intuitively and formally using a piecewise function.",
+      "back": "Intuitively, the absolute value of an integer $x$, denoted $|x|$, is its distance from zero on the number line, always a non-negative value.\nFormally, it is defined as:\n$$ |x| = \\begin{cases} x & \\text{if } x \\ge 0 \\\\ -x & \\text{if } x < 0 \\end{cases} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate $|-12|$, $|0|$, and $|9|$. Explain what these values signify in terms of distance on the number line.",
+      "back": "*   $|-12| = 12$. This means $-12$ is $12$ units away from $0$.\n*   $|0| = 0$. This means $0$ is $0$ units away from $0$.\n*   $|9| = 9$. This means $9$ is $9$ units away from $0$.\nThe absolute value always represents a non-negative distance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the distributive property of multiplication over addition for integers, and provide a concrete example.",
+      "back": "The distributive property states that for any integers $a, b, c$:\n$$ a \\times (b + c) = (a \\times b) + (a \\times c) $$\nExample: Let $a=4, b=-3, c=5$.\n$4 \\times (-3 + 5) = 4 \\times 2 = 8$.\n$(4 \\times -3) + (4 \\times 5) = -12 + 20 = 8$.\nBoth sides yield $8$, confirming the property.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why division by zero is undefined for integers. Consider cases where the dividend is non-zero and zero.",
+      "back": "Division is the inverse of multiplication. If $a/b = c$, then $a = b \\times c$.\n1.  **Non-zero dividend ($a \\ne 0$)**: If $a/0 = c$, then $a = 0 \\times c$. This implies $a=0$. This contradicts our assumption that $a \\ne 0$. Therefore, division of a non-zero integer by zero is impossible and hence undefined.\n2.  **Zero dividend ($a = 0$)**: If $0/0 = c$, then $0 = 0 \\times c$. This equation is true for *any* integer $c$. Since $c$ is not uniquely determined, $0/0$ is indeterminate, and thus also undefined in the context of yielding a unique integer result.",
+      "difficulty": "hard"
+    }
+  ]
+}

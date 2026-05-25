@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-2-os-roles-resource-management-hardware-abstraction-protection",
+  "subtopicTitle": "OS roles — resource management, hardware abstraction, protection",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:47.947Z",
+  "cards": [
+    {
+      "front": "List the three primary roles an Operating System fulfills.",
+      "back": "The three primary roles are: 1. **Resource Management**, 2. **Hardware Abstraction**, and 3. **Protection**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify at least four distinct resources an Operating System is responsible for managing.",
+      "back": "An OS manages resources such as: CPU time, Memory (RAM), I/O devices (e.g., disk, network card, printer), Files/Storage, and Network connections.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does an OS provide \"hardware abstraction\" for an application wanting to write data to a file on a disk?",
+      "back": "The OS provides a high-level, simplified interface (e.g., `open()`, `write()`, `close()` system calls) that hides the complex, low-level details of interacting directly with disk controllers, sectors, and tracks. Device drivers translate these abstract requests into specific hardware commands.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary mechanism an OS uses to prevent one process from directly accessing or corrupting the memory space allocated to another process?",
+      "back": "The OS uses **memory protection mechanisms**, often involving a **Memory Management Unit (MMU)**. This unit translates virtual addresses to physical addresses and checks if a process has permission to access a given memory region, preventing unauthorized access and ensuring process isolation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the distinction between \"user mode\" and \"kernel mode\" in an OS, and why this distinction is fundamental for protection.",
+      "back": "<ul><li>**User Mode**: Processes run in this mode with restricted privileges, meaning they cannot directly access hardware or critical OS data structures.</li><li>**Kernel Mode**: The OS kernel runs in this mode with full privileges, able to access all hardware and memory.</li></ul>This distinction is fundamental for **protection** because it isolates the OS from potentially buggy or malicious user applications. User applications must request OS services (via system calls) to perform privileged operations, allowing the OS to validate and control these requests.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a scenario where an OS's CPU scheduling, despite being efficient, could lead to \"starvation\" for a process.",
+      "back": "Consider a **priority-based CPU scheduler** where high-priority processes always preempt low-priority ones. If a continuous stream of high-priority processes arrives, a low-priority process might never get a chance to run, even if it's ready. This indefinite postponement is known as **starvation**. A common solution to mitigate starvation is **aging**, where a process's priority increases over time.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do \"system calls\" serve the dual purposes of both hardware abstraction and protection in an operating system?",
+      "back": "<ul><li>**Hardware Abstraction**: System calls provide a standardized, high-level interface for applications to request OS services, abstracting away the complexities of direct hardware interaction (e.g., `read()` abstracts disk I/O).</li><li>**Protection**: By requiring applications to use system calls to perform privileged operations (like accessing files or memory), the OS can validate requests, enforce security policies, and switch to kernel mode to execute the operation safely, preventing unauthorized direct hardware access or data corruption.</li></ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

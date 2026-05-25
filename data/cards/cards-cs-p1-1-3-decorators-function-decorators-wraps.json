@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-3-decorators-function-decorators-wraps",
+  "subtopicTitle": "Decorators — function decorators, @, wraps",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:16.588Z",
+  "cards": [
+    {
+      "front": "In Python, what is a decorator conceptually?",
+      "back": "A decorator is a design pattern that allows you to add new functionality to an existing object (typically a function or method) without modifying its structure. In Python, decorators are functions that take another function as an argument, extend its behavior, and return the new, enhanced function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you apply a decorator named `my_decorator` to a function `my_function` using the syntactic sugar?",
+      "back": "You use the `@` symbol directly above the function definition:\n```python\n@my_decorator\ndef my_function():\n    pass\n```\nThis is functionally equivalent to `my_function = my_decorator(my_function)`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the basic structure of a Python decorator named `simple_decorator` that prints messages before and after executing the decorated function.",
+      "back": "```python\ndef simple_decorator(func):\n    def wrapper(*args, **kwargs):\n        print(\"Before calling the function.\")\n        result = func(*args, **kwargs)\n        print(\"After calling the function.\")\n        return result\n    return wrapper\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is it crucial to use `*args` and `**kwargs` in the `wrapper` function of a decorator?",
+      "back": "Using `*args` and `**kwargs` in the `wrapper` function ensures that the decorated function can accept any number of positional arguments (`*args`) and keyword arguments (`**kwargs`), respectively. This makes the decorator general-purpose and applicable to functions with diverse signatures without causing `TypeError` due to mismatched arguments.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What problem does `functools.wraps` solve when creating Python decorators, and how does it solve it?",
+      "back": "When a function is decorated, its metadata (like `__name__`, `__doc__`, `__module__`, `__annotations__`) is lost because the original function object is replaced by the `wrapper` function. `functools.wraps` is a decorator itself that copies these attributes from the original function to the `wrapper` function, preserving the metadata for introspection and debugging.\n```python\nfrom functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        # ...\n        return func(*args, **kwargs)\n    return wrapper\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you create a decorator that accepts arguments (e.g., `@log_calls(level=\"INFO\")`)? Provide the structural skeleton.",
+      "back": "A decorator with arguments requires an outer function that takes the arguments and returns the actual decorator function. This results in a triple-nested structure:\n```python\nfrom functools import wraps\n\ndef decorator_with_args(arg1, arg2): # Outer function for decorator arguments\n    def actual_decorator(func):      # The actual decorator function\n        @wraps(func)\n        def wrapper(*args, **kwargs): # The wrapper function\n            print(f\"Decorator args: {arg1}, {arg2}\")\n            return func(*args, **kwargs)\n        return wrapper\n    return actual_decorator\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a function is decorated with `@decorator_A` followed by `@decorator_B`, in what order are the decorators applied and executed?",
+      "back": "Decorators are applied from bottom to top (innermost to outermost) but executed from top to bottom (outermost to innermost).\n```python\n@decorator_A # Applied first (syntactically outer)\n@decorator_B # Applied second (syntactically inner)\ndef my_func():\n    pass\n```\nThis is equivalent to `my_func = decorator_A(decorator_B(my_func))`. When `my_func` is called, `decorator_A`'s wrapper executes first, then calls `decorator_B`'s wrapper, which then calls the original `my_func`.",
+      "difficulty": "hard"
+    }
+  ]
+}

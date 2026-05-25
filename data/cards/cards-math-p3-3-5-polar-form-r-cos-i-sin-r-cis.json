@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p3-3-5-polar-form-r-cos-i-sin-r-cis",
+  "subtopicTitle": "Polar form — r(cosθ + i sinθ) = r·cisθ",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:16.339Z",
+  "cards": [
+    {
+      "front": "Define the polar form of a complex number $z = x + iy$.",
+      "back": "The polar form of a complex number $z = x + iy$ is $z = r(\\cos\\theta + i\\sin\\theta)$, often abbreviated as $z = r\\cdot\\text{cis}\\theta$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the polar form $z = r(\\cos\\theta + i\\sin\\theta)$, what do $r$ and $\\theta$ represent geometrically?",
+      "back": "$r$ represents the **modulus** (or absolute value) of $z$, which is the distance from the origin to the point $(x,y)$ in the complex plane. $\\theta$ represents the **argument** of $z$, which is the angle (measured counter-clockwise) from the positive real axis to the line segment connecting the origin to $(x,y)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a complex number $z = x + iy$, derive the formulas for its modulus $r$ and argument $\\theta$ in polar form.",
+      "back": "The modulus $r$ is given by the Pythagorean theorem: $$r = \\sqrt{x^2 + y^2}$$ The argument $\\theta$ is found using trigonometry: $$\\cos\\theta = \\frac{x}{r}, \\quad \\sin\\theta = \\frac{y}{r}$$ Thus, $\\tan\\theta = \\frac{y}{x}$. It's crucial to determine the correct quadrant for $\\theta$ based on the signs of $x$ and $y$ when using $\\arctan(y/x)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the notation $\\text{cis}\\theta$ stand for, and why is it used?",
+      "back": "The notation $\\text{cis}\\theta$ is a shorthand for $\\cos\\theta + i\\sin\\theta$. It is used for brevity and convenience, especially when writing complex numbers in polar form or when dealing with operations like multiplication and division, which are simplified in this form.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert the complex number $z = -1 + i\\sqrt{3}$ to its polar form $r\\cdot\\text{cis}\\theta$.",
+      "back": "1. Calculate $r$: $r = \\sqrt{(-1)^2 + (\\sqrt{3})^2} = \\sqrt{1 + 3} = \\sqrt{4} = 2$.\n2. Calculate $\\theta$: The point $(-1, \\sqrt{3})$ is in the second quadrant. $\\tan\\theta = \\frac{\\sqrt{3}}{-1} = -\\sqrt{3}$. The reference angle is $\\pi/3$. In the second quadrant, $\\theta = \\pi - \\pi/3 = 2\\pi/3$.\nTherefore, $z = 2\\cdot\\text{cis}(2\\pi/3)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is the argument $\\theta$ in $z = r\\cdot\\text{cis}\\theta$ unique? How is uniqueness usually ensured?",
+      "back": "No, the argument $\\theta$ is not unique. Adding any integer multiple of $2\\pi$ (or $360^\\circ$) to $\\theta$ results in the same complex number. For example, $r\\cdot\\text{cis}(\\theta) = r\\cdot\\text{cis}(\\theta + 2k\\pi)$ for any integer $k$.\nUniqueness is typically ensured by defining the **principal argument**, denoted $\\text{Arg}(z)$, which is the unique value of $\\theta$ such that $-\\pi < \\text{Arg}(z) \\le \\pi$ (or $-180^\\circ < \\text{Arg}(z) \\le 180^\\circ$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does Euler's formula, $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$, relate to the polar form $r\\cdot\\text{cis}\\theta$?",
+      "back": "Euler's formula directly shows that the term $(\\cos\\theta + i\\sin\\theta)$ in the polar form is equivalent to $e^{i\\theta}$.\nTherefore, the polar form $z = r(\\cos\\theta + i\\sin\\theta)$ can be written in the more compact and powerful **exponential form** as $z = re^{i\\theta}$. This form is particularly useful for complex number operations like multiplication, division, and exponentiation (De Moivre's Theorem).",
+      "difficulty": "hard"
+    }
+  ]
+}

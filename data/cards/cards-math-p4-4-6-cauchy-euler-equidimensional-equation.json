@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-cauchy-euler-equidimensional-equation",
+  "subtopicTitle": "Cauchy-Euler (Equidimensional) equation",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:59.224Z",
+  "cards": [
+    {
+      "front": "What is the general form of a second-order homogeneous Cauchy-Euler (or equidimensional) equation?",
+      "back": "The general form is: $$ax^2\\frac{d^2y}{dx^2} + bx\\frac{dy}{dx} + cy = 0$$ where $a, b, c$ are constants and $a \\neq 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What substitution transforms a Cauchy-Euler equation into a linear ODE with constant coefficients?",
+      "back": "The substitution is $x = e^t$, which implies $t = \\ln x$. This transformation leads to the following derivative relationships:\n$x\\frac{dy}{dx} = \\frac{dy}{dt}$\n$x^2\\frac{d^2y}{dx^2} = \\frac{d^2y}{dt^2} - \\frac{dy}{dt}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the auxiliary equation for the Cauchy-Euler ODE $ax^2y'' + bxy' + cy = 0$ by assuming a solution of the form $y=x^r$.",
+      "back": "Assume a solution of the form $y = x^r$. Then:\n$y' = rx^{r-1}$\n$y'' = r(r-1)x^{r-2}$\nSubstitute these into the ODE:\n$ax^2(r(r-1)x^{r-2}) + bx(rx^{r-1}) + c(x^r) = 0$\n$ar(r-1)x^r + brx^r + cx^r = 0$\nFactor out $x^r$ (since $x \\neq 0$):\n$x^r[ar(r-1) + br + c] = 0$\nThe auxiliary (or characteristic) equation is:\n$$ar(r-1) + br + c = 0$$\nwhich simplifies to $ar^2 + (b-a)r + c = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a Cauchy-Euler equation, if its auxiliary equation $ar^2 + (b-a)r + c = 0$ yields two distinct real roots $r_1, r_2$, what is the general solution?",
+      "back": "The general solution is: $$y(x) = c_1x^{r_1} + c_2x^{r_2}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If the auxiliary equation of a Cauchy-Euler ODE has a repeated real root $r$, what is the general solution?",
+      "back": "The general solution is: $$y(x) = c_1x^r + c_2x^r \\ln x$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the auxiliary equation of a Cauchy-Euler ODE has complex conjugate roots $r = \\alpha \\pm i\\beta$, what is the general solution?",
+      "back": "The general solution is: $$y(x) = x^\\alpha [c_1 \\cos(\\beta \\ln x) + c_2 \\sin(\\beta \\ln x)]$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the ODE: $x^3y''' + 2x^2y'' - 5xy' + 3y = 0$. Is this a Cauchy-Euler equation? If so, what is its order?",
+      "back": "Yes, this is a third-order homogeneous Cauchy-Euler (or equidimensional) equation. The defining characteristic is that the power of $x$ multiplying each derivative term matches the order of that derivative (e.g., $x^3y'''$, $x^2y''$, $xy'$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Solve the initial value problem: $x^2y'' - 3xy' + 4y = 0$, with $y(1)=0$ and $y'(1)=1$.",
+      "back": "The auxiliary equation is $r(r-1) - 3r + 4 = 0$, which simplifies to $r^2 - r - 3r + 4 = 0 \\implies r^2 - 4r + 4 = 0$. This factors as $(r-2)^2 = 0$, so we have a repeated root $r=2$.\nThe general solution is $y(x) = c_1x^2 + c_2x^2 \\ln x$.\nApply initial conditions:\n1. $y(1)=0$: $c_1(1)^2 + c_2(1)^2 \\ln(1) = 0 \\implies c_1 + 0 = 0 \\implies c_1 = 0$.\n2. To use $y'(1)=1$, first find $y'(x)$:\n   $y'(x) = \\frac{d}{dx}(c_1x^2 + c_2x^2 \\ln x) = 2c_1x + c_2(2x \\ln x + x^2 \\cdot \\frac{1}{x}) = 2c_1x + c_2(2x \\ln x + x)$.\n   $y'(1)=1$: $2c_1(1) + c_2(2(1)\\ln(1) + 1) = 1 \\implies 2c_1 + c_2(0+1) = 1 \\implies 2c_1 + c_2 = 1$.\nSince $c_1=0$, we have $c_2=1$.\nThus, the particular solution is $y(x) = x^2 \\ln x$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-eigenvalues-and-eigenvectors-characteristic-polynomial",
+  "subtopicTitle": "Eigenvalues and eigenvectors — characteristic polynomial",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:13.646Z",
+  "cards": [
+    {
+      "front": "For a square matrix $A$, what are an eigenvalue $\\lambda$ and its corresponding eigenvector $\\mathbf{v}$?",
+      "back": "An eigenvalue $\\lambda$ is a scalar such that for a non-zero vector $\\mathbf{v}$, $A\\mathbf{v} = \\lambda\\mathbf{v}$. The vector $\\mathbf{v}$ is the eigenvector corresponding to $\\lambda$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the defining equation used to find the eigenvalues $\\lambda$ of a square matrix $A$?",
+      "back": "The defining equation is $A\\mathbf{v} = \\lambda\\mathbf{v}$. This can be rewritten as $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$, where $I$ is the identity matrix and $\\mathbf{v} \\neq \\mathbf{0}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the characteristic equation for finding eigenvalues from $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$.",
+      "back": "For the homogeneous system $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$ to have a non-trivial solution (i.e., $\\mathbf{v} \\neq \\mathbf{0}$), the matrix $(A - \\lambda I)$ must be singular (non-invertible). This implies its determinant must be zero: $\\det(A - \\lambda I) = 0$. This is the characteristic equation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the characteristic polynomial of a square matrix $A$.",
+      "back": "The characteristic polynomial of a square matrix $A$ is $p(\\lambda) = \\det(A - \\lambda I)$. The roots of this polynomial are the eigenvalues of $A$. For an $n \\times n$ matrix, it is a polynomial of degree $n$ in $\\lambda$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the steps to find the eigenvalues of a square matrix $A$.",
+      "back": "1. Form the matrix $(A - \\lambda I)$. 2. Calculate its determinant $\\det(A - \\lambda I)$ to get the characteristic polynomial. 3. Set the characteristic polynomial equal to zero: $\\det(A - \\lambda I) = 0$. 4. Solve this characteristic equation for $\\lambda$. The solutions are the eigenvalues.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an eigenvalue $\\lambda_k$, how do you find its corresponding eigenvector(s) $\\mathbf{v}_k$?",
+      "back": "For a given eigenvalue $\\lambda_k$, solve the homogeneous linear system $(A - \\lambda_k I)\\mathbf{v} = \\mathbf{0}$. This involves finding the null space of the matrix $(A - \\lambda_k I)$. Any non-zero vector in this null space is an eigenvector corresponding to $\\lambda_k$. The set of all such vectors (including $\\mathbf{0}$) is the eigenspace for $\\lambda_k$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For an $n \\times n$ matrix $A$ with eigenvalues $\\lambda_1, \\dots, \\lambda_n$, how do its trace and determinant relate to its eigenvalues?",
+      "back": "The trace of $A$ (sum of its diagonal elements) is equal to the sum of its eigenvalues: $\\mathrm{tr}(A) = \\sum_{i=1}^n \\lambda_i$. The determinant of $A$ is equal to the product of its eigenvalues: $\\det(A) = \\prod_{i=1}^n \\lambda_i$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Geometrically, what does an eigenvector $\\mathbf{v}$ of a matrix $A$ represent?",
+      "back": "An eigenvector $\\mathbf{v}$ is a non-zero vector whose direction is unchanged (or simply reversed if $\\lambda < 0$) by the linear transformation represented by $A$. It is only scaled by a factor $\\lambda$ (the eigenvalue), meaning $A\\mathbf{v}$ is parallel to $\\mathbf{v}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

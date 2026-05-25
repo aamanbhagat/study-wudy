@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-7-divide-and-conquer-template-correctness-recurrence",
+  "subtopicTitle": "Divide and conquer — template, correctness, recurrence",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:03.580Z",
+  "cards": [
+    {
+      "front": "What are the three fundamental steps of the Divide and Conquer algorithm paradigm?",
+      "back": "1.  **Divide:** Break the problem into smaller subproblems of the same type.\n2.  **Conquer:** Recursively solve these subproblems. If subproblems are small enough, solve them directly (base case).\n3.  **Combine:** Combine the solutions to the subproblems to get the solution to the original problem.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe how Merge Sort exemplifies the \"Divide,\" \"Conquer,\" and \"Combine\" steps of D&C.",
+      "back": "1.  **Divide:** Split the unsorted list into two halves.\n2.  **Conquer:** Recursively sort each sublist until a list of 1 element (base case) is reached.\n3.  **Combine:** Merge the two sorted sublists back into a single sorted list.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a D&C algorithm, why is a correctly defined and handled base case essential for both termination and correctness?",
+      "back": "The base case ensures:\n1.  **Termination:** It provides a non-recursive path, preventing infinite recursion.\n2.  **Correctness:** It establishes the \"ground truth\" for the smallest problems, from which all larger solutions are built inductively. If the base case is wrong, all subsequent solutions derived from it will also be incorrect.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you typically prove the correctness of a D&C algorithm using mathematical induction, assuming subproblems are solved correctly?",
+      "back": "1.  **Base Case:** Show the algorithm is correct for the smallest input size(s) (e.g., $n=0$ or $n=1$).\n2.  **Inductive Hypothesis:** Assume the algorithm correctly solves all subproblems of size $k < n$.\n3.  **Inductive Step:** Show that if the subproblems are solved correctly (by the hypothesis), then the \"Combine\" step correctly produces a solution for the problem of size $n$. This often involves proving the \"Combine\" step itself is correct.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the general form of a recurrence relation for a D&C algorithm that divides a problem of size $n$ into $a$ subproblems, each of size $n/b$, with $f(n)$ cost for divide/combine?",
+      "back": "$T(n) = aT(n/b) + f(n)$\nWhere:\n*   $T(n)$: time to solve a problem of size $n$.\n*   $a$: number of subproblems ($a \\ge 1$).\n*   $n/b$: size of each subproblem ($b > 1$).\n*   $f(n)$: cost of dividing the problem and combining the subproblem solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the three cases of the Master Theorem for solving recurrences of the form $T(n) = aT(n/b) + f(n)$.",
+      "back": "Let $c_{crit} = \\log_b a$.\n1.  If $f(n) = O(n^{c_{crit} - \\epsilon})$ for some $\\epsilon > 0$, then $T(n) = \\Theta(n^{c_{crit}})$.\n2.  If $f(n) = \\Theta(n^{c_{crit}} \\log^k n)$ for some $k \\ge 0$, then $T(n) = \\Theta(n^{c_{crit}} \\log^{k+1} n)$.\n3.  If $f(n) = \\Omega(n^{c_{crit} + \\epsilon})$ for some $\\epsilon > 0$, AND $af(n/b) \\le cf(n)$ for some constant $c < 1$ and sufficiently large $n$ (regularity condition), then $T(n) = \\Theta(f(n))$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Apply the Master Theorem to determine the time complexity of Merge Sort, whose recurrence relation is $T(n) = 2T(n/2) + O(n)$.",
+      "back": "For $T(n) = 2T(n/2) + O(n)$:\n*   $a = 2$, $b = 2$.\n*   $f(n) = O(n)$.\n*   Calculate $c_{crit} = \\log_b a = \\log_2 2 = 1$.\n*   Compare $f(n)$ with $n^{c_{crit}} = n^1 = n$.\n*   Since $f(n) = O(n)$ is $\\Theta(n^{c_{crit}})$, this falls under Case 2 of the Master Theorem (with $k=0$).\n*   Therefore, $T(n) = \\Theta(n^{c_{crit}} \\log n) = \\Theta(n \\log n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When is the Divide and Conquer paradigm generally *not* the most efficient approach, and what alternative paradigm might be better?",
+      "back": "D&C is less efficient when:\n1.  **Overlapping Subproblems:** The subproblems are not independent and share common sub-subproblems, leading to redundant computation.\n2.  **Optimal Substructure is Lacking:** The optimal solution to the problem cannot be constructed from optimal solutions to its subproblems.\nIn cases with **overlapping subproblems**, **Dynamic Programming** or **Memoization** is often a more efficient alternative, as they store and reuse solutions to common subproblems.",
+      "difficulty": "medium"
+    }
+  ]
+}

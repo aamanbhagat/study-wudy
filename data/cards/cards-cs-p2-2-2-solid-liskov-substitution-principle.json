@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-2-solid-liskov-substitution-principle",
+  "subtopicTitle": "SOLID — Liskov Substitution Principle",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:32.987Z",
+  "cards": [
+    {
+      "front": "State the Liskov Substitution Principle (LSP) in your own words.",
+      "back": "The Liskov Substitution Principle states that if $S$ is a subtype of $T$, then objects of type $T$ may be replaced with objects of type $S$ without altering any of the desirable properties of the program (e.g., correctness, task performed, etc.). Essentially, a subclass should be substitutable for its superclass without breaking the application.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "According to LSP, how must a subtype's method preconditions relate to its base type's overridden method preconditions?",
+      "back": "A subtype's method cannot strengthen the preconditions of the base type's method. This means the subtype's method must accept at least the same range of inputs as the base type's method, or a wider range. It can weaken (require less) but not strengthen (require more).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "According to LSP, how must a subtype's method postconditions relate to its base type's overridden method postconditions?",
+      "back": "A subtype's method cannot weaken the postconditions of the base type's method. This means the subtype's method must guarantee at least the same outcomes and state changes as the base type's method, or stronger guarantees. It can strengthen (guarantee more) but not weaken (guarantee less).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does LSP require regarding invariants for subtypes?",
+      "back": "Subtypes must maintain the invariants of the base type. An invariant is a condition that must always be true for an object of a given type. If a subtype violates an invariant established by its base type, it is not truly substitutable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the common 'Square is a Rectangle' inheritance example often violates the Liskov Substitution Principle.",
+      "back": "A `Rectangle` typically has independent `setWidth(w)` and `setHeight(h)` methods. If `Square` inherits from `Rectangle`, calling `setWidth(10)` then `setHeight(5)` on a `Square` object (passed as a `Rectangle`) would violate the `Square`'s invariant that `width == height`. The `Square` cannot truly substitute for `Rectangle` because it breaks the `Rectangle`'s expected behavior of allowing independent dimension changes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a Python code snippet where `Penguin` violates LSP when substituted for `Bird`, and explain why.",
+      "back": "```python\nclass Bird:\n    def fly(self):\n        return \"I am flying!\"\n\nclass Penguin(Bird):\n    def fly(self):\n        raise NotImplementedError(\"Penguins cannot fly.\")\n\ndef make_bird_fly(bird: Bird):\n    print(bird.fly())\n\n# This works\nmake_bird_fly(Bird())\n# This violates LSP because substituting Penguin for Bird breaks the program's expected behavior (calling fly())\n# make_bird_fly(Penguin()) # Will raise NotImplementedError\n```\nThe `Penguin` class violates LSP because when substituted for `Bird`, calling its `fly()` method results in an `NotImplementedError`, which is an unexpected behavior for a client expecting any `Bird` to be able to fly. The `Penguin` strengthens the precondition (effectively, \"you must not call fly()\") or weakens the postcondition (doesn't return a \"flying\" message).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary benefit of adhering to the Liskov Substitution Principle in software design?",
+      "back": "Adhering to LSP ensures that polymorphism works correctly and reliably. It promotes robust, extensible, and maintainable code by guaranteeing that client code interacting with a base type will continue to function correctly when given an object of a subtype. This prevents unexpected runtime errors and facilitates easier refactoring and extension.",
+      "difficulty": "medium"
+    }
+  ]
+}

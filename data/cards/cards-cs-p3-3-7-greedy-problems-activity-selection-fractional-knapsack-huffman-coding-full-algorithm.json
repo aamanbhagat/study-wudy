@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p3-3-7-greedy-problems-activity-selection-fractional-knapsack-huffman-coding-full-algorithm",
+  "subtopicTitle": "Greedy problems — activity selection, fractional knapsack, Huffman coding (full algorithm)",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:09.323Z",
+  "cards": [
+    {
+      "front": "A greedy algorithm makes locally optimal choices at each step with the hope that these choices will lead to a _________ solution.",
+      "back": "globally optimal.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a greedy algorithm to guarantee an optimal solution, it typically requires two properties: the greedy-choice property and __________.",
+      "back": "optimal substructure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the greedy strategy for the Activity Selection Problem to maximize the number of non-overlapping activities.",
+      "back": "Sort activities by their finish times in non-decreasing order. Select the first activity. Then, iteratively select the next activity that starts no earlier than the finish time of the previously selected activity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does sorting by finish times and picking the earliest finishing activity first lead to an optimal solution for Activity Selection?",
+      "back": "By picking the activity that finishes earliest, we leave the maximum possible time remaining for subsequent activities. This \"greedy choice\" ensures that we maximize the remaining problem space for future optimal choices, leading to an overall optimal solution due to the greedy-choice property and optimal substructure.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the greedy algorithm for the Fractional Knapsack Problem.",
+      "back": "Calculate the value-to-weight ratio ($v_i/w_i$) for each item. Sort items in non-increasing order of this ratio. Iterate through the sorted items, taking as much of each item as possible until the knapsack capacity is full. If an item cannot be taken entirely, take a fraction of it to fill the remaining capacity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the greedy approach works for Fractional Knapsack but not for the 0/1 Knapsack Problem.",
+      "back": "In Fractional Knapsack, items can be split, allowing us to always take the most \"dense\" value per unit of weight. This ensures the greedy choice is always locally and globally optimal. In 0/1 Knapsack, items cannot be split. A locally optimal choice (taking an item with high $v_i/w_i$) might prevent taking other items that, combined, would yield a higher total value, leading to a sub-optimal global solution. 0/1 Knapsack requires dynamic programming.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary goal of Huffman coding, and what type of code does it produce?",
+      "back": "The primary goal of Huffman coding is to achieve optimal prefix codes for data compression. It assigns shorter codes to more frequent characters and longer codes to less frequent characters, minimizing the total encoded length. It produces a variable-length prefix code.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the steps to construct a Huffman tree from a set of character frequencies.",
+      "back": "1. Create a leaf node for each character, containing the character and its frequency.\n2. Insert all leaf nodes into a min-priority queue ordered by frequency.\n3. While the priority queue has more than one node:\n    a. Extract the two nodes with the smallest frequencies ($x$ and $y$).\n    b. Create a new internal node $z$ with $x$ as its left child and $y$ as its right child.\n    c. Set $z$'s frequency as the sum of $x$'s and $y$'s frequencies.\n    d. Insert $z$ into the priority queue.\n4. The remaining node in the priority queue is the root of the Huffman tree.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a Huffman tree, how do you derive the binary code for a character, and how do you encode a string?",
+      "back": "To derive a character's code, traverse the tree from the root to the character's leaf node. Assign '0' for a left branch and '1' for a right branch. The sequence of 0s and 1s forms the character's code. To encode a string, concatenate the Huffman codes for each character in the string.\nExample:\n```\n(root)\n/ \\ \n0   1\n/ \\   \\\nA   B   C\n```\nCode for A: 00, B: 01, C: 1. String \"CAB\" encodes to \"10001\".",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the intuition behind why Huffman coding produces an optimal prefix code.",
+      "back": "Huffman's greedy strategy always merges the two least frequent nodes. This ensures that the least frequent characters are placed deepest in the tree (having the longest codes), while the most frequent characters are closer to the root (having the shortest codes). This minimizes the weighted path length, which directly corresponds to the total encoded message length, thus achieving optimal compression for prefix codes.",
+      "difficulty": "hard"
+    }
+  ]
+}

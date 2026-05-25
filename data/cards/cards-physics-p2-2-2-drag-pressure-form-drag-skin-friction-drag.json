@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p2-2-2-drag-pressure-form-drag-skin-friction-drag",
+  "subtopicTitle": "Drag — pressure (form) drag, skin friction drag",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:50.887Z",
+  "cards": [
+    {
+      "front": "What are the two primary components of total drag experienced by an object moving through a fluid?",
+      "back": "The two primary components of total drag are **skin friction drag** and **pressure (form) drag**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define **skin friction drag** and explain its physical origin.",
+      "back": "Skin friction drag is the component of drag caused by the viscous shear stresses acting tangentially on the surface of an object due to the fluid's viscosity. It arises from the friction between the fluid layers within the boundary layer and between the innermost fluid layer and the object's surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define **pressure (form) drag** and explain its physical origin.",
+      "back": "Pressure (form) drag is the component of drag caused by the net pressure difference acting normal to the surface of an object. It primarily arises from flow separation, which creates a low-pressure wake behind the object, leading to a pressure imbalance where the pressure at the rear is significantly lower than at the front.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List three key factors that significantly influence the magnitude of **skin friction drag**.",
+      "back": "Key factors influencing skin friction drag include:\n1.  **Wetted Surface Area**: Larger surface area exposed to flow increases drag.\n2.  **Surface Roughness**: Rougher surfaces increase drag.\n3.  **Fluid Viscosity**: Higher viscosity increases drag.\n4.  **Flow Velocity**: Drag increases with velocity (approximately $V^2$).\n5.  **Boundary Layer State**: Turbulent boundary layers generally produce more skin friction than laminar ones.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary geometric characteristic that dictates the magnitude of **pressure (form) drag**, and how does it relate to flow separation?",
+      "back": "The primary geometric characteristic is the **shape (or form)** of the object, specifically its **bluffness or streamlining**. Bluff bodies (e.g., a sphere) cause significant flow separation and a large low-pressure wake, leading to high pressure drag. Streamlined bodies (e.g., an airfoil) are designed to delay flow separation, minimizing the wake and thus reducing pressure drag.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To minimize total drag, how would you specifically address reducing **skin friction drag** and **pressure (form) drag** for an aircraft wing?",
+      "back": "*   **Skin Friction Drag**: Reduce wetted surface area (if design allows), ensure an exceptionally smooth surface finish, and design for maintaining a laminar boundary layer for as long as possible (e.g., through laminar flow control or airfoil shaping).\n*   **Pressure (Form) Drag**: Design the wing with a highly streamlined airfoil profile to delay flow separation and minimize the size and intensity of the low-pressure wake behind the wing.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a bluff body, how does increasing the Reynolds number ($Re$) typically affect the *relative contributions* of skin friction drag vs. pressure drag, and why?",
+      "back": "For a bluff body, as the Reynolds number ($Re$) increases, the flow often transitions from laminar to turbulent, which can cause the **separation point to move further aft** on the body. This delays flow separation, leading to a **smaller wake and significantly reduced pressure drag**. While skin friction drag might slightly increase due to the turbulent boundary layer, the *relative reduction in pressure drag* is usually much more substantial, making pressure drag a smaller *proportion* of the total drag at higher $Re$ (e.g., the drag crisis of a sphere).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the general formula for the **local skin friction coefficient**, $C_f$, for a flat plate in laminar flow, and identify its dependency on the local Reynolds number.",
+      "back": "For a flat plate in laminar flow, the local skin friction coefficient is given by $C_f = \\frac{0.664}{\\sqrt{Re_x}}$, where $Re_x = \\frac{\\rho U x}{\\mu}$ is the local Reynolds number. This formula shows that in laminar flow, local skin friction drag *decreases* with increasing local Reynolds number (i.e., further downstream).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how streamlining a body primarily reduces pressure drag, and what effect it has on the boundary layer development compared to a bluff body.",
+      "back": "Streamlining a body primarily reduces pressure drag by delaying flow separation. This maintains an attached flow over a larger portion of the body, preventing the formation of a large, low-pressure wake. Compared to a bluff body, a streamlined body encourages a more gradual pressure recovery along its rear surface, which helps the boundary layer remain attached for longer, minimizing the adverse pressure gradient that causes separation.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-8-rl-circuit-growth-and-decay-of-current",
+  "subtopicTitle": "RL circuit — growth and decay of current",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:53.059Z",
+  "cards": [
+    {
+      "front": "What components constitute a series RL circuit?",
+      "back": "A resistor ($R$) and an inductor ($L$) connected in series.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the time constant $\\tau$ for an RL circuit, including its formula and SI units.",
+      "back": "The time constant $\\tau$ is the characteristic time for the current in an RL circuit to reach approximately 63.2% of its final steady-state value during growth, or to decay to 36.8% of its initial value during decay. It is given by $\\tau = L/R$. Its SI unit is seconds (s).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using Kirchhoff's Loop Rule, derive the differential equation for the current $I(t)$ in a series RL circuit when a DC voltage source $V_0$ is suddenly connected.",
+      "back": "Applying Kirchhoff's Loop Rule to the circuit:\n$$V_0 - IR - L\\frac{dI}{dt} = 0$$\nRearranging gives the differential equation:\n$$L\\frac{dI}{dt} + RI = V_0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve the differential equation $L\\frac{dI}{dt} + RI = V_0$ for the current $I(t)$ during growth in an RL circuit, assuming $I(0)=0$.",
+      "back": "The differential equation is $L\\frac{dI}{dt} + RI = V_0$.\nThis is a first-order linear differential equation. The particular solution (steady-state) is $I_p = V_0/R$. The homogeneous solution is $I_h = Ae^{-Rt/L}$.\nSo, $I(t) = \\frac{V_0}{R} + Ae^{-Rt/L}$.\nUsing the initial condition $I(0)=0$: $0 = \\frac{V_0}{R} + A \\implies A = -\\frac{V_0}{R}$.\nSubstituting $A$ and $\\tau = L/R$:\n$$I(t) = \\frac{V_0}{R}(1 - e^{-t/\\tau})$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the effective behavior of an inductor in a DC RL circuit (a) immediately after the switch is closed ($t=0^+$) and (b) long after the switch is closed ($t \\to \\infty$).",
+      "back": "(a) At $t=0^+$, the current is zero, and the inductor opposes any change in current. It acts like an open circuit (infinite resistance) to the sudden change.\n(b) At $t \\to \\infty$, the current reaches a steady state ($dI/dt = 0$). The inductor no longer opposes current change and acts like a short circuit (zero resistance).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After a series RL circuit with a DC source has reached steady state, the source is suddenly removed and the inductor is shorted across the resistor. What is the formula for the decaying current $I(t)$?",
+      "back": "If the initial steady-state current was $I_0 = V_0/R$, the decaying current is given by:\n$$I(t) = I_0 e^{-t/\\tau}$$\nwhere $\\tau = L/R$ is the time constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the differential equation for the current $I(t)$ during decay in an RL circuit, assuming the voltage source is removed and the inductor is shorted with the resistor.",
+      "back": "When the voltage source is removed and the inductor is shorted with the resistor, Kirchhoff's Loop Rule gives:\n$$-IR - L\\frac{dI}{dt} = 0$$\nRearranging, we get the differential equation:\n$$L\\frac{dI}{dt} + RI = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the physical reason why the current through an inductor in an RL circuit cannot change instantaneously.",
+      "back": "The inductor generates a self-induced electromotive force (EMF), $\\mathcal{E}_L = -L \\frac{dI}{dt}$, which opposes any change in the current. If the current were to change instantaneously, $dI/dt$ would be infinite, implying an infinite back EMF. This would require infinite power, which is physically impossible. Therefore, the current must change continuously.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An RL circuit has $R=10 \\Omega$ and $L=50 \\text{ mH}$. If connected to a $12 \\text{ V}$ DC source, what is the current in the circuit after one time constant ($\\tau$)?",
+      "back": "First, calculate the time constant:\n$\\tau = L/R = (50 \\times 10^{-3} \\text{ H}) / (10 \\Omega) = 5 \\times 10^{-3} \\text{ s} = 5 \\text{ ms}$.\nThe final steady-state current is $I_{max} = V_0/R = 12 \\text{ V} / 10 \\Omega = 1.2 \\text{ A}$.\nThe current growth formula is $I(t) = I_{max}(1 - e^{-t/\\tau})$.\nAfter one time constant ($t=\\tau$):\n$I(\\tau) = I_{max}(1 - e^{-\\tau/\\tau}) = I_{max}(1 - e^{-1})$\n$I(\\tau) = 1.2 \\text{ A} \\times (1 - 0.36788) \\approx 1.2 \\text{ A} \\times 0.63212 \\approx 0.7585 \\text{ A}$.\nSo, the current after one time constant is approximately $0.759 \\text{ A}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

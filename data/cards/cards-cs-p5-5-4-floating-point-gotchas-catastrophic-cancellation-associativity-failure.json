@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-floating-point-gotchas-catastrophic-cancellation-associativity-failure",
+  "subtopicTitle": "Floating point gotchas — catastrophic cancellation, associativity failure",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:34.767Z",
+  "cards": [
+    {
+      "front": "What is \"catastrophic cancellation\" in floating-point arithmetic?",
+      "back": "It's the severe loss of precision that occurs when subtracting two nearly equal numbers. The leading significant digits cancel out, leaving a result composed primarily of rounding errors, leading to a high relative error.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify a common mathematical expression where catastrophic cancellation is likely to occur.",
+      "back": "When computing $f(x) - g(x)$ where $f(x) \\approx g(x)$. A classic example is calculating the smaller root of a quadratic equation $ax^2 + bx + c = 0$ using the standard formula $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ when $b^2 \\gg |4ac|$ and $b > 0$. The term $-b + \\sqrt{b^2 - 4ac}$ involves subtracting two nearly equal numbers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Reformulate the expression $ \\sqrt{x^2+1} - x $ to avoid catastrophic cancellation when $x$ is large.",
+      "back": "Multiply by the conjugate: $$\\sqrt{x^2+1} - x = (\\sqrt{x^2+1} - x) \\frac{\\sqrt{x^2+1} + x}{\\sqrt{x^2+1} + x} = \\frac{(x^2+1) - x^2}{\\sqrt{x^2+1} + x} = \\frac{1}{\\sqrt{x^2+1} + x}$$This avoids subtracting nearly equal large numbers.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean that floating-point arithmetic is not \"associative\"?",
+      "back": "It means that for floating-point numbers $a, b, c$, the order of operations can change the result: $(a+b)+c \\neq a+(b+c)$. This is due to intermediate rounding errors; different grouping leads to different intermediate sums, which are then rounded differently.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide a Python example demonstrating floating-point associativity failure.",
+      "back": "```python\na = 0.1\nb = 0.2\nc = 0.3\nresult1 = (a + b) + c\nresult2 = a + (b + c)\nprint(f\"{result1=}\") # result1=0.6000000000000001\nprint(f\"{result2=}\") # result2=0.6\nprint(f\"{result1 == result2=}\") # result1 == result2=False\n```This demonstrates that the results can differ due to intermediate rounding.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a key practical implication of floating-point associativity failure in numerical algorithms?",
+      "back": "It means that the order of summation matters significantly. For example, summing a large number of values in different orders (e.g., small to large vs. large to small, or parallel summation) can yield different results, affecting reproducibility and accuracy of computations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name and briefly describe a common algorithm used to mitigate floating-point associativity failure in large summations.",
+      "back": "The **Kahan Summation Algorithm (or Kahan-Babuška algorithm)**. It works by keeping a running compensation for the lost low-order bits from previous additions. When adding a new number, it calculates the 'error' from the previous addition and incorporates it into the current sum, effectively preserving more precision.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Intuitively, why does subtracting two nearly equal floating-point numbers lead to catastrophic cancellation?",
+      "back": "Imagine two numbers, 1.234567 and 1.234560, each stored with 7 significant digits. Their difference is 0.000007. The first five digits (1.2345) cancel out, leaving only the difference of the least significant digits. If these least significant digits were already affected by rounding errors, the resulting difference will have very few, or no, reliable significant digits.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-rigid-body-definition-degrees-of-freedom",
+  "subtopicTitle": "Rigid body — definition, degrees of freedom",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:41.178Z",
+  "cards": [
+    {
+      "front": "In classical mechanics, what is the defining characteristic of an ideal rigid body?",
+      "back": "An ideal rigid body is a system of particles where the distances between any two constituent particles remain constant, regardless of external forces or torques applied to the body. It's an idealization used to simplify analysis.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define 'degrees of freedom' (DOF) for a mechanical system.",
+      "back": "Degrees of freedom (DOF) refer to the minimum number of independent coordinates required to completely specify the position or configuration of a system in space. Each independent coordinate represents a unique way the system can move or change its configuration.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How many degrees of freedom does a single free particle have in three-dimensional space, and what do they represent?",
+      "back": "A single free particle in three-dimensional space has 3 degrees of freedom. These typically represent its translational motion along the three independent spatial axes, often denoted by its Cartesian coordinates $(x, y, z)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A rigid body is constrained to move only within a two-dimensional plane. How many degrees of freedom does it possess, and how are these categorized?",
+      "back": "A rigid body constrained to a two-dimensional plane has 3 degrees of freedom:\n*   **2 Translational DOFs:** These describe the position of a reference point (e.g., center of mass) within the plane (e.g., $x, y$).\n*   **1 Rotational DOF:** This describes the orientation of the body within the plane, typically an angle $\\theta$ about an axis perpendicular to the plane.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A rigid body in 3D space has 6 degrees of freedom. List these degrees of freedom and explain their typical categorization.",
+      "back": "A rigid body in 3D space has 6 degrees of freedom:\n*   **3 Translational DOFs:** These describe the position of a reference point on the body (e.g., its center of mass) in space. Typically represented by Cartesian coordinates $(x, y, z)$.\n*   **3 Rotational DOFs:** These describe the orientation of the body in space. They can be represented by three independent angles, such as Euler angles (e.g., precession, nutation, intrinsic rotation) or rotations about three orthogonal axes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a system of $N$ independent, non-interacting particles, each free to move in 3D space, what is the total number of degrees of freedom?",
+      "back": "For a system of $N$ independent, non-interacting particles, each free to move in 3D space, the total number of degrees of freedom is $3N$. This is because each particle requires 3 independent coordinates to specify its position.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how the definition of a rigid body reduces the degrees of freedom from $3N$ (for $N$ particles) to 6 in 3D space, assuming $N \\ge 3$.",
+      "back": "The rigid body definition imposes constraints that fix the distances between all pairs of constituent particles.\n*   For the first particle, 3 coordinates are needed.\n*   For the second particle, its distance from the first is fixed, adding 2 more independent coordinates (it lies on a sphere).\n*   For the third particle, its distances from the first two are fixed, adding 1 more independent coordinate (it lies on the intersection of two spheres, forming a circle).\n*   Any subsequent particle ($N > 3$) has its position completely determined by its fixed distances to the first three non-collinear particles. Thus, no additional independent coordinates are needed.\n*   Therefore, a rigid body in 3D space has $3+2+1=6$ degrees of freedom. The $3N-6$ constraints represent the independent distance constraints imposed.",
+      "difficulty": "hard"
+    }
+  ]
+}

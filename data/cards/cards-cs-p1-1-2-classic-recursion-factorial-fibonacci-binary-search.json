@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-classic-recursion-factorial-fibonacci-binary-search",
+  "subtopicTitle": "Classic recursion — factorial, Fibonacci, binary search",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:11.335Z",
+  "cards": [
+    {
+      "front": "State the recursive definition of the factorial function, $n!$, including its base case.",
+      "back": "$$n! = \\begin{cases} 1 & \\text{if } n=0 \\\\ n \\times (n-1)! & \\text{if } n > 0 \\end{cases}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write a Python function `factorial(n)` that computes $n!$ using recursion.",
+      "back": "```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n - 1)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Fibonacci sequence $F(n)$ recursively, specifying its two base cases.",
+      "back": "$$F(n) = \\begin{cases} 0 & \\text{if } n=0 \\\\ 1 & \\text{if } n=1 \\\\ F(n-1) + F(n-2) & \\text{if } n > 1 \\end{cases}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Walk through the recursive calls to compute $F(3)$ using the standard Fibonacci definition.",
+      "back": "To compute $F(3)$:\n1.  $F(3)$ calls $F(2)$ and $F(1)$.\n2.  $F(1)$ returns $1$ (base case).\n3.  $F(2)$ calls $F(1)$ and $F(0)$.\n4.  $F(1)$ returns $1$ (base case).\n5.  $F(0)$ returns $0$ (base case).\n6.  $F(2)$ returns $1 + 0 = 1$.\n7.  $F(3)$ returns $1 + 1 = 2$.\nResult: $F(3) = 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the naive recursive implementation of Fibonacci is inefficient for large $n$, identifying the core problem.",
+      "back": "It suffers from redundant computations. For example, to calculate $F(5)$, both $F(4)$ and $F(3)$ are needed. $F(4)$ then calculates $F(3)$ and $F(2)$. This means $F(3)$ is calculated multiple times (and $F(2)$, $F(1)$, $F(0)$ even more), leading to an exponential time complexity $O(2^n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the fundamental requirement for an array to be effectively searched using binary search?",
+      "back": "The array (or list) must be **sorted** in either ascending or descending order.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the recursive steps of binary search for a `target` in a sorted array `arr` within `low` and `high` indices.",
+      "back": "1.  **Base Case (Not Found):** If `low > high`, the target is not in the array.\n2.  **Calculate Midpoint:** `mid = (low + high) // 2`.\n3.  **Base Case (Found):** If `arr[mid] == target`, the target is found.\n4.  **Recursive Step (Left Half):** If `target < arr[mid]`, recursively search the left half: `binary_search(arr, target, low, mid - 1)`.\n5.  **Recursive Step (Right Half):** If `target > arr[mid]`, recursively search the right half: `binary_search(arr, target, mid + 1, high)`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the time complexity of binary search, and briefly explain why it achieves this complexity.",
+      "back": "The time complexity is $O(\\log n)$. In each recursive step, binary search eliminates half of the remaining search space. This halving process continues until only one element (or none) is left. The number of times you can halve $n$ until you reach 1 is $\\log_2 n$.",
+      "difficulty": "hard"
+    }
+  ]
+}

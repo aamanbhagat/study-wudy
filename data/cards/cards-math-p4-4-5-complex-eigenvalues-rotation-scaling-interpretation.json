@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-complex-eigenvalues-rotation-scaling-interpretation",
+  "subtopicTitle": "Complex eigenvalues — rotation-scaling interpretation",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:48.191Z",
+  "cards": [
+    {
+      "front": "For a real matrix $A$, if $\\lambda = a + bi$ ($b \\neq 0$) is an eigenvalue, what other eigenvalue must exist?",
+      "back": "Its complex conjugate, $\\bar{\\lambda} = a - bi$. This is because the characteristic polynomial of a real matrix has real coefficients, so any complex roots must appear in conjugate pairs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the general form of a $2 \\times 2$ real matrix $C$ that represents a rotation combined with a scaling?",
+      "back": "$$C = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix}$$ where $a, b \\in \\mathbb{R}$ and are not both zero. This matrix scales by $r=\\sqrt{a^2+b^2}$ and rotates by $\\theta = \\operatorname{atan2}(b,a)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the eigenvalues of the matrix $C = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix}$.",
+      "back": "The characteristic equation is $\\det(C - \\lambda I) = \\begin{vmatrix} a-\\lambda & -b \\\\ b & a-\\lambda \\end{vmatrix} = (a-\\lambda)^2 + b^2 = 0$. Solving for $\\lambda$: $(a-\\lambda)^2 = -b^2 \\implies a-\\lambda = \\pm \\sqrt{-b^2} \\implies a-\\lambda = \\pm bi$. Thus, the eigenvalues are $\\lambda = a \\pm bi$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a matrix $C = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix}$ with eigenvalue $\\lambda = a+bi$, what is the geometric interpretation of $a$ and $b$?",
+      "back": "$a$ is the real part and $b$ is the imaginary part of the complex eigenvalue. They define the scaling factor $r = \\sqrt{a^2+b^2}$ and the rotation angle $\\theta$ such that $a = r\\cos\\theta$ and $b = r\\sin\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given a complex eigenvalue $\\lambda = a+bi$ for a $2 \\times 2$ real matrix, how do you determine the scaling factor $r$ and rotation angle $\\theta$?",
+      "back": "The scaling factor is $r = |\\lambda| = \\sqrt{a^2+b^2}$. The rotation angle $\\theta$ is given by $\\operatorname{atan2}(b, a)$, which means $\\cos\\theta = \\frac{a}{r}$ and $\\sin\\theta = \\frac{b}{r}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a real $2 \\times 2$ matrix $A$ has a complex eigenvalue $\\lambda = a+bi$ ($b \\neq 0$) with eigenvector $\\mathbf{v}$, how can $A$ be represented as a rotation-scaling matrix in a new basis?",
+      "back": "Let $\\mathbf{v} = \\operatorname{Re}(\\mathbf{v}) + i \\operatorname{Im}(\\mathbf{v})$. Construct the matrix $P = \\begin{pmatrix} \\operatorname{Re}(\\mathbf{v}) & \\operatorname{Im}(\\mathbf{v}) \\end{pmatrix}$. Then $A = PCP^{-1}$, where $C = \\begin{pmatrix} a & -b \\\\ b & a \\end{pmatrix}$. This $C$ matrix performs the rotation and scaling in the basis defined by $\\operatorname{Re}(\\mathbf{v})$ and $\\operatorname{Im}(\\mathbf{v})$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the long-term geometric behavior of a sequence of vectors $\\mathbf{x}_{k+1} = A \\mathbf{x}_k$ if $A$ is a real $2 \\times 2$ matrix with complex eigenvalues $\\lambda = a \\pm bi$.",
+      "back": "The vectors $\\mathbf{x}_k$ will trace out a spiral path. If $|\\lambda| = \\sqrt{a^2+b^2} < 1$, the spiral converges inward to the origin. If $|\\lambda| > 1$, it spirals outward, diverging from the origin. If $|\\lambda| = 1$, it traces an ellipse (or circle) around the origin. The rotation per step is by angle $\\theta = \\operatorname{atan2}(b, a)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

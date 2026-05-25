@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-2-plane-change-maneuvers-v-2v-sin-i-2",
+  "subtopicTitle": "Plane change maneuvers — Δv = 2v·sin(Δi/2)",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:59.274Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a plane change maneuver in orbital mechanics?",
+      "back": "To alter the orientation of an orbit's orbital plane in space, specifically changing its inclination ($\\Delta i$) or longitude of the ascending node ($\\Omega$). This is achieved by applying a $\\Delta v$ component perpendicular to the orbital plane.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the $\\Delta v$ required for a simple pure plane change maneuver, assuming the magnitude of velocity $v$ remains constant.",
+      "back": "The formula is $\\Delta v = 2v \\cdot \\sin(\\Delta i / 2)$, where $v$ is the spacecraft's speed at the point of the maneuver and $\\Delta i$ is the desired change in inclination.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for $\\Delta v = 2v \\cdot \\sin(\\Delta i / 2)$ for a pure plane change maneuver using vector addition.",
+      "back": "Let $\\vec{v_1}$ be the initial velocity vector and $\\vec{v_2}$ be the final velocity vector. For a pure plane change, the speed remains constant, so $|\\vec{v_1}| = |\\vec{v_2}| = v$. The change in velocity is $\\Delta \\vec{v} = \\vec{v_2} - \\vec{v_1}$. The angle between $\\vec{v_1}$ and $\\vec{v_2}$ is $\\Delta i$.\nUsing the law of cosines on the vector triangle formed by $\\vec{v_1}$, $\\vec{v_2}$, and $\\Delta \\vec{v}$:\n$$|\\Delta \\vec{v}|^2 = |\\vec{v_1}|^2 + |\\vec{v_2}|^2 - 2|\\vec{v_1}||\\vec{v_2}|\\cos(\\Delta i)$$\nSubstituting $v$ for magnitudes:\n$$|\\Delta \\vec{v}|^2 = v^2 + v^2 - 2v^2\\cos(\\Delta i)$$\n$$|\\Delta \\vec{v}|^2 = 2v^2(1 - \\cos(\\Delta i))$$\nUsing the half-angle identity $1 - \\cos(\\theta) = 2\\sin^2(\\theta/2)$:\n$$|\\Delta \\vec{v}|^2 = 2v^2(2\\sin^2(\\Delta i/2))$$\n$$|\\Delta \\vec{v}|^2 = 4v^2\\sin^2(\\Delta i/2)$$\nTaking the square root:\n$$\\Delta v = 2v \\cdot \\sin(\\Delta i/2)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "To minimize the $\\Delta v$ cost for a given change in inclination $\\Delta i$, at which point in an elliptical orbit should a plane change maneuver ideally be performed? Explain why.",
+      "back": "The maneuver should ideally be performed at **apoapsis**. This is because the $\\Delta v$ cost for a plane change is directly proportional to the spacecraft's instantaneous speed $v$ ($\\Delta v = 2v \\cdot \\sin(\\Delta i / 2)$). At apoapsis, the spacecraft's speed is at its minimum for an elliptical orbit, thus minimizing the required $\\Delta v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compared to a simple Hohmann transfer for orbit raising, why are pure plane change maneuvers generally considered very \"expensive\" in terms of $\\Delta v$?",
+      "back": "Plane change maneuvers are expensive because the required $\\Delta v$ is a direct function of the spacecraft's instantaneous velocity $v$. For typical orbital velocities (e.g., LEO speeds of ~7.8 km/s), even a moderate inclination change (e.g., 30 degrees) can cost more $\\Delta v$ than reaching GEO from LEO via Hohmann transfer. This high cost is due to the need to significantly change the *direction* of a large velocity vector, not just its magnitude, requiring a substantial out-of-plane thrust component.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a common strategy to make an inclination change more fuel-efficient when combined with an orbit raising maneuver, such as transferring from LEO to GEO.",
+      "back": "When combining an inclination change with an orbit raising maneuver (e.g., LEO to GEO), it is more fuel-efficient to perform the inclination change at the **apogee of the transfer orbit**. At apogee, the spacecraft's velocity is at its minimum for that orbit. The burn at apogee, which is primarily for circularization and raising the perigee to the target altitude, can be vectored slightly out-of-plane to simultaneously achieve the desired inclination change. This leverages the lower velocity at apogee and effectively \"shares\" the $\\Delta v$ cost with the orbit raise, making the overall maneuver more efficient than performing two separate, pure burns.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What would be the $\\Delta v$ required for a spacecraft to perform a 180-degree plane change maneuver, assuming its speed $v$ remains constant?",
+      "back": "For a 180-degree plane change ($\\Delta i = 180^\\circ$):\n$$\\Delta v = 2v \\cdot \\sin(\\Delta i / 2)$$\n$$\\Delta v = 2v \\cdot \\sin(180^\\circ / 2)$$\n$$\\Delta v = 2v \\cdot \\sin(90^\\circ)$$\n$$\\Delta v = 2v \\cdot 1$$\n$$\\Delta v = 2v$$\nThe required $\\Delta v$ is twice the spacecraft's current speed, effectively reversing its orbital direction in the plane. This is an extremely costly and rarely performed maneuver.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-8-sources-of-error-truncation-error-round-off-error",
+  "subtopicTitle": "Sources of error — truncation error, round-off error",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:44.135Z",
+  "cards": [
+    {
+      "front": "Define truncation error in numerical methods.",
+      "back": "Truncation error is the error that arises from approximating an infinite mathematical process (e.g., an infinite series, an integral, or a continuous function) with a finite one or a discrete approximation. It is inherent to the mathematical model, not the computing device.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is round-off error in numerical computation?",
+      "back": "Round-off error is the error that results from the inability of computers to represent real numbers exactly due to finite precision. Numbers are either rounded or truncated to fit the available memory (e.g., floating-point representation), leading to a small difference from their true value.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental difference between truncation error and round-off error?",
+      "back": "Truncation error is a *mathematical* error caused by approximating an exact mathematical procedure with a simpler, finite one. It exists even with infinite precision. Round-off error is a *computational* error caused by the finite precision of the computing device, affecting how numbers are stored and operated upon.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give an example of a common source of truncation error and explain why.",
+      "back": "A common source is approximating a function using a finite number of terms from its Taylor series expansion. For example, approximating $e^x$ as $1 + x + \\frac{x^2}{2!}$. The error comes from 'truncating' the infinite series after a certain number of terms, ignoring the rest.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain \"catastrophic cancellation\" and its relation to round-off error.",
+      "back": "Catastrophic cancellation occurs when subtracting two nearly equal numbers. This operation causes the most significant digits to cancel out, leaving only the less significant, potentially noisy, digits from the original numbers. This is a severe form of round-off error, leading to a drastic loss of precision in the result.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a Taylor series approximation $f(x) \\approx P_n(x)$, what is the formula for the truncation error (remainder term)?",
+      "back": "The truncation error, or remainder term $R_n(x)$, for a Taylor series approximation $P_n(x)$ of $f(x)$ around $a$ is given by:\n$$ R_n(x) = \\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} $$\nwhere $c$ is some value between $a$ and $x$. This formula quantifies the error from truncating the series after $n$ terms.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can one generally reduce truncation error in a numerical method?",
+      "back": "Truncation error can typically be reduced by:\n1.  Using a higher-order approximation (e.g., more terms in a Taylor series, a higher-order numerical integration rule).\n2.  Decreasing the step size or interval width (e.g., smaller $h$ in numerical differentiation or integration).\n3.  Choosing a more sophisticated or accurate approximation method.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can round-off error be mitigated in computations?",
+      "back": "Round-off error can be reduced by:\n1.  Using higher precision arithmetic (e.g., `double` instead of `float`, or arbitrary precision libraries).\n2.  Rearranging formulas to avoid operations prone to catastrophic cancellation (e.g., rewriting $\\sqrt{x+1} - \\sqrt{x}$ as $\\frac{1}{\\sqrt{x+1} + \\sqrt{x}}$).\n3.  Careful algorithm design, especially for iterative processes or when dealing with very small or very large numbers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a scenario where reducing truncation error might increase the impact of round-off error.",
+      "back": "Consider numerical differentiation using the central difference formula: $f'(x) \\approx \\frac{f(x+h) - f(x-h)}{2h}$.\nReducing truncation error requires decreasing the step size $h$. However, as $h$ becomes very small, $f(x+h)$ and $f(x-h)$ become nearly identical. Their subtraction in the numerator can then lead to catastrophic cancellation, significantly increasing the relative round-off error. This creates a trade-off, where an optimal $h$ exists.",
+      "difficulty": "hard"
+    }
+  ]
+}

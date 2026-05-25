@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-6-angle-between-two-planes",
+  "subtopicTitle": "Angle between two planes",
+  "topicId": "math-p3-3-6-3d-geometry",
+  "topicTitle": "3D Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:05:32.453Z",
+  "cards": [
+    {
+      "front": "Define the acute angle between two intersecting planes.",
+      "back": "The acute angle between two intersecting planes is defined as the acute angle between their normal vectors.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the conventional range for the angle $\\theta$ between two planes?",
+      "back": "The conventional range for the angle $\\theta$ between two planes is $0^\\circ \\le \\theta \\le 90^\\circ$ or $0 \\le \\theta \\le \\frac{\\pi}{2}$ radians. We typically consider the acute angle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Alternatively, how can the angle between two intersecting planes be found using lines within the planes?",
+      "back": "Draw a line in each plane that is perpendicular to their line of intersection. The angle between these two lines is the angle between the planes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the angle $\\theta$ between two planes with normal vectors $\\vec{n_1}$ and $\\vec{n_2}$.",
+      "back": "Let $\\phi$ be the angle between the normal vectors $\\vec{n_1}$ and $\\vec{n_2}$. From the dot product, $\\cos \\phi = \\frac{\\vec{n_1} \\cdot \\vec{n_2}}{|\\vec{n_1}| |\\vec{n_2}|}$. The angle $\\theta$ between the planes is either $\\phi$ or $180^\\circ - \\phi$. To ensure we get the acute angle, we take the absolute value: $\\theta = \\arccos\\left(\\frac{|\\vec{n_1} \\cdot \\vec{n_2}|}{|\\vec{n_1}| |\\vec{n_2}|}\\right)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the angle between the planes $x+2y-z=5$ and $2x-y+3z=1$.",
+      "back": "Normal vectors are $\\vec{n_1} = \\langle 1, 2, -1 \\rangle$ and $\\vec{n_2} = \\langle 2, -1, 3 \\rangle$. \n$\\vec{n_1} \\cdot \\vec{n_2} = (1)(2) + (2)(-1) + (-1)(3) = 2 - 2 - 3 = -3$. \n$|\\vec{n_1}| = \\sqrt{1^2+2^2+(-1)^2} = \\sqrt{6}$. \n$|\\vec{n_2}| = \\sqrt{2^2+(-1)^2+3^2} = \\sqrt{14}$. \n$\\cos \\theta = \\frac{|-3|}{\\sqrt{6}\\sqrt{14}} = \\frac{3}{\\sqrt{84}} = \\frac{3}{2\\sqrt{21}}$. \n$\\theta = \\arccos\\left(\\frac{3}{2\\sqrt{21}}\\right) \\approx 70.89^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What condition must the normal vectors satisfy for two planes to be perpendicular?",
+      "back": "For two planes to be perpendicular, their normal vectors must be orthogonal (perpendicular). This means their dot product must be zero: $\\vec{n_1} \\cdot \\vec{n_2} = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What condition must the normal vectors satisfy for two planes to be parallel?",
+      "back": "For two planes to be parallel, their normal vectors must be parallel. This means one normal vector must be a scalar multiple of the other: $\\vec{n_1} = k \\vec{n_2}$ for some scalar $k \\ne 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the angle between two planes is equal to the angle between their normal vectors (or $180^\\circ$ minus it).",
+      "back": "Consider the line of intersection $L$ of the two planes. Let $\\vec{n_1}$ and $\\vec{n_2}$ be their normal vectors. Construct a third plane perpendicular to $L$. This plane intersects the two original planes in lines $l_1$ and $l_2$. The angle between $l_1$ and $l_2$ is the angle between the planes. Since $l_1$ is perpendicular to $\\vec{n_1}$ and $l_2$ is perpendicular to $\\vec{n_2}$ (both in the plane perpendicular to $L$), the angle between $l_1$ and $l_2$ must be the same as the angle between $\\vec{n_1}$ and $\\vec{n_2}$ (or $180^\\circ$ minus it).",
+      "difficulty": "hard"
+    }
+  ]
+}

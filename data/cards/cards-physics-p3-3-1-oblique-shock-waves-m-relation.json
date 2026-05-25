@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-1-oblique-shock-waves-m-relation",
+  "subtopicTitle": "Oblique shock waves — θ-β-M relation",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:24.398Z",
+  "cards": [
+    {
+      "front": "What is an oblique shock wave, and under what conditions does it typically form?",
+      "back": "An oblique shock wave is a supersonic flow phenomenon characterized by a discontinuity in flow properties (pressure, density, temperature, velocity) across a plane inclined at an angle to the incoming flow. It forms when a supersonic flow ($M_1 > 1$) encounters a wedge, corner, or other obstacle that forces the flow to turn into itself (compression).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of oblique shock waves, define the deflection angle $\\theta$ and the shock angle $\\beta$.",
+      "back": "The **deflection angle** ($\\theta$) is the angle through which the supersonic flow is turned after passing through the shock wave. It is the angle between the upstream and downstream velocity vectors. The **shock angle** ($\\beta$) is the angle between the upstream velocity vector and the shock wave itself.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental $\\theta$-$\\beta$-M relation for oblique shock waves, including all variables.",
+      "back": "The $\\theta$-$\\beta$-M relation is given by:\n$$ \\tan \\theta = 2 \\cot \\beta \\frac{M_1^2 \\sin^2 \\beta - 1}{M_1^2 (\\gamma + \\cos 2\\beta) + 2} $$\nwhere $\\theta$ is the deflection angle, $\\beta$ is the shock angle, $M_1$ is the upstream Mach number, and $\\gamma$ is the ratio of specific heats.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the physical principles and velocity decomposition used to derive the $\\theta$-$\\beta$-M relation.",
+      "back": "The $\\theta$-$\\beta$-M relation is derived by applying the conservation laws (mass, momentum, energy) across the oblique shock wave. The key is to resolve the upstream velocity $V_1$ into components normal ($V_{1n} = V_1 \\sin \\beta$) and tangential ($V_{1t} = V_1 \\cos \\beta$) to the shock front. The tangential component of velocity remains unchanged across the shock ($V_{1t} = V_{2t}$), while the normal component behaves like a normal shock, undergoing a supersonic-to-subsonic (or sonic) transition. The deflection angle $\\theta$ arises from the change in the normal velocity component and the conservation of the tangential component.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a fixed deflection angle $\\theta > 0$, how does an increase in the upstream Mach number $M_1$ generally affect the shock angle $\\beta$?",
+      "back": "For a fixed deflection angle $\\theta > 0$, as the upstream Mach number $M_1$ increases, the shock angle $\\beta$ generally *decreases*. This means the shock wave becomes more oblique (flatter) relative to the incoming flow. At higher Mach numbers, the flow is less sensitive to disturbances, requiring a shallower shock angle to achieve the same flow deflection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a given upstream Mach number $M_1$ and deflection angle $\\theta < \\theta_{max}$, why does the $\\theta$-$\\beta$-M relation yield two possible values for the shock angle $\\beta$?",
+      "back": "For a given $M_1$ and $\\theta < \\theta_{max}$, the $\\theta$-$\\beta$-M relation typically yields two solutions for $\\beta$. These correspond to the **weak shock** and the **strong shock** solutions.\n*   The **weak shock** has a smaller $\\beta$ (more oblique) and results in a higher downstream Mach number ($M_2$ is often supersonic). It is the physically observed shock in most external flow applications.\n*   The **strong shock** has a larger $\\beta$ (less oblique) and results in a lower downstream Mach number ($M_2$ is always subsonic). It is less common in external flows but can occur in internal flows (e.g., diffusers).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the significance of the maximum deflection angle $\\theta_{max}$ for an oblique shock wave, and what happens if the physical corner angle exceeds it?",
+      "back": "For a given upstream Mach number $M_1$, there exists a **maximum deflection angle** ($\\theta_{max}$) beyond which a steady, attached oblique shock wave cannot exist. If the physical corner angle (which dictates $\\theta$) exceeds $\\theta_{max}$, the oblique shock will detach from the leading edge and become a **bow shock** (a curved, detached normal shock wave) upstream of the body. This phenomenon is known as **shock detachment**.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider the $\\theta$-$\\beta$-M relation. What are the two distinct physical phenomena described when the deflection angle $\\theta = 0$?",
+      "back": "When the deflection angle $\\theta = 0$, the $\\theta$-$\\beta$-M relation yields two possibilities for the shock angle $\\beta$:\n1.  **Normal Shock Wave**: $\\beta = 90^\\circ$. In this case, the oblique shock degenerates into a normal shock, and the flow is not deflected.\n2.  **Mach Wave**: $\\beta = \\arcsin(1/M_1)$. This corresponds to an infinitesimally weak wave (a Mach wave) where flow properties change continuously, and there is no flow deflection.\nThese represent the two extreme cases (strong and weak) for zero deflection.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-imu-integrated-accelerometer-gyroscope",
+  "subtopicTitle": "IMU — integrated accelerometer + gyroscope",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:50.743Z",
+  "cards": [
+    {
+      "front": "Define an IMU and list its two core sensor types.",
+      "back": "An Inertial Measurement Unit (IMU) is an electronic device that measures and reports a body's specific force, angular rate, and sometimes magnetic field. Its core components are an **accelerometer** and a **gyroscope**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity does an accelerometer directly measure?",
+      "back": "An accelerometer directly measures **proper acceleration** (also known as specific force), which is the non-gravitational acceleration experienced by an object. It measures the sum of kinematic acceleration and the opposite of the local gravitational acceleration, i.e., $\\vec{a}_{measured} = \\vec{a}_{kinematic} - \\vec{g}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity does a gyroscope directly measure, and how is orientation derived from it?",
+      "back": "A gyroscope directly measures **angular velocity** (rate of rotation) in radians per second (rad/s) or degrees per second (deg/s). Orientation is derived by **integrating** the angular velocity over time: $\\theta(t) = \\theta_0 + \\int_0^t \\omega(\\tau) d\\tau$. This integration, however, leads to accumulating drift over time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a 3-axis accelerometer can determine an object's static tilt relative to the gravity vector.",
+      "back": "In a static (non-accelerating) state, an accelerometer measures only the local gravity vector, $\\vec{g}$. By observing the components of $\\vec{g}$ along the sensor's axes, one can determine the tilt angles. For example, if the accelerometer is aligned with the Earth's frame and measures $(a_x, a_y, a_z)$, then pitch ($\\phi$) and roll ($\\theta$) can be found using $\\phi = \\arctan2(a_y, \\sqrt{a_x^2 + a_z^2})$ and $\\theta = \\arctan2(-a_x, a_z)$ (assuming $a_z$ is roughly aligned with gravity).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental limitation of independently integrating accelerometer data for position and gyroscope data for orientation over extended periods?",
+      "back": "Both sensors suffer from **drift** due to the integration of small biases and noise. For accelerometers, integrating acceleration twice to get position leads to position errors that grow quadratically with time ($O(t^2)$). For gyroscopes, integrating angular velocity once to get orientation leads to orientation errors that grow linearly with time ($O(t)$). These errors accumulate rapidly, making standalone integration impractical for long-term navigation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how accelerometers and gyroscopes complement each other to provide a more robust and accurate orientation estimate than either sensor alone.",
+      "back": "Gyroscopes provide accurate **short-term** orientation changes but drift over time. Accelerometers can provide an absolute reference for the **down direction** (gravity vector) in static or low-acceleration conditions, thus correcting long-term drift in pitch and roll. By fusing their data (e.g., with a Kalman or complementary filter), the IMU leverages the gyroscope's high-frequency accuracy and the accelerometer's low-frequency stability to achieve robust orientation estimation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name three common error sources or biases found in MEMS-based accelerometers and gyroscopes.",
+      "back": "1.  **Bias (or Offset):** A constant non-zero output when the true input is zero.\n2.  **Noise:** Random fluctuations in the sensor output.\n3.  **Scale Factor Error:** The actual sensitivity of the sensor differs from its nominal value, leading to proportional errors in measurements.\n4.  **Temperature Drift:** Sensor characteristics (bias, scale factor) change with temperature.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p5-5-3-gcc-clang-flags-optimization-o0-to-o3-os-warnings-wall-wextra-sanitizers",
+  "subtopicTitle": "GCC/Clang flags — optimization (-O0 to -O3, -Os), warnings (-Wall, -Wextra), sanitizers",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:27.485Z",
+  "cards": [
+    {
+      "front": "What is the primary effect of the `-O0` flag in GCC/Clang compilation?",
+      "back": "The `-O0` flag disables almost all optimizations. This results in faster compilation times and produces code that closely matches the source code, making it significantly easier to debug.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the typical trade-offs when compiling with `-O2` compared to `-O0`.",
+      "back": "Compiling with `-O2` enables a significant level of optimization, aiming for good overall performance without excessively increasing compile time or code size. Compared to `-O0`, it produces faster code but takes longer to compile and can make debugging slightly more challenging due to code transformations like instruction reordering and common subexpression elimination.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When might you prefer `-Os` over `-O3` for a production build, and what's the primary difference in their optimization goals?",
+      "back": "You would prefer `-Os` (optimize for size) when memory usage, cache performance, binary size, or embedded system constraints are more critical than raw execution speed. `-O3` (optimize for speed) enables even more aggressive optimizations than `-O2`, aiming for maximum execution speed, often at the cost of increased binary size and potentially longer compile times. `-Os` specifically prioritizes reducing the size of the compiled executable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the `-Wall` flag enable in GCC/Clang?",
+      "back": "The `-Wall` flag enables \"all\" common and useful warning messages. While its name suggests all warnings, it actually enables a large subset of frequently helpful warnings, not every single possible warning provided by the compiler.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does `-Wextra` complement `-Wall`? Provide an example of a warning `-Wextra` might catch that `-Wall` might miss.",
+      "back": "`-Wextra` enables additional warnings that are not included in `-Wall`. These warnings are often useful but might be considered too pedantic or generate too many false positives for some codebases to be included in `-Wall`. For example, `-Wextra` often catches unused function parameters, uninitialized variables in specific contexts, or missing fallthrough comments in switch statements.\n```c\nvoid foo(int unused_param) { // -Wextra might warn 'unused_param' is unused\n    // ...\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the general purpose of using \"sanitizers\" during software development?",
+      "back": "Sanitizers are runtime instrumentation tools that detect various types of bugs and undefined behavior in C/C++ programs, such as memory errors, data races, and integer overflows. They help developers find bugs that might be difficult to catch with static analysis or traditional debugging, often by instrumenting the code to check for violations during execution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe what AddressSanitizer (ASan) primarily detects and how you enable it during compilation.",
+      "back": "AddressSanitizer (ASan) is designed to detect memory errors such as:\n*   Use-after-free, use-after-return, use-after-scope\n*   Double-free, invalid `free()` arguments\n*   Buffer overflows/underflows (heap, stack, global)\nYou enable ASan by adding the flag `-fsanitize=address` to both the compilation and linking steps.\n```bash\ngcc -fsanitize=address my_program.c -o my_program\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What class of bugs does UndefinedBehaviorSanitizer (UBSan) target, and give two examples of specific issues it can detect.",
+      "back": "UndefinedBehaviorSanitizer (UBSan) targets various forms of undefined behavior as defined by the C/C++ standards. Examples of specific issues it can detect include:\n1.  Signed integer overflow (e.g., `INT_MAX + 1`).\n2.  Division by zero.\n3.  Invalid shifts (e.g., shifting by a negative amount or by an amount $\\ge$ the bit width of the type).\n4.  Dereferencing a null or misaligned pointer.\n5.  Using a value that is out of range for an enum type.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the effect of the `-Werror` flag, and why is it commonly used in CI/CD pipelines?",
+      "back": "The `-Werror` flag treats all warnings as errors, causing the compilation to fail if any warnings are present. It's commonly used in CI/CD pipelines to enforce strict code quality standards, ensuring that developers address all warnings before code is integrated or deployed, thereby preventing potential bugs or non-standard behavior from entering the codebase.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why debugging code compiled with `-O2` or `-O3` can be significantly more challenging than debugging code compiled with `-O0`.",
+      "back": "Optimizations at `-O2` or `-O3` drastically transform the code, making debugging harder:\n1.  **Variables optimized away:** Variables might be removed or stored in registers, making them invisible or showing incorrect values in the debugger.\n2.  **Instruction reordering:** The order of operations might change, making the execution flow in the debugger not match the source code line by line.\n3.  **Inlined functions:** Functions might be inlined, meaning stepping into them isn't possible, and their code appears as part of the caller.\n4.  **Loop unrolling:** Loops might be unrolled, making it difficult to set breakpoints or observe loop iterations as expected.\nThese transformations obscure the direct mapping between source code and machine code, confusing debuggers.",
+      "difficulty": "hard"
+    }
+  ]
+}

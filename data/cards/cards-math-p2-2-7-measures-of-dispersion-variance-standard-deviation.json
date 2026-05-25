@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-7-measures-of-dispersion-variance-standard-deviation",
+  "subtopicTitle": "Measures of dispersion — variance, standard deviation",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:16.324Z",
+  "cards": [
+    {
+      "front": "Define the population variance, $\\sigma^2$, for a dataset $X = \\{x_1, x_2, \\dots, x_N\\}$ with population mean $\\mu$.",
+      "back": "The population variance is the average of the squared differences from the population mean: $$\\sigma^2 = \\frac{1}{N} \\sum_{i=1}^{N} (x_i - \\mu)^2$$ It quantifies the average squared deviation of data points from the mean.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the population standard deviation, $\\sigma$, related to the population variance, $\\sigma^2$, and what does it represent intuitively?",
+      "back": "The population standard deviation is the square root of the population variance: $$\\sigma = \\sqrt{\\sigma^2} = \\sqrt{\\frac{1}{N} \\sum_{i=1}^{N} (x_i - \\mu)^2}$$ Intuitively, $\\sigma$ represents the typical or average distance of data points from the population mean, in the original units of the data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the sample variance, $s^2$, for a sample of size $n$ with sample mean $\\bar{x}$, and explain the significance of using $n-1$ in the denominator.",
+      "back": "The sample variance is defined as: $$s^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$$ The $n-1$ (degrees of freedom) is used instead of $n$ to provide an *unbiased estimate* of the true population variance. This correction is necessary because the sample mean $\\bar{x}$ is used in the calculation, which tends to make the sum of squared differences smaller than if the true population mean $\\mu$ were known.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the formula for the sample standard deviation, $s$, and what are its units compared to the original data?",
+      "back": "The sample standard deviation is the square root of the sample variance: $$s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$ Its units are the same as the original data. For example, if data is in kilograms (kg), $s$ is in kg, while $s^2$ is in $kg^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is standard deviation generally preferred over variance for reporting and interpreting the spread of data?",
+      "back": "Standard deviation is preferred because:\n1.  **Units:** Its units are the same as the original data, making it directly comparable to the mean and easier to interpret (e.g., 'average deviation of 5 cm'). Variance units are squared (e.g., $cm^2$), which are less intuitive.\n2.  **Magnitude:** It provides a measure of spread in the original scale, making it more intuitive to understand the typical distance from the mean.\n3.  **Context:** It aligns better with many statistical concepts and rules, such as the empirical rule for normal distributions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a constant $c$ is added to every value in a dataset $X$, how does the variance and standard deviation of the new dataset $X+c$ compare to the original?",
+      "back": "Adding a constant $c$ to every value in a dataset **does not change** its variance or standard deviation. The entire distribution simply shifts by $c$, but its spread remains identical. If $Y = X+c$, then $\\sigma_Y^2 = \\sigma_X^2$ and $\\sigma_Y = \\sigma_X$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If every value in a dataset $X$ is multiplied by a constant $k$, how does the variance and standard deviation of the new dataset $kX$ compare to the original?",
+      "back": "Multiplying every value in a dataset by a constant $k$:\n*   **Variance:** The new variance is $k^2$ times the original variance. $\\sigma_{kX}^2 = k^2 \\sigma_X^2$.\n*   **Standard Deviation:** The new standard deviation is $|k|$ times the original standard deviation. $\\sigma_{kX} = |k| \\sigma_X$. (The absolute value ensures SD remains non-negative).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does a standard deviation of zero for a dataset imply about the data points?",
+      "back": "A standard deviation of zero (and consequently, a variance of zero) implies that all data points in the dataset are identical. There is no dispersion or spread; every value is exactly equal to the mean.",
+      "difficulty": "medium"
+    }
+  ]
+}

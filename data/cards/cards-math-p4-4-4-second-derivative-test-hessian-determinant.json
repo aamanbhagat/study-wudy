@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-second-derivative-test-hessian-determinant",
+  "subtopicTitle": "Second derivative test — Hessian determinant",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:09.011Z",
+  "cards": [
+    {
+      "front": "Define the Hessian matrix $H(x, y)$ for a function $f(x, y)$.",
+      "back": "The Hessian matrix $H(x, y)$ for a function $f(x, y)$ is a square matrix of second-order partial derivatives:\n$$H(x, y) = \\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{yx} & f_{yy} \\end{pmatrix}$$\nBy Clairaut's Theorem, if $f$ has continuous second partial derivatives, then $f_{xy} = f_{yx}$, making the Hessian matrix symmetric.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the Hessian determinant $D(x, y)$ defined for a function $f(x, y)$?",
+      "back": "The Hessian determinant $D(x, y)$ is the determinant of the Hessian matrix $H(x, y)$:\n$$D(x, y) = \\det(H(x, y)) = f_{xx}f_{yy} - f_{xy}^2$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the conditions for a critical point $(a, b)$ of $f(x, y)$ to be a local minimum using the Second Derivative Test.",
+      "back": "For a critical point $(a, b)$ of $f(x, y)$ (where $f_x(a,b)=0$ and $f_y(a,b)=0$):\nIf $D(a, b) > 0$ and $f_{xx}(a, b) > 0$, then $(a, b)$ is a local minimum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions for a critical point $(a, b)$ of $f(x, y)$ to be a local maximum using the Second Derivative Test.",
+      "back": "For a critical point $(a, b)$ of $f(x, y)$:\nIf $D(a, b) > 0$ and $f_{xx}(a, b) < 0$, then $(a, b)$ is a local maximum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions for a critical point $(a, b)$ of $f(x, y)$ to be a saddle point using the Second Derivative Test.",
+      "back": "For a critical point $(a, b)$ of $f(x, y)$:\nIf $D(a, b) < 0$, then $(a, b)$ is a saddle point.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What conclusion can be drawn from the Second Derivative Test if the Hessian determinant $D(a, b) = 0$ at a critical point $(a, b)$?",
+      "back": "If $D(a, b) = 0$, the Second Derivative Test is inconclusive. The critical point $(a, b)$ could be a local maximum, a local minimum, or a saddle point. Further analysis, such as examining higher-order derivatives or using graphical methods, is required to determine the nature of the point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For $f(x, y) = x^2 - y^2$, find the nature of the critical point $(0, 0)$ using the Second Derivative Test.",
+      "back": "1. Find first partial derivatives and critical points:\n   $f_x = 2x$, $f_y = -2y$. Setting to zero gives $x=0, y=0$, so $(0,0)$ is the critical point.\n2. Find second partial derivatives:\n   $f_{xx} = 2$, $f_{yy} = -2$, $f_{xy} = 0$.\n3. Calculate the Hessian determinant $D(x, y)$:\n   $D(x, y) = f_{xx}f_{yy} - f_{xy}^2 = (2)(-2) - (0)^2 = -4$.\n4. Evaluate $D(0, 0)$:\n   $D(0, 0) = -4$.\nSince $D(0, 0) < 0$, the critical point $(0, 0)$ is a saddle point.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the intuition behind the $f_{xx}$ condition (positive for min, negative for max) when $D > 0$ in the Second Derivative Test.",
+      "back": "When $D > 0$, it implies that the function's curvature is consistent in all directions around the critical point (either all concave up or all concave down). The term $f_{xx}$ specifically measures the curvature in the $x$-direction. If $f_{xx} > 0$, the function is concave up along the $x$-axis, locally resembling a bowl opening upwards, suggesting a minimum. If $f_{xx} < 0$, it's concave down along the $x$-axis, locally resembling an inverted bowl, suggesting a maximum. Because $D > 0$ ensures this behavior extends consistently to all other directions, $f_{xx}$ alone (or $f_{yy}$) is sufficient to distinguish between a max and a min.",
+      "difficulty": "medium"
+    }
+  ]
+}

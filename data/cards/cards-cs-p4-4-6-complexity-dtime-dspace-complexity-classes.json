@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-6-complexity-dtime-dspace-complexity-classes",
+  "subtopicTitle": "Complexity — DTIME, DSPACE, complexity classes",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:24.765Z",
+  "cards": [
+    {
+      "front": "Define the complexity class DTIME$(t(n))$.",
+      "back": "DTIME$(t(n))$ is the class of all languages that can be decided by a deterministic single-tape Turing Machine in $O(t(n))$ time, where $n$ is the length of the input. Time refers to the total number of steps the TM takes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the complexity class DSPACE$(s(n))$.",
+      "back": "DSPACE$(s(n))$ is the class of all languages that can be decided by a deterministic single-tape Turing Machine using $O(s(n))$ space, where $n$ is the length of the input. Space refers to the number of distinct tape cells accessed by the TM.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the complexity class P, and what kind of problems does it contain?",
+      "back": "P (Polynomial Time) is the class of languages decidable by a deterministic Turing Machine in polynomial time. Formally, $P = \\bigcup_{k \\ge 1} \\text{DTIME}(n^k)$. It contains problems considered \"efficiently solvable\" or \"tractable,\" such as sorting, searching, and reachability in graphs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the complexity class PSPACE, and how does it relate to P?",
+      "back": "PSPACE (Polynomial Space) is the class of languages decidable by a deterministic Turing Machine using polynomial space. Formally, $PSPACE = \\bigcup_{k \\ge 1} \\text{DSPACE}(n^k)$. All problems in P are also in PSPACE, meaning $P \\subseteq PSPACE$. This is because a TM running in polynomial time can only visit a polynomial number of tape cells.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Savitch's Theorem and its implications for space complexity.",
+      "back": "Savitch's Theorem states that for any function $s(n) \\ge \\log n$, $\\text{NSPACE}(s(n)) \\subseteq \\text{DSPACE}(s(n)^2)$. This implies that deterministic Turing Machines can simulate nondeterministic ones with only a polynomial increase in space. For example, $NPSPACE = PSPACE$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why $DTIME(t(n)) \\subseteq DSPACE(t(n))$ for any time-constructible function $t(n)$.",
+      "back": "A deterministic Turing Machine operating for $t(n)$ steps can write on at most $t(n)$ distinct tape cells. Each step involves reading/writing one cell and potentially moving. Thus, the total space used cannot exceed the total time taken. Therefore, any language decidable in $O(t(n))$ time is also decidable in $O(t(n))$ space.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the Space Hierarchy Theorem state, and what is its significance?",
+      "back": "For any space-constructible function $s(n)$, there exists a language $L$ that is decidable in $O(s(n))$ space but not in $o(s(n))$ space. More precisely, if $s_1(n)$ and $s_2(n)$ are space-constructible functions such that $s_1(n) = o(s_2(n))$, then $\\text{DSPACE}(s_1(n)) \\subsetneq \\text{DSPACE}(s_2(n))$. It signifies that giving a TM asymptotically more space allows it to solve strictly more problems.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the complexity classes L and EXP.",
+      "back": "L (Logarithmic Space): $L = \\text{DSPACE}(\\log n)$. This class contains problems solvable by a deterministic TM using only logarithmic space.\nEXP (Exponential Time): $EXP = \\bigcup_{k \\ge 1} \\text{DTIME}(2^{n^k})$. This class contains problems solvable by a deterministic TM in exponential time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Order the following complexity classes from smallest to largest, indicating known strict inclusions: L, P, PSPACE, EXP, EXPSPACE.",
+      "back": "The known hierarchy is: $L \\subseteq P \\subseteq PSPACE \\subseteq EXP \\subseteq EXPSPACE$.\nKnown strict inclusions:\n- $L \\subsetneq PSPACE$\n- $P \\subsetneq EXP$\n- $PSPACE \\subsetneq EXPSPACE$\nIt is an open problem whether $L \\subsetneq P$ or $P \\subsetneq PSPACE$ (at least one must be strict).",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-3-static-libraries-a-lib-creation-and-linking",
+  "subtopicTitle": "Static libraries — .a / .lib, creation and linking",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:17.387Z",
+  "cards": [
+    {
+      "front": "What is a static library, and at what stage of compilation is its code incorporated into an executable?",
+      "back": "A static library is an archive file containing one or more object files (.o or .obj). Its code is incorporated directly into the final executable during the **linking phase** of compilation.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the typical file extensions for static libraries on Unix-like systems (e.g., Linux, macOS) and Windows, respectively?",
+      "back": "Unix-like systems: `.a` (for 'archive')\nWindows: `.lib`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using GCC on a Unix-like system, how would you create a static library named `libmath.a` from object files `add.o` and `subtract.o`?",
+      "back": "```bash\nar rcs libmath.a add.o subtract.o\n```\n*   `ar`: The archive utility.\n*   `r`: Replaces or adds files to the archive.\n*   `c`: Creates the archive if it doesn't exist.\n*   `s`: Writes an object-file index into the archive (recommended for faster linking).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If you have a program `main.c` that uses functions from `libmath.a` (located in the current directory), how would you compile and link it to create an executable `calculator` using GCC?",
+      "back": "```bash\ngcc main.c -L. -lmath -o calculator\n```\n*   `-L.`: Tells the linker to look for libraries in the current directory (`.`).\n*   `-lmath`: Tells the linker to link with `libmath.a`. The `lib` prefix and `.a` suffix are implied.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two primary advantages of using static libraries compared to dynamic (shared) libraries.",
+      "back": "1.  **Self-contained executables**: The final executable includes all necessary library code, making it independent of external library files at runtime. This avoids \"DLL Hell\" or dependency issues.\n2.  **Portability**: Easier to distribute as the executable contains everything needed to run.\n3.  **Performance**: Can sometimes offer marginally faster function calls due to no runtime symbol resolution overhead (though often negligible).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two significant disadvantages of using static libraries.",
+      "back": "1.  **Larger Executables**: Each executable that links a static library gets its own copy of the library's code, leading to increased executable size and potentially more disk space usage.\n2.  **No Runtime Updates**: If a bug fix or security patch is released for a static library, every executable that uses it must be recompiled and redistributed.\n3.  **Memory Inefficiency**: If multiple statically linked programs are running simultaneously, each will load its own copy of the library code into memory, which can be less efficient than shared libraries where one copy is loaded for all processes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When linking multiple static libraries with GCC, does the order in which they are specified on the command line matter? Explain why.",
+      "back": "Yes, the order generally matters. The linker processes libraries from left to right. When it encounters a static library, it searches it for undefined symbols required by previously processed object files or libraries. If it finds a symbol, it includes the corresponding object file from the library.\n\nIf `libA` depends on `libB`, `libB` must appear *after* `libA` on the command line (e.g., `gcc main.o -lA -lB`). If `libB` is listed first, the linker might not know `libA` needs it yet and won't include `libB`'s object files, leading to unresolved symbol errors. Some linkers support multiple passes or specific flags to mitigate this, but strict ordering is the safest approach.",
+      "difficulty": "hard"
+    }
+  ]
+}

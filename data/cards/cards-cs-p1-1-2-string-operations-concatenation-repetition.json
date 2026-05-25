@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-string-operations-concatenation-repetition",
+  "subtopicTitle": "String operations — concatenation, repetition",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:55.294Z",
+  "cards": [
+    {
+      "front": "In programming, what does \"string concatenation\" mean?",
+      "back": "String concatenation is the operation of joining two or more strings end-to-end to form a single, new string. For example, joining \"hello\" and \"world\" results in \"helloworld\".",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you perform string concatenation in Python? Provide a simple code example.",
+      "back": "In Python, string concatenation is typically performed using the `+` operator.\n```python\nstr1 = \"Hello\"\nstr2 = \"World\"\nresult = str1 + \", \" + str2 + \"!\"\nprint(result)\n```\nOutput: `Hello, World!`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is \"string repetition\" in the context of programming?",
+      "back": "String repetition is the operation of creating a new string by repeating an existing string a specified number of times. For example, repeating \"abc\" three times results in \"abcabcabc\".",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you repeat a string in Python? Provide a simple code example.",
+      "back": "In Python, string repetition is performed using the `*` operator, where one operand is a string and the other is an integer representing the number of repetitions.\n```python\nphrase = \"Python \"\nrepeated_phrase = phrase * 3\nprint(repeated_phrase)\n```\nOutput: `Python Python Python `",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the output of the following Python code?\n```python\ns = \"Code\"\nprint(s * 2 + \" \" + \"Ninja\" * 1)\n```",
+      "back": "The `*` operator has higher precedence than `+`.\nFirst, `s * 2` evaluates to `\"CodeCode\"`.\nNext, `\"Ninja\" * 1` evaluates to `\"Ninja\"`.\nThen, the concatenation occurs: `\"CodeCode\" + \" \" + \"Ninja\"`.\nThe final output is:\n```\nCodeCode Ninja\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if you try to concatenate a string with an integer directly using the `+` operator in Python? Explain.",
+      "back": "If you try to concatenate a string with an integer (or any non-string type) directly using the `+` operator, Python will raise a `TypeError`.\n```python\n# Example\n# \"Value: \" + 123  # This would cause a TypeError\n```\nPython is strongly typed, and the `+` operator for strings is specifically defined for string-string concatenation. To combine a string and a number, you must explicitly convert the number to a string first, typically using `str()`:\n```python\nprint(\"Value: \" + str(123)) # Output: Value: 123\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the results of `print(\"abc\" * 0)` and `print(\"xyz\" * -2)` in Python?",
+      "back": "1.  `print(\"abc\" * 0)`: This will output an empty string, `\"\"`. Repeating a string zero times results in an empty string.\n2.  `print(\"xyz\" * -2)`: This will also output an empty string, `\"\"`. Python treats repetition by a negative integer as repeating zero times, resulting in an empty string. It does not raise an error for negative repetition.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Python's string immutability affect string concatenation using the `+` operator?",
+      "back": "Python strings are immutable, meaning once a string is created, its content cannot be changed. When you use the `+` operator to concatenate strings, Python does not modify the original strings. Instead, it creates an entirely *new* string in memory that contains the combined sequence of characters. The original strings remain unchanged.\nFor example, if `s1 = \"Hello\"` and `s2 = \"World\"`, then `s3 = s1 + s2` creates `s3` as a new string `\"HelloWorld\"`. `s1` and `s2` still point to their original string objects.\nThis can have performance implications for very frequent concatenations in loops, as many temporary string objects might be created.",
+      "difficulty": "hard"
+    }
+  ]
+}

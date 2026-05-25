@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-6-recurrent-neural-networks-hidden-state-bptt",
+  "subtopicTitle": "Recurrent neural networks — hidden state, BPTT",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:15.836Z",
+  "cards": [
+    {
+      "front": "What type of data are Recurrent Neural Networks (RNNs) specifically designed to process, and why are traditional feedforward networks insufficient for this?",
+      "back": "RNNs are designed for sequential data (e.g., time series, natural language, video frames) where the order and context of elements matter. Traditional feedforward networks process inputs independently, lacking the 'memory' to leverage past information or dependencies within a sequence.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an RNN, what is the primary role of the 'hidden state' at a given timestep $t$?",
+      "back": "The hidden state $h_t$ acts as the RNN's 'memory,' summarizing information from all previous timesteps $t-1, t-2, \\dots, 0$. It allows the network to maintain context and make predictions or decisions based on the entire sequence processed up to that point.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the general formula for calculating the hidden state $h_t$ at timestep $t$ in a simple RNN, given the input $x_t$ and the previous hidden state $h_{t-1}$.",
+      "back": "The hidden state $h_t$ is typically calculated as:\n$$h_t = \\tanh(W_{hh}h_{t-1} + W_{xh}x_t + b_h)$$\nwhere $W_{hh}$ are weights for the recurrent connection, $W_{xh}$ are weights for the input, $b_h$ is the bias, and $\\tanh$ is a common activation function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is standard backpropagation insufficient for training Recurrent Neural Networks (RNNs), and what algorithm is used instead?",
+      "back": "Standard backpropagation assumes independent inputs. RNNs, however, share parameters across timesteps, meaning the output at $t$ depends on inputs at $t, t-1, \\dots, 0$. Backpropagation Through Time (BPTT) is used. It 'unrolls' the RNN over time into a deep feedforward network and then applies backpropagation to calculate gradients with respect to parameters shared across all timesteps.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Conceptually explain how gradients are calculated in BPTT for a simple RNN, focusing on how the gradient of the loss with respect to a shared weight accumulates contributions.",
+      "back": "In BPTT, the RNN is conceptually 'unrolled' into a deep feedforward network where each layer corresponds to a timestep. The total loss $L = \\sum_{t=1}^T L_t$ is the sum of losses at each timestep. The gradient of $L$ with respect to a shared weight $W$ (e.g., $W_{hh}$) is calculated by summing the gradients $\\frac{\\partial L_t}{\\partial W}$ from each timestep. Each $\\frac{\\partial L_t}{\\partial W}$ involves a chain rule that propagates the error signal backward through time, from $h_t$ to $h_{t-1}$, and so on, accumulating contributions from all relevant timesteps.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the 'vanishing gradient' and 'exploding gradient' problems in RNNs, and how are they related to BPTT?",
+      "back": "These problems arise during BPTT due to the repeated multiplication of the recurrent weight matrices ($W_{hh}$) as gradients propagate backward through many timesteps:\n*   **Vanishing gradients**: If $W_{hh}$ values are small, gradients shrink exponentially, making it hard for the network to learn long-term dependencies.\n*   **Exploding gradients**: If $W_{hh}$ values are large, gradients grow exponentially, leading to unstable training (very large weight updates).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two common techniques used to mitigate the vanishing and exploding gradient problems in RNNs during BPTT.",
+      "back": "1.  **Gradient Clipping (for Exploding Gradients)**: If the norm of the gradients exceeds a predefined threshold, they are scaled down to prevent excessively large weight updates.\n2.  **Gated Architectures (for Vanishing Gradients)**: Models like LSTMs (Long Short-Term Memory) and GRUs (Gated Recurrent Units) use 'gates' to control the flow of information and gradients, allowing them to flow more easily over long sequences without vanishing.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-boundary-value-problems-shooting-method-finite-difference",
+  "subtopicTitle": "Boundary value problems — shooting method, finite difference",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:29.689Z",
+  "cards": [
+    {
+      "front": "Distinguish between an Initial Value Problem (IVP) and a Boundary Value Problem (BVP) for ODEs.",
+      "back": "An IVP specifies all conditions (e.g., function value and its derivatives) at a single point, typically the start of the domain (e.g., $y(x_0)=y_0, y'(x_0)=y'_0$). A BVP specifies conditions at two or more different points (boundaries) within the domain, e.g., $y(a)=y_a, y(b)=y_b$ for a second-order ODE over $[a,b]$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the core idea behind the shooting method for solving a BVP.",
+      "back": "The shooting method transforms a BVP into an IVP by guessing the missing initial conditions (e.g., $y'(x_0)$ if $y(x_0)$ is known). It then numerically integrates ('shoots') this IVP across the domain. The solution at the far boundary is checked against the given boundary condition, and the initial guess is iteratively adjusted using a root-finding technique (like Newton's method) until the boundary condition is satisfied.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Outline the key steps to solve a second-order BVP $y''=f(x,y,y')$ with $y(a)=y_a, y(b)=y_b$ using the shooting method.",
+      "back": "1. Convert the 2nd order ODE into a system of two 1st order ODEs. 2. Guess an initial slope, $y'(a)=s$. 3. Solve the IVP $y''=f(x,y,y')$ with $y(a)=y_a, y'(a)=s$ using a numerical method (e.g., Runge-Kutta) to find $y(b,s)$. 4. Define a function $F(s) = y(b,s) - y_b$. 5. Use a root-finding method (e.g., Newton's method or secant method) to find $s$ such that $F(s)=0$. 6. Solve the IVP one last time with the optimal $s$ to obtain the BVP solution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental principle of the finite difference method for solving BVPs?",
+      "back": "The finite difference method approximates the derivatives in the ODE using finite difference formulas (e.g., central differences) at a set of discrete grid points within the domain. This converts the continuous ordinary differential equation into a system of algebraic equations (often linear) for the unknown function values at these grid points. This system, incorporating the boundary conditions, is then solved to find the approximate solution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the central finite difference approximation for $y''(x_i)$ given a uniform step size $h$.",
+      "back": "Using Taylor series expansions around $x_i$: \n$y(x_i+h) = y(x_i) + h y'(x_i) + \\frac{h^2}{2} y''(x_i) + \\frac{h^3}{6} y'''(x_i) + O(h^4)$ \n$y(x_i-h) = y(x_i) - h y'(x_i) + \\frac{h^2}{2} y''(x_i) - \\frac{h^3}{6} y'''(x_i) + O(h^4)$ \nAdding these two equations: \n$y(x_i+h) + y(x_i-h) = 2y(x_i) + h^2 y''(x_i) + O(h^4)$ \nRearranging to solve for $y''(x_i)$: \n$$y''(x_i) \\approx \\frac{y(x_i+h) - 2y(x_i) + y(x_i-h)}{h^2}$$ \nThis approximation has an error of $O(h^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the BVP $y'' + P(x)y' + Q(x)y = R(x)$ with $y(a)=y_a, y(b)=y_b$, how does the finite difference method lead to a system of linear equations?",
+      "back": "Discretize the domain $[a,b]$ into $N$ intervals with $N+1$ points $x_0, \\dots, x_N$. Replace $y''_i$ with $\\frac{y_{i+1}-2y_i+y_{i-1}}{h^2}$ and $y'_i$ with $\\frac{y_{i+1}-y_{i-1}}{2h}$ (central differences). Substitute these into the ODE at each interior point $x_i$ ($i=1, \\dots, N-1$). This yields $N-1$ linear equations, each involving $y_{i-1}, y_i, y_{i+1}$. The known boundary conditions $y_0=y_a$ and $y_N=y_b$ are substituted into the equations for $i=1$ and $i=N-1$ respectively. This results in a tridiagonal system of $N-1$ linear equations for the $N-1$ unknown values $y_1, \\dots, y_{N-1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the shooting method and the finite difference method, highlighting their main advantages and disadvantages.",
+      "back": "**Shooting Method:**\n*   *Advantages:* Conceptually simple, leverages existing IVP solvers, can handle nonlinear BVPs well (with robust root-finding).\n*   *Disadvantages:* Can be numerically unstable for 'stiff' problems, highly sensitive to initial guess, requires iterative root-finding, difficulty increases with ODE order.\n**Finite Difference Method:**\n*   *Advantages:* Generally stable, works well for linear BVPs (leads to linear systems), can be extended to higher dimensions/PDEs, straightforward for uniform grids.\n*   *Disadvantages:* Requires solving a large system of equations (computationally intensive for many points), can be complex for irregular grids or complex boundary conditions, accuracy depends on $h$ and order of approximation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions might the shooting method be numerically unstable or difficult to apply effectively?",
+      "back": "The shooting method can become unstable or difficult when the underlying IVP is highly sensitive to initial conditions. This occurs if the solution grows or decays exponentially, making the problem 'stiff'. Small errors in the initial guess for the missing condition can lead to large deviations at the boundary, making the root-finding problem ill-conditioned, slow to converge, or even divergent. This is especially problematic for higher-order ODEs or long integration intervals.",
+      "difficulty": "medium"
+    }
+  ]
+}

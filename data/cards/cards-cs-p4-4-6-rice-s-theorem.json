@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-6-rice-s-theorem",
+  "subtopicTitle": "Rice's theorem",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:26.327Z",
+  "cards": [
+    {
+      "front": "Rice's theorem states that any non-trivial property of the language recognized by a Turing machine is ________.",
+      "back": "undecidable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Rice's theorem, a property $P$ of recursively enumerable languages is 'non-trivial' if...",
+      "back": "...it is neither true for all recursively enumerable languages nor false for all recursively enumerable languages. That is, there exists at least one language $L_1$ such that $P(L_1)$ is true, and at least one language $L_2$ such that $P(L_2)$ is false.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "According to Rice's theorem, is the property 'The language recognized by TM $M$ is empty' decidable? Provide another similar example.",
+      "back": "No, it is undecidable. The property 'The language recognized by TM $M$ is empty' is non-trivial (some TMs recognize empty languages, some don't). Another example: 'The language recognized by TM $M$ is regular'.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Rice's theorem applies to properties of the ________ recognized by a Turing machine, not properties of the ________ itself. Give an example of a decidable property of a TM.",
+      "back": "language; Turing machine. An example of a decidable property of a TM itself is 'TM $M$ has an even number of states' or 'TM $M$ halts on the empty input after at most 100 steps'.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly explain the common proof strategy for Rice's theorem, often involving a reduction from a known undecidable problem.",
+      "back": "The proof typically involves a reduction from the Halting Problem ($HALT_{TM}$). Assume, for contradiction, that a decider $D$ exists for a non-trivial property $P$. Then, construct a new TM $R$ that uses $D$ to decide $HALT_{TM}$. This leads to a contradiction, proving $D$ cannot exist. The construction usually involves modifying a TM $M$ to simulate $M$ on input $w$ and then, if $M$ halts, behave like a TM $M_P$ (which satisfies $P$) or $M_{\\neg P}$ (which doesn't satisfy $P$). If $M$ doesn't halt, the constructed TM also doesn't halt, thus not satisfying $P$ or $\\neg P$ in a way that helps $D$ decide $HALT_{TM}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State Rice's Theorem formally, specifying the conditions under which it applies.",
+      "back": "Let $P$ be a property of recursively enumerable languages. If $P$ is non-trivial (i.e., $P$ is true for some RE languages and false for others), then the language $L_P = \\{ \\langle M \\rangle \\mid L(M) \\in P \\}$ is undecidable. Here, $\\langle M \\rangle$ is the encoding of a Turing machine $M$, and $L(M)$ is the language recognized by $M$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is the property 'TM $M$ halts on *all* inputs' (i.e., $M$ is a decider) decidable? Explain using Rice's theorem.",
+      "back": "No, this property is undecidable. The property 'The language recognized by TM $M$ is recursive' (which is equivalent to $M$ halting on all inputs if $M$ is a recognizer) is a non-trivial property of recursively enumerable languages. Some RE languages are recursive (e.g., $L = \\{a\\}$), and some are not (e.g., the Halting Problem $A_{TM}$). Therefore, by Rice's theorem, the set of TMs that recognize recursive languages is undecidable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Intuitively, why is it impossible to decide non-trivial properties of what a program *computes* (its language)?",
+      "back": "To decide a property of a program's *output behavior* (the language it recognizes), you would essentially need to 'run' the program on potentially infinitely many inputs and observe its behavior. Since programs can run forever, there's no general way to know if they will eventually produce a certain output or halt. Any non-trivial property requires distinguishing between programs that behave differently, and this distinction often hinges on their infinite behavior, which is impossible to fully determine in finite time.",
+      "difficulty": "medium"
+    }
+  ]
+}

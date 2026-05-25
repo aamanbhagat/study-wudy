@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-trigonometric-substitution-x-a-sin-a-tan-a-sec-cases",
+  "subtopicTitle": "Trigonometric substitution — x = a sinθ, a tanθ, a secθ cases",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:15:15.925Z",
+  "cards": [
+    {
+      "front": "Which radical form in an integral suggests the trigonometric substitution $x = a \\sin\\theta$?",
+      "back": "The form $\\sqrt{a^2 - x^2}$ suggests the substitution $x = a \\sin\\theta$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the standard trigonometric substitutions for integrals containing $\\sqrt{a^2 - x^2}$, $\\sqrt{a^2 + x^2}$, and $\\sqrt{x^2 - a^2}$?",
+      "back": "<ul><li>For $\\sqrt{a^2 - x^2}$: $x = a \\sin\\theta$</li><li>For $\\sqrt{a^2 + x^2}$: $x = a \\tan\\theta$</li><li>For $\\sqrt{x^2 - a^2}$: $x = a \\sec\\theta$</li></ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If you use the substitution $x = a \\tan\\theta$, what is $dx$ and how does $\\sqrt{a^2 + x^2}$ simplify?",
+      "back": "If $x = a \\tan\\theta$, then $dx = a \\sec^2\\theta \\, d\\theta$.<br/>The radical simplifies as follows:<br/>$\\sqrt{a^2 + x^2} = \\sqrt{a^2 + (a \\tan\\theta)^2} = \\sqrt{a^2 + a^2 \\tan^2\\theta} = \\sqrt{a^2(1 + \\tan^2\\theta)} = \\sqrt{a^2 \\sec^2\\theta} = a |\\sec\\theta|$.<br/>For the standard range of $\\theta \\in (-\\pi/2, \\pi/2)$, $\\sec\\theta \\ge 0$, so this simplifies to $a \\sec\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the integral $\\int \\frac{1}{(9+x^2)^{3/2}} dx$, what is the appropriate trigonometric substitution for $x$ and its derivative $dx$?",
+      "back": "The form $9+x^2$ is $a^2+x^2$ where $a^2=9 \\implies a=3$.<br/>The appropriate substitution is $x = 3 \\tan\\theta$.<br/>Then $dx = 3 \\sec^2\\theta \\, d\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When using $x = a \\sin\\theta$ for $\\sqrt{a^2 - x^2}$, what range for $\\theta$ is typically chosen and why is it crucial for simplifying the radical?",
+      "back": "The typical range chosen for $\\theta$ is $[-\\pi/2, \\pi/2]$.<br/>This range is crucial because:<br/>1. It makes $\\sin\\theta$ one-to-one, allowing for a unique inverse $\\theta = \\arcsin(x/a)$.<br/>2. Within this range, $\\cos\\theta \\ge 0$. This ensures that when simplifying $\\sqrt{a^2 - a^2 \\sin^2\\theta} = \\sqrt{a^2 \\cos^2\\theta} = a |\\cos\\theta|$, we can definitively write it as $a \\cos\\theta$ without needing to consider negative values of $\\cos\\theta$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After making the substitution $x = a \\sec\\theta$ and integrating, how do you convert an expression like $\\sin\\theta$ back to a function of $x$?",
+      "back": "1. From $x = a \\sec\\theta$, we have $\\sec\\theta = x/a$.<br/>2. Recall that $\\sec\\theta = \\frac{\\text{hypotenuse}}{\\text{adjacent}}$. Construct a right triangle where the hypotenuse is $x$ and the adjacent side is $a$.<br/>3. Use the Pythagorean theorem to find the opposite side: $\\text{opposite} = \\sqrt{\\text{hypotenuse}^2 - \\text{adjacent}^2} = \\sqrt{x^2 - a^2}$.<br/>4. Now, find $\\sin\\theta = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{\\sqrt{x^2 - a^2}}{x}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To evaluate $\\int \\frac{1}{\\sqrt{x^2 - 4x + 13}} dx$, what is the essential first step before applying a trigonometric substitution?",
+      "back": "The first essential step is to complete the square in the expression under the radical:<br/>$x^2 - 4x + 13 = (x^2 - 4x + 4) + 9 = (x-2)^2 + 3^2$.<br/>After this, let $u = x-2$, so $du = dx$. The integral becomes $\\int \\frac{1}{\\sqrt{u^2 + 3^2}} du$, which is now in a standard form for trigonometric substitution ($u = 3 \\tan\\theta$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate the indefinite integral $\\int \\frac{1}{\\sqrt{a^2 - x^2}} dx$ using trigonometric substitution.",
+      "back": "Let $x = a \\sin\\theta$. Then $dx = a \\cos\\theta \\, d\\theta$.<br/>Substitute these into the integral:<br/>$\\int \\frac{1}{\\sqrt{a^2 - (a \\sin\\theta)^2}} (a \\cos\\theta \\, d\\theta)$<br/>$= \\int \\frac{a \\cos\\theta}{\\sqrt{a^2 - a^2 \\sin^2\\theta}} d\\theta$<br/>$= \\int \\frac{a \\cos\\theta}{\\sqrt{a^2(1 - \\sin^2\\theta)}} d\\theta$<br/>$= \\int \\frac{a \\cos\\theta}{\\sqrt{a^2 \\cos^2\\theta}} d\\theta$<br/>Assuming $a > 0$ and $\\cos\\theta \\ge 0$ (for $\\theta \\in [-\\pi/2, \\pi/2]$):<br/>$= \\int \\frac{a \\cos\\theta}{a \\cos\\theta} d\\theta = \\int 1 \\, d\\theta = \\theta + C$.<br/>Since $x = a \\sin\\theta \\implies \\sin\\theta = x/a \\implies \\theta = \\arcsin(x/a)$.<br/>Thus, $\\int \\frac{1}{\\sqrt{a^2 - x^2}} dx = \\arcsin\\left(\\frac{x}{a}\\right) + C$.",
+      "difficulty": "medium"
+    }
+  ]
+}

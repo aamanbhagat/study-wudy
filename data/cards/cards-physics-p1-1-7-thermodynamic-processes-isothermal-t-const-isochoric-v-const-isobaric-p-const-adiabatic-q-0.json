@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-7-thermodynamic-processes-isothermal-t-const-isochoric-v-const-isobaric-p-const-adiabatic-q-0",
+  "subtopicTitle": "Thermodynamic processes — isothermal (T const), isochoric (V const), isobaric (P const), adiabatic (Q=0)",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:02.624Z",
+  "cards": [
+    {
+      "front": "For an ideal gas undergoing an isothermal process, what remains constant, and what is the consequence for its internal energy?",
+      "back": "Temperature ($T$) remains constant. For an ideal gas, internal energy ($U$) is a function of temperature only, so $\\Delta U = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What defines an isochoric process, and what is the work done by the system during such a process?",
+      "back": "Volume ($V$) remains constant. Since work done $W = \\int P dV$, if $dV=0$, then $W = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the work done by $n$ moles of an ideal gas during a reversible isothermal expansion from $V_1$ to $V_2$.",
+      "back": "$W = \\int_{V_1}^{V_2} P dV$. For an ideal gas, $P = \\frac{nRT}{V}$. Since $T$ is constant: $$W = \\int_{V_1}^{V_2} \\frac{nRT}{V} dV = nRT \\int_{V_1}^{V_2} \\frac{1}{V} dV = nRT [\\ln V]_{V_1}^{V_2} = nRT \\ln\\left(\\frac{V_2}{V_1}\\right)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What defines an adiabatic process, and how does the First Law of Thermodynamics simplify for it?",
+      "back": "No heat is exchanged with the surroundings, i.e., $Q=0$. The First Law of Thermodynamics states $\\Delta U = Q - W$. With $Q=0$, it simplifies to $\\Delta U = -W$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the key relationship between pressure ($P$) and volume ($V$) for an ideal gas undergoing a reversible adiabatic process, defining any new symbols.",
+      "back": "$PV^\\gamma = \\text{constant}$, where $\\gamma = C_P/C_V$ is the adiabatic index (or heat capacity ratio). $C_P$ and $C_V$ are the molar specific heats at constant pressure and volume, respectively.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "On a P-V diagram, explain why an adiabatic curve is steeper than an isothermal curve passing through the same point.",
+      "back": "For isothermal: $PV = \\text{const} \\implies P = \\frac{\\text{const}}{V} \\implies \\frac{dP}{dV} = -\\frac{\\text{const}}{V^2} = -\\frac{P}{V}$. For adiabatic: $PV^\\gamma = \\text{const} \\implies P = \\frac{\\text{const}}{V^\\gamma} \\implies \\frac{dP}{dV} = -\\gamma \\frac{\\text{const}}{V^{\\gamma+1}} = -\\gamma \\frac{P}{V}$. Since $\\gamma > 1$ (e.g., 1.4 for diatomic gases), the magnitude of the slope for adiabatic ($|-\\gamma P/V|$) is greater than for isothermal ($|-P/V|$), making it steeper.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For an ideal gas, summarize the First Law of Thermodynamics ($\\Delta U = Q - W$) for each of the four processes: isothermal, isochoric, isobaric, and adiabatic.",
+      "back": "<ul><li><b>Isothermal ($T$ const):</b> $\\Delta U = 0 \\implies Q = W$</li><li><b>Isochoric ($V$ const):</b> $W = 0 \\implies \\Delta U = Q$</li><li><b>Isobaric ($P$ const):</b> $W = P\\Delta V \\implies Q = \\Delta U + P\\Delta V$</li><li><b>Adiabatic ($Q=0$):</b> $\\Delta U = -W$</li></ul>",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p5-5-5-fault-tolerance-fail-safe-vs-fail-operational",
+  "subtopicTitle": "Fault tolerance — fail-safe vs fail-operational",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:04.317Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of fault tolerance in embedded systems?",
+      "back": "To ensure the system continues to operate correctly, or at least predictably and safely, even in the presence of faults, preventing system failure or hazardous outcomes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"fail-safe\" system. What is its primary objective upon fault detection?",
+      "back": "A fail-safe system is designed to transition to a safe, non-operating state (e.g., shutdown, halt, or revert to a benign default) upon detecting a fault. Its primary objective is to prevent harm, damage, or unsafe conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A railway signal system defaults to red (stop) if a fault is detected. Is this fail-safe or fail-operational? Explain.",
+      "back": "This is a **fail-safe** system. By defaulting to red, it prevents potential collisions (harm) by stopping all trains, even if it means disrupting service. The priority is safety over continuous operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a \"fail-operational\" (or \"fail-active\") system. What is its primary objective upon fault detection?",
+      "back": "A fail-operational system is designed to continue providing its intended function, possibly with degraded performance, even after detecting a fault. Its primary objective is to maintain service availability and continuity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an aircraft's flight control system, if one hydraulic pump fails, another automatically takes over. Is this fail-safe or fail-operational? Explain.",
+      "back": "This is a **fail-operational** system. The system continues to provide flight control (its intended function) despite a component failure, ensuring the aircraft can still be controlled. The priority is continuous operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference in system behavior between a fail-safe and a fail-operational system immediately after a fault is detected?",
+      "back": "A fail-safe system prioritizes **safety** by transitioning to a controlled, non-hazardous shutdown or inactive state. A fail-operational system prioritizes **availability** by attempting to continue its function, often using redundant components or graceful degradation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a common high-level strategy for implementing fail-safe behavior in a critical system, focusing on its core principle.",
+      "back": "A common strategy involves having a \"safe state\" defined and ensuring that all failure modes, or detection of any critical anomaly, lead the system to this predetermined safe state. This often involves simple, robust mechanisms that activate upon loss of power or control (e.g., spring-return valves, watchdog timers that reset to a safe default).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary architectural principle used to achieve fail-operational behavior, and name a common technique for it?",
+      "back": "The primary principle is **redundancy**. Common techniques include:\n*   **Hot Standby:** A backup component runs in parallel, ready to take over immediately.\n*   **Cold Standby:** A backup component is powered off but can be activated.\n*   **N-Modular Redundancy (NMR):** Multiple identical components perform the same task, and their outputs are voted on (e.g., Triple Modular Redundancy - TMR).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For an autonomous driving system's braking subsystem, which fault tolerance strategy (fail-safe or fail-operational) is generally preferred, and why?",
+      "back": "A **fail-safe** strategy is generally preferred for the braking subsystem. If a fault occurs (e.g., sensor failure, control unit malfunction), the system should default to applying the brakes or bringing the vehicle to a controlled stop, rather than attempting to continue driving with potentially compromised braking. The paramount concern is preventing accidents (safety).",
+      "difficulty": "hard"
+    }
+  ]
+}

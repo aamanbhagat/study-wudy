@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-6-np-completeness-cook-s-theorem-sat-is-np-complete-reduction",
+  "subtopicTitle": "NP-completeness — Cook's theorem (SAT is NP-complete), reduction",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:23.664Z",
+  "cards": [
+    {
+      "front": "What does it mean for a decision problem $L$ to be in the complexity class **NP**?",
+      "back": "$L \\in \\text{NP}$ if there exists a polynomial-time verifier $V$ such that for any instance $x$, $x \\in L$ if and only if there exists a certificate $y$ (of polynomial length in $|x|$) for which $V(x, y)$ accepts. Informally, a \"yes\" instance has a proof that can be checked quickly.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define **NP-hard**.",
+      "back": "A problem $H$ is **NP-hard** if every problem $L \\in \\text{NP}$ can be polynomial-time reduced to $H$ (i.e., $L \\le_p H$). This means if you can solve $H$ in polynomial time, you can solve *every* problem in NP in polynomial time. NP-hard problems don't necessarily have to be in NP themselves.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does it mean for a decision problem $L$ to be **NP-complete**?",
+      "back": "A decision problem $L$ is **NP-complete** if it satisfies two conditions:\n1. $L \\in \\text{NP}$ (it can be verified in polynomial time).\n2. $L$ is **NP-hard** (every problem in NP can be polynomial-time reduced to $L$).\nNP-complete problems are the \"hardest\" problems in NP.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State **Cook's Theorem**.",
+      "back": "**Cook's Theorem** (also known as the Cook-Levin Theorem) states that the Boolean Satisfiability Problem (SAT) is NP-complete. It was the first problem proven to be NP-complete, establishing a foundation for the entire class of NP-complete problems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is **polynomial-time reduction** ($A \\le_p B$) used to prove a problem $B$ is NP-hard, given $A$ is NP-hard?",
+      "back": "To prove $B$ is NP-hard, given $A$ is NP-hard, we construct a polynomial-time computable function $f$ that transforms any instance $x$ of $A$ into an instance $f(x)$ of $B$, such that $x$ is a \"yes\" instance for $A$ if and only if $f(x)$ is a \"yes\" instance for $B$. If $B$ could be solved in polynomial time, then $A$ could also be solved in polynomial time (by reducing $A$ to $B$ and solving $B$), implying $A$ is not NP-hard unless P=NP. Therefore, $B$ must be NP-hard.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core idea behind Cook's Theorem proof: reducing an arbitrary problem in NP to SAT.",
+      "back": "The proof reduces the computation of any non-deterministic polynomial-time Turing Machine (NPTM) $M$ on an input $x$ to a Boolean formula $\\phi$. Variables in $\\phi$ represent the NPTM's state (tape contents, head position, internal state) at each time step. $\\phi$ is constructed to be satisfiable if and only if $M$ accepts $x$. $\\phi$ encodes:\n1. Initial configuration.\n2. Valid transitions between configurations according to $M$'s rules.\n3. Reaching an accepting configuration within polynomial time.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You've proven 3-SAT is NP-complete. How would you use reduction to prove **Clique** (finding a clique of size $k$) is NP-complete?",
+      "back": "To prove Clique is NP-complete:\n1.  **Show Clique $\\in$ NP**: Given a graph $G$ and a certificate (a set of $k$ vertices), verify in polynomial time if these $k$ vertices form a clique.\n2.  **Show Clique is NP-hard (by reduction from 3-SAT)**: Given a 3-CNF formula $\\phi = C_1 \\land \\dots \\land C_m$, construct a graph $G$ and $k=m$. For each literal in each clause, create a vertex. Add an edge between two vertices $v_{i,a}$ and $v_{j,b}$ if they are from different clauses ($i \\ne j$) AND they are not contradictory (e.g., $x$ and $\\neg x$). A clique of size $m$ in this graph corresponds to a satisfying assignment for $\\phi$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a polynomial-time algorithm was found for **any single NP-complete problem**, what would be the implication for the entire class of NP problems?",
+      "back": "If a polynomial-time algorithm were found for *any* NP-complete problem, it would imply that **P = NP**. This is because, by definition, every problem in NP can be polynomial-time reduced to any NP-complete problem. So, if an NP-complete problem can be solved in polynomial time, then *all* problems in NP could be solved in polynomial time (by first reducing them to that problem and then solving it).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is an NP-hard problem always a decision problem? Can an optimization problem be NP-hard?",
+      "back": "No, an NP-hard problem is not always a decision problem. The definition of NP-hard requires that every problem in NP (which are decision problems) can be polynomial-time reduced to it. However, the NP-hard problem itself does not have to be a decision problem.\nYes, an **optimization problem can be NP-hard**. For example, the Traveling Salesperson Problem (TSP) is an optimization problem. Its decision version (is there a tour of length at most $k$?) is NP-complete. If you can solve the optimization version of TSP in polynomial time, you can solve its decision version in polynomial time, thus making the optimization version also NP-hard.",
+      "difficulty": "hard"
+    }
+  ]
+}

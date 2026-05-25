@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-5-disjoint-set-union-union-find-path-compression-union-by-rank-n",
+  "subtopicTitle": "Disjoint Set Union (Union-Find) — path compression + union by rank → α(n)",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:16.343Z",
+  "cards": [
+    {
+      "front": "What fundamental problem does a Disjoint Set Union (DSU) data structure solve?",
+      "back": "A DSU data structure efficiently manages a collection of disjoint sets, allowing two primary operations: determining which set an element belongs to, and merging two sets.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two fundamental operations provided by a Disjoint Set Union (DSU) data structure?",
+      "back": "1. `find(x)`: Returns a representative (root) of the set containing element `x`.\n2. `union(x, y)`: Merges the sets containing elements `x` and `y` into a single set.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the \"path compression\" optimization in DSU and its benefit.",
+      "back": "When `find(x)` is called, it traverses the parent pointers from `x` up to the root. Path compression modifies the tree by making every node on this path point directly to the root. This flattens the tree, significantly reducing the height of subsequent `find` operations for elements in that path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"union by rank\" (or \"union by size\") optimization in DSU and its benefit.",
+      "back": "To keep trees shallow, `union(x, y)` merges the smaller tree (based on rank/height or size/number of nodes) under the root of the larger tree. This ensures that the height of the resulting tree increases only if the merged trees had equal rank/size, preventing the creation of tall, skewed trees.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the amortized time complexity of a DSU data structure using both path compression and union by rank/size for $m$ operations on $n$ elements? Explain $\\alpha(n)$.",
+      "back": "The amortized time complexity for $m$ operations on $n$ elements is $O(m \\alpha(n))$, where $\\alpha(n)$ is the inverse Ackermann function.\n$\\alpha(n)$ grows extremely slowly. For any practical input size $n$ (even larger than the number of atoms in the observable universe), $\\alpha(n) \\le 4$. This makes the amortized time complexity practically constant, $O(1)$, per operation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a Python-like pseudocode snippet for the `find` operation with path compression.",
+      "back": "```python\ndef find(parent, i):\n    if parent[i] == i:\n        return i\n    parent[i] = find(parent, parent[i]) # Path compression\n    return parent[i]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a Python-like pseudocode snippet for the `union` operation with union by rank. Assume `parent` and `rank` arrays are initialized.",
+      "back": "```python\ndef union(parent, rank, i, j):\n    root_i = find(parent, i)\n    root_j = find(parent, j)\n\n    if root_i != root_j:\n        if rank[root_i] < rank[root_j]:\n            parent[root_i] = root_j\n        elif rank[root_j] < rank[root_i]:\n            parent[root_j] = root_i\n        else: # Ranks are equal, pick one and increment its rank\n            parent[root_j] = root_i\n            rank[root_i] += 1\n        return True # Merged\n    return False # Already in the same set\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two common algorithms or problems where Disjoint Set Union (DSU) is a core component.",
+      "back": "1. Kruskal's Algorithm for Minimum Spanning Tree (MST).\n2. Detecting cycles in an undirected graph.\n3. Connected components in a graph.\n4. Percolation problems.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the inverse Ackermann function, $\\alpha(n)$, considered practically constant for all realistic input sizes $n$?",
+      "back": "The Ackermann function $A(m, n)$ grows incredibly rapidly. Its inverse, $\\alpha(n)$, grows incredibly slowly. For instance, $\\alpha(n)$ is:\n* $1$ for $n \\le 2$\n* $2$ for $n \\le 4$\n* $3$ for $n \\le 2^{16}$ (approx. $65,536$)\n* $4$ for $n \\le 2^{2^{16}}$ (a number vastly larger than the number of atoms in the observable universe).\nSince $n$ in DSU represents the number of elements, it will never reach values where $\\alpha(n)$ exceeds 4. Thus, it's effectively $O(1)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

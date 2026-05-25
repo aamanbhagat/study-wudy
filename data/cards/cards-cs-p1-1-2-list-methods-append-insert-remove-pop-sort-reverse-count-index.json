@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-list-methods-append-insert-remove-pop-sort-reverse-count-index",
+  "subtopicTitle": "List methods — append, insert, remove, pop, sort, reverse, count, index",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:05.912Z",
+  "cards": [
+    {
+      "front": "Describe the effect of the `append()` method on a Python list.",
+      "back": "The `append(item)` method adds a single `item` to the *end* of the list. It modifies the list in-place and returns `None`.\n```python\nmy_list = [1, 2]\nmy_list.append(3)\n# my_list is now [1, 2, 3]\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `my_list = ['a', 'b', 'c']`, what is `my_list` after `my_list.insert(1, 'x')` and then `my_list.insert(100, 'z')`?",
+      "back": "1. `my_list.insert(1, 'x')` inserts `'x'` at index 1: `['a', 'x', 'b', 'c']`\n2. `my_list.insert(100, 'z')` inserts `'z'` at the end (index 100 is out of bounds, so it defaults to the end): `['a', 'x', 'b', 'c', 'z']`\nThe `insert(index, item)` method adds `item` at the specified `index`. If `index` is out of bounds (too large), `item` is added to the end. If `index` is negative and out of bounds (too small), `item` is added to the beginning.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if you call `my_list.remove(value)` when `value` is not present in `my_list`?",
+      "back": "If `value` is not found in the list, calling `my_list.remove(value)` will raise a `ValueError`. The `remove(value)` method removes the *first* occurrence of `value` from the list and modifies the list in-place. It returns `None`.\n```python\ndata = [1, 2, 3]\n# data.remove(4) # This would raise ValueError: list.remove(x): x not in list\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference in behavior between `my_list.pop()` and `my_list.remove(value)`.",
+      "back": "*   `my_list.pop([index])`: Removes and *returns* the element at the specified `index`. If no `index` is given, it removes and returns the *last* element. It raises an `IndexError` if the list is empty or the index is out of range.\n*   `my_list.remove(value)`: Removes the *first occurrence* of the specified `value`. It does *not* return the removed element. It raises a `ValueError` if `value` is not found in the list.\nBoth methods modify the list in-place.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you sort `words = [\"apple\", \"banana\", \"kiwi\", \"grape\"]` by length in descending order using `list.sort()`?",
+      "back": "You can use the `key` argument with `len` and set `reverse=True`.\n```python\nwords = [\"apple\", \"banana\", \"kiwi\", \"grape\"]\nwords.sort(key=len, reverse=True)\n# words is now [\"banana\", \"apple\", \"grape\", \"kiwi\"]\n```\nThe `key` argument specifies a function to be called on each list element prior to making comparisons. `len` returns the length of each string. `reverse=True` sorts in descending order.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the state of `my_list` after executing `my_list = [1, 2, 3, 4]; my_list.reverse()`?",
+      "back": "After `my_list = [1, 2, 3, 4]; my_list.reverse()`, `my_list` will be `[4, 3, 2, 1]`.\nThe `reverse()` method reverses the order of elements in the list *in-place*. It returns `None`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `data = [10, 20, 10, 30, 10, 40]`, what are the outputs of `data.count(10)` and `data.index(10, 2, 5)`?",
+      "back": "*   `data.count(10)`: Returns `3`, as the value `10` appears three times in the list.\n*   `data.index(10, 2, 5)`: Returns `4`. The search for `10` starts at index `2` (value `10`) and ends *before* index `5` (value `10`). The first `10` found in this slice (from original list indices 2, 3, 4) is at original index `2`, but the *second* `10` is at original index `4`.\nThe `index(value, start, end)` method returns the index of the *first* occurrence of `value` within the specified slice `[start:end]`. If `value` is not found, it raises a `ValueError`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference between `list.append(iterable)` and `list.extend(iterable)`?",
+      "back": "*   `list.append(iterable)`: Treats the entire `iterable` as a *single item* and adds it as one element to the end of the list. The list will contain the iterable itself as a nested element.\n    ```python\n    a = [1, 2]; b = [3, 4]\n    a.append(b) # a becomes [1, 2, [3, 4]]\n    ```\n*   `list.extend(iterable)`: Iterates over the `iterable` and adds *each individual element* from it to the end of the list. It effectively \"extends\" the list with the contents of the iterable.\n    ```python\n    a = [1, 2]; b = [3, 4]\n    a.extend(b) # a becomes [1, 2, 3, 4]\n    ```\n`extend()` is functionally equivalent to `list += iterable`.",
+      "difficulty": "hard"
+    }
+  ]
+}

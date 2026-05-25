@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-if-elif-else-syntax-indentation-rules",
+  "subtopicTitle": "if / elif / else — syntax, indentation rules",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:52.743Z",
+  "cards": [
+    {
+      "front": "What is the basic syntax for a simple `if` statement in Python, including indentation?",
+      "back": "The basic syntax for an `if` statement is:\n```python\nif condition:\n    # Code block to execute if condition is True\n    statement1\n    statement2\n```\nThe code block must be indented (typically 4 spaces) relative to the `if` line.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the role of the `else` keyword in an `if-else` statement.",
+      "back": "The `else` keyword introduces a code block that will execute *only if* the preceding `if` condition (and any `elif` conditions) evaluates to `False`. It provides an alternative path of execution when the primary condition is not met.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given an `if-elif-else` chain, if multiple conditions evaluate to `True`, which code block(s) will execute?",
+      "back": "Only the code block corresponding to the *first* condition that evaluates to `True` will execute. Once a `True` condition is found and its block executed, the rest of the `elif` and `else` conditions in that chain are skipped.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Python determine which lines of code belong to an `if`, `elif`, or `else` block?",
+      "back": "Python uses **indentation** to define code blocks. All lines belonging to a specific `if`, `elif`, or `else` block must be indented by the *same amount* (usually 4 spaces) relative to the line containing the `if`, `elif`, or `else` keyword. A decrease in indentation signifies the end of the block.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens if you try to use an `elif` or `else` statement without a preceding `if` statement in Python?",
+      "back": "Python will raise a `SyntaxError`. `elif` and `else` clauses must always be associated with an `if` statement (or an `elif` in the case of `else`) to form a valid conditional block.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Correctly indent the following Python code snippet to demonstrate a nested `if` statement structure:\n```python\nx = 10\ny = 5\nif x > 0:\nif y > 0:\nprint(\"Both x and y are positive\")\nelse:\nprint(\"x is positive, y is not\")\nelse:\nprint(\"x is not positive\")\n```",
+      "back": "```python\nx = 10\ny = 5\nif x > 0:\n    if y > 0:\n        print(\"Both x and y are positive\")\n    else:\n        print(\"x is positive, y is not\")\nelse:\n    print(\"x is not positive\")\n```\nEach level of nesting requires an additional level of indentation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When would you prefer using an `if-elif-else` chain over a series of independent `if` statements?",
+      "back": "You use an `if-elif-else` chain when the conditions are **mutually exclusive** and you want *only one* block of code to execute based on the first `True` condition. A series of independent `if` statements, however, allows *multiple* blocks to execute if their respective conditions are all `True`, as each `if` is evaluated independently.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List at least five 'falsy' values in Python that would cause an `if` condition to evaluate to `False`.",
+      "back": "In Python, the following values are considered 'falsy' (evaluate to `False` in a boolean context):\n1.  `False` (the boolean value itself)\n2.  `None`\n3.  Numeric zero (`0`, `0.0`, `0j`)\n4.  Empty sequences (`''` (empty string), `[]` (empty list), `()` (empty tuple))\n5.  Empty mappings (`{}` (empty dictionary))\n6.  Empty sets (`set()`)",
+      "difficulty": "medium"
+    }
+  ]
+}

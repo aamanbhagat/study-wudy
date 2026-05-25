@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p1-1-1-percentages-finding-of-a-quantity-increase-decrease",
+  "subtopicTitle": "Percentages — finding %, % of a quantity, % increase/decrease",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "model": "gemini-3.1-pro-preview",
+  "generatedAt": "2026-05-25T15:01:01.245Z",
+  "cards": [
+    {
+      "front": "What does the term **percent** literally mean, and how is $x\\%$ expressed as a fraction?",
+      "back": "\"Percent\" means \"per hundred\" (from the Latin *per centum*). \n\nMathematically, $x\\%$ is expressed as a fraction with a denominator of 100:\n$$ \\frac{x}{100} $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the general formula to find $P\\%$ of a quantity $Q$?",
+      "back": "Convert the percentage to a fraction (or decimal), then multiply it by the quantity:\n\n$$ \\text{Value} = \\frac{P}{100} \\times Q $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you calculate what percentage a number $A$ is of another number $B$?",
+      "back": "Divide $A$ by $B$ to get the decimal fraction, then multiply by $100$ to convert it to a percentage:\n\n$$ \\left( \\frac{A}{B} \\right) \\times 100\\% $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the formula for calculating the **percentage change** (increase or decrease) between an $\\text{Old}$ value and a $\\text{New}$ value?",
+      "back": "$$ \\text{Percentage Change} = \\frac{\\text{New} - \\text{Old}}{|\\text{Old}|} \\times 100\\% $$\n\nA positive result indicates a percentage increase, while a negative result indicates a percentage decrease.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you apply a percentage increase or decrease of $R\\%$ directly to a quantity $Q$ using a single **multiplier**?",
+      "back": "Multiply $Q$ by $\\left(1 \\pm \\frac{R}{100}\\right)$.\n\nFor an increase:\n$$ Q_{\\text{new}} = Q \\times \\left(1 + \\frac{R}{100}\\right) $$\nFor a decrease:\n$$ Q_{\\text{new}} = Q \\times \\left(1 - \\frac{R}{100}\\right) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find the **original quantity** $Q_{\\text{old}}$ if you only know the final quantity $Q_{\\text{new}}$ after an $R\\%$ increase? (Reverse Percentage)",
+      "back": "Divide the final quantity by the percentage multiplier.\n\n$$ Q_{\\text{old}} = \\frac{Q_{\\text{new}}}{1 + \\frac{R}{100}} $$\n\n*Common mistake:* You cannot simply subtract $R\\%$ of $Q_{\\text{new}}$ to find the original value, because the $R\\%$ was originally calculated relative to $Q_{\\text{old}}$, not $Q_{\\text{new}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a quantity $Q$ is increased by $x\\%$ and then decreased by $x\\%$, is the final value equal to $Q$? Prove it algebraically.",
+      "back": "No, it is strictly less than $Q$ (for $x \\neq 0$).\n\nProof:\n$$ Q_{\\text{final}} = Q \\left(1 + \\frac{x}{100}\\right) \\left(1 - \\frac{x}{100}\\right) $$\nUsing the difference of squares:\n$$ Q_{\\text{final}} = Q \\left(1 - \\frac{x^2}{10000}\\right) $$\nSince $\\frac{x^2}{10000} > 0$, the multiplier is less than 1, so the final value is less than $Q$.",
+      "difficulty": "hard"
+    }
+  ]
+}

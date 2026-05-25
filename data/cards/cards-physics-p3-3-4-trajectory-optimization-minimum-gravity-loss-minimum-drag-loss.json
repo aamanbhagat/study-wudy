@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-4-trajectory-optimization-minimum-gravity-loss-minimum-drag-loss",
+  "subtopicTitle": "Trajectory optimization — minimum gravity loss, minimum drag loss",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:28.373Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of rocket trajectory optimization?",
+      "back": "To achieve a desired final state (e.g., specific orbit, velocity, altitude) while maximizing payload mass or minimizing propellant consumption. This involves minimizing losses due to gravity and atmospheric drag.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"gravity loss\" in rocket flight mechanics.",
+      "back": "Gravity loss is the reduction in a rocket's potential change in velocity ($\\Delta V$) due to the continuous downward pull of gravity throughout the ascent. It represents the $\\Delta V$ that would have been gained if gravity were absent.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the integral formula for gravity loss ($\\Delta V_g$) and state how a higher initial thrust-to-weight ratio generally affects it.",
+      "back": "The gravity loss is given by $\\Delta V_g = \\int_0^{t_f} g \\cos(\\gamma) dt$, where $g$ is the local gravitational acceleration, $\\gamma$ is the flight path angle (angle between velocity vector and local horizontal), and $t_f$ is the burn time. A higher initial thrust-to-weight ratio generally *reduces* gravity loss because it allows the rocket to accelerate faster and spend less time fighting gravity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how a \"gravity turn\" maneuver minimizes gravity loss compared to a purely vertical ascent.",
+      "back": "A gravity turn initiates with a brief vertical ascent, then a small pitch maneuver to tilt the rocket. Subsequent changes in the flight path angle are managed by gravity itself, allowing the thrust vector to remain aligned with the velocity vector (or nearly so) for most of the ascent. This minimizes the cosine term in the gravity loss integral ($\\cos(\\gamma)$ is maximized towards 1, meaning less \"wasted\" thrust fighting gravity), and reduces structural loads compared to active steering. A purely vertical ascent requires a sharp, high-g pitch-over later, which is less efficient and structurally demanding.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define \"drag loss\" in rocket flight mechanics.",
+      "back": "Drag loss is the reduction in a rocket's potential change in velocity ($\\Delta V$) due to the resistive force of atmospheric drag. It represents the $\\Delta V$ that would have been gained if there were no atmosphere.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the integral formula for drag loss ($\\Delta V_d$) and identify the flight regime where it is typically highest.",
+      "back": "The drag loss is given by $\\Delta V_d = \\int_0^{t_f} \\frac{D}{m} dt$, where $D$ is the drag force ($D = \\frac{1}{2} \\rho v^2 S C_D$), $m$ is the instantaneous mass, and $t_f$ is the burn time. Drag loss is typically highest in the *transonic and supersonic flight regimes* (Mach 0.8 to Mach 2-3) and at lower altitudes where atmospheric density ($\\rho$) is highest.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does an early vs. late pitch-over in the ascent profile affect the trade-off between gravity loss and drag loss?",
+      "back": "An **early pitch-over** reduces gravity loss by quickly turning horizontal, but increases drag loss as the rocket builds horizontal velocity at lower, denser altitudes. A **late pitch-over** (more vertical ascent) reduces drag loss by staying in denser atmosphere for less time and building horizontal velocity higher up, but increases gravity loss due to spending more time fighting gravity vertically. Optimal trajectories balance these two competing losses.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What general mathematical principle is used to find an optimal trajectory that minimizes the *sum* of gravity and drag losses?",
+      "back": "The general mathematical principle used is the **Calculus of Variations**, often applied through **Pontryagin's Minimum Principle**. This framework allows for finding the optimal control law (e.g., thrust vector direction) that minimizes a cost function (like total $\\Delta V$ losses) subject to the rocket's equations of motion and constraints.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a rocket with a very high initial thrust-to-weight ratio (TWR), which type of loss (gravity or drag) is typically more dominant and prioritized for minimization, and why?",
+      "back": "For a very high TWR rocket, **drag loss** is typically more dominant. A high TWR means the rocket accelerates rapidly, quickly gaining velocity. While this reduces gravity loss (less time spent fighting gravity), it also means the rocket reaches high velocities faster, often while still in the denser lower atmosphere, leading to significant drag forces and thus higher drag losses. Therefore, optimizing to reduce drag (e.g., by staying more vertical initially) becomes more critical.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p3-3-1-arc-length-and-sector-area-using-radians",
+  "subtopicTitle": "Arc length and sector area using radians",
+  "topicId": "math-p3-3-1-advanced-trigonometry",
+  "topicTitle": "Advanced Trigonometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:26.808Z",
+  "cards": [
+    {
+      "front": "Define one radian.",
+      "back": "A radian is the angle subtended at the center of a circle by an arc whose length is equal to the radius of the circle. This means that if an arc has length $r$, the angle is $1$ radian.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for arc length, $s$, of a sector with radius $r$ and central angle $\theta$.",
+      "back": "The formula for arc length is $s = r\theta$. It is crucial that the angle $\theta$ is measured in radians.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the area, $A$, of a sector with radius $r$ and central angle $\theta$.",
+      "back": "The formula for the area of a sector is $A = \\frac{1}{2}r^2\\theta$. As with arc length, the angle $\\theta$ must be measured in radians.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A circle has radius $5$ cm. Find the arc length subtended by a central angle of $72^\\circ$.",
+      "back": "First, convert $72^\\circ$ to radians:\n$72^\\circ = 72 \\times \\frac{\\pi}{180} \\text{ radians} = \\frac{2\\pi}{5} \\text{ radians}$.\nNow, use the arc length formula $s = r\\theta$:\n$s = 5 \\times \\frac{2\\pi}{5} = 2\\pi$ cm.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An arc of length $12$ cm subtends a central angle of $1.5$ radians. Find the radius of the circle.",
+      "back": "Using the arc length formula $s = r\\theta$:\n$12 = r \\times 1.5$\n$r = \\frac{12}{1.5} = \\frac{12}{3/2} = 12 \\times \\frac{2}{3} = 8$ cm.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the derivation of the arc length formula $s = r\\theta$ using proportionality.",
+      "back": "The circumference of a circle is $C = 2\\pi r$.\nThe total angle in a circle is $2\\pi$ radians.\nThe ratio of an arc length $s$ to the full circumference $2\\pi r$ is equal to the ratio of the central angle $\\theta$ to the total angle $2\\pi$:\n$$ \\frac{s}{2\\pi r} = \\frac{\\theta}{2\\pi} $$\nMultiplying both sides by $2\\pi r$:\n$$ s = \\frac{\\theta}{2\\pi} \\times 2\\pi r $$\n$$ s = r\\theta $$\nThis derivation highlights why $\\theta$ *must* be in radians for the formula to be so simple.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the derivation of the sector area formula $A = \\frac{1}{2}r^2\\theta$ using proportionality.",
+      "back": "The area of a full circle is $A_{circle} = \\pi r^2$.\nThe total angle in a circle is $2\\pi$ radians.\nThe ratio of the sector area $A$ to the full circle area $\\pi r^2$ is equal to the ratio of the central angle $\\theta$ to the total angle $2\\pi$:\n$$ \\frac{A}{\\pi r^2} = \\frac{\\theta}{2\\pi} $$\nMultiplying both sides by $\\pi r^2$:\n$$ A = \\frac{\\theta}{2\\pi} \\times \\pi r^2 $$\n$$ A = \\frac{1}{2}r^2\\theta $$\nAgain, this derivation relies on $\\theta$ being in radians.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for the area of a circular segment given radius $r$ and central angle $\\theta$ in radians.",
+      "back": "A circular segment is the area enclosed by an arc and its corresponding chord.\nArea of segment = Area of sector - Area of triangle.\nArea of sector $= \\frac{1}{2}r^2\\theta$.\nThe triangle formed by the two radii and the chord has sides $r, r$ and the angle $\\theta$ between them.\nArea of triangle $= \\frac{1}{2}ab\\sin C = \\frac{1}{2}r \\cdot r \\sin\\theta = \\frac{1}{2}r^2\\sin\\theta$.\nTherefore, Area of segment $= \\frac{1}{2}r^2\\theta - \\frac{1}{2}r^2\\sin\\theta = \\frac{1}{2}r^2(\\theta - \\sin\\theta)$.\nNote: $\\theta$ must be in radians for both the sector area and the $\\sin\\theta$ term for consistency in this context.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A sector has radius $6$ cm and a central angle of $\\frac{\\pi}{3}$ radians. Find its perimeter.",
+      "back": "The perimeter of a sector consists of two radii and the arc length.\nArc length $s = r\\theta = 6 \\times \\frac{\\pi}{3} = 2\\pi$ cm.\nThe two radii contribute $r+r = 6+6 = 12$ cm.\nPerimeter $= 12 + 2\\pi$ cm.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-2-mutex-implementation-using-hardware-atomics-test-and-set-cas",
+  "subtopicTitle": "Mutex — implementation using hardware atomics (test-and-set, CAS)",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:56.949Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a mutex in concurrent programming?",
+      "back": "A mutex (mutual exclusion) ensures that only one thread can access a critical section of code at a time, preventing race conditions and maintaining data integrity in shared resources.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why are hardware atomic operations (like `test_and_set` or `compare_and_swap`) essential for implementing mutexes without higher-level OS support?",
+      "back": "Hardware atomic operations guarantee that read-modify-write operations on a shared lock variable are indivisible. This prevents race conditions *within* the lock acquisition/release logic itself, ensuring that the lock state is updated consistently even under concurrent access.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the `test_and_set(address)` atomic instruction, including its return value and effect on memory.",
+      "back": "The `test_and_set(address)` instruction atomically performs two actions: it reads the current value at `address`, then sets the value at `address` to `true` (or 1). It returns the *original* value that was read before the write. If the original value was `true`, the lock was already held; if `false`, the lock was acquired.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement the `acquire()` method for a basic spinlock mutex using the `test_and_set` atomic instruction.",
+      "back": "```c\nvolatile bool lock_flag = false; // Shared lock variable, initially unlocked\n\nvoid acquire() {\n    // Spin-wait while test_and_set returns true (meaning lock was already held)\n    while (test_and_set(&lock_flag)) {\n        // Busy-wait; could add a pause instruction for efficiency\n    }\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the `compare_and_swap(address, expected, new_value)` atomic instruction, including its return value and effect.",
+      "back": "The `compare_and_swap` (CAS) instruction atomically checks if the value at `address` is equal to `expected`. If they match, it sets the value at `address` to `new_value` and returns `true` (indicating success). If they do not match, it does nothing and returns `false` (indicating failure).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Implement the `acquire()` method for a basic spinlock mutex using the `compare_and_swap` atomic instruction.",
+      "back": "```c\nvolatile int lock_state = 0; // 0 for unlocked, 1 for locked\n\nvoid acquire() {\n    int expected_unlocked = 0;\n    int new_locked = 1;\n    // Spin-wait until CAS successfully changes lock_state from 0 to 1\n    while (!compare_and_swap(&lock_state, expected_unlocked, new_locked)) {\n        // Busy-wait; could add a pause instruction for efficiency\n    }\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a significant drawback of simple spinlock mutex implementations using `test_and_set` or `compare_and_swap`, especially on single-core systems or when contention is high?",
+      "back": "The significant drawback is busy-waiting (or \"spinning\"). Threads repeatedly execute a loop, checking the lock variable and consuming CPU cycles without performing useful work. On a single-core system, this wastes CPU time that could be used by the thread holding the lock to release it, leading to degraded performance and potential deadlocks if not carefully managed.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the `release()` operation for a simple spinlock mutex (implemented with `test_and_set` or `compare_and_swap`) does *not* need to be an atomic instruction.",
+      "back": "The `release()` operation, typically a simple write (e.g., `lock_flag = false` or `lock_state = 0`), does not need to be atomic because only the thread that successfully acquired the lock can execute `release()`. There is no contention for setting the lock variable to the \"unlocked\" state; other threads are only trying to *acquire* it. Therefore, a non-atomic write is sufficient and often faster.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a potential fairness issue or starvation scenario that can arise in basic spinlock mutexes implemented with `test_and_set` or `compare_and_swap`?",
+      "back": "Basic spinlocks offer no fairness guarantees. When the lock becomes free, any spinning thread can acquire it. This can lead to starvation, where a thread repeatedly loses the race to acquire the lock, even if it has been waiting for a long time. Factors like CPU scheduling, cache locality, or simple bad luck can cause certain threads to be perpetually outcompeted by others.",
+      "difficulty": "hard"
+    }
+  ]
+}

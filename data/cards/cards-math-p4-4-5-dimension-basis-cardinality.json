@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-5-dimension-basis-cardinality",
+  "subtopicTitle": "Dimension — basis cardinality",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:02.966Z",
+  "cards": [
+    {
+      "front": "Define a basis for a vector space $V$.",
+      "back": "A set of vectors $B = \\{v_1, v_2, \\dots, v_n\\}$ is a basis for a vector space $V$ if it satisfies two conditions:\n1.  $B$ is linearly independent.\n2.  $B$ spans $V$ (i.e., every vector in $V$ can be written as a linear combination of vectors in $B$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental theorem that ensures the dimension of a finite-dimensional vector space is well-defined.",
+      "back": "The fundamental theorem states: If a vector space $V$ has a basis with $n$ vectors, then every other basis for $V$ also has exactly $n$ vectors. This common number $n$ is then defined as the dimension of $V$, denoted $\\dim(V)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the dimension of $\\mathbb{R}^n$? Provide its standard basis.",
+      "back": "The dimension of $\\mathbb{R}^n$ is $n$. Its standard basis is the set of standard unit vectors: $B = \\{e_1, e_2, \\dots, e_n\\}$, where $e_i$ is the vector with a $1$ in the $i$-th position and $0$s elsewhere.\nFor example, in $\\mathbb{R}^3$, $B = \\{[1,0,0]^T, [0,1,0]^T, [0,0,1]^T\\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $\\dim(V) = n$, what property must any set of $n+1$ vectors in $V$ possess?",
+      "back": "If $\\dim(V) = n$, then any set of $n+1$ vectors in $V$ must be linearly dependent. This is a direct consequence of the theorem that a linearly independent set cannot have more vectors than a spanning set (and a basis is a minimal spanning set).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the key steps to prove that any two bases of a finite-dimensional vector space have the same cardinality.",
+      "back": "Let $B_1 = \\{v_1, \\dots, v_n\\}$ and $B_2 = \\{w_1, \\dots, w_m\\}$ be two bases for a finite-dimensional vector space $V$.\n1.  Since $B_1$ is a basis, it spans $V$. Since $B_2$ is a linearly independent set in $V$, the number of vectors in $B_2$ cannot exceed the number of vectors in the spanning set $B_1$. Thus, $m \\le n$.\n2.  Conversely, since $B_2$ is a basis, it spans $V$. Since $B_1$ is a linearly independent set in $V$, the number of vectors in $B_1$ cannot exceed the number of vectors in the spanning set $B_2$. Thus, $n \\le m$.\n3.  From $m \\le n$ and $n \\le m$, we conclude that $m=n$. This proves that both bases must have the same number of vectors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the dimension of the column space of a matrix $A$ determined?",
+      "back": "The dimension of the column space of a matrix $A$, denoted $\\dim(\\text{Col}(A))$, is equal to the rank of the matrix $A$. This is found by counting the number of pivot columns in the row echelon form (or reduced row echelon form) of $A$. These pivot columns in the original matrix $A$ form a basis for $\\text{Col}(A)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the dimension of the zero vector space, $V = \\{0\\}$?",
+      "back": "The dimension of the zero vector space, $V = \\{0\\}$, is $0$. Its basis is the empty set $\\emptyset$. The empty set is considered linearly independent and spans the zero vector space (the only vector, $0$, is a linear combination of no vectors).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a subspace $W$ of a finite-dimensional vector space $V$, how do their dimensions relate? When are they equal?",
+      "back": "If $W$ is a subspace of a finite-dimensional vector space $V$, then $\\dim(W) \\le \\dim(V)$.\nFurthermore, $\\dim(W) = \\dim(V)$ if and only if $W = V$. That is, if a subspace has the same dimension as the parent space, it must be the entire parent space itself.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, what does the \"dimension\" of a vector space represent?",
+      "back": "Intuitively, the dimension of a vector space represents the minimum number of independent directions or parameters required to uniquely specify any vector within that space. It quantifies the 'size' or 'degrees of freedom' of the space, indicating how many independent pieces of information are needed to describe its elements.",
+      "difficulty": "medium"
+    }
+  ]
+}

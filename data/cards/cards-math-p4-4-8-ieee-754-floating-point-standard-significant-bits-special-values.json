@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-ieee-754-floating-point-standard-significant-bits-special-values",
+  "subtopicTitle": "IEEE 754 floating-point standard — significant bits, special values",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:10.018Z",
+  "cards": [
+    {
+      "front": "What are the three main components of an IEEE 754 floating-point number?",
+      "back": "Sign bit, exponent field, and significand (or mantissa) field.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the purpose of the 'implicit leading bit' in normalized IEEE 754 floating-point numbers?",
+      "back": "It allows for one additional bit of precision without increasing storage. For all normalized numbers, this implicit bit is always $1$, meaning the significand value is $1.f_1f_2...f_n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How many bits are allocated for the significand (including the implicit bit) in IEEE 754 single-precision (32-bit) and double-precision (64-bit) formats?",
+      "back": "Single-precision: $23$ explicit bits + $1$ implicit bit $= 24$ bits.\nDouble-precision: $52$ explicit bits + $1$ implicit bit $= 53$ bits.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is positive infinity ($+\\infty$) represented in IEEE 754 single-precision format?",
+      "back": "The sign bit is $0$, all exponent bits are $1$s ($11111111_2$), and all significand bits are $0$s. Its bit pattern is `0 11111111 00000000000000000000000`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of a 'NaN' (Not-a-Number) in IEEE 754, and what are its general bit patterns?",
+      "back": "NaN represents undefined or unrepresentable results from operations (e.g., $0/0$, $\\sqrt{-1}$, $\\infty - \\infty$). Its bit pattern has all exponent bits set to $1$s, and the significand field is *not all zeros* (at least one bit is $1$). The sign bit can be $0$ or $1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain 'denormalized numbers' (subnormals) in IEEE 754. How do they differ from normalized numbers?",
+      "back": "Denormalized numbers represent values very close to zero, enabling 'gradual underflow'. They have an exponent field of all zeros and a significand field that is *not all zeros*. Unlike normalized numbers which have an implicit leading $1$, denormalized numbers have an *implicit leading $0$* (i.e., their significand value is $0.f_1f_2...f_n$). This allows for smaller non-zero numbers than would be possible with only normalized representation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the result of $1.0 / 0.0$ in IEEE 754 floating-point arithmetic, and how is it represented?",
+      "back": "The result is positive infinity ($+\\infty$). It is represented with a sign bit $0$, all exponent bits $1$s, and all significand bits $0$s. This is distinct from division by a denormalized number close to zero, which would yield a very large finite number.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an IEEE 754 single-precision number `0 01111111 00000000000000000000000`, what decimal value does it represent? Show steps.",
+      "back": "1.  **Sign bit ($S$):** $0$, so the number is positive.\n2.  **Exponent field ($E$):** $01111111_2 = 127$.\n3.  **Actual exponent ($e$):** For single-precision, bias is $127$. So, $e = E - \\text{bias} = 127 - 127 = 0$.\n4.  **Significand field ($M$):** $00000000000000000000000_2$.\n5.  **Significand value:** Since $E$ is not all zeros or all ones, it's a normalized number, so the implicit leading bit is $1$. The significand value is $1.M = 1.0_2 = 1$.\n6.  **Final value:** $(-1)^S \\times (1.M) \\times 2^e = (-1)^0 \\times 1.0 \\times 2^0 = 1 \\times 1 \\times 1 = 1.0$.\nThe number represents $1.0$.",
+      "difficulty": "hard"
+    }
+  ]
+}

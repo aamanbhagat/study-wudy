@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-1-gpu-architecture-simt-warps-cuda-model",
+  "subtopicTitle": "GPU architecture — SIMT, warps, CUDA model",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:17.402Z",
+  "cards": [
+    {
+      "front": "Define SIMT (Single Instruction, Multiple Thread) in the context of GPU architecture.",
+      "back": "SIMT is an execution model where a single instruction is simultaneously executed by multiple independent threads. Each thread has its own program counter, registers, and data, but they all follow the same instruction stream. It allows for flexible per-thread execution while leveraging data parallelism.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does SIMT fundamentally differ from traditional SIMD (e.g., CPU vector extensions)?",
+      "back": "SIMD (Single Instruction, Multiple Data) typically operates on fixed-size vector registers, processing multiple data elements within a single instruction. SIMT, on the other hand, involves multiple *threads*, each with its own state and the *potential* for independent execution paths (though hardware manages divergence). SIMT provides a more flexible programming model by abstracting away vectorization details and allowing per-thread branching, which SIMD doesn't natively support without complex masking.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a \"warp\" in CUDA, and how does it execute instructions?",
+      "back": "A warp is a group of 32 threads that execute a single instruction in lockstep. It is the fundamental unit of scheduling on a CUDA Streaming Multiprocessor (SM). All threads within a warp are expected to execute the same instruction at the same time, following the SIMT principle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the hierarchical organization of threads in the CUDA programming model.",
+      "back": "CUDA threads are organized into **Thread Blocks**, which are groups of threads (up to 1024) that can cooperate via shared memory and synchronize using `__syncthreads()`. These thread blocks are then grouped into a **Grid**, which represents the entire set of threads launched for a kernel. A kernel is executed by one grid of thread blocks.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the CUDA C++ expression for a 1D global thread ID, given `blockIdx.x`, `blockDim.x`, and `threadIdx.x`.",
+      "back": "```c++\nint globalThreadId = blockIdx.x * blockDim.x + threadIdx.x;\n```\nFor a 2D grid of 2D blocks, the global coordinates would be:\n`int globalX = blockIdx.x * blockDim.x + threadIdx.x;`\n`int globalY = blockIdx.y * blockDim.y + threadIdx.y;`",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name and briefly describe three distinct memory spaces available to CUDA threads.",
+      "back": "1.  **Global Memory**: Off-chip DRAM, accessible by all threads in the grid and the host. Largest capacity, slowest access.\n2.  **Shared Memory**: On-chip, high-speed memory, accessible by all threads within the *same* thread block. User-managed, small capacity.\n3.  **Local Memory**: Off-chip, per-thread memory, used for registers that spill. Slow, similar latency to global memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain warp divergence, its performance impact, and provide a minimal CUDA C++ example.",
+      "back": "Warp divergence occurs when threads within the same warp take different execution paths due to conditional logic (e.g., `if/else`). The hardware serializes these paths: it executes one path for the active threads, then the other path for its active threads, effectively disabling inactive threads. This significantly reduces parallelism and wastes execution cycles, as the total execution time becomes the sum of the times for all divergent paths.\n```c++\n// Inside a kernel\nif (threadIdx.x < 16) { // Threads 0-15 take this path\n    // Do something\n} else { // Threads 16-31 take this path\n    // Do something else\n}\n```\nThis code causes divergence within a 32-thread warp.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the purpose and scope of `__syncthreads()` in CUDA kernels?",
+      "back": "`__syncthreads()` is a barrier synchronization primitive. It ensures that all threads within the *calling thread block* have completed all preceding instructions before any thread in that block can proceed past the barrier. Its primary use is to prevent race conditions when threads within the same block share data via shared memory. It *does not* synchronize threads across different thread blocks or the entire grid.",
+      "difficulty": "medium"
+    }
+  ]
+}

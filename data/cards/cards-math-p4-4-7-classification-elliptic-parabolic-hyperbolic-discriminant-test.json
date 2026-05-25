@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-7-classification-elliptic-parabolic-hyperbolic-discriminant-test",
+  "subtopicTitle": "Classification — elliptic, parabolic, hyperbolic (discriminant test)",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:43.117Z",
+  "cards": [
+    {
+      "front": "What is the general form of a second-order linear PDE in two independent variables $x, y$?",
+      "back": "The general form is: $$A(x,y) u_{xx} + B(x,y) u_{xy} + C(x,y) u_{yy} + D(x,y) u_x + E(x,y) u_y + F(x,y) u = G(x,y)$$ where $A, B, C, D, E, F, G$ are functions of $x$ and $y$, and $A, B, C$ are not all zero.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a second-order linear PDE $A u_{xx} + B u_{xy} + C u_{yy} + \\dots = G$, how is the discriminant $\\Delta$ defined?",
+      "back": "The discriminant $\\Delta$ (sometimes denoted $D$) for a second-order linear PDE is defined as: $$\\Delta = B^2 - 4AC$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the classification rules for a second-order linear PDE based on its discriminant $\\Delta = B^2 - 4AC$.",
+      "back": "The classification rules are: \n*   **Elliptic:** If $\\Delta < 0$\n*   **Parabolic:** If $\\Delta = 0$\n*   **Hyperbolic:** If $\\Delta > 0$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Classify the 1D Heat Equation $u_t = k u_{xx}$ (with $k>0$), considering $x$ and $t$ as independent variables.",
+      "back": "Rewrite the equation as $k u_{xx} - u_t = 0$. Comparing to $A u_{xx} + B u_{xt} + C u_{tt} + \\dots = 0$, we identify $A=k$, $B=0$, and $C=0$. The discriminant is $\\Delta = B^2 - 4AC = 0^2 - 4(k)(0) = 0$. Since $\\Delta = 0$, the Heat Equation is **Parabolic**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Classify the 1D Wave Equation $u_{tt} = c^2 u_{xx}$ (with $c>0$), considering $x$ and $t$ as independent variables.",
+      "back": "Rewrite the equation as $c^2 u_{xx} - u_{tt} = 0$. Comparing to $A u_{xx} + B u_{xt} + C u_{tt} + \\dots = 0$, we identify $A=c^2$, $B=0$, and $C=-1$. The discriminant is $\\Delta = B^2 - 4AC = 0^2 - 4(c^2)(-1) = 4c^2$. Since $c>0$, $4c^2 > 0$. Thus, the Wave Equation is **Hyperbolic**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Classify the PDE $y u_{xx} + u_{yy} = 0$ based on the region in the $xy$-plane.",
+      "back": "Comparing to $A u_{xx} + B u_{xy} + C u_{yy} + \\dots = 0$, we identify $A=y$, $B=0$, and $C=1$. The discriminant is $\\Delta = B^2 - 4AC = 0^2 - 4(y)(1) = -4y$. \n*   If $y > 0$, then $\\Delta < 0$, so the PDE is **Elliptic**. \n*   If $y = 0$, then $\\Delta = 0$, so the PDE is **Parabolic**. \n*   If $y < 0$, then $\\Delta > 0$, so the PDE is **Hyperbolic**. \nThis PDE changes type depending on the sign of $y$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the fundamental characteristics of physical phenomena modeled by elliptic, parabolic, and hyperbolic PDEs, respectively?",
+      "back": "The classifications relate to how information propagates and the nature of the solutions:\n*   **Elliptic:** Describe steady-state, equilibrium, or time-independent problems (e.g., Laplace's equation). Solutions are smooth and determined by boundary conditions; information propagates instantaneously throughout the domain.\n*   **Parabolic:** Describe diffusion, heat conduction, or dissipative processes over time (e.g., Heat equation). Information propagates infinitely fast but is smoothed out and damped over time.\n*   **Hyperbolic:** Describe wave propagation, vibrations, or phenomena with finite propagation speed (e.g., Wave equation). Information travels along specific characteristic curves at a finite speed, leading to distinct regions of influence.",
+      "difficulty": "hard"
+    }
+  ]
+}

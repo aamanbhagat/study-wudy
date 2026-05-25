@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-6-velocity-and-acceleration-in-shm-v-a-x",
+  "subtopicTitle": "Velocity and acceleration in SHM — v = ω√(A²-x²)",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:27.294Z",
+  "cards": [
+    {
+      "front": "What is the general equation for displacement $x(t)$ in Simple Harmonic Motion (SHM), assuming an initial phase of zero?",
+      "back": "The general equation for displacement in SHM with zero initial phase is $x(t) = A \\cos(\\omega t)$, where $A$ is the amplitude, $\\omega$ is the angular frequency, and $t$ is time. (Alternatively, $x(t) = A \\sin(\\omega t)$ can be used, depending on the choice of origin for $t$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the instantaneous velocity $v(t)$ for an object undergoing SHM with displacement $x(t) = A \\cos(\\omega t)$.",
+      "back": "Given displacement $x(t) = A \\cos(\\omega t)$.\nVelocity is the time derivative of displacement: $v(t) = \\frac{dx}{dt}$.\n$v(t) = \\frac{d}{dt} (A \\cos(\\omega t))$\n$v(t) = A \\cdot (-\\sin(\\omega t)) \\cdot \\omega$\n$v(t) = -A\\omega \\sin(\\omega t)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the instantaneous acceleration $a(t)$ for an object undergoing SHM, starting from its velocity $v(t) = -A\\omega \\sin(\\omega t)$.",
+      "back": "Given velocity $v(t) = -A\\omega \\sin(\\omega t)$.\nAcceleration is the time derivative of velocity: $a(t) = \\frac{dv}{dt}$.\n$a(t) = \\frac{d}{dt} (-A\\omega \\sin(\\omega t))$\n$a(t) = -A\\omega \\cdot (\\cos(\\omega t)) \\cdot \\omega$\n$a(t) = -A\\omega^2 \\cos(\\omega t)$.\nSince $x(t) = A \\cos(\\omega t)$, we can also write $a(t) = -\\omega^2 x(t)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship $v = \\pm \\omega \\sqrt{A^2 - x^2}$ for SHM, starting from $x = A \\cos(\\omega t)$ and $v = -A\\omega \\sin(\\omega t)$.",
+      "back": "We have $x = A \\cos(\\omega t)$ and $v = -A\\omega \\sin(\\omega t)$.\nFrom the first equation, $\\cos(\\omega t) = \\frac{x}{A}$.\nFrom the second equation, $\\sin(\\omega t) = -\\frac{v}{A\\omega}$.\nUsing the trigonometric identity $\\sin^2(\\theta) + \\cos^2(\\theta) = 1$, we substitute $\\theta = \\omega t$:\n$\\left(-\\frac{v}{A\\omega}\\right)^2 + \\left(\\frac{x}{A}\\right)^2 = 1$\n$\\frac{v^2}{A^2\\omega^2} + \\frac{x^2}{A^2} = 1$\nMultiply by $A^2$: $\\frac{v^2}{\\omega^2} + x^2 = A^2$\nRearrange for $v^2$: $v^2 = \\omega^2 (A^2 - x^2)$\nTaking the square root: $v = \\pm \\omega \\sqrt{A^2 - x^2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "At what displacement(s) $x$ is the speed of an object in SHM maximum, and what is the formula for this maximum speed?",
+      "back": "The speed of an object in SHM is maximum at the equilibrium position, where $x = 0$.\nUsing $v = \\pm \\omega \\sqrt{A^2 - x^2}$, when $x=0$, $v_{max} = \\pm \\omega \\sqrt{A^2 - 0^2} = \\pm \\omega A$.\nSo, the maximum speed is $|v_{max}| = \\omega A$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "At what displacement(s) $x$ is the magnitude of acceleration of an object in SHM maximum, and what is the formula for this maximum acceleration?",
+      "back": "The magnitude of acceleration in SHM is maximum at the extreme positions (endpoints of oscillation), where $x = \\pm A$.\nUsing $a = -\\omega^2 x$, when $x = \\pm A$, $a = -\\omega^2 (\\pm A) = \\mp \\omega^2 A$.\nSo, the maximum acceleration magnitude is $|a_{max}| = \\omega^2 A$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the phase relationship between displacement $x$, velocity $v$, and acceleration $a$ in Simple Harmonic Motion.",
+      "back": "If displacement $x(t) = A \\cos(\\omega t)$, then:\n1.  Velocity $v(t) = -A\\omega \\sin(\\omega t) = A\\omega \\cos(\\omega t + \\pi/2)$. Velocity leads displacement by $\\pi/2$ radians (or $90^\\circ$).\n2.  Acceleration $a(t) = -A\\omega^2 \\cos(\\omega t) = A\\omega^2 \\cos(\\omega t + \\pi)$. Acceleration leads velocity by $\\pi/2$ radians (or $90^\\circ$), and leads displacement by $\\pi$ radians (or $180^\\circ$). This means acceleration is always in the opposite direction to displacement.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A particle undergoes SHM with amplitude $A = 0.8 \\text{ m}$ and angular frequency $\\omega = 5 \\text{ rad/s}$. Calculate its speed when its displacement is $x = 0.4 \\text{ m}$.",
+      "back": "We use the formula $v = \\omega \\sqrt{A^2 - x^2}$.\nGiven: $A = 0.8 \\text{ m}$, $\\omega = 5 \\text{ rad/s}$, $x = 0.4 \\text{ m}$.\n$v = 5 \\text{ rad/s} \\cdot \\sqrt{(0.8 \\text{ m})^2 - (0.4 \\text{ m})^2}$\n$v = 5 \\cdot \\sqrt{0.64 - 0.16}$\n$v = 5 \\cdot \\sqrt{0.48}$\n$v = 5 \\cdot 0.6928 \\text{ m/s}$ (approx.)\n$v \\approx 3.464 \\text{ m/s}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

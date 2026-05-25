@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-calculus-of-variations-functionals-functional-derivative",
+  "subtopicTitle": "Calculus of variations — functionals, functional derivative",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:17:40.333Z",
+  "cards": [
+    {
+      "front": "Define a \"functional\" in the context of calculus of variations.",
+      "back": "A functional is a mapping that takes a function as its input and returns a scalar value (typically a real or complex number). It can be thought of as a function of functions. Mathematically, $J: V \\to \\mathbb{R}$, where $V$ is a function space.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide an example of a common functional used in physics or geometry.",
+      "back": "The arc length functional is a classic example: $J[y] = \\int_{a}^{b} \\sqrt{1 + (y'(x))^2} \\, dx$. This functional takes a function $y(x)$ and returns the length of its graph between $x=a$ and $x=b$. Another example is the action integral in Lagrangian mechanics.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary goal of the calculus of variations, and what is its analogy in ordinary calculus?",
+      "back": "The primary goal is to find functions that extremize (minimize or maximize) a given functional. This is analogous to finding critical points (minima or maxima) of an ordinary function $f(x)$ by setting its derivative $f'(x)=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Euler-Lagrange equation for a functional $J[y] = \\int_{a}^{b} L(x, y(x), y'(x)) \\, dx$.",
+      "back": "The Euler-Lagrange equation is: $$\\frac{\\partial L}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right) = 0$$ This equation provides a necessary condition for the function $y(x)$ to be an extremum of the functional $J[y]$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly outline the derivation of the Euler-Lagrange equation using a variation $\\delta y$.",
+      "back": "Consider a varied path $y(x) + \\epsilon \\delta y(x)$, where $\\delta y(a) = \\delta y(b) = 0$. For $y(x)$ to be an extremum, the first variation of $J$ must be zero: $\\left.\\frac{d}{d\\epsilon} J[y + \\epsilon \\delta y]\\right|_{\\epsilon=0} = 0$. Applying this to $J[y] = \\int L(x, y, y') \\, dx$ and using integration by parts on the term involving $\\frac{\\partial L}{\\partial y'}\\delta y'$, we get $\\int_a^b \\left( \\frac{\\partial L}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right) \\right) \\delta y \\, dx = 0$. Since this must hold for arbitrary $\\delta y$, the term in parentheses must be zero, yielding the Euler-Lagrange equation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the functional derivative $\\frac{\\delta J}{\\delta y(x)}$ of a functional $J[y]$.",
+      "back": "The functional derivative $\\frac{\\delta J}{\\delta y(x)}$ is defined by the relation for the first variation $\\delta J$: $$\\delta J = \\int \\frac{\\delta J}{\\delta y(x)} \\delta y(x) \\, dx$$ For a functional $J[y] = \\int L(x, y, y') \\, dx$, the functional derivative is precisely the left-hand side of the Euler-Lagrange equation: $\\frac{\\delta J}{\\delta y(x)} = \\frac{\\partial L}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right)$. An extremum occurs when $\\frac{\\delta J}{\\delta y(x)} = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the functional derivative $\\frac{\\delta S}{\\delta q(t)}$ for the action functional $S[q] = \\int_{t_1}^{t_2} L(t, q(t), \\dot{q}(t)) \\, dt$.",
+      "back": "Using the general formula for a functional derivative $\\frac{\\delta J}{\\delta y(x)} = \\frac{\\partial L}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right)$, we make the substitutions: $y \\to q$, $x \\to t$, and $y' \\to \\dot{q}$. Thus, the functional derivative of the action functional is: $$\\frac{\\delta S}{\\delta q(t)} = \\frac{\\partial L}{\\partial q} - \\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)$$ Setting this to zero yields the Euler-Lagrange equations of motion in classical mechanics.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the functional derivative analogous to the partial derivative of a function $f(x_1, x_2, \\dots, x_N)$?",
+      "back": "For a multi-variable function $f(x_1, \\dots, x_N)$, a small change $\\Delta f$ is given by $\\Delta f = \\sum_i \\frac{\\partial f}{\\partial x_i} \\Delta x_i$. The functional derivative extends this idea to continuous functions. A functional $J[y]$ can be thought of as a function of infinitely many variables $y(x)$ (one for each $x$). A small change $\\delta J$ is then given by a continuous sum (an integral): $\\delta J = \\int \\frac{\\delta J}{\\delta y(x)} \\delta y(x) \\, dx$. Here, $\\frac{\\delta J}{\\delta y(x)}$ plays the role of $\\frac{\\partial f}{\\partial x_i}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

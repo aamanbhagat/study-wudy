@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p2-2-2-inverse-functions-finding-f-x-horizontal-line-test",
+  "subtopicTitle": "Inverse functions — finding f⁻¹(x), horizontal line test",
+  "topicId": "math-p2-2-2-functions",
+  "topicTitle": "Functions",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:03:31.934Z",
+  "cards": [
+    {
+      "front": "What is an inverse function $f^{-1}(x)$ intuitively?",
+      "back": "An inverse function $f^{-1}(x)$ \"undoes\" the action of the original function $f(x)$. If $f(a)=b$, then $f^{-1}(b)=a$. It maps the output of $f$ back to its original input.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What property must a function $f(x)$ have for its inverse $f^{-1}(x)$ to exist as a function?",
+      "back": "For its inverse $f^{-1}(x)$ to exist as a function, $f(x)$ must be a **one-to-one function**. This means that every element in the range of $f$ corresponds to exactly one element in its domain. Mathematically, if $f(x_1) = f(x_2)$, then $x_1 = x_2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the **Horizontal Line Test** and its purpose.",
+      "back": "The Horizontal Line Test is a graphical method to determine if a function is one-to-one (and thus has an inverse function). If any horizontal line intersects the graph of $f(x)$ at most once, then $f(x)$ is one-to-one. If a horizontal line intersects the graph more than once, $f(x)$ is not one-to-one over its entire domain and does not have an inverse function without restricting its domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the general algebraic steps to find the inverse function $f^{-1}(x)$ for a given function $y=f(x)$.",
+      "back": "1. Replace $f(x)$ with $y$.\n2. Swap $x$ and $y$ in the equation.\n3. Solve the new equation for $y$.\n4. Replace $y$ with $f^{-1}(x)$.\n5. (Crucial) Verify that the domain of $f$ matches the range of $f^{-1}$ and vice-versa, and check that $f(f^{-1}(x)) = x$ and $f^{-1}(f(x)) = x$. If the original function was not one-to-one, you must restrict its domain first.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the inverse function $f^{-1}(x)$ for $f(x) = \\frac{2x+1}{x-3}$.",
+      "back": "1. Let $y = \\frac{2x+1}{x-3}$.\n2. Swap $x$ and $y$: $x = \\frac{2y+1}{y-3}$.\n3. Solve for $y$:\n   $x(y-3) = 2y+1$\n   $xy - 3x = 2y+1$\n   $xy - 2y = 3x+1$\n   $y(x-2) = 3x+1$\n   $y = \\frac{3x+1}{x-2}$\n4. So, $f^{-1}(x) = \\frac{3x+1}{x-2}$.\n(Domain of $f$ is $x \\ne 3$, range is $y \\ne 2$. Domain of $f^{-1}$ is $x \\ne 2$, range is $y \\ne 3$.)",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the result of composing a function $f(x)$ with its inverse $f^{-1}(x)$ in both orders, i.e., $f(f^{-1}(x))$ and $f^{-1}(f(x))$?",
+      "back": "For a function $f(x)$ and its inverse $f^{-1}(x)$, the composition always results in the identity function:\n*   $f(f^{-1}(x)) = x$ for all $x$ in the domain of $f^{-1}$.\n*   $f^{-1}(f(x)) = x$ for all $x$ in the domain of $f$.\nThis property is fundamental to the definition of inverse functions and is often used to verify if two functions are indeed inverses of each other.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $f(x) = x^2$, how can we define an inverse function? Specify the domain for $f(x)$ and find $f^{-1}(x)$ for that domain.",
+      "back": "The function $f(x)=x^2$ is not one-to-one over its natural domain $(-\\infty, \\infty)$ because it fails the Horizontal Line Test (e.g., $f(2)=4$ and $f(-2)=4$).\nTo define an inverse, we must restrict the domain of $f(x)$ to an interval where it *is* one-to-one. A common restriction is $x \\ge 0$.\n1. Let $y = x^2$ for $x \\ge 0$.\n2. Swap $x$ and $y$: $x = y^2$.\n3. Solve for $y$: $y = \\pm\\sqrt{x}$.\n4. Since we restricted the original $x$ (now $y$) to $y \\ge 0$, we must choose the positive root: $y = \\sqrt{x}$.\nTherefore, for $f(x)=x^2$ with domain $[0, \\infty)$, its inverse is $f^{-1}(x) = \\sqrt{x}$ with domain $[0, \\infty)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the graphical relationship between a function $f(x)$ and its inverse $f^{-1}(x)$.",
+      "back": "The graph of $f^{-1}(x)$ is a reflection of the graph of $f(x)$ across the line $y=x$. This is a direct consequence of swapping the $x$ and $y$ coordinates when finding the inverse. If $(a, b)$ is a point on the graph of $f(x)$, then $(b, a)$ is a point on the graph of $f^{-1}(x)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

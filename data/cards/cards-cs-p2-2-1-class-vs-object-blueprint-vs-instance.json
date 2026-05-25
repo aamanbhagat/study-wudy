@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-1-class-vs-object-blueprint-vs-instance",
+  "subtopicTitle": "Class vs object — blueprint vs instance",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:17.972Z",
+  "cards": [
+    {
+      "front": "In Object-Oriented Programming (OOP), what is a \"class\"? Use the \"blueprint\" analogy.",
+      "back": "A class is a blueprint or a template for creating objects. It defines the structure (attributes/data) and behavior (methods/functions) that objects of that type will possess. It's a logical construct, not a physical entity in memory.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In OOP, what is an \"object\"? Use the \"instance\" analogy.",
+      "back": "An object is a concrete, real-world instance of a class. It's a tangible entity created from the class blueprint, occupying memory and having specific values for its attributes, and capable of performing actions defined by its methods.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide a simple Python code snippet to define a `Dog` class with a `name` attribute and then create an object named `my_dog` from it.",
+      "back": "```python\nclass Dog:\n    def __init__(self, name):\n        self.name = name\n\n    def bark(self):\n        return f\"{self.name} says Woof!\"\n\n# Creating an object (instance) of the Dog class\nmy_dog = Dog(\"Buddy\")\nprint(my_dog.name) # Output: Buddy\nprint(my_dog.bark()) # Output: Buddy says Woof!\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish between a class and an object based on their memory allocation and existence during program execution.",
+      "back": "A class is a logical construct that exists in the program's code, defining a type. It does not occupy memory for its attributes until an object is created. An object, however, is a physical entity created at runtime, and each object occupies its own distinct block of memory to store its specific attribute values.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how attributes and methods relate to a class versus an object. Are they defined in the class or in the object?",
+      "back": "Attributes and methods are *defined* within the class. The class acts as the schema. When an object is *instantiated* from that class, it gets its own unique set of attribute *values* (its state) and access to the methods defined in the class to perform actions. Objects share the *definition* of methods but possess their own *data*.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If you define a `BankAccount` class, how many `BankAccount` *classes* can exist in your program at any given time? How many `BankAccount` *objects* can exist?",
+      "back": "There can only be **one** `BankAccount` *class* definition in your program at any given time (unless you redefine it, which is generally bad practice). However, you can create **zero, one, or many** `BankAccount` *objects* (instances) from that single class definition, limited only by available memory. Each object would represent a unique bank account.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a `House` blueprint specifies \"3 bedrooms\" and \"2 bathrooms,\" what does this mean for the *class* `House` versus an *object* `my_house` created from it?",
+      "back": "For the `House` **class**: It means the class *defines* that all houses created from this blueprint *will have* the capability to store information about their number of bedrooms and bathrooms. It's a structural specification.\n\nFor the `my_house` **object**: It means this specific instance of a house *actually has* 3 bedrooms and 2 bathrooms (these are its concrete attribute values). Another object, `your_house`, might also have 3 bedrooms and 2 bathrooms, or it might have different values, depending on how it was initialized.",
+      "difficulty": "medium"
+    }
+  ]
+}

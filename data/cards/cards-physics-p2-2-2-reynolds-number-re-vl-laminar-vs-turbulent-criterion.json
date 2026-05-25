@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-reynolds-number-re-vl-laminar-vs-turbulent-criterion",
+  "subtopicTitle": "Reynolds number Re = ρvL/μ — laminar vs turbulent criterion",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:44.889Z",
+  "cards": [
+    {
+      "front": "What fundamental aspect of fluid flow does the Reynolds number ($Re$) quantify?",
+      "back": "The Reynolds number quantifies the *ratio of inertial forces to viscous forces* within a fluid. It is a dimensionless quantity used to predict flow patterns in different fluid flow situations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the Reynolds number ($Re$) and define each variable, including their standard SI units.",
+      "back": "The Reynolds number is given by: $$Re = \\frac{\\rho v L}{\\mu}$$ Where:\n*   $\\rho$ (rho) = fluid density ($kg/m^3$)\n*   $v$ = characteristic flow velocity ($m/s$)\n*   $L$ = characteristic linear dimension ($m$) (e.g., pipe diameter, length of a plate)\n*   $\\mu$ (mu) = dynamic viscosity of the fluid ($Pa \\cdot s$ or $kg/(m \\cdot s)$)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Generally, how does the Reynolds number ($Re$) distinguish between laminar and turbulent flow regimes?",
+      "back": "*   **Laminar Flow:** Occurs at *low* Reynolds numbers ($Re < 2000-2300$ for pipe flow). Characterized by smooth, orderly, parallel layers of fluid flow with minimal mixing.\n*   **Turbulent Flow:** Occurs at *high* Reynolds numbers ($Re > 4000$ for pipe flow). Characterized by chaotic, irregular, and unpredictable fluid motion with significant mixing and eddies.\n*   The region between these values ($2300 < Re < 4000$) is often called the *transition region*.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the Reynolds number as a ratio of forces. What does a high $Re$ imply?",
+      "back": "$Re = \\frac{\\text{Inertial Forces}}{\\text{Viscous Forces}}$.\n*   **Inertial forces** are related to the fluid's momentum and its tendency to continue moving.\n*   **Viscous forces** are internal friction forces that resist flow and tend to dampen disturbances.\n*   A *high $Re$* indicates that inertial forces dominate over viscous forces, meaning the fluid's momentum is strong enough to overcome internal friction, leading to chaotic, turbulent flow. A *low $Re$* implies viscous forces dominate, leading to laminar flow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that the Reynolds number ($Re = \\rho v L / \\mu$) is a dimensionless quantity using SI units.",
+      "back": "Let's substitute the SI units for each variable:\n*   $\\rho$: $kg/m^3$\n*   $v$: $m/s$\n*   $L$: $m$\n*   $\\mu$: $Pa \\cdot s = (N/m^2) \\cdot s = ((kg \\cdot m/s^2)/m^2) \\cdot s = kg/(m \\cdot s)$\n\nSubstitute units into the $Re$ formula:\n$$Re = \\frac{(kg/m^3) \\cdot (m/s) \\cdot m}{kg/(m \\cdot s)}$$\n$$Re = \\frac{kg \\cdot m^2 / (m^3 \\cdot s)}{kg / (m \\cdot s)}$$\n$$Re = \\frac{kg / (m \\cdot s)}{kg / (m \\cdot s)}$$\n$$Re = 1$$\nSince all units cancel out, the Reynolds number is dimensionless.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would increasing fluid velocity, increasing dynamic viscosity, or decreasing characteristic length affect the Reynolds number and flow regime?",
+      "back": "*   **Increasing velocity ($v$):** Increases $Re$. This makes inertial forces more dominant, pushing the flow towards turbulence.\n*   **Increasing dynamic viscosity ($\\mu$):** Decreases $Re$. This makes viscous forces more dominant, pushing the flow towards laminar.\n*   **Decreasing characteristic length ($L$):** Decreases $Re$. This reduces the scale over which inertial forces can act, pushing the flow towards laminar.\n\nIn summary, higher $Re$ (e.g., faster, larger, less viscous flow) tends to be turbulent; lower $Re$ (e.g., slower, smaller, more viscous flow) tends to be laminar.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For flow in a circular pipe, what are the commonly accepted critical Reynolds numbers that delineate laminar, transitional, and turbulent flow?",
+      "back": "For flow in a circular pipe:\n*   **Laminar Flow:** $Re \\lesssim 2300$\n*   **Transitional Flow:** $2300 \\lesssim Re \\lesssim 4000$ (Flow can be unstable and fluctuate between laminar and turbulent characteristics)\n*   **Turbulent Flow:** $Re \\gtrsim 4000$\n\nThese values are empirical and can vary slightly depending on factors like pipe roughness and inlet conditions, but they serve as good general guidelines.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define kinematic viscosity ($\\nu$) and express the Reynolds number ($Re$) in terms of kinematic viscosity.",
+      "back": "*   **Kinematic viscosity ($\\nu$)** is the ratio of dynamic viscosity ($\\mu$) to fluid density ($\\rho$). It represents the fluid's resistance to flow under gravity and is given by $\\nu = \\mu / \\rho$. Its SI unit is $m^2/s$.\n*   The Reynolds number in terms of kinematic viscosity is:\n    $$Re = \\frac{v L}{\\nu}$$\n    This form is often convenient when density and dynamic viscosity are combined into a single property.",
+      "difficulty": "medium"
+    }
+  ]
+}

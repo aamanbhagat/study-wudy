@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-3-taylor-series-derivation-from-power-series",
+  "subtopicTitle": "Taylor series — derivation from power series",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:51.093Z",
+  "cards": [
+    {
+      "front": "Define a power series centered at $a$.",
+      "back": "A power series centered at $a$ is an infinite series of the form $$ \\sum_{n=0}^{\\infty} c_n (x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 + \\dots $$ where $c_n$ are constants (coefficients) and $x$ is a variable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a function $f(x)$ is represented by a power series $f(x) = \\sum_{n=0}^{\\infty} c_n (x-a)^n$, what is the value of the coefficient $c_0$?",
+      "back": "To find $c_0$, substitute $x=a$ into the series: $$ f(a) = c_0 + c_1(a-a) + c_2(a-a)^2 + \\dots = c_0 $$ Thus, $c_0 = f(a)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $f(x) = \\sum_{n=0}^{\\infty} c_n (x-a)^n$, how can we find the coefficient $c_1$?",
+      "back": "First, differentiate $f(x)$ term-by-term with respect to $x$: $$ f'(x) = c_1 + 2c_2(x-a) + 3c_3(x-a)^2 + \\dots $$ Then, substitute $x=a$ into $f'(x)$: $$ f'(a) = c_1 + 2c_2(a-a) + 3c_3(a-a)^2 + \\dots = c_1 $$ Thus, $c_1 = f'(a)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the general formula for the $n$-th coefficient $c_n$ of a power series representation $f(x) = \\sum_{n=0}^{\\infty} c_n (x-a)^n$.",
+      "back": "We repeatedly differentiate $f(x)$ and evaluate at $x=a$:\n$f(x) = c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 + \\dots$\n$f(a) = c_0$\n\n$f'(x) = c_1 + 2c_2(x-a) + 3c_3(x-a)^2 + \\dots$\n$f'(a) = c_1$\n\n$f''(x) = 2c_2 + 3 \\cdot 2 c_3(x-a) + 4 \\cdot 3 c_4(x-a)^2 + \\dots$\n$f''(a) = 2c_2 \\implies c_2 = \\frac{f''(a)}{2} = \\frac{f''(a)}{2!}$\n\n$f'''(x) = 3 \\cdot 2 c_3 + 4 \\cdot 3 \\cdot 2 c_4(x-a) + \\dots$\n$f'''(a) = 3 \\cdot 2 c_3 \\implies c_3 = \\frac{f'''(a)}{3 \\cdot 2} = \\frac{f'''(a)}{3!}$\n\nIn general, after $n$ differentiations, evaluating at $x=a$ will isolate the $c_n$ term multiplied by $n!$: $f^{(n)}(a) = n! c_n$.\nTherefore, the general formula for the $n$-th coefficient is $c_n = \\frac{f^{(n)}(a)}{n!}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the general formula for the Taylor series of a function $f(x)$ centered at $a$.",
+      "back": "The Taylor series for a function $f(x)$ centered at $a$ is given by: $$ \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n $$ $$ = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\frac{f'''(a)}{3!}(x-a)^3 + \\dots $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a Maclaurin series, and how does it relate to a Taylor series?",
+      "back": "A Maclaurin series is a special case of a Taylor series where the series is centered at $a=0$. Its formula is: $$ \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(0)}{n!} x^n $$ $$ = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 + \\frac{f'''(0)}{3!}x^3 + \\dots $$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is it necessary for a function to be infinitely differentiable at $x=a$ to have a Taylor series expansion centered at $a$?",
+      "back": "The coefficients $c_n$ of the Taylor series are defined as $c_n = \\frac{f^{(n)}(a)}{n!}$. For each coefficient to exist and be well-defined, the $n$-th derivative of $f(x)$ must exist at $x=a$ for all $n \\ge 0$. If any derivative does not exist at $a$, the corresponding coefficient cannot be determined, and the full Taylor series cannot be formed.",
+      "difficulty": "medium"
+    }
+  ]
+}

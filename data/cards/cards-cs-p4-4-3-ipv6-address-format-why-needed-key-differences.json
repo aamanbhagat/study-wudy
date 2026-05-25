@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-ipv6-address-format-why-needed-key-differences",
+  "subtopicTitle": "IPv6 — address format, why needed, key differences",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:31.042Z",
+  "cards": [
+    {
+      "front": "What is the primary reason for the development and adoption of IPv6?",
+      "back": "The primary reason is IPv4 address exhaustion. The 32-bit IPv4 address space (approximately 4.3 billion unique addresses) proved insufficient for the rapidly growing number of internet-connected devices worldwide.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How many bits long is an IPv6 address, and what is its standard representation format?",
+      "back": "An IPv6 address is 128 bits long. It is typically represented as eight groups of four hexadecimal digits, separated by colons (e.g., `2001:0db8:85a3:0000:0000:8a2e:0370:7334`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Simplify the IPv6 address `2001:0db8:0000:0000:0000:0000:1428:57ab` using both leading zero omission and zero compression rules.",
+      "back": "1.  **Omit leading zeros:** `2001:db8:0:0:0:0:1428:57ab`\n2.  **Zero compression (double colon `::`):** `2001:db8::1428:57ab`\n\n*Note: The `::` can only be used once in an address to represent a single, contiguous block of zeros.*",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two significant differences between the IPv4 and IPv6 header structures.",
+      "back": "1.  **Fixed Header Length:** IPv6 has a fixed 40-byte header, simplifying processing by routers, whereas IPv4 has a variable header length (20-60 bytes).\n2.  **No Header Checksum:** IPv6 removes the header checksum, delegating error checking to upper layers (TCP/UDP) and link layers, reducing processing overhead for routers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how IPv6's address space design eliminates the need for Network Address Translation (NAT), which was commonly used with IPv4.",
+      "back": "IPv6's 128-bit address space provides $2^{128}$ unique addresses, an astronomically large number (approx. $3.4 \\times 10^{38}$). This vastness ensures that every internet-connected device can have a globally unique, publicly routable IP address without running out. Consequently, there's no need to hide multiple private IP addresses behind a single public IP address using NAT, simplifying network design, end-to-end connectivity, and application development.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is Stateless Address Autoconfiguration (SLAAC) in IPv6, and what information does a host typically derive from it?",
+      "back": "SLAAC is a mechanism in IPv6 that allows a device to automatically configure its own IPv6 address without a DHCP server. A host typically derives:\n1.  **Network Prefix:** From Router Advertisements (RAs) sent by a local router.\n2.  **Interface ID:** Usually generated from its MAC address using the EUI-64 format or a randomly generated privacy extension.\nThese combine to form a unique global IPv6 address.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the three main types of IPv6 addresses, and briefly describe their purpose?",
+      "back": "1.  **Unicast:** Identifies a single network interface. A packet sent to a unicast address is delivered to that specific interface.\n2.  **Multicast:** Identifies a group of interfaces, typically on different nodes. A packet sent to a multicast address is delivered to all interfaces in the group (replaces IPv4 broadcast for many functions).\n3.  **Anycast:** Identifies a group of interfaces, but a packet sent to an anycast address is delivered only to the *nearest* interface in the group (according to routing protocols).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the typical structure of a global unicast IPv6 address, including the names and bit lengths of its main components.",
+      "back": "A global unicast IPv6 address is typically divided into three main parts:\n1.  **Global Routing Prefix (48 bits):** Assigned by an RIR/ISP, identifying the organization's network.\n2.  **Subnet ID (16 bits):** Used by the organization to define subnets within its network.\n3.  **Interface ID (64 bits):** Identifies a specific interface on a subnet, often derived from the MAC address (EUI-64) or randomly generated.\nThis structure allows for a massive number of subnets and hosts per subnet.",
+      "difficulty": "hard"
+    }
+  ]
+}

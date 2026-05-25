@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-neural-network-fundamentals-neuron-activation-functions-relu-sigmoid-tanh",
+  "subtopicTitle": "Neural network fundamentals — neuron, activation functions (ReLU, sigmoid, tanh)",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:32.057Z",
+  "cards": [
+    {
+      "front": "Describe the fundamental components and process of a single artificial neuron.",
+      "back": "An artificial neuron receives multiple inputs ($x_i$), each multiplied by an associated weight ($w_i$). These weighted inputs are summed, a bias term ($b$) is added, and the result ($z = \\sum w_i x_i + b$) is passed through an activation function ($f$) to produce the neuron's output ($a = f(z)$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the sigmoid activation function, and what is its output range? When is it typically used?",
+      "back": "The sigmoid function is given by $ \\sigma(z) = \\frac{1}{1 + e^{-z}} $. Its output range is $(0, 1)$. It is typically used in the output layer of binary classification models to output probabilities.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the ReLU activation function. How does its piecewise nature help with gradient flow for positive inputs?",
+      "back": "ReLU (Rectified Linear Unit) is defined as $ \\text{ReLU}(z) = \\max(0, z) $. For $z > 0$, its derivative is 1, which means gradients flow without diminishing, helping to mitigate the vanishing gradient problem in deep networks. For $z \\le 0$, the derivative is 0, which can lead to the 'dying ReLU' problem.\n```python\nimport numpy as np\ndef relu(z):\n    return np.maximum(0, z)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the hyperbolic tangent (tanh) activation function and its output range. How does its output differ from sigmoid?",
+      "back": "The tanh function is $ \\text{tanh}(z) = \\frac{e^z - e^{-z}}{e^z + e^{-z}} $. Its output range is $(-1, 1)$. Unlike sigmoid's $(0, 1)$ range, tanh is zero-centered, which can aid in faster convergence during training by allowing outputs to be both positive and negative, potentially reducing bias in gradient updates.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why sigmoid and tanh functions can suffer from the vanishing gradient problem in deep networks. How does ReLU mitigate this for positive activations?",
+      "back": "Sigmoid and tanh functions have derivatives that become very small (close to zero) for large positive or negative inputs. In deep networks, these small gradients are multiplied across many layers during backpropagation, causing the gradients to 'vanish' for earlier layers, hindering their learning. ReLU mitigates this for $z > 0$ because its derivative is a constant 1, ensuring gradients do not diminish in that region.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary role of the bias term ($b$) in an artificial neuron?",
+      "back": "The bias term allows the neuron to shift its activation function horizontally, independent of the input values. It enables the neuron to activate even when all inputs are zero, providing an additional degree of freedom to fit the data and making the model more flexible in learning complex patterns.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the derivative of the ReLU activation function with respect to its input $z$. What is its value at $z=0$ typically assumed to be?",
+      "back": "The derivative of ReLU is:\n$$ \\frac{d}{dz} \\text{ReLU}(z) = \\begin{cases} 1 & \\text{if } z > 0 \\\\ 0 & \\text{if } z < 0 \\end{cases} $$\nAt $z=0$, the derivative is technically undefined. In practice, it's typically set to 0 or 1 (e.g., using subgradient methods) to allow for computation during backpropagation.\n```python\ndef relu_derivative(z):\n    return (z > 0).astype(float) # Returns 1.0 for z > 0, 0.0 otherwise\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a neural network predicting the trajectory of a rocket (a regression task), which activation function would you typically use in the output layer, and why?",
+      "back": "For a regression task like predicting a rocket's trajectory, the output layer typically uses a **linear (or identity) activation function**. This is because regression outputs need to be continuous values over an arbitrary range (not restricted to 0-1 or -1-1), which a linear function ($f(z) = z$) provides. Sigmoid or tanh would compress the output into a fixed range, which is undesirable for predicting exact continuous values.",
+      "difficulty": "hard"
+    }
+  ]
+}

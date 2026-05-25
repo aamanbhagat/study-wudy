@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-5-dot-product-formula-cosine-formula-cauchy-schwarz-inequality-proof",
+  "subtopicTitle": "Dot product — formula, cosine formula, Cauchy-Schwarz inequality proof",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:01:44.280Z",
+  "cards": [
+    {
+      "front": "Define the dot product of two vectors $\\mathbf{u}$ and $\\mathbf{v}$ in $\\mathbb{R}^n$ algebraically.",
+      "back": "The dot product (or scalar product) is defined as:\n$$\\mathbf{u} \\cdot \\mathbf{v} = \\sum_{i=1}^n u_i v_i = u_1 v_1 + u_2 v_2 + \\dots + u_n v_n$$\nwhere $u_i$ and $v_i$ are the components of $\\mathbf{u}$ and $\\mathbf{v}$ respectively.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the geometric formula for the dot product of two vectors $\\mathbf{u}$ and $\\mathbf{v}$, involving the angle $\\theta$ between them.",
+      "back": "The geometric formula for the dot product is:\n$$\\mathbf{u} \\cdot \\mathbf{v} = ||\\mathbf{u}|| \\cdot ||\\mathbf{v}|| \\cos \\theta$$\nwhere $||\\mathbf{u}||$ and $||\\mathbf{v}||$ are the magnitudes (lengths) of the vectors, and $\\theta$ is the angle between them ($0 \\le \\theta \\le \\pi$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What can be concluded about two non-zero vectors $\\mathbf{u}$ and $\\mathbf{v}$ if their dot product $\\mathbf{u} \\cdot \\mathbf{v} = 0$?",
+      "back": "If $\\mathbf{u} \\cdot \\mathbf{v} = 0$ for non-zero vectors $\\mathbf{u}$ and $\\mathbf{v}$, then the vectors are orthogonal (perpendicular). This is because, from the geometric formula, $||\\mathbf{u}|| \\cdot ||\\mathbf{v}|| \\cos \\theta = 0$. Since $||\\mathbf{u}|| \\neq 0$ and $||\\mathbf{v}|| \\neq 0$, it must be that $\\cos \\theta = 0$, which implies $\\theta = 90^\\circ$ (or $\\pi/2$ radians).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the dot product of $\\mathbf{u} = \\begin{pmatrix} 1 \\\\ -2 \\\\ 3 \\end{pmatrix}$ and $\\mathbf{v} = \\begin{pmatrix} 4 \\\\ 0 \\\\ -1 \\end{pmatrix}$.",
+      "back": "Using the algebraic definition:\n$$\\mathbf{u} \\cdot \\mathbf{v} = (1)(4) + (-2)(0) + (3)(-1)$$\n$$\\mathbf{u} \\cdot \\mathbf{v} = 4 + 0 - 3$$\n$$\\mathbf{u} \\cdot \\mathbf{v} = 1$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Cauchy-Schwarz inequality for vectors $\\mathbf{u}$ and $\\mathbf{v}$ in $\\mathbb{R}^n$. When does equality hold?",
+      "back": "The Cauchy-Schwarz inequality states:\n$$|\\mathbf{u} \\cdot \\mathbf{v}| \\le ||\\mathbf{u}|| \\cdot ||\\mathbf{v}||$$\nEquality holds if and only if $\\mathbf{u}$ and $\\mathbf{v}$ are linearly dependent, meaning one vector is a scalar multiple of the other (i.e., $\\mathbf{u} = c\\mathbf{v}$ for some scalar $c$, or $\\mathbf{v} = c\\mathbf{u}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Begin the proof of the Cauchy-Schwarz inequality by considering the trivial case where $\\mathbf{v} = \\mathbf{0}$.",
+      "back": "If $\\mathbf{v} = \\mathbf{0}$, then:\n1.  $\\mathbf{u} \\cdot \\mathbf{v} = \\mathbf{u} \\cdot \\mathbf{0} = 0$\n2.  $||\\mathbf{v}|| = ||\\mathbf{0}|| = 0$\nSubstituting these into the inequality $|\\mathbf{u} \\cdot \\mathbf{v}| \\le ||\\mathbf{u}|| \\cdot ||\\mathbf{v}||$ gives:\n$$|0| \\le ||\\mathbf{u}|| \\cdot 0$$\n$$0 \\le 0$$\nThis is true, so the inequality holds trivially when $\\mathbf{v} = \\mathbf{0}$. The same logic applies if $\\mathbf{u} = \\mathbf{0}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $\\mathbf{v} \\neq \\mathbf{0}$, outline the key idea to prove Cauchy-Schwarz using a quadratic polynomial and expand the relevant expression.",
+      "back": "The key idea is to consider the expression $||\\mathbf{u} - t\\mathbf{v}||^2$ for any real scalar $t$. Since a squared magnitude is always non-negative, we know $||\\mathbf{u} - t\\mathbf{v}||^2 \\ge 0$.\nExpanding this expression using dot product properties:\n$$||\\mathbf{u} - t\\mathbf{v}||^2 = (\\mathbf{u} - t\\mathbf{v}) \\cdot (\\mathbf{u} - t\\mathbf{v})$$\n$$= \\mathbf{u} \\cdot \\mathbf{u} - t(\\mathbf{u} \\cdot \\mathbf{v}) - t(\\mathbf{v} \\cdot \\mathbf{u}) + t^2(\\mathbf{v} \\cdot \\mathbf{v})$$\nSince $\\mathbf{u} \\cdot \\mathbf{v} = \\mathbf{v} \\cdot \\mathbf{u}$ and $||\\mathbf{x}||^2 = \\mathbf{x} \\cdot \\mathbf{x}$:\n$$= ||\\mathbf{u}||^2 - 2t(\\mathbf{u} \\cdot \\mathbf{v}) + t^2||\\mathbf{v}||^2$$\nThis is a quadratic polynomial in $t$, let's call it $f(t) = (||\\mathbf{v}||^2)t^2 - (2(\\mathbf{u} \\cdot \\mathbf{v}))t + (||\\mathbf{u}||^2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the quadratic $f(t) = ||\\mathbf{v}||^2 t^2 - 2(\\mathbf{u} \\cdot \\mathbf{v}) t + ||\\mathbf{u}||^2 \\ge 0$, explain how to complete the proof of Cauchy-Schwarz.",
+      "back": "Since $f(t) \\ge 0$ for all real $t$, this quadratic polynomial either has no real roots or exactly one real root (a repeated root). In either case, its discriminant must be less than or equal to zero.\nFor a quadratic $At^2 + Bt + C$, the discriminant is $\\Delta = B^2 - 4AC$.\nHere, $A = ||\\mathbf{v}||^2$, $B = -2(\\mathbf{u} \\cdot \\mathbf{v})$, and $C = ||\\mathbf{u}||^2$.\nSo, we must have:\n$$\\Delta = (-2(\\mathbf{u} \\cdot \\mathbf{v}))^2 - 4(||\\mathbf{v}||^2)(||\\mathbf{u}||^2) \\le 0$$\n$$4(\\mathbf{u} \\cdot \\mathbf{v})^2 - 4||\\mathbf{u}||^2 ||\\mathbf{v}||^2 \\le 0$$\nDivide by 4:\n$$(\\mathbf{u} \\cdot \\mathbf{v})^2 - ||\\mathbf{u}||^2 ||\\mathbf{v}||^2 \\le 0$$\n$$(\\mathbf{u} \\cdot \\mathbf{v})^2 \\le ||\\mathbf{u}||^2 ||\\mathbf{v}||^2$$\nTaking the square root of both sides (and remembering that $\\sqrt{x^2} = |x|$):\n$$|\\mathbf{u} \\cdot \\mathbf{v}| \\le ||\\mathbf{u}|| \\cdot ||\\mathbf{v}||$$\nThis completes the proof for $\\mathbf{v} \\neq \\mathbf{0}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

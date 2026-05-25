@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-critical-mach-number-onset-of-local-supersonic-flow",
+  "subtopicTitle": "Critical Mach number — onset of local supersonic flow",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:37.594Z",
+  "cards": [
+    {
+      "front": "Define the Critical Mach number ($M_{cr}$) for an airfoil.",
+      "back": "The Critical Mach number ($M_{cr}$) is the freestream Mach number ($M_\\infty$) at which the local Mach number ($M_L$) at some point on the airfoil surface first reaches Mach 1.0 (sonic speed).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Where does local supersonic flow typically first appear on an airfoil as $M_\\infty$ increases towards $M_{cr}$?",
+      "back": "Local supersonic flow typically first appears on the upper surface of the airfoil, usually around the point of maximum thickness or curvature. This is due to the significant acceleration of the flow over the curved surface, leading to a local pressure drop and corresponding velocity increase (as per Bernoulli's principle for incompressible flow, or the full compressible flow equivalent).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an isentropic flow, state the relationship between local Mach number ($M_L$), freestream Mach number ($M_\\infty$), and pressure coefficient ($C_p$).",
+      "back": "Assuming isentropic flow and an ideal gas, the local Mach number $M_L$ can be related to the freestream Mach number $M_\\infty$ and pressure coefficient $C_p$ by: \n$$ M_L^2 = \\frac{2}{\\gamma-1} \\left[ \\left( 1 + \\frac{\\gamma-1}{2} M_\\infty^2 \\right) \\left( 1 + \\frac{\\gamma}{2} M_\\infty^2 C_p \\right)^{-\\frac{\\gamma-1}{\\gamma}} - 1 \\right] $$ \nwhere $\\gamma$ is the ratio of specific heats (approximately 1.4 for air).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the critical pressure coefficient ($C_{p,cr}$) at which the local Mach number reaches 1.0, in terms of $M_\\infty$ and $\\gamma$.",
+      "back": "At the critical point, the local Mach number $M_L = 1$. Using the isentropic pressure ratio relation: \n$$ \\frac{P_{cr}}{P_\\infty} = \\left( \\frac{1 + \\frac{\\gamma-1}{2} M_\\infty^2}{1 + \\frac{\\gamma-1}{2} M_L^2} \\right)^{\\frac{\\gamma}{\\gamma-1}} $$ \nSubstitute $M_L = 1$: \n$$ \\frac{P_{cr}}{P_\\infty} = \\left( \\frac{1 + \\frac{\\gamma-1}{2} M_\\infty^2}{1 + \\frac{\\gamma-1}{2}} \\right)^{\\frac{\\gamma}{\\gamma-1}} = \\left( \\frac{1 + \\frac{\\gamma-1}{2} M_\\infty^2}{\\frac{\\gamma+1}{2}} \\right)^{\\frac{\\gamma}{\\gamma-1}} $$ \nNow, the pressure coefficient is $C_p = \\frac{P - P_\\infty}{\\frac{1}{2}\\rho_\\infty V_\\infty^2} = \\frac{2}{\\gamma M_\\infty^2} \\left( \\frac{P}{P_\\infty} - 1 \\right)$. \nSubstituting $\\frac{P_{cr}}{P_\\infty}$: \n$$ C_{p,cr} = \\frac{2}{\\gamma M_\\infty^2} \\left[ \\left( \\frac{1 + \\frac{\\gamma-1}{2} M_\\infty^2}{\\frac{\\gamma+1}{2}} \\right)^{\\frac{\\gamma}{\\gamma-1}} - 1 \\right] $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the immediate aerodynamic consequences when the freestream Mach number ($M_\\infty$) slightly exceeds the critical Mach number ($M_{cr}$).",
+      "back": "When $M_\\infty$ slightly exceeds $M_{cr}$, the immediate consequences include:\n1.  **Formation of shock waves:** A local shock wave forms downstream of the supersonic region, causing a sudden pressure rise and flow deceleration back to subsonic speeds.\n2.  **Increase in wave drag:** The energy dissipated by the shock wave contributes significantly to a new form of drag known as wave drag.\n3.  **Boundary layer separation:** The adverse pressure gradient across the shock can cause the boundary layer to separate, leading to increased profile drag and reduced lift.\n4.  **Buffeting and control issues:** Flow separation and shock movement can induce vibrations (buffeting) and reduce the effectiveness of control surfaces.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how airfoil thickness and camber generally influence its Critical Mach number ($M_{cr}$).",
+      "back": "1.  **Thickness:** Thicker airfoils cause greater flow acceleration over their surfaces to accommodate the larger displacement, leading to lower local pressures. This means they reach sonic speed at a lower freestream Mach number, so thicker airfoils generally have a *lower* $M_{cr}$.\n2.  **Camber:** Increased camber (curvature) also enhances flow acceleration on the upper surface, especially at positive angles of attack. This tends to *lower* $M_{cr}$. Symmetric airfoils or those with less camber often have higher $M_{cr}$ because they induce less flow acceleration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the Critical Mach number considered \"critical\" for aircraft design, and what is a common design strategy to mitigate its negative effects?",
+      "back": "The Critical Mach number ($M_{cr}$) is \"critical\" because exceeding it marks the onset of severe aerodynamic performance degradation. The formation of shock waves leads to a rapid increase in wave drag, significant lift loss, flow separation, and potentially dangerous phenomena like buffeting and loss of control authority. It defines a practical speed limit for efficient subsonic flight.\n\nA common design strategy to mitigate these negative effects is the use of **swept wings** and **supercritical airfoils**. Swept wings reduce the effective component of velocity normal to the leading edge, delaying the onset of local supersonic flow. Supercritical airfoils are specifically designed to have a flatter top surface and a more pronounced aft camber to delay shock formation and reduce its strength, allowing for efficient flight closer to Mach 1.",
+      "difficulty": "hard"
+    }
+  ]
+}

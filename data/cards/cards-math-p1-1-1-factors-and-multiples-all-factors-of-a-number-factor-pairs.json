@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p1-1-1-factors-and-multiples-all-factors-of-a-number-factor-pairs",
+  "subtopicTitle": "Factors and multiples — all factors of a number, factor pairs",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:45.125Z",
+  "cards": [
+    {
+      "front": "What is a positive factor of a number $n$?",
+      "back": "A positive factor of a number $n$ is a positive integer that divides $n$ without leaving a remainder. If $a \\times b = n$ (where $a, b, n$ are positive integers), then $a$ and $b$ are factors of $n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $a$ is a factor of $n$, what is $n$ in relation to $a$?",
+      "back": "$n$ is a multiple of $a$. A multiple of a number is the result of multiplying that number by an integer. For example, $24$ is a multiple of $3$ because $3 \\times 8 = 24$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List all positive factors of $28$.",
+      "back": "To find all positive factors of $28$, test integers from $1$ up to $\\sqrt{28} \\approx 5.29$:<br/>$1 \\times 28 = 28$<br/>$2 \\times 14 = 28$<br/>$4 \\times 7 = 28$<br/>The positive factors of $28$ are $1, 2, 4, 7, 14, 28$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a 'factor pair' for a number $n$.",
+      "back": "A factor pair for a number $n$ is a set of two integers that multiply together to give $n$. For example, $(2, 14)$ is a factor pair of $28$ because $2 \\times 14 = 28$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List all positive factor pairs for $40$.",
+      "back": "To find positive factor pairs for $40$, start from $1$ and go up to $\\sqrt{40} \\approx 6.32$:<br/>$1 \\times 40 = 40 \\implies (1, 40)$<br/>$2 \\times 20 = 40 \\implies (2, 20)$<br/>$4 \\times 10 = 40 \\implies (4, 10)$<br/>$5 \\times 8 = 40 \\implies (5, 8)$<br/>The positive factor pairs of $40$ are $(1, 40), (2, 20), (4, 10), (5, 8)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the positive factors of any prime number $p$?",
+      "back": "A prime number $p$ is a natural number greater than $1$ that has no positive divisors other than $1$ and itself. Therefore, the only positive factors of a prime number $p$ are $1$ and $p$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the positive factors of $1$?",
+      "back": "The only positive factor of $1$ is $1$ itself. (Note: $1$ is neither prime nor composite).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you find the *total number* of positive factors for a number $N$ using its prime factorization?",
+      "back": "First, find the prime factorization of $N$. Let $N = p_1^{a_1} \\times p_2^{a_2} \\times \\dots \\times p_k^{a_k}$, where $p_i$ are distinct prime numbers and $a_i$ are their positive integer exponents.<br/>The total number of positive factors, denoted $\\tau(N)$ or $d(N)$, is given by the formula:<br/>$$ \\tau(N) = (a_1 + 1)(a_2 + 1)\\dots(a_k + 1) $$<br/>For example, for $36 = 2^2 \\times 3^2$, the number of factors is $(2+1)(2+1) = 3 \\times 3 = 9$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What unique property do perfect squares have regarding their total number of positive factors?",
+      "back": "Perfect squares always have an *odd* number of positive factors.<br/>This is because for every factor $f$ of a number $N$, there is a corresponding factor $N/f$. These form factor pairs $(f, N/f)$. If $N$ is not a perfect square, all factors come in distinct pairs, resulting in an even number of factors. If $N$ *is* a perfect square, say $N=k^2$, then one factor pair is $(k, k)$. This factor $k$ is paired with itself, effectively counting as only *one* distinct factor in the list, making the total count odd.",
+      "difficulty": "hard"
+    }
+  ]
+}

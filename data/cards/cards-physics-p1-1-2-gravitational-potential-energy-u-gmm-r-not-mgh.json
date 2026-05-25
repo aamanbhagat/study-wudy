@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-2-gravitational-potential-energy-u-gmm-r-not-mgh",
+  "subtopicTitle": "Gravitational potential energy — U = -GMm/r (not mgh)",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:51.834Z",
+  "cards": [
+    {
+      "front": "What is the standard reference point for zero gravitational potential energy when using the formula $U = -GMm/r$?",
+      "back": "The standard reference point for zero gravitational potential energy ($U=0$) is defined when the two masses are infinitely separated ($r = \\infty$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for gravitational potential energy between two point masses and define each variable.",
+      "back": "The formula is $U = -GMm/r$.\n$U$: Gravitational potential energy (Joules)\n$G$: Gravitational constant (approximately $6.674 \\times 10^{-11} \\text{ N\\cdot m}^2/\\text{kg}^2$)\n$M$: Mass of the first body (kilograms)\n$m$: Mass of the second body (kilograms)\n$r$: Distance between the centers of the two masses (meters)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why the gravitational potential energy $U = -GMm/r$ is always negative.",
+      "back": "Gravitational potential energy is always negative because the zero reference point is set at infinity, where the gravitational force is zero. Since gravity is always an attractive force, work must be done *against* the field to increase the separation of the masses. Bringing masses closer from infinity (where $U=0$) means the field does positive work, resulting in a *decrease* in potential energy, hence it becomes negative. A negative potential energy signifies a bound system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the formula $U = -GMm/r$ is used for gravitational potential energy in space, while $U = mgh$ is used near Earth's surface.",
+      "back": "$U = mgh$ is an approximation valid only near the surface of a massive body where the gravitational field can be considered uniform and constant ($g \\approx GM/R^2$). It sets $U=0$ at a convenient surface height. $U = -GMm/r$ is the general, more fundamental formula, valid for any distance, as it correctly accounts for the inverse-square nature of gravity and sets $U=0$ at infinite separation, providing a consistent global reference.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A satellite moves from an orbit at radius $r_1$ to a higher orbit at radius $r_2$ ($r_2 > r_1$). Does its gravitational potential energy increase or decrease? Explain.",
+      "back": "Its gravitational potential energy *increases*. Since $U = -GMm/r$, as the distance $r$ increases, the value of $-GMm/r$ becomes *less negative* (i.e., closer to zero). For example, if $r_1$ gives $U_1 = -20\\text{ J}$ and $r_2$ gives $U_2 = -10\\text{ J}$, then $U_2 > U_1$. An increase in GPE means positive work was done *on* the satellite to move it to a higher orbit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for gravitational potential energy, $U = -GMm/r$, from the definition of work.",
+      "back": "Gravitational potential energy is defined as the negative of the work done by the gravitational force in moving a mass from the reference point (infinity) to a given position $r$. \n$$U(r) = -W_{\\text{grav}} = -\\int_{\\infty}^{r} \\vec{F}_{\\text{grav}} \\cdot d\\vec{r}$$\nNewton's Law of Universal Gravitation states $\\vec{F}_{\\text{grav}} = -\\frac{GMm}{r^2} \\hat{r}$ (the negative sign indicates an attractive force, pointing inward). Taking $d\\vec{r} = dr \\hat{r}$:\n$$U(r) = -\\int_{\\infty}^{r} \\left(-\\frac{GMm}{r^2}\\right) dr = GMm \\int_{\\infty}^{r} \\frac{1}{r^2} dr$$\n$$U(r) = GMm \\left[ -\\frac{1}{r} \\right]_{\\infty}^{r} = GMm \\left( -\\frac{1}{r} - \\left(-\\frac{1}{\\infty}\\right) \\right)$$\nSince $1/\\infty = 0$:\n$$U(r) = GMm \\left( -\\frac{1}{r} - 0 \\right) = -\\frac{GMm}{r}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the minimum kinetic energy required for an object of mass $m$ to escape the gravitational pull of a planet of mass $M$ and radius $R$, starting from its surface?",
+      "back": "For an object to escape the gravitational pull, its total mechanical energy must be non-negative at infinity. For the *minimum* kinetic energy, we assume the object just barely reaches infinity with zero kinetic energy ($K_{\\text{final}} = 0$) and zero potential energy ($U_{\\text{final}} = 0$).\n\nBy conservation of mechanical energy:\n$$E_{\\text{initial}} = E_{\\text{final}}$$\n$$K_{\\text{initial}} + U_{\\text{initial}} = K_{\\text{final}} + U_{\\text{final}}$$\nAt the surface, $U_{\\text{initial}} = -\\frac{GMm}{R}$.\n$$K_{\\text{initial}} + \\left(-\\frac{GMm}{R}\\right) = 0 + 0$$\n$$K_{\\text{initial}} = \\frac{GMm}{R}$$\nThis is the minimum kinetic energy required. If $K_{\\text{initial}} = \\frac{1}{2}mv_e^2$, then the escape velocity $v_e = \\sqrt{\\frac{2GM}{R}}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

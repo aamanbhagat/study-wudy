@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-properties-linearity-first-second-shift-theorems-scaling",
+  "subtopicTitle": "Properties — linearity, first/second shift theorems, scaling",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:03.521Z",
+  "cards": [
+    {
+      "front": "Define a linear ordinary differential equation (ODE) of order $n$.",
+      "back": "An $n$-th order ODE is linear if it can be written in the form $a_n(x) \\frac{d^n y}{dx^n} + a_{n-1}(x) \\frac{d^{n-1} y}{dx^{n-1}} + \\dots + a_1(x) \\frac{dy}{dx} + a_0(x) y = f(x)$, where $a_i(x)$ and $f(x)$ are functions of $x$ only. The dependent variable $y$ and its derivatives appear only to the first power and are not multiplied together.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Is the ODE $y'' + (\\sin x) y' + y^2 = x$ linear or nonlinear? Justify.",
+      "back": "The ODE $y'' + (\\sin x) y' + y^2 = x$ is **nonlinear**. The term $y^2$ makes it nonlinear because the dependent variable $y$ is raised to the second power, violating the condition that $y$ and its derivatives appear only to the first power.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the First Shift Theorem (or Frequency Shift Theorem) for Laplace Transforms.",
+      "back": "If $\\mathcal{L}\\{f(t)\\} = F(s)$, then the First Shift Theorem states that $\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)$, for $s > a$. This theorem describes how multiplication by an exponential in the time domain corresponds to a shift in the frequency domain.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use the First Shift Theorem to find $\\mathcal{L}\\{e^{-2t} \\cos(3t)\\}$, given $\\mathcal{L}\\{\\cos(3t)\\} = \\frac{s}{s^2+9}$.",
+      "back": "Given $f(t) = \\cos(3t)$, we have $F(s) = \\frac{s}{s^2+9}$. With $a = -2$, the First Shift Theorem states $\\mathcal{L}\\{e^{at}f(t)\\} = F(s-a)$.\nTherefore, $\\mathcal{L}\\{e^{-2t} \\cos(3t)\\} = F(s - (-2)) = F(s+2) = \\frac{s+2}{(s+2)^2+9} = \\frac{s+2}{s^2+4s+4+9} = \\frac{s+2}{s^2+4s+13}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Second Shift Theorem (or Time Shift Theorem) for Laplace Transforms, using the Heaviside step function $u_c(t)$.",
+      "back": "If $\\mathcal{L}\\{f(t)\\} = F(s)$, then the Second Shift Theorem states that $\\mathcal{L}\\{f(t-c)u_c(t)\\} = e^{-cs}F(s)$, for $c \\ge 0$. The Heaviside step function $u_c(t)$ is defined as $u_c(t) = \\begin{cases} 0 & t < c \\\\ 1 & t \\ge c \\end{cases}$. This theorem describes how a time shift in the time domain corresponds to multiplication by an exponential in the frequency domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find $\\mathcal{L}\\{ (t-1)^2 u_1(t) \\}$, given $\\mathcal{L}\\{t^2\\} = \\frac{2}{s^3}$.",
+      "back": "Here, $c=1$ and $f(t-c) = (t-1)^2$. This implies $f(t) = t^2$.\nWe are given $\\mathcal{L}\\{t^2\\} = F(s) = \\frac{2}{s^3}$.\nApplying the Second Shift Theorem, $\\mathcal{L}\\{f(t-c)u_c(t)\\} = e^{-cs}F(s)$.\nSo, $\\mathcal{L}\\{ (t-1)^2 u_1(t) \\} = e^{-1s} \\cdot \\frac{2}{s^3} = \\frac{2e^{-s}}{s^3}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Scaling Property for Laplace Transforms.",
+      "back": "If $\\mathcal{L}\\{f(t)\\} = F(s)$, then the Scaling Property states that $\\mathcal{L}\\{f(at)\\} = \\frac{1}{a} F\\left(\\frac{s}{a}\\right)$, for $a > 0$. This property relates the Laplace transform of a scaled function in the time domain to a scaled and amplitude-adjusted transform in the frequency domain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Scaling Property $\\mathcal{L}\\{f(at)\\} = \\frac{1}{a} F\\left(\\frac{s}{a}\\right)$ from the definition of the Laplace Transform.",
+      "back": "The definition of the Laplace Transform is $\\mathcal{L}\\{g(t)\\} = \\int_0^\\infty e^{-st} g(t) dt$.\nLet $g(t) = f(at)$. Then $\\mathcal{L}\\{f(at)\\} = \\int_0^\\infty e^{-st} f(at) dt$.\nLet $u = at$. Then $t = u/a$, and $dt = du/a$.\nWhen $t=0$, $u=0$. As $t \\to \\infty$, $u \\to \\infty$.\nSubstituting these into the integral:\n$$ \\mathcal{L}\\{f(at)\\} = \\int_0^\\infty e^{-s(u/a)} f(u) \\frac{du}{a} $$\n$$ = \\frac{1}{a} \\int_0^\\infty e^{-(s/a)u} f(u) du $$\nBy definition, $\\int_0^\\infty e^{-s'u} f(u) du = F(s')$. Here, $s' = s/a$.\nTherefore, $$ \\mathcal{L}\\{f(at)\\} = \\frac{1}{a} F\\left(\\frac{s}{a}\\right) $$",
+      "difficulty": "hard"
+    }
+  ]
+}

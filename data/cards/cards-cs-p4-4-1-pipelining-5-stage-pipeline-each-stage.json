@@ -1,0 +1,60 @@
+{
+  "subtopicId": "cs-p4-4-1-pipelining-5-stage-pipeline-each-stage",
+  "subtopicTitle": "Pipelining — 5-stage pipeline, each stage",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:41.356Z",
+  "cards": [
+    {
+      "front": "List the five stages of a classic RISC instruction pipeline.",
+      "back": "The five stages are: IF (Instruction Fetch), ID (Instruction Decode), EX (Execute), MEM (Memory Access), and WB (Write Back).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary function of the Instruction Fetch (IF) stage in a pipeline?",
+      "back": "The IF stage fetches the instruction from memory at the address stored in the Program Counter (PC) and increments the PC to point to the next instruction (typically by 4 for 32-bit instructions).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the key operations performed during the Instruction Decode (ID) stage?",
+      "back": "The ID stage decodes the fetched instruction, identifies the operation and operands, reads values from the register file for source registers, and calculates the branch target address (if it's a branch instruction).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Detail the main activities of the Execute (EX) stage in a pipeline.",
+      "back": "The EX stage performs the arithmetic and logical operations specified by the instruction using the ALU (Arithmetic Logic Unit). This includes operations like addition, subtraction, AND, OR, and also calculates the effective memory address for load/store instructions (e.g., $R_s + \text{offset}$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the Memory Access (MEM) stage.",
+      "back": "The MEM stage is responsible for accessing data memory. For load instructions, it reads data from memory at the effective address calculated in the EX stage. For store instructions, it writes data to memory at the effective address.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the final operation performed in the Write Back (WB) stage?",
+      "back": "The WB stage writes the result of the instruction back to the register file. This result could be the output of an ALU operation (from EX) or data loaded from memory (from MEM).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how the Program Counter (PC) is updated in a 5-stage pipeline, considering sequential execution and taken branches.",
+      "back": "For sequential execution, the PC is incremented by 4 in the IF stage. For taken branches, the branch target address (calculated in ID or EX) is written back to the PC register, overriding the incremented PC. This new PC value is then used for the next instruction fetch, often requiring pipeline stalls or branch prediction to handle the delay.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are pipeline registers (e.g., IF/ID, ID/EX) essential for the correct operation of a 5-stage pipeline?",
+      "back": "Pipeline registers are crucial because they hold the data and control signals for an instruction as it moves from one stage to the next. They act as buffers, ensuring that each stage receives the correct inputs from the *previous* stage's instruction, preventing data from being overwritten by subsequent instructions in earlier stages, and maintaining the isolation required for parallel execution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Briefly describe what happens to an `ADD R1, R2, R3` instruction in each of the five pipeline stages.",
+      "back": "1. **IF:** Fetch `ADD` instruction, PC++. \n2. **ID:** Decode `ADD`, read values of R2 and R3. \n3. **EX:** ALU performs $R2 + R3$. \n4. **MEM:** No memory access (stage is idle or bypassed). \n5. **WB:** Write ALU result to R1 in the register file.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly describe what happens to a `LW R1, 0(R2)` (Load Word) instruction in each of the five pipeline stages.",
+      "back": "1. **IF:** Fetch `LW` instruction, PC++. \n2. **ID:** Decode `LW`, read value of R2. \n3. **EX:** ALU calculates effective memory address: $R2 + 0$. \n4. **MEM:** Read data from memory at the calculated address. \n5. **WB:** Write the loaded data to R1 in the register file.",
+      "difficulty": "medium"
+    }
+  ]
+}

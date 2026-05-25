@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-5-matrix-multiplication-definition-associativity-non-commutativity",
+  "subtopicTitle": "Matrix multiplication — definition, associativity, non-commutativity",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:08:16.819Z",
+  "cards": [
+    {
+      "front": "Define the element $C_{ij}$ of the product matrix $C = AB$ in terms of elements of $A$ and $B$.",
+      "back": "The element $C_{ij}$ is the dot product of the $i$-th row of $A$ and the $j$-th column of $B$. Mathematically, if $A$ is an $m \\times n$ matrix and $B$ is an $n \\times p$ matrix, then $C_{ij} = \\sum_{k=1}^{n} A_{ik} B_{kj}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For matrices $A$ ($m \\times n$) and $B$ ($p \\times q$), what are the dimension requirements for $AB$ to be defined, and what is the resulting dimension of $C=AB$?",
+      "back": "For $AB$ to be defined, the number of columns in $A$ must equal the number of rows in $B$. Thus, $n=p$. The resulting matrix $C=AB$ will have dimensions $m \\times q$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$, calculate the product $AB$.",
+      "back": "$AB = \\begin{pmatrix} (1)(5)+(2)(7) & (1)(6)+(2)(8) \\\\ (3)(5)+(4)(7) & (3)(6)+(4)(8) \\end{pmatrix} = \\begin{pmatrix} 5+14 & 6+16 \\\\ 15+28 & 18+32 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the associativity property of matrix multiplication for matrices $A, B, C$.",
+      "back": "For any three matrices $A, B, C$ with compatible dimensions for multiplication, the associativity property states that $(AB)C = A(BC)$. This means the grouping of products does not affect the final result, as long as the order of the matrices themselves is maintained.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain conceptually why matrix multiplication is associative, considering the definition of matrix elements.",
+      "back": "Let $A$ be $m \\times n$, $B$ be $n \\times p$, and $C$ be $p \\times q$. The $(i,j)$-th element of $((AB)C)$ is $\\sum_{k=1}^p (AB)_{ik} C_{kj} = \\sum_{k=1}^p \\left( \\sum_{l=1}^n A_{il} B_{lk} \\right) C_{kj} = \\sum_{k=1}^p \\sum_{l=1}^n A_{il} B_{lk} C_{kj}$. The $(i,j)$-th element of $(A(BC))$ is $\\sum_{l=1}^n A_{il} (BC)_{lj} = \\sum_{l=1}^n A_{il} \\left( \\sum_{k=1}^p B_{lk} C_{kj} \\right) = \\sum_{l=1}^n \\sum_{k=1}^p A_{il} B_{lk} C_{kj}$. Since the order of summation does not affect the result, both expressions are identical, proving associativity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is matrix multiplication generally commutative? Explain.",
+      "back": "No, matrix multiplication is generally not commutative. This means that for two matrices $A$ and $B$, $AB \\neq BA$ in most cases, even if both products are defined.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide a simple $2 \\times 2$ counterexample to demonstrate that matrix multiplication is not commutative.",
+      "back": "Let $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ and $B = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}$.\n$AB = \\begin{pmatrix} (1)(1)+(1)(1) & (1)(0)+(1)(1) \\\\ (0)(1)+(1)(1) & (0)(0)+(1)(1) \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$.\n$BA = \\begin{pmatrix} (1)(1)+(0)(0) & (1)(1)+(0)(1) \\\\ (1)(1)+(1)(0) & (1)(1)+(1)(1) \\end{pmatrix} = \\begin{pmatrix} 1 & 1 \\\\ 1 & 2 \\end{pmatrix}$.\nSince $AB \\neq BA$, matrix multiplication is not commutative.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Conceptually, why does the definition of matrix multiplication lead to non-commutativity?",
+      "back": "Matrix multiplication $C_{ij} = \\sum_k A_{ik} B_{kj}$ involves combining rows of the first matrix with columns of the second. When the order is reversed ($BA$), the elements being combined are fundamentally different: rows of $B$ are combined with columns of $A$. This difference in the 'flow' of elements and their pairings almost always leads to a different result, unless the matrices possess special properties (e.g., they are diagonal, or one is an identity matrix).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a significant practical implication of matrix multiplication being non-commutative when solving matrix equations?",
+      "back": "The non-commutativity means that the order of multiplication matters critically. When solving equations like $AX=B$, one must multiply by $A^{-1}$ on the *correct side*. For example, $A^{-1}(AX) = A^{-1}B$ correctly yields $X = A^{-1}B$. Multiplying on the right, $(AX)A^{-1} = BA^{-1}$, would generally lead to an incorrect result or an undefined operation, as $XA^{-1}$ is not necessarily $X$.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p1-1-8-self-inductance-l-mutual-inductance-m",
+  "subtopicTitle": "Self-inductance L, mutual inductance M",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:53.436Z",
+  "cards": [
+    {
+      "front": "Define self-inductance ($L$) and state its SI unit.",
+      "back": "Self-inductance ($L$) is a measure of a circuit's opposition to a change in current, quantifying the magnetic flux produced per unit current. Mathematically, $L = \\frac{\\Phi_B}{I}$, where $\\Phi_B$ is the magnetic flux through the circuit and $I$ is the current. Its SI unit is the Henry (H), which is equivalent to Weber per Ampere (Wb/A) or Volt-second per Ampere (V·s/A).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Faraday's law for the self-induced EMF ($\\mathcal{E}$) in an inductor.",
+      "back": "The self-induced electromotive force ($\\mathcal{E}$) in an inductor is given by Faraday's law of induction as:\n$$ \\mathcal{E} = -L \\frac{dI}{dt} $$\nwhere $L$ is the self-inductance of the inductor and $\\frac{dI}{dt}$ is the rate of change of current through it. The negative sign indicates that the induced EMF opposes the change in current (Lenz's Law).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity is self-inductance analogous to in mechanical systems, and why?",
+      "back": "Self-inductance ($L$) is analogous to **inertia (mass)** in mechanical systems. Just as inertia resists changes in an object's velocity, self-inductance resists changes in current. A larger inductance means a greater opposition to changes in current flow, requiring more \"effort\" (voltage) to change the current quickly.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define mutual inductance ($M$) and state its SI unit.",
+      "back": "Mutual inductance ($M$) describes the magnetic coupling between two separate circuits. It quantifies how a changing current in one circuit induces an electromotive force (EMF) in the other. For two coils (1 and 2), $M_{21} = \\frac{\\Phi_{B2}}{I_1}$, where $\\Phi_{B2}$ is the magnetic flux through coil 2 due to current $I_1$ in coil 1. Its SI unit is the Henry (H).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Faraday's law for the mutually induced EMF ($\\mathcal{E}_2$) in coil 2 due to current in coil 1.",
+      "back": "The electromotive force ($\\mathcal{E}_2$) induced in coil 2 due to a changing current ($I_1$) in coil 1 is given by:\n$$ \\mathcal{E}_2 = -M_{21} \\frac{dI_1}{dt} $$\nwhere $M_{21}$ is the mutual inductance between coil 1 and coil 2. Similarly, $\\mathcal{E}_1 = -M_{12} \\frac{dI_2}{dt}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the reciprocity principle of mutual inductance, i.e., $M_{12} = M_{21}$.",
+      "back": "The reciprocity principle states that the mutual inductance from coil 1 to coil 2 ($M_{12}$) is equal to the mutual inductance from coil 2 to coil 1 ($M_{21}$). That is, $M_{12} = M_{21} = M$. This means the magnetic coupling is symmetric: the ability of coil 1 to induce an EMF in coil 2 is the same as the ability of coil 2 to induce an EMF in coil 1, assuming the same rate of current change. This is a consequence of Maxwell's equations and energy conservation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the self-inductance ($L$) of a long solenoid with $N$ turns, length $l$, cross-sectional area $A$, and permeability $\\mu$.",
+      "back": "For a long solenoid, the magnetic field inside is approximately uniform and given by $B = \\mu n I = \\mu \\frac{N}{l} I$.\nThe magnetic flux through one turn is $\\Phi_1 = B A = \\mu \\frac{N}{l} I A$.\nThe total magnetic flux through all $N$ turns is $\\Phi_B = N \\Phi_1 = N \\left( \\mu \\frac{N}{l} I A \\right) = \\mu \\frac{N^2}{l} I A$.\nBy definition, $L = \\frac{\\Phi_B}{I}$.\nSubstituting $\\Phi_B$:\n$$ L = \\frac{\\mu \\frac{N^2}{l} I A}{I} = \\mu \\frac{N^2 A}{l} $$\nThis formula shows $L$ depends only on the geometry and core material.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for the energy ($U$) stored in an inductor with inductance $L$ carrying a current $I$.",
+      "back": "The power delivered to an inductor is $P = I \\mathcal{E}$, where $\\mathcal{E}$ is the induced EMF. Since $\\mathcal{E} = L \\frac{dI}{dt}$ (magnitude, as power is delivered *to* the inductor, not *by* it), the power is $P = I L \\frac{dI}{dt}$.\nEnergy stored is the integral of power over time: $U = \\int P dt = \\int \\left( L I \\frac{dI}{dt} \\right) dt$.\nThis simplifies to $U = \\int L I dI$.\nIntegrating from $I=0$ to $I$:\n$$ U = L \\int_0^I I dI = L \\left[ \\frac{1}{2}I^2 \\right]_0^I = \\frac{1}{2}LI^2 $$\nThis is the energy stored in the magnetic field of the inductor.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the primary factors that determine the values of self-inductance ($L$) and mutual inductance ($M$).",
+      "back": "<ul>\n    <li><b>Self-inductance ($L$):</b>\n        <ol>\n            <li><b>Geometry of the coil:</b> Number of turns ($N$), cross-sectional area ($A$), length ($l$), shape.</li>\n            <li><b>Permeability of the core material ($\\mu$):</b> Ferromagnetic materials significantly increase $L$.</li>\n        </ol>\n    </li>\n    <li><b>Mutual Inductance ($M$):</b>\n        <ol>\n            <li><b>Geometry of both coils:</b> Number of turns, areas, lengths, shapes of both coils.</li>\n            <li><b>Relative orientation of the coils:</b> How they are angled with respect to each other.</li>\n            <li><b>Separation distance between the coils:</b> Closer coils generally have higher $M$.</li>\n            <li><b>Permeability of the medium/core material ($\\mu$):</b> Materials between and within the coils.</li>\n        </ol>\n    </li>\n</ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

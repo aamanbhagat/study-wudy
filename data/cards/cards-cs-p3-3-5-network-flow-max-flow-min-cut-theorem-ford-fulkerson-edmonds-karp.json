@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-5-network-flow-max-flow-min-cut-theorem-ford-fulkerson-edmonds-karp",
+  "subtopicTitle": "Network flow — max-flow min-cut theorem, Ford-Fulkerson, Edmonds-Karp",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:21.667Z",
+  "cards": [
+    {
+      "front": "In network flow, define a *flow network*.",
+      "back": "A flow network is a directed graph $G=(V, E)$ with two distinguished vertices: a *source* $s$ and a *sink* $t$. Each edge $(u,v) \\in E$ has a non-negative *capacity* $c(u,v) \\ge 0$, representing the maximum amount of flow that can pass through that edge.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Max-Flow Min-Cut Theorem.",
+      "back": "For any flow network, the maximum amount of flow from the source $s$ to the sink $t$ is equal to the minimum capacity of an $s-t$ cut.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the fundamental idea behind the Ford-Fulkerson method for finding maximum flow?",
+      "back": "The Ford-Fulkerson method iteratively finds *augmenting paths* from the source $s$ to the sink $t$ in the *residual graph*. For each path, it pushes as much flow as possible (limited by the path's bottleneck capacity), updating the residual capacities. This process repeats until no more augmenting paths can be found, at which point the current flow is the maximum flow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define an $s-t$ cut in a flow network and explain how its capacity is calculated.",
+      "back": "An $s-t$ cut $(S, T)$ is a partition of the vertices $V$ into two sets $S$ and $T$ such that $s \\in S$ and $t \\in T$. The *capacity* of the cut $c(S, T)$ is the sum of capacities of all edges $(u,v)$ where $u \\in S$ and $v \\in T$. Edges from $T$ to $S$ are not included in the cut capacity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When an augmenting path $P$ with bottleneck capacity $\\Delta_f$ is found, how are residual capacities updated for forward and backward edges?",
+      "back": "For each forward edge $(u,v) \\in P$: The residual capacity $c_f(u,v)$ decreases by $\\Delta_f$, and the residual capacity of its reverse edge $c_f(v,u)$ increases by $\\Delta_f$. For each backward edge $(u,v) \\in P$ (meaning flow is reduced): $c_f(u,v)$ increases by $\\Delta_f$, and $c_f(v,u)$ decreases by $\\Delta_f$. This maintains the residual graph properties.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key difference between the Edmonds-Karp algorithm and the general Ford-Fulkerson method, and how does it affect their worst-case time complexity?",
+      "back": "Edmonds-Karp is a specific implementation of Ford-Fulkerson that uses Breadth-First Search (BFS) to find augmenting paths. This guarantees finding the shortest augmenting path (in terms of number of edges). The general Ford-Fulkerson method's complexity can be $O(f_{max} \\cdot E)$ (where $f_{max}$ is the maximum flow), which can be very slow or non-terminating with irrational capacities. Edmonds-Karp's BFS strategy ensures a polynomial time complexity of $O(V E^2)$, independent of capacities, making it always efficient.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide an intuitive explanation for why the maximum flow from $s$ to $t$ must be equal to the minimum capacity of an $s-t$ cut.",
+      "back": "Any flow from $s$ to $t$ must cross every $s-t$ cut. Therefore, the total flow cannot exceed the sum of capacities of edges going from $S$ to $T$ in any cut. This implies that $f_{max} \\le c(S, T)$ for any cut. The theorem states that there exists at least one cut (the 'bottleneck' cut) where this inequality becomes an equality, meaning we can always find a flow that perfectly saturates the capacity of this minimum cut, and no more flow can pass.",
+      "difficulty": "hard"
+    }
+  ]
+}

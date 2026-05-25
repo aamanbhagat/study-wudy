@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-5-snell-s-law-derivation-from-fermat-s-principle",
+  "subtopicTitle": "Snell's law — derivation from Fermat's principle",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:17.869Z",
+  "cards": [
+    {
+      "front": "State Fermat's Principle of Least Time.",
+      "back": "Fermat's Principle states that light travels between two points along the path that requires the least time. More accurately, it travels along a path for which the optical path length is stationary (a local minimum, maximum, or inflection point) with respect to variations in the path.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the speed of light ($v$) in a medium related to the speed of light in vacuum ($c$) and the refractive index ($n$)?",
+      "back": "The speed of light in a medium is given by $v = \\frac{c}{n}$, where $c$ is the speed of light in vacuum and $n$ is the refractive index of the medium.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For light traveling from point A in medium 1 ($n_1$) to point B in medium 2 ($n_2$), with the interface at $y=0$, write the total time $T$ as a function of the interface crossing point $x$.",
+      "back": "Let the light travel from $(x_1, y_1)$ to $(x, 0)$ in medium 1 and then from $(x, 0)$ to $(x_2, y_2)$ in medium 2. The distances are $d_1 = \\sqrt{(x-x_1)^2 + y_1^2}$ and $d_2 = \\sqrt{(x_2-x)^2 + y_2^2}$. The speeds are $v_1 = c/n_1$ and $v_2 = c/n_2$. The total time is:\n$$T(x) = \\frac{d_1}{v_1} + \\frac{d_2}{v_2} = \\frac{n_1}{c}\\sqrt{(x-x_1)^2 + y_1^2} + \\frac{n_2}{c}\\sqrt{(x_2-x)^2 + y_2^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When minimizing the total time $T(x)$ for light crossing an interface (by setting $\\frac{dT}{dx} = 0$), what trigonometric relationship between angles and refractive indices emerges?",
+      "back": "Setting $\\frac{dT}{dx} = 0$ leads to:\n$$\\frac{n_1}{c} \\frac{(x-x_1)}{\\sqrt{(x-x_1)^2 + y_1^2}} - \\frac{n_2}{c} \\frac{(x_2-x)}{\\sqrt{(x_2-x)^2 + y_2^2}} = 0$$\nBy geometric definition, $\\sin\\theta_1 = \\frac{x-x_1}{\\sqrt{(x-x_1)^2 + y_1^2}}$ and $\\sin\\theta_2 = \\frac{x_2-x}{\\sqrt{(x_2-x)^2 + y_2^2}}$, where $\\theta_1$ and $\\theta_2$ are angles with respect to the normal. Substituting these yields:\n$$\\frac{n_1}{c} \\sin\\theta_1 - \\frac{n_2}{c} \\sin\\theta_2 = 0$$\nMultiplying by $c$ gives $n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$, which is Snell's Law.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State Snell's Law, defining all variables.",
+      "back": "Snell's Law describes the relationship between the angles of incidence and refraction for light passing through an interface between two different isotropic media:\n$$n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$$\nWhere $n_1$ and $n_2$ are the refractive indices of the first and second media, respectively, and $\\theta_1$ and $\\theta_2$ are the angles of incidence and refraction, measured with respect to the normal to the surface.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using Snell's Law, explain why light bends *towards* the normal when passing from a rarer medium ($n_1$) to a denser medium ($n_2$). Assume $\\theta_1 > 0$.",
+      "back": "From Snell's Law, $n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$. If light goes from a rarer to a denser medium, then $n_1 < n_2$. To maintain equality, $\\sin\\theta_1$ must be greater than $\\sin\\theta_2$. Since sine is an increasing function for angles from $0^\\circ$ to $90^\\circ$, this implies $\\theta_1 > \\theta_2$. Therefore, the angle of refraction ($\\theta_2$) is smaller than the angle of incidence ($\\theta_1$), meaning the light bends *towards* the normal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Fermat's Principle explain why light travels in straight lines within a homogeneous medium?",
+      "back": "In a homogeneous medium, the refractive index $n$ is constant. The speed of light $v = c/n$ is also constant. For light to travel between two points, the path of least time is simply the path of shortest distance, which is a straight line. Any deviation from a straight line would increase the path length and thus the travel time, violating Fermat's Principle.",
+      "difficulty": "medium"
+    }
+  ]
+}

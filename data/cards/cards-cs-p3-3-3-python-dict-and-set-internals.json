@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-3-python-dict-and-set-internals",
+  "subtopicTitle": "Python dict and set internals",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:57.360Z",
+  "cards": [
+    {
+      "front": "What data structure do Python `dict`s and `set`s primarily use internally for efficient lookups?",
+      "back": "Python `dict`s and `set`s primarily use a **hash table** (specifically, an array of pointers to entries, often called a sparse array or 'table' in CPython's implementation). Each entry stores the hash, key, and value (for `dict`) or just hash and key (for `set`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the internal structure of a single entry in a Python `dict`. How does this differ for a `set`?",
+      "back": "A `dict` entry (often called a `PyDictEntry` in CPython) typically stores three pieces of information: `(hash, key, value)`. The `hash` is the pre-computed hash value of the key. For a `set`, an entry only needs to store `(hash, key)` as there's no associated value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What two dunder methods must an object implement to be considered 'hashable' in Python, and why is each necessary?",
+      "back": "An object must implement `__hash__()` (to return an integer hash value) and `__eq__()` (to determine object equality). `__hash__` is used to quickly find the initial bucket/position in the hash table. `__eq__` is crucial for resolving hash collisions and confirming if a key found in a bucket is indeed the exact key being sought (since different keys can have the same hash value).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Python's `dict`s and `set`s use a specific collision resolution strategy. Name it and briefly explain its core idea. How does Python's probe sequence differ from simple linear probing?",
+      "back": "Python uses **open addressing**. When a hash collision occurs (i.e., the computed index is already occupied or marked as a dummy entry), the system probes other locations in the main table until an empty slot is found or the key is matched. Python's probe sequence uses a pseudo-random perturbation based on the original hash value and the probe attempt number ($j$). It's not simple linear probing ($index+1, index+2, ...$) or quadratic probing ($index+1^2, index+2^2, ...$), but rather a more complex formula to reduce clustering: `(5*j + 1) * j + hash_value` (modulo table size).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the average-case time complexity for `dict` and `set` operations (lookup, insertion, deletion) is $O(1)$, but the worst-case can be $O(N)$.",
+      "back": "Average-case $O(1)$ occurs because a well-distributed hash function and efficient collision resolution (like Python's open addressing with perturbation) ensure that most operations involve only a few probes. The key is quickly found or inserted. Worst-case $O(N)$ happens if all keys hash to the same bucket or lead to a long chain of collisions. This forces the operation to linearly scan through a significant portion of the table (or even all $N$ entries), degrading performance to $O(N)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When does a Python `dict` or `set` typically resize (rehash) internally? What is the primary performance implication of resizing?",
+      "back": "Python `dict`s and `set`s resize when their **load factor** (number of entries / table size) exceeds a certain threshold, typically 2/3 (or 0.66). Resizing involves allocating a new, larger hash table (usually 2x or 4x the size) and then re-inserting *all* existing key-value pairs (or keys for sets) into the new table. This entire process is an $O(N)$ operation, where $N$ is the number of elements, and can cause a temporary performance spike.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why must keys in a Python `dict` (and elements in a `set`) be immutable? Provide an example of what could go wrong if a mutable object were used as a key.",
+      "back": "Keys must be immutable because their hash value must remain constant throughout their lifetime in the hash table. If a mutable key's value were to change *after* insertion, its `__hash__` method could return a different value. This would mean the key would no longer be found in its original bucket, and a subsequent lookup for the modified key would go to a different (incorrect) bucket, effectively 'losing' the key. Python prevents this by requiring keys to implement `__hash__` and `__eq__` and typically disallowing mutable types (like lists or dictionaries) from being hashed.",
+      "difficulty": "medium"
+    }
+  ]
+}

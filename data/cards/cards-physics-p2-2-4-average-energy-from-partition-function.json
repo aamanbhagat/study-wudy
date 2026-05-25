@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-4-average-energy-from-partition-function",
+  "subtopicTitle": "Average energy from partition function",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:39.789Z",
+  "cards": [
+    {
+      "front": "Define the canonical partition function $Z$ for a system with discrete energy states $E_i$.",
+      "back": "The canonical partition function $Z$ is defined as $Z = \\sum_i e^{-\\beta E_i}$, where $E_i$ are the discrete energy states of the system and $\\beta = 1/(k_B T)$ is the inverse temperature ($k_B$ is Boltzmann's constant, $T$ is temperature). It is a sum over all possible microstates, weighted by their Boltzmann factors.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In statistical mechanics, what does the average energy $\\langle E \\rangle$ signify for a system in thermal equilibrium?",
+      "back": "The average energy $\\langle E \\rangle$ represents the ensemble average of the system's energy. For a system in thermal equilibrium, this corresponds to the thermodynamic internal energy $U$. It is the weighted average of all possible energy states, with each state weighted by its Boltzmann probability.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express the probability $P_i$ of a system being in a microstate $i$ with energy $E_i$ in terms of the canonical partition function $Z$ and $\\beta$.",
+      "back": "The probability $P_i$ of a system being in a microstate $i$ with energy $E_i$ is given by the Boltzmann distribution: $$ P_i = \\frac{e^{-\\beta E_i}}{Z} $$ where $Z = \\sum_j e^{-\\beta E_j}$ is the canonical partition function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the average energy $\\langle E \\rangle$ using the canonical partition function $Z$ and the inverse temperature $\\beta$.",
+      "back": "The average energy is defined as $\\langle E \\rangle = \\sum_i E_i P_i$. Substituting $P_i = \\frac{e^{-\\beta E_i}}{Z}$: $$ \\langle E \\rangle = \\sum_i E_i \\frac{e^{-\\beta E_i}}{Z} = \\frac{1}{Z} \\sum_i E_i e^{-\\beta E_i} $$ We know that $Z = \\sum_i e^{-\\beta E_i}$. Taking the derivative of $Z$ with respect to $\\beta$: $$ \\frac{\\partial Z}{\\partial \\beta} = \\sum_i (-E_i) e^{-\\beta E_i} = -\\sum_i E_i e^{-\\beta E_i} $$ So, $\\sum_i E_i e^{-\\beta E_i} = -\\frac{\\partial Z}{\\partial \\beta}$. Substituting this back into the expression for $\\langle E \\rangle$: $$ \\langle E \\rangle = \\frac{1}{Z} \\left(-\\frac{\\partial Z}{\\partial \\beta}\\right) = -\\frac{\\partial \\ln Z}{\\partial \\beta} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Rewrite the formula for average energy $\\langle E \\rangle$ using the canonical partition function $Z$ and temperature $T$, given $\\beta = 1/(k_B T)$.",
+      "back": "Starting from $\\langle E \\rangle = -\\frac{\\partial \\ln Z}{\\partial \\beta}$, we use the chain rule: $\\frac{\\partial}{\\partial \\beta} = \\frac{\\partial T}{\\partial \\beta} \\frac{\\partial}{\\partial T}$.\nGiven $\\beta = (k_B T)^{-1}$, we have $T = (k_B \\beta)^{-1}$.\nSo, $\\frac{\\partial T}{\\partial \\beta} = \\frac{\\partial}{\\partial \\beta} (k_B \\beta)^{-1} = -\\frac{1}{k_B \\beta^2} = -k_B T^2$.\nSubstituting this into the formula for $\\langle E \\rangle$: $$ \\langle E \\rangle = -\\left(-k_B T^2 \\frac{\\partial \\ln Z}{\\partial T}\\right) = k_B T^2 \\frac{\\partial \\ln Z}{\\partial T} $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the physical significance of the derivative $\\frac{\\partial \\ln Z}{\\partial \\beta}$ in the context of average energy?",
+      "back": "The derivative $\\frac{\\partial \\ln Z}{\\partial \\beta}$ is directly related to the average energy $\\langle E \\rangle$ by the relation $\\langle E \\rangle = -\\frac{\\partial \\ln Z}{\\partial \\beta}$. Physically, it quantifies how the logarithm of the partition function (which is related to the Helmholtz free energy) changes with respect to inverse temperature. This change reflects how the energy distribution shifts across microstates as the temperature of the system varies, directly determining the system's average energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would the formula for $\\langle E \\rangle$ change if the energy states were continuous instead of discrete?",
+      "back": "If the energy states are continuous, the summation in the partition function $Z$ is replaced by an integral over the phase space, typically given by $Z = \\frac{1}{h^N N!} \\int e^{-\\beta H(q,p)} d^{3N}q d^{3N}p$ (for $N$ particles, $H$ is the Hamiltonian). However, the fundamental formula for the average energy remains the same: $$ \\langle E \\rangle = -\\frac{\\partial \\ln Z}{\\partial \\beta} $$ or equivalently $$ \\langle E \\rangle = k_B T^2 \\frac{\\partial \\ln Z}{\\partial T} $$ The only difference is in how $Z$ itself is calculated (integral vs. sum).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a two-state system with energies $E_1=0$ and $E_2=\\epsilon$, outline the steps to calculate its average energy using the partition function.",
+      "back": "1.  **Calculate the Partition Function:** $Z = e^{-\\beta E_1} + e^{-\\beta E_2} = e^{-\\beta \\cdot 0} + e^{-\\beta \\epsilon} = 1 + e^{-\\beta \\epsilon}$.\n2.  **Calculate $\\ln Z$:** $\\ln Z = \\ln(1 + e^{-\\beta \\epsilon})$.\n3.  **Take the derivative with respect to $\\beta$:** $\\frac{\\partial \\ln Z}{\\partial \\beta} = \\frac{1}{1 + e^{-\\beta \\epsilon}} \\cdot (0 + (-\\epsilon)e^{-\\beta \\epsilon}) = -\\frac{\\epsilon e^{-\\beta \\epsilon}}{1 + e^{-\\beta \\epsilon}}$.\n4.  **Calculate Average Energy:** $\\langle E \\rangle = -\\frac{\\partial \\ln Z}{\\partial \\beta} = -\\left(-\\frac{\\epsilon e^{-\\beta \\epsilon}}{1 + e^{-\\beta \\epsilon}}\\right) = \\frac{\\epsilon e^{-\\beta \\epsilon}}{1 + e^{-\\beta \\epsilon}}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

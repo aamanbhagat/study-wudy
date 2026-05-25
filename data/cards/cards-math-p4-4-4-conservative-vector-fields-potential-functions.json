@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-4-conservative-vector-fields-potential-functions",
+  "subtopicTitle": "Conservative vector fields — potential functions",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:59.888Z",
+  "cards": [
+    {
+      "front": "A vector field $\\mathbf{F}$ is conservative if it is the __________ of a scalar function $\\phi$.",
+      "back": "A vector field $\\mathbf{F}$ is conservative if it is the **gradient** of a scalar function $\\phi$. That is, $\\mathbf{F} = \\nabla \\phi$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $\\mathbf{F}$ is a conservative vector field, the scalar function $\\phi$ such that $\\mathbf{F} = \\nabla \\phi$ is called its __________.",
+      "back": "If $\\mathbf{F}$ is a conservative vector field, the scalar function $\\phi$ such that $\\mathbf{F} = \\nabla \\phi$ is called its **potential function**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Fundamental Theorem of Line Integrals for a conservative vector field $\\mathbf{F} = \\nabla \\phi$.",
+      "back": "If $\\mathbf{F} = \\nabla \\phi$ is a conservative vector field, and $C$ is a smooth curve from point $\\mathbf{a}$ to point $\\mathbf{b}$, then the line integral of $\\mathbf{F}$ along $C$ is given by: $$\\int_C \\mathbf{F} \\cdot d\\mathbf{r} = \\phi(\\mathbf{b}) - \\phi(\\mathbf{a})$$This implies line integrals of conservative fields are path-independent.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 2D vector field $\\mathbf{F}(x,y) = P(x,y)\\mathbf{i} + Q(x,y)\\mathbf{j}$ to be conservative on a simply connected domain, what condition must its components satisfy?",
+      "back": "For $\\mathbf{F}(x,y) = P(x,y)\\mathbf{i} + Q(x,y)\\mathbf{j}$ to be conservative on a simply connected domain, its components must satisfy the cross-partial derivative condition: $$\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a 3D vector field $\\mathbf{F}(x,y,z) = P\\mathbf{i} + Q\\mathbf{j} + R\\mathbf{k}$ to be conservative on a simply connected domain, what must be true about its curl?",
+      "back": "For $\\mathbf{F}(x,y,z) = P\\mathbf{i} + Q\\mathbf{j} + R\\mathbf{k}$ to be conservative on a simply connected domain, its curl must be the zero vector: $$\\text{curl}(\\mathbf{F}) = \\nabla \\times \\mathbf{F} = \\mathbf{0}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find a potential function $\\phi(x,y)$ for the vector field $\\mathbf{F}(x,y) = (2xy + y^2)\\mathbf{i} + (x^2 + 2xy)\\mathbf{j}$.",
+      "back": "We need $\\frac{\\partial \\phi}{\\partial x} = 2xy + y^2$ and $\\frac{\\partial \\phi}{\\partial y} = x^2 + 2xy$.\n1. Integrate $\\frac{\\partial \\phi}{\\partial x}$ with respect to $x$: $\\phi(x,y) = \\int (2xy + y^2) dx = x^2y + xy^2 + g(y)$.\n2. Differentiate this $\\phi$ with respect to $y$: $\\frac{\\partial \\phi}{\\partial y} = x^2 + 2xy + g'(y)$.\n3. Compare with the given $\\frac{\\partial \\phi}{\\partial y}$: $x^2 + 2xy + g'(y) = x^2 + 2xy$. This implies $g'(y) = 0$, so $g(y) = C$.\nThus, a potential function is $\\phi(x,y) = x^2y + xy^2 + C$. (We can choose $C=0$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why the condition \"simply connected domain\" is crucial for $\\text{curl}(\\mathbf{F}) = \\mathbf{0}$ to *guarantee* that $\\mathbf{F}$ is conservative.",
+      "back": "If a domain is not simply connected (i.e., it has 'holes'), a vector field can have $\\text{curl}(\\mathbf{F}) = \\mathbf{0}$ but still not be conservative. A classic example is $\\mathbf{F}(x,y) = \\frac{-y}{x^2+y^2}\\mathbf{i} + \\frac{x}{x^2+y^2}\\mathbf{j}$ on $\\mathbb{R}^2 \\setminus \\{(0,0)\\}$. Its curl is zero, but a line integral around a closed loop enclosing the origin (e.g., unit circle) is $2\\pi \\neq 0$, showing it's not conservative. The simply connected condition ensures that any closed loop can be continuously shrunk to a point within the domain, preventing such counterexamples.",
+      "difficulty": "hard"
+    }
+  ]
+}

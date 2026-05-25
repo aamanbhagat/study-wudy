@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-2-orbit-types-leo-meo-geo-heo-sso-molniya",
+  "subtopicTitle": "Orbit types — LEO, MEO, GEO, HEO, SSO, Molniya",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:38.287Z",
+  "cards": [
+    {
+      "front": "Define Low Earth Orbit (LEO) by its typical altitude range and list two common applications.",
+      "back": "LEO is an orbit with an altitude typically between $160 \\text{ km}$ and $2,000 \\text{ km}$ above Earth's surface. Common applications include Earth observation (e.g., remote sensing, weather monitoring), telecommunications (e.g., Starlink, Iridium), and human spaceflight (e.g., International Space Station).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare Medium Earth Orbit (MEO) and Geostationary Orbit (GEO) in terms of typical altitude ranges and orbital periods.",
+      "back": "MEO: Altitudes typically range from $2,000 \\text{ km}$ to $35,786 \\text{ km}$. Periods are usually $2 \\text{ hours}$ to $12 \\text{ hours}$. GEO: Altitude is precisely $35,786 \\text{ km}$ above the equator. The orbital period is exactly one sidereal day ($23 \\text{ hours}, 56 \\text{ minutes}, 4 \\text{ seconds}$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a satellite to appear stationary from a fixed point on Earth, what specific orbital period, inclination, and approximate altitude are required?",
+      "back": "A geostationary orbit (GEO) requires:\n1.  **Orbital Period:** Exactly one sidereal day ($23 \\text{ hours}, 56 \\text{ minutes}, 4 \\text{ seconds}$).\n2.  **Inclination:** $0^\\circ$ (equatorial orbit).\n3.  **Altitude:** Approximately $35,786 \\text{ km}$ above the Earth's equator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary advantage of a Sun-Synchronous Orbit (SSO) for Earth observation satellites, and what orbital phenomenon enables this?",
+      "back": "The primary advantage of an SSO is that it maintains a constant angle between the orbit plane and the Sun's direction. This ensures consistent lighting conditions for Earth observation, allowing for repeatable imaging under similar illumination. This is enabled by **nodal precession**, where the orbit plane slowly rotates due to Earth's oblateness.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the key characteristics of a Molniya orbit, including its eccentricity, inclination, and typical apogee/perigee, and state its primary application.",
+      "back": "A Molniya orbit is a highly elliptical orbit (HEO) with:\n*   **High Eccentricity:** Typically $e \\approx 0.7-0.75$.\n*   **High Inclination:** Approximately $63.4^\\circ$ (critical inclination to prevent apogee drift).\n*   **Apogee:** Very high, often over $40,000 \\text{ km}$.\n*   **Perigee:** Relatively low, around $500-1,500 \\text{ km}$.\n*   **Orbital Period:** Typically $12 \\text{ hours}$ (half a sidereal day).\nIts primary application is providing long-duration communication coverage over high-latitude regions, particularly in the Northern Hemisphere, where GEO satellites have poor visibility.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how Earth's oblateness (J2 perturbation) causes the nodal precession necessary for a Sun-Synchronous Orbit (SSO).",
+      "back": "Earth's oblateness means it's not a perfect sphere, having an equatorial bulge. This bulge creates a non-uniform gravitational field. As a satellite orbits, the gravitational pull from this bulge exerts a torque on the orbital plane. This torque causes the orbital plane to slowly rotate about the Earth's polar axis, a phenomenon called **nodal precession**. For an SSO, the inclination and altitude are specifically chosen so that this precession rate matches the Earth's average orbital rate around the Sun ($360^\\circ$ per year), ensuring the orbit plane maintains a constant orientation relative to the Sun. The nodal precession rate $\\dot{\\Omega}$ is given by:\n$$ \\dot{\\Omega} = -\\frac{3}{2} J_2 \\left(\\frac{R_E}{p}\\right)^2 n \\cos i $$\nwhere $J_2$ is the Earth's oblateness coefficient, $R_E$ is Earth's radius, $p$ is the semi-latus rectum, $n$ is the mean motion, and $i$ is the inclination.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A country located at a high northern latitude requires continuous satellite communication coverage for several hours per day with minimal ground station handoffs. Which orbit type is most suitable, and why?",
+      "back": "A **Molniya orbit** is most suitable.\n*   **Reason 1 (High Apogee over High Latitudes):** Its highly elliptical nature places the apogee (the point furthest from Earth) over the high northern latitudes. Satellites spend a significant portion of their orbital period (up to 8 hours for a 12-hour orbit) near apogee, providing long dwell times and continuous coverage for these regions.\n*   **Reason 2 (Inclination):** The typical $63.4^\\circ$ inclination ensures the apogee stays fixed over the desired high latitudes, and this specific inclination also minimizes apogee drift caused by Earth's oblateness (the \"critical inclination\").\n*   **Reason 3 (GEO limitations):** Geostationary satellites, while providing continuous coverage, are located above the equator and appear very low on the horizon (or below it) from very high latitudes, making communication difficult or impossible.",
+      "difficulty": "hard"
+    }
+  ]
+}

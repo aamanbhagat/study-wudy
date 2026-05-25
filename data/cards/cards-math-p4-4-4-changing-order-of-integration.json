@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-4-changing-order-of-integration",
+  "subtopicTitle": "Changing order of integration",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:01:27.293Z",
+  "cards": [
+    {
+      "front": "Why is changing the order of integration sometimes necessary or beneficial in multivariable calculus?",
+      "back": "Changing the order of integration is necessary when the antiderivative of the inner integral cannot be found in its current form. It is beneficial when the limits of integration become simpler, or when the region of integration can be described more easily (e.g., as a single region instead of multiple) in the alternative order, thereby simplifying the evaluation of the integral.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a double integral $\\int_a^b \\int_{g_1(x)}^{g_2(x)} f(x,y) \\,dy\\,dx$, what type of region is described by its limits?",
+      "back": "This integral describes a **Type I region**. In a Type I region, the outer variable $x$ is bounded by constant values ($a \\le x \\le b$), while the inner variable $y$ is bounded by functions of $x$ ($g_1(x) \\le y \\le g_2(x)$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the three primary steps to change the order of integration for a double integral?",
+      "back": "1.  **Identify the region of integration:** Extract the inequalities for $x$ and $y$ from the given limits of integration.\n2.  **Sketch the region:** Graph the boundaries defined by these inequalities in the $xy$-plane to visualize the exact region.\n3.  **Describe the region with new limits:** Rewrite the inequalities for $x$ and $y$ based on the desired new order (e.g., $dx\\,dy$ instead of $dy\\,dx$) by re-evaluating which variable is bounded by constants and which by functions of the other variable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Change the order of integration for $\\int_0^1 \\int_y^1 e^{x^2} \\,dx\\,dy$ and evaluate the new integral.",
+      "back": "1.  **Original Region:** $0 \\le y \\le 1$ and $y \\le x \\le 1$. This is a triangular region with vertices $(0,0), (1,0), (1,1)$.\n2.  **New Order ($dy\\,dx$):** From the sketch, $x$ ranges from $0$ to $1$. For a fixed $x$, $y$ ranges from $0$ to $x$. So, $0 \\le x \\le 1$ and $0 \\le y \\le x$.\n3.  **New Integral:**\n    $$ \\int_0^1 \\int_0^x e^{x^2} \\,dy\\,dx $$\n4.  **Evaluation:**\n    $$ \\int_0^1 \\left[ y e^{x^2} \\right]_0^x \\,dx = \\int_0^1 x e^{x^2} \\,dx $$\n    Let $u = x^2$, so $du = 2x\\,dx$. When $x=0, u=0$. When $x=1, u=1$.\n    $$ \\int_0^1 \\frac{1}{2} e^u \\,du = \\left[ \\frac{1}{2} e^u \\right]_0^1 = \\frac{1}{2}(e^1 - e^0) = \\frac{1}{2}(e-1) $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the integral $\\int_0^2 \\int_{x^2}^{2x} f(x,y) \\,dy\\,dx$, change the order of integration to $dx\\,dy$.",
+      "back": "1.  **Original Region:** $0 \\le x \\le 2$ and $x^2 \\le y \\le 2x$. The boundaries are $y=x^2$ (parabola) and $y=2x$ (line).\n2.  **Intersection Points:** $x^2 = 2x \\implies x^2 - 2x = 0 \\implies x(x-2)=0$. So, $x=0$ and $x=2$. The corresponding $y$ values are $y=0$ and $y=4$.\n3.  **Sketch:** The region is bounded above by $y=2x$ and below by $y=x^2$ between $x=0$ and $x=2$.\n4.  **New Order ($dx\\,dy$):** We need to express $x$ in terms of $y$. From $y=x^2$, we get $x=\\sqrt{y}$ (since $x \\ge 0$). From $y=2x$, we get $x=y/2$. The minimum $y$ is $0$ and the maximum $y$ is $4$.\n    For a fixed $y$ between $0$ and $4$, $x$ ranges from the line $x=y/2$ to the parabola $x=\\sqrt{y}$.\n5.  **New Integral:**\n    $$ \\int_0^4 \\int_{y/2}^{\\sqrt{y}} f(x,y) \\,dx\\,dy $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If a region of integration requires splitting into multiple subregions when integrating $dy\\,dx$, how might changing the order to $dx\\,dy$ affect the number of necessary integrals?",
+      "back": "Changing the order of integration can often simplify the description of a region. A region that requires multiple integrals (splitting) for one order (e.g., $dy\\,dx$) might be describable as a single integral for the other order ($dx\\,dy$), or vice-versa. This occurs when the 'upper' or 'lower' boundary function changes multiple times with respect to one variable, but only once with respect to the other variable. For example, a region bounded by $y=f_1(x)$, $y=f_2(x)$, and $y=f_3(x)$ might need splitting for $dy\\,dx$ but could be a single integral for $dx\\,dy$ if $x$ is bounded by only two functions of $y$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the geometric interpretation of the limits in the integral $\\int_c^d \\int_{h_1(y)}^{h_2(y)} f(x,y) \\,dx\\,dy$.",
+      "back": "This integral represents the volume under the surface $z=f(x,y)$ over a **Type II region** in the $xy$-plane. The limits indicate that $y$ is bounded by constant values $c$ and $d$ ($c \\le y \\le d$). For each fixed $y$ between $c$ and $d$, $x$ is bounded by two functions of $y$, $h_1(y)$ (the left boundary) and $h_2(y)$ (the right boundary). The inner integral calculates the area of a vertical strip parallel to the $x$-axis at a fixed $y$, and the outer integral sums these areas from $y=c$ to $y=d$ to find the total volume.",
+      "difficulty": "hard"
+    }
+  ]
+}

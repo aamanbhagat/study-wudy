@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-distance-vector-routing-rip-bellman-ford-count-to-infinity",
+  "subtopicTitle": "Distance vector routing — RIP, Bellman-Ford, count-to-infinity",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:27.809Z",
+  "cards": [
+    {
+      "front": "What is the fundamental principle of Distance Vector (DV) routing?",
+      "back": "Each router maintains a \"distance vector\" (routing table) containing the best known distance to every destination and the next-hop router. Routers periodically share their entire vector with directly connected neighbors, updating their own tables based on the received information.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of routing, what problem does the Bellman-Ford algorithm solve, and what information does it require from neighbors?",
+      "back": "It solves the single-source shortest path problem in a distributed manner. Each node $u$ calculates its shortest path to a destination $v$ by considering paths through its neighbors $x$, using the equation: $D_u(v) = \\min_x \\{c(u,x) + D_x(v)\\}$, where $c(u,x)$ is the cost to neighbor $x$, and $D_x(v)$ is $x$'s reported shortest path to $v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What routing protocol is a classic example of Distance Vector routing, and what metric does it primarily use?",
+      "back": "Routing Information Protocol (RIP) is a classic example. It primarily uses hop count as its metric, where each link typically has a cost of 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"count-to-infinity\" problem in Distance Vector routing.",
+      "back": "The count-to-infinity problem occurs when a route becomes unreachable (e.g., a link fails). Routers might incorrectly update their paths to the unreachable destination through other neighbors that haven't yet learned of the failure, leading to a routing loop where the distance metric slowly increments (counts) towards an arbitrarily large number (infinity), causing slow convergence and potential black holes.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are \"split horizon\" and \"poison reverse\" in Distance Vector routing, and how do they mitigate the count-to-infinity problem?",
+      "back": "<ul><li><b>Split Horizon:</b> A router does not advertise a route back to the neighbor from which it learned that route.</li><li><b>Poison Reverse:</b> A router advertises a route back to the neighbor from which it learned it, but with an infinite metric (e.g., 16 for RIP), explicitly indicating the route is unreachable through that neighbor.</li></ul>Both aim to prevent routing loops by stopping incorrect advertisements of routes that have become invalid.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A router $A$ has neighbors $B$ and $C$. The cost to $B$ is 2, and to $C$ is 5. $B$ reports its distance to destination $X$ as 3. $C$ reports its distance to $X$ as 1. Using the Bellman-Ford equation, what is $A$'s new distance to $X$?",
+      "back": "$D_A(X) = \\min \\{c(A,B) + D_B(X), c(A,C) + D_C(X)\\}$\n$D_A(X) = \\min \\{2 + 3, 5 + 1\\}$\n$D_A(X) = \\min \\{5, 6\\}$\n$D_A(X) = 5$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the maximum hop count supported by RIP, and what does a hop count beyond this value signify?",
+      "back": "The maximum hop count supported by RIP is 15. A hop count of 16 or greater is considered \"infinity\" and signifies that the destination is unreachable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"good news travels fast, bad news travels slow\" phenomenon in Distance Vector routing.",
+      "back": "When a link cost decreases (good news), routers quickly propagate the improved route as they immediately adopt the shorter path. However, when a link fails or cost increases (bad news), the information propagates slowly due to the count-to-infinity problem, as routers might still advertise paths through the failed link, leading to delays in convergence and potential routing loops.",
+      "difficulty": "medium"
+    }
+  ]
+}

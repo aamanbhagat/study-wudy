@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-composition-has-a-relationship-vs-is-a",
+  "subtopicTitle": "Composition — has-a relationship vs is-a",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:26.546Z",
+  "cards": [
+    {
+      "front": "In OOP, what design principle does the \"is-a\" relationship describe, and what keyword typically implements it?",
+      "back": "The \"is-a\" relationship describes **inheritance**, where a subclass is a specialized version of its superclass. It's typically implemented using the `extends` keyword (e.g., in Java/C#) or by specifying a base class in the class definition (e.g., in Python/C++).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In OOP, what design principle does the \"has-a\" relationship describe, and what is the common term for it?",
+      "back": "The \"has-a\" relationship describes **composition**, where one class contains an object of another class as one of its members. It means that the containing class \"has\" an instance of another class.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can you intuitively test whether to use an \"is-a\" or \"has-a\" relationship between two classes, `A` and `B`?",
+      "back": "To test, try forming sentences:\n*   If \"A **is a** B\" makes sense (e.g., \"A `Dog` is an `Animal`\"), use **inheritance** (\"is-a\").\n*   If \"A **has a** B\" makes sense (e.g., \"A `Car` has an `Engine`\"), use **composition** (\"has-a\").",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary scenario where the \"is-a\" (inheritance) relationship is the most appropriate design choice.",
+      "back": "Use \"is-a\" (inheritance) when there is a clear **specialization hierarchy** and you want to model a **type-subtype relationship**. The subclass should be able to completely substitute the superclass (Liskov Substitution Principle). It's ideal for code reuse when behavior is common across a family of objects and can be extended or overridden.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List two significant advantages of favoring \"has-a\" (composition) over \"is-a\" (inheritance) in object-oriented design.",
+      "back": "Two significant advantages are:\n1.  **Flexibility**: Composition allows changing the behavior of a class at runtime by swapping out the contained object. Inheritance fixes behavior at compile time.\n2.  **Reduced Coupling**: Classes are less dependent on each other's internal implementation details. Changes in the contained class are less likely to break the container class, promoting easier maintenance and evolution.\n3.  **Better Reusability**: Components can be reused in different contexts without being tied to a specific inheritance hierarchy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a simple Python code snippet demonstrating an \"is-a\" relationship between `Dog` and `Animal`.",
+      "back": "```python\nclass Animal:\n    def speak(self):\n        return \"Generic animal sound\"\n\nclass Dog(Animal): # Dog \"is an\" Animal\n    def speak(self):\n        return \"Woof!\"\n\nmy_dog = Dog()\nprint(my_dog.speak()) # Output: Woof!\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a simple Python code snippet demonstrating a \"has-a\" relationship where a `Car` class uses an `Engine` object.",
+      "back": "```python\nclass Engine:\n    def start(self):\n        return \"Engine started.\"\n\nclass Car:\n    def __init__(self):\n        self.engine = Engine() # Car \"has an\" Engine\n\n    def drive(self):\n        return f\"Car is driving. {self.engine.start()}\"\n\nmy_car = Car()\nprint(my_car.drive()) # Output: Car is driving. Engine started.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference between \"is-a\" and \"has-a\" using the analogy of a `Book` and its `TableOfContents`.",
+      "back": "*   **\"Is-a\"**: A `Novel` **is a** `Book`. A `Novel` inherits properties and behaviors from `Book` (e.g., `title`, `author`, `pages`). The `Novel` is a specific *type* of `Book`.\n*   **\"Has-a\"**: A `Book` **has a** `TableOfContents`. The `TableOfContents` is a component *within* the `Book`, but the `Book` itself is not a `TableOfContents`. The `Book` uses the `TableOfContents` to manage its structure, but they are distinct entities.",
+      "difficulty": "hard"
+    }
+  ]
+}

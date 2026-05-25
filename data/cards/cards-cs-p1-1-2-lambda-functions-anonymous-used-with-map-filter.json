@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-lambda-functions-anonymous-used-with-map-filter",
+  "subtopicTitle": "Lambda functions — anonymous, used with map/filter",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:06.291Z",
+  "cards": [
+    {
+      "front": "What is a Python lambda function, and why is it considered \"anonymous\"?",
+      "back": "A lambda function is a small, anonymous function defined using the `lambda` keyword. It's called \"anonymous\" because, unlike functions defined with `def`, it doesn't require a formal name. It's typically used for short, one-off operations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the basic syntax for defining a Python lambda function that takes one argument `x` and returns `x` squared?",
+      "back": "The basic syntax is `lambda arguments: expression`.\n\nFor the given example:\n```python\nlambda x: x**2\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use a lambda function with `map()` to square every number in the list `[1, 2, 3, 4, 5]`.",
+      "back": "```python\nnumbers = [1, 2, 3, 4, 5]\nsquared_numbers = list(map(lambda x: x**2, numbers))\n# squared_numbers will be [1, 4, 9, 16, 25]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use a lambda function with `filter()` to select only the even numbers from the list `[1, 2, 3, 4, 5, 6, 7, 8]`.",
+      "back": "```python\nnumbers = [1, 2, 3, 4, 5, 6, 7, 8]\neven_numbers = list(filter(lambda x: x % 2 == 0, numbers))\n# even_numbers will be [2, 4, 6, 8]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a lambda function that takes two arguments, `a` and `b`, and returns their product.",
+      "back": "```python\nmultiply = lambda a, b: a * b\n\n# Example usage:\nresult = multiply(7, 3)\n# result will be 21\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Does a Python lambda function explicitly require a `return` keyword? Explain.",
+      "back": "No, a lambda function implicitly returns the result of its single expression. The value of the expression following the colon `:` is automatically returned, making the `return` keyword unnecessary and invalid within a lambda.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary limitation of a lambda function compared to a regular function defined with `def`, and when would you prefer one over the other?",
+      "back": "The primary limitation is that lambda functions are restricted to a single expression. They cannot contain multiple statements, loops, complex conditional logic, or docstrings.\n\nPrefer `lambda` for simple, short, one-off operations, especially when passed as an argument to higher-order functions like `map()`, `filter()`, `sorted()`, or as a `key` argument. Prefer `def` for functions with complex logic, multiple statements, reusability across different parts of a program, or when a descriptive name and docstring improve readability and maintainability.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can a lambda function access variables from its enclosing scope (a closure)? Provide a simple example.",
+      "back": "Yes, lambda functions can form closures, meaning they can capture and remember variables from the scope in which they were defined.\n\n```python\ndef make_adder(n):\n    return lambda x: x + n\n\nadd_five = make_adder(5)\nprint(add_five(10)) # Output: 15\n```\nHere, the lambda `lambda x: x + n` remembers the value of `n` (which is $5$) from `make_adder`'s scope.",
+      "difficulty": "hard"
+    }
+  ]
+}

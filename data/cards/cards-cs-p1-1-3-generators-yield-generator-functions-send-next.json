@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-3-generators-yield-generator-functions-send-next",
+  "subtopicTitle": "Generators — yield, generator functions, send(), next()",
+  "topicId": "cs-p1-1-3-python-intermediate",
+  "topicTitle": "Python Intermediate",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:24.219Z",
+  "cards": [
+    {
+      "front": "What is the primary characteristic of a Python generator, and what keyword is used to define a generator function?",
+      "back": "Generators are functions that produce an iterable sequence of results *on demand* (lazy evaluation), rather than computing all results at once and storing them in memory. They are primarily used for memory efficiency when dealing with large or infinite sequences. The `yield` keyword defines a generator function.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do you obtain the next value from a generator object, and what exception is raised when the generator is exhausted?",
+      "back": "You obtain the next value using the built-in `next()` function, passing the generator object as an argument (e.g., `next(my_generator)`), or by calling its `.__next__()` method (e.g., `my_generator.__next__()`). When the generator has no more values to yield, a `StopIteration` exception is raised.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the execution flow of a generator function when `yield` is encountered, compared to a regular function's `return` statement.",
+      "back": "When `yield` is encountered, the generator function's execution is *paused*, the value specified after `yield` is returned to the caller, and the function's local state (variables, instruction pointer) is preserved. Execution *resumes* from that exact point on the next call to `next()`. In contrast, `return` terminates the function completely, discards its state, and returns a final value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a simple generator function `count_up_to(N)` that yields numbers from $1$ to $N$, and show how to iterate over it.",
+      "back": "```python\ndef count_up_to(N):\n    i = 1\n    while i <= N:\n        yield i\n        i += 1\n\n# Iterating over the generator\nmy_generator = count_up_to(3)\nprint(next(my_generator)) # Output: 1\nprint(next(my_generator)) # Output: 2\nfor num in my_generator: # Continues from where it left off\n    print(num) # Output: 3\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose of the `send()` method for generators. Where does the value sent by `send()` appear inside the generator function?",
+      "back": "The `send()` method allows you to send a value *into* a generator at the point where it was last `yield`-ed. This value becomes the result of the `yield` expression itself.\nInside the generator function, if you write `value = yield expression`, then `value` will be assigned the data sent by `send()`. The first call to a generator must always be `next()` or `send(None)`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What value does a `yield` expression evaluate to inside a generator function when the generator is advanced by `next()` (i.e., no value is explicitly `send()`-ed)?",
+      "back": "When a generator is advanced by `next()` (or iterated over with a `for` loop), and no value is explicitly sent into it using `send()`, the `yield` expression evaluates to `None`. This means if you have `received_value = yield produced_value`, `received_value` will be `None` unless `send()` was used.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Design a generator `echo_processor()` that receives a string, prints it, and then yields back an uppercase version of the received string.",
+      "back": "```python\ndef echo_processor():\n    print(\"Processor ready.\")\n    while True:\n        received_data = yield # Pauses, waits for send(), received_data gets sent value\n        if received_data is None: # Handle initial next() or explicit None\n            print(\"Received None, continuing...\")\n            continue\n        print(f\"Processor received: {received_data}\")\n        yield received_data.upper() # Yields the uppercase version\n\n# Usage\nprocessor = echo_processor()\nnext(processor) # Start the generator, runs until the first yield\n# Output: Processor ready.\n\nresponse1 = processor.send(\"hello world\") # Sends \"hello world\", receives uppercase\n# Output: Processor received: hello world\nprint(f\"Response 1: {response1}\") # Output: Response 1: HELLO WORLD\n\nresponse2 = processor.send(\"python\")\n# Output: Processor received: python\nprint(f\"Response 2: {response2}\") # Output: Response 2: PYTHON\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

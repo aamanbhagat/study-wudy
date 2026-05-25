@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-cap-theorem-consistency-availability-partition-tolerance",
+  "subtopicTitle": "CAP theorem — consistency, availability, partition tolerance",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:51.365Z",
+  "cards": [
+    {
+      "front": "State the CAP theorem.",
+      "back": "The CAP theorem states that in a distributed system, it is impossible to simultaneously guarantee Consistency (C), Availability (A), and Partition Tolerance (P). You must choose to sacrifice one of the three when a network partition occurs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of the CAP theorem, what does \"Consistency\" (C) mean?",
+      "back": "Consistency means that every read receives the most recent write or an error. All clients see the same data at the same time, regardless of which node they connect to. This typically refers to strong consistency (e.g., linearizability).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the context of the CAP theorem, what does \"Availability\" (A) mean?",
+      "back": "Availability means that every request receives a (non-error) response, without guarantee that the response contains the most recent write. The system remains operational even if some nodes fail, and every non-failing node is available for reads and writes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the context of the CAP theorem, what does \"Partition Tolerance\" (P) mean?",
+      "back": "Partition Tolerance means the system continues to operate despite network partitions. A network partition occurs when communication between nodes fails (e.g., due to network outages), but the nodes themselves are still running. Data is replicated across nodes, and the system can tolerate some nodes being unreachable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is Partition Tolerance (P) considered a non-negotiable requirement for any truly distributed system?",
+      "back": "In a truly distributed system, network failures and communication breakdowns (partitions) are inevitable. These can arise from hardware failures, network congestion, or routing issues. If a system is not partition tolerant, it would cease to function entirely during such an event, which is unacceptable for most real-world distributed applications. Therefore, P is almost always a mandatory choice.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a network partition, explain the fundamental trade-off a system must make between Consistency (C) and Availability (A).",
+      "back": "During a network partition:\n*   **CP System (Consistency & Partition Tolerance):** The system prioritizes consistency. If a client tries to write to or read from a partitioned node, the system will refuse the request (become unavailable) to ensure that all data remains consistent across the network. This prevents data divergence.\n*   **AP System (Availability & Partition Tolerance):** The system prioritizes availability. If a client tries to write to or read from a partitioned node, the system will accept the request, potentially leading to divergent data between partitions. All nodes remain available, but data might be inconsistent until the partition heals and synchronization occurs (eventual consistency).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe a scenario where a database might prioritize Consistency (CP) and another where it might prioritize Availability (AP). Provide a database example for each.",
+      "back": "1.  **CP (Consistency & Partition Tolerance):** A banking system handling financial transactions. It's critical that an account balance is always accurate and consistent. If a network partition occurs, the system would rather reject a transaction (be unavailable) than risk an inconsistent balance. Example: Traditional RDBMS, MongoDB (in its default primary-replica setup).\n2.  **AP (Availability & Partition Tolerance):** An e-commerce shopping cart system. It's more important for users to always be able to add items to their cart (be available) than for the cart to be perfectly consistent across all replicas immediately. Eventual consistency is acceptable; the cart will synchronize once the partition heals. Example: Apache Cassandra, Amazon DynamoDB, Riak.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is the statement \"The CAP theorem forces you to choose 2 out of 3 properties (C, A, P) at all times\" entirely accurate? Explain.",
+      "back": "No, this is a common misconception. The CAP theorem specifically states that you cannot *simultaneously* guarantee all three *in the presence of a network partition*. When there is no partition, a distributed system can (and typically should) provide both Consistency and Availability. The trade-off between C and A only becomes necessary and unavoidable when a network partition actually occurs.",
+      "difficulty": "medium"
+    }
+  ]
+}

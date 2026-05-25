@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-structures-declaration-accessing-members-and",
+  "subtopicTitle": "Structures — declaration, accessing members (. and ->)",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:46.964Z",
+  "cards": [
+    {
+      "front": "In C, how do you declare a new structure type named `Student` with members `char name[50];` and `int id;`?",
+      "back": "You use the `struct` keyword followed by the tag name and then define the members within curly braces.\n```c\nstruct Student {\n    char name[50];\n    int id;\n};\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After declaring `struct Point { int x; int y; };`, how do you define a variable `p1` of type `struct Point` and initialize its `x` and `y` members to `5` and `10` respectively?",
+      "back": "You can define and initialize a structure variable in several ways:\n```c\nstruct Point p1 = {5, 10}; // Order-based initialization\n// Or using designated initializers (C99 onwards):\nstruct Point p2 = {.x = 5, .y = 10};\n// Or define first, then assign:\nstruct Point p3;\np3.x = 5;\np3.y = 10;\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If you have a `struct Car { char model[20]; int year; };` variable named `myCar`, how do you access and modify its `year` member?",
+      "back": "You use the **dot operator (`.`)** to access members of a direct structure variable.\n```c\nstruct Car myCar;\n// Access and modify\nmyCar.year = 2023;\nprintf(\"Car year: %d\\n\", myCar.year);\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `struct Point p = {1, 2};`, how do you declare a pointer `ptr_p` that points to `p`?",
+      "back": "You declare a pointer to a structure using the `struct` keyword, the structure tag, and the `*` operator, then assign the address of the structure variable.\n```c\nstruct Point p = {1, 2};\nstruct Point *ptr_p;\nptr_p = &p; // ptr_p now points to p\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If `struct Point *ptr_p;` points to a `struct Point` variable, how do you access its `x` member using `ptr_p`?",
+      "back": "You use the **arrow operator (`->`)** to access members of a structure through a pointer to that structure.\n```c\nstruct Point p = {10, 20};\nstruct Point *ptr_p = &p;\n// Access x member using the arrow operator\nprintf(\"Point x: %d\\n\", ptr_p->x); // Output: Point x: 10\n// You can also modify it:\nptr_p->x = 30;\nprintf(\"New Point x: %d\\n\", p.x); // Output: New Point x: 30\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference between the `.` (dot) operator and the `->` (arrow) operator when accessing structure members?",
+      "back": "The fundamental difference lies in *what* they operate on:\n*   The **dot operator (`.`)** is used with a **direct structure variable** (an actual instance of the structure).\n*   The **arrow operator (`->`)** is used with a **pointer to a structure**.\nEssentially, `ptr->member` is syntactic sugar for `(*ptr).member`, where `*ptr` first dereferences the pointer to get the structure variable, and then `.` accesses its member.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Declare a `struct Rectangle` that contains two `struct Point` members, `topLeft` and `bottomRight`. Assume `struct Point { int x; int y; };` is already defined.",
+      "back": "You can embed one structure within another.\n```c\nstruct Point {\n    int x;\n    int y;\n};\n\nstruct Rectangle {\n    struct Point topLeft;\n    struct Point bottomRight;\n};\n```\nTo access a member like `topLeft`'s `x` coordinate for a `struct Rectangle r;`, you'd use `r.topLeft.x`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Is it ever valid to use the `.` (dot) operator with a pointer to a structure? If so, demonstrate how, and explain why the `->` operator is generally preferred.",
+      "back": "Yes, it is valid, but it requires explicit dereferencing of the pointer first.\n```c\nstruct Point p = {10, 20};\nstruct Point *ptr_p = &p;\n\n// Using dereference and dot operator\nprintf(\"Point x (using (*ptr_p).x): %d\\n\", (*ptr_p).x); // Output: 10\n```\nThe `->` operator is preferred because it's more concise, readable, and less error-prone than `(*ptr).member`. It directly conveys intent: accessing a member *through* a pointer. The parentheses around `*ptr_p` are crucial because the `.` operator has higher precedence than `*` (dereference operator); without them, `*ptr_p.x` would try to dereference `ptr_p.x`, which is invalid.",
+      "difficulty": "hard"
+    }
+  ]
+}

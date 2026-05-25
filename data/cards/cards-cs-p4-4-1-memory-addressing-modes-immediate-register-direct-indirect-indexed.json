@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p4-4-1-memory-addressing-modes-immediate-register-direct-indirect-indexed",
+  "subtopicTitle": "Memory addressing modes — immediate, register, direct, indirect, indexed",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:32.255Z",
+  "cards": [
+    {
+      "front": "What is the primary characteristic of **Immediate Addressing Mode**?",
+      "back": "The operand's actual value is directly embedded within the instruction itself. No memory access is required to fetch the operand.\n\nExample: `MOV AX, #1234h` (Move the value `1234h` into register `AX`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In **Register Addressing Mode**, where is the operand located, and what is its main advantage?",
+      "back": "The operand is located in a CPU register. Its main advantage is extreme speed, as no memory access is required to fetch the operand; it's already in the CPU.\n\nExample: `ADD R1, R2` (Add the value in `R2` to `R1`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe **Direct Addressing Mode**. How does it specify the operand's location?",
+      "back": "In Direct Addressing Mode, the instruction contains the *actual, absolute memory address* where the operand is stored. The CPU fetches the operand directly from this specified memory location.\n\nExample: `LOAD R1, [1000h]` (Load the value from memory address `1000h` into `R1`).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the mechanism of **Indirect Addressing Mode**. How many memory accesses are typically needed to retrieve the operand?",
+      "back": "In Indirect Addressing Mode, the instruction specifies a memory address that *contains the address of the operand*, rather than the operand itself.\n\n1.  First memory access: Fetch the *address of the operand* from the location specified in the instruction.\n2.  Second memory access: Fetch the *actual operand* from the address retrieved in step 1.\n\nTherefore, two memory accesses are typically needed.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For **Indexed Addressing Mode**, if an instruction specifies a base address $B$ and an index register $X$ holds an offset $O$, what is the formula for the Effective Address (EA)?",
+      "back": "The Effective Address (EA) is calculated by adding the base address to the value in the index register:\n\n$$EA = B + O$$\n\nThis mode is particularly useful for accessing elements in arrays or data structures.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is **Indexed Addressing Mode** particularly well-suited for accessing elements within an array or iterating through a data structure?",
+      "back": "Indexed Addressing Mode allows a program to efficiently access elements in a contiguous block of memory (like an array). The base address can point to the start of the array, and the index register can be incremented or decremented to point to successive elements. This makes it easy to loop through data without modifying the instruction itself.\n\n```assembly\n; Assume R_BASE holds array start address\n; Assume R_INDEX holds current offset (e.g., 0, 4, 8 for 4-byte elements)\nLOAD R_DATA, [R_BASE + R_INDEX] ; Access element at R_BASE + R_INDEX\nADD R_INDEX, #4                  ; Move to next element (if 4 bytes per element)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Rank the following addressing modes by the typical number of *memory accesses* required to fetch the operand, from fewest to most: Immediate, Register, Direct, Indirect.",
+      "back": "1.  **Immediate:** 0 memory accesses (operand is part of instruction).\n2.  **Register:** 0 memory accesses (operand is in a CPU register).\n3.  **Direct:** 1 memory access (instruction contains operand's memory address).\n4.  **Indirect:** 2 memory accesses (instruction contains address of operand's address).",
+      "difficulty": "hard"
+    }
+  ]
+}

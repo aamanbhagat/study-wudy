@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-3-characteristic-velocity-c-and-its-relation-to-flame-temperature-mw",
+  "subtopicTitle": "Characteristic velocity c* and its relation to flame temperature, MW",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:06:14.538Z",
+  "cards": [
+    {
+      "front": "Define characteristic velocity, $c^*$. What does it represent and what are its standard units?",
+      "back": "$c^*$ is a measure of the energy release efficiency of a propellant combination and combustion chamber design, independent of the nozzle's expansion ratio. It represents the ideal exhaust velocity if all thermal energy were converted to kinetic energy in a perfect nozzle. Standard units are meters per second (m/s) or feet per second (ft/s).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the primary operational formula for characteristic velocity, $c^*$, and identify its components.",
+      "back": "The characteristic velocity is given by: $$c^* = \\frac{P_c A_t}{\\dot{m}}$$ Where:\n*   $P_c$: Combustion chamber pressure\n*   $A_t$: Nozzle throat area\n*   $\\dot{m}$: Mass flow rate of propellants",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the ideal characteristic velocity $c^*$ in terms of combustion chamber temperature ($T_c$), universal gas constant ($\\bar{R}$), specific heat ratio ($k$), and average molecular weight ($M$) of exhaust products.",
+      "back": "Assuming ideal gas behavior and isentropic flow, the mass flow rate through the throat is given by:\n$$\\dot{m} = A_t P_c \\sqrt{\\frac{k}{R T_c} \\left(\\frac{2}{k+1}\\right)^{\\frac{k+1}{k-1}}}$$From the definition $c^* = \\frac{P_c A_t}{\\dot{m}}$, substitute the expression for $\\dot{m}$:\n$$c^* = \\frac{P_c A_t}{A_t P_c \\sqrt{\\frac{k}{R T_c} \\left(\\frac{2}{k+1}\\right)^{\\frac{k+1}{k-1}}}} = \\sqrt{\\frac{R T_c}{k \\left(\\frac{2}{k+1}\\right)^{\\frac{k+1}{k-1}}}}$$Since the specific gas constant $R = \\frac{\\bar{R}}{M}$ (where $\\bar{R}$ is the universal gas constant and $M$ is the average molecular weight):\n$$c^* = \\sqrt{\\frac{\\bar{R} T_c}{M k \\left(\\frac{2}{k+1}\\right)^{\\frac{k+1}{k-1}}}}$$This formula highlights the direct proportionality to $\\sqrt{T_c}$ and inverse proportionality to $\\sqrt{M}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does an increase in combustion chamber temperature ($T_c$) affect the characteristic velocity ($c^*$), assuming other factors remain constant? Explain the physical reason.",
+      "back": "An increase in combustion chamber temperature ($T_c$) leads to an **increase** in characteristic velocity ($c^*$). Physically, higher temperatures mean the gas molecules have higher average kinetic energy and thus higher random thermal velocities within the combustion chamber. This results in a higher speed of sound and a greater mass flow rate per unit area through the nozzle throat for a given pressure, ultimately increasing $c^*$. Mathematically, $c^* \\propto \\sqrt{T_c}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does an increase in the average molecular weight ($M$) of the exhaust products affect the characteristic velocity ($c^*$), assuming constant $T_c$ and $k$? Explain the physical reason.",
+      "back": "An increase in the average molecular weight ($M$) of the exhaust products leads to a **decrease** in characteristic velocity ($c^*$). For a given temperature, heavier molecules move slower on average (as kinetic energy $E_k = \\frac{1}{2}mv^2$). This means for the same thermal energy, a gas with higher molecular weight will have lower average particle velocities, leading to a lower effective exhaust velocity and thus a lower $c^*$. Mathematically, $c^* \\propto \\frac{1}{\\sqrt{M}}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why are propellants that produce low molecular weight exhaust products generally preferred for achieving a high $c^*$?",
+      "back": "Propellants producing low molecular weight exhaust products (e.g., hydrogen, water vapor) are preferred because $c^*$ is inversely proportional to the square root of the average molecular weight ($c^* \\propto \\frac{1}{\\sqrt{M}}$). Lighter molecules can be accelerated to higher velocities for the same amount of thermal energy, leading to better combustion efficiency and higher characteristic velocity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A new propellant combination yields a 10% higher flame temperature ($T_c$) but also increases the average molecular weight ($M$) of exhaust products by 5%. How would you determine its net effect on $c^*$?",
+      "back": "To determine the net effect on $c^*$, you would use the relationship $c^* \\propto \\sqrt{\\frac{T_c}{M}}$.\nIf $T_c$ increases by a factor of $1.10$ and $M$ increases by a factor of $1.05$, the new $c^*$ would be proportional to:\n$$\\sqrt{\\frac{1.10 \\cdot T_c}{1.05 \\cdot M}} = \\sqrt{\\frac{1.10}{1.05}} \\sqrt{\\frac{T_c}{M}}$$Calculate the factor: $\\sqrt{\\frac{1.10}{1.05}} \\approx \\sqrt{1.0476} \\approx 1.0235$.\nThis indicates a net increase in $c^*$ of approximately 2.35%. The increase in temperature has a stronger positive effect than the negative effect of increased molecular weight.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary practical significance of characteristic velocity ($c^*$) in rocket engine performance evaluation?",
+      "back": "$c^*$ is a key metric for evaluating the **combustion efficiency** of a rocket engine's thrust chamber and propellant combination. A higher $c^*$ indicates more efficient conversion of propellant chemical energy into thermal energy and then into kinetic energy of the exhaust gases within the combustion chamber, before considering nozzle expansion. It helps engineers compare different propellant combinations or chamber designs for their intrinsic combustion performance.",
+      "difficulty": "medium"
+    }
+  ]
+}

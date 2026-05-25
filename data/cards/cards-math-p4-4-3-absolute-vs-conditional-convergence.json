@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-3-absolute-vs-conditional-convergence",
+  "subtopicTitle": "Absolute vs conditional convergence",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:02.890Z",
+  "cards": [
+    {
+      "front": "A series $\\sum a_n$ is said to converge absolutely if...",
+      "back": "...the series of absolute values, $\\sum |a_n|$, converges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A series $\\sum a_n$ is said to converge conditionally if...",
+      "back": "...the series $\\sum a_n$ converges, but the series of absolute values, $\\sum |a_n|$, diverges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Absolute Convergence Test.",
+      "back": "If the series $\\sum_{n=1}^\\infty |a_n|$ converges, then the series $\\sum_{n=1}^\\infty a_n$ also converges. In other words, absolute convergence implies convergence.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine if the series $\\sum_{n=1}^\\infty \\frac{(-1)^n}{n^2}$ converges absolutely, conditionally, or diverges.",
+      "back": "First, test for absolute convergence by considering $\\sum_{n=1}^\\infty \\left|\\frac{(-1)^n}{n^2}\\right| = \\sum_{n=1}^\\infty \\frac{1}{n^2}$. This is a $p$-series with $p=2 > 1$, so it converges. Since $\\sum |a_n|$ converges, the original series $\\sum_{n=1}^\\infty \\frac{(-1)^n}{n^2}$ converges absolutely.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine if the series $\\sum_{n=1}^\\infty \\frac{(-1)^n}{\\sqrt{n}}$ converges absolutely, conditionally, or diverges.",
+      "back": "1.  **Absolute Convergence Check:** Consider $\\sum_{n=1}^\\infty \\left|\\frac{(-1)^n}{\\sqrt{n}}\\right| = \\sum_{n=1}^\\infty \\frac{1}{n^{1/2}}$. This is a $p$-series with $p=1/2 \\le 1$, so it diverges. Thus, the series does not converge absolutely.\n2.  **Conditional Convergence Check:** Consider the original series $\\sum_{n=1}^\\infty \\frac{(-1)^n}{\\sqrt{n}}$. This is an alternating series. Let $b_n = \\frac{1}{\\sqrt{n}}$.\n    *   $b_n$ is positive.\n    *   $b_n$ is decreasing: $\\frac{1}{\\sqrt{n+1}} < \\frac{1}{\\sqrt{n}}$.\n    *   $\\lim_{n \\to \\infty} b_n = \\lim_{n \\to \\infty} \\frac{1}{\\sqrt{n}} = 0$.\n    By the Alternating Series Test, $\\sum_{n=1}^\\infty \\frac{(-1)^n}{\\sqrt{n}}$ converges.\nSince $\\sum a_n$ converges but $\\sum |a_n|$ diverges, the series converges conditionally.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the key property of conditionally convergent series that distinguishes them from absolutely convergent series regarding rearrangement?",
+      "back": "The Riemann Rearrangement Theorem states that if a series $\\sum a_n$ converges conditionally, then its terms can be rearranged to converge to *any* real number, or even to diverge to $\\pm \\infty$. This is not possible for absolutely convergent series, which always converge to the same sum regardless of rearrangement.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is absolute convergence considered a \"stronger\" form of convergence than conditional convergence?",
+      "back": "Absolute convergence is stronger because it implies that the series converges \"robustly.\" The convergence does not depend on the alternating signs or specific order of terms. If $\\sum |a_n|$ converges, then $\\sum a_n$ converges, and its sum is invariant under rearrangement of terms. Conditional convergence, however, relies on the cancellation of terms due to their signs, and the sum can be changed by rearranging the terms (Riemann Rearrangement Theorem).",
+      "difficulty": "medium"
+    }
+  ]
+}

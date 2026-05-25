@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p1-1-2-recursion-call-stack-visualization-base-case-recursive-case",
+  "subtopicTitle": "Recursion — call stack visualization, base case, recursive case",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:10.283Z",
+  "cards": [
+    {
+      "front": "What is the fundamental concept of \"recursion\" in programming?",
+      "back": "Recursion is a technique where a function calls itself, either directly or indirectly, to solve a problem. It typically breaks down a problem into smaller, similar subproblems until a simple base case is reached.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a recursive function, what is the primary purpose of the \"base case\"?",
+      "back": "The base case defines the condition under which the recursion stops. It provides a direct, non-recursive solution for the simplest form of the problem, preventing infinite recursion and ensuring the function eventually returns a value.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the role of the \"recursive case\" in a recursive function.",
+      "back": "The recursive case handles the general problem by breaking it down into a smaller, similar subproblem and then calling the function itself with this smaller subproblem. It ensures that each subsequent call moves closer to the base case.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how the \"call stack\" is utilized during the execution of a recursive function.",
+      "back": "Each time a function (including a recursive call) is invoked, a new \"stack frame\" is pushed onto the call stack. This frame stores local variables, parameters, and the return address for that specific call. When a function returns, its frame is popped off. Recursion heavily relies on this LIFO (Last-In, First-Out) mechanism to manage multiple active function calls and their respective states.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a function `factorial(n)` that calculates $n!$, identify the base case and the recursive case.",
+      "back": "The factorial function $n!$ is defined as $n \times (n-1)!$ for $n > 0$, and $0! = 1$.\n\n*   **Base Case**: If $n = 0$ or $n = 1$, `factorial(n)` returns $1$.\n*   **Recursive Case**: If $n > 1$, `factorial(n)` returns $n \\times \\text{factorial}(n-1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the consequence of a recursive function lacking a proper base case or failing to reach it?",
+      "back": "If a recursive function lacks a proper base case or fails to reach it, it will call itself indefinitely. This leads to an \"infinite recursion,\" which will eventually exhaust the memory allocated for the call stack. This typically results in a runtime error known as a \"Stack Overflow Error\" (or similar, depending on the programming language/environment).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Trace the execution of `sum_up_to(3)` using the provided Python function, focusing on the call stack:\n```python\ndef sum_up_to(n):\n    if n == 0:\n        return 0\n    else:\n        return n + sum_up_to(n - 1)\n```",
+      "back": "1.  `sum_up_to(3)` is called. Stack: `[sum_up_to(3)]`\n2.  `sum_up_to(3)` calls `sum_up_to(2)`. Stack: `[sum_up_to(3), sum_up_to(2)]`\n3.  `sum_up_to(2)` calls `sum_up_to(1)`. Stack: `[sum_up_to(3), sum_up_to(2), sum_up_to(1)]`\n4.  `sum_up_to(1)` calls `sum_up_to(0)`. Stack: `[sum_up_to(3), sum_up_to(2), sum_up_to(1), sum_up_to(0)]`\n5.  `sum_up_to(0)` hits base case, returns `0`. Stack: `[sum_up_to(3), sum_up_to(2), sum_up_to(1)]`\n6.  `sum_up_to(1)` computes `1 + 0`, returns `1`. Stack: `[sum_up_to(3), sum_up_to(2)]`\n7.  `sum_up_to(2)` computes `2 + 1`, returns `3`. Stack: `[sum_up_to(3)]`\n8.  `sum_up_to(3)` computes `3 + 3`, returns `6`. Stack: `[]`\n\nFinal result: `6`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Design a recursive Python function `power(base, exp)` to calculate $base^{exp}$ for non-negative integer $exp$.",
+      "back": "```python\ndef power(base, exp):\n    # Base case: Any number to the power of 0 is 1\n    if exp == 0:\n        return 1\n    # Recursive case: base^exp = base * base^(exp-1)\n    else:\n        return base * power(base, exp - 1)\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

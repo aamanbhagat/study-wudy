@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p2-2-2-design-patterns-structural-adapter-bridge-composite-decorator-facade-flyweight-proxy",
+  "subtopicTitle": "Design Patterns — Structural: Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:37.053Z",
+  "cards": [
+    {
+      "front": "The Adapter design pattern allows objects with incompatible interfaces to collaborate by _________.",
+      "back": "...wrapping an existing class (adaptee) with a new interface (target) that clients expect. It acts as a translator between the two interfaces, enabling communication without modifying the original classes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "You have a `LegacyLogger` with a `logMessage(String msg)` method. Your new system expects a `Logger` interface with `info(String message)`. How would you use the Adapter pattern?",
+      "back": "Create an `Adapter` class that implements the `Logger` interface and contains an instance of `LegacyLogger`. Its `info(String message)` method would call `legacyLogger.logMessage(message)`. \n```java\ninterface Logger { void info(String message); }\nclass LegacyLogger { void logMessage(String msg) { /* ... */ } }\nclass LegacyLoggerAdapter implements Logger {\n    private LegacyLogger legacyLogger;\n    public LegacyLoggerAdapter(LegacyLogger ll) { this.legacyLogger = ll; }\n    @Override public void info(String message) { legacyLogger.logMessage(message); }\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary benefit of the Bridge design pattern in terms of \"decoupling.\"",
+      "back": "Bridge decouples an abstraction (what a client sees and interacts with) from its implementation (how it's actually done). This allows both the abstraction and its implementation to vary independently without affecting clients or requiring changes in the other hierarchy. For example, a `Shape` abstraction can use different `DrawingAPI` implementations (e.g., OpenGL, DirectX) interchangeably.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the core principle of the Composite design pattern, and how does it enable clients to treat individual objects and compositions uniformly?",
+      "back": "The core principle is to compose objects into tree structures to represent part-whole hierarchies. It defines a common interface for both individual objects (leaves) and composite objects (which can contain other leaves or composites). Clients interact with this common interface, treating all components uniformly, regardless of whether they are a single object or a group.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Decorator pattern provide a flexible alternative to subclassing for extending an object's functionality?",
+      "back": "Decorator allows adding responsibilities to objects dynamically at runtime, rather than statically at compile time through inheritance. Instead of creating many subclasses for every combination of features, a decorator wraps the original object, adding new behavior, and can be composed with other decorators. This avoids class explosion and keeps the class hierarchy cleaner.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the main purpose of the Facade design pattern, and what problem does it solve for clients?",
+      "back": "The Facade pattern provides a simplified, unified interface to a complex subsystem. It solves the problem of clients having to interact with many disparate classes and objects within a complex subsystem, making the subsystem easier to use, understand, and less coupled to the client code.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For the Flyweight pattern, differentiate between \"intrinsic state\" and \"extrinsic state,\" and explain how sharing these states reduces memory consumption.",
+      "back": "Intrinsic State: The immutable, context-independent data that is shared among multiple flyweight objects. It's stored within the flyweight. Extrinsic State: The mutable, context-dependent data that varies for each instance. It's passed to the flyweight methods by the client and is not stored within the flyweight itself. Sharing intrinsic state (e.g., character font/size for many characters) across numerous objects, while keeping extrinsic state (e.g., character position) outside the flyweight, drastically reduces total memory.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List three common use cases or types of proxies implemented by the Proxy design pattern.",
+      "back": "1. **Remote Proxy**: Manages access to an object located in a different address space (e.g., RMI, web services). \n2. **Virtual Proxy**: Controls access to a resource-intensive object, delaying its creation and initialization until needed (lazy loading). \n3. **Protection Proxy**: Controls access rights to an object based on client permissions. \n(Other valid examples: Caching Proxy, Logging Proxy, Smart Reference Proxy)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "While both Adapter and Bridge patterns deal with interfaces, what is the fundamental difference in their intent and the problem they solve?",
+      "back": "**Adapter**: Solves the problem of **incompatible interfaces** between existing classes. It makes two *unrelated* interfaces work together by converting one to match the other. It's often applied *after* design, to integrate existing components.\n**Bridge**: Solves the problem of **tight coupling** between an abstraction and its implementation. It's designed *up-front* to allow the abstraction and implementation to vary independently, often involving creating two separate class hierarchies that can be combined dynamically.",
+      "difficulty": "hard"
+    }
+  ]
+}

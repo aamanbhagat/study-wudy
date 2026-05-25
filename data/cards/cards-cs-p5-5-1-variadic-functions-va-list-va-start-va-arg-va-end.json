@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-1-variadic-functions-va-list-va-start-va-arg-va-end",
+  "subtopicTitle": "Variadic functions — va_list, va_start, va_arg, va_end",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:54.585Z",
+  "cards": [
+    {
+      "front": "In C, what defines a variadic function, and what syntax is used in its declaration?",
+      "back": "A variadic function is a function that accepts a variable number of arguments. Its declaration uses an ellipsis (`...`) after at least one fixed, mandatory argument, for example: `int my_variadic_func(int fixed_arg, ...);`",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which standard C header provides the macros for handling variadic arguments, and what are the four main components (macros/type) it defines?",
+      "back": "The `<stdarg.h>` header provides the necessary tools. Its four main components are: `va_list` (a type to hold argument information), `va_start` (to initialize `va_list`), `va_arg` (to retrieve arguments), and `va_end` (to clean up `va_list`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To begin processing variadic arguments within a function, which macro is used, and what is the significance of its second argument?",
+      "back": "The `va_start` macro is used: `va_start(ap, last_fixed_arg);`. The second argument, `last_fixed_arg`, must be the name of the last *fixed* (non-variadic) parameter declared in the function's signature. It allows `va_start` to locate the memory address where the first variadic argument begins on the stack.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which macro retrieves the next argument from a `va_list`, and what critical piece of information must be provided to it by the programmer?",
+      "back": "The `va_arg` macro is used: `value = va_arg(ap, type);`. The `type` argument is critical because `va_arg` has no inherent type information about the variadic arguments; it relies entirely on the programmer to specify the correct type to retrieve the value properly. Providing an incorrect type leads to undefined behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After processing variadic arguments, which macro must always be called, and why is its execution crucial for proper program behavior?",
+      "back": "The `va_end` macro (`va_end(ap);`) must always be called. It performs necessary cleanup, such as releasing any memory or resources associated with the `va_list` object. Failing to call `va_end` can lead to resource leaks or undefined behavior, especially in complex environments or with specific compiler implementations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why must a C variadic function declare at least one fixed parameter before the ellipsis (`...`), and how do such functions typically determine the number or types of subsequent variadic arguments?",
+      "back": "A variadic function *must* have at least one fixed parameter because `va_start` needs this last fixed argument to locate the memory address of the first variadic argument. Without it, there's no reference point.\n\nFunctions typically determine the number/types of variadic arguments in one of three ways:\n1.  **Sentinel value:** A special value (e.g., `NULL`, `0`, `-1`) marks the end of the argument list (e.g., `execl`).\n2.  **Format string:** A fixed string argument specifies the number and types of subsequent arguments (e.g., `printf`, `scanf`).\n3.  **Count argument:** A fixed argument explicitly states how many variadic arguments follow (e.g., `sum_all(int count, ...)`).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Implement a C variadic function `int sum_all(int count, ...)` that sums `count` subsequent integer arguments. Include all necessary `<stdarg.h>` macros.",
+      "back": "```c\n#include <stdarg.h> // Required for variadic functions\n\nint sum_all(int count, ...) {\n    va_list args;\n    int sum = 0;\n\n    // Initialize va_list with the last fixed argument\n    va_start(args, count);\n\n    // Loop 'count' times to retrieve each integer argument\n    for (int i = 0; i < count; i++) {\n        sum += va_arg(args, int); // Retrieve as int\n    }\n\n    // Clean up the va_list\n    va_end(args);\n\n    return sum;\n}\n```\nThis example demonstrates `va_start` for initialization, a loop with `va_arg` for retrieval (specifying `int` type), and `va_end` for cleanup.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the purpose of the `va_copy` macro, and in what specific scenario would it be essential for handling a `va_list`?",
+      "back": "The `va_copy(dest, src)` macro is used to create an independent *copy* of a `va_list` object. It's essential when you need to traverse the same variadic argument list multiple times (e.g., if you need to iterate through arguments once, then reset and iterate again) or when passing a `va_list` to another function that will consume arguments from it, while the original function also needs to continue processing. Without `va_copy`, advancing the `va_list` in one context would also advance it in others, leading to incorrect argument retrieval.",
+      "difficulty": "hard"
+    }
+  ]
+}

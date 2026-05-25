@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-exception-safety-basic-strong-no-throw-guarantees",
+  "subtopicTitle": "Exception safety — basic, strong, no-throw guarantees",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:15.859Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of **exception safety** in C++?",
+      "back": "To ensure that a program remains in a valid and consistent state, free from resource leaks and data corruption, even when exceptions are thrown during execution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the **Basic Exception Guarantee**.",
+      "back": "If an operation throws an exception, the program remains in a *valid state*, though not necessarily the original state. All resources acquired by the operation (e.g., memory, file handles) are properly released, preventing resource leaks. Objects might be modified but are still usable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider `std::vector<int> v; v.push_back(val);`. If `push_back` throws due to memory allocation failure, which exception guarantee does `std::vector` typically provide for `v`?",
+      "back": "The **Basic Exception Guarantee**. If `push_back` fails, `v` will not contain `val`, but it will still be a valid, usable `std::vector` (e.g., its size and capacity will be unchanged from before the call, or it might be in a default-constructed state if it was a move operation that failed, but still valid). No memory will be leaked.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the **Strong Exception Guarantee**.",
+      "back": "If an operation throws an exception, the program state remains *exactly as it was before the operation began*. No side effects are visible, as if the operation had never been attempted. This provides transactional semantics (all-or-nothing).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What C++ idiom is commonly used to achieve the **Strong Exception Guarantee** for operations that modify an object's state? Briefly explain its principle.",
+      "back": "The **Copy-and-Swap Idiom**.\n1. Perform all potentially throwing operations on a *temporary copy* of the object.\n2. If all operations on the temporary succeed, *swap* the internal state of the original object with the temporary copy. The swap operation itself must be `noexcept`.\nIf an exception occurs during step 1, the original object remains untouched.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does the **No-throw Exception Guarantee** (or Non-throwing Guarantee) imply about an operation?",
+      "back": "The operation is guaranteed not to throw any exceptions under any circumstances. It will always succeed or terminate the program (e.g., via `std::terminate`) if an exception *would* occur.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How can you declare a function in C++ to provide the **No-throw Exception Guarantee**, and what is the consequence if such a function *does* throw an exception?",
+      "back": "Use the `noexcept` specifier:\n```cpp\nvoid myNoThrowFunc() noexcept {\n    // ... this function promises not to throw ...\n}\n```\nIf `myNoThrowFunc` (or any function it calls that isn't caught internally) *does* throw an exception, `std::terminate` is called, which typically aborts the program.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is providing a **Strong Exception Guarantee** often more resource-intensive or complex than a **Basic Exception Guarantee**?",
+      "back": "The Strong Guarantee requires that if an operation fails, the original state is fully restored. This often necessitates making *copies* of data or objects before modification (e.g., in the copy-and-swap idiom), which consumes extra memory and CPU cycles. The Basic Guarantee only requires a valid state and no leaks, which is generally simpler to achieve as it doesn't demand full rollback.",
+      "difficulty": "hard"
+    }
+  ]
+}

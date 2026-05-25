@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-6-damped-oscillations-underdamped-critically-damped-overdamped",
+  "subtopicTitle": "Damped oscillations — underdamped, critically damped, overdamped",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:44.572Z",
+  "cards": [
+    {
+      "front": "Define damping in an oscillatory system and state the additional term in its equation of motion.",
+      "back": "Damping is the dissipation of energy from an oscillating system, causing the amplitude of oscillations to decrease over time. The additional term in the equation of motion is typically proportional to velocity, i.e., $-b \\frac{dx}{dt}$, where $b$ is the damping coefficient.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the general differential equation for a damped harmonic oscillator and define the damping ratio $\\zeta$.",
+      "back": "The general differential equation is: $$m \\frac{d^2x}{dt^2} + b \\frac{dx}{dt} + kx = 0$$ Dividing by $m$ and defining $\\omega_0 = \\sqrt{k/m}$ (natural frequency) and $2\\gamma = b/m$ (damping rate), it becomes: $$\\frac{d^2x}{dt^2} + 2\\gamma \\frac{dx}{dt} + \\omega_0^2 x = 0$$ The damping ratio $\\zeta$ is defined as $\\zeta = \\frac{b}{2\\sqrt{mk}} = \\frac{\\gamma}{\\omega_0}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions on the damping ratio $\\zeta$ for underdamped, critically damped, and overdamped oscillations.",
+      "back": "<ul><li><b>Underdamped:</b> $\\zeta < 1$ (or $b < 2\\sqrt{mk}$)</li><li><b>Critically Damped:</b> $\\zeta = 1$ (or $b = 2\\sqrt{mk}$)</li><li><b>Overdamped:</b> $\\zeta > 1$ (or $b > 2\\sqrt{mk}$)</li></ul>",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the physical behavior of an underdamped system and provide its general solution.",
+      "back": "An underdamped system oscillates with decreasing amplitude. The oscillations occur at a frequency $\\omega_d < \\omega_0$ (damped frequency). The general solution is: $$x(t) = A e^{-\\zeta \\omega_0 t} \\cos(\\omega_d t - \\phi)$$ where $\\omega_d = \\omega_0 \\sqrt{1 - \\zeta^2}$ is the damped angular frequency, $A$ is the initial amplitude, and $\\phi$ is the phase constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the physical behavior of a critically damped system and provide its general solution. Why is this specific solution form used?",
+      "back": "A critically damped system returns to equilibrium as quickly as possible without oscillating. It passes through equilibrium at most once. The general solution is: $$x(t) = (C_1 + C_2 t) e^{-\\omega_0 t}$$ This form arises because the characteristic equation for the differential equation has two identical real roots when $\\zeta=1$. For a second-order linear ODE with repeated roots $r$, the general solution is $C_1 e^{rt} + C_2 t e^{rt}$. Here, $r = -\\omega_0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the physical behavior of an overdamped system and provide its general solution.",
+      "back": "An overdamped system returns to equilibrium slowly without oscillating. It never passes through the equilibrium position. The general solution is: $$x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t}$$ where $r_{1,2} = -\\zeta \\omega_0 \\pm \\omega_0 \\sqrt{\\zeta^2 - 1}$. Both $r_1$ and $r_2$ are real and negative, meaning the displacement decays exponentially to zero, with one term decaying faster than the other.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a car's suspension system, which damping type is generally desired and why? What are the drawbacks of the other types?",
+      "back": "<b>Critically damped</b> is generally desired. It provides the fastest return to equilibrium after a bump without oscillation, ensuring ride comfort and control.<ul><li><b>Underdamped:</b> Would cause the car to bounce multiple times after a bump, leading to an uncomfortable and potentially unsafe ride (loss of tire contact).</li><li><b>Overdamped:</b> Would cause the car to return to equilibrium very slowly, making the ride feel stiff and unresponsive, and potentially \"bottom out\" on successive bumps as it hasn't recovered from the previous one.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the damped angular frequency $\\omega_d$ relate to the natural frequency $\\omega_0$ and damping ratio $\\zeta$? What happens to $\\omega_d$ as $\\zeta \\to 1$?",
+      "back": "The damped angular frequency is given by $\\omega_d = \\omega_0 \\sqrt{1 - \\zeta^2}$. As $\\zeta \\to 1$ (approaching critical damping), $\\sqrt{1 - \\zeta^2} \\to 0$, so $\\omega_d \\to 0$. This means that as damping approaches critical, the system oscillates slower and slower until it stops oscillating entirely at critical damping.",
+      "difficulty": "medium"
+    }
+  ]
+}

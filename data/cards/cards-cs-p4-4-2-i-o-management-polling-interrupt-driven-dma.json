@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-2-i-o-management-polling-interrupt-driven-dma",
+  "subtopicTitle": "I/O management — polling, interrupt-driven, DMA",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:16.987Z",
+  "cards": [
+    {
+      "front": "What is the fundamental mechanism of I/O polling in operating systems?",
+      "back": "The CPU repeatedly checks the status register of an I/O device in a loop to determine if the device is ready for the next operation or if data is available. The CPU actively 'asks' the device if it needs attention.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify a scenario where polling might be a suitable I/O management technique despite its CPU overhead.",
+      "back": "Polling can be suitable for very simple embedded systems with no complex operating system, or for high-speed, time-critical devices where I/O operations are extremely frequent and predictable. In such cases, the overhead of an interrupt context switch might exceed the overhead of a tight polling loop.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does interrupt-driven I/O fundamentally differ from polling in how the CPU learns about device readiness?",
+      "back": "With interrupt-driven I/O, the CPU does not actively check the device. Instead, the I/O device itself signals the CPU (sends an interrupt) when it has completed an operation, requires attention, or has data ready, allowing the CPU to perform other tasks in the meantime.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is an \"Interrupt Service Routine\" (ISR) or \"Interrupt Handler,\" and what is its primary function?",
+      "back": "An ISR (or Interrupt Handler) is a special software routine executed by the CPU in response to an interrupt signal from a device. Its primary function is to handle the specific event that caused the interrupt, such as transferring data, acknowledging completion, or reporting an error, and then return control to the interrupted program.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For large data transfers (e.g., reading a large file from disk), what significant inefficiency does interrupt-driven I/O introduce that DMA aims to solve?",
+      "back": "With interrupt-driven I/O for large transfers, the CPU must be interrupted for every small chunk (e.g., a word or byte) of data transferred. This incurs high CPU overhead due to frequent context switching between the user program and the interrupt handler, and the CPU's involvement in moving each data chunk between the device and memory.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the high-level steps involved when the CPU initiates a data transfer using a Direct Memory Access (DMA) controller.",
+      "back": "1. The CPU programs the DMA controller with the source address, destination address in memory, and the number of bytes to transfer. 2. The CPU then tells the I/O device to start the operation. 3. The DMA controller takes control of the system bus and transfers data directly between the I/O device and main memory without CPU intervention. 4. Upon completion of the entire transfer, the DMA controller generates an interrupt to notify the CPU.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the concept of \"cycle stealing\" in DMA and its advantage over \"burst mode\" for overall system performance.",
+      "back": "\"Cycle stealing\" is a DMA mode where the DMA controller transfers one word (or byte) of data at a time, then temporarily releases the bus back to the CPU. This interleaves DMA transfers with CPU operations, reducing the CPU's wait time for the bus. \"Burst mode,\" in contrast, holds the bus for the entire transfer, potentially stalling the CPU for longer periods, even if the CPU doesn't need the bus for the entire duration.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Rank polling, interrupt-driven I/O, and DMA from highest to lowest CPU overhead for a very large, block-based data transfer.",
+      "back": "1.  **Polling:** Highest (CPU constantly checks device status in a loop). \n2.  **Interrupt-driven I/O:** High (CPU is interrupted for each small data chunk, leading to many context switches and data movements). \n3.  **DMA:** Lowest (CPU is only involved in initiating the transfer and receiving a single interrupt upon completion of the entire block).",
+      "difficulty": "hard"
+    }
+  ]
+}

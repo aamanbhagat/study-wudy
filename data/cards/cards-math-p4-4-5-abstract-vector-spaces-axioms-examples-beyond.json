@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-5-abstract-vector-spaces-axioms-examples-beyond",
+  "subtopicTitle": "Abstract vector spaces — axioms, examples beyond ℝⁿ",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:25.921Z",
+  "cards": [
+    {
+      "front": "State the ten axioms that define a vector space $V$ over a field $F$ with operations of vector addition and scalar multiplication.",
+      "back": "Let $u, v, w \\in V$ and $a, b \\in F$.\n\n**Vector Addition Axioms:**\n1.  **Closure:** $u + v \\in V$\n2.  **Commutativity:** $u + v = v + u$\n3.  **Associativity:** $(u + v) + w = u + (v + w)$\n4.  **Additive Identity:** There exists a zero vector $\\mathbf{0} \\in V$ such that $u + \\mathbf{0} = u$.\n5.  **Additive Inverse:** For each $u \\in V$, there exists an inverse $-u \\in V$ such that $u + (-u) = \\mathbf{0}$.\n\n**Scalar Multiplication Axioms:**\n6.  **Closure:** $a \\cdot u \\in V$\n7.  **Associativity:** $a \\cdot (b \\cdot u) = (ab) \\cdot u$\n8.  **Distributivity (scalar over vector sum):** $a \\cdot (u + v) = a \\cdot u + a \\cdot v$\n9.  **Distributivity (vector over scalar sum):** $(a + b) \\cdot u = a \\cdot u + b \\cdot u$\n10. **Multiplicative Identity:** $1 \\cdot u = u$, where $1$ is the multiplicative identity in $F$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are the two fundamental binary operations required for a set $V$ to be considered a vector space over a field $F$?",
+      "back": "1.  **Vector Addition:** A function $+: V \\times V \\to V$ that takes two vectors and returns a vector.\n2.  **Scalar Multiplication:** A function $\\cdot: F \\times V \\to V$ that takes a scalar from the field $F$ and a vector from $V$, and returns a vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Demonstrate how the set of all polynomials of degree at most $n$, denoted $P_n(\\mathbb{R})$, forms a vector space over $\\mathbb{R}$.",
+      "back": "The set $P_n(\\mathbb{R})$ consists of polynomials $p(x) = a_n x^n + \\dots + a_1 x + a_0$ where $a_i \\in \\mathbb{R}$.\n\n1.  **Vector Addition:** If $p(x) = \\sum a_i x^i$ and $q(x) = \\sum b_i x^i$, then $(p+q)(x) = \\sum (a_i+b_i)x^i$. The sum of two polynomials of degree at most $n$ is also a polynomial of degree at most $n$ (closure).\n2.  **Scalar Multiplication:** If $c \\in \\mathbb{R}$ and $p(x) = \\sum a_i x^i$, then $(c \\cdot p)(x) = \\sum (c a_i) x^i$. A scalar multiple of a polynomial of degree at most $n$ is also a polynomial of degree at most $n$ (closure).\n\nThe zero vector is the zero polynomial $0(x) = 0$, and the additive inverse of $p(x)$ is $-p(x) = \\sum (-a_i)x^i$. All other axioms can be verified from the properties of real number arithmetic.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the set of all $m \\times n$ matrices with real entries, $M_{m \\times n}(\\mathbb{R})$, constitutes a vector space over $\\mathbb{R}$.",
+      "back": "Let $A, B \\in M_{m \\times n}(\\mathbb{R})$ and $c \\in \\mathbb{R}$.\n\n1.  **Vector Addition:** Matrix addition is defined entry-wise: $(A+B)_{ij} = A_{ij} + B_{ij}$. The sum of two $m \\times n$ matrices is another $m \\times n$ matrix (closure).\n2.  **Scalar Multiplication:** Scalar multiplication is defined entry-wise: $(c A)_{ij} = c \\cdot A_{ij}$. A scalar multiple of an $m \\times n$ matrix is another $m \\times n$ matrix (closure).\n\nThe zero vector is the $m \\times n$ zero matrix (all entries are $0$). The additive inverse of $A$ is $-A$ (all entries are $-A_{ij}$). All other vector space axioms follow directly from the properties of real number addition and multiplication, applied entry-wise.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using only the vector space axioms, prove that for any vector $v \\in V$ and the scalar $0 \\in F$, $0 \\cdot v = \\mathbf{0}$ (the additive identity vector).",
+      "back": "$0 \\cdot v = (0+0) \\cdot v$ (Property of field $F$)\n$0 \\cdot v = 0 \\cdot v + 0 \\cdot v$ (Distributivity axiom, axiom 9)\n\nLet $w = 0 \\cdot v$. Then we have $w = w + w$.\n\nNow, add the additive inverse of $w$, denoted $-w$, to both sides (Axiom 5):\n$w + (-w) = (w + w) + (-w)$\n\n$\\mathbf{0} = w + (w + (-w))$ (Associativity axiom, axiom 3)\n$\\mathbf{0} = w + \\mathbf{0}$ (Additive inverse axiom, axiom 5)\n$\\mathbf{0} = w$ (Additive identity axiom, axiom 4)\n\nSince $w = 0 \\cdot v$, we conclude that $0 \\cdot v = \\mathbf{0}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond $\\mathbb{R}^n$, what is the primary motivation for defining abstract vector spaces, and what benefit do they offer?",
+      "back": "The primary motivation is to generalize the concept of 'vector' and 'vector operations' to a wide variety of mathematical objects that don't necessarily look like arrows in $\\mathbb{R}^n$. This includes polynomials, matrices, functions, and sequences.\n\nThe benefit is that once a set is shown to satisfy the vector space axioms, all the powerful theorems and tools developed for linear algebra (like bases, dimension, linear transformations, eigenvalues) can be applied to these diverse structures. It provides a unified framework for studying linearity across different mathematical domains, focusing on the *properties* of operations rather than the specific nature of the objects themselves.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what conditions does the set of all real-valued continuous functions on an interval $[a,b]$, denoted $C([a,b])$, form a vector space over $\\mathbb{R}$?",
+      "back": "The set $C([a,b])$ forms a vector space over $\\mathbb{R}$ under the standard pointwise operations:\n\n1.  **Vector Addition:** For $f, g \\in C([a,b])$, $(f+g)(x) = f(x) + g(x)$ for all $x \\in [a,b]$. The sum of two continuous functions is continuous, ensuring closure.\n2.  **Scalar Multiplication:** For $c \\in \\mathbb{R}$ and $f \\in C([a,b])$, $(c \\cdot f)(x) = c \\cdot f(x)$ for all $x \\in [a,b]$. A scalar multiple of a continuous function is continuous, ensuring closure.\n\nThe zero vector is the zero function, $0(x) = 0$ for all $x \\in [a,b]$, which is continuous. The additive inverse of $f(x)$ is $-f(x)$, which is also continuous. All other axioms follow from the properties of real number arithmetic applied pointwise.",
+      "difficulty": "hard"
+    }
+  ]
+}

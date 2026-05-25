@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-2-for-loop-iterating-over-sequences",
+  "subtopicTitle": "for loop — iterating over sequences",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:20.329Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a `for` loop in Python, and what is its basic syntax?",
+      "back": "The primary purpose of a `for` loop is to iterate over the elements of a sequence (or any other iterable object) one by one.\n\nBasic syntax:\n```python\nfor variable in iterable:\n    # code block to be executed for each element\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which Python built-in function is commonly used with `for` loops to generate a sequence of integers, and what are its three common forms?",
+      "back": "The `range()` function.\n\nIts three common forms are:\n1.  `range(stop)`: Generates numbers from $0$ up to (but not including) `stop`.\n2.  `range(start, stop)`: Generates numbers from `start` up to (but not including) `stop`.\n3.  `range(start, stop, step)`: Generates numbers from `start` up to (but not including) `stop`, incrementing by `step`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What will be the output of the following Python code snippet?",
+      "back": "```\napple\nbanana\ncherry\n```\nThe loop iterates through each string in `my_fruits`, assigning it to the `fruit` variable in each iteration, and then prints the `fruit`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the difference in behavior between `break` and `continue` statements when used inside a `for` loop.",
+      "back": "-   `break`: Immediately terminates the entire `for` loop. Execution proceeds to the statement immediately following the loop.\n-   `continue`: Skips the rest of the current iteration of the loop and moves to the next iteration. The loop itself continues.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can you iterate over both the elements and their corresponding indices in a Python list using a `for` loop? Provide a code example.",
+      "back": "You can use the `enumerate()` function, which returns pairs of (index, value) for each item in the iterable.\n\n```python\nmy_list = ['alpha', 'beta', 'gamma']\nfor index, value in enumerate(my_list):\n    print(f\"Element at index {index}: {value}\")\n```\nOutput:\n```\nElement at index 0: alpha\nElement at index 1: beta\nElement at index 2: gamma\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the purpose and behavior of the `else` block when used with a `for` loop in Python. When does this `else` block execute?",
+      "back": "The `else` block associated with a `for` loop executes only if the loop completes all its iterations *without* encountering a `break` statement. It's useful for scenarios where you need to perform an action (e.g., print 'item not found') if a specific condition or item was not met/found within the loop, and the loop finished naturally.\n\nExample:\n```python\nfor i in range(3):\n    if i == 5: # This condition is never met\n        print(\"Found 5!\")\n        break\nelse:\n    print(\"Loop completed without finding 5.\") # This will execute\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write a Python `for` loop that iterates through a given string and counts the total number of uppercase letters.",
+      "back": "```python\ntext = \"Hello World Python\"\nuppercase_count = 0\nfor char in text:\n    if char.isupper():\n        uppercase_count += 1\nprint(f\"Total uppercase letters: {uppercase_count}\")\n```\nOutput:\n```\nTotal uppercase letters: 3\n```\nThe `isupper()` string method checks if a character is an uppercase letter.",
+      "difficulty": "hard"
+    }
+  ]
+}

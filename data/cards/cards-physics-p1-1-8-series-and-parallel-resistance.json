@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-series-and-parallel-resistance",
+  "subtopicTitle": "Series and parallel resistance",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:41.939Z",
+  "cards": [
+    {
+      "front": "Describe how resistors are connected in a series circuit.",
+      "back": "Resistors are connected end-to-end, forming a single, continuous path for the current to flow through.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the equivalent resistance ($R_{eq}$) of $N$ resistors connected in series?",
+      "back": "The equivalent resistance is the sum of individual resistances: $$R_{eq} = R_1 + R_2 + \\dots + R_N$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a series circuit, which electrical quantity is the same through all resistors, and which quantity divides across them?",
+      "back": "The **current ($I$)** is the same through all resistors. The **voltage ($V$)** divides across them.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how resistors are connected in a parallel circuit.",
+      "back": "Resistors are connected across the same two points (nodes), providing multiple, alternative paths for the current to flow.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the equivalent resistance ($R_{eq}$) of $N$ resistors connected in parallel?",
+      "back": "The reciprocal of the equivalent resistance is the sum of the reciprocals of individual resistances: $$\\frac{1}{R_{eq}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots + \\frac{1}{R_N}$$ For two resistors, this simplifies to $R_{eq} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a parallel circuit, which electrical quantity is the same across all resistors, and which quantity divides among them?",
+      "back": "The **voltage ($V$)** is the same across all resistors. The **current ($I$)** divides among them.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the equivalent resistance of two resistors, $R_1$ and $R_2$, connected in parallel, starting from Kirchhoff's Current Law and Ohm's Law.",
+      "back": "According to Kirchhoff's Current Law, the total current entering the parallel combination equals the sum of currents through each resistor: $I_{total} = I_1 + I_2$. By Ohm's Law, $I = V/R$. Since the voltage $V$ is the same across parallel components: $$I_1 = \\frac{V}{R_1} \\quad \\text{and} \\quad I_2 = \\frac{V}{R_2}$$ Substituting these into the KCL equation: $$I_{total} = \\frac{V}{R_1} + \\frac{V}{R_2} = V \\left( \\frac{1}{R_1} + \\frac{1}{R_2} \\right)$$ The equivalent resistance $R_{eq}$ is defined such that $I_{total} = \\frac{V}{R_{eq}}$. Therefore: $$\\frac{V}{R_{eq}} = V \\left( \\frac{1}{R_1} + \\frac{1}{R_2} \\right)$$ Dividing by $V$ (assuming $V \\neq 0$): $$\\frac{1}{R_{eq}} = \\frac{1}{R_1} + \\frac{1}{R_2}$$ This can be rearranged for two resistors to $R_{eq} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "You have two identical light bulbs (resistive loads) that can be connected in series or parallel to the same constant voltage source. Which configuration results in brighter bulbs, and why?",
+      "back": "**Parallel configuration.**\nBrightness is proportional to the power dissipated by each bulb ($P = V_{bulb}^2/R_{bulb}$). \n1.  **Series:** $R_{eq} = R + R = 2R$. The current through each bulb is $I_{series} = V_{source} / (2R)$. The voltage across each bulb is $V_{bulb, series} = I_{series} \\cdot R = (V_{source}/(2R)) \\cdot R = V_{source}/2$. Power per bulb: $P_{series} = V_{bulb, series}^2 / R = (V_{source}/2)^2 / R = V_{source}^2 / (4R)$.\n2.  **Parallel:** $R_{eq} = (R \\cdot R) / (R + R) = R/2$. The voltage across each bulb is $V_{bulb, parallel} = V_{source}$. Power per bulb: $P_{parallel} = V_{bulb, parallel}^2 / R = V_{source}^2 / R$.\nSince $V_{source}^2/R > V_{source}^2/(4R)$, bulbs in parallel dissipate more power individually and thus glow brighter.",
+      "difficulty": "hard"
+    }
+  ]
+}

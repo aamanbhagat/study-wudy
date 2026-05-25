@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-1-normal-shock-properties-m-p-p-t-t-p-p",
+  "subtopicTitle": "Normal shock properties — M₂, P₂/P₁, T₂/T₁, ρ₂/ρ₁, P₀₂/P₀₁",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:05.803Z",
+  "cards": [
+    {
+      "front": "Define a \"normal shock wave\" in compressible flow.",
+      "back": "A normal shock wave is a thin region (on the order of a few mean free paths) across which a supersonic flow abruptly decelerates to subsonic speeds, accompanied by a sudden increase in static pressure, temperature, and density. The shock wave is oriented perpendicular to the flow direction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a normal shock, what is the relationship between the upstream Mach number $M_1$ and the downstream Mach number $M_2$?",
+      "back": "The post-shock Mach number $M_2$ is given by:\n$$M_2^2 = \\frac{M_1^2 + \\frac{2}{\\gamma - 1}}{\\frac{2\\gamma}{\\gamma - 1}M_1^2 - 1}$$\nFor $M_1 > 1$, it always follows that $M_2 < 1$. This means a normal shock always decelerates supersonic flow to subsonic flow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the static pressure ratio $P_2/P_1$ across a normal shock in terms of $M_1$ and $\\gamma$.",
+      "back": "The static pressure ratio across a normal shock is:\n$$\\frac{P_2}{P_1} = 1 + \\frac{2\\gamma}{\\gamma+1}(M_1^2 - 1)$$\nThis ratio is always greater than 1 for $M_1 > 1$, indicating a pressure jump.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the static temperature ratio $T_2/T_1$ across a normal shock in terms of $M_1$ and $\\gamma$.",
+      "back": "The static temperature ratio across a normal shock is:\n$$\\frac{T_2}{T_1} = \\frac{\\left(1 + \\frac{\\gamma-1}{2}M_1^2\\right)\\left(\\frac{2\\gamma}{\\gamma-1}M_1^2 - 1\\right)}{\\frac{(\\gamma+1)^2}{2(\\gamma-1)}M_1^2}$$\nAlternatively, using the pressure and density ratios: $\\frac{T_2}{T_1} = \\frac{P_2}{P_1} \\frac{\\rho_1}{\\rho_2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the static density ratio $\\rho_2/\\rho_1$ across a normal shock in terms of $M_1$ and $\\gamma$.",
+      "back": "The static density ratio across a normal shock is:\n$$\\frac{\\rho_2}{\\rho_1} = \\frac{(\\gamma+1)M_1^2}{(\\gamma-1)M_1^2 + 2}$$\nThis ratio is always greater than 1 for $M_1 > 1$, indicating a density jump.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the stagnation pressure ratio $P_{02}/P_{01}$ across a normal shock and provide its formula.",
+      "back": "The stagnation pressure ratio $P_{02}/P_{01}$ is always less than 1 for $M_1 > 1$. This signifies an irreversible loss of useful work potential (or available energy) due to the entropy increase across the shock. It's a key indicator of shock strength and inefficiency.\n$$\\frac{P_{02}}{P_{01}} = \\frac{\\left(\\frac{(\\gamma+1)M_1^2}{2}\\right)^{\\frac{\\gamma}{\\gamma-1}}}{\\left(\\frac{2\\gamma}{\\gamma+1}M_1^2 - \\frac{\\gamma-1}{\\gamma+1}\\right)^{\\frac{1}{\\gamma-1}}} \\left(1 + \\frac{\\gamma-1}{2}M_1^2\\right)^{-\\frac{\\gamma}{\\gamma-1}}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the stagnation temperature $T_{0}$ change across a normal shock wave?",
+      "back": "The stagnation temperature $T_{0}$ remains constant across a normal shock wave. This is because the shock process is adiabatic (no heat transfer) and there is no external work done on or by the fluid as it passes through the shock. Thus, $T_{02}/T_{01} = 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the sign of the entropy change ($s_2 - s_1$) across a normal shock, and what does it imply about the process?",
+      "back": "The entropy change across a normal shock, $s_2 - s_1$, is always positive ($s_2 - s_1 > 0$) for $M_1 > 1$. This implies that the normal shock process is irreversible, consistent with the second law of thermodynamics. The increase in entropy is directly linked to the loss in stagnation pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the change in flow velocity ($V_2$ vs $V_1$) as a fluid passes through a normal shock wave.",
+      "back": "As a fluid passes through a normal shock wave, its velocity decreases significantly. Specifically, the flow decelerates from supersonic ($M_1 > 1$) to subsonic ($M_2 < 1$). This reduction in kinetic energy is converted into an increase in internal energy, leading to higher static pressure and temperature.",
+      "difficulty": "medium"
+    }
+  ]
+}

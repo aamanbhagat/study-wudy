@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-choked-flow-condition-m-1-at-throat-maximum-mass-flow",
+  "subtopicTitle": "Choked flow — condition M = 1 at throat, maximum mass flow",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:35.164Z",
+  "cards": [
+    {
+      "front": "What is the defining characteristic of choked flow in a nozzle or duct?",
+      "back": "The flow reaches sonic velocity ($M=1$) at the minimum flow area, which is typically referred to as the throat.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary practical consequence of a flow becoming choked in a nozzle?",
+      "back": "The mass flow rate through the nozzle reaches its maximum possible value and cannot increase further, regardless of how much the downstream pressure (back pressure) is reduced.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why, once a flow is choked, further lowering of the downstream pressure (back pressure) has no effect on the mass flow rate or the upstream flow conditions.",
+      "back": "When the flow at the throat is sonic ($M=1$), pressure disturbances from downstream cannot propagate upstream against the sonic flow. The flow upstream of the throat and the mass flow rate are thus \"decoupled\" from the back pressure once choking occurs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an ideal gas with specific heat ratio $\\gamma$, what is the critical pressure ratio ($P^*/P_0$) at the throat required for the flow to become choked?",
+      "back": "The critical pressure ratio is given by:\n$$ \\frac{P^*}{P_0} = \\left(\\frac{2}{\\gamma+1}\\right)^{\\frac{\\gamma}{\\gamma-1}} $$\nFor air ($\\gamma=1.4$), this value is approximately $0.528$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression for the maximum (choked) mass flow rate ($\\dot{m}_{max}$) through a nozzle throat with area $A^*$ for an ideal gas, in terms of $P_0, T_0, R, \\gamma$.",
+      "back": "Starting from the general mass flow rate equation $\\dot{m} = \\rho A V$ and substituting isentropic relations for $M=1$ at the throat:\n$$ \\dot{m}_{max} = A^* \\rho^* V^* = A^* \\left( \\frac{P^*}{RT^*} \\right) \\sqrt{\\gamma R T^*} $$\nUsing the critical temperature and pressure ratios $T^*/T_0 = (2/(\\gamma+1))$ and $P^*/P_0 = (2/(\\gamma+1))^{\\gamma/(\\gamma-1)}$:\n$$ \\dot{m}_{max} = A^* P_0 \\sqrt{\\frac{\\gamma}{R T_0}} \\left(\\frac{2}{\\gamma+1}\\right)^{\\frac{\\gamma+1}{2(\\gamma-1)}} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In which type of nozzle (convergent, divergent, or convergent-divergent) can supersonic flow *downstream* of the throat be achieved, and why?",
+      "back": "Supersonic flow downstream of the throat can only be achieved in a **convergent-divergent (CD) nozzle**. This is because to accelerate flow from sonic ($M=1$) to supersonic ($M>1$), the flow area must *increase*, which is precisely what the divergent section provides. A purely convergent nozzle can only accelerate flow to sonic speed at its exit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the relationship between mass flow rate and back pressure for a convergent nozzle as the back pressure is gradually reduced from the stagnation pressure to a very low vacuum.",
+      "back": "Initially, as back pressure ($P_b$) decreases from stagnation pressure ($P_0$), the mass flow rate increases, and the exit velocity increases subsonically. This continues until $P_b$ reaches the critical pressure ($P^*$), at which point the flow at the nozzle exit (throat) becomes sonic ($M=1$). At this point, the flow is **choked**, and the mass flow rate reaches its maximum. Further reductions in $P_b$ below $P^*$ will *not* increase the mass flow rate. The flow conditions within the nozzle remain unchanged, with the exit pressure fixed at $P^*$, and any further expansion to lower pressures occurs *outside* the nozzle as a free jet.",
+      "difficulty": "hard"
+    }
+  ]
+}

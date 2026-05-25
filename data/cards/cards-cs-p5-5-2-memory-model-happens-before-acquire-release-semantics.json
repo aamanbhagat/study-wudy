@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-2-memory-model-happens-before-acquire-release-semantics",
+  "subtopicTitle": "Memory model — happens-before, acquire-release semantics",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:18.808Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the C++ Memory Model in concurrent programming?",
+      "back": "The C++ Memory Model defines how operations in one thread interact with operations in other threads, particularly regarding memory access and ordering. Its primary purpose is to prevent data races and ensure predictable, consistent behavior in multithreaded programs by specifying visibility and ordering guarantees.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the \"happens-before\" relationship in the C++ Memory Model.",
+      "back": "The \"happens-before\" relationship is a partial ordering of operations in a concurrent program. If operation A happens-before operation B, then the effects of A are guaranteed to be visible to B, and A must complete before B begins. It is composed of \"sequenced-before\" (intra-thread) and \"synchronizes-with\" (inter-thread) relationships.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the guarantee provided by `memory_order_release` for operations *before* it in the same thread.",
+      "back": "A `store` operation with `memory_order_release` ensures that all memory writes (both atomic with weaker orders and non-atomic) that occur *before* it in the same thread become visible to any other thread that performs an `acquire` operation that *synchronizes-with* this release. It acts as a \"release fence,\" preventing reordering of operations *after* the release to *before* it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the guarantee provided by `memory_order_acquire` for operations *after* it in the same thread.",
+      "back": "A `load` operation with `memory_order_acquire` ensures that all memory writes that happened *before* a corresponding `release` operation (in another thread) that *synchronizes-with* this acquire become visible to the current thread *after* the acquire. It acts as an \"acquire fence,\" preventing reordering of operations *before* the acquire to *after* it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do `std::atomic<T>::store(val, std::memory_order_release)` and `std::atomic<T>::load(std::memory_order_acquire)` establish a \"synchronizes-with\" relationship?",
+      "back": "If a `std::atomic<T>::store` with `memory_order_release` on variable `X` writes a value, and a `std::atomic<T>::load` with `memory_order_acquire` on `X` subsequently reads that *specific* value, then the `store` *synchronizes-with* the `load`. This means all memory operations that happened *before* the release in the releasing thread are guaranteed to happen-before all memory operations that happen *after* the acquire in the acquiring thread.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is `std::memory_order_relaxed` insufficient for a flag indicating data readiness in a producer-consumer scenario?",
+      "back": "`memory_order_relaxed` provides no ordering guarantees with respect to other memory operations. If a producer writes data then sets a flag with `relaxed` order, the data writes might be reordered *after* the flag store. A consumer reading the flag as `true` (also with `relaxed` order) might then read stale or uninitialized data, leading to a data race or incorrect program state.\n```cpp\n// Producer\ndata = 42; // write to non-atomic data\nflag.store(true, std::memory_order_relaxed); // Problematic\n// Consumer\nwhile (!flag.load(std::memory_order_relaxed)); // Problematic\n// Use data (might be stale)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference in ordering guarantees between `acquire-release` semantics and `sequential consistency`?",
+      "back": "`Acquire-release` semantics provide *pairwise* synchronization: a specific release operation synchronizes-with a specific acquire operation, ordering operations relative to that pair. `Sequential consistency` (`memory_order_seq_cst`) provides a *total global order* for all `seq_cst` operations across all threads. All threads observe these operations in the same single, consistent order, which is a stronger guarantee and typically involves more overhead.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a producer-consumer scenario, if a producer writes data and then sets a flag, what memory order should the flag's store use to ensure data visibility?",
+      "back": "The flag's store operation should use `std::memory_order_release`. This ensures that all memory writes performed *before* the flag store in the producer thread are made visible to any consumer thread that subsequently performs an `acquire` load on the same flag. The consumer's load should use `std::memory_order_acquire`.",
+      "difficulty": "medium"
+    }
+  ]
+}

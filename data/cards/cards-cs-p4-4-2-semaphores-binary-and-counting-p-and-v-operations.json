@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-2-semaphores-binary-and-counting-p-and-v-operations",
+  "subtopicTitle": "Semaphores — binary and counting, P() and V() operations",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:02.608Z",
+  "cards": [
+    {
+      "front": "In OS, what is a semaphore, and what problem does it primarily solve?",
+      "back": "A semaphore is a synchronization primitive, essentially an integer variable, used to control access to common resources by multiple processes in a concurrent system. It primarily solves the critical section problem and prevents race conditions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the two atomic operations on a semaphore and their conceptual meaning.",
+      "back": "1. **P()** (also `wait()` or `acquire()`): Decrements the semaphore value. If the value becomes negative, the process blocks. Conceptually: \"proberen\" (to test) or \"passeren\" (to pass).\n2. **V()** (also `signal()` or `release()`): Increments the semaphore value. If there are blocked processes, one is unblocked. Conceptually: \"verhogen\" (to increment) or \"vrijgeven\" (to release).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What's the key difference between a binary and a counting semaphore?",
+      "back": "A **binary semaphore** can only take values 0 or 1. It's primarily used for mutual exclusion, ensuring only one process is in a critical section at a time. A **counting semaphore** can take any non-negative integer value. It's used to control access to a resource that has multiple identical instances available.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the internal logic of the P() operation for a semaphore $S$.",
+      "back": "The P() operation (also known as `wait()` or `acquire()`) is atomic and typically implemented as:\n```\nP(S):\n  S.value--;\n  if (S.value < 0) {\n    add this process to S.queue;\n    block this process;\n  }\n```\nIf $S.value$ becomes negative, it implies that the requested resource is unavailable, and the calling process must wait.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the internal logic of the V() operation for a semaphore $S$.",
+      "back": "The V() operation (also known as `signal()` or `release()`) is atomic and typically implemented as:\n```\nV(S):\n  S.value++;\n  if (S.value <= 0) {\n    remove a process P from S.queue;\n    wakeup process P;\n  }\n```\nIf $S.value$ is still non-positive after incrementing, it means there were processes waiting, and one should be unblocked.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the typical initial value for a semaphore used for mutual exclusion, and why?",
+      "back": "The initial value is typically **1**. This ensures that exactly one process can acquire the semaphore (enter the critical section) at the very beginning. If it were 0, the first process attempting P() would block immediately. If it were greater than 1, more than one process could enter the critical section simultaneously, violating mutual exclusion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can a binary semaphore be used to implement mutual exclusion for a critical section? Provide pseudocode.",
+      "back": "A binary semaphore, often called a `mutex`, is initialized to 1. A process calls P() before entering its critical section and V() upon exiting. This ensures only one process can be in the critical section at any given time.\n```\nsemaphore mutex = 1; // Initialized to 1\n\nprocess P_i {\n  ...\n  P(mutex);          // Acquire lock, enter critical section\n  // Critical Section //\n  V(mutex);          // Release lock, exit critical section\n  ...\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain how a counting semaphore can manage access to a resource pool with $N$ identical instances.",
+      "back": "Initialize the counting semaphore, say `resource_count`, to $N$. Each time a process needs an instance, it performs `P(resource_count)`. This decrements the count, and if it becomes negative, the process blocks. When a process finishes using an instance, it performs `V(resource_count)`, incrementing the count and potentially unblocking a waiting process.\n```\nsemaphore resource_count = N; // N available instances\n\nprocess P_i {\n  ...\n  P(resource_count); // Request an instance\n  // Use resource instance //\n  V(resource_count); // Release the instance\n  ...\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a producer-consumer problem, how would counting semaphores `empty` and `full` track buffer slots?",
+      "back": "For a bounded buffer of size $N$:\n*   `semaphore empty = N;`: Represents the number of empty slots. Producers call `P(empty)` before adding an item and `V(empty)` after consuming.\n*   `semaphore full = 0;`: Represents the number of full slots. Consumers call `P(full)` before removing an item and `V(full)` after producing.\n\nAdditionally, a binary semaphore `mutex = 1` is needed to protect access to the buffer itself.\n\n**Producer:** `P(empty); P(mutex); add_item(); V(mutex); V(full);`\n**Consumer:** `P(full); P(mutex); remove_item(); V(mutex); V(empty);`",
+      "difficulty": "hard"
+    }
+  ]
+}

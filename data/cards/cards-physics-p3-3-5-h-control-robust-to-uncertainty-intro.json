@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-h-control-robust-to-uncertainty-intro",
+  "subtopicTitle": "H∞ control — robust to uncertainty (intro)",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:34.193Z",
+  "cards": [
+    {
+      "front": "What is the primary objective of H∞ control in the context of system design?",
+      "back": "H∞ control aims to design a controller that guarantees robust stability and performance for a system, even in the presence of model uncertainties and external disturbances. It minimizes the worst-case effect of these uncertainties on system outputs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is robustness a critical consideration in real-world aerospace control systems, necessitating approaches like H∞ control?",
+      "back": "Real-world aerospace systems inherently have uncertainties due to:\n1.  **Modeling errors:** Simplified dynamics, unmodeled effects (e.g., aeroelasticity).\n2.  **Parameter variations:** Changes in mass, inertia, atmospheric conditions, engine performance.\n3.  **External disturbances:** Wind gusts, sensor noise, actuator imperfections.\nRobustness ensures reliable performance despite these deviations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the H∞ norm of a stable transfer function $G(s)$ and explain its significance in control.",
+      "back": "The H∞ norm of a stable transfer function $G(s)$ is defined as the maximum singular value of $G(j\\omega)$ over all frequencies $\\omega$:\n$$ \\|G(s)\\|_\\infty = \\sup_{\\omega} \\bar{\\sigma}(G(j\\omega)) $$\nwhere $\\bar{\\sigma}$ denotes the maximum singular value. It represents the maximum possible gain (amplification) from any input to any output, at any frequency, in the worst-case scenario.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the fundamental design philosophy of H∞ control differ from that of LQR/LQG control, particularly regarding uncertainty?",
+      "back": "1.  **LQR/LQG:** Optimizes for *average-case* performance by minimizing a quadratic cost function, assuming known system dynamics and often white noise disturbances. It is sensitive to model uncertainties.\n2.  **H∞ Control:** Optimizes for *worst-case* performance by minimizing the maximum gain from disturbances/uncertainties to controlled outputs. It explicitly designs for robustness against model uncertainties and bounded disturbances.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Sketch the block diagram for the generalized plant $P$ used in H∞ control, identifying its inputs and outputs.",
+      "back": "The generalized plant $P$ connects external inputs ($w$), control inputs ($u$), controlled outputs ($z$), and measured outputs ($y$).\n$$ \\begin{bmatrix} z \\\\ y \\end{bmatrix} = P \\begin{bmatrix} w \\\\ u \\end{bmatrix} = \\begin{bmatrix} P_{11} & P_{12} \\\\ P_{21} & P_{22} \\end{bmatrix} \\begin{bmatrix} w \\\\ u \\end{bmatrix} $$\n*   $w$: Exogenous inputs (disturbances, noise, reference signals, uncertainty inputs).\n*   $u$: Control inputs from the controller.\n*   $z$: Controlled outputs (error signals, performance variables, robustness variables).\n*   $y$: Measured outputs to the controller.\nThe controller $K$ then takes $y$ as input and produces $u$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the \"mixed sensitivity problem\" formulation in H∞ control and list the three key transfer functions typically weighted.",
+      "back": "The mixed sensitivity problem is a common H∞ formulation that balances performance, robustness, and control effort. It involves minimizing the H∞ norm of a weighted combination of closed-loop transfer functions:\n$$ \\min_K \\left\\| \\begin{bmatrix} W_S S \\\\ W_T T \\\\ W_U K S \\end{bmatrix} \\right\\|_\\infty $$\nwhere:\n*   $S = (I+GK)^{-1}$ is the **sensitivity function** (performance, disturbance rejection).\n*   $T = GK(I+GK)^{-1}$ is the **complementary sensitivity function** (robustness to multiplicative uncertainty, noise rejection).\n*   $KS = K(I+GK)^{-1}$ is the **control sensitivity function** (control effort, actuator saturation).\n$W_S, W_T, W_U$ are frequency-dependent weighting functions.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe the role of the frequency-dependent weighting functions ($W_S, W_T, W_U$) in shaping the H∞ control design.",
+      "back": "Weighting functions allow the designer to prioritize different performance and robustness objectives across various frequency ranges:\n*   $W_S$: Shapes the sensitivity function $S$. A large $|W_S|$ at low frequencies demands good disturbance rejection and tracking performance.\n*   $W_T$: Shapes the complementary sensitivity function $T$. A large $|W_T|$ at high frequencies emphasizes robustness to high-frequency unmodeled dynamics.\n*   $W_U$: Shapes the control sensitivity function $KS$. A large $|W_U|$ limits control effort and prevents actuator saturation, especially at high frequencies.\nBy adjusting these weights, the designer can trade off performance, robustness, and control effort.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p2-2-1-simultaneous-equations-substitution-elimination-cross-multiplication",
+  "subtopicTitle": "Simultaneous equations — substitution, elimination, cross-multiplication",
+  "topicId": "math-p2-2-1-algebra-introduction-intermediate",
+  "topicTitle": "Algebra — Introduction & Intermediate",
+  "field": "math",
+  "model": "gemini-3.1-pro-preview",
+  "generatedAt": "2026-05-25T15:01:04.874Z",
+  "cards": [
+    {
+      "front": "Geometrically, what does the solution to a system of two simultaneous linear equations in two variables represent?",
+      "back": "It represents the point(s) of intersection of the two lines on a Cartesian plane.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core steps of the **substitution method** for solving a system of two equations.",
+      "back": "1. Isolate one variable (e.g., $x$) in one of the equations.\n2. Substitute this expression for $x$ into the *other* equation, resulting in an equation with only one variable ($y$).\n3. Solve for $y$.\n4. Substitute the value of $y$ back into the isolated expression to find $x$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In the **elimination method**, what must be done if neither variable naturally cancels out when the equations are added or subtracted?",
+      "back": "Multiply one or both equations by non-zero constants so that the coefficients of one variable are either exactly equal or exact opposites. Then, add or subtract the resulting equations to eliminate that variable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the **cross-multiplication formula** for solving the system:\n$$a_1x + b_1y + c_1 = 0$$\n$$a_2x + b_2y + c_2 = 0$$",
+      "back": "The solution is given by the ratios:\n$$\\frac{x}{b_1c_2 - b_2c_1} = \\frac{y}{c_1a_2 - c_2a_1} = \\frac{1}{a_1b_2 - a_2b_1}$$\n*(Note: This is valid as long as $a_1b_2 - a_2b_1 \\neq 0$, which ensures the lines are not parallel).* To find $x$ or $y$, equate their respective fraction to the constant fraction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the system $a_1x + b_1y = c_1$ and $a_2x + b_2y = c_2$, what are the conditions on the coefficients for the system to have **no solution**?",
+      "back": "The system has no solution (the lines are parallel and distinct) when the ratio of the $x$ and $y$ coefficients are equal, but differ from the constant ratio:\n$$\\frac{a_1}{a_2} = \\frac{b_1}{b_2} \\neq \\frac{c_1}{c_2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the system $a_1x + b_1y = c_1$ and $a_2x + b_2y = c_2$, what are the conditions on the coefficients for the system to have **infinitely many solutions**?",
+      "back": "The system has infinitely many solutions (the lines are coincident) when the equations are scalar multiples of each other, meaning all coefficient ratios are equal:\n$$\\frac{a_1}{a_2} = \\frac{b_1}{b_2} = \\frac{c_1}{c_2}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When solving simultaneous equations, how can you quickly identify if the **substitution method** is likely more efficient than the elimination method?",
+      "back": "Substitution is generally more efficient when one of the variables in either equation already has a coefficient of $1$ or $-1$ (e.g., $x + 3y = 5$). This makes it easy to isolate the variable without introducing cumbersome fractions.",
+      "difficulty": "medium"
+    }
+  ]
+}

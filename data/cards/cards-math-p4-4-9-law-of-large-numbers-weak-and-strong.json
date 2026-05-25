@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-law-of-large-numbers-weak-and-strong",
+  "subtopicTitle": "Law of Large Numbers — weak and strong",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:41.675Z",
+  "cards": [
+    {
+      "front": "What is the fundamental idea behind the Law of Large Numbers (LLN)?",
+      "back": "The LLN states that as the number of independent trials or observations increases, the sample average of a sequence of random variables converges to their expected value (population mean).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Weak Law of Large Numbers (WLLN) intuitively.",
+      "back": "The WLLN states that as the number of trials $n$ grows very large, the sample mean $\\bar{X}_n$ will be arbitrarily close to the true population mean $\\mu$ *with high probability*. It doesn't guarantee it will always be close, but the probability of it being far away becomes negligible.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical formulation of the Weak Law of Large Numbers (WLLN) for i.i.d. random variables $X_1, X_2, \\dots$ with mean $\\mu$.",
+      "back": "For any $\\epsilon > 0$, the WLLN states:\n$$ \\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| < \\epsilon) = 1 $$\nor equivalently,\n$$ \\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| \\ge \\epsilon) = 0 $$\nwhere $\\bar{X}_n = \\frac{1}{n}\\sum_{i=1}^n X_i$. This is known as convergence in probability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What key inequality is often used to prove the Weak Law of Large Numbers under the condition of finite variance, and how does it relate?",
+      "back": "Chebyshev's Inequality. For i.i.d. $X_i$ with mean $\\mu$ and finite variance $\\sigma^2$, the sample mean $\\bar{X}_n$ has $E[\\bar{X}_n] = \\mu$ and $Var(\\bar{X}_n) = \\frac{\\sigma^2}{n}$. By Chebyshev's Inequality:\n$$ P(|\\bar{X}_n - \\mu| \\ge \\epsilon) \\le \\frac{Var(\\bar{X}_n)}{\\epsilon^2} = \\frac{\\sigma^2}{n\\epsilon^2} $$\nAs $n \\to \\infty$, the right side goes to $0$, proving the WLLN.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Strong Law of Large Numbers (SLLN) intuitively.",
+      "back": "The SLLN states that as the number of trials $n$ grows very large, the sample mean $\\bar{X}_n$ converges to the true population mean $\\mu$ *almost surely* (or *with probability 1*). This implies that the sample mean will eventually stay arbitrarily close to $\\mu$ for all subsequent trials, with no 'wobbles' away from $\\mu$ occurring infinitely often.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical formulation of the Strong Law of Large Numbers (SLLN) for i.i.d. random variables $X_1, X_2, \\dots$ with mean $\\mu$.",
+      "back": "The SLLN states:\n$$ P\\left(\\lim_{n \\to \\infty} \\bar{X}_n = \\mu\\right) = 1 $$\nwhere $\\bar{X}_n = \\frac{1}{n}\\sum_{i=1}^n X_i$. This is known as almost sure convergence, denoted $\\bar{X}_n \\xrightarrow{a.s.} \\mu$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference between the convergence types in WLLN and SLLN? Which implies the other?",
+      "back": "WLLN describes convergence *in probability*, meaning the probability of the sample mean being far from the true mean goes to zero. SLLN describes convergence *almost surely*, meaning the sample mean actually converges to the true mean for almost all possible sequences of outcomes.\nAlmost sure convergence is a stronger condition than convergence in probability. Therefore, SLLN implies WLLN, but WLLN does not imply SLLN.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary condition on the random variables for the Strong Law of Large Numbers (Kolmogorov's SLLN) to hold?",
+      "back": "For the classical Strong Law of Large Numbers, the random variables $X_i$ must be independent and identically distributed (i.i.d.) and have a *finite expected value* (i.e., $E[|X_1|] < \\infty$). Unlike the common proof of WLLN, finite variance is not strictly required for SLLN.",
+      "difficulty": "hard"
+    }
+  ]
+}

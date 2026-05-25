@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-3-combustion-instability-low-frequency-chugging-high-frequency-screaming",
+  "subtopicTitle": "Combustion instability — low-frequency (chugging), high-frequency (screaming)",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:05.298Z",
+  "cards": [
+    {
+      "front": "What is combustion instability in rocket engines?",
+      "back": "Self-sustained oscillations of pressure and heat release rate within the combustion chamber, often leading to performance degradation, structural damage, or catastrophic failure.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Distinguish between low-frequency (chugging) and high-frequency (screaming) combustion instabilities.",
+      "back": "Chugging involves oscillations typically below 200 Hz, coupling the propellant feed system dynamics with the combustion chamber pressure. Screaming involves oscillations typically above 1000 Hz, coupling acoustic chamber modes with the combustion process.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary cause of \"chugging\" in liquid rocket engines?",
+      "back": "Chugging arises from the coupling between the propellant feed system dynamics (e.g., pump cavitation, line elasticity, injector pressure drop) and the combustion chamber pressure oscillations. This creates a feedback loop where propellant flow rate variations drive pressure oscillations, which in turn affect flow rate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical mechanism driving \"screaming\" combustion instability.",
+      "back": "Screaming occurs when combustion heat release oscillations become coupled with the acoustic modes of the combustion chamber. If the heat release rate is in phase with the pressure oscillations, it amplifies them, leading to self-sustained, high-frequency pressure waves (e.g., longitudinal, tangential, radial modes).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Rayleigh criterion for combustion instability and explain its physical meaning.",
+      "back": "The Rayleigh criterion states that if the heat release rate oscillations ($\\dot{Q}'$) are in phase with the pressure oscillations ($p'$) over a cycle, and occur in regions where pressure is high, then acoustic energy is added to the system, amplifying the oscillations. Mathematically, $\\oint p' \\dot{Q}' dt > 0$. It defines the condition for acoustic instability.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Name two common design strategies to mitigate low-frequency \"chugging\" instability.",
+      "back": "1. Increasing the injector pressure drop relative to the chamber pressure (higher $\\Delta P_i / P_c$). 2. Modifying feed system components to decouple their natural frequencies from the chamber's, e.g., using accumulators or tuning line lengths.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Name two common design strategies for high-frequency \"screaming\" instability and explain how one works.",
+      "back": "1. **Baffles:** Physical barriers extending into the combustion chamber to break up acoustic pressure waves and prevent them from reinforcing across the chamber. 2. **Acoustic liners/absorbers:** Porous materials or Helmholtz resonators designed to absorb acoustic energy at specific frequencies, dampening oscillations. (Explanation for baffles or acoustic liners would be accepted).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the typical frequency ranges for \"chugging\" and \"screaming,\" and what are their consequences?",
+      "back": "Chugging: typically 10-200 Hz. Consequences: thrust oscillation, structural vibration, reduced engine efficiency, potential for engine shutdown. Screaming: typically 1000-20,000 Hz. Consequences: severe structural damage, chamber erosion, rapid engine failure, melting of engine components.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of L* instability, a specific type of low-frequency combustion instability.",
+      "back": "L* instability (pronounced \"L-star\") is a form of low-frequency instability often observed in solid rocket motors or liquid engines with large ullage volumes. It arises from the coupling between the combustion process and the acoustic modes of the chamber's gas volume. The characteristic length $L^*$ is the ratio of the chamber volume ($V_c$) to the nozzle throat area ($A_t$), i.e., $L^* = V_c / A_t$. A larger $L^*$ generally correlates with lower natural frequencies, making the system more susceptible to low-frequency oscillations.",
+      "difficulty": "hard"
+    }
+  ]
+}

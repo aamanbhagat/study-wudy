@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p2-2-7-conditional-probability-p-a-b-p-a-b-p-a",
+  "subtopicTitle": "Conditional probability — P(A|B) = P(A∩B)/P(A)",
+  "topicId": "math-p2-2-7-statistics-probability-intermediate",
+  "topicTitle": "Statistics & Probability — Intermediate",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:21.906Z",
+  "cards": [
+    {
+      "front": "Define conditional probability.",
+      "back": "Conditional probability is the probability of an event A occurring, given that another event B has already occurred. It effectively restricts the sample space to outcomes where event B has happened.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the conditional probability of event A given event B.",
+      "back": "The formula for the conditional probability of event A given event B is:\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\nThis formula is valid only when $P(B) > 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuition behind $P(A|B)$ in terms of sample space reduction.",
+      "back": "$P(A|B)$ represents the proportion of outcomes within event B (our new, reduced sample space) that also belong to event A. We are essentially 'zooming in' on the outcomes where B has occurred and then determining how many of those also satisfy A.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula $P(A|B) = P(A \\cap B) / P(B)$ from the concept of relative frequency in a reduced sample space.",
+      "back": "Assume a sample space $S$ with $N$ equally likely outcomes. Let $N(A)$, $N(B)$, and $N(A \\cap B)$ be the number of outcomes in events $A$, $B$, and $A \\cap B$ respectively.\n\nWhen event $B$ has occurred, our new sample space is $B$, which has $N(B)$ outcomes. For event $A$ to occur within this new sample space, the outcomes must be in $A \\cap B$. There are $N(A \\cap B)$ such outcomes.\n\nSo, the conditional probability is:\n$$P(A|B) = \\frac{\\text{Number of outcomes in } (A \\cap B)}{\\text{Number of outcomes in } B} = \\frac{N(A \\cap B)}{N(B)}$$\nDividing both the numerator and denominator by $N$ (the total number of outcomes in the original sample space):\n$$P(A|B) = \\frac{N(A \\cap B)/N}{N(B)/N} = \\frac{P(A \\cap B)}{P(B)}$$\nThis derivation holds provided $P(B) > 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $P(A) = 0.6$, $P(B) = 0.4$, and $P(A \\cap B) = 0.25$, calculate $P(A|B)$.",
+      "back": "Using the formula $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$:\n$$P(A|B) = \\frac{0.25}{0.4} = \\frac{25}{40} = \\frac{5}{8} = 0.625$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a class, 70% of students passed Math, 60% passed Physics, and 40% passed both. What is the probability a student passed Physics, given they passed Math?",
+      "back": "Let $M$ be the event a student passed Math, and $P$ be the event a student passed Physics.\nWe are given:\n$P(M) = 0.70$\n$P(P) = 0.60$\n$P(M \\cap P) = 0.40$\nWe need to find $P(P|M)$.\nUsing the formula $P(P|M) = \\frac{P(P \\cap M)}{P(M)}$:\n$$P(P|M) = \\frac{0.40}{0.70} = \\frac{4}{7} \\approx 0.5714$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to $P(A|B)$ if $P(B) = 0$?",
+      "back": "If $P(B) = 0$, the event $B$ is impossible. In this case, $P(A|B)$ is undefined because the denominator in the formula $P(A|B) = P(A \\cap B) / P(B)$ would be zero. Intuitively, if event B cannot occur, then asking for the probability of A *given* B has occurred makes no sense.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If events A and B are independent, how does $P(A|B)$ simplify?",
+      "back": "If A and B are independent, then by definition, $P(A \\cap B) = P(A)P(B)$.\nSubstituting this into the conditional probability formula:\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{P(A)P(B)}{P(B)} = P(A)$$\nThis means that if A and B are independent, the occurrence of B does not affect the probability of A.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Are $P(A|B)$ and $P(B|A)$ always equal? If not, how are they related?",
+      "back": "No, $P(A|B)$ and $P(B|A)$ are generally not equal. They represent different conditional probabilities.\n\nTheir relationship can be derived from the definition of conditional probability:\n$P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\implies P(A|B) \\cdot P(B) = P(A \\cap B)$\n$P(B|A) = \\frac{P(B \\cap A)}{P(A)} \\implies P(B|A) \\cdot P(A) = P(B \\cap A)$\n\nSince $P(A \\cap B) = P(B \\cap A)$, we can equate the right sides:\n$$P(A|B) \\cdot P(B) = P(B|A) \\cdot P(A)$$\nThis relationship is a fundamental component of Bayes' Theorem.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-potential-of-point-charge-potential-from-field-and-vice-versa",
+  "subtopicTitle": "Potential of point charge, potential from field and vice versa",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:34.542Z",
+  "cards": [
+    {
+      "front": "Define electric potential $V$ at a point in an electric field.",
+      "back": "Electric potential $V$ at a point is the amount of work done by an external force per unit positive test charge to bring the charge from a reference point (usually infinity) to that point without acceleration. It is a scalar quantity, measured in Volts (J/C).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the electric potential $V$ at a distance $r$ from a point charge $q$.",
+      "back": "The electric potential $V$ at a distance $r$ from a point charge $q$ is given by: $$V = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r}$$ where $\\epsilon_0$ is the permittivity of free space. This formula assumes the potential is zero at infinite distance ($V(\\infty)=0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the total electric potential at a point calculated for a system of multiple point charges?",
+      "back": "The total electric potential at a point due to a system of multiple point charges is the algebraic sum of the potentials due to each individual charge. This is due to the superposition principle for scalar quantities: $$V_{total} = \\sum_i V_i = \\sum_i \\frac{1}{4\\pi\\epsilon_0} \\frac{q_i}{r_i}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the potential difference $V_B - V_A$ between two points A and B in an electric field $\\vec{E}$.",
+      "back": "The potential difference $V_B - V_A$ is given by the negative line integral of the electric field from point A to point B: $$V_B - V_A = -\\int_A^B \\vec{E} \\cdot d\\vec{l}$$ This represents the work done per unit charge by the electric field when moving a charge from A to B.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the electric field $\\vec{E}$ derived from an electric potential function $V(x,y,z)$? What does the negative sign signify?",
+      "back": "The electric field $\\vec{E}$ is the negative gradient of the electric potential $V$: $$\\vec{E} = -\\nabla V$$ In Cartesian coordinates: $$\\vec{E} = -\\left( \\frac{\\partial V}{\\partial x}\\hat{i} + \\frac{\\partial V}{\\partial y}\\hat{j} + \\frac{\\partial V}{\\partial z}\\hat{k} \\right)$$ The negative sign indicates that the electric field points in the direction of decreasing potential.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If you move a positive test charge from a region of higher electric potential to a region of lower electric potential, does the electric field do positive or negative work on the charge?",
+      "back": "The electric field does positive work. Positive charges naturally move from higher potential to lower potential, and the electric field does work in the direction of natural motion. This is analogous to a mass falling from higher gravitational potential to lower gravitational potential.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the electric potential $V(r)$ at a distance $r$ from a point charge $q$, assuming $V(\\infty)=0$, using the electric field.",
+      "back": "The electric field due to a point charge $q$ is $\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r^2} \\hat{r}$.\nWe use the relation $V(r) - V(\\infty) = -\\int_{\\infty}^r \\vec{E} \\cdot d\\vec{l}$.\nSince $d\\vec{l} = d\\vec{r} = dr \\hat{r}$, we have $\\vec{E} \\cdot d\\vec{l} = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r^2} dr$.\n$$V(r) - 0 = -\\int_{\\infty}^r \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r^2} dr$$\n$$V(r) = -\\frac{q}{4\\pi\\epsilon_0} \\int_{\\infty}^r r^{-2} dr$$\n$$V(r) = -\\frac{q}{4\\pi\\epsilon_0} \\left[ -\\frac{1}{r} \\right]_{\\infty}^r$$\n$$V(r) = -\\frac{q}{4\\pi\\epsilon_0} \\left( -\\frac{1}{r} - \\left(-\\frac{1}{\\infty}\\right) \\right)$$\n$$V(r) = -\\frac{q}{4\\pi\\epsilon_0} \\left( -\\frac{1}{r} - 0 \\right)$$\n$$V(r) = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is an equipotential surface, and how does the electric field relate to it?",
+      "back": "An equipotential surface is a surface on which all points have the same electric potential. The electric field lines are always perpendicular to equipotential surfaces, and no work is done by the electric field when a charge moves along an equipotential surface.",
+      "difficulty": "medium"
+    }
+  ]
+}

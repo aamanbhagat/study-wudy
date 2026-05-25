@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-6-non-homogeneous-method-of-undetermined-coefficients-annihilator-method",
+  "subtopicTitle": "Non-homogeneous — method of undetermined coefficients (annihilator method)",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:02.489Z",
+  "cards": [
+    {
+      "front": "For what type of ordinary differential equations (ODEs) is the method of undetermined coefficients (or annihilator method) applicable?",
+      "back": "The method of undetermined coefficients is applicable to **linear, non-homogeneous ODEs with constant coefficients**, where the non-homogeneous term $g(x)$ is a finite sum or product of polynomials, exponential functions, sines, and cosines.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an \"annihilator operator\" $L_A$ for a function $f(x)$ in the context of solving ODEs.",
+      "back": "An annihilator operator $L_A$ for a function $f(x)$ is a linear differential operator with constant coefficients such that when $L_A$ acts on $f(x)$, the result is zero. That is, $L_A[f(x)] = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Provide the annihilator operators for the following functions:\n1. $f(x) = x^k e^{ax}$\n2. $f(x) = x^k e^{ax} \\cos(bx)$ (or $x^k e^{ax} \\sin(bx)$)",
+      "back": "The annihilator operators are:\n1. For $f(x) = x^k e^{ax}$, the annihilator is $L_A = (D-a)^{k+1}$.\n2. For $f(x) = x^k e^{ax} \\cos(bx)$ (or $x^k e^{ax} \\sin(bx)$), the annihilator is $L_A = ((D-a)^2 + b^2)^{k+1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the general steps to solve a non-homogeneous ODE $L[y] = g(x)$ using the annihilator method.",
+      "back": "1.  **Find $y_c$**: Solve the homogeneous ODE $L[y]=0$ to find the complementary solution $y_c$.\n2.  **Find $L_A$**: Determine the annihilator operator $L_A$ for the non-homogeneous term $g(x)$.\n3.  **Apply $L_A$**: Apply $L_A$ to both sides of the original ODE: $L_A L[y] = L_A[g(x)] = 0$.\n4.  **Solve $L_A L[y]=0$**: Find the general solution to this higher-order homogeneous ODE. This solution will contain terms from $y_c$ and the general form of the particular solution $y_p$.\n5.  **Identify $y_p$ form**: Remove the terms corresponding to $y_c$ from the general solution found in step 4. The remaining terms constitute the form of $y_p$.\n6.  **Determine coefficients**: Substitute the form of $y_p$ into the original non-homogeneous ODE $L[y]=g(x)$ and solve for the undetermined coefficients.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the annihilator method implicitly handle the \"modification rule\" (multiplying by $x^s$) of the standard method of undetermined coefficients?",
+      "back": "When the annihilator $L_A$ is applied to $L[y]=g(x)$ to form $L_A L[y]=0$, the characteristic equation of $L_A L[y]=0$ will combine the roots from $L[y]=0$ and $L_A[y]=0$. If a root associated with $g(x)$ (from $L_A$) is also a root of the homogeneous equation $L[y]=0$, its multiplicity in the combined characteristic equation $(L_A L)[y]=0$ will increase. This increased multiplicity automatically generates the necessary $x^s$ factors in the general solution, ensuring that the terms chosen for $y_p$ are linearly independent from $y_c$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the ODE $y'' - 4y' + 4y = x e^{2x} + \\sin(x)$, use the annihilator method to determine the *form* of the particular solution $y_p$. (Do not solve for coefficients).",
+      "back": "1.  **Homogeneous ODE**: $y'' - 4y' + 4y = 0 \\implies (D^2 - 4D + 4)y = 0 \\implies (D-2)^2 y = 0$. The roots are $m=2, 2$. So, $y_c = c_1 e^{2x} + c_2 x e^{2x}$.\n2.  **Annihilators for $g(x)$**: For $g_1(x) = x e^{2x}$, $L_{A1} = (D-2)^2$. For $g_2(x) = \\sin(x)$, $L_{A2} = (D^2+1)$. The combined annihilator is $L_A = (D-2)^2 (D^2+1)$.\n3.  **Apply $L_A$**: $(D-2)^2 (D^2+1) (D-2)^2 y = 0$.\n4.  **Characteristic Equation**: $(m-2)^4 (m^2+1) = 0$. The roots are $m=2$ (multiplicity 4) and $m=\\pm i$ (multiplicity 1).\n5.  **General Solution Form**: $y = C_1 e^{2x} + C_2 x e^{2x} + C_3 x^2 e^{2x} + C_4 x^3 e^{2x} + C_5 \\cos(x) + C_6 \\sin(x)$.\n6.  **Identify $y_p$**: Comparing with $y_c = c_1 e^{2x} + c_2 x e^{2x}$, the terms $C_1 e^{2x}$ and $C_2 x e^{2x}$ are part of $y_c$. Thus, the form of $y_p$ is $y_p = A x^2 e^{2x} + B x^3 e^{2x} + C \\cos(x) + E \\sin(x)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the main limitations of the method of undetermined coefficients (or annihilator method) for finding particular solutions?",
+      "back": "The main limitations are:\n1.  It is only applicable to **linear ODEs with constant coefficients**.\n2.  The non-homogeneous term $g(x)$ must be of a specific form (a finite sum/product of polynomials, exponentials, sines, and cosines) such that it can be annihilated by a linear differential operator with constant coefficients.\n3.  It **cannot be used** if $g(x)$ involves functions like $\\ln(x)$, $\\tan(x)$, $1/x$, $\\sec(x)$, etc. For such cases, methods like Variation of Parameters are required.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-6-systems-of-first-order-linear-odes-matrix-method",
+  "subtopicTitle": "Systems of first-order linear ODEs — matrix method",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:04.791Z",
+  "cards": [
+    {
+      "front": "Express the system $x_1' = a_{11}x_1 + a_{12}x_2$ and $x_2' = a_{21}x_1 + a_{22}x_2$ in matrix form.",
+      "back": "The system can be written as $\\mathbf{x}' = A\\mathbf{x}$, where $\\mathbf{x}(t) = \\begin{pmatrix} x_1(t) \\\\ x_2(t) \\end{pmatrix}$, $\\mathbf{x}'(t) = \\begin{pmatrix} x_1'(t) \\\\ x_2'(t) \\end{pmatrix}$, and $A = \\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the assumed form of a solution to the homogeneous system $\\mathbf{x}' = A\\mathbf{x}$?",
+      "back": "The assumed form of a solution is $\\mathbf{x}(t) = \\mathbf{v}e^{\\lambda t}$, where $\\lambda$ is an eigenvalue of the matrix $A$ and $\\mathbf{v}$ is its corresponding eigenvector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If $A$ has distinct real eigenvalues $\\lambda_1, \\lambda_2$ with corresponding eigenvectors $\\mathbf{v}_1, \\mathbf{v}_2$, what is the general solution to $\\mathbf{x}' = A\\mathbf{x}$?",
+      "back": "The general solution is $\\mathbf{x}(t) = c_1 \\mathbf{v}_1 e^{\\lambda_1 t} + c_2 \\mathbf{v}_2 e^{\\lambda_2 t}$, where $c_1$ and $c_2$ are arbitrary constants.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $A$ has complex conjugate eigenvalues $\\lambda = \\alpha \\pm i\\beta$ with eigenvector $\\mathbf{v} = \\mathbf{a} + i\\mathbf{b}$ for $\\lambda = \\alpha + i\\beta$, what are the two linearly independent real solutions?",
+      "back": "Using Euler's formula, the two linearly independent real solutions are:\n$\\mathbf{x}_1(t) = e^{\\alpha t}(\\mathbf{a}\\cos(\\beta t) - \\mathbf{b}\\sin(\\beta t))$\n$\\mathbf{x}_2(t) = e^{\\alpha t}(\\mathbf{a}\\sin(\\beta t) + \\mathbf{b}\\cos(\\beta t))$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If $A$ has a repeated eigenvalue $\\lambda$ with only one linearly independent eigenvector $\\mathbf{v}_1$ (i.e., $A$ is defective), how do you find a second linearly independent solution for $\\mathbf{x}' = A\\mathbf{x}$?",
+      "back": "Find a generalized eigenvector $\\mathbf{v}_2$ by solving $(A - \\lambda I)\\mathbf{v}_2 = \\mathbf{v}_1$. The two linearly independent solutions are then $\\mathbf{x}_1(t) = \\mathbf{v}_1 e^{\\lambda t}$ and $\\mathbf{x}_2(t) = (\\mathbf{v}_1 t + \\mathbf{v}_2)e^{\\lambda t}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given the general solution $\\mathbf{x}(t) = c_1 \\mathbf{x}_1(t) + c_2 \\mathbf{x}_2(t)$ and initial condition $\\mathbf{x}(t_0) = \\mathbf{x}_0$, how do you find $c_1, c_2$?",
+      "back": "Substitute $t_0$ into the general solution: $\\mathbf{x}_0 = c_1 \\mathbf{x}_1(t_0) + c_2 \\mathbf{x}_2(t_0)$. This forms a linear system for $c_1, c_2$:\n$$\\begin{pmatrix} \\mathbf{x}_1(t_0) & \\mathbf{x}_2(t_0) \\end{pmatrix} \\begin{pmatrix} c_1 \\\\ c_2 \\end{pmatrix} = \\mathbf{x}_0$$\nSolve this system for the constants $c_1$ and $c_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a $2 \\times 2$ system $\\mathbf{x}' = A\\mathbf{x}$, what does it mean for the origin to be a 'saddle point' in the phase portrait, and what eigenvalues correspond to it?",
+      "back": "A saddle point means that trajectories approach the origin along the direction of one eigenvector (corresponding to a negative eigenvalue) and recede from the origin along the direction of another eigenvector (corresponding to a positive eigenvalue). This occurs when $A$ has two real eigenvalues of opposite sign.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a fundamental matrix $\\Psi(t)$ for $\\mathbf{x}' = A\\mathbf{x}$ and state its key property related to the general solution.",
+      "back": "If $\\mathbf{x}_1(t), \\dots, \\mathbf{x}_n(t)$ are $n$ linearly independent solutions to $\\mathbf{x}' = A\\mathbf{x}$, then the matrix $\\Psi(t) = \\begin{pmatrix} \\mathbf{x}_1(t) & \\dots & \\mathbf{x}_n(t) \\end{pmatrix}$ is a fundamental matrix. Its key property is that the general solution can be written as $\\mathbf{x}(t) = \\Psi(t)\\mathbf{c}$, where $\\mathbf{c}$ is an arbitrary constant vector. Also, $\\Psi'(t) = A\\Psi(t)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

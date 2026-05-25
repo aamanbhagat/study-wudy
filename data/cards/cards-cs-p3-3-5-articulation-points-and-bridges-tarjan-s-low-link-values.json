@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-5-articulation-points-and-bridges-tarjan-s-low-link-values",
+  "subtopicTitle": "Articulation points and bridges — Tarjan's low-link values",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:18.066Z",
+  "cards": [
+    {
+      "front": "In a connected undirected graph, what is an Articulation Point (or Cut Vertex)?",
+      "back": "A vertex whose removal (along with all its incident edges) increases the number of connected components in the graph.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In a connected undirected graph, what is a Bridge (or Cut Edge)?",
+      "back": "An edge whose removal increases the number of connected components in the graph.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Tarjan's algorithm for finding articulation points and bridges, what does `disc[u]` represent for a vertex $u$?",
+      "back": "`disc[u]` (discovery time) stores the time (or step count) when vertex $u$ was first visited during the Depth First Search (DFS) traversal. It's a unique identifier for the order of visitation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In Tarjan's algorithm, what does `low[u]` represent for a vertex $u$?",
+      "back": "`low[u]` (low-link value) stores the earliest discovery time (`disc` value) reachable from vertex $u$ (including $u$ itself) through its DFS subtree, considering at most one back-edge.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a non-root vertex $u$ in Tarjan's algorithm, what is the condition for it to be an Articulation Point, given a child $v$ in the DFS tree?",
+      "back": "A non-root vertex $u$ is an Articulation Point if there exists at least one child $v$ in its DFS subtree such that $low[v] \\ge disc[u]$. This means $v$ and its subtree cannot reach an ancestor of $u$ (or $u$ itself) higher than $u$ without passing through $u$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the condition for an edge $(u, v)$ to be a Bridge in Tarjan's algorithm, where $v$ is a child of $u$ in the DFS tree?",
+      "back": "An edge $(u, v)$ is a Bridge if $low[v] > disc[u]$. This implies that there is no back-edge from $v$'s DFS subtree that connects to $u$ or any ancestor of $u$. Removing $(u, v)$ would disconnect $v$'s subtree from $u$ and its ancestors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the root of the DFS tree specifically handled when checking for Articulation Points in Tarjan's algorithm?",
+      "back": "The root of the DFS tree is an Articulation Point if and only if it has at least two children in the DFS tree. If it has only one child or no children, its removal will not increase the number of connected components (assuming the initial graph is connected).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the role of back-edges in updating `low[u]` values in Tarjan's algorithm.",
+      "back": "Back-edges are crucial for calculating `low[u]`. If a back-edge $(u, w)$ exists where $w$ is an ancestor of $u$, it means $u$ can reach $w$ (and thus $disc[w]$) without going through its parent. Therefore, `low[u]` is updated to $\\min(low[u], disc[w])$ to reflect this alternative path to an earlier discovery time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the core DFS structure for Tarjan's algorithm, including `disc`, `low` updates, and AP/Bridge conditions.",
+      "back": "```cpp\nvoid dfs(int u, int p = -1) {\n    visited[u] = true;\n    disc[u] = low[u] = timer++;\n    int children = 0; // Count for root AP check\n\n    for (int v : adj[u]) {\n        if (v == p) continue; // Skip parent in undirected graph\n\n        if (visited[v]) { // Back-edge to an ancestor\n            low[u] = min(low[u], disc[v]);\n        } else { // Tree-edge to an unvisited child\n            children++;\n            dfs(v, u);\n            low[u] = min(low[u], low[v]); // Update low[u] from child's subtree\n\n            // Articulation Point condition (non-root)\n            if (p != -1 && low[v] >= disc[u]) {\n                // u is an Articulation Point\n            }\n            // Bridge condition\n            if (low[v] > disc[u]) {\n                // (u, v) is a Bridge\n            }\n        }\n    }\n    // Articulation Point condition (root)\n    if (p == -1 && children > 1) {\n        // u is an Articulation Point\n    }\n}\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

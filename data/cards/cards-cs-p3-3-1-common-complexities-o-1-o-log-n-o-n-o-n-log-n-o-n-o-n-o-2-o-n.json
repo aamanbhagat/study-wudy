@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-1-common-complexities-o-1-o-log-n-o-n-o-n-log-n-o-n-o-n-o-2-o-n",
+  "subtopicTitle": "Common complexities — O(1), O(log n), O(n), O(n log n), O(n²), O(n³), O(2ⁿ), O(n!)",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:39.472Z",
+  "cards": [
+    {
+      "front": "What does $O(1)$ complexity signify, and provide a simple code example?",
+      "back": "$O(1)$ (Constant Time) means the execution time remains constant regardless of the input size $n$. It's the most efficient complexity.\n```python\ndef get_first_element(arr):\n    return arr[0] # Accessing an element by index is O(1)\n```\nThis operation takes the same amount of time whether `arr` has 1 element or 1 million.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuition behind $O(\\log n)$ complexity. What common algorithm exhibits this behavior?",
+      "back": "$O(\\log n)$ (Logarithmic Time) means the execution time grows very slowly as the input size $n$ increases. With each step, the problem size is typically halved or reduced by a constant factor.\nIntuition: Think of searching a sorted dictionary. You don't check every word; you open to the middle, decide which half to go to, and repeat.\nA common algorithm is **Binary Search** (e.g., finding an element in a sorted array).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe $O(n)$ complexity. Give an example of an operation that is $O(n)$.",
+      "back": "$O(n)$ (Linear Time) means the execution time grows directly and proportionally with the input size $n$. If you double the input, you roughly double the execution time.\nExample: Iterating through all elements of an array or linked list to find a specific value (linear search) or sum all elements.\n```python\ndef sum_array(arr):\n    total = 0\n    for x in arr: # Loops through each of n elements once\n        total += x\n    return total\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is $O(n \\log n)$ complexity? Name two common sorting algorithms that achieve this time complexity.",
+      "back": "$O(n \\log n)$ (Linearithmic Time) is often seen in efficient sorting algorithms. It means the time complexity is roughly $n$ times the logarithm of $n$. This is significantly better than quadratic time ($O(n^2)$) for large $n$.\nCommon algorithms: **Merge Sort** and **Quick Sort** (average case).\nIntuition: It often involves dividing the problem (like $O(\\log n)$) and then performing a linear amount of work on each division or combination step.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain $O(n^2)$ complexity and provide a code snippet illustrating it.",
+      "back": "$O(n^2)$ (Quadratic Time) means the execution time grows proportionally to the square of the input size $n$. This often occurs when you have nested loops where each loop iterates over the input.\nExample: Comparing every element to every other element in a list, or some simple sorting algorithms like Bubble Sort or Selection Sort.\n```python\ndef print_all_pairs(arr):\n    for i in range(len(arr)): # Outer loop runs n times\n        for j in range(len(arr)): # Inner loop runs n times for each outer loop iteration\n            print(arr[i], arr[j])\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If an algorithm has $O(n^3)$ complexity, how does its execution time change if the input size $n$ is doubled?",
+      "back": "$O(n^3)$ (Cubic Time) means the execution time grows proportionally to the cube of the input size $n$.\nIf $n$ is doubled to $2n$, the new execution time will be proportional to $(2n)^3 = 8n^3$.\nTherefore, the execution time will increase by a factor of $2^3 = 8$. This typically arises from three nested loops, e.g., in naive matrix multiplication of $n \\times n$ matrices.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the practical implication of an algorithm having $O(2^n)$ complexity for even moderately sized inputs? Give an example algorithm.",
+      "back": "$O(2^n)$ (Exponential Time) means the execution time doubles with each additional item in the input. This growth is extremely rapid.\nPractical implication: For even moderately sized inputs (e.g., $n > 30-40$), the algorithm becomes practically unusable as the time required quickly exceeds feasible limits (seconds, minutes, hours, years).\nExample: Brute-force solutions to problems like the Subset Sum Problem or calculating the $n$-th Fibonacci number using a naive recursive approach without memoization.\n```python\ndef fib_naive(n):\n    if n <= 1:\n        return n\n    return fib_naive(n-1) + fib_naive(n-2) # Recalculates same values repeatedly\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Arrange the following complexities from fastest to slowest for large $n$: $O(n!), O(1), O(n \\log n), O(n^2), O(\\log n), O(n), O(2^n)$.",
+      "back": "From fastest to slowest for large $n$:\n1.  $O(1)$ (Constant)\n2.  $O(\\log n)$ (Logarithmic)\n3.  $O(n)$ (Linear)\n4.  $O(n \\log n)$ (Linearithmic)\n5.  $O(n^2)$ (Quadratic)\n6.  $O(2^n)$ (Exponential)\n7.  $O(n!)$ (Factorial)\n$O(n!)$ (Factorial Time) is the fastest-growing complexity among these, making algorithms with this complexity impractical for almost any input size $n > 15-20$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For an input size $n=1000$, which complexity would likely complete faster: $O(n \\log n)$ or $O(n^2)$? Justify your answer.",
+      "back": "$O(n \\log n)$ would complete significantly faster than $O(n^2)$ for $n=1000$.\n*   For $O(n \\log n)$: $1000 \\times \\log_2(1000) \\approx 1000 \\times 10 = 10,000$ operations (approx).\n*   For $O(n^2)$: $1000^2 = 1,000,000$ operations.\nThe difference is two orders of magnitude. $O(n \\log n)$ algorithms are considered efficient for large datasets, while $O(n^2)$ algorithms become slow very quickly.",
+      "difficulty": "medium"
+    }
+  ]
+}

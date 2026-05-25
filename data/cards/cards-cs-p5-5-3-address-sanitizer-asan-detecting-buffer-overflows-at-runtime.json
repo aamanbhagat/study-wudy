@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-3-address-sanitizer-asan-detecting-buffer-overflows-at-runtime",
+  "subtopicTitle": "Address Sanitizer (ASan) — detecting buffer overflows at runtime",
+  "topicId": "cs-p5-5-3-build-systems-toolchain",
+  "topicTitle": "Build Systems & Toolchain",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:23.782Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of Address Sanitizer (ASan)?",
+      "back": "ASan is a fast memory error detector that finds memory safety bugs like buffer overflows, use-after-free, and use-after-return errors at runtime. It's a compiler instrumentation tool.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which compiler flag is typically used to enable Address Sanitizer (ASan) during compilation and linking with GCC or Clang?",
+      "back": "The flag is `-fsanitize=address`. It must be used for both compilation (e.g., `gcc -fsanitize=address my_program.c`) and linking (e.g., `gcc -fsanitize=address my_program.o -o my_program`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the concept of \"shadow memory\" as used by Address Sanitizer (ASan).",
+      "back": "Shadow memory is a region of memory that ASan uses to store metadata about application memory. For every 8 bytes of application memory, there's 1 byte in shadow memory. This shadow byte encodes the state of the corresponding application memory (e.g., whether it's accessible, partially accessible, or part of a redzone).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do \"redzones\" contribute to Address Sanitizer's (ASan's) ability to detect buffer overflows and underflows?",
+      "back": "Redzones are small, inaccessible memory regions placed immediately before and after allocated memory blocks (e.g., stack variables, heap allocations). If an access goes beyond the intended boundaries of an allocated block and hits a redzone, ASan detects this invalid access via its shadow memory checks and reports a buffer overflow or underflow.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List at least three distinct types of memory errors that Address Sanitizer (ASan) is designed to detect at runtime.",
+      "back": "ASan detects:\n1.  **Buffer overflows/underflows:** Accesses outside allocated memory boundaries.\n2.  **Use-after-free:** Accessing memory after it has been deallocated.\n3.  **Use-after-return:** Accessing stack memory after the function has returned.\n4.  **Use-after-scope:** Accessing stack memory after its scope has ended.\n5.  **Double-free:** Attempting to free the same memory block twice.\n6.  **Invalid frees:** Freeing non-heap memory or an invalid pointer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the following C code. How would ASan detect a buffer overflow if compiled and run with `-fsanitize=address`?\n```c\n#include <string.h>\n#include <stdlib.h>\nint main() {\n    char *buf = (char*)malloc(10);\n    strcpy(buf, \"This string is too long for the buffer.\");\n    free(buf);\n    return 0;\n}\n```",
+      "back": "ASan would detect a heap-buffer-overflow. When `malloc(10)` is called, ASan allocates 10 bytes plus surrounding redzones. `strcpy` attempts to write 39 bytes (including null terminator) into a 10-byte buffer. This write will spill into the redzone following `buf`, triggering an ASan error report with a detailed stack trace at the point of the overflow.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the typical runtime and memory overhead introduced by Address Sanitizer (ASan) when enabled?",
+      "back": "The typical overheads are:\n*   **Runtime Overhead:** Often $2 \\times$ to $5 \\times$ slower, though for CPU-bound applications, it's frequently closer to $2 \\times$.\n*   **Memory Overhead:** Roughly $2 \\times$ (or more) memory usage. This is due to shadow memory (1 byte for every 8 application bytes) and redzones around allocations.",
+      "difficulty": "medium"
+    }
+  ]
+}

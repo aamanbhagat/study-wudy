@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p1-1-2-logical-operators-and-or-not-short-circuit-evaluation",
+  "subtopicTitle": "Logical operators — and, or, not, short-circuit evaluation",
+  "topicId": "cs-p1-1-2-introduction-to-programming-python",
+  "topicTitle": "Introduction to Programming (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:49.457Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the `and` logical operator in Python?",
+      "back": "The `and` operator returns `True` if *both* its operands are true; otherwise, it returns `False`. If operands are non-boolean, it returns the first falsy operand, or the last operand if all are truthy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of the `or` logical operator in Python?",
+      "back": "The `or` operator returns `True` if *at least one* of its operands is true; otherwise, it returns `False`. If operands are non-boolean, it returns the first truthy operand, or the last operand if all are falsy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary purpose of the `not` logical operator in Python?",
+      "back": "The `not` operator inverts the truth value of its single operand. If the operand is true (or truthy), `not` returns `False`. If the operand is false (or falsy), `not` returns `True`.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate the expression `5 > 3 and 10 < 20`. What is the result?",
+      "back": "`True`. Both `5 > 3` (which is `True`) and `10 < 20` (which is `True`) are true. Therefore, `True and True` evaluates to `True`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the result of `\"\" or [1, 2]` in Python, and why?",
+      "back": "`[1, 2]`. In Python, an empty string `\"\"` is considered \"falsy\". A non-empty list `[1, 2]` is considered \"truthy\". The `or` operator evaluates operands from left to right and returns the *first truthy value* it encounters. Since `\"\"` is falsy, it proceeds to `[1, 2]`, finds it truthy, and returns it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain short-circuit evaluation for the `and` operator in Python. Provide a simple example.",
+      "back": "If the *first operand* of an `and` expression evaluates to `False` (or a falsy value), Python immediately stops evaluating and returns that `False`/falsy value, without checking the second operand. This is because the overall result must be `False` regardless of the second operand.\n```python\n# Example:\nresult = False and print(\"This won't print\")\n# 'print(\"This won't print\")' is never executed.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain short-circuit evaluation for the `or` operator in Python. Provide a simple example.",
+      "back": "If the *first operand* of an `or` expression evaluates to `True` (or a truthy value), Python immediately stops evaluating and returns that `True`/truthy value, without checking the second operand. This is because the overall result must be `True` regardless of the second operand.\n```python\n# Example:\nresult = True or print(\"This won't print\")\n# 'print(\"This won't print\")' is never executed.\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the output of `print(0 or not \"\" and \"Hello\")`? Explain the evaluation order.",
+      "back": "The output is `Hello`.\n1.  `not \"\"` is evaluated first (due to `not` operator precedence). An empty string `\"\"` is falsy, so `not \"\"` becomes `True`.\n2.  The expression becomes `0 or True and \"Hello\"`.\n3.  `True and \"Hello\"` is evaluated next (due to `and` operator precedence over `or`). Since `True` is truthy, `and` proceeds to `\"Hello\"`. `\"Hello\"` is also truthy, so `and` returns the last evaluated operand, which is `\"Hello\"`.\n4.  The expression becomes `0 or \"Hello\"`.\n5.  `0` is falsy. The `or` operator then evaluates `\"Hello\"`, which is truthy. `or` returns the first truthy value, so it returns `\"Hello\"`.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the result of `not []`? What about `not [0]`?",
+      "back": "*   `not []` evaluates to `True`. An empty list `[]` is considered \"falsy\" in Python. The `not` operator inverts this truthiness, resulting in `True`.\n*   `not [0]` evaluates to `False`. A non-empty list `[0]` is considered \"truthy\" in Python, even if it contains a falsy value like `0`. The `not` operator inverts this truthiness, resulting in `False`.",
+      "difficulty": "hard"
+    }
+  ]
+}

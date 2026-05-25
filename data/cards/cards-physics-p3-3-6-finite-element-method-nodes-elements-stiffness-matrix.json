@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-finite-element-method-nodes-elements-stiffness-matrix",
+  "subtopicTitle": "Finite element method — nodes, elements, stiffness matrix",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:38.689Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Finite Element Method (FEM) in engineering analysis?",
+      "back": "The Finite Element Method (FEM) is used to approximate solutions to complex partial differential equations (PDEs) that describe physical phenomena (e.g., stress, strain, heat transfer, fluid flow) by subdividing a continuous system into a finite number of simpler, discrete elements.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In FEM, what are \"nodes\" and what is their primary function?",
+      "back": "Nodes are discrete points within the finite element mesh that define the geometry of the elements and where the primary unknown variables (e.g., displacements, temperatures, pressures) are calculated. They serve as connection points between elements and are where external loads and boundary conditions are typically applied.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are \"elements\" in FEM, and how do they relate to the overall structure? Name two common element types.",
+      "back": "Elements are the discrete, finite subdivisions of the continuous domain. They approximate the behavior of the continuous material within their boundaries, and their collective behavior represents the entire structure. They connect at nodes. Common types include 1D (e.g., truss, beam), 2D (e.g., triangular, quadrilateral), and 3D (e.g., tetrahedral, hexahedral) elements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a single 1D bar element with length $L$, cross-sectional area $A$, and Young's modulus $E$, derive its element stiffness matrix relating axial forces to nodal displacements.",
+      "back": "Assuming axial deformation only, the force-displacement relationship for a bar is $F = k \\Delta x$, where $k = AE/L$. For an element with nodal displacements $u_1, u_2$ and nodal forces $F_1, F_2$:<br/><br/>$F_1 = \\frac{AE}{L}(u_1 - u_2)$<br/>$F_2 = \\frac{AE}{L}(u_2 - u_1) = -\\frac{AE}{L}(u_1 - u_2)$<br/><br/>In matrix form, this becomes:<br/>$$ \\begin{pmatrix} F_1 \\\\ F_2 \\end{pmatrix} = \\frac{AE}{L} \\begin{pmatrix} 1 & -1 \\\\ -1 & 1 \\end{pmatrix} \\begin{pmatrix} u_1 \\\\ u_2 \\end{pmatrix} $$<br/>Thus, the element stiffness matrix is $k_e = \\frac{AE}{L} \\begin{pmatrix} 1 & -1 \\\\ -1 & 1 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the process of \"assembly\" to form the Global Stiffness Matrix ($K$) from individual element stiffness matrices ($k_e$).",
+      "back": "Assembly is the process of combining the contributions of all individual element stiffness matrices ($k_e$) into a single, larger Global Stiffness Matrix ($K$) for the entire structure. This is done by superimposing (summing) the element stiffness coefficients into the corresponding global degrees of freedom. For instance, if an element connects to global nodes $i$ and $j$, its local stiffness terms are added to the global matrix entries $K_{ii}, K_{ij}, K_{ji}, K_{jj}$. This process ensures equilibrium and compatibility are maintained at shared nodes across the entire discretized domain.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What fundamental matrix equation relates the Global Stiffness Matrix ($K$), global nodal displacement vector ($U$), and global nodal force vector ($F$) in FEM?",
+      "back": "The fundamental matrix equation in FEM, representing the static equilibrium of the entire discretized structure, is:<br/>$$ K U = F $$<br/>Where $K$ is the Global Stiffness Matrix, $U$ is the vector of unknown nodal displacements, and $F$ is the vector of applied nodal forces (including reactions).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After assembling $K U = F$, what crucial step must be taken before solving for $U$, and why?",
+      "back": "Before solving for $U$, essential (Dirichlet) boundary conditions must be applied. This involves incorporating known nodal displacements (e.g., fixed supports, prescribed movements) into the system. This step is crucial because without it, the Global Stiffness Matrix $K$ is singular (non-invertible), meaning the system has rigid body modes (the structure can move without deforming), and thus no unique solution for displacements can be found.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Intuitively, what does an individual term $K_{ij}$ in the Global Stiffness Matrix represent?",
+      "back": "An individual term $K_{ij}$ in the Global Stiffness Matrix represents the force (or moment) required at global degree of freedom $i$ to produce a unit displacement (or rotation) at global degree of freedom $j$, while all other degrees of freedom are held at zero displacement. It quantifies the structural resistance to deformation between specific degrees of freedom.",
+      "difficulty": "medium"
+    }
+  ]
+}

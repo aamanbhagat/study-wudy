@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-2-rendezvous-and-proximity-operations-clohessy-wiltshire-equations",
+  "subtopicTitle": "Rendezvous and proximity operations — Clohessy-Wiltshire equations",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:17.831Z",
+  "cards": [
+    {
+      "front": "What primary problem in orbital mechanics are the Clohessy-Wiltshire (CW) equations designed to solve?",
+      "back": "The CW equations are used to model the linearized relative motion between two spacecraft in close proximity, typically for rendezvous, docking, and formation flying operations around a chief spacecraft in a circular orbit.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three main simplifying assumptions underlying the Clohessy-Wiltshire (CW) equations.",
+      "back": "1. The chief spacecraft is in a perfectly circular orbit. 2. The relative separation between the chief and deputy spacecraft is small compared to the chief's orbital radius. 3. Only the central body's gravitational force is considered (no perturbing forces).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the Local Vertical Local Horizontal (LVLH) coordinate frame used for the CW equations.",
+      "back": "The LVLH frame is centered on the chief spacecraft. The $\\hat{x}$-axis points radially outward (local vertical), the $\\hat{y}$-axis points along the chief's velocity vector (in-track/local horizontal), and the $\\hat{z}$-axis completes the right-handed system (out-of-plane, normal to the orbit plane).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the three Clohessy-Wiltshire (CW) equations for relative motion, where $\\omega$ is the chief's orbital rate.",
+      "back": "$$\\ddot{x} - 3\\omega^2 x - 2\\omega \\dot{y} = 0 \\\\ \\ddot{y} + 2\\omega \\dot{x} = 0 \\\\ \\ddot{z} + \\omega^2 z = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the $3\\omega^2 x$ term in the $\\ddot{x}$ equation of the CW system, and why it's negative.",
+      "back": "This term arises from the linearization of the gravitational force and the fictitious centrifugal force in the rotating LVLH frame. It represents a restoring force towards $x=0$. If the deputy is radially outward ($x>0$), the chief's gravity is weaker, causing the deputy to 'fall behind' relative to the chief, hence a force acting in the negative $x$ direction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide the general analytical solution for the relative position component $x(t)$ in the CW equations, given initial conditions.",
+      "back": "Given initial conditions $x_0, y_0, \\dot{x}_0, \\dot{y}_0$:\n$$x(t) = (4x_0 + \\frac{2\\dot{y}_0}{\\omega}) - \\frac{2\\dot{y}_0}{\\omega} \\cos(\\omega t) + \\frac{\\dot{x}_0}{\\omega} \\sin(\\omega t)$$\nThis shows that radial motion is coupled with in-track motion and exhibits a periodic component.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are the CW equations generally unsuitable for long-duration formation flying or rendezvous maneuvers over many orbits without active control?",
+      "back": "The CW solutions typically contain secular terms (e.g., a $6\\omega x_0 t$ term in $y(t)$) which lead to unbounded relative drift over long periods. Without active station-keeping, the deputy spacecraft will drift significantly away from the chief, violating the small separation assumption and rendering the linearization inaccurate.",
+      "difficulty": "medium"
+    }
+  ]
+}

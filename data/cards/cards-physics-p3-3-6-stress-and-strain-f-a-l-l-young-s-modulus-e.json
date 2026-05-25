@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-stress-and-strain-f-a-l-l-young-s-modulus-e",
+  "subtopicTitle": "Stress and strain — σ = F/A, ε = ΔL/L, Young's modulus E",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:12.199Z",
+  "cards": [
+    {
+      "front": "Define axial stress ($\\sigma$) in materials science. Include its formula and SI units.",
+      "back": "Axial stress ($\\sigma$) is the internal force per unit cross-sectional area within a material, resisting deformation.\nFormula: $$\\sigma = \\frac{F}{A}$$\nwhere $F$ is the applied force and $A$ is the cross-sectional area perpendicular to the force.\nSI Units: Pascals (Pa), or Newtons per square meter ($\\text{N/m}^2$). Often expressed in MPa or GPa for engineering materials.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define axial strain ($\\epsilon$) and provide its formula. What are its units?",
+      "back": "Axial strain ($\\epsilon$) is the fractional change in length of a material due to an applied stress. It's a measure of deformation.\nFormula: $$\\epsilon = \\frac{\\Delta L}{L_0}$$\nwhere $\\Delta L$ is the change in length and $L_0$ is the original length.\nUnits: Strain is dimensionless, as it is a ratio of two lengths (e.g., m/m).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is Young's Modulus ($E$), and how does it relate stress ($\\sigma$) and strain ($\\epsilon$) in the elastic region?",
+      "back": "Young's Modulus ($E$), also known as the modulus of elasticity, is a material property that measures its stiffness or resistance to elastic deformation under tensile or compressive stress.\nIt represents the ratio of stress to strain in the linear elastic region of a material's stress-strain curve (Hooke's Law):\n$$E = \\frac{\\sigma}{\\epsilon}$$\nIts SI units are Pascals (Pa), or $\\text{N/m}^2$, same as stress.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A structural member in a rocket experiences a 50 kN tensile force over a 200 $\\text{mm}^2$ cross-sectional area. Calculate the stress in MPa.",
+      "back": "Given: $F = 50 \\text{ kN} = 50 \\times 10^3 \\text{ N}$\n$A = 200 \\text{ mm}^2 = 200 \\times (10^{-3} \\text{ m})^2 = 200 \\times 10^{-6} \\text{ m}^2$\nStress formula: $\\sigma = F/A$\n$\\sigma = \\frac{50 \\times 10^3 \\text{ N}}{200 \\times 10^{-6} \\text{ m}^2} = 0.25 \\times 10^9 \\text{ Pa} = 250 \\times 10^6 \\text{ Pa}$\n$\\sigma = 250 \\text{ MPa}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A 3.5-meter long antenna mast for a satellite stretches by 0.7 mm when deployed. Calculate the axial strain.",
+      "back": "Given: $L_0 = 3.5 \\text{ m}$\n$\\Delta L = 0.7 \\text{ mm} = 0.7 \\times 10^{-3} \\text{ m}$\nStrain formula: $\\epsilon = \\Delta L / L_0$\n$\\epsilon = \\frac{0.7 \\times 10^{-3} \\text{ m}}{3.5 \\text{ m}} = 0.2 \\times 10^{-3}$\n$\\epsilon = 0.0002$ (dimensionless)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the total elongation ($\\Delta L$) of a uniform rod of length $L_0$ and cross-sectional area $A$ under an axial tensile force $F$, given its Young's Modulus $E$.",
+      "back": "We start with the definitions of stress, strain, and Young's Modulus:\n1.  Stress: $\\sigma = \\frac{F}{A}$\n2.  Strain: $\\epsilon = \\frac{\\Delta L}{L_0}$\n3.  Young's Modulus: $E = \\frac{\\sigma}{\\epsilon}$\n\nSubstitute (1) and (2) into (3):\n$E = \\frac{F/A}{\\Delta L/L_0}$\n\nRearrange to solve for $\\Delta L$:\n$E = \\frac{F \\cdot L_0}{A \\cdot \\Delta L}$\n$E \\cdot A \\cdot \\Delta L = F \\cdot L_0$\n$$\\Delta L = \\frac{F \\cdot L_0}{A \\cdot E}$$\nThis formula is crucial for predicting deformation under load.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is Young's Modulus a critical material property for spacecraft structural engineers, especially for components like launch vehicle fairings or satellite booms?",
+      "back": "Young's Modulus ($E$) is critical because it directly quantifies a material's stiffness.\n1.  **Stiffness/Rigidity**: High $E$ means less deformation under a given load, crucial for maintaining precise geometries (e.g., antenna alignment, optical systems) and preventing excessive deflection that could lead to structural failure or contact between components.\n2.  **Vibration/Resonance**: $E$ influences natural frequencies. Engineers must avoid resonance with launch vibrations or operational frequencies.\n3.  **Weight Optimization**: For a given stiffness requirement, engineers can select materials with higher $E$ to reduce cross-sectional area and thus mass, which is paramount in spaceflight.\n4.  **Buckling Resistance**: For slender compressive members (like satellite booms), $E$ is a key factor in resistance to buckling.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Differentiate between tensile stress/strain and compressive stress/strain. Provide an example for each in a spacecraft context.",
+      "back": "*   **Tensile Stress/Strain**: Occurs when a material is subjected to forces that pull it apart, causing it to elongate.\n    *   **Stress**: Positive ($\\sigma > 0$).\n    *   **Strain**: Positive ($\\epsilon > 0$, material gets longer).\n    *   **Example**: The forces pulling on the bolts connecting a rocket stage to the next during engine thrust.\n*   **Compressive Stress/Strain**: Occurs when a material is subjected to forces that push it together, causing it to shorten.\n    *   **Stress**: Negative ($\\sigma < 0$) by convention, or positive with direction specified.\n    *   **Strain**: Negative ($\\epsilon < 0$, material gets shorter).\n    *   **Example**: The forces acting on the structural struts supporting the main engine of a rocket during ignition, pushing them inwards.",
+      "difficulty": "medium"
+    }
+  ]
+}

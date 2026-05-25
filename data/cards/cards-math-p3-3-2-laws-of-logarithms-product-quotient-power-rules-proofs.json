@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-2-laws-of-logarithms-product-quotient-power-rules-proofs",
+  "subtopicTitle": "Laws of logarithms — product, quotient, power rules — proofs",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:49.156Z",
+  "cards": [
+    {
+      "front": "State the Product Rule for logarithms with base $b$.",
+      "back": "The Product Rule states that $\\log_b(MN) = \\log_b M + \\log_b N$, provided $b > 0, b \\neq 1$, and $M, N > 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove the Product Rule for logarithms: $\\log_b(MN) = \\log_b M + \\log_b N$.",
+      "back": "Let $x = \\log_b M$ and $y = \\log_b N$. By the definition of logarithms, this means $b^x = M$ and $b^y = N$. \n\nNow, consider the product $MN$: \n$MN = b^x \\cdot b^y$\nUsing the laws of exponents, $MN = b^{x+y}$.\n\nTaking the logarithm base $b$ of both sides:\n$\\log_b(MN) = \\log_b(b^{x+y})$\nSince $\\log_b(b^k) = k$, we have:\n$\\log_b(MN) = x+y$\n\nSubstitute back the original definitions of $x$ and $y$:\n$\\log_b(MN) = \\log_b M + \\log_b N$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Quotient Rule for logarithms with base $b$.",
+      "back": "The Quotient Rule states that $\\log_b(M/N) = \\log_b M - \\log_b N$, provided $b > 0, b \\neq 1$, and $M, N > 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove the Quotient Rule for logarithms: $\\log_b(M/N) = \\log_b M - \\log_b N$.",
+      "back": "Let $x = \\log_b M$ and $y = \\log_b N$. By the definition of logarithms, this means $b^x = M$ and $b^y = N$. \n\nNow, consider the quotient $M/N$: \n$M/N = b^x / b^y$\nUsing the laws of exponents, $M/N = b^{x-y}$.\n\nTaking the logarithm base $b$ of both sides:\n$\\log_b(M/N) = \\log_b(b^{x-y})$\nSince $\\log_b(b^k) = k$, we have:\n$\\log_b(M/N) = x-y$\n\nSubstitute back the original definitions of $x$ and $y$:\n$\\log_b(M/N) = \\log_b M - \\log_b N$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Power Rule for logarithms with base $b$.",
+      "back": "The Power Rule states that $\\log_b(M^p) = p \\log_b M$, provided $b > 0, b \\neq 1$, $M > 0$, and $p$ is any real number.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove the Power Rule for logarithms: $\\log_b(M^p) = p \\log_b M$.",
+      "back": "Let $x = \\log_b M$. By the definition of logarithms, this means $b^x = M$. \n\nNow, raise both sides to the power $p$: \n$(b^x)^p = M^p$\nUsing the laws of exponents, $b^{xp} = M^p$.\n\nTaking the logarithm base $b$ of both sides:\n$\\log_b(M^p) = \\log_b(b^{xp})$\nSince $\\log_b(b^k) = k$, we have:\n$\\log_b(M^p) = xp$\n\nSubstitute back the original definition of $x$:\n$\\log_b(M^p) = p \\log_b M$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Expand the expression $\\log_2\\left(\\frac{8x^3}{y\\sqrt{z}}\\right)$ using the laws of logarithms.",
+      "back": "Using the Quotient, Product, and Power Rules:\n$$ \\log_2\\left(\\frac{8x^3}{y\\sqrt{z}}\\right) = \\log_2(8x^3) - \\log_2(y\\sqrt{z}) $$\n$$ = (\\log_2 8 + \\log_2 x^3) - (\\log_2 y + \\log_2 z^{1/2}) $$\n$$ = \\log_2 2^3 + 3\\log_2 x - \\log_2 y - \\frac{1}{2}\\log_2 z $$\n$$ = 3 + 3\\log_2 x - \\log_2 y - \\frac{1}{2}\\log_2 z $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the fundamental relationship between the laws of logarithms and the laws of exponents.",
+      "back": "Logarithms are the inverse operation of exponentiation. They essentially 'undo' exponentiation by asking 'what power do I need to raise the base to, to get this number?'.\n\nThe laws of exponents dictate how exponents behave under multiplication ($b^x \\cdot b^y = b^{x+y}$), division ($b^x / b^y = b^{x-y}$), and raising to a power ($(b^x)^p = b^{xp}$). \n\nBecause logarithms 'extract' the exponent, the operations on the *numbers* inside the logarithm correspond to the operations on the *exponents* themselves. So, multiplication of numbers becomes addition of their logarithms (exponents), division becomes subtraction of their logarithms, and raising a number to a power becomes multiplication of its logarithm by that power.",
+      "difficulty": "hard"
+    }
+  ]
+}

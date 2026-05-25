@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-4-scipy-sparse-sparse-matrix-formats-csr-csc-sparse-solvers",
+  "subtopicTitle": "scipy.sparse — sparse matrix formats (CSR, CSC), sparse solvers",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:37.080Z",
+  "cards": [
+    {
+      "front": "What is a sparse matrix, and why are they important in scientific computing?",
+      "back": "A sparse matrix is a matrix in which most of the elements are zero. They are important because storing and operating on dense matrices with many zeros is highly inefficient in terms of memory and computation. Sparse matrices allow for significant memory savings and faster computations by only storing and processing non-zero elements.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the Compressed Sparse Row (CSR) format for storing a sparse matrix, including the three arrays used.",
+      "back": "The CSR format stores a sparse matrix by rows. It uses three 1D arrays:\n1.  `data`: Stores the non-zero values of the matrix, row by row.\n2.  `indices`: Stores the column index for each value in `data`.\n3.  `indptr`: Stores pointers to the start of each row in `data` and `indices`. Specifically, `indptr[i]` gives the index in `data` (and `indices`) where row $i$ begins, and `indptr[i+1]-1` gives the index where row $i$ ends. The last element of `indptr` is the total number of non-zero elements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the Compressed Sparse Column (CSC) format for storing a sparse matrix, and how it differs from CSR.",
+      "back": "The CSC format stores a sparse matrix by columns. It also uses three 1D arrays:\n1.  `data`: Stores the non-zero values of the matrix, column by column.\n2.  `indices`: Stores the row index for each value in `data`.\n3.  `indptr`: Stores pointers to the start of each column in `data` and `indices`. `indptr[j]` gives the index in `data` (and `indices`) where column $j$ begins.\nIt is essentially the transpose of the CSR format applied to the original matrix, meaning it's optimized for column-wise operations, just as CSR is for row-wise operations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When performing matrix-vector multiplication $Ax$, which sparse format (CSR or CSC) is generally more efficient for $A$, and why?",
+      "back": "For $Ax$, the CSR (Compressed Sparse Row) format is generally more efficient.\n\nThe multiplication $y_i = \\sum_j A_{ij} x_j$ involves iterating through the non-zero elements of each row of $A$ and multiplying them by the corresponding elements of $x$. CSR stores elements row by row, allowing for contiguous access to $A_{ij}$ and its column index $j$ for a given row $i$. This pattern of access is cache-friendly and avoids scattered memory access, leading to better performance. CSC would be more efficient for $A^T x$ or $x^T A$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How would you create a sparse matrix in `scipy.sparse` from a list of `(row, col, value)` tuples, and then convert it to CSR format?",
+      "back": "You would typically use the `coo_matrix` (Coordinate format) first, which is easy to construct from `(row, col, value)` lists, then convert it to CSR format.\n```python\nfrom scipy.sparse import coo_matrix\n\n# Example non-zero elements: (row, col, value)\nrows = [0, 1, 1, 2]\ncols = [0, 1, 2, 0]\ndata = [1.0, 2.0, 3.0, 4.0]\n\n# Create a COO matrix (shape is optional if inferable)\nsparse_coo = coo_matrix((data, (rows, cols)), shape=(3, 3))\n\n# Convert to CSR format\nsparse_csr = sparse_coo.tocsr()\nprint(sparse_csr)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the primary purpose of sparse solvers in `scipy.sparse.linalg`, and why are they distinct from dense matrix solvers?",
+      "back": "The primary purpose of sparse solvers is to efficiently solve systems of linear equations of the form $Ax = b$, where $A$ is a sparse matrix.\n\nThey are distinct from dense matrix solvers because they exploit the sparsity of $A$ to significantly reduce both computational time and memory usage. Dense solvers would convert the sparse matrix to a full matrix, incurring huge memory overhead and performing unnecessary operations on zero elements, making them impractical for large sparse systems. Sparse solvers use specialized algorithms (e.g., iterative methods like Conjugate Gradient, or sparse direct methods) that only operate on the non-zero elements.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give a simple example of how to use `scipy.sparse.linalg.spsolve` to solve $Ax=b$ where $A$ is a sparse matrix.",
+      "back": "```python\nfrom scipy.sparse import csr_matrix\nfrom scipy.sparse.linalg import spsolve\nimport numpy as np\n\n# Example sparse matrix A (in CSR format)\n# A = [[1, 0, 2],\n#      [0, 3, 0],\n#      [4, 0, 5]]\ndata = np.array([1, 2, 3, 4, 5])\nindices = np.array([0, 2, 1, 0, 2])\nindptr = np.array([0, 2, 3, 5])\nA_sparse = csr_matrix((data, indices, indptr), shape=(3, 3))\n\n# Example right-hand side vector b\nb = np.array([7, 9, 23])\n\n# Solve Ax = b\nx = spsolve(A_sparse, b)\nprint(\"Solution x:\", x)\n# Expected output: Solution x: [1. 3. 3.]\n```",
+      "difficulty": "medium"
+    }
+  ]
+}

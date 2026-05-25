@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-5-dfs-applications-cycle-detection-directed-and-undirected",
+  "subtopicTitle": "DFS applications — cycle detection (directed and undirected)",
+  "topicId": "cs-p3-3-5-graphs",
+  "topicTitle": "Graphs",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:12.974Z",
+  "cards": [
+    {
+      "front": "Define a cycle in a graph.",
+      "back": "A cycle in a graph is a path of distinct vertices and edges that starts and ends at the same vertex. In a simple cycle, no vertex (except the start/end vertex) is repeated.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In an undirected graph, encountering an already visited node during DFS that is NOT the immediate parent of the current node indicates what?",
+      "back": "This indicates the presence of a cycle. If the encountered node were the immediate parent, it would simply be the edge traversed to reach the current node, not a cycle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does DFS detect a cycle in an undirected graph? What additional parameter is crucial?",
+      "back": "DFS detects a cycle if it encounters an already visited vertex that is not the direct parent of the current vertex. The crucial additional parameter is the `parent` of the current node in the DFS tree.\n```python\ndef dfs_undirected_cycle(u, parent, visited, adj):\n    visited[u] = True\n    for v in adj[u]:\n        if not visited[v]:\n            if dfs_undirected_cycle(v, u, visited, adj):\n                return True\n        elif v != parent: # v is visited and not parent\n            return True # Cycle detected\n    return False\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a directed graph, what specific condition during DFS traversal indicates a cycle?",
+      "back": "A cycle is detected if DFS encounters a node that is currently in the recursion stack (i.e., it's being visited, but its subtree hasn't been fully explored yet). This is often tracked using a 'visiting' or 'grey' state.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the three common states used in DFS for directed graph cycle detection and how they identify a cycle.",
+      "back": "1.  **Unvisited (White):** Node has not been visited yet.\n2.  **Visiting (Grey):** Node is currently in the recursion stack; its neighbors are being explored.\n3.  **Visited (Black):** Node and all its descendants have been fully explored.\nA cycle is detected if DFS encounters a **Visiting (Grey)** node from the current node, as this implies a back-edge to a node currently in the active path.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide pseudocode for the core DFS logic to detect cycles in a directed graph using three states.",
+      "back": "```python\n# States: 0=Unvisited, 1=Visiting, 2=Visited\ndef dfs_directed_cycle(u, states, adj):\n    states[u] = 1 # Mark as Visiting\n    for v in adj[u]:\n        if states[v] == 1: # Found a back-edge to a Visiting node\n            return True # Cycle detected\n        if states[v] == 0: # If Unvisited\n            if dfs_directed_cycle(v, states, adj):\n                return True\n    states[u] = 2 # Mark as Visited (finished exploring u's subtree)\n    return False\n\n# Initial call for all nodes:\n# for u in graph_nodes:\n#     if states[u] == 0:\n#         if dfs_directed_cycle(u, states, adj):\n#             return True # Cycle found in graph\n# return False # No cycle in graph\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the fundamental difference in the DFS cycle detection logic between undirected and directed graphs?",
+      "back": "The difference lies in how a 'visited' node is interpreted:\n*   **Undirected:** A cycle is detected by finding an edge to an *already visited node that is not the immediate parent*. The 'visited' state is sufficient.\n*   **Directed:** A cycle is detected by finding an edge to a node that is *currently in the recursion stack* (i.e., 'visiting' or 'grey' state). Simply 'visited' isn't enough, as a forward or cross-edge to an already processed node doesn't imply a cycle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the significance of cycle detection in directed graphs, particularly concerning Directed Acyclic Graphs (DAGs)?",
+      "back": "A directed graph with no cycles is called a Directed Acyclic Graph (DAG). Cycle detection is fundamental for determining if a graph is a DAG. DAGs are crucial for applications like topological sorting (which is only possible on DAGs), task scheduling, dependency resolution, and representing hierarchical structures, as they guarantee no circular dependencies.",
+      "difficulty": "hard"
+    }
+  ]
+}

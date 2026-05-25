@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-7-wave-equation-hyperbolic-1d-derivation",
+  "subtopicTitle": "Wave equation (hyperbolic) 1D — derivation",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:47.855Z",
+  "cards": [
+    {
+      "front": "What physical phenomenon is typically modeled by the 1D wave equation?",
+      "back": "The 1D wave equation typically models the transverse vibrations of a stretched string (e.g., a guitar string) or longitudinal waves in a rod. It describes how disturbances propagate through a one-dimensional medium.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the key assumptions made when deriving the 1D wave equation for a vibrating string.",
+      "back": "1. The string is perfectly flexible (no resistance to bending).\n2. The string is homogeneous (uniform linear mass density $\\rho$).\n3. The string is elastic, and tension $T$ is constant and large.\n4. Vibrations are small and transverse (vertical displacement $u(x,t)$ is small).\n5. The slope of the string is small, so $\\sin \\theta \\approx \\tan \\theta \\approx \\theta$.\n6. Gravity and air resistance are negligible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a small segment of string $\\Delta x$, how is the net vertical force expressed in terms of tension and angles?",
+      "back": "Consider a segment of string from $x$ to $x+\\Delta x$. The tension $T$ acts tangentially at each end. The net vertical force $F_y$ is:\n$$F_y = T \\sin \\theta(x+\\Delta x, t) - T \\sin \\theta(x, t)$$\nwhere $\\theta(x,t)$ is the angle the string makes with the horizontal axis at point $x$ at time $t$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Apply Newton's Second Law to a small string segment $\\Delta x$ to relate the net vertical force to its acceleration.",
+      "back": "The mass of the segment is $m = \\rho \\Delta x$, where $\\rho$ is the linear mass density. The vertical acceleration is $\\frac{\\partial^2 u}{\\partial t^2}(x, t)$.\nNewton's Second Law ($F=ma$) in the vertical direction gives:\n$$T \\sin \\theta(x+\\Delta x, t) - T \\sin \\theta(x, t) = (\\rho \\Delta x) \\frac{\\partial^2 u}{\\partial t^2}(x, t)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do we approximate $\\sin \\theta$ and simplify the force equation using the small angle approximation and the definition of slope?",
+      "back": "For small angles, we use the approximation $\\sin \\theta \\approx \\tan \\theta$. The slope of the string at any point is given by $\\tan \\theta = \\frac{\\partial u}{\\partial x}$.\nSubstituting this into the force equation from the previous step:\n$$T \\frac{\\partial u}{\\partial x}(x+\\Delta x, t) - T \\frac{\\partial u}{\\partial x}(x, t) = \\rho \\Delta x \\frac{\\partial^2 u}{\\partial t^2}(x, t)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the 1D wave equation $u_{tt} = c^2 u_{xx}$ by taking the limit of the simplified force equation as $\\Delta x \\to 0$.",
+      "back": "Divide the simplified force equation by $T \\Delta x$:\n$$\\frac{1}{\\Delta x} \\left[ \\frac{\\partial u}{\\partial x}(x+\\Delta x, t) - \\frac{\\partial u}{\\partial x}(x, t) \\right] = \\frac{\\rho}{T} \\frac{\\partial^2 u}{\\partial t^2}(x, t)$$\nTaking the limit as $\\Delta x \\to 0$, the left side becomes the definition of the second partial derivative with respect to $x$:\n$$\\lim_{\\Delta x \\to 0} \\frac{1}{\\Delta x} \\left[ \\frac{\\partial u}{\\partial x}(x+\\Delta x, t) - \\frac{\\partial u}{\\partial x}(x, t) \\right] = \\frac{\\partial}{\\partial x} \\left( \\frac{\\partial u}{\\partial x} \\right) = \\frac{\\partial^2 u}{\\partial x^2}$$\nThus, we get:\n$$\\frac{\\partial^2 u}{\\partial x^2} = \\frac{\\rho}{T} \\frac{\\partial^2 u}{\\partial t^2}$$\nRearranging and defining $c^2 = T/\\rho$:\n$$\\frac{\\partial^2 u}{\\partial t^2} = \\frac{T}{\\rho} \\frac{\\partial^2 u}{\\partial x^2} \\implies u_{tt} = c^2 u_{xx}$$\nThis is the 1D wave equation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the 1D wave equation $u_{tt} = c^2 u_{xx}$, what does the constant $c$ represent physically, and how is it related to the string's properties?",
+      "back": "The constant $c$ represents the speed of wave propagation along the string. It is given by the formula $c = \\sqrt{T/\\rho}$, where $T$ is the tension in the string and $\\rho$ is the linear mass density (mass per unit length) of the string. A higher tension or lower mass density results in a faster wave speed.",
+      "difficulty": "medium"
+    }
+  ]
+}

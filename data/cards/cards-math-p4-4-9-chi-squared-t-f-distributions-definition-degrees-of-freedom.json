@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-9-chi-squared-t-f-distributions-definition-degrees-of-freedom",
+  "subtopicTitle": "Chi-squared, t, F distributions — definition, degrees of freedom",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:36.664Z",
+  "cards": [
+    {
+      "front": "Define the chi-squared distribution and its single parameter.",
+      "back": "If $Z_1, Z_2, \\dots, Z_k$ are independent standard normal random variables, then their sum of squares $X = \\sum_{i=1}^k Z_i^2$ follows a chi-squared distribution with $k$ degrees of freedom, denoted $\\chi^2(k)$. The single parameter is $k$, the degrees of freedom.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What do the 'degrees of freedom' represent in a chi-squared distribution?",
+      "back": "The degrees of freedom ($k$) in a chi-squared distribution represent the number of independent standard normal random variables whose squares are summed to form the chi-squared variable. Each independent $Z_i^2$ contributes one degree of freedom, reflecting the number of independent pieces of information contributing to the sum.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the Student's t-distribution and its single parameter.",
+      "back": "If $Z \\sim N(0,1)$ (a standard normal random variable) and $V \\sim \\chi^2(k)$ (a chi-squared random variable with $k$ degrees of freedom) are independent, then the random variable $T = \\frac{Z}{\\sqrt{V/k}}$ follows a Student's t-distribution with $k$ degrees of freedom, denoted $t(k)$. The single parameter is $k$, the degrees of freedom.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does the shape of the t-distribution change as its degrees of freedom increase, and what is its limiting distribution?",
+      "back": "As the degrees of freedom ($k$) increase, the t-distribution becomes less spread out and its tails become thinner, approaching the shape of the standard normal distribution. For $k \\to \\infty$, the $t(k)$ distribution converges to the standard normal distribution $N(0,1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the F-distribution and its two parameters.",
+      "back": "If $U \\sim \\chi^2(d_1)$ and $V \\sim \\chi^2(d_2)$ are independent chi-squared random variables with $d_1$ and $d_2$ degrees of freedom, respectively, then the random variable $F = \\frac{U/d_1}{V/d_2}$ follows an F-distribution with $d_1$ and $d_2$ degrees of freedom, denoted $F(d_1, d_2)$. The two parameters are $d_1$ (numerator degrees of freedom) and $d_2$ (denominator degrees of freedom).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the origin of the two degrees of freedom ($d_1, d_2$) in an F-distribution.",
+      "back": "The F-distribution is defined as a ratio of two independent scaled chi-squared variables. The numerator degrees of freedom ($d_1$) comes from the chi-squared variable in the numerator, representing the number of independent squared standard normal variables contributing to it. Similarly, the denominator degrees of freedom ($d_2$) comes from the chi-squared variable in the denominator, reflecting its own number of independent components.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship between the Student's t-distribution and the F-distribution.",
+      "back": "If $T \\sim t(k)$, then $T^2 \\sim F(1, k)$.<br><br>Proof:<br>By definition, $T = \\frac{Z}{\\sqrt{V/k}}$, where $Z \\sim N(0,1)$ and $V \\sim \\chi^2(k)$ are independent.<br>Then $T^2 = \\left(\\frac{Z}{\\sqrt{V/k}}\\right)^2 = \\frac{Z^2}{V/k}$.<br>Since $Z \\sim N(0,1)$, $Z^2$ follows a chi-squared distribution with 1 degree of freedom, i.e., $Z^2 \\sim \\chi^2(1)$.<br>Substituting this, we get $T^2 = \\frac{\\chi^2(1)/1}{\\chi^2(k)/k}$.<br>This is precisely the definition of an F-distribution with $d_1=1$ and $d_2=k$ degrees of freedom, i.e., $F(1, k)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For what common statistical tests or scenarios are the chi-squared, t, and F distributions typically used?",
+      "back": "<ul><li><b>Chi-squared distribution:</b> Used for goodness-of-fit tests, tests of independence in contingency tables, and inference about population variance.</li><li><b>t-distribution:</b> Used for inference about population means when the sample size is small and the population standard deviation is unknown (e.g., Student's t-tests for means, confidence intervals for means).</li><li><b>F-distribution:</b> Used for comparing variances of two populations, and in Analysis of Variance (ANOVA) to compare means of three or more groups.</li></ul>",
+      "difficulty": "medium"
+    }
+  ]
+}

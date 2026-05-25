@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-2-circular-orbit-velocity-period-energy",
+  "subtopicTitle": "Circular orbit — velocity, period, energy",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:27:12.998Z",
+  "cards": [
+    {
+      "front": "What fundamental force balance defines a stable circular orbit around a central body?",
+      "back": "A stable circular orbit is defined by the precise balance between the gravitational force pulling the satellite towards the central body and the centripetal force required to keep the satellite moving in a circle.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the orbital velocity ($v$) of a satellite in a circular orbit of radius $r$ around a central body of mass $M$.",
+      "back": "The gravitational force provides the centripetal force:\n$$F_g = F_c$$\n$$\\frac{G M m}{r^2} = \\frac{m v^2}{r}$$\nCancel $m$ and one $r$:\n$$\\frac{G M}{r} = v^2$$\n$$v = \\sqrt{\\frac{G M}{r}}$$\nWhere $G$ is the gravitational constant, $M$ is the mass of the central body, $m$ is the mass of the satellite, and $r$ is the orbital radius.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for circular orbital velocity and identify each variable.",
+      "back": "The orbital velocity $v$ for a circular orbit is:\n$$v = \\sqrt{\\frac{G M}{r}}$$\nWhere:\n*   $G$: Gravitational constant ($6.674 \\times 10^{-11} \\text{ N m}^2/\\text{kg}^2$)\n*   $M$: Mass of the central body (e.g., Earth)\n*   $r$: Orbital radius (distance from the center of the central body to the satellite)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for the orbital period ($T$) of a satellite in a circular orbit using its orbital velocity ($v$) and radius ($r$).",
+      "back": "The orbital period $T$ is the time it takes to complete one full revolution. The distance covered in one revolution is the circumference of the orbit, $2\\pi r$.\nSince distance = velocity $\\times$ time, we have:\n$$2\\pi r = v T$$\n$$T = \\frac{2\\pi r}{v}$$\nSubstitute $v = \\sqrt{\\frac{G M}{r}}$:\n$$T = \\frac{2\\pi r}{\\sqrt{\\frac{G M}{r}}} = 2\\pi r \\sqrt{\\frac{r}{G M}}$$\n$$T = 2\\pi \\sqrt{\\frac{r^3}{G M}}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the orbital period ($T$) of a circular orbit, relating it to the orbital radius ($r$) and the central body's mass ($M$).",
+      "back": "The orbital period $T$ for a circular orbit is given by:\n$$T = 2\\pi \\sqrt{\\frac{r^3}{G M}}$$\nThis can also be expressed as Kepler's Third Law for circular orbits:\n$$T^2 = \\frac{4\\pi^2}{G M} r^3$$\nWhere $G$ is the gravitational constant, $M$ is the mass of the central body, and $r$ is the orbital radius.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the total mechanical energy ($E$) of a satellite of mass $m$ in a circular orbit of radius $r$ around a central body of mass $M$.",
+      "back": "Total mechanical energy $E$ is the sum of kinetic energy ($K$) and gravitational potential energy ($U$).\n$$E = K + U$$\nKinetic energy: $K = \\frac{1}{2} m v^2$\nGravitational potential energy: $U = -\\frac{G M m}{r}$\nFrom the derivation of orbital velocity, $v^2 = \\frac{G M}{r}$.\nSubstitute $v^2$ into the kinetic energy equation:\n$$K = \\frac{1}{2} m \\left(\\frac{G M}{r}\\right) = \\frac{G M m}{2r}$$\nNow sum $K$ and $U$:\n$$E = \\frac{G M m}{2r} - \\frac{G M m}{r}$$\n$$E = \\frac{G M m}{2r} - \\frac{2 G M m}{2r}$$\n$$E = -\\frac{G M m}{2r}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the physical significance of a negative total mechanical energy for a satellite in a stable circular orbit?",
+      "back": "A negative total mechanical energy ($E < 0$) signifies that the satellite is gravitationally bound to the central body. It does not have enough energy to escape the central body's gravitational pull and move infinitely far away. To escape, the total energy would need to be zero or positive.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a satellite in a circular orbit, how do its kinetic energy ($K$), gravitational potential energy ($U$), and total mechanical energy ($E$) relate to each other?",
+      "back": "In a circular orbit:\n1.  Kinetic Energy: $K = \\frac{G M m}{2r}$\n2.  Gravitational Potential Energy: $U = -\\frac{G M m}{r}$\n3.  Total Mechanical Energy: $E = -\\frac{G M m}{2r}$\nFrom these, we can see the relationships:\n*   $K = -E$\n*   $U = 2E$\n*   $U = -2K$\nThe kinetic energy is half the magnitude of the potential energy, and the total energy is negative kinetic energy (or half the potential energy).",
+      "difficulty": "hard"
+    }
+  ]
+}

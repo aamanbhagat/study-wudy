@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-1-derivatives-of-inverse-trig-functions-all-six",
+  "subtopicTitle": "Derivatives of inverse trig functions — all six",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:05.899Z",
+  "cards": [
+    {
+      "front": "State the derivative of $\\arcsin x$.",
+      "back": "$$\\frac{d}{dx}(\\arcsin x) = \\frac{1}{\\sqrt{1-x^2}}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the formula for $\\frac{d}{dx}(\\arcsin x)$ using implicit differentiation.",
+      "back": "Let $y = \\arcsin x$. Then $x = \\sin y$. Differentiate implicitly with respect to $x$: $1 = \\cos y \\frac{dy}{dx}$. So $\\frac{dy}{dx} = \\frac{1}{\\cos y}$. Since $y = \\arcsin x$, its range is $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$, where $\\cos y \\ge 0$. Using $\\sin^2 y + \\cos^2 y = 1$, we get $\\cos y = \\sqrt{1-\\sin^2 y}$. Substituting $\\sin y = x$, we have $\\cos y = \\sqrt{1-x^2}$. Thus, $\\frac{d}{dx}(\\arcsin x) = \\frac{1}{\\sqrt{1-x^2}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the derivative of $\\arctan x$.",
+      "back": "$$\\frac{d}{dx}(\\arctan x) = \\frac{1}{1+x^2}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Find the derivative of $f(x) = \\arctan(x^3)$.",
+      "back": "Using the chain rule, $\\frac{d}{dx}(\\arctan(u)) = \\frac{1}{1+u^2} \\frac{du}{dx}$. Here $u = x^3$, so $\\frac{du}{dx} = 3x^2$. Thus, $f'(x) = \\frac{1}{1+(x^3)^2} \\cdot 3x^2 = \\frac{3x^2}{1+x^6}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the derivatives of $\\arccos x$, $\\text{arccot } x$, and $\\text{arccsc } x$ relate to those of their \"co-function\" counterparts?",
+      "back": "The derivatives of the inverse co-functions are the negative of the derivatives of their respective co-functions:\n*   $\\frac{d}{dx}(\\arccos x) = -\\frac{1}{\\sqrt{1-x^2}}$\n*   $\\frac{d}{dx}(\\text{arccot } x) = -\\frac{1}{1+x^2}$\n*   $\\frac{d}{dx}(\\text{arccsc } x) = -\\frac{1}{|x|\\sqrt{x^2-1}}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for $\\frac{d}{dx}(\\text{arcsec } x)$ using implicit differentiation.",
+      "back": "Let $y = \\text{arcsec } x$. Then $x = \\sec y$. Differentiate implicitly with respect to $x$: $1 = \\sec y \\tan y \\frac{dy}{dx}$. So $\\frac{dy}{dx} = \\frac{1}{\\sec y \\tan y}$. The range of $\\text{arcsec } x$ is $[0, \\pi/2) \\cup (\\pi/2, \\pi]$. If $x > 1$, $y \\in [0, \\pi/2)$, so $\\sec y = x > 0$ and $\\tan y = \\sqrt{\\sec^2 y - 1} = \\sqrt{x^2-1} > 0$. If $x < -1$, $y \\in (\\pi/2, \\pi]$, so $\\sec y = x < 0$ and $\\tan y = -\\sqrt{\\sec^2 y - 1} = -\\sqrt{x^2-1} < 0$. In both cases, $\\sec y \\tan y = |x|\\sqrt{x^2-1}$. Thus, $\\frac{d}{dx}(\\text{arcsec } x) = \\frac{1}{|x|\\sqrt{x^2-1}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the derivative of $\\text{arccsc } x$.",
+      "back": "$$\\frac{d}{dx}(\\text{arccsc } x) = -\\frac{1}{|x|\\sqrt{x^2-1}}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For what values of $x$ is $\\frac{d}{dx}(\\arcsin x)$ defined?",
+      "back": "The derivative $\\frac{1}{\\sqrt{1-x^2}}$ is defined when $1-x^2 > 0$, which means $x^2 < 1$, or $-1 < x < 1$. It is undefined at $x=\\pm 1$, where the graph of $\\arcsin x$ has vertical tangent lines.",
+      "difficulty": "medium"
+    }
+  ]
+}

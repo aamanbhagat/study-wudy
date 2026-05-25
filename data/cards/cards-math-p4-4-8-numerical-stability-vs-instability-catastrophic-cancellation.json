@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-8-numerical-stability-vs-instability-catastrophic-cancellation",
+  "subtopicTitle": "Numerical stability vs instability — catastrophic cancellation",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:09:54.856Z",
+  "cards": [
+    {
+      "front": "In numerical methods, what does \"numerical stability\" refer to?",
+      "back": "Numerical stability describes how errors (like round-off or truncation errors) propagate and amplify during a computation. A numerically stable method ensures that small initial errors do not grow excessively, preserving the accuracy of the result.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"catastrophic cancellation\" in the context of floating-point arithmetic.",
+      "back": "Catastrophic cancellation occurs when two nearly equal numbers are subtracted, leading to a significant loss of precision. The leading identical digits cancel out, leaving a result with fewer significant digits and a greatly amplified relative error.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is direct computation of $f(x) = \\sqrt{x^2+1} - x$ prone to catastrophic cancellation for very large positive values of $x$?",
+      "back": "For very large $x$, $x^2+1 \\approx x^2$, so $\\sqrt{x^2+1} \\approx x$. Therefore, the expression becomes the subtraction of two nearly equal numbers, $\\sqrt{x^2+1}$ and $x$, which are both large. This leads to a loss of significant digits in the result.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the expression $f(x) = \\sqrt{x^2+1} - x$ be algebraically transformed to avoid catastrophic cancellation for large positive $x$?",
+      "back": "Multiply by the conjugate:\n$$ \\sqrt{x^2+1} - x = (\\sqrt{x^2+1} - x) \\frac{\\sqrt{x^2+1} + x}{\\sqrt{x^2+1} + x} = \\frac{(x^2+1) - x^2}{\\sqrt{x^2+1} + x} = \\frac{1}{\\sqrt{x^2+1} + x} $$\nIn this form, for large $x$, we are adding positive numbers, avoiding cancellation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When solving $ax^2 + bx + c = 0$ using the quadratic formula, which root might suffer catastrophic cancellation if $b > 0$ and $b^2 \\gg |4ac|$, and how can it be mitigated?",
+      "back": "The root $x_1 = \\frac{-b + \\sqrt{b^2 - 4ac}}{2a}$ suffers cancellation. Since $b > 0$ and $b^2 \\gg |4ac|$, $\\sqrt{b^2 - 4ac} \\approx b$, so we are subtracting two nearly equal positive numbers ($-b$ and $\\sqrt{b^2 - 4ac}$). Mitigation: Calculate the other root $x_2 = \\frac{-b - \\sqrt{b^2 - 4ac}}{2a}$ first (no cancellation as it's an addition of two negative numbers). Then use the property $x_1 x_2 = c/a$ to find $x_1 = \\frac{c}{ax_2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why catastrophic cancellation primarily affects the *relative error* rather than the *absolute error*.",
+      "back": "When nearly equal numbers are subtracted, the result is often very small. While the absolute error introduced by finite precision might also be small, it becomes a large fraction of the true (small) result. The number of significant digits in the result is drastically reduced, leading to a high relative error.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For small $x$, evaluating $f(x) = \\frac{1 - \\cos x}{x^2}$ directly can suffer from catastrophic cancellation. How can a Taylor series expansion help mitigate this?",
+      "back": "For small $x$, $\\cos x \\approx 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\dots$.\nSubstituting this into the expression:\n$$ f(x) = \\frac{1 - (1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\dots)}{x^2} = \\frac{\\frac{x^2}{2!} - \\frac{x^4}{4!} + \\dots}{x^2} = \\frac{1}{2!} - \\frac{x^2}{4!} + \\dots $$\nThis transformed expression avoids the direct subtraction of $1$ from $\\cos x$ when $\\cos x$ is very close to $1$, thus preventing catastrophic cancellation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Is the subtraction $A - B$ always an instance of catastrophic cancellation if $A$ and $B$ are nearly equal?",
+      "back": "No. Catastrophic cancellation specifically refers to the loss of precision that occurs in *finite-precision floating-point arithmetic* when subtracting nearly equal approximate numbers. If $A$ and $B$ are exact numbers (e.g., small integers, exactly representable rationals), or if the computation is performed with infinite precision, then no precision is lost.",
+      "difficulty": "medium"
+    }
+  ]
+}

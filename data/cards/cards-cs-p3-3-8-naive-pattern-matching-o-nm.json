@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-8-naive-pattern-matching-o-nm",
+  "subtopicTitle": "Naive pattern matching — O(nm)",
+  "topicId": "cs-p3-3-8-string-algorithms",
+  "topicTitle": "String Algorithms",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:18.931Z",
+  "cards": [
+    {
+      "front": "What fundamental problem do \"pattern matching\" algorithms, like the Naive approach, aim to solve in computer science?",
+      "back": "Pattern matching algorithms aim to find all occurrences (or the first occurrence) of a smaller string, called the **pattern** ($P$), within a larger string, called the **text** ($T$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the core strategy or intuition behind the Naive pattern matching algorithm.",
+      "back": "The Naive pattern matching algorithm's core strategy is to systematically check every possible starting position for the pattern within the text. For each potential starting position, it compares the pattern character by character with the corresponding segment of the text until either a full match is found or a mismatch occurs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given text $T = \\text{\"ABABCABAB\"}$ and pattern $P = \\text{\"ABAB\"}$, trace the Naive algorithm's comparisons for the first two shifts.",
+      "back": "Let $n$ be text length and $m$ be pattern length.\n\n**Shift 0 (Text index $i=0$):**\n- Compare $T[0]$ ('A') with $P[0]$ ('A') $\\rightarrow$ Match\n- Compare $T[1]$ ('B') with $P[1]$ ('B') $\\rightarrow$ Match\n- Compare $T[2]$ ('A') with $P[2]$ ('A') $\\rightarrow$ Match\n- Compare $T[3]$ ('B') with $P[3]$ ('B') $\\rightarrow$ Match\nResult: Full match found at index 0.\n\n**Shift 1 (Text index $i=1$):**\n- Compare $T[1]$ ('B') with $P[0]$ ('A') $\\rightarrow$ Mismatch\nResult: Mismatch at first character, move to next shift.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the worst-case time complexity of the Naive pattern matching algorithm in terms of text length $n$ and pattern length $m$. Provide an example scenario.",
+      "back": "The worst-case time complexity is $O(nm)$.\n\n**Derivation:**\n1.  The outer loop iterates $n - m + 1$ times, representing each possible starting position for the pattern in the text.\n2.  In the worst case, for *each* of these $n - m + 1$ shifts, the inner loop (character-by-character comparison) performs nearly $m$ comparisons before a mismatch is found or a full match is confirmed.\n\n**Example Scenario:**\nConsider $T = \\text{\"AAAAAAAB\"}$ ($n=8$) and $P = \\text{\"AAAAB\"}$ ($m=5$).\nFor each shift, the algorithm compares $P[0]$ through $P[m-2]$ successfully before failing at $P[m-1]$ (or matching). This leads to approximately $(n-m+1) \\times m$ comparisons.\n\nThus, the total comparisons are roughly $(n-m+1)m$, which simplifies to $O(nm)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the space complexity of the Naive pattern matching algorithm, excluding the space for the input text and pattern?",
+      "back": "The space complexity of the Naive pattern matching algorithm is $O(1)$. It only requires a few constant-size variables to store loop indices and temporary comparison results, regardless of the size of the input text or pattern.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Complete the Python function `naive_pattern_match` to find all starting indices of `pattern` in `text`.",
+      "back": "```python\ndef naive_pattern_match(text, pattern):\n    n = len(text)\n    m = len(pattern)\n    occurrences = []\n\n    for i in range(n - m + 1):  # Iterate through all possible shifts\n        j = 0\n        while j < m and text[i + j] == pattern[j]:\n            j += 1\n        \n        if j == m:  # If the inner loop completed, a match was found\n            occurrences.append(i)\n            \n    return occurrences\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific conditions or characteristics of the input strings does the Naive pattern matching algorithm exhibit its worst-case $O(nm)$ performance?",
+      "back": "The Naive algorithm performs worst when the pattern and text have many partial matches before a final mismatch, or when the pattern itself is highly repetitive. Specifically:\n1.  **Many partial matches:** The pattern almost matches at many positions, failing only at the last character. E.g., $T = \\text{\"AAAAAAAAB\"}$, $P = \\text{\"AAAAB\"}$.\n2.  **Highly repetitive strings:** Both text and pattern consist of long sequences of the same character. E.g., $T = \\text{\"BBBBBBBB\"}$, $P = \\text{\"BBBB\"}$.\n\nIn these scenarios, the inner comparison loop runs almost to completion for most outer loop iterations, leading to maximum comparisons.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the Naive algorithm considered a \"brute-force\" approach, and what fundamental optimization do more advanced algorithms (like KMP) introduce to improve efficiency?",
+      "back": "The Naive algorithm is considered \"brute-force\" because it doesn't utilize any information gained from previous comparisons or mismatches. If a mismatch occurs, it simply shifts the pattern by one position and restarts the comparison from scratch.\n\nMore advanced algorithms like **KMP (Knuth-Morris-Pratt)** introduce the optimization of **\"smart shifting\"**. They pre-process the pattern to build a **LPS (Longest Proper Prefix Suffix) array** or similar structure. This array tells the algorithm, upon a mismatch, exactly how much to shift the pattern forward without re-comparing characters that are already known to match, thus avoiding redundant comparisons and improving the worst-case time complexity to $O(n+m)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

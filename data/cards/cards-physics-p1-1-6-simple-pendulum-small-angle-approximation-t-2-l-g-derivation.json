@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-6-simple-pendulum-small-angle-approximation-t-2-l-g-derivation",
+  "subtopicTitle": "Simple pendulum — small angle approximation, T = 2π√(L/g) derivation",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:22:47.112Z",
+  "cards": [
+    {
+      "front": "What are the key characteristics of an ideal simple pendulum?",
+      "back": "An ideal simple pendulum consists of a point mass (bob) suspended by a massless, inextensible string of fixed length, oscillating without friction in a uniform gravitational field.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a simple pendulum displaced by an angle $\\theta$, what is the component of force that acts as the restoring force?",
+      "back": "The tangential component of gravity, $F_t = -mg\\sin\\theta$. The negative sign indicates it acts opposite to the angular displacement.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the differential equation of motion for a simple pendulum before any approximations.",
+      "back": "Using Newton's second law for rotational motion, $\\tau = I\\alpha$. The torque due to gravity is $\\tau = -mgL\\sin\\theta$ (negative because it restores to equilibrium). For a point mass, the moment of inertia is $I = mL^2$. The angular acceleration is $\\alpha = \\frac{d^2\\theta}{dt^2}$. So, $-mgL\\sin\\theta = mL^2 \\frac{d^2\\theta}{dt^2}$. Dividing by $mL^2$ gives $\\frac{d^2\\theta}{dt^2} + \\frac{g}{L}\\sin\\theta = 0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the small angle approximation used for a simple pendulum, and when is it valid?",
+      "back": "The small angle approximation is $\\sin\\theta \\approx \\theta$ (where $\\theta$ is in radians). It is valid for small angles, typically $\\theta < 10^°$ (or about $0.17$ radians) to maintain high accuracy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Applying the small angle approximation, how does the pendulum's equation of motion change, and what type of motion does it describe?",
+      "back": "The equation $\\frac{d^2\\theta}{dt^2} + \\frac{g}{L}\\sin\\theta = 0$ becomes $\\frac{d^2\\theta}{dt^2} + \\frac{g}{L}\\theta = 0$. This is the standard form for Simple Harmonic Motion (SHM), $\\frac{d^2x}{dt^2} + \\omega^2 x = 0$, implying the pendulum undergoes SHM for small oscillations.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the period $T$ for a simple pendulum from its linearized equation of motion, $\\frac{d^2\\theta}{dt^2} + \\frac{g}{L}\\theta = 0$.",
+      "back": "Comparing the linearized equation $\\frac{d^2\\theta}{dt^2} + \\frac{g}{L}\\theta = 0$ with the general SHM equation $\\frac{d^2\\theta}{dt^2} + \\omega^2\\theta = 0$, we identify the angular frequency squared as $\\omega^2 = \\frac{g}{L}$. Thus, the angular frequency is $\\omega = \\sqrt{\\frac{g}{L}}$. Since the period $T = \\frac{2\\pi}{\\omega}$, substituting $\\omega$ gives $T = \\frac{2\\pi}{\\sqrt{g/L}} = 2\\pi\\sqrt{\\frac{L}{g}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the mass of the pendulum bob not appear in the formula for its period, $T = 2\\pi\\sqrt{L/g}$?",
+      "back": "The restoring force ($F = -mg\\sin\\theta$) is directly proportional to the mass ($m$) of the bob, and the inertia of the bob (also $m$ in $F=ma$) is likewise proportional to its mass. When setting the restoring force equal to $ma$, the mass 'm' cancels out on both sides, meaning the acceleration (and consequently the period) is independent of the bob's mass.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a simple pendulum oscillates at a large angle (e.g., $30^°$), how does its period compare to that predicted by $T = 2\\pi\\sqrt{L/g}$?",
+      "back": "For large angles, the approximation $\\sin\\theta \\approx \\theta$ is no longer accurate. Since $\\sin\\theta < \\theta$ for $\\theta > 0$, the actual restoring force ($F_t = -mg\\sin\\theta$) is effectively weaker than the linear approximation ($F_t = -mg\\theta$) would suggest. This weaker restoring force means the pendulum takes *longer* to return to equilibrium, so its period will be *longer* than $2\\pi\\sqrt{L/g}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

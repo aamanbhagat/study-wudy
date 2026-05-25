@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p1-1-1-operating-system-role-resource-manager-abstraction-layer",
+  "subtopicTitle": "Operating system role — resource manager, abstraction layer",
+  "topicId": "cs-p1-1-1-how-computers-work",
+  "topicTitle": "How Computers Work",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:11:43.033Z",
+  "cards": [
+    {
+      "front": "What is the primary function of an Operating System (OS)?",
+      "back": "The primary function of an OS is to act as system software that manages computer hardware and software resources, and provides common services for computer programs. It essentially mediates between applications and the hardware.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "One key role of an OS is acting as an \"abstraction layer.\" What does this mean for application developers?",
+      "back": "As an abstraction layer, the OS hides the complex, low-level details of hardware (e.g., specific CPU registers, I/O device commands, memory addresses) and provides a simpler, consistent, high-level interface (via system calls and APIs) for applications to interact with hardware and other system resources.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "As a resource manager, what are the four primary types of resources an OS typically manages?",
+      "back": "The four primary types of resources an OS manages are:\n1.  **CPU (Processor Time):** Scheduling processes to run on the CPU.\n2.  **Memory (RAM):** Allocating and protecting memory regions for processes.\n3.  **I/O Devices:** Managing access to peripherals like keyboards, mice, printers, disks, and network interfaces.\n4.  **Files:** Organizing, storing, and providing access to data on persistent storage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does an OS manage CPU resources to allow multiple programs to run concurrently without conflict?",
+      "back": "The OS manages CPU resources through a **CPU scheduler**. It employs techniques like **time-sharing** (preemptive multitasking), where it rapidly switches the CPU between different processes, giving each a small slice of CPU time. This creates the illusion that multiple programs are running simultaneously, preventing any single program from monopolizing the CPU.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Applications request OS services (like reading a file or allocating memory) through a specific mechanism. What is this mechanism called, and what does it represent?",
+      "back": "This mechanism is called a **system call**. A system call is a programmatic way for a computer program to request a service from the kernel of the operating system. It represents the well-defined interface between an application program and the OS's abstraction layer, allowing applications to access protected hardware resources and OS services.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe how the OS's roles as a \"resource manager\" and \"abstraction layer\" work together when a program tries to write data to a file on disk.",
+      "back": "When a program writes data to a file, it makes a **system call** (e.g., `write()`) to the OS. This call acts as the **abstraction layer**, hiding the complex, low-level details of the disk hardware. The OS kernel, acting as a **resource manager**, then takes over: it verifies permissions, allocates necessary disk blocks, schedules the I/O operation to the disk controller, handles data transfer, and ensures that this operation doesn't conflict with other programs trying to access the same disk or file, ensuring data integrity and fair resource usage.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If an OS didn't act as an abstraction layer, what specific challenges would arise for application developers, especially concerning hardware evolution?",
+      "back": "Without an OS abstraction layer, application developers would face immense challenges:\n1.  **Hardware-specific code:** They would need to write highly specific, low-level code for every single hardware component (e.g., different disk controllers, network cards, CPU architectures).\n2.  **Non-portability:** Applications would be extremely non-portable; a program written for one machine's specific hardware configuration would likely not run on another machine with slightly different components.\n3.  **Increased complexity:** Development would be far more complex, error-prone, and time-consuming, as developers would constantly manage raw hardware interactions instead of focusing on application logic. Hardware evolution would constantly break existing software.",
+      "difficulty": "hard"
+    }
+  ]
+}

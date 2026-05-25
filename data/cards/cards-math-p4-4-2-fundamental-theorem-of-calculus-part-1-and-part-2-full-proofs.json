@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-2-fundamental-theorem-of-calculus-part-1-and-part-2-full-proofs",
+  "subtopicTitle": "Fundamental Theorem of Calculus — Part 1 and Part 2 — full proofs",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:38.493Z",
+  "cards": [
+    {
+      "front": "State the Fundamental Theorem of Calculus, Part 1 (FTC1).",
+      "back": "If $f$ is continuous on $[a, b]$, then the function $F(x)$ defined by $$F(x) = \\int_{a}^{x} f(t) dt$$ for $a \\le x \\le b$ is continuous on $[a, b]$ and differentiable on $(a, b)$, and its derivative is $F'(x) = f(x)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuitive meaning of the Fundamental Theorem of Calculus, Part 1 (FTC1).",
+      "back": "FTC1 states that if you define a function $F(x)$ as the accumulated area under $f(t)$ from a fixed point $a$ to a variable point $x$, then the rate at which this accumulated area changes with respect to $x$ is simply the value of the function $f$ at $x$. It formalizes the idea that differentiation 'undoes' integration when the integral is an accumulation function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a full proof for the Fundamental Theorem of Calculus, Part 1.",
+      "back": "Let $F(x) = \\int_{a}^{x} f(t) dt$. We want to show $F'(x) = f(x)$.\nBy definition of the derivative:\n$$F'(x) = \\lim_{h \\to 0} \\frac{F(x+h) - F(x)}{h}$$\n$$= \\lim_{h \\to 0} \\frac{1}{h} \\left( \\int_{a}^{x+h} f(t) dt - \\int_{a}^{x} f(t) dt \\right)$$\n$$= \\lim_{h \\to 0} \\frac{1}{h} \\int_{x}^{x+h} f(t) dt$$\nBy the Mean Value Theorem for Integrals, there exists a $c$ in $[x, x+h]$ (or $[x+h, x]$ if $h<0$) such that $\\int_{x}^{x+h} f(t) dt = f(c) \\cdot h$. \nSo, $F'(x) = \\lim_{h \\to 0} \\frac{1}{h} [f(c) \\cdot h] = \\lim_{h \\to 0} f(c)$.\nAs $h \\to 0$, $c$ must approach $x$ (since $c$ is between $x$ and $x+h$). Since $f$ is continuous, $\\lim_{c \\to x} f(c) = f(x)$.\nTherefore, $F'(x) = f(x)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Fundamental Theorem of Calculus, Part 2 (FTC2).",
+      "back": "If $f$ is continuous on $[a, b]$, and $F$ is any antiderivative of $f$ (i.e., $F'(x) = f(x)$), then the definite integral of $f$ from $a$ to $b$ is given by: $$\\int_{a}^{b} f(x) dx = F(b) - F(a)$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the intuitive meaning of the Fundamental Theorem of Calculus, Part 2 (FTC2).",
+      "back": "FTC2 provides a practical method for evaluating definite integrals without resorting to Riemann sums. It states that the net change of a function $F$ over an interval $[a, b]$ (i.e., $F(b) - F(a)$) is equal to the definite integral of its rate of change, $f(x) = F'(x)$, over that same interval. It connects the concept of accumulation (integral) to the concept of net change via antiderivatives.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide a full proof for the Fundamental Theorem of Calculus, Part 2.",
+      "back": "Let $f$ be continuous on $[a, b]$. Let $G(x) = \\int_{a}^{x} f(t) dt$. By FTC Part 1, we know that $G'(x) = f(x)$.\nLet $F(x)$ be any antiderivative of $f(x)$, meaning $F'(x) = f(x)$.\nSince $F'(x) = G'(x)$, it follows that $F(x)$ and $G(x)$ can only differ by a constant $C$. So, $F(x) = G(x) + C$.\nNow, let's evaluate this at $x=a$ and $x=b$:\n$F(a) = G(a) + C = \\int_{a}^{a} f(t) dt + C = 0 + C = C$.\nSo, $C = F(a)$.\nNow substitute $C$ back into the equation: $F(x) = G(x) + F(a)$.\nRearranging, we get $G(x) = F(x) - F(a)$.\nFinally, evaluate at $x=b$:\n$G(b) = F(b) - F(a)$.\nSince $G(b) = \\int_{a}^{b} f(t) dt$, we have $$\\int_{a}^{b} f(t) dt = F(b) - F(a)$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Use FTC Part 1 and the Chain Rule to find $F'(x)$ for $F(x) = \\int_{a}^{g(x)} f(t) dt$.",
+      "back": "Let $u = g(x)$. Then $F(x) = \\int_{a}^{u} f(t) dt$. \nBy FTC Part 1, if we differentiate with respect to $u$, we get $\\frac{d}{du} \\int_{a}^{u} f(t) dt = f(u)$.\nUsing the Chain Rule, $\\frac{dF}{dx} = \\frac{dF}{du} \\cdot \\frac{du}{dx}$.\nSo, $F'(x) = f(u) \\cdot g'(x)$.\nSubstituting $u = g(x)$ back, we get: $$F'(x) = f(g(x)) \\cdot g'(x)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do FTC Part 1 and Part 2 demonstrate that differentiation and integration are inverse operations?",
+      "back": "FTC Part 1 shows that if you first integrate a function $f(t)$ to get an accumulation function $F(x) = \\int_{a}^{x} f(t) dt$, and then differentiate $F(x)$, you get back the original function $f(x)$ ($F'(x) = f(x)$). This shows differentiation 'undoes' integration.\nFTC Part 2 shows that if you start with an antiderivative $F(x)$ of $f(x)$ (meaning $F'(x) = f(x)$), then integrating $f(x)$ from $a$ to $b$ gives the net change in $F(x)$, i.e., $F(b) - F(a)$. In a sense, integrating the derivative $f(x)$ recovers the original function $F(x)$ (up to a constant), demonstrating integration 'undoes' differentiation.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-6-binary-search-iterative-recursive-o-log-n-searching-in-sorted-rotated-arrays",
+  "subtopicTitle": "Binary search — iterative, recursive; O(log n); searching in sorted/rotated arrays",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:30.501Z",
+  "cards": [
+    {
+      "front": "What is the fundamental requirement for an array to be searchable using binary search?",
+      "back": "The array must be **sorted**. Binary search relies on the sorted property to efficiently eliminate half of the remaining search space in each step.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the time complexity of binary search and provide an intuitive derivation.",
+      "back": "Binary search has a time complexity of $O(\\log n)$. In each step, the search space (number of elements) is halved. If the initial array size is $n$, after $k$ steps, the size becomes $n/2^k$. We stop when the search space is reduced to 1 element. Therefore, $n/2^k = 1 \\implies n = 2^k \\implies k = \\log_2 n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In an iterative binary search, what is the correct loop condition, and how should `mid` be calculated to prevent potential integer overflow?",
+      "back": "The correct loop condition is typically `while (low <= high)`. To prevent integer overflow when `low` and `high` are very large, `mid` should be calculated as `int mid = low + (high - low) / 2;`. This is mathematically equivalent to `(low + high) / 2` but avoids the sum `low + high` from potentially exceeding the maximum integer value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write a pseudocode snippet for a recursive binary search function that returns the index of the target or -1 if not found.",
+      "back": "```\nfunction binarySearchRecursive(arr, target, low, high):\n    if low > high:\n        return -1 // Target not found\n    \n    mid = low + (high - low) / 2\n    \n    if arr[mid] == target:\n        return mid\n    else if arr[mid] < target:\n        return binarySearchRecursive(arr, target, mid + 1, high)\n    else: // arr[mid] > target\n        return binarySearchRecursive(arr, target, low, mid - 1)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the space complexity of iterative binary search versus recursive binary search?",
+      "back": "Iterative binary search has a space complexity of $O(1)$ because it uses a constant amount of extra memory. Recursive binary search has a space complexity of $O(\\log n)$ due to the call stack depth, which can grow up to $\\log n$ in the worst case.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When searching in a sorted and rotated array, what is the key insight to adapt binary search, and how do you determine which half to continue searching in?",
+      "back": "The key insight is that **one half of the array will always be sorted**. After finding `mid`, you determine if the left half (`arr[low]` to `arr[mid]`) is sorted. If it is, check if the `target` falls within this sorted range. If yes, search left; otherwise, search right. If the left half is not sorted, then the right half (`arr[mid]` to `arr[high]`) must be sorted. Apply the same logic: check if `target` is in the right sorted range, then search accordingly.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given a sorted and rotated array `[4, 5, 6, 7, 0, 1, 2]` and `target = 0`, trace the first two steps of binary search.",
+      "back": "Initial: `low = 0`, `high = 6`, `arr = [4, 5, 6, 7, 0, 1, 2]`, `target = 0`.\n\n**Step 1:**\n*   `mid = 0 + (6 - 0) / 2 = 3`. `arr[mid] = arr[3] = 7`.\n*   Check left half: `arr[low] (4) <= arr[mid] (7)` is true. Left half `[4, 5, 6, 7]` is sorted.\n*   Is `target (0)` in `[arr[low], arr[mid]]`? No, `0 < 4`.\n*   Search right half: `low = mid + 1 = 4`.\n\n**Step 2:**\n*   `low = 4`, `high = 6`.\n*   `mid = 4 + (6 - 4) / 2 = 5`. `arr[mid] = arr[5] = 1`.\n*   Check left half: `arr[low] (0) <= arr[mid] (1)` is true. Left half `[0, 1]` (from `arr[4]` to `arr[5]`) is sorted.\n*   Is `target (0)` in `[arr[low], arr[mid]]`? Yes, `0 >= arr[4] (0)` and `0 <= arr[5] (1)`.\n*   Search left half: `high = mid - 1 = 4`.\n\n(Next step: `low = 4`, `high = 4`, `mid = 4`, `arr[4] = 0`, target found.)",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-4-matplotlib-figure-axes-architecture",
+  "subtopicTitle": "Matplotlib — figure/axes architecture",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:34.127Z",
+  "cards": [
+    {
+      "front": "In Matplotlib, what is the primary role of the `Figure` object?",
+      "back": "The `Figure` object is the top-level container for all plot elements. It represents the entire window or page where the plot is drawn. Think of it as the canvas or sheet of paper upon which one or more plots (Axes) are placed.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the `Axes` object in Matplotlib, and how does it relate to the `Figure` object?",
+      "back": "The `Axes` object is the actual plotting area where data is drawn. It's an individual graph or subplot within a `Figure`. A `Figure` can contain one or more `Axes` objects, each with its own title, labels, and data points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the most common and recommended way to create a `Figure` and a single `Axes` object simultaneously in Matplotlib, and why is it preferred?",
+      "back": "The most common way is `fig, ax = plt.subplots()`. It's preferred because it's concise, handles the creation of both objects in a single call, and is highly flexible for creating multiple subplots by passing arguments like `nrows` and `ncols`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you create a Matplotlib `Figure` containing a $2 \times 2$ grid of `Axes` objects using `plt.subplots()`, and what type of variable would `axs` be?",
+      "back": "You would use:\n```python\nimport matplotlib.pyplot as plt\nfig, axs = plt.subplots(2, 2)\n```\nIn this case, `axs` would be a 2D NumPy array of `Axes` objects, allowing you to access individual subplots like `axs[0, 0]` for the top-left subplot.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given `fig, ax = plt.subplots()`, how would you plot a simple sine wave on `ax` and set a title specific to that `Axes`?",
+      "back": "```python\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig, ax = plt.subplots()\nx = np.linspace(0, 2 * np.pi, 100)\ny = np.sin(x)\nax.plot(x, y)\nax.set_title('Sine Wave Plot')\nplt.show()\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the key difference in purpose and scope between `ax.set_title()` and `fig.suptitle()`.",
+      "back": "`ax.set_title()` sets a title for a *specific* `Axes` object (i.e., an individual subplot). Its scope is limited to that single plotting area. `fig.suptitle()` sets a *super title* for the entire `Figure`, spanning across all subplots within that figure. It provides an overarching title for the collection of plots.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides `plt.subplots()`, what is an alternative method to add an `Axes` object to an existing `Figure` object, and when might it be useful?",
+      "back": "You can use `fig.add_subplot(nrows, ncols, index)`. This method is useful when you have an existing `Figure` and want to add subplots one by one, or when you need more fine-grained control over subplot placement that `plt.subplots()` might not directly offer (e.g., non-uniform grids, or adding an `Axes` at a specific position after the figure is created).\n\nExample:\n```python\nimport matplotlib.pyplot as plt\nfig = plt.figure()\nax1 = fig.add_subplot(2, 1, 1) # Top subplot\nax2 = fig.add_subplot(2, 1, 2) # Bottom subplot\nplt.show()\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

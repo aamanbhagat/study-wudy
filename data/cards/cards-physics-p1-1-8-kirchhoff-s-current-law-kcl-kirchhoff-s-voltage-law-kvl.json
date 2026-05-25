@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-kirchhoff-s-current-law-kcl-kirchhoff-s-voltage-law-kvl",
+  "subtopicTitle": "Kirchhoff's current law (KCL), Kirchhoff's voltage law (KVL)",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:44.092Z",
+  "cards": [
+    {
+      "front": "What is Kirchhoff's Current Law (KCL)?",
+      "back": "KCL states that the algebraic sum of currents entering a node (or junction) is equal to the algebraic sum of currents leaving that node. Equivalently, the algebraic sum of all currents at any node in a circuit is zero, reflecting the conservation of charge.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is Kirchhoff's Voltage Law (KVL)?",
+      "back": "KVL states that the algebraic sum of all potential differences (voltages) around any closed loop or path in a circuit is zero. This reflects the conservation of energy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Kirchhoff's Current Law (KCL) is a direct consequence of which fundamental physical principle?",
+      "back": "The Law of Conservation of Charge. Charge cannot accumulate at a node; any charge flowing into a node must flow out of it, maintaining charge neutrality at the node.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Kirchhoff's Voltage Law (KVL) is a direct consequence of which fundamental physical principle?",
+      "back": "The Law of Conservation of Energy. As a charge completes a closed loop, it returns to its starting potential, meaning no net energy is gained or lost by the charge. This also implies the electrostatic field is conservative.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a node with currents $I_1, I_2$ entering and $I_3, I_4, I_5$ leaving, write the KCL equation.",
+      "back": "Using the convention that currents entering are positive and leaving are negative, the KCL equation is:\n$I_1 + I_2 - I_3 - I_4 - I_5 = 0$\nAlternatively, $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$, so $I_1 + I_2 = I_3 + I_4 + I_5$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain a consistent sign convention for applying KVL to a loop containing resistors and voltage sources.",
+      "back": "When traversing a loop:\n1.  **Resistor ($R$):** If traversing in the direction of current $I$, the voltage change is $-IR$ (a drop). If traversing opposite to current, it's $+IR$ (a rise).\n2.  **Voltage Source ($V_S$):** If traversing from the negative terminal to the positive terminal, the voltage change is $+V_S$ (a rise). If traversing from positive to negative, it's $-V_S$ (a drop).\nThe algebraic sum of these changes around any closed loop must be zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A simple series loop has a voltage source $V_S$ and two resistors $R_1$ and $R_2$. Write the KVL equation assuming current $I$ flows in the loop.",
+      "back": "Assuming we traverse the loop in the direction of current $I$, starting from the negative terminal of $V_S$:\n$V_S - IR_1 - IR_2 = 0$\nThis equation shows that the source voltage $V_S$ is entirely dropped across the series resistors: $V_S = IR_1 + IR_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Differentiate between a \"node\" and a \"loop\" in the context of Kirchhoff's Laws.",
+      "back": "*   **Node (or Junction):** A point in a circuit where two or more circuit elements connect. KCL is applied at nodes, stating the algebraic sum of currents is zero.\n*   **Loop:** Any closed path in a circuit that starts and ends at the same point without passing through any intermediate node or element more than once. KVL is applied to loops, stating the algebraic sum of potential differences is zero.",
+      "difficulty": "hard"
+    }
+  ]
+}

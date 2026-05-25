@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-10-einstein-summation-convention",
+  "subtopicTitle": "Einstein summation convention",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:02.264Z",
+  "cards": [
+    {
+      "front": "State the core principle of the Einstein summation convention.",
+      "back": "When an index appears exactly twice in a single term (once as a subscript and once as a superscript for tensors, or both as subscripts/superscripts in simpler contexts like Euclidean space), it implies summation over all possible values of that index. For example, $A_i B^i \\equiv \\sum_{i=1}^n A_i B^i$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the expression $M_{ij} v^j = u_i$, identify the dummy and free indices.",
+      "back": "The index $j$ is a dummy (or summation) index. The index $i$ is a free (or unsubscripted) index. Free indices must appear exactly once on each side of an equation and must match.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using Einstein summation convention, express the trace of an $n \\times n$ matrix $A$ (elements $A_{ij}$).",
+      "back": "The trace of a matrix $A$ is the sum of its diagonal elements: $\\text{Tr}(A) = A_{ii}$. Here, $i$ is a dummy index, implying summation over $i$ from $1$ to $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given matrices $A$ (elements $A_{ij}$) and $B$ (elements $B_{jk}$), express the element $(AB)_{ik}$ using Einstein summation convention.",
+      "back": "$(AB)_{ik} = A_{ij} B_{jk}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Which of the following expressions are invalid under the Einstein summation convention, and why? \n 1. $A_i B_i C_i$ \n 2. $D_{ij} E_{jk} F_{kl}$ \n 3. $G_i H^i + K_j L^j$",
+      "back": "1. Invalid: The index $i$ appears three times in the term, violating the 'exactly twice' rule for summation. \n 2. Valid: $j$ and $k$ are dummy indices, $i$ and $l$ are free indices. Each dummy index appears exactly twice within its term. \n 3. Valid: The convention applies per term. $i$ is a dummy index in the first term, and $j$ is a dummy index in the second term. The choice of dummy index letter does not affect the sum (e.g., $G_i H^i = G_j H^j$). This is called 're-indexing' or 'renaming dummy variables'.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Simplify the expression $A^{ij} \\delta_{jk}$ using the properties of the Kronecker delta and Einstein summation convention, assuming an orthonormal basis where indices can be lowered/raised freely.",
+      "back": "The Kronecker delta $\\delta_{jk}$ acts as an identity. When summed over $j$, it effectively replaces $j$ with $k$ in the other term: $A^{ij} \\delta_{jk} = A^{ik}$. This is because $\\delta_{jk}$ is $1$ if $j=k$ and $0$ otherwise, so the sum $\\sum_j A^{ij} \\delta_{jk}$ collapses to the single term where $j=k$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary benefit of using Einstein summation convention in advanced mathematics and physics, particularly in tensor calculus?",
+      "back": "It provides a highly concise and elegant notation for expressions involving sums over indices, significantly reducing clutter from explicit summation symbols ($\\sum$). This makes complex equations in tensor calculus, differential geometry, and general relativity much easier to read, write, and manipulate, once the convention is mastered, by focusing on the indices themselves.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-2-vorticity-v-circulation",
+  "subtopicTitle": "Vorticity — ω = ∇×v, circulation Γ",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:25:45.031Z",
+  "cards": [
+    {
+      "front": "What is the mathematical definition of vorticity, $\\boldsymbol{\\omega}$, in fluid mechanics?",
+      "back": "Vorticity $\\boldsymbol{\\omega}$ is defined as the curl of the fluid velocity field $\\mathbf{v}$: $$\\boldsymbol{\\omega} = \\nabla \\times \\mathbf{v}$$ It quantifies the local angular velocity of a fluid element.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Physically, what does a non-zero vorticity vector $\\boldsymbol{\\omega}$ at a point in a fluid signify?",
+      "back": "A non-zero vorticity vector $\\boldsymbol{\\omega}$ signifies that a fluid element at that point is rotating. The direction of $\\boldsymbol{\\omega}$ indicates the axis of rotation (following the right-hand rule), and its magnitude is twice the local angular velocity of the fluid element.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define circulation, $\\Gamma$, for a closed curve $C$ in a fluid flow.",
+      "back": "Circulation $\\Gamma$ is the line integral of the fluid velocity field $\\mathbf{v}$ around a closed curve $C$: $$\\Gamma = \\oint_C \\mathbf{v} \\cdot d\\mathbf{l}$$ It measures the net rotation of the fluid around the specified closed curve.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does Stokes' Theorem relate circulation $\\Gamma$ to vorticity $\\boldsymbol{\\omega}$?",
+      "back": "Stokes' Theorem states that the circulation $\\Gamma$ around a closed curve $C$ is equal to the flux of the vorticity $\\boldsymbol{\\omega}$ through any open surface $S$ bounded by $C$: $$\\Gamma = \\oint_C \\mathbf{v} \\cdot d\\mathbf{l} = \\iint_S (\\nabla \\times \\mathbf{v}) \\cdot d\\mathbf{A} = \\iint_S \\boldsymbol{\\omega} \\cdot d\\mathbf{A}$$ This fundamental theorem links a line integral to a surface integral.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What defines an irrotational flow, and what are its implications for the velocity potential?",
+      "back": "An irrotational flow is a flow where the vorticity $\\boldsymbol{\\omega} = \\nabla \\times \\mathbf{v}$ is zero everywhere. For such a flow, the velocity field $\\mathbf{v}$ can be expressed as the gradient of a scalar potential function $\\phi$, i.e., $\\mathbf{v} = \\nabla \\phi$. This significantly simplifies analysis, as the flow can be described by a single scalar field.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Calculate the vorticity vector $\\boldsymbol{\\omega}$ for a 2D velocity field $\\mathbf{v} = (Ay, -Ax, 0)$, where $A$ is a constant.",
+      "back": "Given $\\mathbf{v} = (v_x, v_y, v_z) = (Ay, -Ax, 0)$.\n$\\boldsymbol{\\omega} = \\nabla \\times \\mathbf{v} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\ Ay & -Ax & 0 \\end{vmatrix}$\n$\\boldsymbol{\\omega} = \\mathbf{i}\\left(\\frac{\\partial}{\\partial y}(0) - \\frac{\\partial}{\\partial z}(-Ax)\\right) - \\mathbf{j}\\left(\\frac{\\partial}{\\partial x}(0) - \\frac{\\partial}{\\partial z}(Ay)\\right) + \\mathbf{k}\\left(\\frac{\\partial}{\\partial x}(-Ax) - \\frac{\\partial}{\\partial y}(Ay)\\right)$\n$\\boldsymbol{\\omega} = \\mathbf{i}(0 - 0) - \\mathbf{j}(0 - 0) + \\mathbf{k}(-A - A)$\n$\\boldsymbol{\\omega} = -2A\\mathbf{k}$\nThis represents a uniform rotation about the z-axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Helmholtz's First Theorem regarding vortex lines.",
+      "back": "Helmholtz's First Theorem states that vortex lines (lines everywhere tangent to the vorticity vector $\\boldsymbol{\\omega}$) must either form closed loops within the fluid or extend to the boundaries of the fluid. They cannot begin or end in the interior of the fluid. This implies that the 'strength' of a vortex tube is conserved along its length.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions does Kelvin's Circulation Theorem state that circulation $\\Gamma$ around a material loop is conserved?",
+      "back": "Kelvin's Circulation Theorem states that for an inviscid (no viscosity), barotropic (density is a function of pressure only) fluid subject to conservative body forces (e.g., gravity), the circulation $\\Gamma$ around any closed material curve (a curve that always consists of the same fluid particles) remains constant in time. Mathematically: $\\frac{D\\Gamma}{Dt} = 0$. This theorem is crucial for understanding the persistence of vortices.",
+      "difficulty": "hard"
+    }
+  ]
+}

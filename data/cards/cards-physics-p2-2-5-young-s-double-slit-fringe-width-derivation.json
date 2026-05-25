@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-5-young-s-double-slit-fringe-width-derivation",
+  "subtopicTitle": "Young's double slit — fringe width derivation",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:04:38.553Z",
+  "cards": [
+    {
+      "front": "What are the essential components of Young's Double Slit Experiment (YDSE)?",
+      "back": "A monochromatic light source, two narrow slits ($S_1, S_2$) separated by a small distance ($d$), and a screen placed at a distance ($D$) from the slits.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental wave phenomenon is demonstrated by Young's Double Slit Experiment?",
+      "back": "Interference of light waves, specifically the superposition of coherent waves leading to a stable interference pattern (alternating bright and dark fringes).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In YDSE, for a point P on the screen at a vertical distance $y$ from the central axis, what is the path difference between the waves from $S_1$ and $S_2$?",
+      "back": "The path difference is $\\Delta x = S_2P - S_1P$. For small angles (paraxial approximation), this can be approximated as $\\Delta x \\approx \\frac{yd}{D}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the condition for constructive interference (bright fringes) in YDSE in terms of path difference ($\\Delta x$) and wavelength ($\\lambda$).",
+      "back": "For constructive interference, the path difference must be an integer multiple of the wavelength: $\\Delta x = n\\lambda$, where $n = 0, \\pm 1, \\pm 2, \\dots$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the condition for destructive interference (dark fringes) in YDSE in terms of path difference ($\\Delta x$) and wavelength ($\\lambda$).",
+      "back": "For destructive interference, the path difference must be an odd half-integer multiple of the wavelength: $\\Delta x = (n + \\frac{1}{2})\\lambda$, where $n = 0, \\pm 1, \\pm 2, \\dots$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the position ($y_n$) of the $n$-th bright fringe from the central maximum in YDSE.",
+      "back": "For constructive interference, $\\Delta x = n\\lambda$. Using the small angle approximation for path difference, $\\Delta x \\approx \\frac{y_n d}{D}$. Equating these: $\\frac{y_n d}{D} = n\\lambda$. Solving for $y_n$: $$y_n = \\frac{n\\lambda D}{d}$$ where $n=0, \\pm 1, \\pm 2, \\dots$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the formula for the fringe width ($\\beta$) in Young's Double Slit Experiment.",
+      "back": "Fringe width ($\\beta$) is the distance between two consecutive bright fringes (or two consecutive dark fringes). Position of $n$-th bright fringe: $y_n = \\frac{n\\lambda D}{d}$. Position of $(n+1)$-th bright fringe: $y_{n+1} = \\frac{(n+1)\\lambda D}{d}$. $\\beta = y_{n+1} - y_n = \\frac{(n+1)\\lambda D}{d} - \\frac{n\\lambda D}{d}$ $$\\beta = \\frac{\\lambda D}{d}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "List the factors that directly affect the fringe width ($\\beta$) in YDSE and how they influence it (increase/decrease).",
+      "back": "1. **Wavelength ($\\lambda$)**: $\\beta \\propto \\lambda$. Longer wavelength $\\implies$ wider fringes.\n2. **Distance to screen ($D$)**: $\\beta \\propto D$. Larger $D \\implies$ wider fringes.\n3. **Slit separation ($d$)**: $\\beta \\propto \\frac{1}{d}$. Larger $d \\implies$ narrower fringes.\n(Also, the refractive index of the medium, if not vacuum/air, would affect $\\lambda$ and thus $\\beta$.)",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-1-normal-shock-waves-rankine-hugoniot-relations-all-5-derivations",
+  "subtopicTitle": "Normal shock waves — Rankine-Hugoniot relations (all 5) — derivations",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:41.262Z",
+  "cards": [
+    {
+      "front": "Define a normal shock wave, including its orientation relative to the flow and its effect on flow properties.",
+      "back": "A normal shock wave is a thin region (on the order of a few mean free paths) in a supersonic flow where the flow properties change nearly discontinuously. It is oriented perpendicular (normal) to the local flow direction. Across a normal shock, the flow decelerates from supersonic to subsonic, and pressure, temperature, and density increase, while total pressure decreases.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Rankine-Hugoniot relation for conservation of mass across a normal shock wave, using $\\rho$, $u$, and subscripts 1 (upstream) and 2 (downstream).",
+      "back": "The Rankine-Hugoniot relation for conservation of mass (continuity) across a normal shock wave is:\n$$ \\rho_1 u_1 = \\rho_2 u_2 $$\nThis states that the mass flux per unit area remains constant across the shock.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the Rankine-Hugoniot relation for conservation of mass across a normal shock, using a steady control volume approach.",
+      "back": "Consider a steady, one-dimensional flow through a control volume encompassing the normal shock.\nFrom the integral form of the conservation of mass equation for steady flow:\n$$ \\oint_{CS} \\rho \\vec{V} \\cdot d\\vec{A} = 0 $$\nFor a 1D flow across a shock with uniform properties at inlet (1) and outlet (2) and cross-sectional area $A$:\n$$ -(\\rho_1 u_1 A) + (\\rho_2 u_2 A) = 0 $$\nSince $A$ is constant across a normal shock (it's a plane perpendicular to flow), we can divide by $A$:\n$$ \\rho_1 u_1 = \\rho_2 u_2 $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Rankine-Hugoniot relation for conservation of momentum across a normal shock, including pressure $P$ and velocity $u$.",
+      "back": "The Rankine-Hugoniot relation for conservation of momentum across a normal shock wave is:\n$$ P_1 + \\rho_1 u_1^2 = P_2 + \\rho_2 u_2^2 $$\nThis relation balances the pressure forces and momentum flux across the shock.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Rankine-Hugoniot relation for conservation of momentum across a normal shock, using a steady control volume approach.",
+      "back": "Consider a steady, one-dimensional flow through a control volume encompassing the normal shock.\nFrom the integral form of the conservation of momentum equation for steady flow in the x-direction:\n$$ \\sum F_x = \\oint_{CS} (\\rho \\vec{V} \\cdot d\\vec{A}) u_x $$\nThe forces acting on the control volume are pressure forces. Assuming uniform pressure at inlet and outlet:\n$$ P_1 A - P_2 A = (\\rho_2 u_2 A) u_2 - (\\rho_1 u_1 A) u_1 $$\nDividing by $A$:\n$$ P_1 - P_2 = \\rho_2 u_2^2 - \\rho_1 u_1^2 $$\nRearranging gives:\n$$ P_1 + \\rho_1 u_1^2 = P_2 + \\rho_2 u_2^2 $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the Rankine-Hugoniot relation for conservation of energy across a normal shock, using enthalpy $h$ and velocity $u$.",
+      "back": "The Rankine-Hugoniot relation for conservation of energy across a normal shock wave is:\n$$ h_1 + \\frac{u_1^2}{2} = h_2 + \\frac{u_2^2}{2} $$\nThis is equivalent to stating that the stagnation (total) enthalpy remains constant across the shock: $h_{01} = h_{02}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Rankine-Hugoniot relation for conservation of energy across a normal shock, using a steady control volume approach.",
+      "back": "Consider a steady, one-dimensional flow through a control volume encompassing the normal shock. Assume no heat transfer or work done.\nFrom the integral form of the conservation of energy equation for steady flow:\n$$ \\dot{Q} - \\dot{W}_s = \\oint_{CS} \\left(h + \\frac{V^2}{2} + gz\\right) \\rho \\vec{V} \\cdot d\\vec{A} $$\nIgnoring potential energy changes ($gz$) and assuming $\\dot{Q}=0, \\dot{W}_s=0$:\n$$ 0 = \\left(h_2 + \\frac{u_2^2}{2}\\right) (\\rho_2 u_2 A) - \\left(h_1 + \\frac{u_1^2}{2}\\right) (\\rho_1 u_1 A) $$\nSince $\\rho_1 u_1 A = \\rho_2 u_2 A$ (from mass conservation), we can divide by the mass flow rate:\n$$ h_1 + \\frac{u_1^2}{2} = h_2 + \\frac{u_2^2}{2} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Besides conservation of mass, momentum, and energy, what are the other two fundamental relations used in the Rankine-Hugoniot analysis?",
+      "back": "The other two fundamental relations are:\n1.  **Equation of State:** For an ideal gas, $P = \\rho R T$. This relates pressure, density, and temperature.\n2.  **Entropy Relation:** The second law of thermodynamics dictates that entropy must increase across a normal shock wave, i.e., $s_2 > s_1$. This implies that the process is irreversible.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the entropy change across a normal shock wave and its implication for the shock process.",
+      "back": "The entropy across a normal shock wave *must increase*, i.e., $s_2 > s_1$. This is a direct consequence of the second law of thermodynamics and signifies that the shock process is inherently **irreversible**. The increase in entropy represents the dissipation of mechanical energy into thermal energy due to viscous effects and heat conduction within the very thin shock region. If entropy were to decrease or remain constant, it would violate the second law, meaning a normal shock cannot reduce flow velocity from subsonic to supersonic (a \"rarefaction shock\" is physically impossible).",
+      "difficulty": "hard"
+    }
+  ]
+}

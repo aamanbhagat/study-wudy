@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-metric-tensor-raising-lowering-indices",
+  "subtopicTitle": "Metric tensor — raising/lowering indices",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:03.533Z",
+  "cards": [
+    {
+      "front": "What is the primary role of the covariant metric tensor $g_{\\mu\\nu}$ in tensor calculus, specifically concerning indices?",
+      "back": "It defines the inner product, measures distances and angles, and serves as the \"machine\" for *lowering* indices of tensors, transforming contravariant indices to covariant ones.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental identity relating the covariant metric $g_{\\mu\\nu}$ and contravariant metric $g^{\\mu\\nu}$, involving the Kronecker delta.",
+      "back": "The identity is $g^{\\mu\\rho} g_{\\rho\\nu} = \\delta^\\mu_\\nu$. This shows that $g^{\\mu\\nu}$ is the matrix inverse of $g_{\\mu\\nu}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "To raise a covariant index $\\nu$ of a tensor $T_{\\mu\\nu\\rho}$, which form of the metric tensor is used, and what is the resulting formula?",
+      "back": "The contravariant metric tensor $g^{\\nu\\sigma}$ is used. The formula is $T_{\\mu\\nu\\rho} \\rightarrow g^{\\nu\\sigma} T_{\\mu\\sigma\\rho}$. The index $\\sigma$ is now contravariant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "To lower a contravariant index $\\mu$ of a tensor $T^{\\mu\\nu}_{\\rho}$, which form of the metric tensor is used, and what is the resulting formula?",
+      "back": "The covariant metric tensor $g_{\\mu\\sigma}$ is used. The formula is $T^{\\mu\\nu}_{\\rho} \\rightarrow g_{\\mu\\sigma} T^{\\sigma\\nu}_{\\rho}$. The index $\\sigma$ is now covariant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the crucial role of the identity $g^{\\mu\\rho} g_{\\rho\\nu} = \\delta^\\mu_\\nu$ in demonstrating that raising and lowering operations are inverses of each other.",
+      "back": "If we lower a contravariant vector $A^\\nu \\rightarrow A_\\rho = g_{\\rho\\nu} A^\\nu$, then raising $A_\\rho$ back should yield $A^\\nu$. Indeed, $g^{\\mu\\rho} A_\\rho = g^{\\mu\\rho} (g_{\\rho\\nu} A^\\nu) = (g^{\\mu\\rho} g_{\\rho\\nu}) A^\\nu = \\delta^\\mu_\\nu A^\\nu = A^\\mu$. This confirms the inverse relationship.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the context of a vector space and its dual, what does the operation of \"raising an index\" of a covector $v_\\mu$ using $g^{\\mu\\nu}$ represent geometrically?",
+      "back": "It represents the canonical isomorphism between the vector space $V$ and its dual space $V^*$. The metric tensor $g^{\\mu\\nu}$ provides a way to uniquely associate a covector $v_\\mu \\in V^*$ (a linear functional) with a corresponding vector $v^\\mu \\in V$ (an element of the tangent space).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a flat spacetime with a diagonal metric $g_{\\mu\\nu} = \\text{diag}(-1, 1, 1, 1)$, how would you raise the index of a covariant vector $A_\\mu = (A_0, A_1, A_2, A_3)$?",
+      "back": "The contravariant metric $g^{\\mu\\nu}$ is also $\\text{diag}(-1, 1, 1, 1)$. To raise the index, we use $A^\\mu = g^{\\mu\\nu} A_\\nu$. This yields $A^0 = g^{00}A_0 = -A_0$, and $A^i = g^{ii}A_i = A_i$ for $i=1,2,3$. So, $A^\\mu = (-A_0, A_1, A_2, A_3)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the metric tensor facilitate the definition of the inner product (dot product) between two contravariant vectors $U^\\mu$ and $V^\\nu$?",
+      "back": "The inner product requires one vector to be covariant and one contravariant, e.g., $U^\\mu V_\\mu$. To use two contravariant vectors, one must be lowered using $g_{\\mu\\nu}$: $V_\\mu = g_{\\mu\\nu} V^\\nu$. Thus, the inner product is $U \\cdot V = U^\\mu V_\\mu = U^\\mu (g_{\\mu\\nu} V^\\nu) = g_{\\mu\\nu} U^\\mu V^\\nu$.",
+      "difficulty": "medium"
+    }
+  ]
+}

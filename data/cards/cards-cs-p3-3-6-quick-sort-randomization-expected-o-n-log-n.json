@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p3-3-6-quick-sort-randomization-expected-o-n-log-n",
+  "subtopicTitle": "Quick sort randomization — expected O(n log n)",
+  "topicId": "cs-p3-3-6-sorting-searching",
+  "topicTitle": "Sorting & Searching",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:25.660Z",
+  "cards": [
+    {
+      "front": "What is the worst-case time complexity of deterministic Quick Sort, and when does it typically occur?",
+      "back": "The worst-case time complexity for deterministic Quick Sort is $O(n^2)$. It occurs when the pivot selection consistently results in highly unbalanced partitions (e.g., always picking the smallest or largest element, or an already sorted/reverse-sorted array).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How does randomized Quick Sort typically modify the pivot selection process compared to deterministic versions?",
+      "back": "Instead of choosing a fixed pivot (e.g., first, last, or median-of-three), randomized Quick Sort selects a pivot uniformly at random from the subarray being sorted. This ensures that the worst-case pivot choice is not systematically triggered by specific input patterns.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the *expected* time complexity of randomized Quick Sort, and why is the term 'expected' crucial?",
+      "back": "The expected time complexity of randomized Quick Sort is $O(n \\log n)$. 'Expected' is crucial because the actual running time can still be $O(n^2)$ in rare cases (due to unlucky random pivot choices), but the *average* performance over all possible random choices (for any given input) is $O(n \\log n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, how does random pivot selection help Quick Sort achieve an expected $O(n \\log n)$ time complexity?",
+      "back": "Random selection ensures that, on average, the pivot is 'good' (i.e., it partitions the array into roughly equal halves) a significant fraction of the time. Even if some pivots are bad, they are unlikely to be consistently bad across all recursive calls. This prevents the recursion depth from growing too deep and the total work from accumulating to $O(n^2)$, leading to a logarithmic depth on average.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider the recurrence for Quick Sort: $T(n) = T(k) + T(n-k-1) + O(n)$. How does randomization change the *nature* of this recurrence to yield $O(n \\log n)$ expected time?",
+      "back": "For deterministic Quick Sort, $k$ is fixed by the input, potentially leading to $k=0$ or $k=n-1$ (worst-case). With randomization, $k$ becomes a random variable, uniformly distributed from $0$ to $n-1$. The recurrence becomes an *expected* recurrence: $E[T(n)] = E[T(k)] + E[T(n-k-1)] + O(n)$. By averaging over all possible $k$, it can be shown that $E[T(n)] \\approx \\frac{2}{n} \\sum_{k=0}^{n-1} (E[T(k)] + E[T(n-k-1)]) + O(n)$, which resolves to $O(n \\log n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a small Python code snippet demonstrating how a random pivot would be chosen and swapped into position for a Quick Sort partition function.",
+      "back": "```python\nimport random\n\ndef randomized_partition(arr, low, high):\n    # Choose a random index between low and high (inclusive)\n    random_idx = random.randint(low, high)\n    # Swap the random element with the last element (or first, or whatever the partition expects)\n    arr[random_idx], arr[high] = arr[high], arr[random_idx]\n    # Now proceed with standard partition logic using arr[high] as pivot\n    pivot = arr[high]\n    i = low - 1\n    for j in range(low, high):\n        if arr[j] <= pivot:\n            i += 1\n            arr[i], arr[j] = arr[j], arr[i]\n    arr[i + 1], arr[high] = arr[high], arr[i + 1]\n    return i + 1\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is randomized Quick Sort generally preferred over deterministic Quick Sort in practice, despite both having an average-case $O(n \\log n)$?",
+      "back": "Deterministic Quick Sort's average case $O(n \\log n)$ depends on the *input distribution* being random. If the input is adversarial (e.g., nearly sorted, or specifically crafted to trigger worst-case pivots), deterministic Quick Sort degrades to $O(n^2)$. Randomized Quick Sort, however, makes its own choices (the pivots) randomly. This means its $O(n \\log n)$ performance is *expected* for *any* input, as the worst-case input for one set of random choices is highly unlikely to be the worst-case for another set. It offers a strong guarantee against adversarial inputs.",
+      "difficulty": "hard"
+    }
+  ]
+}

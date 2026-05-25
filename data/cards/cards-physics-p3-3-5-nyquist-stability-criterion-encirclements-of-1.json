@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-nyquist-stability-criterion-encirclements-of-1",
+  "subtopicTitle": "Nyquist stability criterion — encirclements of -1",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:25.963Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of the Nyquist stability criterion in control systems?",
+      "back": "The Nyquist stability criterion is used to determine the stability of a closed-loop system from its open-loop transfer function $G(s)H(s)$ by analyzing the encirclements of the critical point $(-1, 0)$ in the Nyquist plot.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the \"critical point\" on the Nyquist plot, and what does it physically represent?",
+      "back": "The critical point is $(-1, 0)$ in the complex plane. It represents the condition where the open-loop gain $G(s)H(s)$ is exactly $-1$. This means $1 + G(s)H(s) = 0$, which is the characteristic equation for the closed-loop system, indicating a pole at this frequency and thus potential instability (infinite closed-loop gain).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Nyquist stability criterion formula relating $Z$, $P$, and $N$, and define each term.",
+      "back": "The formula is $Z = P - N$.\n*   $Z$: Number of closed-loop poles in the Right Half Plane (RHP). For closed-loop stability, $Z$ must be 0.\n*   $P$: Number of open-loop poles of $G(s)H(s)$ in the RHP.\n*   $N$: Number of clockwise encirclements of the critical point $(-1, 0)$ by the Nyquist plot. Counter-clockwise encirclements are counted as negative.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A system's open-loop transfer function $G(s)H(s)$ has 1 pole in the RHP ($P=1$). Its Nyquist plot shows 1 clockwise encirclement of the critical point $(-1, 0)$. Is the closed-loop system stable?",
+      "back": "Using the Nyquist criterion $Z = P - N$:\n*   $P = 1$ (open-loop poles in RHP)\n*   $N = 1$ (clockwise encirclements)\n*   $Z = 1 - 1 = 0$\nSince $Z=0$, there are no closed-loop poles in the RHP, so the closed-loop system is **stable**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain intuitively why the Nyquist criterion focuses on encirclements of the point $(-1, 0)$ in the complex plane.",
+      "back": "The stability of a closed-loop system is determined by the roots of its characteristic equation: $1 + G(s)H(s) = 0$. This equation implies $G(s)H(s) = -1$. The Nyquist plot maps the Nyquist contour (which encloses the entire RHP in the s-plane) to the $G(s)H(s)$-plane. According to the Argument Principle, the number of encirclements of $-1$ in the $G(s)H(s)$-plane directly relates to the number of zeros minus the number of poles of $1 + G(s)H(s)$ within the s-plane contour. These zeros are the closed-loop poles, and poles are the open-loop poles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What specific modification must be made to the Nyquist contour if the open-loop transfer function $G(s)H(s)$ has poles on the imaginary axis?",
+      "back": "If $G(s)H(s)$ has poles on the imaginary axis (e.g., at $s=0$ or $s=\\pm j\\omega$), the standard Nyquist contour must be modified. Small semicircles of infinitesimal radius $\\epsilon$ are indented into the Right Half Plane (RHP) around each such pole. This ensures that these poles are excluded from the interior of the contour, preventing the contour from passing directly through a pole where $G(s)H(s)$ would become infinite, and allowing the Argument Principle to be applied correctly.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A Nyquist plot for an open-loop stable system ($P=0$) shows one counter-clockwise encirclement of the critical point $(-1, 0)$. Is the closed-loop system stable? Justify your answer.",
+      "back": "Using the Nyquist criterion $Z = P - N$:\n*   $P = 0$ (open-loop stable)\n*   $N = -1$ (one counter-clockwise encirclement)\n*   $Z = 0 - (-1) = 1$\nSince $Z=1$, there is one closed-loop pole in the RHP. Therefore, the closed-loop system is **unstable**. This demonstrates that even an open-loop stable system can become unstable in a closed-loop configuration if the feedback introduces sufficient phase shift and gain.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How do you visually count the number of encirclements ($N$) of the critical point $(-1, 0)$ on a Nyquist plot?",
+      "back": "To count $N$, imagine a vector originating from the critical point $(-1, 0)$ and terminating on the Nyquist plot as you traverse it in the direction corresponding to the Nyquist contour (usually from $\\omega=0^+$ to $\\omega=\\infty$, then along the infinite semicircle, then from $\\omega=-\\infty$ to $\\omega=0^-$). Count the net number of full $360^\\circ$ rotations (complete revolutions) this vector makes. Clockwise rotations are counted as positive, and counter-clockwise rotations are counted as negative.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p2-2-3-distance-from-a-point-to-a-line",
+  "subtopicTitle": "Distance from a point to a line",
+  "topicId": "math-p2-2-3-coordinate-geometry",
+  "topicTitle": "Coordinate Geometry",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:06.367Z",
+  "cards": [
+    {
+      "front": "What is the geometric definition of the \"distance from a point to a line\"?",
+      "back": "It is the length of the perpendicular line segment from the point to the line. This represents the shortest possible distance between the given point and any point on the line.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for the distance $d$ from a point $(x_0, y_0)$ to a line given by the general equation $Ax + By + C = 0$.",
+      "back": "The distance $d$ is given by: $$d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Calculate the distance from the point $(3, -2)$ to the line $4x - 3y + 5 = 0$.",
+      "back": "Using the formula $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$:\n$A=4, B=-3, C=5$, and $(x_0, y_0) = (3, -2)$.\n$d = \\frac{|4(3) + (-3)(-2) + 5|}{\\sqrt{4^2 + (-3)^2}}$\n$d = \\frac{|12 + 6 + 5|}{\\sqrt{16 + 9}}$\n$d = \\frac{|23|}{\\sqrt{25}}$\n$d = \\frac{23}{5}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the key steps to derive the distance formula $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$ using vector projection.",
+      "back": "1.  Let the point be $P(x_0, y_0)$ and the line $L: Ax+By+C=0$. Pick any point $Q(x_1, y_1)$ on $L$.\n2.  Form the vector $\\vec{QP} = (x_0-x_1, y_0-y_1)$.\n3.  The normal vector to the line $L$ is $\\vec{n} = (A, B)$.\n4.  The distance $d$ is the magnitude of the projection of $\\vec{QP}$ onto $\\vec{n}$: $d = \\frac{|\\vec{QP} \\cdot \\vec{n}|}{|\\|\\vec{n}\\||}$.\n5.  Substitute: $d = \\frac{|A(x_0-x_1) + B(y_0-y_1)|}{\\sqrt{A^2+B^2}}$.\n6.  Since $Q(x_1, y_1)$ is on $L$, $Ax_1+By_1+C=0 \\implies -Ax_1-By_1 = C$. Substitute this into the numerator: $d = \\frac{|Ax_0 + By_0 - (Ax_1+By_1)|}{\\sqrt{A^2+B^2}} = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2+B^2}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the distance from a point $(x_0, y_0)$ to the vertical line $x=k$?",
+      "back": "The line $x=k$ can be written as $1x + 0y - k = 0$. Using the distance formula with $A=1, B=0, C=-k$:\n$$d = \\frac{|1 \\cdot x_0 + 0 \\cdot y_0 - k|}{\\sqrt{1^2 + 0^2}} = \\frac{|x_0 - k|}{1} = |x_0 - k|$$\nGeometrically, it's simply the absolute difference between the x-coordinate of the point and the x-intercept of the line.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you find the distance between two parallel lines, $L_1: Ax + By + C_1 = 0$ and $L_2: Ax + By + C_2 = 0$?",
+      "back": "1.  Choose any point on one of the lines. For instance, on $L_1$, if $B \\neq 0$, set $x=0$ to find $y=-C_1/B$, so $P(0, -C_1/B)$ is on $L_1$. (If $B=0$, then $x=-C_1/A$, so $P(-C_1/A, 0)$.)\n2.  Calculate the distance from this chosen point $P$ to the second line $L_2$ using the point-to-line distance formula.\n    The general formula for the distance between two parallel lines is: $$d = \\frac{|C_2 - C_1|}{\\sqrt{A^2 + B^2}}$$ (assuming the coefficients $A$ and $B$ are the same for both lines).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the distance formula $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$, what does the term $\\sqrt{A^2 + B^2}$ represent geometrically?",
+      "back": "The term $\\sqrt{A^2 + B^2}$ represents the magnitude (length) of the normal vector $(A, B)$ to the line $Ax + By + C = 0$. It acts as a normalization factor, ensuring the distance is measured perpendicularly and is independent of the scaling of the line's equation (e.g., $2Ax+2By+2C=0$ represents the same line but would double the numerator if not normalized).",
+      "difficulty": "medium"
+    }
+  ]
+}

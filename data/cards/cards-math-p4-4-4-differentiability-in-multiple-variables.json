@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-4-differentiability-in-multiple-variables",
+  "subtopicTitle": "Differentiability in multiple variables",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:16:24.568Z",
+  "cards": [
+    {
+      "front": "Define differentiability for a function $f: \\mathbb{R}^n \\to \\mathbb{R}$ at a point $\\mathbf{a}$.",
+      "back": "A function $f$ is differentiable at $\\mathbf{a}$ if there exists a vector $\\mathbf{L} \\in \\mathbb{R}^n$ (the gradient $\\nabla f(\\mathbf{a})$) such that: $$\\lim_{\\mathbf{h} \\to \\mathbf{0}} \\frac{f(\\mathbf{a} + \\mathbf{h}) - f(\\mathbf{a}) - \\mathbf{L} \\cdot \\mathbf{h}}{\\|\\mathbf{h}\\|} = 0$$ This means $f(\\mathbf{a} + \\mathbf{h}) \\approx f(\\mathbf{a}) + \\mathbf{L} \\cdot \\mathbf{h}$ for small $\\mathbf{h}$, providing a good linear approximation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Geometrically, what does differentiability of $f(x,y)$ at $(a,b)$ imply about its graph?",
+      "back": "Differentiability of $f(x,y)$ at $(a,b)$ implies that the graph of $f$ has a unique (non-vertical) tangent plane at the point $(a,b,f(a,b))$. The equation of this tangent plane is given by $z - f(a,b) = f_x(a,b)(x-a) + f_y(a,b)(y-b)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If all partial derivatives $\\frac{\\partial f}{\\partial x_i}$ exist at a point $\\mathbf{a}$, is $f$ necessarily differentiable at $\\mathbf{a}$? Explain.",
+      "back": "No. The existence of all partial derivatives at a point does not guarantee differentiability. For example, consider $f(x,y) = \\begin{cases} \\frac{xy}{x^2+y^2} & (x,y) \\neq (0,0) \\\\ 0 & (x,y) = (0,0) \\end{cases}$. Both $f_x(0,0)$ and $f_y(0,0)$ exist (and are 0), but $f$ is not continuous (and thus not differentiable) at $(0,0)$ because the limit as $(x,y) \\to (0,0)$ along $y=x$ is $1/2$, not $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State a sufficient condition for a function $f: \\mathbb{R}^n \\to \\mathbb{R}$ to be differentiable at a point $\\mathbf{a}$.",
+      "back": "If all first-order partial derivatives of $f$ exist and are continuous in an open neighborhood containing $\\mathbf{a}$, then $f$ is differentiable at $\\mathbf{a}$. Such functions are often called $C^1$ functions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a function $f: \\mathbb{R}^n \\to \\mathbb{R}^m$ is differentiable at a point $\\mathbf{a}$, what can be concluded about its continuity at $\\mathbf{a}$?",
+      "back": "If $f$ is differentiable at $\\mathbf{a}$, then $f$ is necessarily continuous at $\\mathbf{a}$. Differentiability is a stronger condition than continuity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a differentiable function $f: \\mathbb{R}^n \\to \\mathbb{R}^m$ at $\\mathbf{a}$, what is the matrix representation of its total derivative, also known as the Jacobian matrix?",
+      "back": "The Jacobian matrix $J_f(\\mathbf{a})$ is an $m \\times n$ matrix whose $(i,j)$-th entry is the partial derivative of the $i$-th component function $f_i$ with respect to the $j$-th variable $x_j$, evaluated at $\\mathbf{a}$: $$J_f(\\mathbf{a}) = \\begin{pmatrix} \\frac{\\partial f_1}{\\partial x_1}(\\mathbf{a}) & \\dots & \\frac{\\partial f_1}{\\partial x_n}(\\mathbf{a}) \\\\ \\vdots & \\ddots & \\vdots \\\\ \\frac{\\partial f_m}{\\partial x_1}(\\mathbf{a}) & \\dots & \\frac{\\partial f_m}{\\partial x_n}(\\mathbf{a}) \\end{pmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Determine if $f(x,y) = x^2 y + e^{xy}$ is differentiable at $(1,0)$. Justify your answer.",
+      "back": "Yes, $f(x,y)$ is differentiable at $(1,0)$.\nFirst, find the partial derivatives:\n$f_x(x,y) = 2xy + y e^{xy}$\n$f_y(x,y) = x^2 + x e^{xy}$\nBoth $f_x(x,y)$ and $f_y(x,y)$ are compositions and products of polynomials and exponential functions, which are continuous everywhere. Since the partial derivatives exist and are continuous in a neighborhood of $(1,0)$ (in fact, everywhere), $f$ is differentiable at $(1,0)$ by the sufficient condition for differentiability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider $f(x,y) = \\begin{cases} \\frac{x^3}{x^2+y^2} & (x,y) \\neq (0,0) \\\\ 0 & (x,y) = (0,0) \\end{cases}$. Show that $f_x(0,0)$ and $f_y(0,0)$ exist, but $f$ is not differentiable at $(0,0)$.",
+      "back": "1.  **Existence of Partial Derivatives:**\n    $f_x(0,0) = \\lim_{h \\to 0} \\frac{f(h,0)-f(0,0)}{h} = \\lim_{h \\to 0} \\frac{h^3/h^2 - 0}{h} = \\lim_{h \\to 0} \\frac{h}{h} = 1$.\n    $f_y(0,0) = \\lim_{k \\to 0} \\frac{f(0,k)-f(0,0)}{k} = \\lim_{k \\to 0} \\frac{0 - 0}{k} = 0$.\n    Both partial derivatives exist at $(0,0)$.\n\n2.  **Check Differentiability:**\n    For $f$ to be differentiable at $(0,0)$, the following limit must be 0:\n    $$\\lim_{(h,k) \\to (0,0)} \\frac{f(h,k) - f(0,0) - (f_x(0,0)h + f_y(0,0)k)}{\\sqrt{h^2+k^2}}$$ \n    Substituting the values:\n    $$\\lim_{(h,k) \\to (0,0)} \\frac{\\frac{h^3}{h^2+k^2} - 0 - (1h + 0k)}{\\sqrt{h^2+k^2}}$$ \n    $$= \\lim_{(h,k) \\to (0,0)} \\frac{h^3 - h(h^2+k^2)}{(h^2+k^2)\\sqrt{h^2+k^2}} = \\lim_{(h,k) \\to (0,0)} \\frac{-hk^2}{(h^2+k^2)^{3/2}}$$ \n    Let's test paths. Along $k=mh$:\n    $$ \\lim_{h \\to 0} \\frac{-h(mh)^2}{(h^2+(mh)^2)^{3/2}} = \\lim_{h \\to 0} \\frac{-m^2h^3}{(h^2(1+m^2))^{3/2}} = \\lim_{h \\to 0} \\frac{-m^2h^3}{|h|^3(1+m^2)^{3/2}} = \\frac{-m^2}{(1+m^2)^{3/2}} \\cdot \\text{sgn}(h) $$ \n    This limit depends on $m$ and the direction of $h$ (left/right). For instance, if $m=1$, it's $-1/(2\\sqrt{2})$ or $1/(2\\sqrt{2})$. Since the limit is not 0 and depends on the path, $f$ is not differentiable at $(0,0)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-2-tension-in-inextensible-strings",
+  "subtopicTitle": "Tension in inextensible strings",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:21:44.706Z",
+  "cards": [
+    {
+      "front": "In physics, what is \"tension\" and in what direction does it always act relative to the object it's pulling?",
+      "back": "Tension ($T$) is the pulling force transmitted axially by an inextensible string, cable, chain, or similar one-dimensional continuous object. It always acts *away* from the object it is pulling, along the line of the string.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What crucial assumption about motion can be made for objects connected by an \"inextensible\" string?",
+      "back": "For objects connected by an inextensible string, their accelerations along the line of the string must be equal in magnitude. This is because the length of the string remains constant, so the relative velocity and acceleration of the points where it attaches to the objects must be zero along the string's direction.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When can we assume that the tension is uniform throughout the entire length of an inextensible string?",
+      "back": "Tension is uniform throughout an inextensible string if the string itself is considered *massless*. If the string has mass, the tension will vary along its length, particularly if it's accelerating or subject to gravity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the forces (including tension) in the Free Body Diagrams (FBDs) for two blocks, $m_1$ and $m_2$, connected by a horizontal inextensible string, with $m_2$ being pulled by an external force $F$. Assume a frictionless surface.",
+      "back": "For $m_1$:\n*   Weight ($m_1g$) downwards\n*   Normal force ($N_1$) upwards\n*   Tension ($T$) to the right (pulling $m_1$)\n\nFor $m_2$:\n*   Weight ($m_2g$) downwards\n*   Normal force ($N_2$) upwards\n*   Tension ($T$) to the left (pulling back on $m_2$)\n*   Applied Force ($F$) to the right",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an Atwood machine with two masses $m_1$ and $m_2$ ($m_2 > m_1$) connected by a massless, inextensible string over a frictionless pulley, derive the magnitude of the acceleration of the system.",
+      "back": "Let $a$ be the acceleration.\nFor $m_2$ (moving down): $m_2g - T = m_2a$ (Eq. 1)\nFor $m_1$ (moving up): $T - m_1g = m_1a$ (Eq. 2)\n\nAdd (Eq. 1) and (Eq. 2):\n$(m_2g - T) + (T - m_1g) = m_2a + m_1a$\n$m_2g - m_1g = (m_1 + m_2)a$\n$a = \\frac{(m_2 - m_1)g}{m_1 + m_2}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using the result for acceleration from the previous card, derive the tension $T$ in the string of an Atwood machine with masses $m_1$ and $m_2$.",
+      "back": "From (Eq. 2) in the previous derivation: $T = m_1g + m_1a$\nSubstitute $a = \\frac{(m_2 - m_1)g}{m_1 + m_2}$:\n$T = m_1g + m_1 \\left( \\frac{(m_2 - m_1)g}{m_1 + m_2} \\right)$\n$T = m_1g \\left( 1 + \\frac{m_2 - m_1}{m_1 + m_2} \\right)$\n$T = m_1g \\left( \\frac{m_1 + m_2 + m_2 - m_1}{m_1 + m_2} \\right)$\n$T = m_1g \\left( \\frac{2m_2}{m_1 + m_2} \\right)$\n$T = \\frac{2m_1m_2g}{m_1 + m_2}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "An inextensible string of mass $M$ and length $L$ is pulled horizontally by a force $F$ at one end. A block of mass $m$ is attached to the other end. Assuming a frictionless surface, what is the tension in the string at a distance $x$ from the block $m$?",
+      "back": "The total mass being accelerated is $M_{total} = M + m$.\nThe acceleration of the system is $a = \\frac{F}{M_{total}} = \\frac{F}{M+m}$.\n\nConsider a segment of the string of length $x$ attached to block $m$. The mass of this segment is $m_x = \\frac{M}{L}x$.\nThe total mass being pulled by the tension $T(x)$ at distance $x$ from $m$ is $m + m_x = m + \\frac{M}{L}x$.\nApplying Newton's second law to this combined mass:\n$T(x) = (m + \\frac{M}{L}x)a$\nSubstitute $a$:\n$T(x) = (m + \\frac{M}{L}x) \\frac{F}{M+m}$\nThis shows tension varies linearly along a massive string when accelerating. At $x=0$ (at the block), $T(0) = \\frac{mF}{M+m}$. At $x=L$ (at the point where $F$ is applied), $T(L) = \\frac{(m+M)F}{M+m} = F$.",
+      "difficulty": "hard"
+    }
+  ]
+}

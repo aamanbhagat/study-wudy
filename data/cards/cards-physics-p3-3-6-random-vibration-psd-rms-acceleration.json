@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-random-vibration-psd-rms-acceleration",
+  "subtopicTitle": "Random vibration — PSD, RMS acceleration",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:56.692Z",
+  "cards": [
+    {
+      "front": "Define random vibration and contrast it with deterministic vibration, providing an example of each in spacecraft contexts.",
+      "back": "Random vibration is characterized by amplitude and phase that cannot be predicted precisely at any given time, only statistically. Example: acoustic noise during rocket launch. Deterministic vibration, conversely, is predictable and can be described by a mathematical function (e.g., sinusoidal, periodic). Example: vibration from a rotating unbalanced reaction wheel.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does PSD stand for, and what are its standard units when characterizing acceleration in spacecraft vibration analysis?",
+      "back": "PSD stands for Power Spectral Density. For acceleration, its standard units are typically $(\\text{g}^2/\\text{Hz})$ or $((\\text{m/s}^2)^2/\\text{Hz})$. It quantifies how the power (or mean square value) of a random signal is distributed over different frequencies.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain why Power Spectral Density (PSD) is a crucial tool for analyzing random vibration in spacecraft structures, rather than just time-domain plots.",
+      "back": "PSD is crucial because it characterizes the distribution of a signal's power (or mean square value) across different frequencies. This frequency-domain representation reveals which frequencies contribute most to the vibration energy, allowing engineers to identify potential resonance issues with spacecraft components and assess fatigue life more effectively than a complex, unpredictable time-domain signal.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an acceleration PSD function $G_{aa}(f)$, provide the formula to calculate the overall Root Mean Square (RMS) acceleration. What does RMS acceleration physically represent?",
+      "back": "The overall RMS acceleration $a_{RMS}$ is calculated by integrating the PSD function over the frequency range of interest and taking the square root:\n$$a_{RMS} = \\sqrt{\\int_{f_1}^{f_2} G_{aa}(f) \\, df}$$\nPhysically, RMS acceleration represents the standard deviation of the acceleration signal. It is a measure of the overall \"intensity\" or \"power\" of the random vibration, directly related to the energy content and potential for structural damage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A spacecraft component has a critical natural frequency at 750 Hz. If a random vibration test specification provides an acceleration PSD profile, what specific feature of this PSD would be most concerning for this component?",
+      "back": "A prominent peak in the acceleration PSD profile around 750 Hz would be most concerning. This indicates that a significant amount of vibration energy is concentrated at the component's natural frequency, which could lead to large amplitude responses, high dynamic stresses, and potential fatigue failure or structural damage due to resonance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the relationship between the variance of a zero-mean stationary random vibration signal $x(t)$ and its one-sided Power Spectral Density $G_{xx}(f)$.",
+      "back": "For a zero-mean stationary random process $x(t)$, its variance $\\sigma_x^2$ is equal to its mean square value $E[x^2(t)]$. By the Wiener-Khinchin theorem, the autocorrelation function $R_{xx}(\\tau)$ and the two-sided PSD $S_{xx}(f)$ are a Fourier transform pair. The variance is $R_{xx}(0)$:\n$$\\sigma_x^2 = R_{xx}(0) = \\int_{-\\infty}^{\\infty} S_{xx}(f) \\, df$$\nFor a real-valued signal, $S_{xx}(f)$ is symmetric. The one-sided PSD $G_{xx}(f)$ is defined as $G_{xx}(f) = 2 S_{xx}(f)$ for $f > 0$ and $G_{xx}(f) = 0$ for $f < 0$. Thus, the integral becomes:\n$$\\sigma_x^2 = \\int_{0}^{\\infty} G_{xx}(f) \\, df$$\nSince RMS is $\\sqrt{\\text{variance}}$, $a_{RMS} = \\sqrt{\\int_{0}^{\\infty} G_{xx}(f) \\, df}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is it common practice to specify random vibration levels in terms of RMS acceleration rather than peak acceleration for spacecraft design and testing?",
+      "back": "Random vibration signals are non-deterministic; their instantaneous peak values are highly unpredictable and can theoretically reach very high levels, making them impractical for design. RMS acceleration, however, is a statistical measure (the standard deviation of the signal) that provides a consistent and repeatable representation of the signal's overall energy content. It's directly related to the power and potential for fatigue damage, making it a more reliable and robust metric for structural design and qualification testing.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A spacecraft structure is subjected to a random vibration test with a constant acceleration PSD of $0.06 \\, \\text{g}^2/\\text{Hz}$ from 20 Hz to 2000 Hz. Calculate the overall RMS acceleration.",
+      "back": "The overall RMS acceleration is calculated by integrating the PSD over the frequency range:\n$$a_{RMS} = \\sqrt{\\int_{f_1}^{f_2} \\text{PSD}(f) \\, df}$$\nGiven a constant PSD:\n$$a_{RMS} = \\sqrt{0.06 \\, \\text{g}^2/\\text{Hz} \\times (2000 \\, \\text{Hz} - 20 \\, \\text{Hz})}$$\n$$a_{RMS} = \\sqrt{0.06 \\, \\text{g}^2/\\text{Hz} \\times 1980 \\, \\text{Hz}}$$\n$$a_{RMS} = \\sqrt{118.8 \\, \\text{g}^2}$$\n$$a_{RMS} \\approx 10.90 \\, \\text{g}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p1-1-1-absolute-value-modulus-definition-number-line-interpretation",
+  "subtopicTitle": "Absolute value / modulus — definition, number line interpretation",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:41.114Z",
+  "cards": [
+    {
+      "front": "What is the formal piecewise definition of the absolute value of a real number $x$, denoted as $|x|$?",
+      "back": "$$|x| = \\begin{cases} x & \\text{if } x \\ge 0 \\\\ -x & \\text{if } x < 0 \\end{cases}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Intuitively, what does $|x|$ represent on the number line?",
+      "back": "$|x|$ represents the distance of the number $x$ from zero on the number line. Distance is always a non-negative value.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Evaluate $|-7|$ and $|3.14|$ using the formal definition.",
+      "back": "For $|-7|$: Since $-7 < 0$, we use the second case of the definition: $|-7| = -(-7) = 7$.\nFor $|3.14|$: Since $3.14 \\ge 0$, we use the first case of the definition: $|3.14| = 3.14$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can the expression $|a-b|$ be interpreted on the number line?",
+      "back": "$|a-b|$ represents the distance between the two real numbers $a$ and $b$ on the number line. This is equivalent to $|b-a|$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the distance between $-5$ and $3$ on the number line, expressed using absolute value notation?",
+      "back": "The distance is $|3 - (-5)| = |3 + 5| = |8| = 8$. Alternatively, it can be expressed as $|-5 - 3| = |-8| = 8$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that for any real number $x$, $|-x| = |x|$.",
+      "back": "We consider two cases based on the definition of absolute value:\n1.  **Case 1: If $x \\ge 0$**\n    By definition, $|x| = x$.\n    Since $x \\ge 0$, then $-x \\le 0$. By definition, $|-x| = -(-x) = x$.\n    Thus, in this case, $|-x| = |x|$.\n2.  **Case 2: If $x < 0$**\n    By definition, $|x| = -x$.\n    Since $x < 0$, then $-x > 0$. By definition, $|-x| = -x$.\n    Thus, in this case, $|-x| = |x|$.\nIn both cases, $|-x| = |x|$ is proven.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the absolute value of zero, and why does it fit the definition?",
+      "back": "$|0| = 0$. According to the formal definition, if $x \\ge 0$, then $|x|=x$. Since $0 \\ge 0$, we apply this case directly, so $|0|=0$. This also aligns with the intuitive interpretation that the distance of $0$ from itself on the number line is $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why the absolute value of any real number is always non-negative.",
+      "back": "The absolute value of a number represents its distance from zero on the number line. Distance is a physical quantity that cannot be negative.\nMathematically, this is guaranteed by the piecewise definition:\n1.  If $x \\ge 0$, then $|x| = x$. In this case, $x$ is already non-negative.\n2.  If $x < 0$, then $|x| = -x$. When $x$ is a negative number (e.g., $x=-5$), $-x$ is a positive number (e.g., $-(-5)=5$). Thus, $-x$ is also non-negative.\nIn both possible cases, the result of the absolute value operation is always greater than or equal to zero.",
+      "difficulty": "hard"
+    }
+  ]
+}

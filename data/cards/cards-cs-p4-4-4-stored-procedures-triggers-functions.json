@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-stored-procedures-triggers-functions",
+  "subtopicTitle": "Stored procedures, triggers, functions",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:52.602Z",
+  "cards": [
+    {
+      "front": "What is a SQL Stored Procedure?",
+      "back": "A stored procedure is a prepared SQL code block that you can save and reuse multiple times. It can accept input parameters, return output parameters, and perform complex operations including DML (Data Manipulation Language) and DDL (Data Definition Language) statements. It's stored in the database and executed on the database server.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a SQL User-Defined Function (UDF)?",
+      "back": "A User-Defined Function (UDF) is a prepared SQL code block that performs a calculation and returns a single scalar value (or a table, for table-valued functions). Unlike stored procedures, UDFs are primarily used in SQL queries (e.g., in `SELECT`, `WHERE`, `HAVING` clauses) and cannot typically perform DML/DDL operations directly or return multiple result sets.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary functional difference between a SQL Stored Procedure and a SQL User-Defined Function regarding return values?",
+      "back": "A SQL Stored Procedure can return zero, one, or multiple result sets, and can also return output parameters. A SQL User-Defined Function, by definition, must return a single scalar value (or a table for table-valued functions). Functions cannot return multiple result sets.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a SQL Trigger and state its primary purpose.",
+      "back": "A SQL Trigger is a special type of stored procedure that automatically executes (fires) when a specific event occurs in the database. Its primary purpose is to enforce business rules, maintain data integrity, audit changes, or automate tasks in response to DML (INSERT, UPDATE, DELETE) or DDL events on a table or view.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the context of SQL triggers, explain the purpose of the `OLD` and `NEW` pseudo-records.",
+      "back": "`OLD` and `NEW` pseudo-records (or aliases like `DELETED` and `INSERTED` in SQL Server) provide access to the data involved in the triggering DML event.\n*   `OLD`: Represents the row *before* an `UPDATE` or `DELETE` operation.\n*   `NEW`: Represents the row *after* an `INSERT` or `UPDATE` operation.\nThey allow the trigger logic to compare values, validate data, or log changes. `OLD` is not available for `INSERT`, and `NEW` is not available for `DELETE`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List three significant benefits of using SQL Stored Procedures, including one related to security.",
+      "back": "1.  **Performance:** Pre-compiled execution plans reduce parsing and optimization overhead, leading to faster execution.\n2.  **Security:** Stored procedures allow granting users permissions to execute the procedure without granting direct permissions to the underlying tables, thus restricting direct data access and preventing SQL injection if parameters are handled correctly.\n3.  **Reusability & Maintainability:** Common logic is encapsulated in one place, reducing code duplication and simplifying maintenance.\n4.  **Reduced Network Traffic:** Instead of sending multiple SQL statements, only the procedure name and parameters are sent over the network.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Describe a practical scenario where a `BEFORE INSERT` or `BEFORE UPDATE` trigger would be more appropriate than application-level validation for data integrity.",
+      "back": "A `BEFORE INSERT` or `BEFORE UPDATE` trigger is ideal for enforcing complex, cross-row, or server-side business rules that *must* be applied regardless of the application inserting or updating data. For example:\n*   **Standardizing Data:** Automatically converting text to uppercase or trimming whitespace before saving.\n*   **Complex Validation:** Ensuring a product's price is always greater than its cost, or that a user's age is calculated from their birthdate and falls within a valid range *before* the row is committed.\n*   **Derived Columns:** Automatically populating a `full_name` column from `first_name` and `last_name`.\nThis ensures data consistency even if multiple applications or direct SQL access are used.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of \"determinism\" in the context of SQL functions and why it's important for query optimization.",
+      "back": "A SQL function is **deterministic** if it always returns the same result given the same set of input parameters and the same database state. It does not produce different results when called with the same input values.\n\n**Importance:** Query optimizers can make assumptions about deterministic functions. For instance, they might cache results, execute the function once for a set of identical inputs, or reorder operations without re-evaluating the function, leading to significant performance improvements. Non-deterministic functions (e.g., those using `GETDATE()`, `RAND()`, or accessing external resources) must be evaluated every time they are called, limiting optimization possibilities.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p2-2-2-dry-don-t-repeat-yourself",
+  "subtopicTitle": "DRY — Don't Repeat Yourself",
+  "topicId": "cs-p2-2-2-design-principles",
+  "topicTitle": "Design Principles",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:31.796Z",
+  "cards": [
+    {
+      "front": "What does the acronym DRY stand for in software design principles?",
+      "back": "DRY stands for \"Don't Repeat Yourself\". It is a principle aimed at reducing repetition of software patterns, replacing them with abstractions or data normalization to avoid multiple, independent sources of truth.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify two primary benefits of adhering to the DRY principle in software development.",
+      "back": "1.  **Reduced Maintenance Burden**: Changes to a duplicated piece of logic only need to be made in one place.\n2.  **Fewer Bugs**: Less code means fewer places for errors, and fixes are propagated everywhere automatically.\n3.  **Improved Readability/Understandability**: Abstractions make the code's intent clearer.\n4.  **Easier Refactoring**: Centralized logic simplifies future modifications.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Consider the following Python code snippet. Which lines demonstrate a violation of the DRY principle?\n```python\ndef calculate_area_circle(radius):\n    return 3.14159 * radius * radius\n\ndef calculate_circumference_circle(radius):\n    return 2 * 3.14159 * radius\n\ndef calculate_volume_sphere(radius):\n    return (4/3) * 3.14159 * radius * radius * radius\n```",
+      "back": "The constant `3.14159` (representing $\\pi$) is repeated in all three functions. To adhere to DRY, it should be defined once as a constant, e.g., `PI = 3.14159`.\n```python\nPI = 3.14159\n\ndef calculate_area_circle(radius):\n    return PI * radius * radius\n\n# ... and so on\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a common technique to apply the DRY principle when you have similar blocks of code that differ only by a few input values or a specific operation?",
+      "back": "Encapsulating the repeated logic within a **function** (or method) is a common technique. The differing values become parameters to the function, and the specific operation might be passed as a higher-order function or controlled by conditional logic within the function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of \"accidental duplication\" versus \"necessary duplication\" in the context of DRY. When might it be acceptable to have seemingly duplicated code?",
+      "back": "1.  **Accidental Duplication**: Occurs when two pieces of code look identical but are conceptually unrelated. Modifying one should *not* affect the other. Applying DRY here would create a false dependency and reduce flexibility.\n2.  **Necessary Duplication**: Occurs when two pieces of code look identical *and* are conceptually related, meaning they represent the same \"single source of truth.\" Modifying one *should* imply modifying the other. This is where DRY should be applied.\nIt might be acceptable to have seemingly duplicated code if the duplication is \"accidental\" and the two pieces of code are likely to diverge in the future, or if abstracting them would introduce undue complexity (e.g., violating KISS or YAGNI for minimal gain). The \"Rule of Three\" often suggests waiting until a piece of code is repeated three times before abstracting.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the DRY principle contribute to the maintainability of a software system?",
+      "back": "DRY directly enhances maintainability by ensuring that any given piece of knowledge or logic exists in only one place. When a change or bug fix is required for that logic, developers only need to update a single location, drastically reducing the risk of introducing inconsistencies, new bugs, or missing updates in other parts of the system. This makes the codebase easier to understand, modify, and extend over time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You observe the following two functions. Refactor them to adhere to the DRY principle, assuming the core logic for generating a report is identical, but the output format differs.\n```python\ndef generate_csv_report(data):\n    report_lines = [\"id,name,value\"]\n    for item in data:\n        report_lines.append(f\"{item['id']},{item['name']},{item['value']}\")\n    return \"\\n\".join(report_lines)\n\ndef generate_json_report(data):\n    report_data = []\n    for item in data:\n        report_data.append({\"id\": item['id'], \"name\": item['name'], \"value\": item['value']})\n    import json\n    return json.dumps(report_data, indent=2)\n```",
+      "back": "The common logic is iterating through `data` and extracting `id`, `name`, `value`. The difference is how this structured data is then formatted. A refactored approach could be:\n```python\nimport json\n\ndef generate_report(data, formatter_func):\n    report_items = []\n    for item in data:\n        report_items.append({\"id\": item['id'], \"name\": item['name'], \"value\": item['value']})\n    return formatter_func(report_items)\n\ndef format_as_csv(items):\n    report_lines = [\"id,name,value\"]\n    for item in items:\n        report_lines.append(f\"{item['id']},{item['name']},{item['value']}\")\n    return \"\\n\".join(report_lines)\n\ndef format_as_json(items):\n    return json.dumps(items, indent=2)\n\n# Example Usage:\n# data = [{\"id\": 1, \"name\": \"A\", \"value\": 10}, {\"id\": 2, \"name\": \"B\", \"value\": 20}]\n# csv_output = generate_report(data, format_as_csv)\n# json_output = generate_report(data, format_as_json)\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

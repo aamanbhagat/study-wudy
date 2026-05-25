@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-5-angular-momentum-l-i-fixed-axis-l-r-p-general",
+  "subtopicTitle": "Angular momentum L = Iω (fixed axis), L = r×p (general)",
+  "topicId": "physics-p1-1-5-rotational-mechanics",
+  "topicTitle": "Rotational Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:21.376Z",
+  "cards": [
+    {
+      "front": "Define angular momentum $\\vec{L}$ for a single particle with position vector $\\vec{r}$ relative to an origin and linear momentum $\\vec{p}$.",
+      "back": "Angular momentum $\\vec{L}$ for a single particle is defined as the cross product of its position vector $\\vec{r}$ and its linear momentum $\\vec{p}$:\n$$\\vec{L} = \\vec{r} \\times \\vec{p}$$\nHere, $\\vec{r}$ is the vector from the chosen origin to the particle, and $\\vec{p} = m\\vec{v}$ is the particle's linear momentum (mass $\\times$ velocity). The direction of $\\vec{L}$ is perpendicular to the plane containing $\\vec{r}$ and $\\vec{p}$, given by the right-hand rule.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the formula for the magnitude of angular momentum $L$ of a rigid body rotating about a fixed axis, and what are its SI units?",
+      "back": "The formula for the magnitude of angular momentum $L$ of a rigid body rotating about a fixed axis is:\n$$L = I\\omega$$\nwhere $I$ is the moment of inertia of the body about the axis of rotation, and $\\omega$ is its angular speed. The SI units for angular momentum are $\\text{kg} \\cdot \\text{m}^2/\\text{s}$ or $\\text{J} \\cdot \\text{s}$ (Joule-seconds).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A particle of mass $m$ moves with velocity $\\vec{v} = v_0 \\hat{i}$ (constant) at position $\\vec{r} = y_0 \\hat{j}$ relative to the origin. What is its angular momentum $\\vec{L}$ about the origin?",
+      "back": "First, find the linear momentum $\\vec{p} = m\\vec{v} = m v_0 \\hat{i}$.\nThen, use the definition $\\vec{L} = \\vec{r} \\times \\vec{p}$:\n$$\\vec{L} = (y_0 \\hat{j}) \\times (m v_0 \\hat{i})$$\nUsing the cross product rules ($\\hat{j} \\times \\hat{i} = -\\hat{k}$):\n$$\\vec{L} = m v_0 y_0 (\\hat{j} \\times \\hat{i}) = -m v_0 y_0 \\hat{k}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a rigid body rotating about a fixed axis (e.g., the z-axis), how is the direction of its angular momentum vector $\\vec{L}$ related to its angular velocity vector $\\vec{\\omega}$?",
+      "back": "For a rigid body rotating about a fixed axis, the angular momentum vector $\\vec{L}$ is parallel to the angular velocity vector $\\vec{\\omega}$ (i.e., both point along the axis of rotation), provided that the axis of rotation is an axis of symmetry for the body. In this common scenario, the magnitude is $L = I\\omega$. If the axis of rotation is not an axis of symmetry, $\\vec{L}$ and $\\vec{\\omega}$ may not be parallel, and $\\vec{L}$ can precess around $\\vec{\\omega}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the expression $L = I\\omega$ for the magnitude of angular momentum of a rigid body rotating about a fixed axis, starting from the definition $\\vec{L} = \\sum (\\vec{r}_i \\times \\vec{p}_i)$.",
+      "back": "Consider a rigid body rotating about a fixed axis with angular speed $\\omega$. A particle $i$ of mass $m_i$ at a perpendicular distance $r_i$ from the axis moves with linear speed $v_i = r_i \\omega$. Its linear momentum is $p_i = m_i v_i = m_i r_i \\omega$.\n\nThe angular momentum of this particle about the axis of rotation is $L_i = r_i p_i = m_i r_i (r_i \\omega) = m_i r_i^2 \\omega$. The direction of $L_i$ is along the axis of rotation.\n\nFor the entire rigid body, the total angular momentum about the axis is the sum of the angular momenta of all its constituent particles:\n$$L = \\sum L_i = \\sum (m_i r_i^2 \\omega)$$\nSince $\\omega$ is the same for all particles in a rigid body, we can factor it out:\n$$L = \\left(\\sum m_i r_i^2\\right) \\omega$$\nThe term in parentheses, $\\sum m_i r_i^2$, is the definition of the moment of inertia $I$ of the rigid body about the axis of rotation. Therefore,\n$$L = I\\omega$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions is the scalar formula $L = I\\omega$ (where $L$ is the component of angular momentum along the axis) insufficient to fully describe the angular momentum of a rotating object?",
+      "back": "The scalar formula $L = I\\omega$ is specifically for the component of angular momentum along a *fixed axis of rotation*. It becomes insufficient when:\n1.  **The axis of rotation is not fixed:** If the object's rotation axis itself changes direction in space (e.g., a precessing gyroscope), the full vector nature of $\\vec{L}$ is required, as $\\vec{L}$ might not be constant even if $L$ is.\n2.  **The object is not a rigid body:** For systems where particles' relative positions change (e.g., a satellite deploying solar panels), $I$ itself changes, and the general $\\vec{L} = \\sum (\\vec{r}_i \\times \\vec{p}_i)$ is needed to track individual particle contributions.\n3.  **The rotation axis is not a principal axis of inertia:** In this case, the angular momentum vector $\\vec{L}$ is not parallel to the angular velocity vector $\\vec{\\omega}$, even for a rigid body. The full inertia tensor or the general cross product definition is needed: $\\vec{L} = \\mathbf{I} \\vec{\\omega}$ (where $\\mathbf{I}$ is the inertia tensor).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A uniform solid cylinder of mass $M=2 \\text{ kg}$ and radius $R=0.1 \\text{ m}$ rotates about its central axis with an angular speed of $10 \\text{ rad/s}$. Calculate its angular momentum.",
+      "back": "First, find the moment of inertia $I$ for a uniform solid cylinder about its central axis:\n$$I = \\frac{1}{2}MR^2$$\nSubstitute the given values:\n$$I = \\frac{1}{2}(2 \\text{ kg})(0.1 \\text{ m})^2 = (1 \\text{ kg})(0.01 \\text{ m}^2) = 0.01 \\text{ kg} \\cdot \\text{m}^2$$\nNow, calculate the angular momentum $L$ using $L = I\\omega$:\n$$L = (0.01 \\text{ kg} \\cdot \\text{m}^2)(10 \\text{ rad/s}) = 0.1 \\text{ kg} \\cdot \\text{m}^2/\\text{s}$$",
+      "difficulty": "medium"
+    }
+  ]
+}

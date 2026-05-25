@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-3-electric-propulsion-thrust-power-isp-trade-off",
+  "subtopicTitle": "Electric propulsion — thrust, power, Isp trade-off",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:09.776Z",
+  "cards": [
+    {
+      "front": "What is the primary method electric propulsion systems use to generate thrust?",
+      "back": "Electric propulsion systems generate thrust by using electrical energy to accelerate a propellant to very high exhaust velocities, rather than relying on chemical reactions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define specific impulse ($I_{sp}$) and state its relationship to effective exhaust velocity ($v_e$).",
+      "back": "Specific impulse ($I_{sp}$) is a measure of the efficiency of a rocket engine, representing the impulse delivered per unit of propellant mass. It is related to effective exhaust velocity ($v_e$) by $I_{sp} = \\frac{v_e}{g_0}$, where $g_0$ is the standard acceleration due to gravity ($9.80665 \\text{ m/s}^2$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the relationship between thrust ($F$), input electrical power ($P$), and exhaust velocity ($v_e$) for an ideal electric thruster.",
+      "back": "For an ideal electric thruster, thrust $F = \\dot{m}v_e$, where $\\dot{m}$ is the propellant mass flow rate. The kinetic power imparted to the exhaust is $P_k = \\frac{1}{2}\\dot{m}v_e^2$. Assuming $P_k = P$ (100% efficiency), we substitute $\\dot{m} = F/v_e$ into the power equation: $P = \\frac{1}{2}\\left(\\frac{F}{v_e}\\right)v_e^2 = \\frac{1}{2}Fv_e$. Rearranging for thrust gives $F = \\frac{2P}{v_e}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the fundamental trade-off in electric propulsion between thrust, power, and specific impulse.",
+      "back": "For a given available electrical power ($P$), thrust ($F$) is inversely proportional to exhaust velocity ($v_e$) (and thus $I_{sp}$). High $I_{sp}$ requires very high $v_e$, which, for a fixed $P$, results in low thrust ($F = 2P/v_e$). Conversely, achieving higher thrust would require either more power or a lower $v_e$ (lower $I_{sp}$). This means electric thrusters are characterized by high $I_{sp}$ but low thrust for practical power levels.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "An electric thruster operates with $10 \\text{ kW}$ of power and produces $200 \\text{ mN}$ of thrust. Calculate its exhaust velocity ($v_e$) and specific impulse ($I_{sp}$).",
+      "back": "Given $P = 10 \\text{ kW} = 10000 \\text{ W}$ and $F = 200 \\text{ mN} = 0.2 \\text{ N}$.\nUsing $F = \\frac{2P}{v_e}$, we solve for $v_e$: $v_e = \\frac{2P}{F} = \\frac{2 \\times 10000 \\text{ W}}{0.2 \\text{ N}} = 100000 \\text{ m/s}$.\nNow, calculate $I_{sp}$: $I_{sp} = \\frac{v_e}{g_0} = \\frac{100000 \\text{ m/s}}{9.80665 \\text{ m/s}^2} \\approx 10197 \\text{ s}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is high $I_{sp}$ particularly advantageous for long-duration, interplanetary missions, despite the low thrust of electric propulsion?",
+      "back": "High $I_{sp}$ means that a given amount of propellant can generate thrust for a much longer time, or generate the same total impulse with significantly less propellant mass. For interplanetary missions, the total $\\Delta V$ requirement is high, but there's no need for high instantaneous thrust. Minimizing propellant mass is crucial as it directly reduces the overall spacecraft mass, leading to lower launch costs and greater payload capacity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the \"thrust efficiency\" ($\\eta_T$) of an electric thruster modify the ideal relationship between thrust, power, and exhaust velocity?",
+      "back": "Thrust efficiency ($\\eta_T$) accounts for the fact that not all input electrical power ($P_{in}$) is converted into kinetic energy of the exhaust. Some power is lost as heat, ionization energy, etc. The actual kinetic power in the exhaust is $P_k = \\eta_T P_{in}$. Since $F = \\dot{m}v_e$ and $P_k = \\frac{1}{2}\\dot{m}v_e^2$, we have $F = \\frac{2P_k}{v_e}$. Substituting $P_k = \\eta_T P_{in}$, the relationship becomes $F = \\frac{2\\eta_T P_{in}}{v_e}$. This means for a given input power and exhaust velocity, the actual thrust will be lower by a factor of $\\eta_T$.",
+      "difficulty": "hard"
+    }
+  ]
+}

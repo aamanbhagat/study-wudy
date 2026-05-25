@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-aerospace-ml-applications-fault-detection-system-identification",
+  "subtopicTitle": "Aerospace ML applications — fault detection, system identification",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:23.071Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of Machine Learning-based Fault Detection in aerospace systems?",
+      "back": "To identify and localize abnormal behavior, malfunctions, or impending failures in aircraft, spacecraft, or ground support systems. This proactive approach aims to enhance safety, reduce maintenance costs, and improve operational reliability by preventing catastrophic failures.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define System Identification in the context of aerospace engineering.",
+      "back": "System identification is the process of constructing mathematical models of dynamic systems from observed input-output data. In aerospace, this typically involves estimating parameters like aerodynamic coefficients, engine thrust characteristics, or structural dynamics using flight test data or sensor measurements.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What ML technique is commonly used for detecting novel, unseen faults in aerospace sensor data, and why?",
+      "back": "Anomaly Detection (e.g., One-Class SVMs, Autoencoders, Isolation Forests). These techniques are suitable because actual fault events are often rare and diverse, making it difficult to collect sufficient labeled data for all possible fault types. Anomaly detection learns the \"normal\" operating profile and flags significant deviations as potential faults.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can ML assist in real-time system identification for adaptive flight control?",
+      "back": "ML models (e.g., Recurrent Neural Networks, Gaussian Processes) can learn complex, non-linear system dynamics online from flight data. This enables continuous updates to the aircraft's mathematical model, allowing adaptive flight controllers to adjust control laws in real-time to compensate for changing flight conditions, aircraft damage, or component degradation, thereby maintaining stability and performance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compare the data requirements and typical output of ML-based fault detection using supervised classification vs. anomaly detection.",
+      "back": "Supervised Classification: Requires large datasets with *labeled examples* for both normal operation and specific fault types. Outputs a class label (e.g., \"normal\", \"sensor_fault\", \"actuator_jam\").\nAnomaly Detection: Primarily requires a large dataset of *normal operation* data, with few to no fault examples. Outputs an anomaly score or a binary \"normal/anomaly\" flag, identifying deviations from learned normal behavior.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In aerospace system identification, how is a residual-based approach using ML formulated for fault detection?",
+      "back": "An ML model (e.g., a neural network) is trained to predict a system's output $\\hat{y}$ given its input $u$. The residual $r = y - \\hat{y}$ (actual output minus predicted output) is then calculated. A fault is indicated if the magnitude of the residual, $|r|$, exceeds a predefined threshold, or if the statistical properties (e.g., mean, variance) of $r$ change significantly over time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain why non-linear models like Neural Networks are often preferred for identifying complex aerospace system dynamics over traditional linear regression.",
+      "back": "Aerospace systems exhibit highly non-linear behavior across their operational envelopes (e.g., aerodynamic forces change non-linearly with angle of attack/Mach number, engine thrust varies non-linearly with throttle and altitude). Linear models struggle to capture these complexities and require extensive gain scheduling. Neural Networks, with their universal approximation capabilities, can learn these non-linear relationships directly from data, leading to more accurate and robust models, even if they are less interpretable.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the \"data imbalance problem\" in aerospace fault detection, and how can ML techniques address it?",
+      "back": "Fault events are rare compared to normal operation, leading to datasets where fault instances are severely underrepresented. This imbalance can bias ML models towards the majority (normal) class, causing them to miss actual faults. Techniques to address this include:\n1.  Resampling: Oversampling the minority class (e.g., SMOTE) or undersampling the majority class.\n2.  Cost-sensitive learning: Assigning higher misclassification costs to minority class errors.\n3.  Anomaly detection: Framing the problem as detecting deviations from normal rather than classifying specific, rare fault types.",
+      "difficulty": "medium"
+    }
+  ]
+}

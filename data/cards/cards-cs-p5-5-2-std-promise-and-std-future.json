@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-2-std-promise-and-std-future",
+  "subtopicTitle": "std::promise and std::future",
+  "topicId": "cs-p5-5-2-c-programming",
+  "topicTitle": "C++ Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:16.372Z",
+  "cards": [
+    {
+      "front": "In C++ concurrency, `std::promise` and `std::future` provide a mechanism for __________.",
+      "back": "`std::promise` and `std::future` provide a mechanism for **asynchronously transferring a value or an exception between two different threads** (or between a producer and consumer).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A `std::promise` object uses its __________ method to store a value that will be retrieved by its associated `std::future`.",
+      "back": "A `std::promise` object uses its `set_value()` method to store a value that will be retrieved by its associated `std::future`.\n```cpp\nstd::promise<int> p;\nstd::future<int> f = p.get_future();\n// In a producer thread:\np.set_value(42);\n// In a consumer thread:\nint result = f.get(); // result is 42\n```",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a producer thread encounters an exception, how can `std::promise` propagate it to the consumer `std::future`?",
+      "back": "The `std::promise` object can call its `set_exception()` method, passing an `std::exception_ptr`. When the consumer `std::future` calls `get()`, it will rethrow that exception.\n```cpp\nstd::promise<int> p;\nstd::future<int> f = p.get_future();\n// In a producer thread:\ntry {\n    throw std::runtime_error(\"Operation failed!\");\n} catch (...) {\n    p.set_exception(std::current_exception());\n}\n// In a consumer thread:\ntry {\n    f.get(); // This will rethrow std::runtime_error\n} catch (const std::exception& e) {\n    // Handle exception\n}\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the behavior of `std::future::get()` when the associated `std::promise` has not yet set a value or exception.",
+      "back": "`std::future::get()` is a **blocking call**. If the value or exception has not yet been set by the `std::promise`, `get()` will block the calling thread until the shared state becomes ready. Once the value is available, `get()` retrieves it (or rethrows an exception) and moves the `std::future` into an invalid state. A non-`std::shared_future` can only be `get()`-ed once.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of a \"broken promise\" in the context of `std::promise` and `std::future`, and what happens on the `std::future` side.",
+      "back": "A \"broken promise\" occurs when a `std::promise` object is destroyed (e.g., goes out of scope) without having set a value or an exception. In this scenario, the associated `std::future` will throw a `std::future_error` exception with an error code of `std::future_errc::broken_promise` when its `get()` method is called. This indicates that the producer failed to fulfill its promise.\n```cpp\nstd::future<int> f;\n{ // Scope for promise\n    std::promise<int> p;\n    f = p.get_future();\n    // p goes out of scope here without setting a value\n}\ntry {\n    f.get(); // Throws std::future_error with broken_promise\n} catch (const std::future_error& e) {\n    // e.code() == std::future_errc::broken_promise\n}\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Unlike `std::future`, `std::shared_future` allows multiple consumers to retrieve the same result. What's a key difference in its `get()` method?",
+      "back": "`std::shared_future` is a copyable and assignable future. It shares ownership of the asynchronous result with other `std::shared_future` objects. This means multiple `std::shared_future` instances can be created from a single `std::future` (e.g., via `std::future::share()`) and all can call `get()` to retrieve the same value. A key difference is that `std::shared_future::get()` does **not** invalidate the future, allowing subsequent calls to `get()` to retrieve the value again.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A function creates a `std::promise<T>` and returns its `std::future<T>`. Discuss the ownership of the shared state and the implications if the `std::promise` is destroyed before a value is set.",
+      "back": "Both `std::promise` and `std::future` objects hold a reference to a shared state object, which is dynamically allocated. Returning the `std::future` transfers ownership of one reference to this shared state. If the `std::promise` is destroyed before a value or exception is set, the shared state will still exist as long as the `std::future` (or any `std::shared_future`) holds a reference to it. However, the `std::future` will then be in a \"broken promise\" state, and calling `get()` on it will throw `std::future_error(std::future_errc::broken_promise)`. The shared state is deallocated only when the last `promise` or `future` referencing it is destroyed.",
+      "difficulty": "hard"
+    }
+  ]
+}

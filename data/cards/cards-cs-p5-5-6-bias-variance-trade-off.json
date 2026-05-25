@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-6-bias-variance-trade-off",
+  "subtopicTitle": "Bias-variance trade-off",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:10.667Z",
+  "cards": [
+    {
+      "front": "Define \"bias\" in the context of a machine learning model.",
+      "back": "Bias refers to the error introduced by approximating a real-world problem, which may be complex, by a simplified model. High bias implies the model consistently misses the true relationship (underfitting), leading to poor performance on both training and test data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"variance\" in the context of a machine learning model.",
+      "back": "Variance refers to the model's sensitivity to small fluctuations in the training data. High variance implies the model learns the noise in the training data too well (overfitting), performing excellently on training data but poorly on unseen test data.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the mathematical decomposition of the Mean Squared Error (MSE) for a prediction $\\hat{f}(x)$ of a true value $y$, identifying the three main components.",
+      "back": "$$E[(y - \\hat{f}(x))^2] = (\\text{Bias}[\\hat{f}(x)])^2 + \\text{Var}[\\hat{f}(x)] + \\sigma^2$$ \n\n*   $(\\text{Bias}[\\hat{f}(x)])^2$: Squared bias, representing the error from approximating the true function.\n*   $\\text{Var}[\\hat{f}(x)]$: Variance, representing the model's sensitivity to training data.\n*   $\\sigma^2$: Irreducible error (noise), inherent to the problem, regardless of the model.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A linear regression model predicting aircraft fuel consumption shows high error on both training and validation sets. Is this indicative of high bias or high variance, and what's a common remedy?",
+      "back": "This indicates **high bias** (underfitting). The model is too simple to capture the underlying complexity. A common remedy is to increase model complexity, e.g., by adding more relevant features, using polynomial features, or switching to a more powerful model like a Random Forest or Neural Network.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A deep neural network for satellite image classification achieves 99% accuracy on its training set but only 60% on a new validation set. Is this high bias or high variance, and what's a common remedy?",
+      "back": "This indicates **high variance** (overfitting). The model has learned the training data too well, including noise, and fails to generalize. Common remedies include:\n*   **Regularization:** L1/L2 regularization, dropout.\n*   **More Data:** Increase the size and diversity of the training dataset.\n*   **Simpler Model:** Reduce model complexity (e.g., fewer layers/neurons).\n*   **Early Stopping:** Halt training when validation error starts to increase.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how model complexity typically affects both bias and variance, leading to the \"bias-variance trade-off.\"",
+      "back": "As model complexity **increases**:\n*   **Bias generally decreases**: A more complex model can fit the training data more closely, reducing the error due to oversimplification.\n*   **Variance generally increases**: A more complex model is more sensitive to the specific training data, including noise, making its predictions vary more if trained on different datasets.\n\nThe \"trade-off\" means we must find a balance: a model that is complex enough to capture the true patterns (low bias) but not so complex that it overfits to noise (low variance). The optimal model minimizes the total error (Bias$^2$ + Variance + Irreducible Error).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider an ML model for predicting re-entry trajectory of a spacecraft. If the model is too simple (e.g., linear), what kind of error dominates, and what's the consequence for safety?",
+      "back": "If the model is too simple, **high bias** error will dominate. The linear model will fail to capture the highly non-linear physics of atmospheric re-entry, leading to systematic underestimation or overestimation of critical parameters like drag or heat flux. The consequence for safety is severe: inaccurate trajectory predictions could lead to missing the landing zone, structural failure due to excessive heat, or even catastrophic loss of the spacecraft.",
+      "difficulty": "hard"
+    }
+  ]
+}

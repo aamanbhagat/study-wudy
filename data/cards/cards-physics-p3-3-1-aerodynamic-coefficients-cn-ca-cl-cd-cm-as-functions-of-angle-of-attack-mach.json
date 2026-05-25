@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-1-aerodynamic-coefficients-cn-ca-cl-cd-cm-as-functions-of-angle-of-attack-mach",
+  "subtopicTitle": "Aerodynamic coefficients — CN, CA, CL, CD, Cm as functions of angle of attack, Mach",
+  "topicId": "physics-p3-3-1-compressible-flow-aerodynamics",
+  "topicTitle": "Compressible Flow & Aerodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:26:41.007Z",
+  "cards": [
+    {
+      "front": "Define the normal coefficient ($C_N$) and axial coefficient ($C_A$), specifying their reference quantities and force directions.",
+      "back": "The normal coefficient is $C_N = N / (q_\\infty S_{ref})$, where $N$ is the normal force (perpendicular to the body axis). The axial coefficient is $C_A = A / (q_\\infty S_{ref})$, where $A$ is the axial force (parallel to the body axis). $q_\\infty$ is dynamic pressure, $S_{ref}$ is reference area.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the lift coefficient ($C_L$) and drag coefficient ($C_D$), and contrast their reference frame with $C_N$ and $C_A$.",
+      "back": "The lift coefficient is $C_L = L / (q_\\infty S_{ref})$, where $L$ is lift (perpendicular to the relative wind). The drag coefficient is $C_D = D / (q_\\infty S_{ref})$, where $D$ is drag (parallel to the relative wind). $C_L$ and $C_D$ are defined in the wind axis system, while $C_N$ and $C_A$ are defined in the body axis system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the relationships for $C_L$ and $C_D$ in terms of $C_N$, $C_A$, and angle of attack $\\alpha$.",
+      "back": "The lift and drag forces are components of the normal and axial forces rotated by $\\alpha$:\n$$ L = N \\cos \\alpha - A \\sin \\alpha $$\n$$ D = N \\sin \\alpha + A \\cos \\alpha $$\nDividing by $q_\\infty S_{ref}$:\n$$ C_L = C_N \\cos \\alpha - C_A \\sin \\alpha $$\n$$ C_D = C_N \\sin \\alpha + C_A \\cos \\alpha $$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the typical variation of $C_L$ and $C_D$ with angle of attack ($\\alpha$) for a subsonic airfoil, indicating key features.",
+      "back": "For a subsonic airfoil, $C_L$ increases approximately linearly with $\\alpha$ at low angles, reaching a maximum ($C_{L,max}$) at the stall angle, then decreases. $C_D$ typically shows a parabolic increase with $\\alpha$ (due to induced drag), having a minimum value at or near the angle of zero lift.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain how increasing Mach number from subsonic to supersonic affects $C_L$ and $C_D$ for an airfoil, identifying key phenomena.",
+      "back": "Subsonically, $C_L$ generally increases and $C_D$ decreases slightly with $M$ due to compressibility (e.g., Prandtl-Glauert rule for $C_L$). As $M$ approaches the critical Mach number ($M_{crit}$), local supersonic flow and shock waves form, causing a rapid increase in $C_D$ (wave drag) and a reduction in $C_L$'s slope. Supersonically, $C_L$ generally decreases, and $C_D$ remains high due to strong shock waves.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the pitching moment coefficient ($C_m$) and explain its role in determining aircraft longitudinal static stability.",
+      "back": "The pitching moment coefficient is $C_m = M / (q_\\infty S_{ref} L_{ref})$, where $M$ is the pitching moment about a reference point (e.g., leading edge, quarter-chord), and $L_{ref}$ is a reference length (e.g., mean aerodynamic chord). For an aircraft to be longitudinally statically stable, $\\partial C_m / \\partial \\alpha$ must be negative. This means an increase in $\\alpha$ generates a nose-down (restoring) moment.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the aerodynamic center (AC) of an airfoil and state its crucial property related to the pitching moment coefficient.",
+      "back": "The aerodynamic center (AC) is the point on an airfoil or body where the pitching moment coefficient ($C_m$) does not change with angle of attack ($\\alpha$). Mathematically, $(\\partial C_m / \\partial \\alpha)_{AC} = 0$. This property makes the AC a convenient reference point for aerodynamic analysis, as the moment about it is constant regardless of $\\alpha$. For thin airfoils, the AC is approximately at the quarter-chord point.",
+      "difficulty": "hard"
+    }
+  ]
+}

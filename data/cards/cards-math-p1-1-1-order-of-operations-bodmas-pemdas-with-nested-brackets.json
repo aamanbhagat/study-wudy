@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p1-1-1-order-of-operations-bodmas-pemdas-with-nested-brackets",
+  "subtopicTitle": "Order of operations — BODMAS/PEMDAS with nested brackets",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:39.711Z",
+  "cards": [
+    {
+      "front": "What does the acronym BODMAS stand for, and what is its equivalent in PEMDAS?",
+      "back": "BODMAS stands for: \n- **B**rackets\n- **O**rders (powers/roots)\n- **D**ivision\n- **M**ultiplication\n- **A**ddition\n- **S**ubtraction\n\nPEMDAS is its equivalent, standing for:\n- **P**arentheses\n- **E**xponents\n- **M**ultiplication\n- **D**ivision\n- **A**ddition\n- **S**ubtraction\n\n'Brackets' is equivalent to 'Parentheses', and 'Orders' is equivalent to 'Exponents'.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the correct hierarchy of operations from highest to lowest precedence according to BODMAS/PEMDAS.",
+      "back": "The correct hierarchy is:\n1.  **Brackets / Parentheses** (evaluate innermost first)\n2.  **Orders / Exponents** (powers and roots)\n3.  **Division and Multiplication** (from left to right)\n4.  **Addition and Subtraction** (from left to right)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "When an expression contains nested brackets (e.g., $10 - [2 + (3 \\times 4)]$), which set of brackets should be evaluated first?",
+      "back": "The innermost set of brackets must always be evaluated first. You work from the inside out. For the example given, you would first evaluate $(3 \\times 4)$, then the result of that would be used within the square brackets $[...]$, and finally, that result would be used in the outermost operation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If an expression contains both multiplication and division (e.g., $12 \\div 3 \\times 2$), or both addition and subtraction (e.g., $10 - 4 + 2$), which operation should be performed first?",
+      "back": "When operations of the same precedence level (like multiplication and division, or addition and subtraction) appear together, they should be performed from **left to right** as they appear in the expression. They have equal priority.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the following expression: $15 - 3 \\times 4 + 2^2$",
+      "back": "Let's apply BODMAS/PEMDAS:\n1.  **Orders/Exponents**: $2^2 = 4$\n    Expression becomes: $15 - 3 \\times 4 + 4$\n2.  **Multiplication**: $3 \\times 4 = 12$\n    Expression becomes: $15 - 12 + 4$\n3.  **Addition/Subtraction (left to right)**:\n    $15 - 12 = 3$\n    Expression becomes: $3 + 4$\n    $3 + 4 = 7$\n\nFinal Answer: $7$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Evaluate the complex expression: $5 \\times (10 - (2^3 + 1) \\div 3) + 7$",
+      "back": "Let's break it down using BODMAS/PEMDAS:\n1.  **Innermost Brackets - Orders**: $(2^3 + 1)$ first evaluate $2^3 = 8$.\n    Expression: $5 \\times (10 - (8 + 1) \\div 3) + 7$\n2.  **Innermost Brackets - Addition**: $(8 + 1) = 9$.\n    Expression: $5 \\times (10 - 9 \\div 3) + 7$\n3.  **Next Brackets - Division**: $(10 - 9 \\div 3)$ first evaluate $9 \\div 3 = 3$.\n    Expression: $5 \\times (10 - 3) + 7$\n4.  **Next Brackets - Subtraction**: $(10 - 3) = 7$.\n    Expression: $5 \\times 7 + 7$\n5.  **Multiplication**: $5 \\times 7 = 35$.\n    Expression: $35 + 7$\n6.  **Addition**: $35 + 7 = 42$.\n\nFinal Answer: $42$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is a standardized \"order of operations\" (like BODMAS/PEMDAS) essential in mathematics?",
+      "back": "A standardized order of operations is essential to ensure that every mathematical expression has one unique and unambiguous value. Without it, different people could interpret the same expression differently, leading to inconsistent results. It provides a universal convention for evaluating expressions, crucial for clear communication and correctness in mathematics and its applications.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the implied order of operations in the fractional expression $\\frac{20 - 4}{2 \\times 2}$?",
+      "back": "In a fractional expression, the numerator and the denominator are implicitly treated as if they are enclosed in brackets. Therefore, you must evaluate the entire numerator and the entire denominator separately before performing the division.\n\n1.  **Numerator**: $(20 - 4) = 16$\n2.  **Denominator**: $(2 \\times 2) = 4$\n3.  **Division**: $\\frac{16}{4} = 4$\n\nFinal Answer: $4$",
+      "difficulty": "medium"
+    }
+  ]
+}

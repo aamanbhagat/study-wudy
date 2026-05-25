@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p2-2-1-phase-space-trajectories-phase-portraits",
+  "subtopicTitle": "Phase space — trajectories, phase portraits",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:13.555Z",
+  "cards": [
+    {
+      "front": "Define phase space for a system with $N$ degrees of freedom.",
+      "back": "Phase space is a $2N$-dimensional space where each dimension corresponds to a generalized coordinate $q_i$ or its conjugate generalized momentum $p_i$. A single point in this space, $(q_1, \\dots, q_N, p_1, \\dots, p_N)$, uniquely specifies the instantaneous state of the system.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What do a single point and a continuous curve in phase space represent?",
+      "back": "A single point $(q, p)$ in phase space represents the instantaneous state of the system (position and momentum at a given time). A continuous curve, known as a phase trajectory, represents the temporal evolution of the system's state as it moves through phase space.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain what a phase portrait is and its primary utility.",
+      "back": "A phase portrait is a graphical representation of multiple phase trajectories for a dynamical system, typically for varying initial conditions. It provides a qualitative overview of the system's long-term behavior and stability, allowing identification of equilibrium points, limit cycles, and general flow patterns without explicit time-dependent solutions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Can two distinct phase trajectories of a deterministic system ever intersect? Justify your answer.",
+      "back": "No, two distinct phase trajectories of a deterministic system cannot intersect. If they were to intersect at a point $(q_0, p_0)$, it would imply that from the exact same initial state, the system could evolve along two different paths. This contradicts the uniqueness theorem for solutions of ordinary differential equations, which govern the system's evolution, assuming the vector field is well-behaved.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the phase portrait for an undamped simple harmonic oscillator (SHO) with mass $m$ and spring constant $k$.",
+      "back": "For an undamped SHO, the total energy $E = \\frac{p^2}{2m} + \\frac{1}{2}kq^2$ is conserved. In the $(q, p)$ phase space, this equation for constant $E$ describes an ellipse centered at the origin. The phase portrait consists of a family of concentric ellipses, each corresponding to a different total energy. The motion is periodic, so trajectories are closed loops.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does critical damping affect the phase trajectories of a harmonic oscillator, and what does its phase portrait look like?",
+      "back": "Critical damping causes the system to return to equilibrium as quickly as possible without oscillating. In phase space, trajectories for a critically damped oscillator do not spiral but instead approach the origin (the stable equilibrium point) asymptotically along specific curves, often resembling \"straight\" lines or parabolic-like paths directed towards the origin, without ever crossing it or oscillating around it.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define fixed points in phase space and explain their significance.",
+      "back": "Fixed points (or equilibrium points) are specific locations $(q_0, p_0)$ in phase space where the system's velocity $(\\dot{q}, \\dot{p})$ is zero, meaning $\\dot{q}_i = 0$ and $\\dot{p}_i = 0$ for all $i$. They represent states where the system remains indefinitely. Their stability properties (e.g., stable node, unstable node, saddle point, center) dictate the long-term behavior of nearby trajectories and the overall stability of the system.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State Liouville's Theorem for a Hamiltonian system and what it implies about phase space volume.",
+      "back": "Liouville's Theorem states that the phase space density $\\rho(q, p, t)$ of an ensemble of Hamiltonian systems remains constant along any trajectory in phase space. Mathematically, $\\frac{d\\rho}{dt} = \\frac{\\partial\\rho}{\\partial t} + \\sum_{i=1}^N \\left( \\frac{\\partial\\rho}{\\partial q_i}\\dot{q}_i + \\frac{\\partial\\rho}{\\partial p_i}\\dot{p}_i \\right) = 0$. This implies that the volume occupied by an ensemble of phase points in phase space is conserved over time, meaning the phase space flow is incompressible.",
+      "difficulty": "hard"
+    }
+  ]
+}

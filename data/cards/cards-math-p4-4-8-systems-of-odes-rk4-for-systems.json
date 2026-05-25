@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p4-4-8-systems-of-odes-rk4-for-systems",
+  "subtopicTitle": "Systems of ODEs — RK4 for systems",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:10:25.229Z",
+  "cards": [
+    {
+      "front": "What is a first-order system of ODEs, and how is it typically represented in vector form?",
+      "back": "A first-order system of ODEs consists of multiple coupled first-order differential equations. In vector form, it is represented as $\\mathbf{y}'(t) = \\mathbf{f}(t, \\mathbf{y}(t))$, where $\\mathbf{y}(t) = \\begin{pmatrix} y_1(t) \\\\ y_2(t) \\\\ \\vdots \\\\ y_m(t) \\end{pmatrix}$ is the state vector and $\\mathbf{f}(t, \\mathbf{y})$ is a vector-valued function $\\mathbf{f}: \\mathbb{R} \\times \\mathbb{R}^m \\to \\mathbb{R}^m$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Conceptually, how does the Runge-Kutta 4 (RK4) method for a single ODE, $y' = f(t, y)$, extend to a system of ODEs, $\\mathbf{y}' = \\mathbf{f}(t, \\mathbf{y})$?",
+      "back": "The extension is straightforward: all scalar variables and functions in the RK4 formulas become their vector counterparts. The scalar $y$ becomes the state vector $\\mathbf{y}$, and the scalar function $f$ becomes the vector-valued function $\\mathbf{f}$. All arithmetic operations (addition, scalar multiplication) are performed using vector addition and scalar-vector multiplication, component-wise.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a system of ODEs $\\mathbf{y}' = \\mathbf{f}(t, \\mathbf{y})$, write down the formulas for all four Runge-Kutta coefficients: $\\mathbf{k}_1, \\mathbf{k}_2, \\mathbf{k}_3, \\mathbf{k}_4$.",
+      "back": "The coefficients are:\n$$\\mathbf{k}_1 = h \\mathbf{f}(t_n, \\mathbf{y}_n)$$\n$$\\mathbf{k}_2 = h \\mathbf{f}(t_n + h/2, \\mathbf{y}_n + \\mathbf{k}_1/2)$$\n$$\\mathbf{k}_3 = h \\mathbf{f}(t_n + h/2, \\mathbf{y}_n + \\mathbf{k}_2/2)$$\n$$\\mathbf{k}_4 = h \\mathbf{f}(t_n + h, \\mathbf{y}_n + \\mathbf{k}_3)$$\nEach $\\mathbf{k}_i$ is a vector of the same dimension as $\\mathbf{y}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given the Runge-Kutta coefficients $\\mathbf{k}_1, \\mathbf{k}_2, \\mathbf{k}_3, \\mathbf{k}_4$ for a system of ODEs, how is the next state vector $\\mathbf{y}_{n+1}$ calculated?",
+      "back": "The next state vector $\\mathbf{y}_{n+1}$ is calculated using the weighted average of the coefficients, added to the current state vector $\\mathbf{y}_n$: \n$$\\mathbf{y}_{n+1} = \\mathbf{y}_n + \\frac{1}{6}(\\mathbf{k}_1 + 2\\mathbf{k}_2 + 2\\mathbf{k}_3 + \\mathbf{k}_4)$$\nAll additions are vector additions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Transform the second-order ODE $y'' + 4y' + 3y = e^{-t}$ into an equivalent first-order system of ODEs, defining the state vector $\\mathbf{y}$ and the function $\\mathbf{f}(t, \\mathbf{y})$.",
+      "back": "Let $y_1 = y$ and $y_2 = y'$. Then we have:\n$y_1' = y_2$\n$y_2' = -4y_2 - 3y_1 + e^{-t}$\nSo, the state vector is $\\mathbf{y} = \\begin{pmatrix} y_1 \\\\ y_2 \\end{pmatrix}$, and the function $\\mathbf{f}(t, \\mathbf{y})$ is:\n$$\\mathbf{f}(t, \\mathbf{y}) = \\begin{pmatrix} y_2 \\\\ -4y_2 - 3y_1 + e^{-t} \\end{pmatrix}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the significance of RK4 being a 'fourth-order' method when applied to systems of ODEs, particularly concerning its error characteristics.",
+      "back": "Being a 'fourth-order' method means that RK4 has a local truncation error of $O(h^5)$ and a global truncation error of $O(h^4)$, where $h$ is the step size. This implies that if you halve the step size, the global error is reduced by a factor of $2^4 = 16$. This significantly higher accuracy compared to lower-order methods (e.g., Euler's $O(h)$) means RK4 can achieve a desired level of precision with much larger step sizes, or provide much greater accuracy for a given step size, making it very efficient for many problems.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Provide a high-level pseudocode or algorithm for solving a system of ODEs $\\mathbf{y}' = \\mathbf{f}(t, \\mathbf{y})$ using the RK4 method over a time interval $[t_0, t_{final}]$.",
+      "back": "```python\nfunction RK4_System(f, y0, t0, t_final, h):\n    t_values = [t0]\n    y_values = [y0]  # y0 is a vector\n\n    t_n = t0\n    y_n = y0\n\n    while t_n < t_final:\n        # Ensure we don't overshoot t_final\n        current_h = min(h, t_final - t_n)\n\n        k1 = current_h * f(t_n, y_n)\n        k2 = current_h * f(t_n + current_h/2, y_n + k1/2)\n        k3 = current_h * f(t_n + current_h/2, y_n + k2/2)\n        k4 = current_h * f(t_n + current_h, y_n + k3)\n\n        y_n_plus_1 = y_n + (k1 + 2*k2 + 2*k3 + k4) / 6\n        t_n_plus_1 = t_n + current_h\n\n        t_values.append(t_n_plus_1)\n        y_values.append(y_n_plus_1)\n\n        t_n = t_n_plus_1\n        y_n = y_n_plus_1\n\n    return t_values, y_values\n```\nNote: `f` must accept a scalar `t` and a vector `y`, and return a vector. Vector operations are assumed.",
+      "difficulty": "medium"
+    }
+  ]
+}

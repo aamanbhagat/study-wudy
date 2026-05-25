@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p1-1-7-entropy-clausius-definition-ds-dq-rev-t",
+  "subtopicTitle": "Entropy — Clausius definition dS = dQ_rev/T",
+  "topicId": "physics-p1-1-7-thermodynamics",
+  "topicTitle": "Thermodynamics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:20.029Z",
+  "cards": [
+    {
+      "front": "State the Clausius definition for the infinitesimal change in entropy, $dS$.",
+      "back": "The Clausius definition for an infinitesimal change in entropy is $dS = \\frac{dQ_{rev}}{T}$, where $dQ_{rev}$ is the infinitesimal amount of heat transferred during a reversible process, and $T$ is the absolute temperature (in Kelvin) at which the heat transfer occurs.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the Clausius definition $dS = dQ_{rev}/T$, what is the critical significance of the subscript 'rev'?",
+      "back": "The 'rev' signifies that the heat transfer $dQ$ must occur along a *reversible path*. This is crucial because entropy is a state function, meaning its change depends only on the initial and final states, not the path taken. To calculate $\\Delta S$ for any process (reversible or irreversible), we must integrate along a hypothetical reversible path connecting the same initial and final states.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why is it incorrect to use $dQ_{actual}$ (heat exchanged in an *irreversible* process) directly in $dS = dQ/T$ to calculate the system's entropy change?",
+      "back": "The Clausius definition $dS = dQ_{rev}/T$ is only valid for *reversible* heat transfer. If a process is irreversible, $dQ_{actual}$ does not represent the heat that would be exchanged along a reversible path between the same initial and final states. Using $dQ_{actual}$ would not yield the correct entropy change for the system, as entropy is a state function calculated along a reversible path.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Clausius definition, when applied to a reversible cyclic process, demonstrate that entropy is a state function?",
+      "back": "For any reversible cyclic process, the integral $\\oint \\frac{dQ_{rev}}{T} = 0$. This is a direct consequence of the Second Law of Thermodynamics (Clausius's theorem). Since the integral of $dS$ around a closed loop is zero, this implies that $dS = dQ_{rev}/T$ must be an exact differential. A quantity whose differential is exact is a state function, meaning its change depends only on the initial and final states, not the path taken.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a system undergoes an irreversible process, how do we calculate its change in entropy, $\\Delta S_{system}$, using the Clausius definition?",
+      "back": "To calculate $\\Delta S_{system}$ for an irreversible process, we must devise a *hypothetical reversible path* that connects the exact same initial and final states as the actual irreversible process. Then, we integrate the Clausius definition along this *reversible* path: $\\Delta S_{system} = \\int_{initial}^{final} \\frac{dQ_{rev}}{T}$. The actual irreversible heat exchange ($dQ_{actual}$) is *not* used for the system's entropy change.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the SI units for entropy, derived from the Clausius definition?",
+      "back": "The Clausius definition is $dS = dQ_{rev}/T$.\n*   $dQ_{rev}$ (heat) has SI units of Joules (J).\n*   $T$ (absolute temperature) has SI units of Kelvin (K).\nTherefore, the SI units for entropy are Joules per Kelvin (J/K).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the entropy change for $n$ moles of an ideal gas undergoing a reversible isothermal expansion from volume $V_1$ to $V_2$.",
+      "back": "For a reversible isothermal process of an ideal gas, the internal energy change $dU=0$. From the First Law of Thermodynamics, $dU = dQ_{rev} - dW_{rev}$.\nSince $dU=0$, we have $dQ_{rev} = dW_{rev}$. For a reversible expansion, $dW_{rev} = P dV$.\nThus, $dQ_{rev} = P dV$. For an ideal gas, $P = \\frac{nRT}{V}$.\nSubstituting this into the Clausius definition:\n$\\Delta S = \\int_{V_1}^{V_2} \\frac{dQ_{rev}}{T} = \\int_{V_1}^{V_2} \\frac{1}{T} \\left(\\frac{nRT}{V}\\right) dV$\n$\\Delta S = \\int_{V_1}^{V_2} \\frac{nR}{V} dV = nR [\\ln V]_{V_1}^{V_2}$\n$\\Delta S = nR \\ln\\left(\\frac{V_2}{V_1}\\right)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

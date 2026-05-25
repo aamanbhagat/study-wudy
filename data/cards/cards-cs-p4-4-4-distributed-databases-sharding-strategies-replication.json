@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-4-distributed-databases-sharding-strategies-replication",
+  "subtopicTitle": "Distributed databases — sharding strategies, replication",
+  "topicId": "cs-p4-4-4-databases",
+  "topicTitle": "Databases",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:58.877Z",
+  "cards": [
+    {
+      "front": "In distributed databases, what is **sharding** and what is its primary purpose?",
+      "back": "Sharding (also known as horizontal partitioning) is the process of breaking up a large database into smaller, more manageable pieces called shards. Each shard contains a subset of the data and runs on a separate database server. Its primary purpose is to improve scalability (handling more data and requests) and performance (distributing load).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is **replication** in a distributed database, and what are its two main benefits?",
+      "back": "Replication is the process of creating and maintaining multiple copies of the same data across different database servers. Its two main benefits are:\n1.  **High Availability & Fault Tolerance**: If one server fails, others can take over.\n2.  **Read Scalability**: Distributing read requests across multiple replicas.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Compare **range-based sharding** and **hash-based sharding**, highlighting a key advantage and disadvantage of each.",
+      "back": "**Range-based**: Data is partitioned by a range of values (e.g., `user_id` 1-1000 on shard A, 1001-2000 on shard B).\n*   Advantage: Efficient for range queries (e.g., \"all users created last month\").\n*   Disadvantage: Prone to \"hot spots\" if data distribution or access patterns are uneven (e.g., new users all go to the same shard).\n**Hash-based**: Data is partitioned by applying a hash function to the sharding key (e.g., `hash(user_id) % num_shards`).\n*   Advantage: Tends to distribute data and load more evenly, reducing hot spots.\n*   Disadvantage: Range queries are inefficient as related data might be scattered across all shards.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the 'hot spot' problem in sharding. How does **consistent hashing** help mitigate it when adding/removing shards?",
+      "back": "A 'hot spot' occurs when a disproportionately large number of requests or data are directed to a single shard, leading to performance bottlenecks.\nConsistent hashing is a technique where hash values for data and shards are mapped onto a circular ring. When a shard is added or removed, only a small fraction of data needs to be remapped/moved, rather than potentially all data (as with simple `key % num_shards` hashing). This minimizes disruption and rebalancing costs, making it more resilient to changes in cluster size and better at dynamically distributing load.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In a leader-follower replication model, explain the fundamental difference between **synchronous** and **asynchronous** replication.",
+      "back": "**Synchronous Replication**: The leader (master) waits for at least one follower (replica) to acknowledge that it has successfully received and applied the write operation before committing the transaction and responding to the client.\n*   Benefit: Stronger durability guarantee; data is less likely to be lost on leader failure.\n*   Drawback: Higher write latency.\n**Asynchronous Replication**: The leader commits the write operation and responds to the client immediately, without waiting for followers to acknowledge. Followers replicate the changes at their own pace.\n*   Benefit: Lower write latency.\n*   Drawback: Potential for data loss if the leader fails before changes are replicated to followers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In a leaderless replication system with $N$ nodes, explain how **read and write quorums** (W, R) ensure consistency. Provide the basic quorum formula.",
+      "back": "In leaderless replication, clients can write to any node and read from any node. Quorums define the minimum number of nodes that must acknowledge a write (W) or respond to a read (R) for the operation to be considered successful.\nTo ensure that a read always sees the latest successful write, the read quorum (R) and write quorum (W) must overlap. The basic quorum formula is:\n$$W + R > N$$\nWhere $N$ is the total number of replicas. This guarantees that there's at least one node in common between any successful write set and any successful read set, ensuring a consistent view of the data (at least for linearizable reads).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary challenge with **distributed transactions** (transactions spanning multiple shards), and name one common protocol used to address it?",
+      "back": "The primary challenge with distributed transactions is ensuring **atomicity** across multiple independent shards. If a transaction involves updating data on two different shards, and one update succeeds while the other fails, the entire transaction must either commit fully or abort fully to maintain data integrity.\nOne common protocol used to address this is the **Two-Phase Commit (2PC)** protocol. It involves a coordinator that orchestrates the transaction across all participating shards (prepared phase, then commit/rollback phase).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A multi-tenant application shards by `tenant_id`. What problem arises if one tenant has significantly more data and traffic than others, and how can it be mitigated?",
+      "back": "This scenario creates a **hot shard** (a specific type of hot spot) because one tenant's data and requests overwhelm a single shard, leading to performance degradation for that tenant and potentially others on the same shard.\nMitigation strategies include:\n1.  **Sub-sharding**: Further partitioning the hot tenant's data within its dedicated shard, or even across multiple shards using a secondary key.\n2.  **Dedicated Shard**: Assigning the hot tenant its own dedicated shard(s) or even a dedicated cluster.\n3.  **Re-sharding/Rebalancing**: Dynamically moving the hot tenant's data to less loaded shards, though this can be complex.\n4.  **Application-level Caching**: Heavily caching the hot tenant's frequently accessed data.",
+      "difficulty": "hard"
+    }
+  ]
+}

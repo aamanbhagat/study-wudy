@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-5-software-architecture-layered-mvc-event-driven-microservices-serverless",
+  "subtopicTitle": "Software architecture — layered, MVC, event-driven, microservices, serverless",
+  "topicId": "cs-p4-4-5-software-engineering",
+  "topicTitle": "Software Engineering",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:56.454Z",
+  "cards": [
+    {
+      "front": "Describe the core principle of a \"layered architecture\" in software design.",
+      "back": "A layered architecture organizes code into distinct, hierarchical layers (e.g., presentation, business logic, data access), where each layer communicates only with the layers immediately above and below it. This promotes separation of concerns and modularity.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Identify the three primary components of the MVC (Model-View-Controller) architectural pattern and their general roles.",
+      "back": "The three components are:\n1.  **Model:** Manages the application's data, business logic, and rules.\n2.  **View:** Renders the user interface and displays data from the Model.\n3.  **Controller:** Handles user input, interacts with the Model to update data, and selects the appropriate View to display.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain how components in an \"event-driven architecture\" typically communicate without direct coupling.",
+      "back": "In an event-driven architecture, components (producers) emit events upon state changes or actions. Other components (consumers) subscribe to and react to specific events, often facilitated by an event broker or message queue. This decouples producers from consumers, as they don't need direct knowledge of each other's existence or implementation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a key operational advantage of \"microservices architecture\" over a monolithic application when deploying updates to a single feature?",
+      "back": "A key advantage is independent deployability. In microservices, a single feature update typically only requires deploying the specific service responsible for that feature, minimizing downtime and risk compared to redeploying an entire monolithic application. This allows for faster, more frequent releases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A key benefit of \"serverless architecture\" for cost management is its _________ billing model.",
+      "back": "A key benefit of \"serverless architecture\" for cost management is its **pay-per-execution** (or pay-per-use/consumption-based) billing model, meaning you only pay for the compute resources consumed when your function is actively running, rather than for idle server time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the \"cold start\" problem in serverless computing, and why is it a concern?",
+      "back": "A \"cold start\" occurs when a serverless function is invoked after a period of inactivity, requiring the cloud provider to provision a new execution environment (e.g., download code, initialize runtime). This adds latency to the initial request, which can be a concern for latency-sensitive applications or user experiences.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "You're building a new e-commerce platform. When might a \"layered architecture\" be preferred over \"microservices,\" and vice-versa?",
+      "back": "1.  **Layered Preferred:** For smaller, simpler projects with a stable domain, where development speed and easier initial setup are priorities. It offers simpler deployment, debugging, and less operational overhead.\n2.  **Microservices Preferred:** For large, complex systems requiring high scalability, resilience, and independent team development. It allows for technology diversity, independent scaling of components, and faster feature delivery in large teams, despite increased operational complexity and distributed data challenges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Consider a complex desktop application with many interdependent UI elements. When might an \"event-driven architecture\" be a more suitable choice than a strict \"MVC\" pattern for managing UI updates?",
+      "back": "While MVC separates concerns, an event-driven approach can be superior for highly interactive UIs where many components need to react to changes from various sources. Instead of controllers directly updating multiple views, components can emit events (e.g., \"item selected,\" \"data loaded\"), and other interested components (views or models) can subscribe and update themselves. This reduces direct coupling between UI elements and centralizes state changes via events, making complex interactions more manageable and extensible, especially in scenarios with many-to-many relationships between UI actions and reactions.",
+      "difficulty": "hard"
+    }
+  ]
+}

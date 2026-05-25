@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-6-shock-waves-mach-number-mach-cone-critical-for-rockets",
+  "subtopicTitle": "Shock waves — Mach number, Mach cone — CRITICAL for rockets",
+  "topicId": "physics-p1-1-6-oscillations-waves",
+  "topicTitle": "Oscillations & Waves",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:24.523Z",
+  "cards": [
+    {
+      "front": "What is a shock wave in fluid dynamics?",
+      "back": "A shock wave is a type of propagating disturbance characterized by an abrupt, nearly discontinuous change in the properties of the medium (e.g., pressure, temperature, density, velocity). It forms when a fluid flow or an object moves faster than the local speed of sound.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the Mach number ($M$) and provide its formula.",
+      "back": "The Mach number ($M$) is a dimensionless quantity representing the ratio of the flow velocity past a boundary to the local speed of sound in the medium.\nFormula: $M = \\frac{v}{a}$, where $v$ is the flow velocity and $a$ is the local speed of sound.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Under what specific condition does a shock wave typically form in a fluid?",
+      "back": "A shock wave forms when an object or a fluid flow moves at or exceeds the local speed of sound ($M \\ge 1$) in that medium. This causes pressure waves to coalesce and steepen, forming a sharp discontinuity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the changes in fluid properties (pressure, temperature, velocity) as a flow passes *through* a normal shock wave.",
+      "back": "As a fluid passes through a normal shock wave:\n*   **Pressure ($P$)**: Increases abruptly.\n*   **Temperature ($T$)**: Increases abruptly.\n*   **Density ($\\rho$)**: Increases abruptly.\n*   **Velocity ($v$)**: Decreases abruptly (from supersonic to subsonic relative to the shock).\n*   **Mach number ($M$)**: Decreases from $M > 1$ to $M < 1$.\n*   **Entropy ($s$)**: Increases (irreversible process).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the formula for the Mach angle ($\\mu$) of a Mach cone in terms of the Mach number ($M$).",
+      "back": "Consider a point source moving at velocity $v$ (supersonic) emitting sound waves at speed $a$. In time $t$, the source moves $vt$, and the sound wave travels $at$. The Mach cone is formed by the tangent lines to these spherical wavefronts.\nFrom trigonometry, for a right-angled triangle formed by the source's path and the wavefront radius:\n$\\sin(\\mu) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{at}{vt} = \\frac{a}{v}$\nSince $M = \\frac{v}{a}$, then $\\frac{a}{v} = \\frac{1}{M}$.\nTherefore, the Mach angle is $\\mu = \\arcsin\\left(\\frac{1}{M}\\right)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the Mach cone angle change as a rocket accelerates from $M=1.1$ to $M=5$?",
+      "back": "The Mach angle is given by $\\mu = \\arcsin(1/M)$.\n*   At $M=1.1$: $\\mu = \\arcsin(1/1.1) \\approx \\arcsin(0.909) \\approx 65.4^\\circ$.\n*   At $M=5$: $\\mu = \\arcsin(1/5) = \\arcsin(0.2) \\approx 11.5^\\circ$.\nAs the Mach number increases, the Mach angle **decreases**, meaning the cone becomes **narrower** and \"flatter\" against the direction of motion. This is because the object is moving significantly faster relative to the sound waves it generates, pushing the wavefronts into a tighter cone.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why are shock waves and Mach number \"CRITICAL\" for rocket design and atmospheric re-entry?",
+      "back": "1.  **Aerodynamic Heating**: Shock waves generate immense heat due to rapid air compression and friction, especially during re-entry. This necessitates robust thermal protection systems (e.g., ablative shields).\n2.  **Wave Drag**: Shock waves significantly increase drag, requiring powerful engines and optimized aerodynamic shapes (e.g., sharp noses, slender bodies) to minimize energy loss.\n3.  **Structural Loads**: Intense pressure gradients across shock waves can induce severe structural stresses and vibrations, demanding strong, resilient materials and designs.\n4.  **Control & Stability**: Flow characteristics change drastically at supersonic speeds, affecting control surface effectiveness and requiring sophisticated flight control systems.\n5.  **Engine Inlet Design**: Supersonic inlets must manage shock waves to efficiently slow incoming air to subsonic speeds for combustion, preventing engine unstart.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens to the Mach cone and its angle as the Mach number ($M$) approaches infinity?",
+      "back": "As $M \\to \\infty$, the Mach angle $\\mu = \\arcsin(1/M)$ approaches $\\arcsin(0)$, which is $0^\\circ$. This means the Mach cone collapses into a flat plane perpendicular to the direction of motion, essentially becoming a \"bow shock\" that is almost perfectly normal to the object's path. In this hypothetical extreme hypersonic regime, the object is moving so much faster than sound that the sound waves are effectively \"left behind\" in a very narrow, almost two-dimensional disturbance.",
+      "difficulty": "medium"
+    }
+  ]
+}

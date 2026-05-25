@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-5-vectors-in-operations-geometric-interpretation",
+  "subtopicTitle": "Vectors in ℝⁿ — operations, geometric interpretation",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:07:45.055Z",
+  "cards": [
+    {
+      "front": "What is a vector in $\\mathbb{R}^n$?",
+      "back": "A vector in $\\mathbb{R}^n$ is an ordered $n$-tuple of real numbers, typically written as a column matrix:\n$$ \\mathbf{v} = \\begin{pmatrix} v_1 \\\\ v_2 \\\\ \\vdots \\\\ v_n \\end{pmatrix} $$\nGeometrically, it can be interpreted as a directed line segment from the origin to the point $(v_1, v_2, \\dots, v_n)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given $\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^n$, define $\\mathbf{u} + \\mathbf{v}$ algebraically and describe its geometric interpretation.",
+      "back": "Algebraically, if $\\mathbf{u} = \\begin{pmatrix} u_1 \\\\ \\vdots \\\\ u_n \\end{pmatrix}$ and $\\mathbf{v} = \\begin{pmatrix} v_1 \\\\ \\vdots \\\\ v_n \\end{pmatrix}$, then:\n$$ \\mathbf{u} + \\mathbf{v} = \\begin{pmatrix} u_1+v_1 \\\\ \\vdots \\\\ u_n+v_n \\end{pmatrix} $$\nGeometrically, using the \"Triangle Rule\", place the tail of $\\mathbf{v}$ at the head of $\\mathbf{u}$. The resultant vector $\\mathbf{u} + \\mathbf{v}$ is drawn from the tail of $\\mathbf{u}$ to the head of $\\mathbf{v}$. Alternatively, using the \"Parallelogram Rule\", if $\\mathbf{u}$ and $\\mathbf{v}$ share the same tail, $\\mathbf{u} + \\mathbf{v}$ is the diagonal of the parallelogram formed by $\\mathbf{u}$ and $\\mathbf{v}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $\\mathbf{v} \\in \\mathbb{R}^n$ and a scalar $c \\in \\mathbb{R}$, define $c\\mathbf{v}$ algebraically and describe its geometric interpretation.",
+      "back": "Algebraically, if $\\mathbf{v} = \\begin{pmatrix} v_1 \\\\ \\vdots \\\\ v_n \\end{pmatrix}$, then:\n$$ c\\mathbf{v} = \\begin{pmatrix} cv_1 \\\\ \\vdots \\\\ cv_n \\end{pmatrix} $$\nGeometrically, $c\\mathbf{v}$ is a vector parallel to $\\mathbf{v}$. Its magnitude is $|c|$ times the magnitude of $\\mathbf{v}$. If $c > 0$, it points in the same direction as $\\mathbf{v}$. If $c < 0$, it points in the opposite direction. If $c=0$, it is the zero vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is vector subtraction $\\mathbf{u} - \\mathbf{v}$ defined, and what is its geometric interpretation?",
+      "back": "Vector subtraction $\\mathbf{u} - \\mathbf{v}$ is defined as $\\mathbf{u} + (-\\mathbf{v})$, where $-\\mathbf{v}$ is the scalar product $(-1)\\mathbf{v}$.\nGeometrically, if $\\mathbf{u}$ and $\\mathbf{v}$ are drawn from the same origin, $\\mathbf{u} - \\mathbf{v}$ is the vector that starts at the head of $\\mathbf{v}$ and ends at the head of $\\mathbf{u}$. It represents the vector that must be added to $\\mathbf{v}$ to obtain $\\mathbf{u}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^n$, what is the algebraic definition of their dot product $\\mathbf{u} \\cdot \\mathbf{v}$?",
+      "back": "Given $\\mathbf{u} = \\begin{pmatrix} u_1 \\\\ \\vdots \\\\ u_n \\end{pmatrix}$ and $\\mathbf{v} = \\begin{pmatrix} v_1 \\\\ \\vdots \\\\ v_n \\end{pmatrix}$, their dot product (also known as scalar product) is defined as:\n$$ \\mathbf{u} \\cdot \\mathbf{v} = u_1v_1 + u_2v_2 + \\dots + u_nv_n = \\sum_{i=1}^n u_iv_i $$\nThe result of a dot product is a scalar value, not a vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the geometric definition of the dot product $\\mathbf{u} \\cdot \\mathbf{v}$ and explain its implication for orthogonal vectors.",
+      "back": "The geometric definition of the dot product is:\n$$ \\mathbf{u} \\cdot \\mathbf{v} = ||\\mathbf{u}|| \\ ||\\mathbf{v}|| \\cos(\\theta) $$\nwhere $||\\mathbf{u}||$ and $||\\mathbf{v}||$ are the magnitudes of $\\mathbf{u}$ and $\\mathbf{v}$ respectively, and $\\theta$ is the angle between the two vectors ($0 \\le \\theta \\le \\pi$).\n\nFor non-zero vectors $\\mathbf{u}$ and $\\mathbf{v}$, they are orthogonal (perpendicular) if and only if their dot product is zero ($\\mathbf{u} \\cdot \\mathbf{v} = 0$). This is because if $\\theta = \\pi/2$ (90 degrees), then $\\cos(\\pi/2) = 0$, making the entire expression zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the magnitude (or norm) of a vector $\\mathbf{v} \\in \\mathbb{R}^n$, and how it relates to the dot product.",
+      "back": "The magnitude (or length or norm) of a vector $\\mathbf{v} = \\begin{pmatrix} v_1 \\\\ \\vdots \\\\ v_n \\end{pmatrix}$ is denoted by $||\\mathbf{v}||$ and is defined as:\n$$ ||\\mathbf{v}|| = \\sqrt{v_1^2 + v_2^2 + \\dots + v_n^2} $$\nIt relates to the dot product by $||\\mathbf{v}|| = \\sqrt{\\mathbf{v} \\cdot \\mathbf{v}}$. Consequently, $||\\mathbf{v}||^2 = \\mathbf{v} \\cdot \\mathbf{v}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a unit vector? How do you find a unit vector in the same direction as a given non-zero vector $\\mathbf{v}$?",
+      "back": "A unit vector is a vector with a magnitude (or length) of 1.\nTo find a unit vector $\\hat{\\mathbf{v}}$ in the same direction as a given non-zero vector $\\mathbf{v}$, you normalize $\\mathbf{v}$ by dividing it by its magnitude:\n$$ \\hat{\\mathbf{v}} = \\frac{1}{||\\mathbf{v}||} \\mathbf{v} $$",
+      "difficulty": "medium"
+    }
+  ]
+}

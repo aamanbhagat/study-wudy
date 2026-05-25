@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p4-4-1-pipeline-hazards-structural-data-raw-war-waw-control",
+  "subtopicTitle": "Pipeline hazards — structural, data (RAW/WAR/WAW), control",
+  "topicId": "cs-p4-4-1-computer-architecture-deep",
+  "topicTitle": "Computer Architecture (Deep)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:17:48.221Z",
+  "cards": [
+    {
+      "front": "Name the three primary types of pipeline hazards in a CPU pipeline.",
+      "back": "Structural, Data, and Control hazards.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a structural hazard and give one common example of its cause.",
+      "back": "A structural hazard occurs when two instructions require the same hardware resource at the same time. Example: A single memory port used by both the Instruction Fetch (IF) stage and the Memory Access (MEM) stage.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a RAW (Read After Write) data hazard, and what is its most common hardware mitigation?",
+      "back": "A RAW hazard occurs when an instruction tries to read a register or memory location before a preceding instruction has written to it. The most common hardware mitigation is **operand forwarding** (or bypassing), which sends the result directly from an earlier pipeline stage.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Distinguish WAR (Write After Read) and WAW (Write After Write) data hazards.",
+      "back": "<ul><li>**WAR (Anti-dependence):** An instruction tries to write a destination before a preceding instruction has read its source.</li><li>**WAW (Output dependence):** An instruction tries to write a destination before a preceding instruction that also writes to the same destination has completed its write.</li></ul>These are \"false dependencies\" and are critical in out-of-order execution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define a control hazard. What is the simplest, albeit inefficient, way to resolve it?",
+      "back": "A control hazard occurs when the pipeline cannot fetch the next instruction until a branch instruction's outcome (taken/not taken, target address) is known. The simplest resolution is to **stall** the pipeline until the branch is resolved.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For `ADD R1, R2, R3` then `SUB R4, R1, R5`, in a 5-stage pipeline (IF, ID, EX, MEM, WB), from which stage would `R1`'s value be forwarded to `SUB`?",
+      "back": "The `ADD` instruction computes `R1`'s value in its **EX (Execute)** stage. This value would be forwarded directly from the `ADD`'s EX stage output to the `SUB`'s EX stage input, bypassing the register file write-back (WB) and subsequent read from the register file (ID).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does branch prediction mitigate control hazards, and what is the consequence of a misprediction?",
+      "back": "Branch prediction guesses the branch outcome (taken/not taken) and target address, allowing speculative instruction fetching. If correct, stalls are avoided. On a **misprediction**, speculatively fetched/executed instructions are **flushed** from the pipeline, and the correct path is fetched, incurring a performance penalty.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the concept of a \"delayed branch\" and its purpose in pipeline hazard mitigation.",
+      "back": "A delayed branch executes the instruction immediately following the branch (in the \"delay slot\") *unconditionally*. The compiler fills this slot with a useful, independent instruction to hide the branch latency, reducing stalls from control hazards.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does register renaming mitigate WAR/WAW hazards, particularly in out-of-order execution?",
+      "back": "Register renaming maps architectural registers to a larger pool of physical registers. This provides unique physical storage for each instruction's result, eliminating false dependencies (WAR/WAW) by preventing a later instruction from overwriting or being read before an earlier instruction's value is used/written to the same *logical* register.",
+      "difficulty": "hard"
+    }
+  ]
+}

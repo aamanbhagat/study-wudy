@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p4-4-3-arp-address-resolution-arp-cache-gratuitous-arp",
+  "subtopicTitle": "ARP — address resolution, ARP cache, gratuitous ARP",
+  "topicId": "cs-p4-4-3-computer-networks",
+  "topicTitle": "Computer Networks",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:18:29.620Z",
+  "cards": [
+    {
+      "front": "What is the primary function of the Address Resolution Protocol (ARP)?",
+      "back": "ARP's primary function is to map an IP address (Layer 3 logical address) to its corresponding MAC address (Layer 2 physical address) on a local network segment. This translation is essential for devices to communicate directly on the same physical network.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the four-step process a host uses to find the MAC address for a known IP address on its local network using ARP.",
+      "back": "1. Host A checks its ARP cache for Host B's IP-to-MAC mapping. If found, it uses that.\n2. If not found, Host A broadcasts an ARP Request frame to all devices on the local network. This frame contains Host B's IP address.\n3. All devices receive the broadcast. Host B recognizes its own IP address in the request.\n4. Host B sends an ARP Reply frame directly back to Host A (unicast), containing its MAC address. Host A then adds this mapping to its ARP cache.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is ARP necessary in a network that uses both IP addresses and MAC addresses, such as an Ethernet LAN with IPv4?",
+      "back": "While IP addresses are used for logical addressing and routing across different networks, MAC addresses are required for actual data link layer communication between devices on the *same* physical network segment (e.g., an Ethernet LAN). When an IP packet needs to be sent to a destination on the local network, the Layer 2 frame header needs the destination's MAC address. ARP bridges this gap by translating the known IP address into the necessary MAC address for local frame delivery.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the purpose of the ARP cache on a network device?",
+      "back": "The ARP cache is a temporary storage (a table) maintained by a network device (like a computer or router) that stores recently resolved IP-to-MAC address mappings. Its purpose is to reduce the overhead of sending an ARP request every time a device needs to communicate with another device on the local network, thereby improving network efficiency and reducing network traffic.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How do entries get added to and removed from a device's ARP cache?",
+      "back": "An entry is typically **added** when a device successfully receives an ARP Reply in response to its own ARP Request, or when it processes an ARP Reply from another device (even if it wasn't the initiator, known as \"passive learning\"). Entries are **removed** after a certain timeout period (e.g., 20 minutes for dynamic entries) if they are not refreshed. They can also be manually cleared or overwritten by new ARP information (e.g., if a device's MAC address changes).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What command can a user typically use on a Windows or Linux system to view the contents of the ARP cache?",
+      "back": "On Windows: `arp -a`\nOn Linux/macOS: `arp -a` or `ip neigh show` (using the `iproute2` utility).\n\nExample output (Linux):\n```\n$ ip neigh show\n192.168.1.1 dev eth0 lladdr 00:11:22:33:44:55 REACHABLE\n192.168.1.100 dev eth0 lladdr aa:bb:cc:dd:ee:ff STALE\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a \"Gratuitous ARP\" message, and how does it differ from a standard ARP Request?",
+      "back": "A Gratuitous ARP (GARP) is an ARP message sent by a device without first receiving an ARP request. Unlike a standard ARP Request which asks \"Who has IP X?\", a GARP effectively announces \"I am IP Y, and my MAC is Z.\" It's a broadcast ARP request where the sender's IP address is the same as the target IP address, and the target MAC address is typically all zeros.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List and briefly explain at least three common use cases for Gratuitous ARP.",
+      "back": "1.  **Duplicate IP Address Detection:** A device sends a GARP when it first comes online. If another device responds, it indicates a duplicate IP address on the network.\n2.  **Updating ARP Caches after a MAC Address Change:** If a device's MAC address changes (e.g., NIC replacement, failover in a high-availability cluster), it sends a GARP to inform other devices to update their stale ARP cache entries, preventing communication issues.\n3.  **Announcing a New IP Address:** After a device configures a new IP address, it can send a GARP to proactively populate the ARP caches of other devices on the segment, speeding up initial communication.\n4.  **VRRP/HSRP Failover:** In redundant router protocols (like VRRP or HSRP), when a standby router takes over as active, it sends a GARP for the virtual IP address to update client ARP caches with its own MAC address, ensuring seamless traffic redirection.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-backpropagation-chain-rule-gradient-computation",
+  "subtopicTitle": "Backpropagation — chain rule, gradient computation",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:29.295Z",
+  "cards": [
+    {
+      "front": "What is the primary goal of backpropagation in a neural network?",
+      "back": "The primary goal of backpropagation is to efficiently compute the gradients of the loss function with respect to all the weights and biases in the network. These gradients are then used by optimization algorithms (e.g., gradient descent) to update the parameters and minimize the loss.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which fundamental calculus rule is indispensable for backpropagation to compute gradients through multiple layers of a neural network?",
+      "back": "The chain rule. It allows us to compute the derivative of a composite function by multiplying the derivatives of its individual components, propagating the error gradient backward through the network.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a computational graph where $A \\rightarrow B \\rightarrow C$, and we know $\\frac{\\partial C}{\\partial B}$ and $\\frac{\\partial B}{\\partial A}$, how do we find $\\frac{\\partial C}{\\partial A}$ using the chain rule?",
+      "back": "Using the chain rule, $\\frac{\\partial C}{\\partial A} = \\frac{\\partial C}{\\partial B} \\cdot \\frac{\\partial B}{\\partial A}$. This principle is applied repeatedly in backpropagation to compute gradients layer by layer.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a single neuron's activation $a = \\sigma(z)$ where $z = wx+b$, and an upstream gradient $\\frac{\\partial L}{\\partial a}$ is received, derive $\\frac{\\partial L}{\\partial w}$ using the chain rule.",
+      "back": "Using the chain rule:\n$$ \\frac{\\partial L}{\\partial w} = \\frac{\\partial L}{\\partial a} \\cdot \\frac{\\partial a}{\\partial z} \\cdot \\frac{\\partial z}{\\partial w} $$\nWe know:\n$\\frac{\\partial a}{\\partial z} = \\sigma'(z)$ (derivative of the activation function)\n$\\frac{\\partial z}{\\partial w} = \\frac{\\partial (wx+b)}{\\partial w} = x$\nTherefore:\n$$ \\frac{\\partial L}{\\partial w} = \\frac{\\partial L}{\\partial a} \\cdot \\sigma'(z) \\cdot x $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the gradient of the Rectified Linear Unit (ReLU) activation function, $f(x) = \\max(0, x)$, with respect to its input $x$?",
+      "back": "The gradient of the ReLU function is:\n$$ \\frac{df}{dx} = \\begin{cases} 1 & \\text{if } x > 0 \\\\ 0 & \\text{if } x < 0 \\\\ \\text{undefined (often 0 or 1)} & \\text{if } x = 0 \\end{cases} $$\nIn practice, for $x=0$, the gradient is typically set to 0 to avoid issues during backpropagation.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the 'vanishing gradient' problem and its connection to the chain rule in deep neural networks.",
+      "back": "The vanishing gradient problem occurs when gradients become extremely small as they are backpropagated through many layers. This is due to repeated multiplication of small derivatives (e.g., from sigmoid or tanh activation functions) via the chain rule. Small gradients mean that the weights in earlier layers are updated very slowly, hindering effective learning in deep networks.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the context of backpropagation, what is the difference between an 'upstream gradient' and a 'local gradient' for a specific operation?",
+      "back": "The 'upstream gradient' is the gradient of the final loss with respect to the output of the current operation (i.e., $\\frac{\\partial L}{\\partial \\text{output}}$). The 'local gradient' is the derivative of the current operation's output with respect to its immediate inputs (e.g., $\\frac{\\partial \\text{output}}{\\partial \\text{input}}$). Backpropagation computes the gradient with respect to inputs by multiplying the upstream gradient by the local gradient.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the initial gradient $\\frac{\\partial L}{\\partial \\hat{y}}$ for a Mean Squared Error (MSE) loss function $L = \\frac{1}{2}(y - \\hat{y})^2$, where $y$ is the true value and $\\hat{y}$ is the predicted value.",
+      "back": "To initiate backpropagation, we first compute the gradient of the loss with respect to the network's output $\\hat{y}$:\n$$ \\frac{\\partial L}{\\partial \\hat{y}} = \\frac{\\partial}{\\partial \\hat{y}} \\left( \\frac{1}{2}(y - \\hat{y})^2 \\right) $$\nUsing the chain rule for differentiation:\n$$ = \\frac{1}{2} \\cdot 2(y - \\hat{y}) \\cdot \\frac{\\partial}{\\partial \\hat{y}}(y - \\hat{y}) $$\n$$ = (y - \\hat{y}) \\cdot (-1) $$\n$$ = \\hat{y} - y $$",
+      "difficulty": "medium"
+    }
+  ]
+}

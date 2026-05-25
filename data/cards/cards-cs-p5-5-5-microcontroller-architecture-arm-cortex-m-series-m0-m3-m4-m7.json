@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-5-microcontroller-architecture-arm-cortex-m-series-m0-m3-m4-m7",
+  "subtopicTitle": "Microcontroller architecture — ARM Cortex-M series (M0, M3, M4, M7)",
+  "topicId": "cs-p5-5-5-embedded-systems-real-time-software",
+  "topicTitle": "Embedded Systems & Real-Time Software",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:43.682Z",
+  "cards": [
+    {
+      "front": "What is the primary instruction set architecture used across all ARM Cortex-M processors?",
+      "back": "The primary instruction set architecture used across all ARM Cortex-M processors is Thumb-2. However, the Cortex-M0 core is an exception, primarily using the pure Thumb instruction set, lacking the full Thumb-2 extensions.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which ARM Cortex-M core is typically chosen for ultra-low-cost, small footprint applications, and what is its key instruction set limitation compared to M3/M4/M7?",
+      "back": "The Cortex-M0 is typically chosen for ultra-low-cost, small footprint applications. Its key instruction set limitation is that it uses the pure Thumb instruction set, lacking the full Thumb-2 instruction set extensions found in the M3, M4, and M7 cores, which offer better code density and performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which Cortex-M series core introduced DSP instructions and an optional single-precision Floating-Point Unit (FPU), making it suitable for motor control and audio processing?",
+      "back": "The Cortex-M4 core introduced Digital Signal Processor (DSP) instructions and an optional single-precision Floating-Point Unit (FPU). These enhancements significantly improve its performance for signal processing tasks, making it well-suited for applications like motor control, audio processing, and sensor fusion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the primary benefit of the Thumb-2 instruction set over the original Thumb instruction set, as seen in Cortex-M3 vs. Cortex-M0.",
+      "back": "Thumb-2 is a variable-length instruction set that combines the code density benefits of 16-bit Thumb instructions with the performance of 32-bit ARM instructions. It allows the processor to execute most common operations using compact 16-bit instructions while providing access to the full 32-bit ARM instruction set for more complex operations, without switching CPU states. This results in better code density and improved performance compared to the pure Thumb instruction set used by the Cortex-M0.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the primary architectural enhancements in the Cortex-M7 over the Cortex-M4 that enable its higher performance for complex embedded applications.",
+      "back": "The Cortex-M7 features a 6-stage superscalar pipeline with dual-issue capability, allowing it to execute two instructions per clock cycle under optimal conditions. It also supports an optional double-precision FPU (in addition to single-precision), an AXI bus interface for high-bandwidth memory access, and Tightly Coupled Memories (TCMs) for deterministic, high-speed access to data and instructions, all contributing to significantly higher performance.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A developer needs to implement a real-time control system requiring precise, low-latency interrupt handling and memory protection, but without the need for floating-point arithmetic. Which Cortex-M core would be the most power-efficient choice that meets these requirements, and why?",
+      "back": "The Cortex-M3 would be the most power-efficient choice. It provides the Nested Vectored Interrupt Controller (NVIC) for efficient, low-latency interrupt management and a Memory Protection Unit (MPU) for memory isolation, both crucial for real-time systems. Since floating-point arithmetic is not needed, the M3 avoids the additional complexity and power consumption of an FPU found in the M4/M7, making it more power-efficient for this specific use case.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compare the pipeline depths of the Cortex-M0 and Cortex-M7. How does this difference impact their typical clock speeds and power consumption profiles?",
+      "back": "The Cortex-M0 typically uses a shallow 3-stage pipeline (fetch, decode, execute), while the Cortex-M7 features a deeper, 6-stage superscalar pipeline. A shallower pipeline (M0) generally leads to lower latency for individual instructions and lower power consumption per clock cycle but limits maximum clock frequency. A deeper, superscalar pipeline (M7) enables much higher clock frequencies and instruction throughput (multiple instructions per cycle) but increases latency, power consumption, and design complexity. This makes M0 suitable for low-power, low-frequency tasks, and M7 for high-performance, higher-frequency applications.",
+      "difficulty": "hard"
+    }
+  ]
+}

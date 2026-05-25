@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-5-euler-angles-roll-pitch-yaw-rotation-sequence-3-2-1-convention",
+  "subtopicTitle": "Euler angles — roll φ, pitch θ, yaw ψ; rotation sequence (3-2-1 convention)",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:28:41.315Z",
+  "cards": [
+    {
+      "front": "Define Euler angles in the context of rigid body orientation.",
+      "back": "A set of three angles that describe the orientation of a rigid body in 3D space relative to a fixed reference frame. They represent a sequence of three successive rotations about principal axes.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the 3-2-1 Euler angle convention, which physical rotation corresponds to $\\phi$, $\\theta$, and $\\psi$?",
+      "back": "$\\psi$ (psi) = Yaw (rotation about the initial Z-axis); $\\theta$ (theta) = Pitch (rotation about the intermediate Y'-axis); $\\phi$ (phi) = Roll (rotation about the final X''-axis).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the \"3-2-1\" convention for Euler angles.",
+      "back": "The \"3-2-1\" convention specifies the order of rotations: first, a rotation about the initial Z-axis (3, yaw $\\psi$), then about the *intermediate* Y-axis (2, pitch $\\theta$), and finally about the *final* X-axis (1, roll $\\phi$). Each subsequent rotation is about an axis of the *newly rotated* frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the physical effect of a positive pitch angle ($\\theta > 0$) on an aircraft.",
+      "back": "A positive pitch angle causes the nose of the aircraft to rotate upwards and the tail downwards, relative to its current orientation. This rotation occurs about the aircraft's lateral (wing-to-wing) axis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the 3x3 rotation matrix $R_x(\\phi)$ for a rotation by angle $\\phi$ about the X-axis.",
+      "back": "$$R_x(\\phi) = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & \\cos\\phi & -\\sin\\phi \\\\ 0 & \\sin\\phi & \\cos\\phi \\end{pmatrix}$$ This matrix transforms coordinates from a body frame (rotated by $\\phi$) to a reference frame, or actively rotates a vector in the same frame.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the 3-2-1 Euler angle sequence ($\\psi, \\theta, \\phi$), write the combined rotation matrix in terms of individual rotation matrices.",
+      "back": "The combined rotation matrix $R_{ZYX}$ is found by multiplying the individual rotation matrices in the reverse order of application (from right to left for ZYX sequence):\n$$R_{ZYX}(\\phi, \\theta, \\psi) = R_x(\\phi) R_y(\\theta) R_z(\\psi)$$\nwhere $R_x(\\phi)$, $R_y(\\theta)$, and $R_z(\\psi)$ are the rotation matrices about the X, Y, and Z axes, respectively.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain \"gimbal lock\" for the 3-2-1 Euler angle convention, and state when it occurs.",
+      "back": "Gimbal lock is a degeneracy where two of the three rotation axes become coplanar, causing a loss of one degree of freedom. For the 3-2-1 (Z-Y'-X'') convention, it occurs when the pitch angle ($\\theta$) is $\\pm 90^\\circ$. At these angles, the initial Z-axis and the final X''-axis align, making roll and yaw indistinguishable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the specific order of Euler angle rotations crucial for determining a rigid body's final orientation?",
+      "back": "3D rotations are generally non-commutative. Applying the same Euler angles in a different sequence (e.g., Z-Y-X vs. X-Y-Z) will result in a different final orientation. This is because each subsequent rotation is applied about an axis of the *newly rotated* coordinate frame, not the fixed global frame.",
+      "difficulty": "medium"
+    }
+  ]
+}

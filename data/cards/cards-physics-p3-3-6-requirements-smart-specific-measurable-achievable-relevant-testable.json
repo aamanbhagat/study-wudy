@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-requirements-smart-specific-measurable-achievable-relevant-testable",
+  "subtopicTitle": "Requirements — SMART (Specific, Measurable, Achievable, Relevant, Testable)",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:30:24.105Z",
+  "cards": [
+    {
+      "front": "What does the acronym SMART stand for in the context of spacecraft requirements engineering?",
+      "back": "SMART stands for:\n*   **S**pecific\n*   **M**easureable\n*   **A**chievable\n*   **R**elevant\n*   **T**estable",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A requirement states: \"The spacecraft must have good communication.\" Is this Specific? If not, how can it be improved?",
+      "back": "No, \"good communication\" is vague. To be Specific, it needs to clearly define what \"good\" means.\n\n**Improved Example**: \"The spacecraft shall maintain a continuous data link with Earth ground stations for 95% of its orbital period, supporting a minimum data rate of 10 Mbps.\"\n\nSpecific requirements answer the \"who, what, when, where, why\" for a given function or performance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For the requirement \"The spacecraft must be lightweight,\" how would you make it Measurable?",
+      "back": "To be Measurable, a requirement needs quantifiable metrics.\n\n**Improved Example**: \"The dry mass of the spacecraft shall not exceed 500 kg.\"\n\nMeasurable requirements allow for objective assessment of whether the requirement has been met, often using units, ranges, or frequencies.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A requirement for a small CubeSat is \"The spacecraft shall reach Mars orbit within 3 months of launch.\" Is this Achievable? Why or why not?",
+      "back": "This is likely not Achievable with current CubeSat propulsion technology and typical mission profiles.\n\nAchievable requirements must be realistic given available resources (time, budget, technology, personnel), constraints, and known physics. For a CubeSat, a Mars orbit transfer typically takes 7-9 months, even for larger probes, and requires significant $\\Delta V$ (delta-v) that CubeSats struggle to provide.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A mission's primary objective is Earth observation. A requirement states: \"The spacecraft shall be capable of deep-space navigation to Jupiter.\" Is this requirement Relevant?",
+      "back": "No, this requirement is not Relevant to a primary Earth observation mission.\n\nRelevant requirements directly support the mission's objectives, goals, and higher-level system needs. Including irrelevant requirements can add unnecessary complexity, cost, and risk.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does \"Testable\" differ from \"Measurable\" in the context of requirements, and why is it crucial for verification?",
+      "back": "1.  **Measurable**: Means you can quantify the requirement (e.g., \"mass < 500 kg\").\n2.  **Testable**: Means you can devise a method (test, inspection, analysis, demonstration) to verify that the requirement has been met.\n\nA requirement can be measurable but not easily testable in practice (e.g., \"The spacecraft shall survive an asteroid impact\" might be measurable in terms of impact energy, but difficult to test directly without destroying the spacecraft).\n\nIt is crucial for verification because if a requirement isn't testable, you can't objectively prove that the system satisfies it, leading to uncertainty and potential mission failure. Testable requirements lead directly to verification plans.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate the following requirement against the SMART criteria: \"The satellite's solar panels must generate sufficient power.\"",
+      "back": "*   **S**pecific: No. \"Sufficient power\" is vague. How much is sufficient? For what operations?\n*   **M**easureable: No. No quantifiable metric for \"sufficient.\"\n*   **A**chievable: Unknown. Without specific power needs, achievability cannot be assessed.\n*   **R**elevant: Likely, assuming power generation is critical for any satellite. But the vagueness makes it hard to confirm its direct link to specific mission objectives.\n*   **T**estable: No. Cannot test \"sufficient\" without a defined metric.\n\n**Conclusion**: This requirement is poorly defined and fails most SMART criteria.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Beyond simply defining requirements, what are the key benefits of ensuring all spacecraft requirements are SMART?",
+      "back": "Key benefits include:\n1.  **Reduced Ambiguity**: Minimizes misinterpretation and ensures everyone understands what needs to be built.\n2.  **Improved Design**: Guides engineers to create solutions that precisely meet needs.\n3.  **Effective Verification**: Enables clear test plans and objective assessment of system performance.\n4.  **Cost & Schedule Control**: Prevents scope creep, rework, and delays by setting clear boundaries.\n5.  **Risk Mitigation**: Identifies potential issues early by highlighting unachievable or untestable aspects.\n6.  **Enhanced Communication**: Facilitates clear communication among stakeholders (engineers, project managers, clients).",
+      "difficulty": "medium"
+    }
+  ]
+}

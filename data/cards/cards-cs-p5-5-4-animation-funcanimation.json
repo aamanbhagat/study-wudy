@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-4-animation-funcanimation",
+  "subtopicTitle": "Animation — FuncAnimation",
+  "topicId": "cs-p5-5-4-scientific-computing-python",
+  "topicTitle": "Scientific Computing (Python)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:20:41.037Z",
+  "cards": [
+    {
+      "front": "In Matplotlib, what is the primary purpose of `matplotlib.animation.FuncAnimation`?",
+      "back": "`FuncAnimation` is used to create animations by repeatedly calling a user-defined function (`func`) to update the elements of a plot. It's ideal for generating dynamic visualizations from a sequence of frames, making data come alive over time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "List the three essential arguments required to instantiate `matplotlib.animation.FuncAnimation`.",
+      "back": "The three essential arguments are:\n1.  `fig`: The `matplotlib.figure.Figure` object to animate.\n2.  `func`: The function to call each frame, which updates the plot's artists.\n3.  `frames`: The source of data for the `func` to iterate over, or the total number of frames to generate.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the expected signature of the `func` argument passed to `FuncAnimation` and what it should return for optimal performance.",
+      "back": "The `func` argument should accept a single argument, `i`, which represents the current frame number or value from the `frames` iterable. It should update the plot artists (e.g., `line.set_ydata(...)`). For optimal performance, especially with `blit=True`, it should return an iterable of all the `Artist` objects that were modified or created in that frame.\n```python\ndef update(frame_number):\n    # Update plot elements using frame_number\n    line.set_ydata(some_data[frame_number])\n    return line, # Return modified artists as an iterable\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the purpose and benefit of setting `blit=True` in `FuncAnimation`, and what crucial constraint it imposes on the `func` argument.",
+      "back": "`blit=True` optimizes animation by redrawing only the parts of the plot that have changed between frames, rather than the entire figure. This significantly improves performance and reduces flickering. When `blit=True`, the `func` argument *must* return an iterable of all `Artist` objects that were modified or created in that specific frame; otherwise, those artists will not be redrawn.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you save a `FuncAnimation` object to a video file (e.g., MP4) or GIF, and what external dependencies might be required?",
+      "back": "You can save an animation using the `anim.save(filename, writer='...')` method.\n*   For MP4 videos, you typically use the `ffmpeg` writer, which requires the `ffmpeg` external program installed and accessible in your system's PATH.\n*   For GIFs, you might use the `imagemagick` writer, requiring ImageMagick.\nExample:\n```python\nimport matplotlib.animation as animation\n# anim is your FuncAnimation object\nanim.save('my_animation.mp4', writer='ffmpeg', fps=30)\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do you display a `FuncAnimation` object directly within a Jupyter Notebook or IPython environment without saving it to a file first?",
+      "back": "To display a `FuncAnimation` object (`anim`) directly in a Jupyter Notebook, you can use `IPython.display.HTML`. The animation object has methods to generate the necessary HTML5 video or JavaScript. The most common way is:\n```python\nfrom IPython.display import HTML\n# anim is your FuncAnimation object\nHTML(anim.to_jshtml()) # or HTML(anim.to_html5_video()) for a direct video tag\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the `init_func` argument in `FuncAnimation`, and what should it return?",
+      "back": "The `init_func` argument is an optional function called once at the very beginning of the animation to draw a clear initial frame. It's used to initialize all the plot elements that will be animated to their starting state (e.g., empty lines, initial text). If `blit=True`, `init_func` *must* return an iterable of all `Artist` objects that it initialized, similar to the `func` argument.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When animating multiple independent artists (e.g., two lines and a text label) with `blit=True`, what is the crucial requirement for the `func` and `init_func` return values?",
+      "back": "When `blit=True`, both `func` and `init_func` must return an *iterable* (e.g., a tuple or list) containing *all* the `Artist` objects that are being modified or drawn in that particular frame or initialization step. If an artist is omitted from the return value, Matplotlib's blitting mechanism will not redraw it, causing it to disappear or not update correctly.\n```python\ndef update(frame):\n    line1.set_ydata(...)\n    line2.set_ydata(...)\n    text_artist.set_text(f'Frame: {frame}')\n    return line1, line2, text_artist # All modified artists must be returned\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

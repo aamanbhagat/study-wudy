@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-multiple-inheritance-python-s-c3-linearization-algorithm",
+  "subtopicTitle": "Multiple inheritance — Python's C3 linearization algorithm",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:20.539Z",
+  "cards": [
+    {
+      "front": "What is multiple inheritance, and what common problem does it introduce in object-oriented programming?",
+      "back": "Multiple inheritance allows a class to inherit attributes and methods from multiple parent classes. The 'diamond problem' (or 'deadly diamond of death') is a common issue where a class inherits from two classes that share a common ancestor, leading to ambiguity regarding which ancestor's method/attribute to use.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does MRO stand for, and how does Python use it to resolve method/attribute lookup ambiguities in multiple inheritance?",
+      "back": "MRO stands for Method Resolution Order. Python resolves ambiguities by defining a strict, linear order in which base classes are searched for methods or attributes. This order is determined by the C3 linearization algorithm.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name and briefly explain the two main principles that guide Python's C3 linearization algorithm for MRO.",
+      "back": "1. **Local Precedence Order:** A class always precedes its parents. In `class C(A, B):`, `A` must appear before `B` in `C`'s MRO. 2. **Monotonicity:** The MRO of a class must respect the MRO of its superclasses. If `X` precedes `Y` in the MRO of a base class `B`, then `X` must also precede `Y` in the MRO of any class `C` that inherits from `B`.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the formal steps to compute the MRO for a class $C$ using the C3 linearization algorithm.",
+      "back": "To compute $L(C)$ (the MRO of class $C$):\n1. $L(C) = [C] + merge(L(P_1), L(P_2), ..., L(P_n), [P_1, P_2, ..., P_n])$ where $P_1, P_2, ..., P_n$ are the direct parent classes of $C$ in the order they appear in the class definition.\n2. The `merge` operation works as follows:\n   * Take the head of the first list, $H$.\n   * If $H$ is not in the tail of any other list (i.e., $H$ does not appear later in any other list), then add $H$ to the result and remove it from all lists.\n   * If $H$ *is* in the tail of any other list, then move to the head of the next list and repeat.\n   * If no head can be selected (all remaining heads are in the tail of other lists), then a `TypeError` (cyclic inheritance) is raised.\n   * Repeat until all lists are empty.\nThis ensures local precedence and monotonicity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given `class O: pass`, `class A(O): pass`, `class B(O): pass`, `class C(A, B): pass`. What is `C`'s MRO according to C3?",
+      "back": "```python\n# L(O) = [O]\n# L(A) = [A] + merge(L(O), [O]) = [A, O]\n# L(B) = [B] + merge(L(O), [O]) = [B, O]\n\n# L(C) = [C] + merge(L(A), L(B), [A, B])\n# L(C) = [C] + merge([A, O], [B, O], [A, B])\n\n# Merge step-by-step:\n# 1. Head of [A, O] is A. Is A in tail of [B, O] or [A, B]? No.\n#    Result: [C, A]\n#    Remaining: merge([O], [B, O], [B])\n# 2. Head of [O] is O. Is O in tail of [B, O] or [B]? Yes (in [B, O]). Cannot pick O.\n# 3. Head of [B, O] is B. Is B in tail of [O] or [B]? No.\n#    Result: [C, A, B]\n#    Remaining: merge([O], [O])\n# 4. Head of [O] is O. Is O in tail of [O]? No.\n#    Result: [C, A, B, O]\n#    Remaining: merge([])\n\n# Final MRO: [C, A, B, O]\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can you programmatically inspect the Method Resolution Order (MRO) of a class `MyClass` in Python?",
+      "back": "You can use either the `__mro__` attribute or the `mro()` method of the class:\n```python\nclass MyClass(object):\n    pass\n\nprint(MyClass.__mro__)\n# Output: (<class '__main__.MyClass'>, <class 'object'>)\n\nprint(MyClass.mro())\n# Output: [<class '__main__.MyClass'>, <class 'object'>]\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what specific condition will Python's C3 linearization algorithm fail and raise a `TypeError` during MRO computation?",
+      "back": "C3 linearization fails and raises a `TypeError` (e.g., 'Cannot create a consistent method resolution order (MRO) for bases...') if it encounters a situation where the local precedence order of parent classes cannot be reconciled with the monotonicity requirement. This typically happens in complex, non-linear inheritance graphs where a class is forced to precede another, but that other class is also forced to precede the first one by a different inheritance path, creating a cycle or an irreconcilable conflict.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the primary advantage of Python's C3 linearization algorithm compared to simpler MRO strategies (e.g., depth-first search)?",
+      "back": "The primary advantage of C3 is that it guarantees a **consistent and monotonic** MRO. This means that once a specific ordering of base classes (e.g., $X$ before $Y$) is established in a superclass, that order is preserved in all subclasses. This prevents unexpected behavior, ensures method calls are predictable, and avoids the 'diamond problem' ambiguities that simpler algorithms often struggle with.",
+      "difficulty": "medium"
+    }
+  ]
+}

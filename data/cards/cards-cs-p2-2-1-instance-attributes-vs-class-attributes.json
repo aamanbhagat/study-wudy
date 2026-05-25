@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-instance-attributes-vs-class-attributes",
+  "subtopicTitle": "Instance attributes vs class attributes",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:21.408Z",
+  "cards": [
+    {
+      "front": "Define a *class attribute* in Python OOP.",
+      "back": "A variable declared directly within a class's scope, outside any method. It is shared by all instances of that class and can be accessed via the class itself or any instance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an *instance attribute* in Python OOP.",
+      "back": "A variable defined within a class's methods (most commonly in `__init__` using `self.attribute_name`). It is specific to and owned by a particular instance of the class; each instance has its own independent copy.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `class Car: wheels = 4`, what type of attribute is `wheels`? How is it typically accessed?",
+      "back": "`wheels` is a **class attribute**. It is typically accessed via the class (`Car.wheels`) or through any instance (`my_car = Car(); my_car.wheels`). All instances share the *same* `wheels` value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider `class Dog: def __init__(self, name): self.name = name`. What type of attribute is `name`? How is it accessed?",
+      "back": "`name` is an **instance attribute**. It is specific to each `Dog` object. It's accessed via an instance (`my_dog = Dog(\"Buddy\"); my_dog.name`). Each instance has its *own* unique `name` value.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens when an instance attribute is assigned the same name as an existing class attribute? Illustrate with code.",
+      "back": "An instance attribute with the same name will **shadow** (or override) the class attribute for *that specific instance only*. The class attribute still exists and is accessible via the class or other instances.\n```python\nclass MyClass:\n    shared_data = \"Class Data\"\n\nobj1 = MyClass()\nobj2 = MyClass()\n\nprint(obj1.shared_data) # Output: Class Data\nobj1.shared_data = \"Instance Data\" # Creates an instance attribute\nprint(obj1.shared_data) # Output: Instance Data (shadows)\nprint(obj2.shared_data) # Output: Class Data (still accesses class attribute)\nprint(MyClass.shared_data) # Output: Class Data (class attribute unchanged)\n```",
+      "difficulty": "hard"
+    },
+    {
+      "front": "When would you primarily use a class attribute instead of an instance attribute? Provide an example.",
+      "back": "Use class attributes for data that is **shared across all instances** of a class, or for **constants** related to the class. Examples:\n*   Constants (e.g., `PI = 3.14159`, `MAX_CONNECTIONS = 100`).\n*   Counters for instances created (e.g., `instance_count = 0`).\n*   Default values that can be overridden by instances.\n```python\nclass Robot:\n    population = 0 # Class attribute: shared counter\n\n    def __init__(self, name):\n        self.name = name # Instance attribute: unique to each robot\n        Robot.population += 1 # Modifies the shared class attribute\n\nr1 = Robot(\"C-3PO\")\nr2 = Robot(\"R2-D2\")\nprint(Robot.population) # Output: 2\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the memory implications and behavior differences when modifying a class attribute vs. an instance attribute.",
+      "back": "*   **Class Attribute**: Stored once in memory, associated with the class itself. Modifying it via the class (`ClassName.attr = new_value`) affects all instances that haven't shadowed it. Modifying it via an instance (`instance.attr = new_value`) *creates a new instance attribute* with that name, shadowing the class attribute for *that specific instance only*, without changing the original class attribute.\n*   **Instance Attribute**: Each instance gets its own separate copy in memory. Modifying an instance attribute (`instance.attr = new_value`) only affects that particular instance, leaving other instances completely unaffected.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A variable declared inside `__init__` using `self.variable_name` creates a(n) ____ attribute, whereas a variable declared directly inside the class body but outside any method creates a(n) ____ attribute.",
+      "back": "A variable declared inside `__init__` using `self.variable_name` creates a(n) **instance** attribute, whereas a variable declared directly inside the class body but outside any method creates a(n) **class** attribute.",
+      "difficulty": "easy"
+    }
+  ]
+}

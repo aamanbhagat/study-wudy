@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p5-5-6-regularization-l1-lasso-l2-ridge-dropout",
+  "subtopicTitle": "Regularization — L1 (lasso), L2 (ridge), dropout",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:21:12.304Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of regularization in machine learning models, particularly in the context of complex aerospace systems?",
+      "back": "Regularization aims to prevent **overfitting** by adding a penalty to the loss function for complex models. This encourages simpler models that generalize better to unseen data, crucial for reliable predictions in safety-critical aerospace applications where model robustness is paramount.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the mathematical form of the L2 (Ridge) regularization penalty term added to the loss function.",
+      "back": "The L2 regularization penalty term is given by: $$ \\Omega(w) = \\lambda \\sum_{j=1}^D w_j^2 $$ where $w_j$ are the model weights, and $\\lambda \\ge 0$ is the regularization strength hyperparameter.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Intuitively explain why L1 regularization tends to produce sparse weight vectors (feature selection), unlike L2.",
+      "back": "L1 (Lasso) penalty, $|w|$, has a 'sharp corner' at $w=0$. The gradient descent path is more likely to hit this corner, forcing weights exactly to zero. L2 (Ridge) penalty, $w^2$, is smooth and convex, continuously shrinking weights towards zero but rarely exactly to zero, as its gradient only becomes zero precisely at $w=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the gradient of the L1 regularization term, $\\lambda \\sum_{i=1}^n |w_i|$, with respect to a specific weight $w_k$.",
+      "back": "The L1 regularization term is $L_1 = \\lambda \\sum_{i=1}^n |w_i|$.\nThe gradient with respect to $w_k$ is:\n$$ \\frac{\\partial L_1}{\\partial w_k} = \\frac{\\partial}{\\partial w_k} \\left( \\lambda \\sum_{i=1}^n |w_i| \\right) = \\lambda \\frac{\\partial}{\\partial w_k} |w_k| $$\nThis derivative is:\n$$ \\frac{\\partial |w_k|}{\\partial w_k} = \\begin{cases} +1 & \\text{if } w_k > 0 \\\\ -1 & \\text{if } w_k < 0 \\\\ \\text{undefined} & \\text{if } w_k = 0 \\end{cases} $$\nFor $w_k=0$, the subgradient is often used, which is any value in $[-1, 1]$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a predictive model in aerospace with thousands of features (e.g., sensor data), which regularization technique, L1 or L2, is generally preferred for automatic feature selection? Why?",
+      "back": "**L1 (Lasso) regularization** is preferred for automatic feature selection. This is because L1 regularization encourages sparsity by driving the weights of irrelevant features exactly to zero, effectively removing them from the model. L2 regularization, while shrinking weights, rarely sets them to absolute zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the mechanism of Dropout during the training phase of a neural network and how it differs during inference.",
+      "back": "During **training**, Dropout randomly sets a fraction $p$ of neuron activations to zero at each update step. This forces the network to learn more robust features that are not reliant on any specific neuron. During **inference**, Dropout is turned off, and all neurons are active. To compensate for the scaled activations during training, the weights are typically scaled by $1-p$ (or activations are scaled by $1/(1-p)$ during training, known as inverted dropout).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Dropout help prevent \"co-adaptation\" of neurons, and what is its conceptual link to ensemble learning?",
+      "back": "Dropout prevents co-adaptation by randomly dropping neurons, forcing remaining neurons to learn more robust features independently, rather than relying on specific combinations of other neurons. Conceptually, training a network with Dropout is like training an **ensemble** of many different \"thinned\" networks. Each time a different subset of neurons is dropped, a unique network configuration is effectively trained. At inference, averaging the predictions of these thinned networks (via weight scaling) mimics an ensemble.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the effect of setting the regularization strength hyperparameter $\\lambda$ to a very large value in both L1 and L2 regularization?",
+      "back": "A very large $\\lambda$ imposes a strong penalty on large weights. For **L1**, this will drive most, if not all, weights to exactly zero, resulting in a very sparse model (potentially just an intercept term). For **L2**, it will shrink all weights very close to zero, leading to a model that is overly simplistic and likely underfits the data, effectively making the model's output close to the mean of the target variable.",
+      "difficulty": "hard"
+    }
+  ]
+}

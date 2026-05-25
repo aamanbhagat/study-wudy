@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p1-1-8-faraday-s-law-emf-d-dt",
+  "subtopicTitle": "Faraday's law — EMF = -dΦ/dt",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:23:50.374Z",
+  "cards": [
+    {
+      "front": "State Faraday's Law of Induction.",
+      "back": "Faraday's Law of Induction states that a changing magnetic flux through a coil or loop of wire induces an electromotive force (EMF) in the coil or loop.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the mathematical expression for Faraday's Law of Induction and define each term.",
+      "back": "The formula is $ \\mathcal{E} = - \\frac{d\\Phi_B}{dt} $.\n- $ \\mathcal{E} $: Induced electromotive force (EMF), measured in Volts (V).\n- $ \\Phi_B $: Magnetic flux through the loop or coil, measured in Webers (Wb).\n- $ t $: Time, measured in seconds (s).\n- $ \\frac{d\\Phi_B}{dt} $: Rate of change of magnetic flux with respect to time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define magnetic flux $ \\Phi_B $ and provide its general formula, as well as the simplified formula for a uniform magnetic field.",
+      "back": "Magnetic flux $ \\Phi_B $ is a measure of the total number of magnetic field lines passing through a given area. It quantifies how much magnetic field passes through a surface.\n\nGeneral formula: $ \\Phi_B = \\int_S \\mathbf{B} \\cdot d\\mathbf{A} $ where $ \\mathbf{B} $ is the magnetic field and $ d\\mathbf{A} $ is an infinitesimal area vector.\n\nFor a uniform magnetic field $ \\mathbf{B} $ passing through a flat surface of area $ A $ at an angle $ \\theta $ to the normal vector: $ \\Phi_B = B A \\cos \\theta $.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the physical significance of the negative sign in Faraday's Law ($ \\mathcal{E} = - \\frac{d\\Phi_B}{dt} $).",
+      "back": "The negative sign in Faraday's Law represents Lenz's Law. It indicates that the direction of the induced EMF (and thus the induced current, if a closed circuit exists) is such that it opposes the change in magnetic flux that produced it. This opposition is a manifestation of the principle of conservation of energy.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the magnitude of the motional EMF induced in a straight conductor of length $L$ moving with a constant velocity $v$ perpendicular to a uniform magnetic field $B$. Assume the conductor is part of a closed circuit.",
+      "back": "Consider a rectangular loop with one side of length $L$ moving at velocity $v$. Let the area of the loop be $A = Lx$, where $x$ is the position of the moving side. The magnetic flux through the loop is $ \\Phi_B = B A = B L x $ (assuming $B$ is perpendicular to the area).\n\nAccording to Faraday's Law, the induced EMF is $ \\mathcal{E} = - \\frac{d\\Phi_B}{dt} $.\n\nSubstituting $ \\Phi_B = B L x $:\n$ \\mathcal{E} = - \\frac{d(BLx)}{dt} $\nSince $B$ and $L$ are constant:\n$ \\mathcal{E} = - B L \\frac{dx}{dt} $\nAs $ \\frac{dx}{dt} $ is the velocity $v$ of the conductor:\n$ \\mathcal{E} = - B L v $\n\nThe magnitude of the motional EMF is therefore $ \\mathcal{E} = BLv $.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A coil of $N$ turns, each of area $A$, rotates with a constant angular velocity $ \\omega $ in a uniform magnetic field $B$. Derive the expression for the induced EMF as a function of time.",
+      "back": "Let the angle between the magnetic field $ \\mathbf{B} $ and the normal to the coil's area $ \\mathbf{A} $ be $ \\theta $. Since the coil rotates with angular velocity $ \\omega $, we can write $ \\theta = \\omega t $ (assuming $ \\theta = 0 $ at $t=0$).\n\nThe magnetic flux through a single turn is $ \\Phi_1 = B A \\cos \\theta = B A \\cos(\\omega t) $.\nFor a coil with $N$ turns, the total magnetic flux is $ \\Phi_B = N \\Phi_1 = N B A \\cos(\\omega t) $.\n\nAccording to Faraday's Law, the induced EMF is $ \\mathcal{E} = - \\frac{d\\Phi_B}{dt} $.\n\nSubstitute the expression for $ \\Phi_B $:\n$ \\mathcal{E} = - \\frac{d}{dt} (N B A \\cos(\\omega t)) $\nSince $N, B, A$ are constants:\n$ \\mathcal{E} = - N B A \\frac{d}{dt} (\\cos(\\omega t)) $\n$ \\mathcal{E} = - N B A (-\\omega \\sin(\\omega t)) $\n$ \\mathcal{E} = N B A \\omega \\sin(\\omega t) $\n\nThis is the EMF induced in an AC generator.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What three fundamental ways can the magnetic flux $ \\Phi_B $ through a loop change, leading to an induced EMF?",
+      "back": "The magnetic flux $ \\Phi_B = B A \\cos \\theta $ can change due to:\n1.  **Change in magnetic field strength ($B$)**: The magnitude of the magnetic field passing through the loop changes over time (e.g., moving a magnet closer/further, changing current in an electromagnet).\n2.  **Change in the area ($A$) of the loop exposed to the field**: The effective area of the loop through which magnetic field lines pass changes (e.g., a loop expanding/contracting, or a conductor moving through a field).\n3.  **Change in the orientation (angle $ \\theta $) between the magnetic field and the area vector**: The angle between the magnetic field lines and the normal to the loop's surface changes (e.g., rotating a coil in a magnetic field, as in an electric generator).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Faraday's Law relate to one of Maxwell's Equations, specifically in its integral form?",
+      "back": "Faraday's Law is one of Maxwell's four fundamental equations of electromagnetism. In its integral form, it is expressed as:\n$$ \\oint_C \\mathbf{E} \\cdot d\\mathbf{l} = - \\frac{d}{dt} \\int_S \\mathbf{B} \\cdot d\\mathbf{A} $$\nThis equation states that a changing magnetic flux (right side) through an open surface $S$ induces a non-conservative electric field $ \\mathbf{E} $ around the closed boundary path $C$ of that surface (left side). The line integral $ \\oint_C \\mathbf{E} \\cdot d\\mathbf{l} $ represents the induced EMF.",
+      "difficulty": "hard"
+    }
+  ]
+}

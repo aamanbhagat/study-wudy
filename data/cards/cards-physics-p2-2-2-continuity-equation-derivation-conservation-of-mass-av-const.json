@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p2-2-2-continuity-equation-derivation-conservation-of-mass-av-const",
+  "subtopicTitle": "Continuity equation — derivation (conservation of mass), ρAv = const",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:24:54.729Z",
+  "cards": [
+    {
+      "front": "What fundamental physical principle is the continuity equation based upon?",
+      "back": "The continuity equation is based on the principle of **Conservation of Mass**.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general form of the continuity equation for steady flow through a control volume with one inlet and one outlet.",
+      "back": "The general form is $\\rho_1 A_1 v_1 = \\rho_2 A_2 v_2 = \\text{constant}$. This constant value is the mass flow rate, $\\dot{m}$.\n\nWhere:\n$\\rho$ = fluid density\n$A$ = cross-sectional area of flow\n$v$ = average fluid velocity perpendicular to $A$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the continuity equation, what physical quantity does the product $\\rho Av$ represent?",
+      "back": "The product $\\rho Av$ represents the **mass flow rate** (often denoted as $\\dot{m}$). It is the mass of fluid passing through a given cross-sectional area per unit time, measured in units like kg/s.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the continuity equation $\\rho_1 A_1 v_1 = \\rho_2 A_2 v_2$ from the principle of conservation of mass for steady flow through a control volume.",
+      "back": "Consider a control volume (e.g., a section of a pipe) with an inlet (1) and an outlet (2). For **steady flow**, the total mass within the control volume remains constant over time. Therefore, the mass flow rate entering the control volume must equal the mass flow rate exiting it.\n\n1.  **Mass entering in time $\\Delta t$**: A fluid element of length $v_1 \\Delta t$ enters the inlet area $A_1$. Its volume is $A_1 v_1 \\Delta t$. The mass is $m_{in} = \\rho_1 (A_1 v_1 \\Delta t)$.\n2.  **Mass exiting in time $\\Delta t$**: Similarly, a fluid element of length $v_2 \\Delta t$ exits the outlet area $A_2$. Its volume is $A_2 v_2 \\Delta t$. The mass is $m_{out} = \\rho_2 (A_2 v_2 \\Delta t)$.\n3.  **Conservation of Mass**: Since no mass accumulates or depletes within the control volume:\n    $m_{in} = m_{out}$\n    $\\rho_1 A_1 v_1 \\Delta t = \\rho_2 A_2 v_2 \\Delta t$\n4.  **Divide by $\\Delta t$**: This yields the continuity equation:\n    $\\rho_1 A_1 v_1 = \\rho_2 A_2 v_2$\n\nThis constant value is the mass flow rate, $\\dot{m}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the continuity equation simplify for an incompressible fluid? What is the physical implication of this simplification?",
+      "back": "For an **incompressible fluid**, the density $\\rho$ is constant ($\\rho_1 = \\rho_2$). Therefore, the continuity equation $\\rho_1 A_1 v_1 = \\rho_2 A_2 v_2$ simplifies to:\n$$A_1 v_1 = A_2 v_2 = \\text{constant}$$\nThe physical implication is that the **volume flow rate** ($Q = Av$) is constant. This means that if the cross-sectional area ($A$) of the flow path decreases, the fluid velocity ($v$) must increase, and vice-versa, to maintain a constant volume of fluid passing through per unit time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Water flows steadily through a pipe. If the pipe's diameter is halved, how does the average flow velocity change, assuming the water is incompressible?",
+      "back": "For incompressible flow, the continuity equation is $A_1 v_1 = A_2 v_2$. The cross-sectional area $A = \\pi r^2 = \\pi (D/2)^2 = \\frac{\\pi D^2}{4}$.\n\nIf the diameter $D$ is halved, the new diameter $D_2 = D_1/2$. The new area $A_2 = \\frac{\\pi (D_1/2)^2}{4} = \\frac{\\pi D_1^2}{16} = \\frac{1}{4} A_1$.\n\nSo, $A_1 v_1 = (\\frac{1}{4} A_1) v_2$.\nDividing by $A_1$, we get $v_1 = \\frac{1}{4} v_2$, which means $v_2 = 4 v_1$.\n\nTherefore, the average flow velocity **increases by a factor of four**.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the key assumptions that must be met for the simple one-dimensional continuity equation ($\\rho Av = \\text{const}$) to be valid.",
+      "back": "The key assumptions for the simple one-dimensional continuity equation are:\n1.  **Steady Flow**: Fluid properties (like velocity, density) at any point in the flow do not change with time.\n2.  **One-dimensional Flow**: The flow is considered uniform across the cross-sectional area, meaning velocity and density are average values perpendicular to the area.\n3.  **Single Inlet and Outlet**: The control volume has only one entrance and one exit where mass crosses the boundary.\n4.  **No Mass Accumulation/Depletion**: There are no sources or sinks of fluid within the control volume (i.e., no mass is created or destroyed, and no mass is stored or removed from the volume).\n5.  **Fixed Control Volume**: The boundaries of the control volume are stationary.",
+      "difficulty": "hard"
+    }
+  ]
+}

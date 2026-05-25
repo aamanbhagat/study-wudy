@@ -1,0 +1,55 @@
+{
+  "subtopicId": "math-p4-4-2-partial-fractions-linear-repeated-irreducible-quadratic-factors",
+  "subtopicTitle": "Partial fractions — linear, repeated, irreducible quadratic factors",
+  "topicId": "math-p4-4-2-calculus-ii-integration",
+  "topicTitle": "Calculus II — Integration",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:06:28.352Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of partial fraction decomposition in the context of integration?",
+      "back": "To rewrite a complex rational function $P(x)/Q(x)$ as a sum of simpler rational functions that are much easier to integrate using standard integration rules (e.g., logarithms, arctangents).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Before applying partial fraction decomposition, what condition must the rational function $P(x)/Q(x)$ satisfy regarding degrees? What if it doesn't?",
+      "back": "The degree of the numerator $P(x)$ must be strictly less than the degree of the denominator $Q(x)$ (i.e., it must be a proper rational function). If $\\text{deg}(P) \\ge \\text{deg}(Q)$, perform polynomial long division first to obtain a proper rational function plus a polynomial.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Set up the partial fraction decomposition for $\\frac{3x+1}{(x-1)(x+2)}$.",
+      "back": "$$\\frac{A}{x-1} + \\frac{B}{x+2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Provide the correct partial fraction setup for $\\frac{x^2+1}{x(x-2)^2}$.",
+      "back": "$$\\frac{A}{x} + \\frac{B}{x-2} + \\frac{C}{(x-2)^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How would you set up the partial fraction decomposition for $\\frac{5x-2}{(x^2+4)(x-3)}$?",
+      "back": "$$\\frac{Ax+B}{x^2+4} + \\frac{C}{x-3}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the general form for the partial fraction decomposition of a term involving a repeated irreducible quadratic factor $(ax^2+bx+c)^n$?",
+      "back": "For each factor $(ax^2+bx+c)^k$ in the denominator, the decomposition includes a sum of terms:\n$$ \\frac{A_1x+B_1}{ax^2+bx+c} + \\frac{A_2x+B_2}{(ax^2+bx+c)^2} + \\dots + \\frac{A_kx+B_k}{(ax^2+bx+c)^k} $$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What are the standard integral forms for $\\int \\frac{1}{x^2+a^2} dx$ and $\\int \\frac{2x}{x^2+a^2} dx$?",
+      "back": "1. $\\int \\frac{1}{x^2+a^2} dx = \\frac{1}{a} \\arctan\\left(\\frac{x}{a}\\right) + C$\n2. $\\int \\frac{2x}{x^2+a^2} dx = \\ln|x^2+a^2| + C$ (by substitution $u=x^2+a^2$)\nThese are crucial for integrating terms from irreducible quadratic factors.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe two common methods used to find the unknown coefficients (A, B, C, etc.) in a partial fraction decomposition.",
+      "back": "1.  **Method of Equating Coefficients:** Multiply both sides by the common denominator, expand the numerator, and equate the coefficients of like powers of $x$ on both sides to form a system of linear equations.\n2.  **Substitution/Heaviside Cover-Up Method:** Choose convenient values of $x$ (often the roots of the linear factors) to substitute into the equation after multiplying by the common denominator. This directly solves for some coefficients, especially for distinct linear factors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Evaluate the integral: $\\int \\frac{x+5}{x^2+x-2} dx$.",
+      "back": "First, factor the denominator: $x^2+x-2 = (x+2)(x-1)$.\nDecompose: $\\frac{x+5}{(x+2)(x-1)} = \\frac{A}{x+2} + \\frac{B}{x-1}$.\nMultiply by common denominator: $x+5 = A(x-1) + B(x+2)$.\nIf $x=1$: $1+5 = B(1+2) \\implies 6 = 3B \\implies B=2$.\nIf $x=-2$: $-2+5 = A(-2-1) \\implies 3 = -3A \\implies A=-1$.\nSo, $\\int \\left(\\frac{-1}{x+2} + \\frac{2}{x-1}\\right) dx = -\\ln|x+2| + 2\\ln|x-1| + C = \\ln\\left|\\frac{(x-1)^2}{x+2}\\right| + C$.",
+      "difficulty": "hard"
+    }
+  ]
+}

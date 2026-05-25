@@ -1,0 +1,45 @@
+{
+  "subtopicId": "math-p1-1-1-prime-factorization-factor-trees-ladder-method",
+  "subtopicTitle": "Prime factorization — factor trees, ladder method",
+  "topicId": "math-p1-1-1-arithmetic-number-systems",
+  "topicTitle": "Arithmetic & Number Systems",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:02:53.534Z",
+  "cards": [
+    {
+      "front": "Define the term 'prime factorization' of a composite number.",
+      "back": "Prime factorization is the process of expressing a composite number as a product of its prime factors. For example, the prime factorization of $12$ is $2 \\times 2 \\times 3$ or $2^2 \\times 3$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Fundamental Theorem of Arithmetic.",
+      "back": "The Fundamental Theorem of Arithmetic states that every integer greater than $1$ is either a prime number itself or can be represented as a product of prime numbers, and that, apart from the order of the factors, this representation is unique.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Use a factor tree to find the prime factorization of $108$.",
+      "back": "```\n        108\n       /   \\\n      2     54\n           /  \\\n          2    27\n              /  \\\n             3    9\n                 / \\\n                3   3\n```\nThe prime factorization of $108$ is $2 \\times 2 \\times 3 \\times 3 \\times 3 = 2^2 \\times 3^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Use the ladder method to find the prime factorization of $150$.",
+      "back": "```\n    2 | 150\n    --|----\n    3 |  75\n    --|----\n    5 |  25\n    --|----\n    5 |   5\n    --|----\n      |   1\n```\nThe prime factorization of $150$ is $2 \\times 3 \\times 5 \\times 5 = 2 \\times 3 \\times 5^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a key advantage of the ladder method over factor trees for finding prime factorization?",
+      "back": "The ladder method (also known as repeated division) systematically divides by the smallest possible prime factors in ascending order. This can make it more organized and less prone to missing factors compared to factor trees, especially for larger numbers, as it naturally groups identical prime factors together and ensures all factors are prime.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the prime factorization of a number indicate if it is a perfect square or a perfect cube?",
+      "back": "A number is a perfect square if, in its prime factorization, *all* exponents of the prime factors are even. For example, $36 = 2^2 \\times 3^2$.\nA number is a perfect cube if, in its prime factorization, *all* exponents of the prime factors are multiples of $3$. For example, $216 = 2^3 \\times 3^3$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Given $A = 2^3 \\times 3^2 \\times 5^1$ and $B = 2^2 \\times 3^1 \\times 7^1$, find $\\text{LCM}(A, B)$ using their prime factorizations.",
+      "back": "To find the Least Common Multiple (LCM) of two numbers from their prime factorizations, take the highest power of each prime factor present in *either* factorization.\nFor $A = 2^3 \\times 3^2 \\times 5^1$ and $B = 2^2 \\times 3^1 \\times 7^1$:\n- Highest power of $2$: $2^3$ (from A)\n- Highest power of $3$: $3^2$ (from A)\n- Highest power of $5$: $5^1$ (from A)\n- Highest power of $7$: $7^1$ (from B)\nSo, $\\text{LCM}(A, B) = 2^3 \\times 3^2 \\times 5^1 \\times 7^1 = 8 \\times 9 \\times 5 \\times 7 = 72 \\times 35 = 2520$.",
+      "difficulty": "hard"
+    }
+  ]
+}

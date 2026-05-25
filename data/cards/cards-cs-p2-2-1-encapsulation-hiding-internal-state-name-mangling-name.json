@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p2-2-1-encapsulation-hiding-internal-state-name-mangling-name",
+  "subtopicTitle": "Encapsulation — hiding internal state, name mangling (__name)",
+  "topicId": "cs-p2-2-1-oop-fundamentals",
+  "topicTitle": "OOP Fundamentals",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:19.501Z",
+  "cards": [
+    {
+      "front": "Define encapsulation in Object-Oriented Programming.",
+      "back": "Encapsulation is the bundling of data (attributes) and methods (functions) that operate on the data into a single unit (class). It also involves restricting direct access to some of an object's components, often referred to as \"data hiding\" or \"information hiding.\"",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the primary benefit of encapsulation in OOP?",
+      "back": "The primary benefit of encapsulation is to protect the internal state of an object from unauthorized or incorrect modifications, ensuring data integrity. It promotes modularity, reduces complexity, and makes code easier to maintain and debug by limiting external dependencies on internal implementation details.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In Python, what convention signals an attribute or method is intended for internal use, following the principle of \"hiding internal state\"?",
+      "back": "Python uses a single leading underscore (e.g., `_internal_attribute` or `_internal_method`). This is a *convention* indicating to other developers that the member should be treated as private and not accessed directly from outside the class, but it does not enforce access restrictions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain Python's \"name mangling\" mechanism, specifically for attributes/methods.",
+      "back": "Name mangling is a Python mechanism applied to identifiers (attributes or methods) that start with *two* leading underscores (e.g., `__private_attr`) but *do not* end with two trailing underscores. The interpreter automatically renames these identifiers to `_ClassName__private_attr` to prevent accidental name clashes in subclasses.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If a class `MyClass` has an attribute `__secret_data`, what is its actual accessible name due to name mangling?",
+      "back": "The actual accessible name will be `_MyClass__secret_data`.\n```python\nclass MyClass:\n    def __init__(self):\n        self.__secret_data = \"Top Secret!\"\n\nobj = MyClass()\nprint(obj._MyClass__secret_data) # Output: Top Secret!\n```",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What specific problem does name mangling (`__name`) solve that a single leading underscore (`_name`) does not?",
+      "back": "Name mangling (`__name`) specifically prevents name clashes in subclasses. If a subclass accidentally defines an attribute with the same name as a \"private\" attribute in its superclass (e.g., both define `__data`), name mangling ensures they remain distinct (e.g., `_SuperClass__data` and `_SubClass__data`). A single underscore (`_name`) relies purely on convention and offers no such protection against accidental overrides.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Can a \"name-mangled\" attribute (e.g., `__value`) still be accessed from outside its class? If so, how?",
+      "back": "Yes, it can. Python's name mangling does not create truly private members like in some other languages. You can access it by explicitly using the mangled name: `_ClassName__value`. This highlights Python's philosophy of \"we are all consenting adults here,\" relying more on convention and developer responsibility than strict access control.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does `__init__` not get name-mangled, despite starting with two leading underscores?",
+      "back": "Python's name mangling rule applies to identifiers starting with two leading underscores *and not ending with two trailing underscores*. Methods like `__init__`, `__str__`, `__add__`, etc. (known as 'dunder methods' or 'magic methods') have special meaning to the interpreter and are intentionally *not* mangled. They are part of Python's protocol for defining object behavior and interacting with the language's core features.",
+      "difficulty": "hard"
+    }
+  ]
+}

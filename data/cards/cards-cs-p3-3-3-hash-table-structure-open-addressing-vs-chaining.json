@@ -1,0 +1,50 @@
+{
+  "subtopicId": "cs-p3-3-3-hash-table-structure-open-addressing-vs-chaining",
+  "subtopicTitle": "Hash table — structure, open addressing vs chaining",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:13:07.631Z",
+  "cards": [
+    {
+      "front": "What is a hash table, and what are its two fundamental components?",
+      "back": "A hash table (or hash map) is a data structure that maps keys to values using a hash function. It provides efficient average-case time complexity for lookups, insertions, and deletions.\nIts fundamental components are:\n1.  An **array** (often called buckets or slots) to store the data.\n2.  A **hash function** that converts keys into array indices.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a \"hash collision\" in the context of hash tables.",
+      "back": "A hash collision occurs when the hash function maps two or more different keys to the same index (bucket) in the hash table's underlying array. Since each array slot can typically only hold one item directly, a collision requires a strategy to resolve where the conflicting keys will be stored.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the \"Chaining\" method for resolving hash collisions.",
+      "back": "Chaining resolves collisions by storing multiple key-value pairs that hash to the same index in a **linked list** (or other dynamic data structure like a balanced tree) at that array slot. Each slot in the hash table array then points to the head of a linked list containing all elements that hash to that index.\n*   **Pros:** Simple to implement, never runs out of space, less sensitive to hash function quality.\n*   **Cons:** Requires extra space for pointers, can degrade to $O(N)$ worst-case if all keys hash to one bucket.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the general principle of \"Open Addressing\" for collision resolution?",
+      "back": "Open Addressing resolves collisions by probing (searching) for an **alternative empty slot** within the hash table's array itself, rather than using external data structures. When a collision occurs at an index $h(key)$, the algorithm systematically searches for the next available slot according to a predefined probing sequence.\n*   **Key Idea:** All elements are stored directly within the hash table array.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain Linear Probing for open addressing and its main drawback.",
+      "back": "Linear Probing resolves collisions by checking consecutive slots in the hash table array. If a key hashes to index $i$ and that slot is occupied, it tries $i+1$, then $i+2$, and so on (modulo array size) until an empty slot is found.\n*   **Probe sequence:** $(h(key) + i) \\pmod M$, for $i = 0, 1, 2, \\dots$\n*   **Drawback:** **Primary Clustering**. Long runs of occupied slots form, increasing the average search time for both successful and unsuccessful searches.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Quadratic Probing aim to mitigate primary clustering?",
+      "back": "Quadratic Probing resolves collisions by using a quadratic function to determine the next probe location. If a key hashes to index $i$ and that slot is occupied, it tries $i+1^2$, then $i+2^2$, then $i+3^2$, etc. (modulo array size).\n*   **Probe sequence:** $(h(key) + c_1 i + c_2 i^2) \\pmod M$, for $i = 0, 1, 2, \\dots$ (often simplified to $(h(key) + i^2) \\pmod M$).\n*   **Mitigation:** By jumping further away, it avoids the formation of long contiguous blocks of occupied cells, thus reducing primary clustering compared to linear probing. However, it can suffer from **secondary clustering** (keys that hash to the same initial index follow the same probe sequence).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe Double Hashing and how it addresses clustering issues more effectively than linear or quadratic probing.",
+      "back": "Double Hashing uses two hash functions: $h_1(key)$ for the initial probe, and $h_2(key)$ to determine the step size for subsequent probes.\n*   **Probe sequence:** $(h_1(key) + i \\cdot h_2(key)) \\pmod M$, for $i = 0, 1, 2, \\dots$\n*   **Clustering Mitigation:** Since $h_2(key)$ varies for different keys, even keys that initially hash to the same $h_1(key)$ will follow different probe sequences. This significantly reduces both primary and secondary clustering, leading to better performance in practice compared to linear or quadratic probing. $h_2(key)$ must never return zero.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define the \"load factor\" ($\\alpha$) of a hash table and explain its significance.",
+      "back": "The load factor ($\\alpha$) is a measure of how full a hash table is. It is defined as:\n$$ \\alpha = \\frac{\\text{Number of elements (N)}}{\\text{Number of buckets (M)}} $$\n*   **Significance:** It directly impacts the performance of hash table operations (insertion, deletion, lookup). A higher load factor means more collisions and longer probe sequences (for open addressing) or longer linked lists (for chaining), leading to degraded performance (closer to $O(N)$). When $\\alpha$ exceeds a certain threshold (e.g., 0.7 for open addressing, 1.0 for chaining), the hash table is typically **resized (rehashed)** to maintain efficiency.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "subtopicId": "cs-p5-5-1-function-pointers-declaration-calling-use-in-callbacks",
+  "subtopicTitle": "Function pointers — declaration, calling, use in callbacks",
+  "topicId": "cs-p5-5-1-c-programming",
+  "topicTitle": "C Programming",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:19:43.796Z",
+  "cards": [
+    {
+      "front": "Fill in the blank to declare a function pointer `ptr` that can point to a function taking `int` and `float` and returning `double`: `double (*ptr)(_____, _____);`",
+      "back": "The correct declaration is `double (*ptr)(int, float);`. The parentheses around `*ptr` are crucial to distinguish it from a function returning a pointer (e.g., `double *ptr(int, float);`).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given `int add(int a, int b) { return a + b; }`, how do you declare a function pointer `p_add`, assign `add` to it, and then call `add` through `p_add` with arguments `5, 3`?",
+      "back": "```c\nint (*p_add)(int, int);   // Declaration\np_add = &add;             // Assignment (or p_add = add;)\nint result = p_add(5, 3); // Calling (or (*p_add)(5, 3);)\n// result will be 8\n```\nBoth `p_add = &add;` and `p_add = add;` are valid for assignment. Both `p_add(args);` and `(*p_add)(args);` are valid for calling, though the former is more common.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A function pointer `fp` is declared as `void (*fp)(int, char*);`. Which of the following function definitions CANNOT be assigned to `fp`?\nA) `void func1(int x, char* s)`\nB) `void func2(int a, const char* b)`\nC) `void func3(int x)`\nD) `void func4(int x, char* s, float f)`",
+      "back": "C) `void func3(int x)` and D) `void func4(int x, char* s, float f)`.\nFunction pointers require strict matching of return type, number of parameters, and parameter types (including their order) for standard-compliant assignment.\nA) `void func1(int x, char* s)`: Matches perfectly.\nB) `void func2(int a, const char* b)`: This is compatible. A function pointer to `char*` can point to a function taking `const char*` as the `const` qualifier affects mutability of the pointed-to data, not the pointer type compatibility for assignment.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using `typedef`, declare a type `OperationFunc` for a function that takes two `int`s and returns an `int`. Then declare a function pointer `op_ptr` of this new type.",
+      "back": "```c\ntypedef int (*OperationFunc)(int, int); // Declares the new type\n\n// Now use OperationFunc to declare a pointer:\nOperationFunc op_ptr; // Declares a function pointer op_ptr\n```\n`typedef` significantly simplifies complex function pointer syntax, making declarations more readable and maintainable.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the concept of a 'callback' in C programming and how function pointers are essential for implementing them. Provide a simple example signature for a `sort` function that accepts a custom comparison callback.",
+      "back": "A **callback** is a function passed as an argument to another function, to be called back (executed) at a later time by the receiving function. It allows for flexible, extensible code where the behavior of a general-purpose function can be customized without modifying its core logic.\nFunction pointers are essential because they provide the mechanism to pass functions as arguments.\nExample `sort` function signature:\n```c\nvoid sort(int* arr, int size, int (*compare)(int a, int b));\n```\nHere, `compare` is a function pointer that `sort` will use to determine the order of elements.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Declare an array named `operations` that can hold 3 function pointers. Each pointer should point to a function that takes two `int`s and returns an `int`. Initialize it with pointers to `add`, `subtract`, and `multiply` functions.",
+      "back": "```c\nint add(int a, int b) { return a + b; }\nint subtract(int a, int b) { return a - b; }\nint multiply(int a, int b) { return a * b; }\n\nint (*operations[3])(int, int) = {\n    &add,\n    &subtract,\n    &multiply\n};\n// Example usage: int result = operations[0](10, 5); // result = 15\n```\nArrays of function pointers are useful for implementing dispatch tables, state machines, or command pattern.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Declare a function `get_operation` that takes a `char` operator (`+`, `-`, `*`) and returns a function pointer to an `int` function that takes two `int`s. Provide its signature.",
+      "back": "Using `typedef` for readability:\n```c\ntypedef int (*MathFunc)(int, int);\nMathFunc get_operation(char op);\n```\nWithout `typedef` (reading right-to-left):\n```c\nint (*get_operation(char op))(int, int);\n```\nThis declares `get_operation` as a function taking a `char` and returning a pointer (`*`) to a function that takes `(int, int)` and returns `int`.",
+      "difficulty": "hard"
+    }
+  ]
+}

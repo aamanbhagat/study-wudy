@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-fem-for-structures-assembling-global-stiffness",
+  "subtopicTitle": "FEM for structures — assembling global stiffness",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:59.314Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of 'assembling the global stiffness matrix' in the Finite Element Method?",
+      "back": "The primary purpose is to combine the stiffness properties of all individual elements into a single, comprehensive system matrix $\\mathbf{K}$. This matrix relates the global nodal force vector $\\mathbf{F}$ to the global nodal displacement vector $\\mathbf{U}$ for the entire structure, forming the system of equations $\\mathbf{K}\\mathbf{U} = \\mathbf{F}$ that needs to be solved.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental principles underpin the Direct Stiffness Method for assembling the global stiffness matrix?",
+      "back": "The Direct Stiffness Method is based on two fundamental principles:\n1.  **Nodal Equilibrium:** At every shared node, the sum of forces contributed by all connected elements must be zero (or equal to any applied external force).\n2.  **Displacement Compatibility:** All elements connected to a common node must experience the same displacement at that node.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the general procedure for constructing the global stiffness matrix $\\mathbf{K}$ from individual element stiffness matrices $\\mathbf{k}^{(e)}$.",
+      "back": "For each element $e$ in the structure, its local stiffness matrix $\\mathbf{k}^{(e)}$ relates its local nodal forces to its local nodal displacements. To form the global matrix $\\mathbf{K}$, each term $k_{ij}^{(e)}$ from an element's stiffness matrix is added to the corresponding entry $K_{IJ}$ in the global stiffness matrix, where $I$ and $J$ are the global degrees of freedom (DOFs) that correspond to the element's local DOFs $i$ and $j$. This process is repeated for all elements, summing contributions at shared DOFs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given an element stiffness matrix $\\mathbf{k}^{(e)}$ for an element whose local DOFs $1, 2, 3, 4$ map to global DOFs $U_A, U_B, U_C, U_D$ respectively, how does the term $k_{3,2}^{(e)}$ contribute to the global stiffness matrix $\\mathbf{K}$?",
+      "back": "The term $k_{3,2}^{(e)}$ from the element stiffness matrix $\\mathbf{k}^{(e)}$ is added to the entry at row $U_C$ and column $U_B$ of the global stiffness matrix $\\mathbf{K}$. This is because local DOF 3 maps to global DOF $U_C$, and local DOF 2 maps to global DOF $U_B$. So, $K_{U_C, U_B} \\leftarrow K_{U_C, U_B} + k_{3,2}^{(e)}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the global stiffness matrix $\\mathbf{K}$ for a 1D structure composed of two bar elements: Element 1 (stiffness $k_1$) connects node 1 to node 2, and Element 2 (stiffness $k_2$) connects node 2 to node 3. Assume 1 DOF per node.",
+      "back": "Let the global DOFs be $U_1, U_2, U_3$.\n1.  **Element 1 (nodes 1-2):** Local DOFs $u_1, u_2$. Global mapping $u_1 \\to U_1, u_2 \\to U_2$.\n    $\\mathbf{k}^{(1)} = \\begin{pmatrix} k_1 & -k_1 \\\\ -k_1 & k_1 \\end{pmatrix}$\n2.  **Element 2 (nodes 2-3):** Local DOFs $u_1, u_2$. Global mapping $u_1 \\to U_2, u_2 \\to U_3$.\n    $\\mathbf{k}^{(2)} = \\begin{pmatrix} k_2 & -k_2 \\\\ -k_2 & k_2 \\end{pmatrix}$\n3.  **Assembly:** Expand and sum into a $3 \\times 3$ global matrix:\n    $$\\mathbf{K} = \\begin{pmatrix} k_1 & -k_1 & 0 \\\\ -k_1 & k_1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix} + \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & k_2 & -k_2 \\\\ 0 & -k_2 & k_2 \\end{pmatrix} = \\begin{pmatrix} k_1 & -k_1 & 0 \\\\ -k_1 & k_1+k_2 & -k_2 \\\\ 0 & -k_2 & k_2 \\end{pmatrix}$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What mathematical properties must the global stiffness matrix $\\mathbf{K}$ possess for a physically stable, unconstrained structure, and what is their physical significance?",
+      "back": "For a physically stable, unconstrained structure, the global stiffness matrix $\\mathbf{K}$ must be:\n1.  **Symmetric:** $K_{ij} = K_{ji}$. This reflects Maxwell-Betti's reciprocal theorem, meaning the displacement at DOF $i$ due to a unit force at DOF $j$ is equal to the displacement at DOF $j$ due to a unit force at DOF $i$.\n2.  **Positive Semi-Definite:** For any non-zero displacement vector $\\mathbf{U}$, $\\mathbf{U}^T\\mathbf{K}\\mathbf{U} \\ge 0$. This means that deforming the structure always requires non-negative work (or energy), consistent with physical reality. If the structure is properly constrained, $\\mathbf{K}$ becomes positive definite.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are boundary conditions, such as fixed supports, typically handled in the context of the global stiffness matrix $\\mathbf{K}$ before solving the system $\\mathbf{K}\\mathbf{U} = \\mathbf{F}$?",
+      "back": "Boundary conditions are applied *after* the global stiffness matrix $\\mathbf{K}$ and global force vector $\\mathbf{F}$ are fully assembled. For fixed DOFs (e.g., $U_i = 0$), the corresponding row and column $i$ are removed from $\\mathbf{K}$, and the corresponding entry $F_i$ is removed from $\\mathbf{F}$. This reduces the size of the system to be solved, making the modified stiffness matrix non-singular and solvable. Alternatively, large values can be placed on the diagonal for fixed DOFs, effectively forcing zero displacement.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the physical interpretation of a diagonal term $K_{ii}$ in the global stiffness matrix $\\mathbf{K}$?",
+      "back": "The diagonal term $K_{ii}$ represents the force required at global degree of freedom (DOF) $i$ to produce a unit displacement at DOF $i$, while all other global DOFs are held at zero. It quantifies the direct stiffness or resistance of the entire structure to deformation at that specific DOF, considering the contributions from all connected elements.",
+      "difficulty": "medium"
+    }
+  ]
+}

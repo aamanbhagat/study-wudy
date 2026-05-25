@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p4-4-10-euler-lagrange-equation-derivation",
+  "subtopicTitle": "Euler-Lagrange equation — derivation",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:11:57.813Z",
+  "cards": [
+    {
+      "front": "In calculus of variations, what is a \"functional\"?",
+      "back": "A functional is a map that takes a function as its input and returns a scalar value. It can be thought of as a \"function of functions\".",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What fundamental type of problem does the Euler-Lagrange equation help solve?",
+      "back": "It provides a necessary condition for a function to extremize (i.e., minimize or maximize) a given functional. This is central to the calculus of variations.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write down the general form of the functional $J[y]$ for which the Euler-Lagrange equation is typically derived.",
+      "back": "$$J[y] = \\int_{a}^{b} L(x, y(x), y'(x)) dx$$ where $y(x)$ is the unknown function, $y'(x) = \\frac{dy}{dx}$, and $L$ is called the Lagrangian.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the \"path variation\" used in the derivation of the Euler-Lagrange equation, including the role of $\\eta(x)$.",
+      "back": "We consider a varied path $y(x, \\alpha) = y(x) + \\alpha \\eta(x)$, where $y(x)$ is the extremizing path, $\\alpha$ is a small parameter, and $\\eta(x)$ is an arbitrary differentiable function representing the variation, satisfying $\\eta(a) = \\eta(b) = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the mathematical condition for the functional $J[y]$ to have an extremum with respect to variations $\\alpha$?",
+      "back": "The condition for an extremum is that the derivative of the functional with respect to the variation parameter $\\alpha$, evaluated at $\\alpha=0$, must be zero: $$\\frac{dJ}{d\\alpha}\\Big|_{\\alpha=0} = 0$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Starting from $\\frac{dJ}{d\\alpha}\\Big|_{\\alpha=0} = 0$, apply the chain rule to the integrand $L(x, y(x, \\alpha), y'(x, \\alpha))$ to prepare for integration by parts.",
+      "back": "Given $J[y(\\alpha)] = \\int_{a}^{b} L(x, y(x, \\alpha), y'(x, \\alpha)) dx$. \\n$\\frac{dJ}{d\\alpha} = \\int_{a}^{b} \\left( \\frac{\\partial L}{\\partial y} \\frac{\\partial y}{\\partial \\alpha} + \\frac{\\partial L}{\\partial y'} \\frac{\\partial y'}{\\partial \\alpha} \\right) dx$. \\nSince $y(x, \\alpha) = y(x) + \\alpha \\eta(x)$, we have $\\frac{\\partial y}{\\partial \\alpha} = \\eta(x)$ and $\\frac{\\partial y'}{\\partial \\alpha} = \\eta'(x)$. \\nSubstituting these: $$\\frac{dJ}{d\\alpha} = \\int_{a}^{b} \\left( \\frac{\\partial L}{\\partial y} \\eta(x) + \\frac{\\partial L}{\\partial y'} \\eta'(x) \\right) dx$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Complete the derivation of the Euler-Lagrange equation from $\\int_{a}^{b} \\left( \\frac{\\partial L}{\\partial y} \\eta(x) + \\frac{\\partial L}{\\partial y'} \\eta'(x) \\right) dx = 0$ using integration by parts.",
+      "back": "Apply integration by parts to the second term: $\\int_{a}^{b} \\frac{\\partial L}{\\partial y'} \\eta'(x) dx = \\left[ \\frac{\\partial L}{\\partial y'} \\eta(x) \\right]_{a}^{b} - \\int_{a}^{b} \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right) \\eta(x) dx$. \\nSince $\\eta(a) = \\eta(b) = 0$, the boundary term $\\left[ \\frac{\\partial L}{\\partial y'} \\eta(x) \\right]_{a}^{b}$ vanishes. \\nSo, the condition becomes: $\\int_{a}^{b} \\left( \\frac{\\partial L}{\\partial y} \\eta(x) - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right) \\eta(x) \\right) dx = 0$. \\nFactoring $\\eta(x)$: $\\int_{a}^{b} \\left( \\frac{\\partial L}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right) \\right) \\eta(x) dx = 0$. \\nBy the Fundamental Lemma of Calculus of Variations, since $\\eta(x)$ is arbitrary, the term in parentheses must be zero: $$\\frac{\\partial L}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right) = 0$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the final form of the Euler-Lagrange equation for a functional $J[y] = \\int_{a}^{b} L(x, y(x), y'(x)) dx$.",
+      "back": "$$\\frac{\\partial L}{\\partial y} - \\frac{d}{dx}\\left(\\frac{\\partial L}{\\partial y'}\\right) = 0$$ This is the Euler-Lagrange equation, a second-order ordinary differential equation whose solutions extremize the functional $J[y]$.",
+      "difficulty": "easy"
+    }
+  ]
+}

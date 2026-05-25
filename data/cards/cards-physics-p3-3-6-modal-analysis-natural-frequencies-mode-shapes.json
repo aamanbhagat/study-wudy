@@ -1,0 +1,50 @@
+{
+  "subtopicId": "physics-p3-3-6-modal-analysis-natural-frequencies-mode-shapes",
+  "subtopicTitle": "Modal analysis — natural frequencies, mode shapes",
+  "topicId": "physics-p3-3-6-spacecraft-structures-systems-engineering",
+  "topicTitle": "Spacecraft Structures & Systems Engineering",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:51.080Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of modal analysis in spacecraft structures?",
+      "back": "The primary purpose of modal analysis is to identify the natural frequencies (eigenfrequencies) and corresponding mode shapes (eigenvectors) of a structure. This understanding is crucial for predicting its dynamic response to external loads (e.g., launch vibrations, thruster firings) and for preventing resonance, which can cause structural failure or degrade performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define \"natural frequency\" in the context of a spacecraft structure.",
+      "back": "A natural frequency is a specific frequency at which a structure will tend to vibrate with larger amplitudes if subjected to an external excitation at that frequency, without any external damping or driving force. Each natural frequency corresponds to a unique mode shape.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is a \"mode shape\" and what does it represent?",
+      "back": "A mode shape describes the characteristic pattern of deformation (relative displacements) that a structure exhibits when vibrating at one of its natural frequencies. It represents the spatial distribution of displacement amplitudes across the structure for a particular vibration mode.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the generalized eigenvalue problem for an undamped, multi-degree-of-freedom (MDOF) system undergoing free vibration.",
+      "back": "Starting from the equations of motion for an undamped MDOF system: \n$$[M]\\ddot{\\mathbf{x}} + [K]\\mathbf{x} = \\mathbf{0}$$\nAssuming harmonic motion $\\mathbf{x}(t) = \\mathbf{\\phi} \\sin(\\omega t + \\alpha)$, where $\\mathbf{\\phi}$ is the mode shape and $\\omega$ is the natural frequency:\n$$\\ddot{\\mathbf{x}}(t) = -\\omega^2 \\mathbf{\\phi} \\sin(\\omega t + \\alpha)$$\nSubstituting into the equation of motion:\n$$[M](-\\omega^2 \\mathbf{\\phi} \\sin(\\omega t + \\alpha)) + [K](\\mathbf{\\phi} \\sin(\\omega t + \\alpha)) = \\mathbf{0}$$\nDividing by $\\sin(\\omega t + \\alpha)$ (assuming it's not zero):\n$$([K] - \\omega^2 [M])\\mathbf{\\phi} = \\mathbf{0}$$\nThis is the generalized eigenvalue problem, where $\\omega^2$ are the eigenvalues (square of natural frequencies) and $\\mathbf{\\phi}$ are the eigenvectors (mode shapes).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the significance of \"resonance\" in spacecraft design, relating it to natural frequencies.",
+      "back": "Resonance is a critical phenomenon where an external excitation frequency (e.g., from launch vehicle engines, reaction wheels) matches one of the spacecraft's natural frequencies. This leads to a dramatic increase in vibration amplitudes, potentially causing: 1) structural fatigue or failure, 2) degradation of sensitive instrument performance, or 3) loss of pointing accuracy. Modal analysis helps engineers design structures whose natural frequencies are sufficiently separated from expected excitation frequencies to avoid resonance.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do changes in a spacecraft's mass distribution or structural stiffness affect its natural frequencies?",
+      "back": "1.  **Increased Mass:** Generally *decreases* the natural frequencies. A heavier structure tends to vibrate more slowly. \n2.  **Increased Stiffness:** Generally *increases* the natural frequencies. A stiffer structure tends to vibrate more quickly. \nThis relationship can be intuitively understood from the simple single-degree-of-freedom system formula $\\omega = \\sqrt{k/m}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is modal analysis particularly critical for structures like large deployable solar arrays or antenna reflectors on spacecraft?",
+      "back": "These structures are typically lightweight, flexible, and have low inherent damping, making them highly susceptible to low-frequency vibrations. Modal analysis is critical for: 1) predicting their dynamic behavior during deployment and on-orbit operations, 2) ensuring their natural frequencies do not interfere with the spacecraft's attitude control system bandwidth (control-structure interaction), and 3) preventing large deflections that could lead to pointing errors, structural damage, or even contact with other spacecraft components.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What does it mean for mode shapes to be \"orthonormal\" with respect to the mass and stiffness matrices?",
+      "back": "For an undamped system, mode shapes $\\mathbf{\\phi}_i$ and $\\mathbf{\\phi}_j$ are orthonormal if:\n1.  **Mass Orthogonality:** $\\mathbf{\\phi}_i^T [M] \\mathbf{\\phi}_j = 0$ for $i \\neq j$. If normalized, $\\mathbf{\\phi}_i^T [M] \\mathbf{\\phi}_i = 1$ (modal mass).\n2.  **Stiffness Orthogonality:** $\\mathbf{\\phi}_i^T [K] \\mathbf{\\phi}_j = 0$ for $i \\neq j$. If normalized, $\\mathbf{\\phi}_i^T [K] \\mathbf{\\phi}_i = \\omega_i^2$ (modal stiffness).\nThis property is fundamental because it allows the uncoupling of the equations of motion into a set of independent single-degree-of-freedom systems, greatly simplifying dynamic response analysis.",
+      "difficulty": "medium"
+    }
+  ]
+}

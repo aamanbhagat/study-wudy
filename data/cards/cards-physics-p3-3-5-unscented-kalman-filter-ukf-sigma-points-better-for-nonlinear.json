@@ -1,0 +1,45 @@
+{
+  "subtopicId": "physics-p3-3-5-unscented-kalman-filter-ukf-sigma-points-better-for-nonlinear",
+  "subtopicTitle": "Unscented Kalman Filter (UKF) — sigma points, better for nonlinear",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:05.031Z",
+  "cards": [
+    {
+      "front": "What is the primary advantage of the Unscented Kalman Filter (UKF) over the Extended Kalman Filter (EKF) for nonlinear systems?",
+      "back": "The UKF addresses linearization errors inherent in the EKF by using a deterministic sampling approach (sigma points) instead of linearizing the nonlinear functions. This leads to a more accurate representation of the transformed mean and covariance, especially for highly nonlinear systems.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What are \"sigma points\" in the context of the Unscented Kalman Filter (UKF)?",
+      "back": "Sigma points are a deterministically chosen set of points that symmetrically capture the mean and covariance of a random variable. When propagated through a nonlinear function, these points allow for the estimation of the transformed mean and covariance up to at least the 2nd order Taylor expansion, without explicit linearization.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Given a state vector $\\mathbf{x}$ of dimension $L$ and its covariance $\\mathbf{P}$, how many sigma points are generated in a standard UKF, and what is the general formula for generating them?",
+      "back": "A standard UKF generates $2L+1$ sigma points. The points $\\mathcal{X}_i$ are generated as:\n$\\mathcal{X}_0 = \\hat{\\mathbf{x}}$\n$\\mathcal{X}_i = \\hat{\\mathbf{x}} + \\left(\\sqrt{(L+\\lambda)\\mathbf{P}}\\right)_i$ for $i=1, \\dots, L$\n$\\mathcal{X}_{i+L} = \\hat{\\mathbf{x}} - \\left(\\sqrt{(L+\\lambda)\\mathbf{P}}\\right)_i$ for $i=1, \\dots, L$\nwhere $\\left(\\sqrt{(L+\\lambda)\\mathbf{P}}\\right)_i$ is the $i$-th column of the matrix square root (e.g., Cholesky decomposition) and $\\lambda = \\alpha^2(L+\\kappa)-L$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Explain the core idea behind how sigma points are used to transform the mean and covariance of a state through a nonlinear function $f(\\mathbf{x})$.",
+      "back": "Instead of linearizing the nonlinear function $f(\\mathbf{x})$, the UKF first deterministically samples the state distribution using a set of sigma points. These points are then individually propagated through the *actual* nonlinear function $f(\\mathbf{x})$. Finally, the transformed mean and covariance are re-estimated from these propagated sigma points using weighted averages, effectively bypassing the need for Jacobians and avoiding linearization errors.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the formulas for the weights $W_i^m$ (for mean) and $W_i^c$ (for covariance) associated with the sigma points in a UKF?",
+      "back": "The weights are:\n$W_0^m = \\frac{\\lambda}{L+\\lambda}$\n$W_0^c = \\frac{\\lambda}{L+\\lambda} + (1-\\alpha^2+\\beta)$\n$W_i^m = W_i^c = \\frac{1}{2(L+\\lambda)}$ for $i=1, \\dots, 2L$\nwhere $L$ is the state dimension, and $\\lambda = \\alpha^2(L+\\kappa)-L$ is a scaling parameter involving the tuning parameters $\\alpha$ and $\\kappa$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the roles of the tuning parameters $\\alpha$, $\\beta$, and $\\kappa$ in the UKF's sigma point generation and weighting.",
+      "back": "<ul><li>$\\alpha$: Controls the spread of the sigma points around the mean. A small positive value ($10^{-3} \\le \\alpha \\le 1$) is typical. Smaller $\\alpha$ keeps points closer to the mean, while larger values spread them further.</li><li>$\\kappa$: A secondary scaling parameter, often set to $0$ or $3-L$ (where $L$ is state dimension). It influences the value of $\\lambda = \\alpha^2(L+\\kappa)-L$, further affecting the spread of sigma points.</li><li>$\\beta$: Incorporates prior knowledge about the distribution. For Gaussian distributions, $\\beta=2$ is optimal. It primarily affects the weight of the central sigma point ($W_0^c$) for covariance calculation.</li></ul>",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In what specific scenario might an EKF outperform a UKF, or where might the UKF struggle despite its advantages with nonlinearity?",
+      "back": "The UKF might struggle or be outperformed in scenarios such as:\n1.  **High-Dimensional Systems:** For very high-dimensional states, the $2L+1$ sigma points can make the UKF computationally more expensive than the EKF, which only requires Jacobian calculations. The EKF might be faster if the Jacobians are analytically available and cheap to compute.\n2.  **Non-smooth/Discontinuous Functions:** If the nonlinear function has sharp discontinuities or is highly non-smooth, the UKF's deterministic sampling might not accurately capture the distribution, potentially leading to poor estimates. The UKF assumes the function is 'locally smooth' enough for the sigma points to represent the transformation.",
+      "difficulty": "hard"
+    }
+  ]
+}

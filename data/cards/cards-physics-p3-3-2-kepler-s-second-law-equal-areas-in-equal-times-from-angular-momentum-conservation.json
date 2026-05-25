@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-2-kepler-s-second-law-equal-areas-in-equal-times-from-angular-momentum-conservation",
+  "subtopicTitle": "Kepler's second law — equal areas in equal times, from angular momentum conservation",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "gemini-2.5-flash",
+  "generatedAt": "2026-05-25T15:05:00.081Z",
+  "cards": [
+    {
+      "front": "State Kepler's Second Law of planetary motion.",
+      "back": "Kepler's Second Law states that a line segment joining a planet and the Sun (or any central body) sweeps out equal areas during equal intervals of time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "According to Kepler's Second Law, how does a planet's orbital speed change as its distance from the central body varies?",
+      "back": "A planet moves faster when it is closer to the central body (e.g., Sun) and slower when it is farther away. To sweep equal areas in equal times, a shorter radius vector must sweep a larger angle (and thus cover more arc length) than a longer radius vector in the same time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Kepler's Second Law is a direct consequence of the conservation of which fundamental physical quantity in a central force field?",
+      "back": "It is a direct consequence of the conservation of **angular momentum**. For a central force, the torque about the center of force is zero, thus angular momentum is conserved.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the rate at which area is swept by the radius vector, $\\frac{dA}{dt}$, in terms of the angular momentum $L$ and the mass $m$ of the orbiting body.",
+      "back": "The rate of sweeping area is given by $\\frac{dA}{dt} = \\frac{L}{2m}$, where $L$ is the angular momentum of the orbiting body and $m$ is its mass. Since $L$ is conserved for a central force, $\\frac{dA}{dt}$ is constant.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Kepler's Second Law, $\\frac{dA}{dt} = \\text{constant}$, starting from the definition of angular momentum for a particle in a central force field.",
+      "back": "Consider a particle of mass $m$ at position $\\mathbf{r}$ with velocity $\\mathbf{v}$. Its angular momentum is $\\mathbf{L} = \\mathbf{r} \\times (m\\mathbf{v})$.\nIn polar coordinates, $\\mathbf{r} = r\\hat{\\mathbf{r}}$ and $\\mathbf{v} = \\dot{r}\\hat{\\mathbf{r}} + r\\dot{\\theta}\\hat{\\boldsymbol{\\theta}}$.\nSubstituting these into the angular momentum definition:\n$\\mathbf{L} = (r\\hat{\\mathbf{r}}) \\times m(\\dot{r}\\hat{\\mathbf{r}} + r\\dot{\\theta}\\hat{\\boldsymbol{\\theta}})\n= m r^2 \\dot{\\theta} (\\hat{\\mathbf{r}} \\times \\hat{\\boldsymbol{\\theta}}) = m r^2 \\dot{\\theta} \\hat{\\mathbf{k}}$.\nFor a central force, the torque $\\boldsymbol{\\tau} = \\mathbf{r} \\times \\mathbf{F} = \\mathbf{r} \\times (F(r)\\hat{\\mathbf{r}}) = 0$. Since $\\boldsymbol{\\tau} = \\frac{d\\mathbf{L}}{dt}$, if $\\boldsymbol{\\tau} = 0$, then $\\mathbf{L}$ is constant. Thus, $L = m r^2 \\dot{\\theta} = \\text{constant}$.\nNow consider the area swept. In a small time $dt$, the radius vector sweeps out an infinitesimal area $dA$. This area can be approximated as a triangle with base $r$ and height $r d\\theta$.\n$dA = \\frac{1}{2} (r)(r d\\theta) = \\frac{1}{2} r^2 d\\theta$.\nDividing by $dt$, we get $\\frac{dA}{dt} = \\frac{1}{2} r^2 \\frac{d\\theta}{dt} = \\frac{1}{2} r^2 \\dot{\\theta}$.\nSubstituting $r^2 \\dot{\\theta} = \\frac{L}{m}$, we get $\\frac{dA}{dt} = \\frac{1}{2} \\frac{L}{m}$.\nSince $L$ and $m$ are constant, $\\frac{dA}{dt}$ is constant. This is Kepler's Second Law.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "A planet orbits a star. If its speed at perihelion (distance $r_p$) is $v_p$, express its speed $v_a$ at aphelion (distance $r_a$) using angular momentum conservation.",
+      "back": "By conservation of angular momentum, the angular momentum at perihelion ($L_p$) equals that at aphelion ($L_a$).\nAt both perihelion and aphelion, the velocity vector is perpendicular to the radius vector. So, angular momentum $L = mrv$, where $m$ is the planet's mass.\nTherefore, $m r_p v_p = m r_a v_a$.\nSolving for $v_a$: $v_a = v_p \\frac{r_p}{r_a}$. This confirms that $v_a < v_p$ since $r_a > r_p$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "List the primary assumptions required for Kepler's Second Law to hold true, particularly when derived from angular momentum conservation.",
+      "back": "1.  **Central Force**: The force acting on the orbiting body must always be directed towards or away from a fixed central point (e.g., gravity between two point masses). This ensures zero torque about the center of force.\n2.  **Isolated Two-Body System**: The system consists of only two interacting bodies, and external forces (e.g., from other planets) are negligible.\n3.  **Inertial Frame of Reference**: The motion is observed from an inertial frame.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Geometrically, what does Kepler's Second Law mean for an elliptical orbit when comparing the area swept near periapsis versus near apoapsis over the same time interval?",
+      "back": "Near periapsis (closest point to the central body), the planet moves faster, so the radius vector is shorter but sweeps a wider angle. Near apoapsis (farthest point), the planet moves slower, so the radius vector is longer but sweeps a narrower angle. The law states that the area of the \"thin wedge\" traced out in a given time interval will be identical for both cases, despite the differing lengths and angles.",
+      "difficulty": "medium"
+    }
+  ]
+}

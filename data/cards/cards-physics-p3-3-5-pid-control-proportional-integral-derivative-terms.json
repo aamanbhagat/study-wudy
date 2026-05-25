@@ -1,0 +1,55 @@
+{
+  "subtopicId": "physics-p3-3-5-pid-control-proportional-integral-derivative-terms",
+  "subtopicTitle": "PID control — proportional, integral, derivative terms",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "generatedAt": "2026-05-25T13:29:38.771Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose of a PID controller in a GNC system?",
+      "back": "A PID (Proportional-Integral-Derivative) controller is a feedback control mechanism that calculates an error value (setpoint - measured variable) and applies a corrective action based on proportional, integral, and derivative terms of this error. Its primary purpose is to minimize the error over time, bringing the system output to the desired setpoint stably and efficiently.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the function of the Proportional (P) term in a PID controller and its formula.",
+      "back": "The Proportional term produces an output value directly proportional to the current error. If the error is large, the proportional response will be large. Its effect is to reduce the current error quickly.\n$$P_{out} = K_p \\cdot e(t)$$\nwhere $K_p$ is the proportional gain and $e(t)$ is the current error.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the role of the Integral (I) term in a PID controller and its primary benefit.",
+      "back": "The Integral term accumulates past errors over time, calculating an output proportional to the sum (integral) of the error. Its primary benefit is to eliminate steady-state error, which the P term alone cannot always achieve. However, it can lead to integral windup.\n$$I_{out} = K_i \\int e(\\tau) d\\tau$$\nwhere $K_i$ is the integral gain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the purpose of the Derivative (D) term in a PID controller and its formula?",
+      "back": "The Derivative term predicts future error by calculating the rate of change of the current error. It produces an output proportional to the derivative of the error with respect to time. Its purpose is to dampen oscillations, reduce overshoot, and improve the system's transient response.\n$$D_{out} = K_d \\frac{de(t)}{dt}$$\nwhere $K_d$ is the derivative gain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the complete formula for the output of a PID controller, $u(t)$, given the error $e(t)$.",
+      "back": "The complete formula for the output of a PID controller is:\n$$u(t) = K_p e(t) + K_i \\int_0^t e(\\tau) d\\tau + K_d \\frac{de(t)}{dt}$$\nwhere $u(t)$ is the controller output, $e(t)$ is the error (setpoint - process variable), $K_p$ is the proportional gain, $K_i$ is the integral gain, and $K_d$ is the derivative gain.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does increasing the proportional gain ($K_p$) typically affect a system's rise time, overshoot, and steady-state error?",
+      "back": "Increasing $K_p$ generally:\n*   **Decreases rise time:** The system responds faster.\n*   **Increases overshoot:** The system tends to oscillate more and exceed the setpoint.\n*   **Decreases steady-state error:** The error at equilibrium becomes smaller, but may not be eliminated entirely.\nToo high $K_p$ can lead to instability.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the main effects of increasing the integral gain ($K_i$) on a system's steady-state error and stability?",
+      "back": "Increasing $K_i$:\n*   **Eliminates steady-state error:** This is its primary benefit, as it continuously adjusts the output until the error integral is zero.\n*   **Increases overshoot and settling time:** The system can become slower to react and more oscillatory.\n*   **Decreases stability:** Too high $K_i$ can lead to instability and integral windup.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does increasing the derivative gain ($K_d$) typically influence a system's overshoot, settling time, and noise sensitivity?",
+      "back": "Increasing $K_d$:\n*   **Decreases overshoot:** It dampens oscillations, making the system less likely to exceed the setpoint.\n*   **Decreases settling time:** The system stabilizes faster.\n*   **Increases noise sensitivity:** Since it reacts to the rate of change of error, high-frequency noise in the error signal can be amplified, leading to erratic control action.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Define \"integral windup\" in PID control and briefly explain one common mitigation strategy.",
+      "back": "**Integral windup** occurs when a large error persists for a long time (e.g., due to actuator saturation), causing the integral term to accumulate to a very large value. When the error eventually reverses, the large accumulated integral term keeps the actuator saturated in the wrong direction, leading to significant overshoot and slow recovery.\n\nA common mitigation strategy is **anti-windup (or integral clamping)**, where the integral term's accumulation is stopped or limited when the actuator output reaches its saturation limits.",
+      "difficulty": "hard"
+    }
+  ]
+}

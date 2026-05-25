@@ -1,0 +1,55 @@
+{
+  "subtopicId": "cs-p3-3-1-tight-bounds-notation-lower-bounds-notation",
+  "subtopicTitle": "Tight bounds — Θ notation; lower bounds — Ω notation",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "generatedAt": "2026-05-25T13:12:37.185Z",
+  "cards": [
+    {
+      "front": "Informally, what does $f(n) = \\Theta(g(n))$ mean in terms of function growth?",
+      "back": "It means that $f(n)$ grows at the same rate as $g(n)$. Specifically, $f(n)$ is bounded both from above and below by constant multiples of $g(n)$ for sufficiently large $n$. It represents a 'tight bound' or 'average-case' performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formal definition of $f(n) = \\Theta(g(n))$.",
+      "back": "$f(n) = \\Theta(g(n))$ if there exist positive constants $c_1, c_2,$ and $n_0$ such that $0 \\le c_1 g(n) \\le f(n) \\le c_2 g(n)$ for all $n \\ge n_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Informally, what does $f(n) = \\Omega(g(n))$ mean in terms of function growth?",
+      "back": "It means that $f(n)$ grows at least as fast as $g(n)$. Specifically, $f(n)$ is bounded from below by a constant multiple of $g(n)$ for sufficiently large $n$. It represents a 'lower bound' or 'best-case' performance.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formal definition of $f(n) = \\Omega(g(n))$.",
+      "back": "$f(n) = \\Omega(g(n))$ if there exist positive constants $c$ and $n_0$ such that $0 \\le c g(n) \\le f(n)$ for all $n \\ge n_0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the tight bound for the function $f(n) = 5n^3 + 2n^2 - 10n + 7$ using $\\Theta$ notation.",
+      "back": "$f(n) = \\Theta(n^3)$. For sufficiently large $n$, the highest-order term ($5n^3$) dominates the growth rate of the function.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Consider an algorithm that searches for an element in an unsorted array of $n$ elements. What is its best-case time complexity using $\\Omega$ notation?",
+      "back": "The best-case time complexity is $\\Omega(1)$. This occurs if the target element is found at the very first position, requiring a constant number of operations regardless of $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How do the three asymptotic notations, $O$, $\\Omega$, and $\\Theta$, relate to each other for a function $f(n)$?",
+      "back": "$f(n) = \\Theta(g(n))$ if and only if $f(n) = O(g(n))$ AND $f(n) = \\Omega(g(n))$. This means that $g(n)$ is both an asymptotic upper bound ($O$) and an asymptotic lower bound ($\\Omega$) for $f(n)$, making it a tight bound.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why $\\Theta$ notation is considered a 'tight bound' and its primary advantage over $O$ or $\\Omega$ alone.",
+      "back": "$\\Theta$ is a 'tight bound' because it characterizes a function's growth rate both from above and below. Unlike $O$ (upper bound) or $\\Omega$ (lower bound) which only provide one-sided limits, $\\Theta$ precisely pins down the function's asymptotic behavior. Its primary advantage is providing an exact characterization, indicating that the algorithm's performance will always be proportional to $g(n)$ (up to constant factors) for large inputs, not just 'at most' or 'at least'.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For an algorithm like Quicksort, which has a worst-case $O(n^2)$ and an average-case $\\Theta(n \\log n)$, what would its $\\Omega$ bound typically be, and what does it imply?",
+      "back": "Quicksort's $\\Omega$ bound would typically be $\\Omega(n \\log n)$. This implies that even in its best-case scenario (e.g., perfectly balanced partitions), Quicksort will still take at least $n \\log n$ time. It represents the fundamental lower limit on its performance, showing that it cannot run faster than $n \\log n$ in terms of growth rate.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subtopicId": "math-p3-3-2-logarithmic-scale-decibels-richter-ph",
+  "subtopicTitle": "Logarithmic scale — decibels, Richter, pH",
+  "topicId": "math-p3-3-2-exponentials-logarithms",
+  "topicTitle": "Exponentials & Logarithms",
+  "field": "math",
+  "generatedAt": "2026-05-25T13:04:54.882Z",
+  "cards": [
+    {
+      "front": "What is the primary purpose and advantage of using a logarithmic scale to represent data?",
+      "back": "The primary purpose is to represent a wide range of values in a more manageable and intuitive way, especially when values span many orders of magnitude. It compresses large ranges into smaller, more linear-appearing scales, making trends and comparisons easier to visualize and understand.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the decibel (dB) scale, including its general formula for power ratios and what it typically measures.",
+      "back": "The decibel scale is a logarithmic unit used to express the ratio of two values of a power or intensity. For power $P_1$ relative to a reference power $P_0$, the decibel level $L_{dB}$ is given by: $$L_{dB} = 10 \\log_{10} \\left( \\frac{P_1}{P_0} \\right)$$ It typically measures sound intensity, signal power, or other power-related quantities. For amplitude/voltage ratios, the factor is 20 instead of 10.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "If a sound's intensity increases by a factor of 100, what is the change in its decibel level?",
+      "back": "A factor of 100 increase means $\\frac{I_1}{I_0} = 100$. The change in decibels is: $$\\Delta L_{dB} = 10 \\log_{10} \\left( \\frac{I_1}{I_0} \\right) = 10 \\log_{10}(100) = 10 \\times 2 = 20 \\text{ dB}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the pH scale measure, and what is its defining formula?",
+      "back": "The pH scale measures the acidity or alkalinity of an aqueous solution. It is defined as the negative base-10 logarithm of the hydrogen ion concentration, $[H^+]$, measured in moles per liter (M): $$pH = -\\log_{10}[H^+]$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "A solution has a hydrogen ion concentration of $[H^+] = 1.0 \\times 10^{-5}$ M. Calculate its pH.",
+      "back": "Using the formula $pH = -\\log_{10}[H^+]$: $$pH = -\\log_{10}(1.0 \\times 10^{-5}) = -(-5) = 5$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What does the Richter scale measure, and what is its defining formula?",
+      "back": "The Richter scale measures the magnitude of an earthquake. It is defined as: $$M = \\log_{10}\\left(\\frac{A}{A_0}\\right)$$ where $A$ is the maximum amplitude of the seismic waves recorded by a seismograph, and $A_0$ is the amplitude of a reference (or 'standard') earthquake.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "An earthquake measures $6.0$ on the Richter scale. How many times greater is its seismic wave amplitude compared to a magnitude $4.0$ earthquake?",
+      "back": "Let $M_1 = 6.0$ and $M_2 = 4.0$. From the formula $M = \\log_{10}(A/A_0)$, we have $A/A_0 = 10^M$. Thus, $A_1 = 10^{M_1}A_0$ and $A_2 = 10^{M_2}A_0$. The ratio of amplitudes is: $$\\frac{A_1}{A_2} = \\frac{10^{M_1}A_0}{10^{M_2}A_0} = 10^{M_1 - M_2}$$ Substituting the values: $$\\frac{A_1}{A_2} = 10^{6.0 - 4.0} = 10^{2.0} = 100$$ A magnitude $6.0$ earthquake has 100 times greater seismic wave amplitude than a magnitude $4.0$ earthquake.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Both the Richter scale and pH scale use base-10 logarithms. Explain the significance of this choice in relation to how changes in these scales are interpreted.",
+      "back": "The use of base-10 logarithms means that each whole number increment or decrement on the scale represents a tenfold change in the underlying physical quantity. For example, on the Richter scale, an increase of 1 magnitude unit means the seismic wave amplitude is $10^1 = 10$ times greater. On the pH scale, a decrease of 1 pH unit (e.g., from 7 to 6) means the hydrogen ion concentration $[H^+]$ is $10^1 = 10$ times greater, indicating a tenfold increase in acidity. This choice simplifies interpretation, allowing for quick understanding of order-of-magnitude differences.",
+      "difficulty": "hard"
+    }
+  ]
+}
