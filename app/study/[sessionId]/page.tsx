@@ -24,7 +24,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Dialog,
   DialogContent,
@@ -446,9 +445,9 @@ export default function ActiveSessionPage() {
         </div>
       </div>
 
-      <div className="grid gap-0 lg:grid-cols-[65fr_35fr] lg:h-[calc(100vh-9rem)]">
-        <ScrollArea className="min-w-0 lg:h-full">
-          <div className="space-y-5 px-4 py-6 sm:px-6 lg:px-10">
+      <div className="grid gap-0 lg:grid-cols-[minmax(0,65fr)_minmax(0,35fr)] lg:h-[calc(100vh-9rem)]">
+        <div className="min-w-0 overflow-y-auto overflow-x-hidden lg:h-full">
+          <div className="min-w-0 space-y-5 px-4 py-6 sm:px-6 lg:px-10">
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}>
               <Card>
                 <CardHeader className="pb-3">
@@ -533,7 +532,7 @@ export default function ActiveSessionPage() {
               </Card>
             )}
           </div>
-        </ScrollArea>
+        </div>
 
         <div className="min-w-0 border-t bg-card lg:border-l lg:border-t-0 lg:h-full">
           <SessionRightPanel
