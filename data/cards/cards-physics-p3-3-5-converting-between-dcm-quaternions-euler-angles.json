@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-converting-between-dcm-quaternions-euler-angles",
+  "subtopicTitle": "Converting between DCM, quaternions, Euler angles",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:17.782Z",
+  "cards": [
+    {
+      "front": "Define the Direction Cosine Matrix (DCM) $C$ for two right-handed frames.",
+      "back": "$C_{ij} = \\mathbf{e}_i \\cdot \\mathbf{E}_j$, where $\\mathbf{e}_i$ are unit vectors of the rotated frame and $\\mathbf{E}_j$ of the reference frame. $C$ is orthogonal with $\\det(C)=+1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the unit-norm constraint on a rotation quaternion $q = [q_0,\\,\\mathbf{q}]$.",
+      "back": "$q_0^2 + q_1^2 + q_2^2 + q_3^2 = 1$. This follows directly from the fact that rotation preserves vector length.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the 3-2-1 Euler-angle sequence rotation matrix $C_{321}(\\psi,\\theta,\\phi)$.",
+      "back": "$$C_{321}=\\begin{bmatrix}c\\theta c\\psi & c\\theta s\\psi & -s\\theta\\\\ s\\phi s\\theta c\\psi-c\\phi s\\psi & s\\phi s\\theta s\\psi+c\\phi c\\psi & s\\phi c\\theta\\\\ c\\phi s\\theta c\\psi+s\\phi s\\psi & c\\phi s\\theta s\\psi-s\\phi c\\psi & c\\phi c\\theta\\end{bmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the direct formula converting unit quaternion $q$ to DCM $C$.",
+      "back": "$$C(q)=\\begin{bmatrix}q_0^2+q_1^2-q_2^2-q_3^2 & 2(q_1 q_2-q_0 q_3) & 2(q_1 q_3+q_0 q_2)\\\\2(q_1 q_2+q_0 q_3) & q_0^2-q_1^2+q_2^2-q_3^2 & 2(q_2 q_3-q_0 q_1)\\\\2(q_1 q_3-q_0 q_2) & 2(q_2 q_3+q_0 q_1) & q_0^2-q_1^2-q_2^2+q_3^2\\end{bmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Extract the 3-2-1 Euler angles from a given DCM $C$.",
+      "back": "$\\theta=\\arcsin(-C_{13})$, $\\phi=\\atantwo(C_{23},C_{33})$, $\\psi=\\atantwo(C_{12},C_{11})$. Singular when $|C_{13}|=1$ (gimbal lock).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Convert 3-2-1 Euler angles $(\\psi,\\theta,\\phi)$ to unit quaternion $q$.",
+      "back": "$q_0=\\cos(\\phi/2)\\cos(\\theta/2)\\cos(\\psi/2)+\\sin(\\phi/2)\\sin(\\theta/2)\\sin(\\psi/2)$ and cyclic permutations for $q_1,q_2,q_3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Extract a unit quaternion from DCM $C$ using Shepperd’s method; include sign choice.",
+      "back": "Compute trace $t=\\operatorname{tr}(C)$. Choose largest diagonal or off-diagonal; e.g. if $t>0$, $q_0=\\frac12\\sqrt{1+t}$, then $q_i=\\frac14 q_0^{-1}(C_{jk}-C_{kj})$ (cyclic). Flip sign of $q$ if $q_0<0$ for continuity.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why do quaternions avoid gimbal lock while Euler angles do not?",
+      "back": "Euler angles parameterize SO(3) with three sequential rotations about moving axes, producing a coordinate singularity when two axes align. Quaternions embed SO(3) in the 3-sphere $S^3$ (double cover), a manifold without singularities.",
+      "difficulty": "hard"
+    }
+  ]
+}

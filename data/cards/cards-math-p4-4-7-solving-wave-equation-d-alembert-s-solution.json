@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-7-solving-wave-equation-d-alembert-s-solution",
+  "subtopicTitle": "Solving wave equation — D'Alembert's solution",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:16.619Z",
+  "cards": [
+    {
+      "front": "What is the one-dimensional wave equation for a function u(x,t) with constant speed c?",
+      "back": "$$u_{tt} = c^2 u_{xx}, \\quad -\\infty < x < \\infty, \\ t>0$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State D'Alembert's formula for the solution of the wave equation with ICs u(x,0)=f(x), u_t(x,0)=g(x).",
+      "back": "$$u(x,t)=\frac12[f(x+ct)+f(x-ct)]+\frac1{2c}\\int_{x-ct}^{x+ct}g(s)\\,ds$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the domain of dependence for the solution value u(x,t) in D'Alembert's formula?",
+      "back": "The interval [x-ct,x+ct] on the initial line t=0; only data inside this interval affect the solution at (x,t).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does D'Alembert's formula simplify when the initial velocity g(x)≡0?",
+      "back": "$$u(x,t)=\frac12[f(x+ct)+f(x-ct)]$$ (average of left- and right-traveling waves)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using d'Alembert's formula, compute u(x,t) when f(x)=0 and g(x) is a constant G.",
+      "back": "$$u(x,t)=\frac{Gt}{1}$$ (linear growth in time, independent of x)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Briefly outline the derivation of D'Alembert's solution via change to characteristic coordinates ξ=x+ct, η=x-ct.",
+      "back": "Wave equation becomes u_ξη=0. Integrate twice: u=F(ξ)+G(η). Apply ICs at t=0 to obtain F and G, yielding the integral formula.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Verify that D'Alembert's formula satisfies the initial displacement condition u(x,0)=f(x).",
+      "back": "At t=0 the integral vanishes and (f(x)+f(x))/2=f(x).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show that u given by D'Alembert's formula satisfies u_tt=c²u_xx (sketch the key differentiation steps).",
+      "back": "Differentiate under the integral sign twice w.r.t. t and x; the boundary terms from Leibniz rule cancel to give c² times the corresponding x-derivatives, confirming the PDE.",
+      "difficulty": "hard"
+    }
+  ]
+}

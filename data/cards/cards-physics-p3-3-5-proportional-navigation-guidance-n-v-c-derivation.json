@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-proportional-navigation-guidance-n-v-c-derivation",
+  "subtopicTitle": "Proportional navigation guidance — N·V_c·λ̇, derivation",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:23.928Z",
+  "cards": [
+    {
+      "front": "What is the proportional navigation (PN) guidance law?",
+      "back": "Commanded missile acceleration is perpendicular to the line-of-sight (LOS) and given by $a = N V_c \\dot{\\lambda}$, where the acceleration is chosen to drive $\\dot{\\lambda} \\to 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define each term in the PN equation $a = N V_c \\dot{\\lambda}$",
+      "back": "$a$: acceleration command (normal to LOS); $N$: dimensionless navigation gain; $V_c$: closing velocity ($-\\dot{r}$); $\\dot{\\lambda}$: LOS angular rate.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why must $N > 2$ for a non-maneuvering target?",
+      "back": "For a constant-velocity target, $N=1$ produces a parallel navigation course with constant bearing; $N>2$ supplies the extra acceleration needed to reduce initial heading error and achieve finite-time intercept.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the geometric condition that must be satisfied for collision under constant velocities.",
+      "back": "The relative velocity vector must lie along the current LOS: $\\mathbf{V}_m - \\mathbf{V}_t = V_c \\hat{\\mathbf{r}}$. Any component perpendicular to LOS produces a non-zero $\\dot{\\lambda}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the PN law from the requirement that $\\dot{\\lambda}=0$ at intercept (step-by-step).",
+      "back": "1. LOS rate: $\\dot{\\lambda} = (V_\\theta)/r$ where $V_\\theta$ is tangential relative velocity.\n2. To null $\\dot{\\lambda}$, apply normal acceleration that cancels $V_\\theta$.\n3. Differentiating the collision-triangle angle yields required lateral acceleration $a = N V_c \\dot{\\lambda}$ with $N\\ge2$ ensuring stability.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Intuitively, why does driving $\\dot{\\lambda}$ to zero guarantee intercept?",
+      "back": "Zero LOS rate means the target remains on a constant bearing; because range is closing ($V_c>0$), the vehicles must occupy the same point when range reaches zero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What acceleration profile results when a target performs a constant-g turn?",
+      "back": "With PN the missile must also perform a turn whose rate is $N$ times the LOS rate; the trajectory becomes a pursuit curve whose curvature increases as range decreases.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show the effect of navigation gain $N$ on miss distance for initial heading error $\\eta_0$.",
+      "back": "Miss distance $\\approx \\frac{V_c \\eta_0 t_f}{N-2}$ for $N>2$; larger $N$ reduces miss but increases acceleration demand and sensitivity to noise.",
+      "difficulty": "hard"
+    }
+  ]
+}

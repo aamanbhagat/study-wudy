@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-3-optimal-staging-equal-mass-ratios-for-same-isp",
+  "subtopicTitle": "Optimal staging — equal mass ratios (for same Isp)",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:01.660Z",
+  "cards": [
+    {
+      "front": "Define mass ratio R for a rocket stage.",
+      "back": "R = m_initial / m_final, where m_final is the mass after propellant is expended (payload + structure + upper stages).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the optimality condition for staging when all stages have identical Isp.",
+      "back": "For fixed total Δv and number of stages n, total initial mass is minimized when every stage has the identical mass ratio R.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the expression for total Δv of an n-stage rocket with equal mass ratios R and identical exhaust velocity v_e.",
+      "back": "Δv_total = n v_e ln(R)",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Solve for the optimal common mass ratio R given Δv_total, n stages, and v_e.",
+      "back": "R = exp(Δv_total / (n v_e))",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does equal mass ratio minimize gross mass (intuitive argument)?",
+      "back": "Because Δv is linear in ln(R) while vehicle mass grows exponentially with R; any imbalance in the ln(R) contributions increases the product of the stage mass multipliers.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the condition d(m0)/dR_i = 0 that shows all R_i must be equal (same v_e).",
+      "back": "Let m0 = m_pay * ∏(R_k / σ_k). With identical v_e, Lagrange multiplier or direct differentiation of ln(m0) subject to ∑ v_e ln(R_k) = Δv yields R_1 = R_2 = … = R_n.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How does the presence of non-zero structural mass fraction ε affect the equal-R result?",
+      "back": "The equal-mass-ratio rule remains exactly optimal only when ε = 0. With ε > 0 the optimum shifts slightly toward lower R on lower stages; the equal-R solution is still a very good first approximation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a 3-stage vehicle needing 9 km/s with v_e = 3 km/s, compute the optimal R.",
+      "back": "R = exp(9 / (3 × 3)) = exp(1) ≈ 2.718",
+      "difficulty": "medium"
+    }
+  ]
+}

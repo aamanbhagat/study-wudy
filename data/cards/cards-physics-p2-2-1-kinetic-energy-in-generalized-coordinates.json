@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p2-2-1-kinetic-energy-in-generalized-coordinates",
+  "subtopicTitle": "Kinetic energy in generalized coordinates",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:03.229Z",
+  "cards": [
+    {
+      "front": "What is the general functional dependence of kinetic energy T on generalized coordinates q and velocities \\dot{q}?",
+      "back": "T = T(q, \\dot{q}), a function of both positions and velocities (unlike potential V which depends only on q).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the standard quadratic form of kinetic energy in generalized coordinates.",
+      "back": "$$T(q,\\dot{q}) = \\frac12 \\sum_{i,j=1}^n a_{ij}(q)\\dot{q}_i\\dot{q}_j$$ where the coefficients $a_{ij}(q)$ are symmetric functions of the generalized coordinates only.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express a particle's velocity vector $\\mathbf{v}$ in terms of generalized velocities $\\dot{q}_k$.",
+      "back": "$$\\mathbf{v} = \\sum_k \\frac{\\partial\\mathbf{r}}{\\partial q_k}\\dot{q}_k$$ (chain rule applied to position $\\mathbf{r}(q,t)$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are the coefficients $a_{ij}(q)$ obtained from Cartesian kinetic energy?",
+      "back": "$$a_{ij}(q) = \\sum_\\alpha m_\\alpha \\frac{\\partial\\mathbf{r}_\\alpha}{\\partial q_i} \\cdot \\frac{\\partial\\mathbf{r}_\\alpha}{\\partial q_j}$$ where the sum is over all particles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that T is always a homogeneous quadratic function of the $\\dot{q}_i$.",
+      "back": "Substitute the linear expression for each $\\mathbf{v}_\\alpha$ into $T=\\frac12\\sum m_\\alpha|\\mathbf{v}_\\alpha|^2$; the result is quadratic in the $\\dot{q}$ with coefficients depending only on q.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In polar coordinates, write the explicit quadratic form of T for a single particle of mass m.",
+      "back": "$$T = \\frac12 m(\\dot{r}^2 + r^2\\dot{\\theta}^2)$$ so $a_{rr}=m$, $a_{\\theta\\theta}=m r^2$, $a_{r\\theta}=0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to the quadratic form of T when the coordinate transformation is time-dependent?",
+      "back": "Additional linear and constant terms in $\\dot{q}$ appear: $T = \\frac12 a_{ij}(q,t)\\dot{q}_i\\dot{q}_j + b_i(q,t)\\dot{q}_i + c(q,t)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

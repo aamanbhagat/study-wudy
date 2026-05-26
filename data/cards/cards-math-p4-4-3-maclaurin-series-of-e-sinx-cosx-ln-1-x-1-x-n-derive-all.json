@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-3-maclaurin-series-of-e-sinx-cosx-ln-1-x-1-x-n-derive-all",
+  "subtopicTitle": "Maclaurin series of eˣ, sinx, cosx, ln(1+x), (1+x)^n — derive all",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:46.972Z",
+  "cards": [
+    {
+      "front": "State the general Maclaurin series formula for a function $f(x)$.",
+      "back": "$$f(x) = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 + \\frac{f'''(0)}{3!}x^3 + \\cdots = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(0)}{n!}x^n$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the Maclaurin series for $e^x$.",
+      "back": "$$e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!}$$ (all derivatives of $e^x$ equal $e^x$ itself, so $f^{(n)}(0)=1$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the Maclaurin series for $\\sin x$ by successive differentiation.",
+      "back": "Derivatives cycle: $\\sin x$, $\\cos x$, $-\\sin x$, $-\\cos x$, …\nAt 0: 0, 1, 0, -1, …\nThus $$\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} + \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Maclaurin series for $\\cos x$ from derivatives at 0.",
+      "back": "Derivatives cycle: $\\cos x$, $-\\sin x$, $-\\cos x$, $\\sin x$, …\nAt 0: 1, 0, -1, 0, …\nThus $$\\cos x = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\frac{x^6}{6!} + \\cdots = \\sum_{k=0}^{\\infty} \\frac{(-1)^k x^{2k}}{(2k)!}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Maclaurin series for $\\ln(1+x)$ using successive derivatives.",
+      "back": "f(x)=ln(1+x), f(0)=0\nf'(x)=(1+x)^{-1} → f'(0)=1\nf''(x)=-(1+x)^{-2} → f''(0)=-1\nf'''(x)=2(1+x)^{-3} → f'''(0)=2\nIn general: f^{(n)}(0)=(-1)^{n-1}(n-1)!\nThus $$\\ln(1+x)=\\sum_{n=1}^{\\infty} (-1)^{n-1}\\frac{x^n}{n}$$ for |x|<1.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the binomial series (Maclaurin) for $(1+x)^n$ and its radius of convergence.",
+      "back": "$$(1+x)^n = \\sum_{k=0}^{\\infty} \\binom{n}{k}x^k = 1 + nx + \\frac{n(n-1)}{2!}x^2 + \\cdots$$\nwhere $\\binom{n}{k}=\\frac{n(n-1)\\cdots(n-k+1)}{k!}$.\nRadius of convergence is 1 (for non-integer n).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Find the radius of convergence of the Maclaurin series for $\\ln(1+x)$.",
+      "back": "Ratio test on coefficients: lim |a_{n+1}/a_n| = |x| lim n/(n+1) = |x|.\nSeries converges when |x|<1, diverges when |x|>1.\nRadius R=1. At x=1 it converges (harmonic alternating), at x=-1 it diverges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are the series of sin x and cos x related by term-by-term differentiation?",
+      "back": "Differentiating the cos series term-by-term yields exactly the sin series (with sign change). Differentiating the sin series recovers the cos series. This follows because differentiation of the power series inside the radius matches the derivative of the function.",
+      "difficulty": "medium"
+    }
+  ]
+}

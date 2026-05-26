@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-3-particle-in-a-box-solving-tise-energy-levels-wavefunctions",
+  "subtopicTitle": "Particle in a box — solving TISE, energy levels, wavefunctions",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:05.310Z",
+  "cards": [
+    {
+      "front": "What is the potential V(x) for a 1D infinite square well of width L?",
+      "back": "V(x)=0 for 0<x<L; V(x)=∞ elsewhere.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the boundary conditions imposed on ψ(x).",
+      "back": "ψ(0)=ψ(L)=0 (continuity and vanishing at infinite walls).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the TISE inside the well (V=0).",
+      "back": "$$-\\frac{\\hbar^2}{2m}\\frac{d^2\\psi}{dx^2}=E\\psi$$ or equivalently $$\\frac{d^2\\psi}{dx^2}=-k^2\\psi$$ with $k=\\sqrt{2mE}/\\hbar$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive allowed k values from boundary conditions.",
+      "back": "General solution: ψ=A sin(kx)+B cos(kx). ψ(0)=0⇒B=0. ψ(L)=0⇒sin(kL)=0⇒kL=nπ (n=1,2,…). Thus k_n=nπ/L.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the energy eigenvalues E_n.",
+      "back": "$$E_n=\\frac{n^2\\pi^2\\hbar^2}{2mL^2}=\\frac{n^2 h^2}{8mL^2}$$ (n=1,2,3…).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the normalized eigenfunctions ψ_n(x).",
+      "back": "$$\\psi_n(x)=\\sqrt{2/L}\\sin(n\\pi x/L)$$ for 0<x<L (zero elsewhere).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How many nodes does ψ_n(x) have inside (0,L)?",
+      "back": "Exactly n−1 nodes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Verify normalization: ∫_0^L |ψ_n(x)|² dx = 1.",
+      "back": "∫_0^L (2/L) sin²(nπx/L) dx = (2/L)×(L/2)=1 using the identity ∫sin²θ dθ over integer half-periods.",
+      "difficulty": "hard"
+    }
+  ]
+}

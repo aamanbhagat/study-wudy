@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p1-1-8-drift-velocity-mobility-conductivity",
+  "subtopicTitle": "Drift velocity, mobility, conductivity",
+  "topicId": "physics-p1-1-8-electromagnetism",
+  "topicTitle": "Electromagnetism",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:01.701Z",
+  "cards": [
+    {
+      "front": "Define drift velocity $v_d$ of charge carriers.",
+      "back": "Average velocity of charge carriers in the direction of an applied electric field, superimposed on random thermal velocities; typically ~10^{-4} m/s in metals.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the expression for drift velocity in terms of current $I$, carrier density $n$, cross-section $A$, and charge $e$.",
+      "back": "$v_d = \\frac{I}{n A e}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define mobility $\\mu$ of charge carriers and give its SI unit.",
+      "back": "$\\mu = v_d / E$; unit: m² V⁻¹ s⁻¹",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the expression for drift velocity assuming steady-state force balance with relaxation time $\\tau$.",
+      "back": "Net force after collisions: $eE = m v_d / \\tau$. Thus $v_d = \\frac{e \\tau}{m} E$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the microscopic expression for conductivity $\\sigma$ in terms of $n$, $e$, and $\\mu$.",
+      "back": "$\\sigma = n e \\mu$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive conductivity $\\sigma$ from relaxation time $\\tau$.",
+      "back": "From $v_d = \\frac{e \\tau}{m} E$ and $J = n e v_d$, obtain $\\sigma = \\frac{n e^2 \\tau}{m}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain intuitively why drift velocity remains constant (not accelerating) under steady E-field.",
+      "back": "Continuous collisions with lattice ions randomize momentum; average velocity reaches terminal value when electric force balances collision drag.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does conductivity depend on temperature in metals via mobility?",
+      "back": "Higher T increases lattice vibrations, shortens $\\tau$, lowers $\\mu$ and thus $\\sigma$ (resistivity rises).",
+      "difficulty": "medium"
+    }
+  ]
+}

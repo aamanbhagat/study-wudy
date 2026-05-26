@@ -1,0 +1,46 @@
+{
+  "subtopicId": "cs-p3-3-3-universal-hashing-probabilistic-guarantee",
+  "subtopicTitle": "Universal hashing — probabilistic guarantee",
+  "topicId": "cs-p3-3-3-hashing",
+  "topicTitle": "Hashing",
+  "field": "cs",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:29.255Z",
+  "cards": [
+    {
+      "front": "Define a universal family of hash functions H from universe U to slots {0,...,m-1}.",
+      "back": "H is universal if ∀ distinct x,y ∈ U: |{h ∈ H : h(x)=h(y)}| ≤ |H|/m.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What collision probability does universality guarantee when h is chosen uniformly at random from H?",
+      "back": "Pr[h(x)=h(y)] ≤ 1/m for any fixed distinct x,y.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Give the standard linear-universal hash family construction (prime p > |U|).",
+      "back": "H = {h_{a,b}(x) = ((a·x + b) mod p) mod m | 1≤a≤p-1, 0≤b≤p-1}",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive E[number of colliding pairs] for n keys hashed with universal h into m slots.",
+      "back": "Let X=∑_{i<j} I_{ij} where I_{ij}=1 if keys i,j collide. Then E[X]=binom(n,2)·(≤1/m) ≤ n²/(2m).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Using the pair-collision bound, show expected chain length is O(1+α) in chaining.",
+      "back": "For a fixed key, E[collisions with it] ≤ (n-1)/m = O(α). Hence total expected lookups = O(1+α).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does universal hashing give only a probabilistic (not worst-case) guarantee?",
+      "back": "The O(1+α) bound holds in expectation over random choice of h; a fixed adversarial h may still produce long chains.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the probability that a specific pair collides under the ax+b family?",
+      "back": "Exactly 1/m when m divides p-1 or ≤1/m otherwise (standard proof counts solutions for a,b).",
+      "difficulty": "hard"
+    }
+  ]
+}

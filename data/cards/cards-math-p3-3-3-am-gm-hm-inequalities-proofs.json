@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p3-3-3-am-gm-hm-inequalities-proofs",
+  "subtopicTitle": "AM-GM-HM inequalities — proofs",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:32.887Z",
+  "cards": [
+    {
+      "front": "Define the arithmetic mean (AM), geometric mean (GM), and harmonic mean (HM) for n positive real numbers a1,...,an.",
+      "back": "AM = (a1+...+an)/n\nGM = (a1·...·an)^{1/n}\nHM = n/(1/a1+...+1/an)",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the AM-GM-HM inequality, including the equality condition.",
+      "back": "For positive reals a1,...,an: AM ≥ GM ≥ HM, with equality if and only if a1=a2=...=an.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove AM ≥ GM for two positive reals a,b using squares.",
+      "back": "(√a−√b)²≥0 ⇒ a+b−2√(ab)≥0 ⇒ (a+b)/2 ≥ √(ab), i.e., AM≥GM. Equality iff a=b.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove GM ≥ HM for two positive reals a,b.",
+      "back": "Apply AM-GM to 1/a and 1/b: (1/a+1/b)/2 ≥ √(1/(ab)) ⇒ 2/(a+b) ≤ √(ab) after inversion and rearrangement, which is exactly HM ≤ GM.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the base case and inductive hypothesis for proving AM-GM by induction on powers of 2.",
+      "back": "Base (n=2): already proved. Assume true for n=2^k: AM_{2^k} ≥ GM_{2^k}. For n=2^{k+1}, split into two groups of 2^k and apply the hypothesis twice plus the n=2 case.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Complete the induction step to prove AM ≥ GM for n=2^{k+1}.",
+      "back": "Let S= sum of first 2^k, T=sum of second 2^k. Then (S+T)/2^{k+1} = [(S/2^k + T/2^k)/2] ≥ √[(GM1·GM2)] = (prod all)^{1/2^{k+1}} by n=2 case on the two group GMs.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the AM-GM inequality extended from powers of 2 to arbitrary n?",
+      "back": "For m with 2^k < m < 2^{k+1}, add (2^{k+1}−m) copies of the GM of the original m numbers; apply the power-of-2 result and take limit as extra terms → GM to obtain the inequality for m.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove AM ≥ HM directly without passing through GM.",
+      "back": "Apply Cauchy-Schwarz (or Titu's lemma): (sum ai)(sum 1/ai) ≥ n². Divide both sides by n: AM·(sum 1/ai)/n ≥ n ⇒ AM ≥ n/(sum 1/ai) = HM.",
+      "difficulty": "hard"
+    }
+  ]
+}

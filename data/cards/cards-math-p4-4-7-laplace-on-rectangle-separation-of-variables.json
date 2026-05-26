@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-7-laplace-on-rectangle-separation-of-variables",
+  "subtopicTitle": "Laplace on rectangle — separation of variables",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:21.146Z",
+  "cards": [
+    {
+      "front": "What PDE must $u(x,y)$ satisfy inside the rectangle for the standard Laplace problem?",
+      "back": "$u_{xx} + u_{yy} = 0$ for $0 < x < a$, $0 < y < b$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the product ansatz used in separation of variables for the 2-D Laplace equation.",
+      "back": "$u(x,y) = X(x)Y(y)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "After substituting the product ansatz into Laplace's equation and dividing by $XY$, what equation relates the two ordinary derivatives?",
+      "back": "$\\frac{X''}{X} = -\\frac{Y''}{Y} = -\\lambda$ (separation constant).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given homogeneous Dirichlet conditions $u(0,y)=u(a,y)=0$, which sign must the separation constant have and why?",
+      "back": "Negative: $\\lambda = k^2 > 0$, so that $X$ yields nontrivial solutions satisfying the two homogeneous BCs (eigenvalue problem $X'' + \\lambda X = 0$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "With $X_n(x) = \\sin(n\\pi x/a)$ and $\\lambda_n = (n\\pi/a)^2$, what is the corresponding $Y_n(y)$ that satisfies the ODE?",
+      "back": "$Y_n(y) = A\\cosh(k_ny) + B\\sinh(k_ny)$ where $k_n = n\\pi/a$, or equivalently $A e^{k_ny} + B e^{-k_ny}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the general separated solution that satisfies the three homogeneous boundary conditions on the rectangle.",
+      "back": "$u(x,y) = \\sum_{n=1}^\\infty \\bigl(A_n\\sinh(k_ny) + B_n\\cosh(k_ny)\\bigr)\\sin(k_n x)$ with $k_n = n\\pi/a$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If the non-homogeneous BC is $u(x,b)=f(x)$ and $u=0$ on the other three sides, which coefficients survive and how are they determined?",
+      "back": "Only the sinh terms survive: $B_n=0$, $A_n = \\frac{2}{a\\sinh(k_nb)}\\int_0^a f(x)\\sin(k_n x)dx$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the solution generally involve an infinite Fourier sine series rather than a single term?",
+      "back": "The non-homogeneous boundary data $f(x)$ is arbitrary; only its Fourier coefficients allow the series to match $f(x)$ at that boundary.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "subtopicId": "cs-p4-4-2-deadlock-four-necessary-conditions-coffman",
+  "subtopicTitle": "Deadlock — four necessary conditions (Coffman)",
+  "topicId": "cs-p4-4-2-operating-systems",
+  "topicTitle": "Operating Systems",
+  "field": "cs",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:31.280Z",
+  "cards": [
+    {
+      "front": "What are the four Coffman conditions required for deadlock to occur?",
+      "back": "Mutual exclusion, hold and wait, no preemption, and circular wait. All four must hold simultaneously.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the mutual exclusion condition for deadlock.",
+      "back": "At least one resource must be held in a non-sharable mode; only one process may use it at a time.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Explain the hold-and-wait condition with a brief example.",
+      "back": "A process holding at least one resource is waiting to acquire additional resources already held by other processes.\nExample: P1 holds R1 and waits for R2; P2 holds R2 and waits for R1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the no-preemption condition for deadlock.",
+      "back": "Resources cannot be forcibly taken from a process; they can only be released voluntarily by the holding process after it has finished using them.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Describe the circular-wait condition and its graph representation.",
+      "back": "A set of processes {P0, P1, …, Pn} exists such that P0 waits for a resource held by P1, P1 waits for one held by P2, …, Pn waits for one held by P0. In the resource-allocation graph this forms a cycle.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why must all four Coffman conditions be present simultaneously for deadlock?",
+      "back": "Each condition eliminates a necessary escape route: mutual exclusion prevents sharing, hold-and-wait prevents releasing while acquiring, no-preemption prevents forced release, and circular wait closes the only remaining scheduling loop. Removing any one breaks the deadlock possibility.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How can the circular-wait condition be prevented by resource ordering?",
+      "back": "Impose a total ordering on resource types and require every process to request resources in strictly increasing order. This makes a cycle impossible.",
+      "difficulty": "hard"
+    }
+  ]
+}

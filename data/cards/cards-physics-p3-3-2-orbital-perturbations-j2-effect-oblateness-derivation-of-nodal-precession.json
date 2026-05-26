@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-2-orbital-perturbations-j2-effect-oblateness-derivation-of-nodal-precession",
+  "subtopicTitle": "Orbital perturbations — J2 effect (oblateness), derivation of nodal precession",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:51.723Z",
+  "cards": [
+    {
+      "front": "Define the dimensionless J2 zonal harmonic coefficient and its physical origin.",
+      "back": "J2 = (C−A)/(M R_e²) where C>A are principal moments of inertia; it quantifies Earth's oblateness (equatorial bulge) in the gravitational potential expansion V = −(μ/r)[1 − Σ J_n (R_e/r)^n P_n(sin φ)].",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What orbital element experiences secular drift due to J2 and why?",
+      "back": "Right ascension of ascending node Ω precesses because the equatorial bulge produces a torque that rotates the orbital plane about Earth's polar axis; inclination i remains constant to first order.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the standard expression for mean-motion nodal precession rate Ω̇ due to J2.",
+      "back": "Ω̇ = −(3/2) n J2 (R_e/a)² cos i / (1−e²)² where n=√(μ/a³) is mean motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the two key assumptions used when averaging the J2 disturbing function over one orbital period.",
+      "back": "(1) Orbit is Keplerian to zeroth order; (2) average is taken over mean anomaly M while holding a,e,i fixed (short-period terms vanish).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a circular low-Earth orbit at a=7000 km, i=98°, compute the approximate nodal precession period (J2=1.0826e−3, R_e=6378 km).",
+      "back": "Ω̇ ≈ −0.00105 rad/orbit → period ≈ 105 days (westward regression).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the factor (3/2)cos i that appears in Ω̇ from the averaged J2 potential R_J2.",
+      "back": "R_J2 = (μ J2 R_e²/(2a³(1−e²)^{3/2}))(3/2 sin²i −1); ∂R/∂h (h=angular momentum) yields Ω̇ = (1/(n a² √(1−e²) sin i)) ∂R/∂i giving the (3/2)cos i term after differentiation.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What inclination satisfies Ω̇ = (2π/365.25) rad/day for a sun-synchronous orbit?",
+      "back": "i_ss ≈ 98.43° ( retrograde, near-polar) for typical LEO altitudes; solves cos i = −(2/3) (a/R_e)² (1−e²)² (n/J2) (365.25/2π).",
+      "difficulty": "hard"
+    }
+  ]
+}

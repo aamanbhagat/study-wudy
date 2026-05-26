@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-2-gravity-assist-slingshot-patched-conic-v-infinity-vectors",
+  "subtopicTitle": "Gravity assist (slingshot) — patched conic, v-infinity vectors",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:42.857Z",
+  "cards": [
+    {
+      "front": "Define $v_\\infty$ (hyperbolic excess velocity) for a spacecraft approaching a planet.",
+      "back": "$v_\\infty$ is the asymptotic speed of the spacecraft relative to the planet as $r\\to\\infty$ on the incoming or outgoing hyperbola. In the planet-centered frame, $|\\vec{v}_\\text{sc}-\\vec{v}_\\text{planet}|\\to v_\\infty$ far from the planet.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the patched-conic approximation used for gravity-assist trajectories?",
+      "back": "The solar-system trajectory is divided into successive two-body conic arcs: heliocentric ellipse/hyperbola between planets, then planetocentric hyperbola during each flyby, with instantaneous sphere-of-influence switches.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the planet frame, why does a gravity assist leave $v_\\infty$ magnitude unchanged but rotate its direction?",
+      "back": "Gravity is a conservative central force; specific energy $\\frac12v_\\infty^2$ is constant along the hyperbola. The trajectory is symmetric about the periapsis vector, producing a pure rotation of $\\vec{v}_\\infty^\\text{in}$ into $\\vec{v}_\\infty^\\text{out}$ by deflection angle $\\delta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the vector relation linking heliocentric velocity before and after a flyby.",
+      "back": "$\\vec{v}_\\text{helio}^\\text{out}=\\vec{v}_\\text{planet}+\\vec{v}_\\infty^\\text{out}$, where $\\vec{v}_\\infty^\\text{out}$ is $\\vec{v}_\\infty^\\text{in}$ rotated by $\\delta$ about the planet's pole. The planet velocity itself is unchanged.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the exact expression for the hyperbolic deflection angle $\\delta$ as a function of eccentricity $e$.",
+      "back": "$\\delta=2\\arcsin(1/e)$ or equivalently $\\delta=2\\arccos(-1/e)$, where $e=1+(r_p v_\\infty^2/\\mu)$ and $r_p$ is periapsis radius.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the maximum possible speed gain $\\Delta v_\\text{helio}$ from a gravity assist (ideal 180° turn).",
+      "back": "Maximum rotation of $\\vec{v}_\\infty$ is 180°, so $\\Delta\\vec{v}_\\text{helio}=2v_\\infty$ in the direction of planet motion. Thus $\\Delta v_\\text{helio,max}=2v_\\infty$ when the flyby is exactly retrograde relative to the planet's velocity vector.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what condition does a gravity assist increase rather than decrease heliocentric orbital energy?",
+      "back": "Energy increases when the angle between $\\vec{v}_\\text{planet}$ and $\\vec{v}_\\infty^\\text{out}$ is smaller than between $\\vec{v}_\\text{planet}$ and $\\vec{v}_\\infty^\\text{in}$ (i.e., the spacecraft's velocity component in the planet's direction grows). This occurs for prograde flybys with turning that aligns $\\vec{v}_\\infty^\\text{out}$ closer to $\\vec{v}_\\text{planet}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

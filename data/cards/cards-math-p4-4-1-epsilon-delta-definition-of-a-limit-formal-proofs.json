@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-1-epsilon-delta-definition-of-a-limit-formal-proofs",
+  "subtopicTitle": "Epsilon-delta definition of a limit — formal proofs",
+  "topicId": "math-p4-4-1-calculus-i-limits-derivatives",
+  "topicTitle": "Calculus I — Limits & Derivatives",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:38.341Z",
+  "cards": [
+    {
+      "front": "State the ε-δ definition of lim_{x→a} f(x) = L.",
+      "back": "For every ε > 0 there exists δ > 0 such that if 0 < |x − a| < δ then |f(x) − L| < ε.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does the quantifier 'for every ε > 0' require in the ε-δ definition?",
+      "back": "No matter how small a positive tolerance ε is chosen, a suitable δ must still exist that forces f(x) within ε of L.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove lim_{x→2} (3x + 1) = 7 using ε-δ. Find an explicit δ(ε).",
+      "back": "Let ε > 0. Choose δ = ε/3. Then 0 < |x − 2| < δ ⇒ |3x + 1 − 7| = 3|x − 2| < 3δ = ε.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When proving lim_{x→a} f(x) = L for a polynomial, why is δ often taken as min{1, ε/M}?",
+      "back": "The factor 1 bounds |x − a| so that higher-degree terms can be controlled by a constant M; ε/M then handles the linear factor.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove lim_{x→0} x² = 0. Give the δ chosen in terms of ε.",
+      "back": "Let ε > 0. Choose δ = min{1, ε}. Then 0 < |x| < δ ⇒ |x²| = |x|·|x| < 1·ε = ε.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive δ for lim_{x→3} x² = 9 by factoring and bounding.",
+      "back": "|x² − 9| = |x − 3|·|x + 3|. Restrict δ ≤ 1 so |x + 3| ≤ 7; then choose δ = min{1, ε/7}.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Show that the ε-δ definition implies the limit, if it exists, is unique.",
+      "back": "Suppose lim = L and lim = M with L ≠ M. Let ε = |L − M|/2. No δ can satisfy both |f(x) − L| < ε and |f(x) − M| < ε simultaneously.",
+      "difficulty": "hard"
+    }
+  ]
+}

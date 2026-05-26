@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-4-unification-all-three-theorems-as-generalized-stokes",
+  "subtopicTitle": "Unification — all three theorems as generalized Stokes",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:52.983Z",
+  "cards": [
+    {
+      "front": "State the generalized Stokes' theorem for a compact oriented manifold $M$ with boundary.",
+      "back": "$$\\int_M d\\omega = \\int_{\\partial M} \\omega$$ where $\\omega$ is a differential form of degree $\\dim(M)-1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which classical theorem is recovered when $M$ is a 1-dimensional interval $[a,b]$?",
+      "back": "The Fundamental Theorem of Calculus: $\\int_a^b f'(x)\\,dx = f(b)-f(a)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Show how Green's theorem arises as a special case of generalized Stokes'.",
+      "back": "Let $M\\subset\\mathbb{R}^2$ be a plane region and $\\omega=P\\,dx+Q\\,dy$. Then $d\\omega=(\\partial Q/\\partial x-\\partial P/\\partial y)dx\\wedge dy$, so $\\int_M d\\omega=\\iint_M(\\partial Q/\\partial x-\\partial P/\\partial y)\\,dA=\\oint_{\\partial M}\\omega$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the classical Stokes' theorem using the language of differential forms.",
+      "back": "For an oriented surface $S$ with boundary curve $C$ and 1-form $\\omega$, $\\int_S d\\omega=\\oint_C\\omega$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the divergence theorem from generalized Stokes' theorem.",
+      "back": "Take the $(n-1)$-form $\\omega=\\sum(-1)^{i-1}F_i\\,dx_1\\wedge\\cdots\\widehat{dx_i}\\cdots\\wedge dx_n$. Then $d\\omega=(\\nabla\\cdot F)dx_1\\wedge\\cdots\\wedge dx_n$, yielding $\\int_V\\nabla\\cdot F\\,dV=\\int_{\\partial V}F\\cdot d\\mathbf{S}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the degree of the differential form used for each of the three vector-calculus theorems?",
+      "back": "Green: 1-form in $\\mathbb{R}^2$; Stokes: 1-form in $\\mathbb{R}^3$; Divergence: 2-form in $\\mathbb{R}^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the generalized Stokes' theorem require an oriented manifold with boundary?",
+      "back": "Orientation induces a consistent orientation on $\\partial M$ so that the induced boundary integral matches the interior integral of the exterior derivative; without it the equality is undefined.",
+      "difficulty": "hard"
+    }
+  ]
+}

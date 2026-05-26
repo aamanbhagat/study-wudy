@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-4-barrowman-equations-centre-of-pressure-calculation-for-finned-rockets",
+  "subtopicTitle": "Barrowman equations — centre of pressure calculation for finned rockets",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:04.004Z",
+  "cards": [
+    {
+      "front": "What are the Barrowman equations used for in rocket design?",
+      "back": "Semi-empirical method to compute the longitudinal center of pressure (CP) of slender, fin-stabilized rockets by superposing normal-force contributions of the body and fins.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general Barrowman formula for CP location $x_{cp}$.",
+      "back": "$$x_{cp}=\\frac{\\sum_i(C_{N\\alpha,i}\\cdot x_i)}{\\sum_i C_{N\\alpha,i}}$$ where $x_i$ is the CP coordinate of component $i$ measured from the nose tip.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the normal-force-curve slope $C_{N\\alpha}$ of a slender axisymmetric body according to Barrowman?",
+      "back": "$C_{N\\alpha,\\text{body}}=2$ (per radian) for a pointed nose plus cylindrical body; the body CP lies at the centroid of the planform area.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the Barrowman expression for $C_{N\\alpha}$ of a set of $N$ identical trapezoidal fins.",
+      "back": "$$C_{N\\alpha,f}=\\frac{2\\pi\\,\\eta\\,(A_f/A_{\\text{ref}})}{2+\\sqrt{4+(\\beta\\,AR/\\cos\\Lambda)^2}}\\cdot\\frac{N}{2}$$ (subsonic, $\beta=\\sqrt{1-M^2}$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Where is the CP of each fin located in the Barrowman method?",
+      "back": "At the quarter-chord point of the mean aerodynamic chord (MAC), measured perpendicular to the rocket axis; the MAC is found from the root and tip chord geometry.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does the presence of a body affect fin $C_{N\\alpha}$ (Barrowman interference factor)?",
+      "back": "Multiply isolated-fin $C_{N\\alpha}$ by the body-fin interference factor $K_{B(F)}\\approx 1+\\frac{r}{s+r}$ where $r$ is body radius and $s$ is semi-span; also add the opposite fin-body carry-over term.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a key limitation of the Barrowman equations?",
+      "back": "Valid only for subsonic, incompressible flow on slender bodies (angle of attack < 10°); does not account for compressibility, viscosity, or large vortex effects at high Mach or high AoA.",
+      "difficulty": "easy"
+    }
+  ]
+}

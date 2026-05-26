@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-5-singular-value-decomposition-svd-full-derivation",
+  "subtopicTitle": "Singular Value Decomposition (SVD) — full derivation",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:05.801Z",
+  "cards": [
+    {
+      "front": "What is the SVD of an m×n matrix A?",
+      "back": "A = U Σ V^T where U (m×m) and V (n×n) are orthogonal, Σ (m×n) is diagonal with entries σ₁ ≥ σ₂ ≥ … ≥ σᵣ > 0 (singular values) and the rest zero; r = rank(A).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are the singular values σ_i related to the eigenvalues of AᵀA?",
+      "back": "AᵀA is symmetric positive semidefinite; its eigenvalues satisfy λ_i = σ_i² ≥ 0. Thus σ_i = √λ_i (ordered decreasingly).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the right singular vectors V from AᵀA.",
+      "back": "By the spectral theorem, AᵀA v_i = λ_i v_i yields an orthonormal basis {v_i} of ℝⁿ. Set V = [v_1 … v_n]; the first r vectors correspond to λ_i > 0.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How are the left singular vectors u_i (i=1..r) obtained?",
+      "back": "For each σ_i > 0 define u_i = (1/σ_i) A v_i. Then ||u_i||=1 and u_iᵀ u_j = δ_{ij} because v_i are orthonormal eigenvectors of AᵀA.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the orthonormal basis for U completed when r < m?",
+      "back": "The remaining m-r vectors are chosen as an orthonormal basis for ker(AAᵀ), i.e., eigenvectors of AAᵀ belonging to eigenvalue 0; they are orthogonal to the first r vectors.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does every real matrix possess an SVD?",
+      "back": "AᵀA always admits a spectral decomposition (symmetric). The construction above produces orthogonal U, V and diagonal Σ satisfying A = U Σ Vᵀ.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the ordering and multiplicity properties of singular values.",
+      "back": "σ₁ ≥ … ≥ σₙ ≥ 0; the number of strictly positive σ_i equals rank(A); each σ_i has multiplicity equal to the geometric multiplicity of λ_i = σ_i² in AᵀA.",
+      "difficulty": "easy"
+    }
+  ]
+}

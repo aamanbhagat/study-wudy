@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-7-full-fourier-series-coefficients-derivation",
+  "subtopicTitle": "Full Fourier series — coefficients derivation",
+  "topicId": "math-p4-4-7-partial-differential-equations",
+  "topicTitle": "Partial Differential Equations",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:28.843Z",
+  "cards": [
+    {
+      "front": "What is the general form of the full Fourier series for f(x) on [-π, π]?",
+      "back": "$$f(x) = \\frac{a_0}{2} + \\sum_{n=1}^\\infty (a_n \\cos(nx) + b_n \\sin(nx))$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the three orthogonality integrals over [-π, π] for the set {1, cos(nx), sin(nx)}.",
+      "back": "∫1·cos(nx) dx = 0, ∫1·sin(nx) dx = 0, ∫cos(nx)cos(mx) dx = π δ_{mn} (n,m≥1), ∫sin(nx)sin(mx) dx = π δ_{mn}, ∫cos(nx)sin(mx) dx = 0.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive a_0 by integrating the Fourier series term-by-term over [-π, π].",
+      "back": "Integrate: ∫f(x) dx = ∫(a0/2) dx + 0 (all other terms integrate to zero by orthogonality). Thus a0 = (1/π) ∫_{-π}^π f(x) dx.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive a_n (n≥1) by multiplying the series by cos(mx) and integrating.",
+      "back": "Multiply by cos(mx), integrate: left side gives ∫f cos(mx) dx. Right side: only a_m term survives, equaling a_m · π. Hence a_n = (1/π) ∫_{-π}^π f(x) cos(nx) dx.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive b_n (n≥1) by multiplying the series by sin(mx) and integrating.",
+      "back": "Multiply by sin(mx), integrate: left side ∫f sin(mx) dx. Right side: only b_m term survives, equaling b_m · π. Hence b_n = (1/π) ∫_{-π}^π f(x) sin(nx) dx.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show how even/odd symmetry of f simplifies the coefficient formulas.",
+      "back": "If f even, bn=0 and an = (2/π)∫_0^π f(x)cos(nx)dx. If f odd, an=0 and bn = (2/π)∫_0^π f(x)sin(nx)dx.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Starting from the inner-product definition, obtain all three coefficient formulas at once.",
+      "back": "The basis functions are orthogonal w.r.t. L2[-π,π] inner product ⟨g,h⟩=∫g h dx. Thus a0/2 = ⟨f,1⟩/⟨1,1⟩, an = ⟨f,cos(nx)⟩/⟨cos(nx),cos(nx)⟩, bn = ⟨f,sin(nx)⟩/⟨sin(nx),sin(nx)⟩, which recover the standard integral formulas.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "subtopicId": "cs-p5-5-6-reinforcement-learning-mdp-bellman-equation-q-learning",
+  "subtopicTitle": "Reinforcement learning — MDP, Bellman equation, Q-learning",
+  "topicId": "cs-p5-5-6-machine-learning-aerospace-applications",
+  "topicTitle": "Machine Learning (Aerospace Applications)",
+  "field": "cs",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:37.224Z",
+  "cards": [
+    {
+      "front": "What are the five tuple components that formally define a Markov Decision Process (MDP)?",
+      "back": "(S, A, P, R, γ) where S = state space, A = action space, P(s'|s,a) = transition probabilities, R(s,a) = reward function, γ ∈ [0,1] = discount factor.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the Bellman equation for the optimal action-value function Q*(s,a).",
+      "back": "$$Q^*(s,a) = \\mathbb{E}[R_{t+1} + \\gamma \\max_{a'} Q^*(s',a') \\mid s_t=s, a_t=a]$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the tabular Q-learning update rule including learning rate α.",
+      "back": "$$Q(s,a) \\leftarrow Q(s,a) + \\alpha [r + \\gamma \\max_{a'} Q(s',a') - Q(s,a)]$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is Q-learning classified as an off-policy algorithm?",
+      "back": "It updates Q using the maximum over next actions (greedy policy) while the behavior policy that generates experience can be any exploratory policy (e.g., ε-greedy).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Formulate states, actions and reward for an MDP modeling low-thrust satellite orbit transfer.",
+      "back": "S = (r, v, m); A = thrust vector direction & magnitude; R = -Δt (minimize time) or +1 if final orbit reached, else 0.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Bellman optimality equation starting from the definition of V*(s).",
+      "back": "V*(s) = max_π E[Σ γ^t r_t | s_0=s]. By law of total expectation and Markov property: V*(s) = max_a Σ_{s'} P(s'|s,a)[R(s,a,s') + γ V*(s')].",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under what conditions does tabular Q-learning converge to Q* with probability 1?",
+      "back": "Every state-action pair visited infinitely often, ∑α=∞, ∑α²<∞, and the MDP is finite with γ<1.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In aerospace path planning, what practical issue arises if the discount factor γ is set too close to 1?",
+      "back": "Long-horizon credit assignment becomes numerically unstable; small reward differences are amplified, leading to poor convergence on fuel/time trade-offs.",
+      "difficulty": "medium"
+    }
+  ]
+}

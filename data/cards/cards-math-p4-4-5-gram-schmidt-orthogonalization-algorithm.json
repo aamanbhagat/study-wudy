@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-5-gram-schmidt-orthogonalization-algorithm",
+  "subtopicTitle": "Gram-Schmidt orthogonalization — algorithm",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:16.436Z",
+  "cards": [
+    {
+      "front": "What is the purpose of the Gram-Schmidt process applied to a linearly independent set $\\{v_1,\\dots,v_n\\}$?",
+      "back": "It produces an orthogonal set $\\{u_1,\\dots,u_n\\}$ (or orthonormal $\\{e_i\\}$) that spans exactly the same subspace.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the explicit formula for the first orthogonal vector $u_1$ in Gram-Schmidt.",
+      "back": "$u_1 = v_1$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Give the general formula for the $k$-th orthogonal vector $u_k$ produced by Gram-Schmidt.",
+      "back": "$$u_k = v_k - \\sum_{j=1}^{k-1} \\frac{\\langle v_k,u_j\\rangle}{\\langle u_j,u_j\\rangle} u_j$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is an orthonormal set obtained once the orthogonal vectors $\\{u_i\\}$ have been computed?",
+      "back": "Set $e_k = u_k/\\|u_k\\|$ (assuming none are zero).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Outline the complete Gram-Schmidt algorithm steps for vectors $v_1$ to $v_n$.",
+      "back": "Initialize empty list U. For k=1 to n: compute u_k by subtracting projections onto all previous u_j, append u_k if nonzero.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is $\\langle u_k,u_j\\rangle=0$ for all j<k by construction?",
+      "back": "The subtracted sum equals the orthogonal projection of v_k onto span{u_1,...,u_{k-1}}, leaving a remainder orthogonal to every vector in that span.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What occurs during Gram-Schmidt if the input set is linearly dependent?",
+      "back": "Some u_k equals the zero vector, revealing the dependence and that the set does not form a basis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In which vector spaces does the Gram-Schmidt algorithm work?",
+      "back": "Any finite-dimensional inner-product space (real or complex), using the given inner product for all projections.",
+      "difficulty": "hard"
+    }
+  ]
+}

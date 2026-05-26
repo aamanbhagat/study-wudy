@@ -130,6 +130,10 @@ export default function ActiveSessionPage() {
   const [content, setContent] = useState("");
   const [contentLoading, setContentLoading] = useState(true);
   const [contentError, setContentError] = useState<string | null>(null);
+  const [lang, setLang] = useState<"en" | "hi">(() => {
+    if (typeof window === "undefined") return "en";
+    return (window.localStorage.getItem("study-lang-pref") as "en" | "hi") || "en";
+  });
 
   const [recallOpen, setRecallOpen] = useState(false);
   const [recalls, setRecalls] = useState<RecallEntry[]>([]);
@@ -205,7 +209,7 @@ export default function ActiveSessionPage() {
         const res = await fetch("/api/study-content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ subtopicId }),
+          body: JSON.stringify({ subtopicId, lang }),
           signal: controller.signal,
         });
         if (!res.ok) {
@@ -222,7 +226,7 @@ export default function ActiveSessionPage() {
       }
     })();
     return () => controller.abort();
-  }, [payload]);
+  }, [payload, lang]);
 
   function pause() {
     if (!running) return;
@@ -448,9 +452,47 @@ export default function ActiveSessionPage() {
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}>
               <Card>
                 <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-base">
-                    <Sparkles className="h-4 w-4 text-brand-gold" /> AI Study Guide
-                  </CardTitle>
+                  <div className="flex items-center justify-between gap-2">
+                    <CardTitle className="flex items-center gap-2 text-base">
+                      <Sparkles className="h-4 w-4 text-brand-gold" /> AI Study Guide
+                    </CardTitle>
+                    <div className="inline-flex overflow-hidden rounded-md border bg-background text-xs">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setLang("en");
+                          if (typeof window !== "undefined")
+                            window.localStorage.setItem("study-lang-pref", "en");
+                        }}
+                        className={
+                          "px-2.5 py-1 font-medium transition-colors " +
+                          (lang === "en"
+                            ? "bg-brand-navy text-white"
+                            : "text-muted-foreground hover:bg-accent")
+                        }
+                        aria-pressed={lang === "en"}
+                      >
+                        EN
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setLang("hi");
+                          if (typeof window !== "undefined")
+                            window.localStorage.setItem("study-lang-pref", "hi");
+                        }}
+                        className={
+                          "px-2.5 py-1 font-medium transition-colors " +
+                          (lang === "hi"
+                            ? "bg-brand-navy text-white"
+                            : "text-muted-foreground hover:bg-accent")
+                        }
+                        aria-pressed={lang === "hi"}
+                      >
+                        HI
+                      </button>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   {contentError ? (

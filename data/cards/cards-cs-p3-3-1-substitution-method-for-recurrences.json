@@ -1,0 +1,46 @@
+{
+  "subtopicId": "cs-p3-3-1-substitution-method-for-recurrences",
+  "subtopicTitle": "Substitution method for recurrences",
+  "topicId": "cs-p3-3-1-complexity-analysis",
+  "topicTitle": "Complexity Analysis",
+  "field": "cs",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:24.547Z",
+  "cards": [
+    {
+      "front": "What is the substitution method for solving recurrences?",
+      "back": "Guess a candidate asymptotic bound for $T(n)$, then prove the guess correct by induction on $n$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the first action performed in the substitution method?",
+      "back": "Guess the form of the solution (e.g., $T(n)\\leq cn\\log n$ or $T(n)=O(n^2)$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Apply substitution to prove $T(n)=T(n-1)+1$ is $O(n)$. State the inductive hypothesis.",
+      "back": "IH: assume $T(m)\\leq cm$ for all $m<n$. Then $T(n)\\leq c(n-1)+1=cn+(1-c)$. Choose $c\\geq1$ so $1-c\\leq0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For $T(n)=2T(n/2)+n$, what candidate bound is guessed and why?",
+      "back": "Guess $T(n)=O(n\\log n)$ because the recursion tree has $\\log n$ levels each costing $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Complete the inductive step for $T(n)\\leq cn\\log n$ when $T(n)=2T(n/2)+n$ (assume $n>2$).",
+      "back": "$T(n)\\leq2c(n/2)\\log(n/2)+n=cn(\\log n-1)+n=cn\\log n-n(c-1)$. Choose $c>1$ so $-n(c-1)\\leq0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why must the inductive hypothesis sometimes be strengthened when using substitution?",
+      "back": "To absorb lower-order terms (e.g., subtract $dn$ from the guessed bound) so the inequality holds for all $n$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How are base cases handled in a substitution proof?",
+      "back": "Choose constants $c$ and $n_0$ large enough that the claimed bound holds for all base cases $n\\leq n_0$.",
+      "difficulty": "hard"
+    }
+  ]
+}

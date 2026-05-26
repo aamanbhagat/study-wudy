@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-2-kepler-s-equation-m-e-e-sine-derivation-eccentric-anomaly",
+  "subtopicTitle": "Kepler's equation M = E - e·sinE — derivation, eccentric anomaly",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:26.253Z",
+  "cards": [
+    {
+      "front": "Define the eccentric anomaly $E$ geometrically for an elliptical orbit.",
+      "back": "Draw the auxiliary circle of radius $a$ centered at the ellipse center. From the focus, draw a line perpendicular to the major axis intersecting the ellipse at position $P$. Extend this line to intersect the auxiliary circle at $Q$. Then $E$ is the angle from periapsis to $Q$, measured at the ellipse center.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Kepler's equation relating mean anomaly $M$ and eccentric anomaly $E$.",
+      "back": "$$M = E - e \\sin E$$ where $0 \\leq e < 1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express mean anomaly $M$ in terms of time $t$ since periapsis passage for period $T$.",
+      "back": "$M = n(t - t_p)$ where mean motion $n = 2\\pi/T$ and $t_p$ is time of periapsis passage. $M$ increases uniformly from 0 to $2\\pi$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Kepler's equation $M = E - e\\sin E$ step-by-step from swept area and auxiliary circle.",
+      "back": "Area of elliptical sector to true anomaly is $(ab/2)(E - e\\sin E)$. Mean anomaly satisfies $M/2\\pi = $ (sector area)/(ellipse area), so $M = E - e\\sin E$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is Kepler's equation transcendental? Name the standard numerical solution method.",
+      "back": "It is transcendental because $E$ appears both linearly and inside a trigonometric function. Solved iteratively by Newton-Raphson: $E_{n+1} = E_n - (E_n - e\\sin E_n - M)/(1 - e\\cos E_n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the value of eccentric anomaly $E$ when eccentricity $e=0$?",
+      "back": "$E = M$ for all $M$. The auxiliary circle coincides with the orbit and anomalies are identical.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For a given $M$ and $e$, describe how to obtain true anomaly $\\nu$ after solving for $E$.",
+      "back": "Compute $\\tan(\\nu/2) = \\sqrt{(1+e)/(1-e)}\\tan(E/2)$, then $\\nu = 2\\arctan(\\ldots)$ (quadrant-correct). Or use $\\cos\\nu = (\\cos E - e)/(1 - e\\cos E)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Intuitively, why does the term $-e\\sin E$ appear in Kepler's equation?",
+      "back": "It corrects the uniform angular motion on the auxiliary circle for the fact that the focus is offset; the planet moves faster near periapsis, so the time-area relation subtracts the sinusoidal projection of the offset.",
+      "difficulty": "hard"
+    }
+  ]
+}

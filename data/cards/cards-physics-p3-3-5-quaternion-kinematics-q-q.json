@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-quaternion-kinematics-q-q",
+  "subtopicTitle": "Quaternion kinematics — q̇ = ½Ξ(q)ω",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:48.299Z",
+  "cards": [
+    {
+      "front": "What does a unit quaternion $q = [q_0, \\mathbf{q}]$ represent in spacecraft attitude kinematics?",
+      "back": "A unit quaternion parameterizes a rotation in SO(3) via the axis-angle relation $q_0 = \\cos(\\theta/2)$, $\\mathbf{q} = \\sin(\\theta/2)\\hat{\\mathbf{u}}$, free of singularities and with a double cover of the rotation group.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the standard quaternion kinematic equation relating $\\dot{q}$ to angular velocity $\\omega$.",
+      "back": "$\\dot{q} = \\frac12 \\Xi(q)\\omega$, where $\\omega$ is the body-frame angular-velocity vector.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Give the explicit 4×3 matrix $\\Xi(q)$ used in the quaternion kinematics equation.",
+      "back": "$$\\Xi(q) = \\begin{bmatrix} -\\mathbf{q}^T \\\\ q_0 I_3 + [\\mathbf{q}\\times] \\end{bmatrix}$$ where $[\\mathbf{q}\\times]$ is the 3×3 cross-product matrix.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Rewrite the kinematics $\\dot{q} = \\frac12 \\Xi(q)\\omega$ using quaternion multiplication.",
+      "back": "Equivalent form: $\\dot{q} = \\frac12 q \\otimes \\omega_q$ where $\\omega_q = [0, \\boldsymbol{\\omega}]$ is a pure quaternion and $\\otimes$ denotes Hamilton product.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why do quaternion kinematics avoid gimbal lock and singularities that appear with Euler angles?",
+      "back": "The representation is a 4-parameter double cover of SO(3) with only the unit-norm constraint; no trigonometric denominators or coordinate singularities arise.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the quaternion kinematics equation starting from the direction-cosine-matrix differential equation.",
+      "back": "Start with $\\dot{C} = -[\\omega\\times]C$. Substitute the quaternion-to-DCM map $C(q)$ and differentiate; after algebraic simplification using quaternion identities the result collapses to $\\dot{q} = \\frac12 \\Xi(q)\\omega$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove that the norm of $q$ is preserved under the kinematics when $|q(0)|=1$.",
+      "back": "Compute $\\frac{d}{dt}(q^T q) = 2q^T\\dot{q} = q^T\\Xi(q)\\omega$. The rows of $\\Xi(q)$ are orthogonal to $q$, hence $q^T\\Xi(q)=0$ and $\\frac{d}{dt}|q|^2=0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In numerical integration of attitude, what simple correction is applied after each step to maintain $|q|=1$?",
+      "back": "Renormalize: $q \\leftarrow q/|q|$. This is valid because the continuous kinematics already preserve the unit sphere.",
+      "difficulty": "medium"
+    }
+  ]
+}

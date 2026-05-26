@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-3-series-partial-sums-convergence-definition",
+  "subtopicTitle": "Series — partial sums, convergence definition",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:42.327Z",
+  "cards": [
+    {
+      "front": "Define the nth partial sum $s_n$ of the series $\\sum_{k=1}^\\infty a_k$.",
+      "back": "$s_n = a_1 + a_2 + \\dots + a_n = \\sum_{k=1}^n a_k$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the precise definition of convergence for an infinite series $\\sum a_k$.",
+      "back": "The series converges to $L$ if $\\lim_{n\\to\\infty} s_n = L$ where $L$ is finite; otherwise it diverges.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Give the closed-form expression for the partial sum $s_n$ of the geometric series $\\sum_{k=0}^n r^k$ when $r\\ne 1$.",
+      "back": "$s_n = \\frac{1-r^{n+1}}{1-r}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "The partial sums of the harmonic series satisfy $s_n > \\ln(n+1)$. What does this imply for convergence?",
+      "back": "Since $\\ln(n+1)\\to\\infty$, $s_n\\to\\infty$, so the harmonic series diverges.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove: if $\\lim_{n\\to\\infty} a_n \\ne 0$, then $\\sum a_k$ diverges.",
+      "back": "Suppose the series converges. Then $s_n\\to L$ finite, so $a_{n+1}=s_{n+1}-s_n\to L-L=0$, contradiction. Hence diverges.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $s_n=1-\\frac1n$, find $\\sum_{k=1}^\\infty a_k$ or state if it diverges.",
+      "back": "Converges to 1, since $\\lim s_n=1$ (finite).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What occurs if the sequence of partial sums $\\{s_n\\}$ is bounded but does not converge?",
+      "back": "The series diverges (e.g., $s_n=(-1)^n$). Boundedness alone is insufficient for convergence.",
+      "difficulty": "hard"
+    }
+  ]
+}

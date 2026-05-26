@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-3-thrust-equation-f-v-e-p-e-p-a-a-e-derivation",
+  "subtopicTitle": "Thrust equation F = ṁv_e + (P_e - P_a)A_e — derivation",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:42.858Z",
+  "cards": [
+    {
+      "front": "State the general rocket thrust equation including momentum and pressure terms.",
+      "back": "$$F = \\dot{m} v_e + (P_e - P_a)A_e$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define each symbol in the thrust equation $F = \\dot{m} v_e + (P_e - P_a)A_e$.",
+      "back": "$F$: thrust force; $\\dot{m}$: propellant mass-flow rate; $v_e$: exhaust velocity relative to rocket; $P_e$: nozzle exit pressure; $P_a$: ambient pressure; $A_e$: nozzle exit area.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity does the term $\\dot{m} v_e$ represent?",
+      "back": "Momentum thrust: the rate at which momentum is carried away by the exhaust.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What physical quantity does the term $(P_e - P_a)A_e$ represent?",
+      "back": "Pressure thrust: net axial force arising from the imbalance between exit and ambient pressure acting over the exit area.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what nozzle condition is the pressure-thrust term identically zero?",
+      "back": "Perfectly expanded nozzle: $P_e = P_a$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the thrust equation for operation in vacuum ($P_a = 0$).",
+      "back": "$$F = \\dot{m} v_e + P_e A_e$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the thrust equation from the steady-flow momentum balance on a control volume enclosing the engine.",
+      "back": "Axial momentum flux out at exit minus inlet (zero) equals net force: $\\dot{m} v_e = F + (P_e - P_a)A_e$. Rearrangement yields $F = \\dot{m} v_e + (P_e - P_a)A_e$. Assumptions: steady 1-D flow, no body forces, uniform properties at exit.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Starting from Newton's second law for variable-mass systems, obtain the rocket thrust equation.",
+      "back": "For a rocket, $F_\text{ext} + v_e \frac{dm}{dt} = m \frac{dv}{dt}$. With $F_\text{ext} = - (P_e - P_a)A_e$ and $\\dot{m} = -dm/dt > 0$, the thrust delivered to the vehicle is $F = \\dot{m} v_e + (P_e - P_a)A_e$.",
+      "difficulty": "hard"
+    }
+  ]
+}

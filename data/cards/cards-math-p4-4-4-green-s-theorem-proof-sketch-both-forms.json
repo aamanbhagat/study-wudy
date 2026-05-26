@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-4-green-s-theorem-proof-sketch-both-forms",
+  "subtopicTitle": "Green's theorem — proof sketch, both forms",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:49.451Z",
+  "cards": [
+    {
+      "front": "State Green's theorem in circulation form, including all hypotheses.",
+      "back": "Let C be a positively oriented, piecewise smooth, simple closed curve enclosing a bounded region D with piecewise smooth boundary. If P,Q have continuous partial derivatives on an open set containing D, then ∫_C P dx + Q dy = ∬_D (∂Q/∂x − ∂P/∂y) dA.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Green's theorem in flux (divergence) form.",
+      "back": "Under the same hypotheses: ∫_C P dy − Q dx = ∬_D (∂P/∂x + ∂Q/∂y) dA. Equivalently, ∫_C F·n ds = ∬_D div F dA.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How are the two forms of Green's theorem related by a simple substitution?",
+      "back": "Replace P by −Q and Q by P in the circulation form to obtain the flux form (and vice versa).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Sketch the proof of the circulation form when D is a rectangle [a,b]×[c,d].",
+      "back": "Write ∬_D (Q_x − P_y) dA = ∫_c^d ∫_a^b Q_x dx dy − ∫_a^b ∫_c^d P_y dy dx. Apply the Fundamental Theorem of Calculus to each inner integral; the resulting line integrals telescope to exactly ∫_C P dx + Q dy.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Sketch how the proof extends from rectangles to a type-I region D = {(x,y) | a≤x≤b, g(x)≤y≤h(x)}.",
+      "back": "Decompose the double integral into vertical strips. The inner FTC integrals now run from g(x) to h(x); the resulting boundary terms on the graphs y=g(x), y=h(x) together with the vertical sides at x=a and x=b assemble into the line integral over the whole closed curve C.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is the general case of Green's theorem obtained from the type-I/II cases?",
+      "back": "Any region whose boundary consists of finitely many piecewise-smooth curves can be decomposed into finitely many type-I or type-II subregions. Internal edges cancel in pairs, leaving only the original outer boundary.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What orientation convention must be respected for both forms of Green's theorem?",
+      "back": "C must be positively oriented (counter-clockwise) with respect to D, so that D lies to the left as one traverses C.",
+      "difficulty": "medium"
+    }
+  ]
+}

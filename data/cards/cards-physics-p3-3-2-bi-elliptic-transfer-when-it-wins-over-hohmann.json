@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-2-bi-elliptic-transfer-when-it-wins-over-hohmann",
+  "subtopicTitle": "Bi-elliptic transfer — when it wins over Hohmann",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:33.644Z",
+  "cards": [
+    {
+      "front": "Define a bi-elliptic transfer orbit.",
+      "back": "A three-impulse maneuver using two elliptical arcs: first burn raises apogee to an intermediate radius $r_2 \\gg r_3$, second burn at apogee raises perigee to final radius $r_3$, third burn circularizes at $r_3$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How many impulses does a Hohmann transfer require versus a bi-elliptic transfer?",
+      "back": "Hohmann: 2 impulses. Bi-elliptic: 3 impulses.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the approximate radius-ratio threshold above which a bi-elliptic transfer can require less total $\\Delta v$ than a Hohmann transfer.",
+      "back": "$r_3/r_1 \\gtrsim 11.94$ (exact crossover depends on chosen $r_2$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the total $\\Delta v$ expression for a Hohmann transfer from circular orbit $r_1$ to $r_3$.",
+      "back": "$$\\Delta v_H = \\sqrt{\\frac{\\mu}{r_1}}\\left(\\sqrt{\\frac{2r_3}{r_1+r_3}}-1\\right) + \\sqrt{\\frac{\\mu}{r_3}}\\left(1-\\sqrt{\\frac{2r_1}{r_1+r_3}}\\right)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the total $\\Delta v$ expression for a bi-elliptic transfer with intermediate apogee $r_2$.",
+      "back": "$$\\Delta v_{BE} = \\sqrt{\\frac{\\mu}{r_1}}\\left(\\sqrt{\\frac{2r_2}{r_1+r_2}}-1\\right) + \\sqrt{\\frac{\\mu}{r_2}}\\left(\\sqrt{\\frac{2r_3}{r_2+r_3}}-\\sqrt{\\frac{2r_1}{r_1+r_2}}\\right) + \\sqrt{\\frac{\\mu}{r_3}}\\left(1-\\sqrt{\\frac{2r_2}{r_2+r_3}}\\right)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why can a bi-elliptic transfer ever beat Hohmann despite an extra burn?",
+      "back": "At very large $r_2$ the first and second burns become nearly tangential to escape; the velocity increments needed at high altitude are tiny, so the sum of three small burns can be less than the two large plane-change-free burns of Hohmann when $r_3/r_1$ is large.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What limiting behavior occurs as $r_2\\to\\infty$?",
+      "back": "Bi-elliptic $\\Delta v$ approaches the sum of escape from $r_1$ plus capture from infinity into $r_3$; this limit is always worse than a finite optimal $r_2$ but still illustrates the asymptotic advantage for huge radius ratios.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For a given $r_3/r_1>11.94$, how should $r_2$ be chosen to minimize bi-elliptic $\\Delta v$?",
+      "back": "Solve $\\partial\\Delta v_{BE}/\\partial r_2=0$ numerically; the optimum lies at finite but large $r_2$ (typically hundreds to thousands of $r_3$).",
+      "difficulty": "medium"
+    }
+  ]
+}

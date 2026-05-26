@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-2-gauss-s-method-for-lambert-s-problem",
+  "subtopicTitle": "Gauss's method for Lambert's problem",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:37.853Z",
+  "cards": [
+    {
+      "front": "What is Lambert's problem in orbital mechanics?",
+      "back": "Given position vectors $\\mathbf{r}_1$, $\\mathbf{r}_2$ and time of flight $\\Delta t$, determine the two velocity vectors $\\mathbf{v}_1$, $\\mathbf{v}_2$ on the connecting Keplerian orbit.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is Gauss's method for solving Lambert's problem?",
+      "back": "An iterative classical algorithm that solves for the semi-latus rectum $p$ of the transfer orbit by enforcing the time-of-flight constraint using the ratio of sines of half-angles and the chord geometry.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the geometric quantities $c$, $s$, and $\\Delta\\nu$ used in Gauss's method.",
+      "back": "$c=\\|\\mathbf{r}_2-\\mathbf{r}_1\\|$ (chord length), $s=(r_1+r_2+c)/2$ (semi-perimeter), $\\Delta\\nu$ = transfer angle between $\\mathbf{r}_1$ and $\\mathbf{r}_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Gauss time-of-flight equation solved iteratively for $p$.",
+      "back": "$\\Delta t=\\sqrt{\\frac{p^3}{\\mu}}\\left[\\frac{\\alpha-\\sin\\alpha}{(\\sin(\\alpha/2))^3}-\\frac{\\beta-\\sin\\beta}{(\\sin(\\beta/2))^3}\\right]$ where $\\cos\\alpha=1-r_1r_2(1-\\cos\\Delta\\nu)/p$ and $\\cos\\beta=1-r_1r_2(1+\\cos\\Delta\\nu)/p$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "After converging on $p$, give the expressions for the Lagrange $f$ and $g$ functions in Gauss's method.",
+      "back": "$f=1-r_2(1-\\cos\\Delta\\nu)/p$, $g=\\frac{r_1r_2\\sin\\Delta\\nu}{\\sqrt{\\mu p}}$. Then $\\mathbf{v}_1=(\\mathbf{r}_2-f\\mathbf{r}_1)/g$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does Gauss's method obtain the second velocity $\\mathbf{v}_2$ once $\\mathbf{v}_1$ is known?",
+      "back": "Use the $f$ and $g$ functions evaluated at the arrival time: $\\mathbf{v}_2=\\dot{f}\\mathbf{r}_1+\\dot{g}\\mathbf{v}_1$ where $\\dot{f}=-\\sqrt{\\mu/p^3}r_2\\sin\\Delta\\nu$ and $\\dot{g}=1-r_1(1-\\cos\\Delta\\nu)/p$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the principal limitation of the classical Gauss formulation near a 180° transfer?",
+      "back": "The chord becomes collinear with the radii, $\\sin\\Delta\\nu\\to0$, causing division by zero and loss of geometric information; a limiting or universal-variable reformulation is required.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is an initial guess $p_0=(r_1+r_2+c)/2$ often used to start Gauss iteration?",
+      "back": "It corresponds to the minimum-energy ellipse semi-latus rectum, lies inside the feasible interval, and guarantees rapid convergence for short-arc transfers.",
+      "difficulty": "medium"
+    }
+  ]
+}

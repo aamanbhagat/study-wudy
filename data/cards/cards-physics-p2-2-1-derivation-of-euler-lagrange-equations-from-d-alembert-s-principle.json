@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-1-derivation-of-euler-lagrange-equations-from-d-alembert-s-principle",
+  "subtopicTitle": "Derivation of Euler-Lagrange equations from D'Alembert's principle",
+  "topicId": "physics-p2-2-1-analytical-mechanics",
+  "topicTitle": "Analytical Mechanics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:54.532Z",
+  "cards": [
+    {
+      "front": "State D'Alembert's principle for a system of N particles.",
+      "back": "$$\\sum_{i=1}^N (\\mathbf{F}_i - m_i \\ddot{\\mathbf{r}}_i) \\cdot \\delta \\mathbf{r}_i = 0$$ where $\\delta \\mathbf{r}_i$ are virtual displacements consistent with instantaneous constraints.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Express virtual displacement $\\delta \\mathbf{r}_i$ in generalized coordinates $q_j$.",
+      "back": "$$\\delta \\mathbf{r}_i = \\sum_j \\frac{\\partial \\mathbf{r}_i}{\\partial q_j} \\delta q_j$$ (sum over independent $j$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the generalized force $Q_j$ from applied forces.",
+      "back": "$$Q_j = \\sum_i \\mathbf{F}_i \\cdot \\frac{\\partial \\mathbf{r}_i}{\\partial q_j}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For conservative forces derive $Q_j = -\\partial V/\\partial q_j$.",
+      "back": "Since $\\mathbf{F}_i = -\\nabla_i V$, substitute to obtain $Q_j = -\\sum_i \\nabla_i V \\cdot \\partial \\mathbf{r}_i / \\partial q_j = -\\partial V / \\partial q_j$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show that $\\sum_i m_i \\ddot{\\mathbf{r}}_i \\cdot \\partial \\mathbf{r}_i / \\partial q_j = d/dt(\\partial T/\\partial \\dot q_j) - \\partial T/\\partial q_j$.",
+      "back": "Start from $T=\\frac12\\sum m_i \\dot{\\mathbf{r}}_i^2$, differentiate w.r.t. $q_j$ and $\\dot q_j$, apply chain rule and product rule; the left-hand side equals the right-hand side after rearrangement.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the intermediate equation before introducing the Lagrangian.",
+      "back": "$$\\frac{d}{dt}\\left(\\frac{\\partial T}{\\partial \\dot q_j}\\right) - \\frac{\\partial T}{\\partial q_j} = Q_j$$ for each independent $j$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Obtain the Euler-Lagrange equation by substituting $Q_j=-\\partial V/\\partial q_j$.",
+      "back": "Define $L=T-V$. Then $$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot q_j}\\right) - \\frac{\\partial L}{\\partial q_j}=0$$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the final Euler-Lagrange equations derived from D'Alembert's principle.",
+      "back": "For each $j=1\\dots n$: $$\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot q_j}\\right) - \\frac{\\partial L}{\\partial q_j}=0$$ where $L(q,\\dot q,t)=T-V$.",
+      "difficulty": "easy"
+    }
+  ]
+}

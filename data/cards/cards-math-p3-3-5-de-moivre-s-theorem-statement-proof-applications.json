@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p3-3-5-de-moivre-s-theorem-statement-proof-applications",
+  "subtopicTitle": "De Moivre's theorem — statement, proof, applications",
+  "topicId": "math-p3-3-5-complex-numbers",
+  "topicTitle": "Complex Numbers",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:33.531Z",
+  "cards": [
+    {
+      "front": "State De Moivre's theorem precisely.",
+      "back": "If $z=r(\\cos\\theta+i\\sin\\theta)$ with $r>0$ and $\\theta\\in\\mathbb{R}$, then for any integer $n\\geq0$, $z^n=r^n(\\cos(n\\theta)+i\\sin(n\\theta))$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove De Moivre's theorem by induction on $n$.",
+      "back": "Base ($n=0$): $z^0=1=r^0(\\cos0+i\\sin0)$. Assume true for $k$: $z^k=r^k(\\cos(k\\theta)+i\\sin(k\\theta))$. Then $z^{k+1}=z^k\\cdot z=r^{k+1}(\\cos((k+1)\\theta)+i\\sin((k+1)\\theta))$ by angle-addition formulas. Holds for all $n\\geq0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Use De Moivre to compute $(1+i)^4$ in rectangular form.",
+      "back": "$1+i=\\sqrt2(\\cos(\\pi/4)+i\\sin(\\pi/4))$, so $(1+i)^4=(\\sqrt2)^4(\\cos\\pi+i\\sin\\pi)=4(-1)=-4$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does De Moivre yield the multiple-angle formula for $\\cos n\\theta$?",
+      "back": "Expand $[\\cos\\theta+i\\sin\\theta]^n$ via binomial theorem; equate real part to $\\cos n\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for the $n$th roots of $re^{i\\theta}$ using De Moivre.",
+      "back": "The roots are $\\sqrt[n]{r}\\exp(i(\\theta+2k\\pi)/n)$ for $k=0,1,\\dots,n-1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the only complex number satisfying $z^n=1$ for every positive integer $n$?",
+      "back": "$z=1$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive $\\cos3\\theta=4\\cos^3\\theta-3\\cos\\theta$ via De Moivre.",
+      "back": "$\\cos3\\theta+i\\sin3\\theta=(\\cos\\theta+i\\sin\\theta)^3$. Real part: $\\cos^3\\theta-3\\cos\\theta\\sin^2\\theta=4\\cos^3\\theta-3\\cos\\theta$.",
+      "difficulty": "hard"
+    }
+  ]
+}

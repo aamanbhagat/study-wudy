@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-mechanization-equations-integrating-imu-to-get-position-velocity-attitude",
+  "subtopicTitle": "Mechanization equations — integrating IMU to get position, velocity, attitude",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:18.307Z",
+  "cards": [
+    {
+      "front": "What two quantities does a strapdown IMU directly measure?",
+      "back": "Specific force vector $f^b$ (from accelerometers) and angular rate vector $\\omega^b_{ib}$ (from gyroscopes), both expressed in the body frame.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the purpose of the mechanization equations in inertial navigation.",
+      "back": "They are the differential equations that integrate raw IMU measurements to propagate the navigation states: attitude $C^n_b$ (or quaternion), velocity $v^n$, and position $r^n$ (or latitude/longitude/altitude).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the quaternion kinematic equation for attitude propagation from gyro measurements.",
+      "back": "$$\\dot{q}^n_b = \\frac12 q^n_b \\otimes [0,\\ \\omega^b_{ib}]^T - \\frac12 [0,\\ \\omega^n_{in}]^T \\otimes q^n_b$$ where $\\omega^n_{in}=\\omega^n_{ie}+\\omega^n_{en}$ is the transport rate.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the velocity mechanization equation in the navigation frame (NED).",
+      "back": "$$\\dot{v}^n = C^n_b f^b - (2\\omega^n_{ie}+\\omega^n_{en})\\times v^n + g^n$$ (Coriolis, transport-rate, and gravity terms).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is position updated once velocity is known in the navigation frame?",
+      "back": "Latitude, longitude and height are obtained by integrating the velocity components after dividing by the local meridian and transverse radii of curvature: $\\dot L=v_N/(R_M+h)$, $\\dot\\lambda=v_E/[(R_T+h)\\cos L]$, $\\dot h=-v_D$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why must the measured specific force be rotated into the navigation frame before integration?",
+      "back": "Accelerometers sense force in the body frame; the navigation equations require the force resolved in the local-level frame so that gravity, Coriolis and transport-rate terms can be correctly subtracted.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the first-order attitude update for a small rotation vector $\\Delta\\theta$ over one IMU interval.",
+      "back": "Using the Rodrigues formula: $C(t+\\Delta t)=C(t)[I+\\frac{\\sin\\phi}{\\phi}[\\Delta\\theta\\times]+\\frac{1-\\cos\\phi}{\\phi^2}[\\Delta\\theta\\times]^2]$ where $\\phi=\\|\\Delta\\theta\\|$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What additional term appears in the ECEF-frame velocity equation compared with the inertial-frame equation?",
+      "back": "The centrifugal acceleration term $-\\omega^e_{ie}\\times(\\omega^e_{ie}\\times r^e)$ must be included when integrating in the rotating ECEF frame.",
+      "difficulty": "hard"
+    }
+  ]
+}

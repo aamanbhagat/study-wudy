@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-5-linear-transformations-definition-kernel-image",
+  "subtopicTitle": "Linear transformations — definition, kernel, image",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:56.417Z",
+  "cards": [
+    {
+      "front": "Define a linear transformation $T: V \to W$ between vector spaces over field $\\mathbb{F}$.",
+      "back": "$T(\\mathbf{u}+\\mathbf{v})=T(\\mathbf{u})+T(\\mathbf{v})$ and $T(c\\mathbf{u})=cT(\\mathbf{u})$ for all $\\mathbf{u},\\mathbf{v}\\in V$ and $c\\in\\mathbb{F}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the kernel of a linear transformation $T:V\to W$?",
+      "back": "$\\ker(T)=\\{v\\in V\\mid T(v)=\\mathbf{0}\\ \\}$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the image (range) of a linear transformation $T:V\\to W$?",
+      "back": "$\\operatorname{im}(T)=\\{T(v)\\mid v\\in V\\ \\}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the rank-nullity theorem for $T:V\\to W$.",
+      "back": "$\\dim(\\ker T)+\\dim(\\operatorname{im} T)=\\dim V$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that $\\ker(T)$ is a subspace of $V$.",
+      "back": "$\\mathbf{0}\\in\\ker(T)$ since $T(\\mathbf{0})=\\mathbf{0}$. If $u,v\\in\\ker(T)$ then $T(u+v)=T(u)+T(v)=\\mathbf{0}$ and $T(cu)=cT(u)=\\mathbf{0}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that $\\operatorname{im}(T)$ is a subspace of $W$.",
+      "back": "$T(\\mathbf{0})=\\mathbf{0}\\in\\operatorname{im}(T)$. If $T(u),T(v)\\in\\operatorname{im}(T)$ then $T(u)+T(v)=T(u+v)$ and $cT(u)=T(cu)$ are in $\\operatorname{im}(T)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For the matrix $A=\\begin{pmatrix}1&2\\\\3&6\\end{pmatrix}$ representing $T:\\mathbb{R}^2\\to\\mathbb{R}^2$, find bases for $\\ker T$ and $\\operatorname{im} T$.",
+      "back": "$\\ker T=\\operatorname{span}\\{(2,-1)\\}$, $\\operatorname{im} T=\\operatorname{span}\\{(1,3)\\}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

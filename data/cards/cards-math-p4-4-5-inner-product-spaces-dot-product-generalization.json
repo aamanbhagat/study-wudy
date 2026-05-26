@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-5-inner-product-spaces-dot-product-generalization",
+  "subtopicTitle": "Inner product spaces — dot product generalization",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:58.008Z",
+  "cards": [
+    {
+      "front": "Define an inner product on a real vector space V.",
+      "back": "A function $\\langle \\cdot, \\cdot \\rangle: V \\times V \\to \\mathbb{R}$ that is bilinear, symmetric ($\\langle u,v \\rangle = \\langle v,u \\rangle$), and positive definite ($\\langle v,v \\rangle \\ge 0$ with equality iff $v=0$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is the Euclidean dot product a special case of an inner product?",
+      "back": "On $\\mathbb{R}^n$, $\\langle x,y \\rangle = x^T y = \\sum x_i y_i$ satisfies bilinearity, symmetry, and positive-definiteness, hence is an inner product.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the three axioms an inner product must satisfy over $\\mathbb{C}$.",
+      "back": "1. Linearity in first argument: $\\langle au+bv,w \\rangle = a\\langle u,w \\rangle + b\\langle v,w \\rangle$.\n2. Conjugate symmetry: $\\langle u,v \\rangle = \\overline{\\langle v,u \\rangle}$.\n3. Positive-definiteness: $\\langle v,v \\rangle > 0$ for $v \\ne 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define the norm induced by an inner product.",
+      "back": "$\\|v\\| = \\sqrt{\\langle v,v \\rangle}$. It satisfies the norm axioms; the inner-product norm is the unique norm compatible with the inner product via the polarization identity.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the inner product on the space of continuous functions $C[a,b]$.",
+      "back": "$\\langle f,g \\rangle = \\int_a^b f(x)g(x)\\,dx$. It is bilinear, symmetric, and positive definite on the quotient space modulo functions that vanish almost everywhere.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define orthogonality and an orthonormal set in an inner product space.",
+      "back": "Vectors $u,v$ are orthogonal if $\\langle u,v \\rangle = 0$. A set $\\{e_i\\}$ is orthonormal if $\\langle e_i,e_j \\rangle = \\delta_{ij}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Cauchy–Schwarz inequality and when equality holds.",
+      "back": "$|\\langle u,v \\rangle| \\le \\|u\\|\\,\\|v\\|$, with equality iff $u$ and $v$ are linearly dependent.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the polarization identity that recovers the inner product from the norm (real case).",
+      "back": "$\\langle u,v \\rangle = \\frac14(\\|u+v\\|^2 - \\|u-v\\|^2)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

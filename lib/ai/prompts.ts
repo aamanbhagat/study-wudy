@@ -187,8 +187,19 @@ export function deepStudyContentPrompt(args: {
   topicTitle: string;
   fieldName: string;
   phaseTitle: string;
+  lang?: "en" | "hi";
 }) {
-  return `You are writing a comprehensive in-depth study lesson for a serious student studying ${args.fieldName} from absolute zero to elite level.
+  if (args.lang === "hi") return deepStudyContentPromptHinglish(args);
+  return deepStudyContentPromptEnglish(args);
+}
+
+function deepStudyContentPromptEnglish(args: {
+  subtopicTitle: string;
+  topicTitle: string;
+  fieldName: string;
+  phaseTitle: string;
+}) {
+  return `You are writing a polished, masterclass-quality study lesson for a serious student of ${args.fieldName} aiming from absolute zero to elite mastery. The reader is intelligent and motivated but has not seen this material before.
 
 Context:
 - Field: ${args.fieldName}
@@ -196,69 +207,175 @@ Context:
 - Parent topic: ${args.topicTitle}
 - Subtopic: "${args.subtopicTitle}"
 
-Write a deep, long-form lesson. Length is fine — quality and completeness matter more than brevity. Write like the best teacher you can imagine: clear, simple, but rigorous and thorough.
+Tone & craft:
+- Write like the best teacher you have ever read — Feynman-clear when explaining intuition, textbook-precise when stating definitions.
+- No filler. No "in this lesson we will…". Get straight to the substance.
+- Vary sentence rhythm. Use short, punchy sentences for key claims. Reserve longer sentences for derivations.
+- Use second-person voice ("you") sparingly, only when guiding through a step.
+
+Visual structure (use rich Markdown — every section should look polished):
+- Use \`> [!NOTE]\` callouts for non-obvious insights, \`> [!WARNING]\` for traps, \`> [!TIP]\` for memory aids.
+- Use tables wherever multiple parallel facts compete for attention (e.g., methods, edge cases, name mappings).
+- Use bullet lists for enumerations only — never as a replacement for explanation.
+- Use bold and italics sparingly, but DO use them: **bold for terms being defined**, *italics for emphasis or proper nouns*.
+- Every formula on its own line in display math: $$ … $$. No equations buried mid-sentence except for tiny inline ones.
 
 Use these EXACT section headings in this order:
 
-## 1. What it is — in plain English
-Start ultra-simply, like explaining to a curious 12-year-old. 3-5 short paragraphs. Use everyday analogies. No jargon without defining it.
+## 1. The one-sentence answer
+First, in a single bold sentence, state what this subtopic IS. Then in 2-3 short paragraphs unpack that sentence in the simplest possible English — like explaining to a sharp 14-year-old. End this section with a single \`> [!NOTE]\` callout containing the most important "aha" of the topic.
 
-## 2. Why it matters — real-world applications
-Give 3-5 concrete real-world applications. Be specific: actual companies, actual products, actual phenomena. Connect to aerospace, ML, or physics where relevant.
+## 2. Why this matters — concrete and current
+Three to five concrete real-world applications. Be specific: name actual companies, missions, papers, products, or natural phenomena. For ${args.fieldName}, lean into aerospace, machine learning, semiconductors, or fundamental physics where appropriate. Each application gets one short paragraph, not a bullet.
 
-## 3. Prerequisites — what you must know first
-List the prerequisite concepts, with one-line explanations of each. If a prerequisite is missing, the student should pause and learn that first.
+## 3. Mental prerequisites
+A short table with two columns: **Concept** and **Why you need it here**. Cover only what's genuinely required. If a prerequisite is missing the reader must pause and learn it.
 
-## 4. The core idea — step by step
-Walk through the concept slowly, building intuition. Each major idea should have:
-- A plain-English statement
-- A small concrete example showing what it means
-- The formal/mathematical version (with LaTeX)
-- A "what could go wrong" note
+## 4. Building the idea — from intuition to formalism
+This is the heart of the lesson. Walk the reader from gut-feel to rigour in **5–8 numbered steps**, with sub-headings:
 
-Use sub-headings (### Step 1, ### Step 2, etc.). 4-7 steps minimum.
+### Step 1 — <descriptive title>
+- Plain-English claim (one short paragraph).
+- A small concrete example so the claim is unambiguous.
+- The formal/mathematical statement, set off in display math.
+- One \`> [!WARNING]\` line: what would go wrong if you got this step subtly wrong.
 
-## 5. Worked examples — multiple, with every step shown
-Provide AT LEAST 4 fully worked examples, ranging from easy to hard. For each example:
-- State the problem clearly
-- Identify what's given and what we want
-- Show every algebraic / logical step (do not skip any step)
-- Explain WHY each step works in plain English right next to it
-- Box or bold the final answer
-- After the answer, briefly reflect on what made the example tricky
+Repeat for steps 2 through 5–8. The final step must arrive at the textbook statement of the result.
 
-Use display LaTeX ($$...$$) for any equation. Don't compress steps.
+## 5. Worked examples — every step shown
+At least **four** fully worked examples in escalating difficulty. For each:
 
-## 6. Common mistakes and traps
-List 4-6 specific traps students fall into, with one-line explanations of why each happens.
+**Example N — <one-line title>**
+- *Given:* …
+- *Find:* …
+- Show every algebraic and logical step. Do not skip even "obvious" steps.
+- For each step, place a one-line *Why* annotation immediately under it explaining the move.
+- Box the final answer with **bold**, on its own line.
+- A 2-line *Reflection* on what made this example tricky and what generalises.
 
-## 7. Textbook-precise explanation
-Now restate the concept the way a top university textbook would — formally, rigorously, with full notation. This section is for the student to compare their intuitive understanding with the formal definition. Cite specific textbooks where appropriate (e.g. "Stewart, Calculus, 9e, §3.4" or "Cormen et al., Introduction to Algorithms, 4e").
+## 6. Common traps and how to avoid them
+A table with three columns: **Trap**, **Why it happens**, **How to avoid it**. List 5–7 traps. Be ruthless — pick traps that actually fool people.
 
-## 8. ASCII diagrams
-Include at least one diagram inside a fenced \`\`\`text code block. Make it labeled and accurate. If geometry is hard to capture in ASCII, describe the figure precisely in prose so the student could redraw it.
+## 7. The textbook-precise statement
+Now restate the concept the way a top university textbook would — with full notation, all hypotheses spelled out, no hand-waving. Cite a specific reference where it would help (e.g., "Stewart, *Calculus*, 9e, §3.4" or "Cormen et al., *Introduction to Algorithms*, 4e, Ch. 22"). Include the exact theorem statement if there is one.
 
-## 9. Memory technique — never forget this
-Give the student:
-1. A specific mnemonic or visual hook tailored to this subtopic
-2. The 1-3 formulas/facts they MUST overlearn
-3. A spaced-repetition schedule: review at 1 day, 3 days, 7 days, 16 days, 35 days
-4. The first-principles re-derivation pathway — if they forget the formula, what derivation can they always rebuild it from?
+## 8. Visual — diagram or schematic
+At least one ASCII diagram inside a fenced \`\`\`text\`\`\` block, properly labelled. If the geometry is genuinely hard to render in ASCII, describe the figure in prose precisely enough that the reader could redraw it from your description alone — coordinates, axis labels, slopes, asymptotes, everything.
 
-## 10. Connections — what this leads to
-What concepts does this subtopic unlock? Which later topics depend on it?
+## 9. The memory technique
+A subsection with these four parts:
+1. **The hook** — a vivid mnemonic or visual image specific to this subtopic.
+2. **What to overlearn** — 1–3 formulas or facts the student must know cold.
+3. **Spaced-repetition schedule** — review at 1 day, 3 days, 7 days, 16 days, 35 days.
+4. **First-principles fallback** — the derivation path to rebuild this if they ever forget.
 
-## 11. Self-check questions
-Provide 5 questions of escalating difficulty. Do not provide answers.
+## 10. What this unlocks
+A short paragraph plus a bullet list naming the next concepts, theorems, or techniques that depend on this subtopic. Be specific.
+
+## 11. Self-check — five questions, no answers
+Five questions in escalating difficulty. Mix calculation, conceptual, and "trap-detection" questions. Do NOT provide answers — leave the student to verify themselves.
 
 Conventions:
-- Use Markdown.
-- Use LaTeX for all math: inline $...$, display $$...$$.
-- Bullet lists are fine, but use full sentences when explaining.
-- Be exhaustive. If you're unsure whether to include something, include it.
-- Treat the student as motivated and rigorous. Push back gently on hand-waving.
+- Markdown only. LaTeX for every math expression.
+- Be exhaustive. If unsure whether to include something, include it.
+- Treat the reader as motivated and rigorous. Push back gently on any hand-waving.
 
-Begin directly with the first heading — no preamble, no JSON wrapper, no closing remarks.`;
+Begin directly with the \`## 1.\` heading — no preamble, no JSON wrapper, no closing remarks.`;
+}
+
+function deepStudyContentPromptHinglish(args: {
+  subtopicTitle: string;
+  topicTitle: string;
+  fieldName: string;
+  phaseTitle: string;
+}) {
+  return `Aap ek serious ${args.fieldName} student ke liye polished, masterclass-quality study lesson likh rahe hain. Reader smart hai, motivated hai, lekin yeh material pehli baar dekh raha hai. Aap ko poora lesson **Hinglish (Roman script)** mein likhna hai — Hindi explanations English ke technical terms ke saath. Devanagari script use NA karein.
+
+Context:
+- Field: ${args.fieldName}
+- Phase: ${args.phaseTitle}
+- Parent topic: ${args.topicTitle}
+- Subtopic: "${args.subtopicTitle}"
+
+Hinglish style rules — VERY IMPORTANT:
+- Hindi sentences Roman letters mein likho. Example: "Iska matlab yeh hai ki function ka behaviour kaisa hai."
+- Technical terms (derivative, eigenvalue, gradient, convolution, orbit, momentum, vector, matrix, function, integral, theorem, etc.) ko English mein hi rakho — translate mat karo.
+- Math notation, formulas, code, file names, library names — sab English/LaTeX mein.
+- Ek natural conversational tone rakho — jaise koi senior bhaiya/didi explain kar raha ho. Lekin rigour mat chhodo.
+- "Aap" ya "tum" — consistent rakho. "Aap" zyada formal lagta hai; iss lesson ke liye **"aap" use karo**.
+- Filler avoid karo: "Iss lesson mein hum dekhenge…" jaisa nahi likhna. Direct substance par jao.
+- Section headings English mein hi rakho (taaki students ko ek consistent structure mile).
+
+Visual structure — rich Markdown use karo:
+- \`> [!NOTE]\` callouts non-obvious insights ke liye, \`> [!WARNING]\` traps ke liye, \`> [!TIP]\` memory aids ke liye.
+- Tables jab multiple parallel facts compare karne hon.
+- Bullet lists sirf enumerations ke liye — explanation ki jagah nahi.
+- **Bold** un terms ke liye jo aap define kar rahe ho. *Italics* emphasis ya proper nouns ke liye.
+- Har formula display math mein: $$ … $$. Inline math sirf chote expressions ke liye: $...$.
+
+Yeh EXACT section headings, isi order mein use karo (English mein hi):
+
+## 1. The one-sentence answer
+Pehle ek bold sentence mein batao yeh subtopic **hai kya**. Phir 2-3 chote paragraphs mein simple Hinglish mein unpack karo — jaise kisi sharp 14-year-old ko samjha rahe ho. Section ke end mein ek \`> [!NOTE]\` callout daalo jisme topic ka sabse important "aha" moment ho.
+
+## 2. Why this matters — concrete and current
+3 se 5 specific real-world applications. Naam lo: actual companies, missions, papers, products, ya natural phenomena. ${args.fieldName} ke liye aerospace, ML, semiconductors, ya fundamental physics ki taraf jhuko jab relevant ho. Har application ek chota paragraph paaye, bullet nahi.
+
+## 3. Mental prerequisites
+Ek chota table — do columns: **Concept** aur **Why you need it here**. Sirf wahi concepts likho jo genuinely zaroori hain. Agar koi prerequisite missing hai, reader ko pause karke wahi pehle padhna chahiye.
+
+## 4. Building the idea — from intuition to formalism
+Yeh lesson ka dil hai. Reader ko intuition se rigour tak le jao **5–8 numbered steps** mein, sub-headings ke saath:
+
+### Step 1 — <descriptive title English mein>
+- Plain Hinglish claim (ek chota paragraph).
+- Ek chota concrete example jo claim ko unambiguous bana de.
+- Formal/mathematical statement, display math mein.
+- Ek \`> [!WARNING]\` line: agar yeh step subtly galat ho jaaye to kya tootega.
+
+Steps 2 se 5–8 tak repeat karo. Last step textbook-grade statement par khatam hona chahiye.
+
+## 5. Worked examples — har step show karo
+Kam se kam **4 fully worked examples**, escalating difficulty mein. Har example ke liye:
+
+**Example N — <one-line title>**
+- *Given:* …
+- *Find:* …
+- Har algebraic aur logical step show karo. "Obvious" steps bhi mat skip karo.
+- Har step ke neeche ek-line *Why* annotation ho — wo move kyun kiya, Hinglish mein.
+- Final answer **bold** mein, apni line par.
+- 2-line *Reflection*: yeh example kyun tricky thi, aur kya generalise hota hai.
+
+## 6. Common traps and how to avoid them
+Ek table — teen columns: **Trap**, **Why it happens**, **How to avoid it**. 5-7 traps. Real traps chuno — wo galtiyaan jo students actually karte hain.
+
+## 7. The textbook-precise statement
+Ab concept ko ek top university textbook ki tarah restate karo — full notation ke saath, saari hypotheses spelled out, koi hand-waving nahi. Yeh portion **English mein hi** rakho — formal mathematical English, kyunki textbook reference deni hai. Specific source cite karo (e.g., "Stewart, *Calculus*, 9e, §3.4" ya "Cormen et al., *Introduction to Algorithms*, 4e, Ch. 22"). Agar koi exact theorem statement hai, wo bhi do.
+
+## 8. Visual — diagram or schematic
+Kam se kam ek ASCII diagram \`\`\`text\`\`\` fence ke andar, properly labelled. Agar geometry ASCII mein render karna mushkil hai, to figure ko prose mein itne precisely describe karo ki reader sirf description se redraw kar le — coordinates, axis labels, slopes, asymptotes, sab kuch.
+
+## 9. The memory technique
+Ek subsection, in chaar parts ke saath:
+1. **The hook** — ek vivid mnemonic ya visual image jo iss subtopic ke liye specific ho.
+2. **What to overlearn** — 1-3 formulas ya facts jo student ko cold yaad hone chahiye.
+3. **Spaced-repetition schedule** — 1 din, 3 din, 7 din, 16 din, 35 din par review karo.
+4. **First-principles fallback** — agar formula bhool jaayein to derivation path kya hai jisse rebuild ho jaaye.
+
+## 10. What this unlocks
+Ek chota paragraph + ek bullet list — agle concepts, theorems, ya techniques jo iss subtopic par depend karte hain. Specific raho.
+
+## 11. Self-check — five questions, no answers
+5 questions, escalating difficulty. Mix: calculation, conceptual, aur "trap-detection" questions. Answer NA do — student ko khud verify karna hai.
+
+Conventions:
+- Sirf Markdown.
+- Math ke liye LaTeX (inline $...$, display $$...$$).
+- Hinglish prose use karo, lekin technical terms English mein.
+- Exhaustive raho. Doubt ho to include kar lo.
+- Reader ko motivated aur rigorous samjho — koi bhi hand-waving par push back karo gently.
+
+Direct \`## 1.\` heading se start karo — no preamble, no JSON wrapper, no closing remarks.`;
 }
 
 export type TestType = "quick" | "topic" | "phase" | "cross";

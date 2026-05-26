@@ -1,0 +1,51 @@
+{
+  "subtopicId": "cs-p4-4-6-regular-languages-closed-under-union-intersection-complement-concatenation-kleene-star",
+  "subtopicTitle": "Regular languages — closed under union, intersection, complement, concatenation, Kleene star",
+  "topicId": "cs-p4-4-6-theory-of-computation",
+  "topicTitle": "Theory of Computation",
+  "field": "cs",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:37.794Z",
+  "cards": [
+    {
+      "front": "What does it mean that regular languages are closed under union?",
+      "back": "If L1 and L2 are regular then L1 ∪ L2 is regular.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Are regular languages closed under intersection, complement, concatenation and Kleene star?",
+      "back": "Yes: the class is closed under all five operations (union, intersection, complement, concatenation, Kleene star).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Describe the NFA construction realizing closure under union.",
+      "back": "Given NFAs M1, M2: create new start s0 with ε-edges to starts of M1 and M2; accept states = union of both accept sets.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the NFA construction for concatenation of two regular languages.",
+      "back": "From NFAs M1, M2 add ε-edges from every accept state of M1 to the start of M2; new accept states = accept states of M2 only.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is closure under intersection obtained from the other closures?",
+      "back": "L1 ∩ L2 = complement(complement(L1) ∪ complement(L2)) via De Morgan; closure under union and complement implies closure under intersection.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove regular languages are closed under complement using DFAs.",
+      "back": "Let M be a complete DFA for L. Swap accepting and non-accepting states to obtain a DFA for the complement language. Determinism and totality guarantee every string is accepted by exactly one of the two machines.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the NFA construction for the Kleene star of a regular language.",
+      "back": "Add new state s0 (both start and accept) with ε-edge to old start; add ε-edges from every old accept state back to old start and also an ε-loop on s0 (handles ε).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the Kleene-star NFA construction correctly accept L*?",
+      "back": "Any number of concatenations is realized by looping via the new ε-edges; the extra ε-loop on the new start state accepts the empty string.",
+      "difficulty": "medium"
+    }
+  ]
+}

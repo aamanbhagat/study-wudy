@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p2-2-4-maxwell-boltzmann-distribution-full-derivation",
+  "subtopicTitle": "Maxwell-Boltzmann distribution — full derivation",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:13.816Z",
+  "cards": [
+    {
+      "front": "What are the key assumptions underlying the Maxwell-Boltzmann distribution?",
+      "back": "Classical ideal gas of N indistinguishable particles; velocities follow Boltzmann statistics (dilute, no quantum effects); collisions randomize directions but conserve energy; equilibrium at temperature T.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the normalized probability density for a single velocity component $v_x$.",
+      "back": "$f(v_x)dv_x=\\sqrt{\\frac{m}{2\\pi kT}}\\exp(-mv_x^2/2kT)dv_x$. This follows from the Boltzmann factor $e^{-E/kT}$ with $E=\\frac12mv_x^2$ and 1-D normalization.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the joint velocity distribution $f(v_x,v_y,v_z)$ from the three independent components.",
+      "back": "$f(\\mathbf{v})=\\left(\\frac{m}{2\\pi kT}\\right)^{3/2}\\exp(-m v^2/2kT)$, obtained by multiplying the three normalized 1-D Gaussians (isotropic, $v^2=v_x^2+v_y^2+v_z^2$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain the origin of the $4\\pi v^2$ factor when converting from velocity to speed distribution.",
+      "back": "In velocity space the probability lies in a spherical shell of radius $v$ and thickness $dv$; the shell volume is $4\\pi v^2 dv$. Hence $f(v)dv=f(\\mathbf{v})\\,4\\pi v^2 dv$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the normalized Maxwell-Boltzmann speed distribution $f(v)$.",
+      "back": "$f(v)=4\\pi v^2\\left(\\frac{m}{2\\pi kT}\\right)^{3/2}\\exp(-mv^2/2kT)$ for $v\\ge0$. Normalization: $\\int_0^\\infty f(v)dv=1$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the most probable speed $v_p$ by maximizing $f(v)$.",
+      "back": "Set $df/dv=0$: $v_p=\\sqrt{2kT/m}$. This is the mode of the speed distribution.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "State the expressions for the mean speed $\\langle v\\rangle$ and rms speed $v_\\text{rms}$.",
+      "back": "$\\langle v\\rangle=\\sqrt{8kT/\\pi m}$, $v_\\text{rms}=\\sqrt{3kT/m}$. Both obtained by evaluating the appropriate moments of $f(v)$.",
+      "difficulty": "medium"
+    }
+  ]
+}

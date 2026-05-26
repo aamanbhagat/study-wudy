@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p3-3-3-arithmetic-geometric-progression-finding-sum",
+  "subtopicTitle": "Arithmetic-geometric progression — finding sum",
+  "topicId": "math-p3-3-3-sequences-series",
+  "topicTitle": "Sequences & Series",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:41.132Z",
+  "cards": [
+    {
+      "front": "What is an arithmetic-geometric progression (AGP)?",
+      "back": "A sequence whose general term is the product of the nth term of an AP and the nth term of a GP: u_n = [a + (n-1)d] r^{n-1}.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general term of an AGP with parameters a, d, r.",
+      "back": "$u_n = [a + (n-1)d] r^{n-1}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Give the closed-form sum S_n of an AGP when r ≠ 1.",
+      "back": "$$S_n = \\frac{a-[a+(n-1)d]r^n}{1-r} + \\frac{dr(1-r^{n-1})}{(1-r)^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is S_n when the common ratio r = 1?",
+      "back": "The sequence reduces to an AP, so S_n = n/2 [2a + (n-1)d].",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive S_n of an AGP (r ≠ 1) by the standard subtraction method.",
+      "back": "Let S = ∑_{k=0}^{n-1} [a + k d] r^k. Then rS subtracts term-by-term to give S(1-r) = a + d r (1-r^{n-1})/(1-r) - [a+(n-1)d] r^n. Solving yields the closed form above.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Find the sum to infinity of an AGP when |r| < 1.",
+      "back": "$$S_\\infty = \\frac{a}{1-r} + \\frac{dr}{(1-r)^2}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If d = 0, to what does the AGP sum formula reduce?",
+      "back": "A pure geometric series: S_n = a(1-r^n)/(1-r) for r ≠ 1.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Compute S_3 for a=2, d=3, r=1/2.",
+      "back": "Terms: 2, (5)(1/2), (8)(1/4) → S_3 = 2 + 2.5 + 2 = 6.5. Using formula: (2-8*(1/8))/(1/2) + (3/2)(1-(1/2)^2)/(1/2)^2 = 6.5.",
+      "difficulty": "hard"
+    }
+  ]
+}

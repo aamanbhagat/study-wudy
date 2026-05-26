@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p1-1-2-variation-of-g-with-altitude-latitude-depth",
+  "subtopicTitle": "Variation of g — with altitude, latitude, depth",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:08.963Z",
+  "cards": [
+    {
+      "front": "State the approximate formula for gravitational acceleration $g_h$ at altitude $h$ ($h \\ll R$).",
+      "back": "$g_h = g(1 - 2h/R)$, where $R$ is Earth's radius. Valid only for $h \\ll R$ and outside the mass distribution.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the variation of $g$ with altitude $h$ ($h \\ll R$) from Newton's law of gravitation.",
+      "back": "At surface: $g = GM/R^2$. At height $h$: $g_h = GM/(R+h)^2$. For $h\\ll R$, binomial expansion yields $g_h \\approx g(1-2h/R)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the formula for $g_d$ at depth $d$ inside Earth (uniform density assumed).",
+      "back": "$g_d = g(1 - d/R)$. Gravity decreases linearly to zero at the center.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive $g$ inside a uniform-density sphere at distance $r$ from center.",
+      "back": "By Gauss's law (or shell theorem), only mass within radius $r$ contributes: $M_r = (4/3)\\pi r^3 \\rho$. Thus $g(r) = (GM/R^3)r = g(r/R)$. At depth $d=R-r$, $g_d = g(1-d/R)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the centrifugal correction to $g$ at latitude $\\lambda$ due to Earth's rotation?",
+      "back": "Effective $g' = g - R\\omega^2\\cos^2\\lambda$ (outward component). Maximum reduction $R\\omega^2$ at equator, zero at poles.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is measured $g$ smaller at equator than at poles even without rotation?",
+      "back": "Earth's oblateness (equatorial radius > polar radius) increases distance from center and reduces effective mass concentration at equator.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the combined approximate formula for $g(\\lambda,h)$ including rotation and oblateness.",
+      "back": "$g(\\lambda,h) \\approx g_0[1 + \\beta\\sin^2\\lambda - \\gamma h]$ where $\\beta\\approx0.0053$, $\\gamma\\approx 2/R$ (standard International Gravity Formula coefficients).",
+      "difficulty": "hard"
+    }
+  ]
+}

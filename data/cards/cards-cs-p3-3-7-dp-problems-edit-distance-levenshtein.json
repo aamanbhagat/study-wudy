@@ -1,0 +1,51 @@
+{
+  "subtopicId": "cs-p3-3-7-dp-problems-edit-distance-levenshtein",
+  "subtopicTitle": "DP problems — edit distance (Levenshtein)",
+  "topicId": "cs-p3-3-7-algorithm-paradigms",
+  "topicTitle": "Algorithm Paradigms",
+  "field": "cs",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:31.792Z",
+  "cards": [
+    {
+      "front": "What is the Levenshtein (edit) distance between two strings?",
+      "back": "The minimum number of single-character operations (insert, delete, substitute) needed to transform one string into the other.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Which three operations are permitted when computing Levenshtein distance?",
+      "back": "Insertion, deletion, and substitution (each costs 1).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the recurrence for dp[i][j] in edit distance (1-based).",
+      "back": "dp[i][j] = min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1] + (s[i-1]!=t[j-1]))",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the base cases for the edit-distance DP table?",
+      "back": "dp[i][0] = i (delete all), dp[0][j] = j (insert all) for i=0..m, j=0..n.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What are the time and space complexities of the classic 2-D DP for edit distance?",
+      "back": "O(mn) time and O(mn) space, where m = |s|, n = |t|.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How can edit distance be computed in O(n) space?",
+      "back": "Keep only the previous row (or two 1-D arrays). Update a single array of size n+1 from left to right, storing only the value above before overwriting.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Compute edit distance(\"kitten\",\"sitting\") using the DP recurrence.",
+      "back": "3 (substitute 's' for 'k', substitute 'i' for 'e', insert 'g').",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the core loop of the O(mn) edit-distance DP (Python).",
+      "back": "```python\nfor i in range(1,m+1):\n  for j in range(1,n+1):\n    cost=0 if s[i-1]==t[j-1] else 1\n    dp[i][j]=min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+cost)\n```",
+      "difficulty": "hard"
+    }
+  ]
+}

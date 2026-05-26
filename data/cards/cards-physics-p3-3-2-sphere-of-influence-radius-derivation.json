@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-2-sphere-of-influence-radius-derivation",
+  "subtopicTitle": "Sphere of influence — radius derivation",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:35.253Z",
+  "cards": [
+    {
+      "front": "What is the sphere of influence (SOI) of a planet?",
+      "back": "The region around a planet in which the planet's gravitational acceleration dominates the motion of a spacecraft over the gravitational acceleration of the central star (Sun).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the standard formula for SOI radius $r_{SOI}$.",
+      "back": "$r_{SOI}=a\\left(\\frac{m}{M}\\right)^{2/5}$, where $a$ is the planet's semi-major axis about the Sun, $m$ is planet mass, and $M$ is Sun mass.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "In the SOI formula, what does the parameter $a$ represent?",
+      "back": "The semi-major axis of the planet's heliocentric orbit (average orbital radius for circular approximation).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the SOI radius scale with mass ratio to the power 2/5?",
+      "back": "The exponent arises when the ratio of third-body perturbing acceleration to two-body acceleration is set equal for both the planet and the Sun; solving yields $(m/M)^{2/5}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the key steps in Laplace's SOI radius derivation.",
+      "back": "1. Write perturbing acceleration of Sun on planet-spacecraft system.\n2. Normalize by planet's gravitational acceleration.\n3. Write analogous ratio for Sun's system.\n4. Set the two normalized perturbations equal and solve for distance from planet.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In patched-conic trajectories, how is the SOI radius used?",
+      "back": "It defines the boundary at which the central body is switched: heliocentric conic outside SOI, planetocentric conic inside SOI.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is a major limitation of the SOI model?",
+      "back": "It assumes a sharp spherical boundary and neglects higher-order perturbations (e.g., other planets, non-spherical gravity).",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p2-2-5-diffraction-single-slit-intensity-pattern-derivation",
+  "subtopicTitle": "Diffraction — single slit intensity pattern derivation",
+  "topicId": "physics-p2-2-5-optics",
+  "topicTitle": "Optics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:48:26.545Z",
+  "cards": [
+    {
+      "front": "State the far-field single-slit intensity pattern.",
+      "back": "$$I(\\theta)=I_0\\left(\\frac{\\sin\\beta}{\\beta}\\right)^2$$ where $$\\beta=\\frac{\\pi a\\sin\\theta}{\\lambda}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What physical quantity does the parameter $$\\beta$$ represent in the single-slit derivation?",
+      "back": "Half the phase difference between secondary wavelets emitted from the two edges of the slit.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the infinitesimal electric-field contribution $$dE$$ from a strip of width $$dy$$ at position $$y$$ inside the slit.",
+      "back": "$$dE=\\frac{E_0}{a}dy\\,\\exp\\left(i\\frac{2\\pi}{\\lambda}y\\sin\\theta\\right)$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Set the integration limits for the slit centered at the origin and evaluate the resulting integral for the total amplitude.",
+      "back": "Limits $$y=-a/2$$ to $$+a/2$$; integral yields $$E=E_0\\frac{\\sin\\beta}{\\beta}$$ with $$\\beta=\\frac{\\pi a\\sin\\theta}{\\lambda}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why is the observed intensity proportional to $$|E|^2$$ rather than to the amplitude itself?",
+      "back": "Detectors measure time-averaged power; the time average of the squared real part of the complex field is proportional to the modulus squared.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show that the first minimum occurs when $$\\beta=\\pi$$ and recover the familiar slit-width condition.",
+      "back": "$$\\sin\\beta=0$$ at $$\\beta=\\pi$$ implies $$a\\sin\\theta=\\lambda$$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the limit $$a\\ll\\lambda$$, what does the single-slit pattern reduce to and why?",
+      "back": "It becomes essentially uniform (no diffraction minima); the slit behaves as a point source because $$\\beta$$ remains small over all observable angles.",
+      "difficulty": "hard"
+    }
+  ]
+}

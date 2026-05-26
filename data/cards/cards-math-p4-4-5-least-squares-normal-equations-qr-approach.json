@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-5-least-squares-normal-equations-qr-approach",
+  "subtopicTitle": "Least squares — normal equations, QR approach",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:04.587Z",
+  "cards": [
+    {
+      "front": "State the normal equations for the linear least-squares problem min ||Ax - b||_2.",
+      "back": "A^TAx = A^Tb, where A is m×n with m ≥ n.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the normal equations by setting the gradient of ||Ax-b||_2^2 to zero.",
+      "back": "f(x) = (Ax-b)^T(Ax-b). ∇f = 2A^TAx - 2A^Tb. Set ∇f=0 ⇒ A^TAx = A^Tb.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Give the closed-form solution of the normal equations when A has full column rank.",
+      "back": "x = (A^TA)^{-1}A^Tb (the normal-equation solution).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For A = QR (thin QR, Q^TQ=I), state the least-squares solution x.",
+      "back": "x = R^{-1}Q^Tb.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive why x = R^{-1}Q^Tb solves the least-squares problem.",
+      "back": "Substitute A=QR into normal eq: (QR)^T(QR)x = (QR)^Tb ⇒ R^TRx = R^TQ^Tb. Multiply by (R^T)^{-1}: Rx = Q^Tb ⇒ x = R^{-1}Q^Tb.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why is the QR approach numerically preferable to forming and solving the normal equations?",
+      "back": "A^TA squares the condition number (κ(A^TA)=κ(A)^2) and loses information; QR works directly with orthogonal Q, preserving conditioning.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What matrix must be invertible for the thin-QR least-squares solution to be unique?",
+      "back": "R (the upper-triangular factor) must be nonsingular, equivalent to A having full column rank.",
+      "difficulty": "medium"
+    }
+  ]
+}

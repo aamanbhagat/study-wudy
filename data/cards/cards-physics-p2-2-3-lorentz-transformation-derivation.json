@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-3-lorentz-transformation-derivation",
+  "subtopicTitle": "Lorentz transformation — derivation",
+  "topicId": "physics-p2-2-3-modern-physics",
+  "topicTitle": "Modern Physics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:17.446Z",
+  "cards": [
+    {
+      "front": "State the two postulates of special relativity that lead to Lorentz transformations.",
+      "back": "1. Laws of physics are identical in all inertial frames. 2. Speed of light c is constant in all inertial frames and independent of source motion.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Why must coordinate transformations between inertial frames be linear?",
+      "back": "Linearity ensures constant relative velocity (no acceleration) and that the origin of one frame moves at constant speed in the other; nonlinear terms would violate inertial-frame conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Assume $x'=\\gamma(x-vt)$, $t'=\\gamma(t-\\alpha x)$. Using light-speed invariance, find $\\gamma$ and $\\alpha$.",
+      "back": "For light $x=ct$ implies $x'=ct'$. Substituting yields $\\alpha=v/c^2$ and $\\gamma=1/\\sqrt{1-v^2/c^2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the complete set of Lorentz transformations for a boost along x with velocity v.",
+      "back": "$$x'=\\gamma(x-vt),\\quad y'=y,\\quad z'=z,\\quad t'=\\gamma(t-vx/c^2)$$ where $\\gamma=1/\\sqrt{1-v^2/c^2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the inverse Lorentz transformations by swapping v → −v.",
+      "back": "$$x=\\gamma(x'+vt'),\\quad t=\\gamma(t'+vx'/c^2)$$ (y,z unchanged).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Show that the Lorentz transformations reduce to the Galilean transformations when $v\\ll c$.",
+      "back": "$\\gamma\\to1$ and $vx/c^2\\to0$, so $x'\\approx x-vt$, $t'\\approx t$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Using the Lorentz transformations, derive the time-dilation formula for a clock at rest in the moving frame.",
+      "back": "Proper time interval $\\Delta\\tau=\\Delta t'$ at fixed x' gives $\\Delta t=\\gamma\\Delta\\tau$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to the Lorentz factor $\\gamma$ as $v\\to c$? What physical consequence follows?",
+      "back": "$\\gamma\\to\\infty$. Infinite energy is required to accelerate a massive particle to c; simultaneity and lengths become undefined across frames.",
+      "difficulty": "hard"
+    }
+  ]
+}

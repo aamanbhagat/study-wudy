@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-quaternion-rotation-formula-rotating-vector-v-by-quaternion-q",
+  "subtopicTitle": "Quaternion rotation formula — rotating vector v by quaternion q",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:10.938Z",
+  "cards": [
+    {
+      "front": "How is a 3D vector \\(\\vec{v}=(x,y,z)\\) represented as a quaternion for rotation purposes?",
+      "back": "As the pure quaternion \\(v = 0 + xi + yj + zk\\).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the quaternion rotation formula that rotates vector \\(v\\) by unit quaternion \\(q\\).",
+      "back": "$v' = q v q^{-1}$ (where \\(v\\) and \\(v'\\) are pure quaternions).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For a unit quaternion \\(q = w + xi + yj + zk\\), what is \\(q^{-1}\\)?",
+      "back": "$q^{-1} = w - xi - yj - zk$ (i.e., the conjugate).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "After applying \\(v' = q v q^{-1}\\), what is the scalar (real) part of \\(v'\\)?",
+      "back": "Exactly zero, confirming \\(v'\\) remains a pure quaternion/vector.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the formula preserve vector length only when \\(\\|q\\|=1\\)?",
+      "back": "Because \\(\\|q v q^{-1}\\| = \\|q\\| \\cdot \\|v\\| \\cdot \\|q^{-1}\\| = \\|v\\|\\) iff \\(\\|q\\|=1\\).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the three-step quaternion multiplication sequence to obtain the rotated vector components.",
+      "back": "1. Compute \\(p = q v\\) (4 multiplies). 2. Compute \\(v' = p q^{-1}\\). 3. Discard the resulting scalar part.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "A rotation quaternion is \\(q = \\cos(\theta/2) + \\sin(\theta/2)\\hat{u}\\). What angle does \\(v' = q v q^{-1}\\) actually apply to \\(\\vec{v}\\)?",
+      "back": "Exactly angle \\(\theta\\) about axis \\(\\hat{u}\\).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Show that \\(q=1\\) and \\(q=-1\\) both produce the identity rotation.",
+      "back": "Both yield \\(v' = v\\), since \\(1\\cdot v\\cdot 1^{-1}=v\\) and \\((-1)v(-1)^{-1}=v\\).",
+      "difficulty": "hard"
+    }
+  ]
+}

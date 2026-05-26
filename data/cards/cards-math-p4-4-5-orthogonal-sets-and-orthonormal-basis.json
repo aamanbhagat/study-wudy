@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-5-orthogonal-sets-and-orthonormal-basis",
+  "subtopicTitle": "Orthogonal sets and orthonormal basis",
+  "topicId": "math-p4-4-5-linear-algebra-full",
+  "topicTitle": "Linear Algebra (Full)",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:58.997Z",
+  "cards": [
+    {
+      "front": "Define an orthogonal set of vectors in an inner product space.",
+      "back": "A set $\\{v_1, \\dots, v_k\\}$ is orthogonal if $\\langle v_i, v_j \\rangle = 0$ for all $i \neq j$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define an orthonormal set of vectors.",
+      "back": "An orthogonal set where each vector has unit norm: $\\langle v_i, v_j \\rangle = 0$ for $i \neq j$ and $\\lVert v_i \rVert = 1$ for all $i$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Prove that a finite orthogonal set of nonzero vectors is linearly independent.",
+      "back": "Suppose $\\sum c_i v_i = 0$. Take inner product with $v_j$: $c_j \\langle v_j, v_j \\rangle = 0$. Since $\\lVert v_j \rVert > 0$, $c_j = 0$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is an orthonormal basis obtained from an orthogonal basis $\\{v_1, \\dots, v_n\\}$?",
+      "back": "Normalize each vector: let $u_i = v_i / \\lVert v_i \rVert$. Then $\\{u_1, \\dots, u_n\\}$ is an orthonormal basis.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the orthogonal projection of $x$ onto the subspace spanned by an orthogonal set $\\{v_1, \\dots, v_k\\}$.",
+      "back": "$$\\mathrm{proj}_W x = \\sum_{i=1}^k \\frac{\\langle x, v_i \\rangle}{\\langle v_i, v_i \\rangle} v_i$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Gram-Schmidt process for producing an orthogonal basis from a linearly independent set $\\{x_1, \\dots, x_n\\}$.",
+      "back": "$v_1 = x_1$, $v_k = x_k - \\sum_{j=1}^{k-1} \\frac{\\langle x_k, v_j \\rangle}{\\langle v_j, v_j \\rangle} v_j$ for $k=2,\\dots,n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "If $\\{u_1, \\dots, u_n\\}$ is an orthonormal basis of $V$, express $\\lVert x \rVert^2$ in terms of coordinates.",
+      "back": "$$\\lVert x \rVert^2 = \\sum_{i=1}^n |\\langle x, u_i \rangle|^2$$ (Parseval's identity).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What distinguishes an orthonormal basis from a general orthogonal basis?",
+      "back": "An orthonormal basis consists of unit vectors; an orthogonal basis may contain vectors of any nonzero length.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-4-chain-rule-for-multivariable-functions-all-cases",
+  "subtopicTitle": "Chain rule for multivariable functions — all cases",
+  "topicId": "math-p4-4-4-multivariable-calculus",
+  "topicTitle": "Multivariable Calculus",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:03.127Z",
+  "cards": [
+    {
+      "front": "State the chain rule for dz/dt when z = f(x,y) with x = x(t), y = y(t).",
+      "back": "$$\\frac{dz}{dt} = \\frac{\\partial f}{\\partial x}\\frac{dx}{dt} + \\frac{\\partial f}{\\partial y}\\frac{dy}{dt}$$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the chain rule for ζ/ζu when z = f(x,y) with x = x(u,v), y = y(u,v).",
+      "back": "$$\\frac{\\partial z}{\\partial u} = \\frac{\\partial f}{\\partial x}\\frac{\\partial x}{\\partial u} + \\frac{\\partial f}{\\partial y}\\frac{\\partial y}{\\partial u}$$ (and likewise for ζ/ζv).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the chain rule for ζ/ζt when z = f(x,y,w) and x,y,w each depend on t.",
+      "back": "$$\\frac{dz}{dt} = \\frac{\\partial f}{\\partial x}\\frac{dx}{dt} + \\frac{\\partial f}{\\partial y}\\frac{dy}{dt} + \\frac{\\partial f}{\\partial w}\\frac{dw}{dt}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the general chain-rule formula for ζ/ζu_i when z = f(x_1,...,x_m) and each x_j = x_j(u_1,...,u_n).",
+      "back": "$$\\frac{\\partial z}{\\partial u_i} = \\sum_{j=1}^m \\frac{\\partial f}{\\partial x_j} \\frac{\\partial x_j}{\\partial u_i}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Using the total differential, derive why the chain rule holds for z = f(x(u,v), y(u,v)).",
+      "back": "df = (ζf/ζx)dx + (ζf/ζy)dy. Divide by du (holding v fixed): ζf/ζu = (ζf/ζx)(ζx/ζu) + (ζf/ζy)(ζy/ζu).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What changes in the chain rule when the outer function is vector-valued, F: R^2 \to R^2?",
+      "back": "Each component of F obeys its own scalar chain rule; the Jacobian matrix of the composition is the product of the individual Jacobians.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Edge case: when does the multivariable chain rule reduce to the ordinary single-variable chain rule?",
+      "back": "When the outer function depends on only one intermediate variable (all other partials vanish) or when all inner functions depend on a single parameter t.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Intuitive explanation: why must every path through the dependency tree be summed?",
+      "back": "A small change in an independent variable reaches the output along every possible route; the total effect is the linear sum of the effects along each route (first-order approximation).",
+      "difficulty": "medium"
+    }
+  ]
+}

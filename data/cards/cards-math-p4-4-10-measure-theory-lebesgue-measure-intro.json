@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-10-measure-theory-lebesgue-measure-intro",
+  "subtopicTitle": "Measure theory — Lebesgue measure (intro)",
+  "topicId": "math-p4-4-10-advanced-topics-elite-level",
+  "topicTitle": "Advanced Topics (Elite Level)",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:38.778Z",
+  "cards": [
+    {
+      "front": "Define the Lebesgue outer measure $m^*$ of a set $A \\subseteq \\mathbb{R}$.",
+      "back": "$m^*(A) = \\inf\\{\\sum_{i=1}^\\infty (b_i - a_i) : A \\subseteq \\bigcup_{i=1}^\\infty [a_i, b_i]\\}$, where the infimum is over all countable covers by closed intervals.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the Lebesgue measure of any interval $I = [a,b]$ (or open/half-open variants)?",
+      "back": "$m(I) = b - a$. This follows because the outer measure equals the length and every interval is measurable.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State Carathéodory's criterion for a set $E \\subseteq \\mathbb{R}$ to be Lebesgue measurable.",
+      "back": "For every test set $A \\subseteq \\mathbb{R}$, $m^*(A) = m^*(A \\cap E) + m^*(A \\cap E^c)$. Sets satisfying this form the Lebesgue $\\sigma$-algebra.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove that Lebesgue measure is countably additive on disjoint measurable sets.",
+      "back": "Let $\\{E_n\\}$ be pairwise disjoint measurable sets and $E = \\bigcup E_n$. By Carathéodory and induction, $m^*(A) \\ge \\sum m^*(A \\cap E_n) + m^*(A \\cap E^c)$ for any $A$; taking $A = E$ yields $m(E) = \\sum m(E_n)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Show that $m^*$ is countably subadditive for arbitrary sets.",
+      "back": "Given covers of each $A_n$ whose total length sums to within $\\varepsilon/2^n$ of $m^*(A_n)$, their union covers $\\bigcup A_n$ and has total length $\\le \\sum m^*(A_n) + \\varepsilon$. Hence $m^*(\\bigcup A_n) \\le \\sum m^*(A_n)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give an example of a non-Lebesgue-measurable set and the reason it fails measurability.",
+      "back": "A Vitali set $V \\subset [0,1]$ obtained by choosing one representative from each equivalence class modulo $\\mathbb{Q}$. The countable disjoint translates $V + q$ ($q \\in \\mathbb{Q} \\cap [-1,1]$) cover $[0,1]$ up to a null set but have identical outer measure; countable additivity would imply $m^*([0,1]) = 0$ or $\\infty$, a contradiction.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is a null set in Lebesgue measure theory? Give two examples.",
+      "back": "Any set $N$ with $m(N) = 0$. Examples: any countable set; the Cantor set (uncountable, measure zero). All subsets of null sets are measurable and null.",
+      "difficulty": "medium"
+    }
+  ]
+}

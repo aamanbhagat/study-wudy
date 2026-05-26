@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-ins-error-propagation-error-state-equations",
+  "subtopicTitle": "INS error propagation — error state equations",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:19.855Z",
+  "cards": [
+    {
+      "front": "What is the role of error-state equations in an INS?",
+      "back": "They provide a linearized time-varying model of how small errors in position, velocity, attitude and sensor biases propagate due to the nonlinear strapdown kinematics and Earth-rate effects.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Name the five core error states used in a basic INS error-state vector.",
+      "back": "δr (position), δv (velocity), φ (attitude/tilt), b_a (accelerometer bias), b_g (gyro bias).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the position-error kinematic equation.",
+      "back": "$\\delta\\dot{r}^n = \\delta v^n - \\omega_{en}^n \\times \\delta r^n$ (NED frame).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the attitude-error differential equation (inertial frame).",
+      "back": "$\\dot{\\phi} = -\\omega_{ib}^b \\times \\phi + \\delta\\omega_{ib}^b$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the velocity-error equation including Coriolis and gravity terms.",
+      "back": "$\\delta\\dot{v}^n = -(2\\omega_{ie}^n + \\omega_{en}^n)\\times\\delta v^n + f^n\\times\\phi + \\delta f^n + \\delta g^n$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does a constant gyro bias b_g propagate into attitude error?",
+      "back": "Attitude error grows linearly: $\\phi(t) = \\phi(0) + b_g t$ (neglecting Earth-rate coupling).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the second-order position-error dynamics that produce Schuler oscillation.",
+      "back": "Differentiate velocity error twice and substitute attitude error: $\\delta\\ddot{r} + \\omega_s^2\\delta r = 0$ where $\\omega_s = \\sqrt{g/R}\\approx0.00124$ rad/s.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the effect of accelerometer bias on horizontal position error after long time?",
+      "back": "Position error grows as $\\frac12 b_a t^2$ modulated by bounded Schuler oscillation; unbounded quadratic growth dominates.",
+      "difficulty": "hard"
+    }
+  ]
+}

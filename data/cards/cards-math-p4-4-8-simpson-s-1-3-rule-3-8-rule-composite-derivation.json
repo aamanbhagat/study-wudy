@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-8-simpson-s-1-3-rule-3-8-rule-composite-derivation",
+  "subtopicTitle": "Simpson's 1/3 rule, 3/8 rule (composite) — derivation",
+  "topicId": "math-p4-4-8-numerical-methods",
+  "topicTitle": "Numerical Methods",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:39.593Z",
+  "cards": [
+    {
+      "front": "State the basic Simpson's 1/3 rule formula for approximating ∫ from a to b of f(x) dx over two equal subintervals of width h.",
+      "back": "$$\\int_a^b f(x)\\,dx \\approx \\frac{h}{3}[f(a)+4f(a+h)+f(b)]$$ where h=(b-a)/2. Approximates f by a quadratic polynomial through three points.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive Simpson's 1/3 rule by integrating the interpolating quadratic through points (x0,f0), (x1,f1), (x2,f2) with equal spacing h.",
+      "back": "Let x0=-h, x1=0, x2=h. Lagrange quadratic: P2(x)=f0*(x(x-h))/(2h^2) + f1*((x+h)(x-h))/(-h^2) + f2*(x(x+h))/(2h^2). Integrate P2 from -h to h yields (h/3)(f0+4f1+f2). Shift back to [a,b].",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the composite Simpson's 1/3 rule for n (even) subintervals over [a,b] with width h.",
+      "back": "$$\\int_a^b f(x)\\,dx \\approx \\frac{h}{3}[f0 + 4\\sum_{k=1,3,..}^{n-1} fk + 2\\sum_{k=2,4,..}^{n-2} fk + fn]$$ Requires even n; error O(h^4).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the basic Simpson's 3/8 rule formula for three equal subintervals of width h.",
+      "back": "$$\\int_a^b f(x)\\,dx \\approx \\frac{3h}{8}[f0+3f1+3f2+f3]$$ where h=(b-a)/3. Approximates f by a cubic polynomial.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive Simpson's 3/8 rule by integrating the cubic interpolant through four equally spaced points.",
+      "back": "Points x=-3h/2 to 3h/2 or shifted [0,3h]. Newton divided-difference or direct integration of cubic Lagrange polynomial yields coefficient pattern 3h/8 times (1,3,3,1).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Write the composite Simpson's 3/8 rule when number of subintervals is a multiple of 3.",
+      "back": "Group intervals in sets of three: apply 3/8 rule to each group and sum. For m groups (n=3m), total weight pattern repeats 1,3,3,1 scaled by 3h/8, with interior shared points combined.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What condition on n must hold to apply composite Simpson's 1/3 versus 3/8 rule?",
+      "back": "1/3 rule: n even. 3/8 rule: n multiple of 3. Both can be combined (e.g., 1/3 + 3/8) when n mod 6 !=0.",
+      "difficulty": "medium"
+    }
+  ]
+}

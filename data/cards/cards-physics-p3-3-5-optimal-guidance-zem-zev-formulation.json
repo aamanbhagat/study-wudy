@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-optimal-guidance-zem-zev-formulation",
+  "subtopicTitle": "Optimal guidance — ZEM/ZEV formulation",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:21.212Z",
+  "cards": [
+    {
+      "front": "What does ZEM stand for, and what physical quantity does it represent?",
+      "back": "Zero-Effort Miss: the predicted miss distance at intercept if the pursuer applies zero acceleration from the current time onward.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What does ZEV stand for, and what physical quantity does it represent?",
+      "back": "Zero-Effort Velocity error: the velocity difference (pursuer minus target) that will remain at intercept time if zero acceleration is applied.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the expressions for ZEM and ZEV in terms of relative position $r$, relative velocity $v$, and time-to-go $t_{go}$.",
+      "back": "ZEM = $r + v t_{go}$\nZEV = $v$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the ZEM/ZEV optimal guidance acceleration command that minimizes $\\int_0^{t_{go}} \\|u\\|^2 dt$.",
+      "back": "$$u^* = \\frac{6}{t_{go}^2} \\text{ZEM} + \\frac{2}{t_{go}} \\text{ZEV}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the ZEM/ZEV law contain the specific coefficients 6 and 2?",
+      "back": "They arise from solving the two-point boundary-value problem for the double-integrator system with quadratic cost; the gains are $6/t_{go}^2$ for position and $2/t_{go}$ for velocity to null both states exactly at $t_{go}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Under which modeling assumptions is the classical ZEM/ZEV law exactly optimal?",
+      "back": "Constant-velocity target, no gravity or other external forces, linear dynamics, unbounded acceleration, perfect state knowledge, and fixed terminal time.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is time-to-go $t_{go}$ typically computed inside a ZEM/ZEV guidance loop?",
+      "back": "$t_{go}$ is obtained by solving the range/range-rate equation or by integrating the predicted closing velocity; it must be updated continuously because it appears in the denominator of the gains.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What singularity occurs as $t_{go} \\to 0$ and how is it handled in practice?",
+      "back": "Gains diverge as $1/t_{go}^2$ and $1/t_{go}$. Practical implementations switch to a terminal phase law, saturate acceleration, or freeze $t_{go}$ above a small threshold to avoid division by zero.",
+      "difficulty": "hard"
+    }
+  ]
+}

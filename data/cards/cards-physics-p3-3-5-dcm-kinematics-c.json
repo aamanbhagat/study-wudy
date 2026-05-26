@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-5-dcm-kinematics-c",
+  "subtopicTitle": "DCM kinematics — Ċ = -[ω×]C",
+  "topicId": "physics-p3-3-5-guidance-navigation-control-gnc",
+  "topicTitle": "Guidance, Navigation & Control (GNC)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:09.075Z",
+  "cards": [
+    {
+      "front": "What is a Direction Cosine Matrix (DCM) C?",
+      "back": "A 3×3 proper orthogonal matrix (C^T C = I, det(C)=1) whose rows/columns are the unit vectors of one frame expressed in the other; it rotates vector components via v_b = C v_i.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define the skew-symmetric cross-product matrix [ω×] for ω=[ω1,ω2,ω3]^T.",
+      "back": "$$[ω×]=\\begin{bmatrix}0&-ω3&ω2\\\\ω3&0&-ω1\\\\-ω2&ω1&0\\end{bmatrix}$$ so that [ω×]v=ω×v for any vector v.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the DCM kinematic equation Ċ=-[ω×]C.",
+      "back": "The first-order matrix ODE governing the time evolution of the attitude DCM C when the body angular velocity ω (expressed in the body frame) is known.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Ċ=-[ω×]C from the definition of C.",
+      "back": "Let ê_i be inertial basis vectors and ê_b(t) body basis vectors. Then C_{ij}=ê_b_i·ê_i_j. Differentiating and using ė_b_i=ω×ê_b_i yields Ċ=-[ω×]C after expressing the result in body coordinates.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove that C(t) remains orthogonal for all t if Ċ=-[ω×]C and C(0)^T C(0)=I.",
+      "back": "d/dt(CC^T)=ĊC^T+CĊ^T=-[ω×]CC^T+C(-[ω×]C)^T. Because [ω×]^T=-[ω×], the right-hand side vanishes, so CC^T remains constant and equal to I.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is ω recovered from Ċ and C?",
+      "back": "$$[ω×]=-ĊC^T$$ (or equivalently ω=½(CĊ^T) where the vee operator extracts the vector from the skew-symmetric matrix).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to C(t) when ω(t)≡0?",
+      "back": "Ċ=0 ⇒ C(t)=C(0) (constant attitude).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "In attitude propagation, why integrate Ċ=-[ω×]C rather than using Euler angles?",
+      "back": "The DCM equation is singularity-free, globally valid, and linear in C; Euler angles suffer from gimbal lock and nonlinear trigonometric kinematics.",
+      "difficulty": "medium"
+    }
+  ]
+}

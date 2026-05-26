@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p1-1-4-centre-of-mass-derivation-for-common-shapes-rod-triangle-semicircle-hemisphere",
+  "subtopicTitle": "Centre of mass — derivation for common shapes (rod, triangle, semicircle, hemisphere)",
+  "topicId": "physics-p1-1-4-momentum-collisions",
+  "topicTitle": "Momentum & Collisions",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:44.517Z",
+  "cards": [
+    {
+      "front": "State the centre of mass location for a uniform rod of length L lying along the x-axis from 0 to L.",
+      "back": "At x = L/2 from either end (by symmetry).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the x-coordinate of the centre of mass for a uniform rod of length L and mass M along [0,L].",
+      "back": "$$x_{cm} = \\frac{1}{M} \\int_0^L x \\, dm$$ with dm = (M/L) dx gives $$x_{cm} = \\frac{L}{2}$$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the centre of mass location for a uniform triangular lamina of base B and height H (vertex at origin).",
+      "back": "At (B/3, H/3) from the vertex.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the y-coordinate of the CM for a uniform triangular lamina of height H (base parallel to x-axis).",
+      "back": "Using similar triangles, width at height y is proportional to (H-y). Integrate $$y_{cm} = \\frac{\\int_0^H y \\cdot (H-y) dy}{\\int_0^H (H-y) dy} = H/3$$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the y-coordinate of the centre of mass for a uniform semicircular lamina of radius R.",
+      "back": "$$y_{cm} = \\frac{2R}{\\pi}$$ (above the diameter). Use polar coordinates: $$y_{cm} = \\frac{\\int_0^\\pi (R\\sin\\theta) R d\\theta}{\\int_0^\\pi R d\\theta}$$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Derive the z-coordinate of the centre of mass for a solid hemisphere of radius R (flat face on xy-plane).",
+      "back": "$$z_{cm} = \\frac{3R}{8}$$. Volume element in spherical coords yields $$z_{cm} = \\frac{3}{8}R$$ after integrating density over the hemisphere.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What is the CM distance from the centre for a thin hemispherical shell of radius R?",
+      "back": "R/2 along the axis of symmetry.",
+      "difficulty": "medium"
+    }
+  ]
+}

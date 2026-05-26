@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-4-free-energy-from-partition-function",
+  "subtopicTitle": "Free energy from partition function",
+  "topicId": "physics-p2-2-4-thermodynamics-statistical-mechanics-advanced",
+  "topicTitle": "Thermodynamics & Statistical Mechanics (Advanced)",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:10.283Z",
+  "cards": [
+    {
+      "front": "Define the canonical partition function $Z$ for a system with energies $E_i$.",
+      "back": "$Z = \\sum_i e^{-\\beta E_i}$ where $\\beta = 1/(k_B T)$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the fundamental relation between Helmholtz free energy $F$ and $Z$.",
+      "back": "$F = -k_B T \\ln Z$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive the mean energy $\\langle E \\rangle$ from $Z$.",
+      "back": "$\\langle E \\rangle = -\\partial\\ln Z/\\partial\\beta = -Z^{-1}\\partial Z/\\partial\\beta$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Obtain the entropy $S$ from $F$ (or equivalently from $Z$).",
+      "back": "$S = -(\\partial F/\\partial T)_V = k_B(\\ln Z + \\beta\\langle E\\rangle)$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive $F=-k_B T\\ln Z$ starting from $F=U-TS$ and the Boltzmann probabilities.",
+      "back": "Probabilities $p_i=Z^{-1}e^{-\\beta E_i}$. Then $S=-k_B\\sum p_i\\ln p_i$ yields $S=k_B\\beta U+k_B\\ln Z$. Substituting into $F=U-TS$ gives $F=-k_B T\\ln Z$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "For two non-interacting subsystems, how do $Z$ and $F$ combine?",
+      "back": "$Z=Z_1Z_2$ hence $F=F_1+F_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express the pressure $P$ in terms of $Z$ (or $F$).",
+      "back": "$P=-(\\partial F/\\partial V)_T=k_B T(\\partial\\ln Z/\\partial V)_T$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What happens to $F$ as $T\\to0$?",
+      "back": "$F\\to E_0$ (ground-state energy), since only the lowest term survives in $Z$.",
+      "difficulty": "hard"
+    }
+  ]
+}

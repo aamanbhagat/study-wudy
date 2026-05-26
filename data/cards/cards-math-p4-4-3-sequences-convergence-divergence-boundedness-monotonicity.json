@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-3-sequences-convergence-divergence-boundedness-monotonicity",
+  "subtopicTitle": "Sequences — convergence, divergence, boundedness, monotonicity",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:38:50.937Z",
+  "cards": [
+    {
+      "front": "Define convergence of a sequence $\\{a_n\\}$.",
+      "back": "A sequence $\\{a_n\\}$ converges to $L$ if for every $\\epsilon>0$ there exists $N\\in\\mathbb{N}$ such that $|a_n-L|<\\epsilon$ whenever $n>N$. Equivalently, $\\lim_{n\\to\\infty}a_n=L$ (finite).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define a bounded sequence.",
+      "back": "$\\{a_n\\}$ is bounded if there exists $M>0$ such that $|a_n|\\leq M$ for all $n$. It is bounded above if $a_n\\leq M$ and below if $a_n\\geq m$ for some $m$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Define monotonicity for sequences and name the two types.",
+      "back": "$\\{a_n\\}$ is increasing if $a_{n+1}\\geq a_n$ for all $n$; strictly increasing if $>$. It is decreasing if $a_{n+1}\\leq a_n$; strictly decreasing if $<$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give an example of a sequence that is bounded but divergent.",
+      "back": "$a_n=(-1)^n$. It is bounded by $M=1$ yet diverges because it oscillates and has no single limit.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Monotone Convergence Theorem.",
+      "back": "Every monotone and bounded sequence converges (to a finite limit). If increasing and bounded above, it converges to its supremum; if decreasing and bounded below, to its infimum.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Prove that every convergent sequence is bounded.",
+      "back": "Suppose $\\lim a_n=L$. Take $\\epsilon=1$; then $\\exists N$ s.t. $|a_n-L|<1$ for $n>N$, so $|a_n|<|L|+1$. Let $M=\\max\\{|a_1|,...,|a_N|,|L|+1\\}$. Then $|a_n|\\leq M$ for all $n$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Determine if $a_n=\\frac{n}{n+1}$ is monotone and bounded; conclude convergence.",
+      "back": "Increasing: $a_{n+1}-a_n=\\frac{1}{(n+1)(n+2)}>0$. Bounded above by 1 (below by 0). Hence converges to 1 by MCT.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Define divergence of a sequence to $+\\infty$.",
+      "back": "$\\lim a_n=+\\infty$ means for every $M>0$ there exists $N$ such that $a_n>M$ for all $n>N$. The sequence is unbounded above and diverges.",
+      "difficulty": "medium"
+    }
+  ]
+}

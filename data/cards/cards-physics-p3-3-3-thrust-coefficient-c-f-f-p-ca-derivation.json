@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-3-thrust-coefficient-c-f-f-p-ca-derivation",
+  "subtopicTitle": "Thrust coefficient C_F = F/(P_cA*) — derivation",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:48:36.636Z",
+  "cards": [
+    {
+      "front": "What is the definition of the thrust coefficient $C_F$?",
+      "back": "$C_F = \\frac{F}{P_c A^*}$",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Does $C_F$ depend on chamber pressure $P_c$ explicitly?",
+      "back": "No, it is normalized by $P_c A^*$ and thus independent of scale.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general thrust equation used to derive $C_F$.",
+      "back": "$F = \\dot{m} v_e + (P_e - P_a)A_e$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Express exit velocity $v_e$ using isentropic relations for a perfect gas.",
+      "back": "$v_e = \\sqrt{\\frac{2\\gamma}{\\gamma-1} R T_c \\left[1 - \\left(\\frac{P_e}{P_c}\\right)^{\\frac{\\gamma-1}{\\gamma}}\\right]}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Introduce the throat area $A^*$ via the isentropic mass-flow relation.",
+      "back": "$\\dot{m} = \\frac{P_c A^*}{\\sqrt{R T_c}} \\sqrt{\\gamma} \\left(\\frac{2}{\\gamma+1}\\right)^{\\frac{\\gamma+1}{2(\\gamma-1)}}$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the vacuum thrust coefficient term arising from the momentum flux.",
+      "back": "$C_{F,\\text{mom}} = \\sqrt{\\frac{2\\gamma^2}{\\gamma-1} \\left(\\frac{2}{\\gamma+1}\\right)^{\\frac{\\gamma+1}{\\gamma-1}} \\left[1 - \\left(\\frac{P_e}{P_c}\\right)^{\\frac{\\gamma-1}{\\gamma}}\\right]}$",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Add the pressure-area term to obtain the full $C_F$ expression.",
+      "back": "$C_F = C_{F,\\text{mom}} + \\frac{P_e - P_a}{P_c} \\frac{A_e}{A^*}$",
+      "difficulty": "hard"
+    }
+  ]
+}

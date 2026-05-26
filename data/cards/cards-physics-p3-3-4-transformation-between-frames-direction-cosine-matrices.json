@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-4-transformation-between-frames-direction-cosine-matrices",
+  "subtopicTitle": "Transformation between frames — direction cosine matrices",
+  "topicId": "physics-p3-3-4-rocket-flight-mechanics",
+  "topicTitle": "Rocket Flight Mechanics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:41:12.116Z",
+  "cards": [
+    {
+      "front": "What is the direction cosine matrix $C^{b/a}$?",
+      "back": "The 3x3 matrix whose (i,j) element is the cosine of the angle between the i-th unit vector of frame b and the j-th unit vector of frame a. It transforms vector components via $\\mathbf{v}^b = C^{b/a} \\mathbf{v}^a$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the orthogonality property of any valid DCM $C$.",
+      "back": "$C^T C = I$ and $\\det(C) = +1$ (proper rotation). Columns (and rows) are orthonormal unit vectors.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What do the rows of $C^{b/a}$ physically represent?",
+      "back": "Row i is the expression, in frame-b coordinates, of the i-th unit vector of frame a.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the elementary DCM for a right-handed rotation by angle $\\theta$ about the 3-axis.",
+      "back": "$$C_3(\\theta) = \\begin{bmatrix} \\cos\\theta & \\sin\\theta & 0 \\\\ -\\sin\\theta & \\cos\\theta & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$$",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Given $C^{b/a}$ and $C^{c/b}$, obtain the composite DCM $C^{c/a}$.",
+      "back": "$C^{c/a} = C^{c/b} C^{b/a}$ (matrix multiplication order follows the sequence of frames).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Transform the inertial-frame velocity $\\mathbf{v}^i$ of a rocket into body-frame components using the attitude DCM.",
+      "back": "$\\mathbf{v}^b = C^{b/i} \\mathbf{v}^i$. The same DCM rotates any free vector between the two frames.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive Poisson's kinematic equation relating $\\dot{C}^{b/a}$ to the angular-velocity cross-product matrix.",
+      "back": "Differentiate $C^{b/a} (C^{b/a})^T = I$ and use the definition of angular velocity to obtain $\\dot{C}^{b/a} = -[\\boldsymbol{\\omega}^{b/a}\\times] C^{b/a}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does a 3-2-1 Euler-angle sequence become singular at pitch = $\\pm 90^\\circ$?",
+      "back": "The first and third rotations align, causing loss of rank in the kinematic matrix that maps Euler rates to $\\boldsymbol{\\omega}$; gimbal lock occurs.",
+      "difficulty": "hard"
+    }
+  ]
+}

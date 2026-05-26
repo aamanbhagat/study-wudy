@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-3-squeeze-theorem-for-sequences",
+  "subtopicTitle": "Squeeze theorem for sequences",
+  "topicId": "math-p4-4-3-calculus-iii-sequences-series",
+  "topicTitle": "Calculus III — Sequences & Series",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:08.844Z",
+  "cards": [
+    {
+      "front": "State the Squeeze Theorem for sequences.",
+      "back": "If there exists N such that for all n ≥ N we have a_n ≤ b_n ≤ c_n, and lim a_n = lim c_n = L (finite), then lim b_n = L.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What must hold for the bounding sequences in the Squeeze Theorem?",
+      "back": "a_n and c_n must both converge to the same finite limit L; the inequality a_n ≤ b_n ≤ c_n must hold for all sufficiently large n.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Apply the Squeeze Theorem to evaluate lim (n→∞) (sin n)/n.",
+      "back": "-1 ≤ sin n ≤ 1 implies -1/n ≤ (sin n)/n ≤ 1/n for n > 0. Both -1/n → 0 and 1/n → 0, hence lim (sin n)/n = 0.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "If |a_n| ≤ b_n and lim b_n = 0, what is lim a_n?",
+      "back": "-b_n ≤ a_n ≤ b_n and both -b_n, b_n → 0, so by Squeeze Theorem lim a_n = 0.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Prove the Squeeze Theorem for sequences.",
+      "back": "Let ε > 0. ∃N₁ s.t. n > N₁ ⇒ |a_n - L| < ε; ∃N₂ s.t. n > N₂ ⇒ |c_n - L| < ε. Let N = max(N₁, N₂, N₀) where N₀ makes a_n ≤ b_n ≤ c_n true. Then L - ε < a_n ≤ b_n ≤ c_n < L + ε, so |b_n - L| < ε.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Why does the Squeeze Theorem fail if lim a_n ≠ lim c_n?",
+      "back": "The hypothesis requires both outer limits to equal the same L; otherwise b_n may oscillate or diverge between two different limits.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give a sequence squeezed to 0 whose terms are not eventually positive.",
+      "back": "a_n = (-1)^n / n. Then -1/n ≤ a_n ≤ 1/n and both bounds → 0, so a_n → 0 despite sign changes.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p3-3-3-payload-fraction-as-function-of-v-and-isp",
+  "subtopicTitle": "Payload fraction as function of Δv and Isp",
+  "topicId": "physics-p3-3-3-rocket-propulsion",
+  "topicTitle": "Rocket Propulsion",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:54.942Z",
+  "cards": [
+    {
+      "front": "Define payload fraction for a rocket.",
+      "back": "Payload fraction $\\eta$ is the ratio of payload mass $m_{pl}$ to initial mass $m_0$: $\\eta = m_{pl}/m_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the ideal rocket equation relating $\\Delta v$, $I_{sp}$, and mass ratio.",
+      "back": "$\\Delta v = I_{sp} g_0 \\ln(m_0/m_f)$ or equivalently $m_0/m_f = \\exp(\\Delta v/(I_{sp} g_0))$, where $v_e = I_{sp} g_0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Derive ideal payload fraction (zero structural mass) as function of $\\Delta v$ and $I_{sp}$.",
+      "back": "With $m_{struct}=0$, $m_f=m_{pl}$. Thus $\\eta = m_f/m_0 = \\exp(-\\Delta v/(I_{sp} g_0))$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does ideal payload fraction change if $\\Delta v$ doubles (fixed $I_{sp}$)?",
+      "back": "$\\eta$ is squared: new $\\eta' = [\\exp(-\\Delta v/(I_{sp} g_0))]^2$. Payload fraction drops exponentially with $\\Delta v$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How does ideal payload fraction change if $I_{sp}$ doubles (fixed $\\Delta v$)?",
+      "back": "Exponent halved: $\\eta' = \\exp(-\\Delta v/(2 I_{sp} g_0))$, so payload fraction increases (closer to 1).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write payload fraction when a constant structural factor $\\epsilon = m_{struct}/m_p$ is included.",
+      "back": "$\\eta = \\exp(-\\Delta v/v_e) - \\epsilon [1 - \\exp(-\\Delta v/v_e)]$, where $v_e = I_{sp} g_0$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "What happens to payload fraction as $\\Delta v \\to 0$ or $I_{sp} \\to \\infty$?",
+      "back": "As $\\Delta v \\to 0$ or $I_{sp} \\to \\infty$, $\\eta \to 1$ (all initial mass can be payload).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why real payload fraction is always lower than the ideal $\\exp(-\\Delta v/v_e)$ expression.",
+      "back": "Non-zero structural mass $m_{struct}>0$ reduces usable payload: $m_{pl} = m_f - m_{struct}$, so $\\eta < \\exp(-\\Delta v/v_e)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

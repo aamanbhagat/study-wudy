@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p2-2-2-viscous-flow-poiseuille-flow-velocity-profile-in-pipe",
+  "subtopicTitle": "Viscous flow — Poiseuille flow, velocity profile in pipe",
+  "topicId": "physics-p2-2-2-fluid-mechanics",
+  "topicTitle": "Fluid Mechanics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:04.464Z",
+  "cards": [
+    {
+      "front": "What is Poiseuille flow?",
+      "back": "Steady, laminar, fully developed flow of an incompressible Newtonian fluid through a straight circular pipe driven solely by a constant axial pressure gradient.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the no-slip boundary condition for pipe flow of radius R.",
+      "back": "Axial velocity $u_z(r=R)=0$ (fluid adheres to the wall); symmetry also requires $\\partial u_z/\\partial r|_{r=0}=0$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the radial velocity profile $u_z(r)$ for Poiseuille flow.",
+      "back": "$u_z(r)=\\frac{\\Delta P}{4\\mu L}(R^2-r^2)$, where $\\Delta P>0$ is the pressure drop over length $L$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the ratio of average to maximum velocity in Poiseuille pipe flow?",
+      "back": "$u_{avg}/u_{max}=1/2$, since $u_{avg}=\\frac{1}{2}u_{max}$ for the parabolic profile.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the Hagen–Poiseuille volume-flow-rate formula.",
+      "back": "Q=\\frac{\\pi R^4\\Delta P}{8\\mu L} (or equivalently Q=\\frac{\\pi R^4}{8\\mu}\\frac{dp}{dz} with sign).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Under what Re condition is Poiseuille flow valid?",
+      "back": "Re<2300 (laminar regime) where Re=\\rho u_{avg}D/\\mu; above this transition to turbulence occurs.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the axial momentum balance that yields the Poiseuille profile (key steps).",
+      "back": "Start from incompressible NS in cylindrical coords. For steady, axisymmetric, fully developed flow: (1) all radial/azimuthal velocities=0, (2) \\partial/\\partial z=0 except for imposed dp/dz, (3) viscous term reduces to \\mu(1/r d/dr(r du_z/dr))=dp/dz. Integrate twice and apply BCs to obtain parabolic profile.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Obtain wall shear stress \\tau_w for Poiseuille flow from the velocity profile.",
+      "back": "\\tau_w=\\mu|\\partial u_z/\\partial r|_{r=R}|=\\frac{R\\Delta P}{2L}. Force balance on fluid cylinder confirms \\tau_w=\\frac{R}{2}\\frac{dp}{dz}.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "subtopicId": "physics-p1-1-2-rotating-frames-centrifugal-force-coriolis-force",
+  "subtopicTitle": "Rotating frames — centrifugal force, Coriolis force",
+  "topicId": "physics-p1-1-2-newton-s-laws-dynamics",
+  "topicTitle": "Newton's Laws & Dynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:38.281Z",
+  "cards": [
+    {
+      "front": "What is the centrifugal force experienced in a frame rotating at angular velocity ω?",
+      "back": "Fictitious outward force F_cent = −m ω × (ω × r) = m ω² ρ (where ρ is perpendicular distance from axis). It arises because the rotating observer sees objects at rest in inertial space as accelerating inward.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What is the Coriolis force on a mass m moving at velocity v_rel in a frame rotating at ω?",
+      "back": "F_Cor = −2m ω × v_rel. It is perpendicular to both ω and v_rel, deflects moving objects to the right in the Northern Hemisphere (ω has upward component).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "Write the full effective force equation in a rotating frame (including Euler term).",
+      "back": "F_eff = F_real − m ω × (ω × r) − 2m ω × v_rel − m (dω/dt) × r. The last term is the Euler force when ω changes.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the centrifugal acceleration term from the second time derivative of position in rotating vs inertial frames.",
+      "back": "r_inertial = R(t) r_rot. Differentiate twice: a_in = a_rot + 2ω×v_rot + ω×(ω×r) + (dω/dt)×r. Thus a_rot = a_in − ω×(ω×r) − 2ω×v − … so fictitious acceleration includes +ω²ρ outward.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "In the Northern Hemisphere, which way does the Coriolis force deflect a projectile moving eastward?",
+      "back": "To the right (southward component). Eastward velocity crossed with upward ω produces a southward fictitious force.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Why does the effective g decrease at the equator due to rotation?",
+      "back": "Centrifugal acceleration mω²R outward opposes gravity. At equator ρ = R, so g_eff ≈ g − ω²R (≈ 0.034 m/s² reduction).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "For an object at rest in the rotating frame, which fictitious force remains and why does the Coriolis term vanish?",
+      "back": "Only centrifugal force acts. v_rel = 0 so −2mω×v_rel = 0. Coriolis requires relative motion.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the condition under which the Euler force appears and give its vector expression.",
+      "back": "When angular velocity changes: F_Euler = −m (dω/dt) × r. Present during spin-up or precession of the frame.",
+      "difficulty": "hard"
+    }
+  ]
+}

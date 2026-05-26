@@ -1,0 +1,51 @@
+{
+  "subtopicId": "math-p4-4-9-confidence-intervals-derivation-for-mean-proportion",
+  "subtopicTitle": "Confidence intervals — derivation for mean, proportion",
+  "topicId": "math-p4-4-9-probability-theory-statistics",
+  "topicTitle": "Probability Theory & Statistics",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:25.050Z",
+  "cards": [
+    {
+      "front": "Define a $(1-\\alpha)100\\%$ confidence interval for a parameter $\\theta$.",
+      "back": "A random interval $[L,U]$ such that $P(L \\leq \\theta \\leq U) = 1-\\alpha$ for all $\\theta$, where the probability is over the data before observing it.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the formula for a $(1-\\alpha)100\\%$ CI for $\\mu$ when $\\sigma$ is known.",
+      "back": "$\\bar{x} \\pm z_{\\alpha/2} \\frac{\\sigma}{\\sqrt{n}}$, where $z_{\\alpha/2}$ is the standard normal quantile with tail probability $\\alpha/2$.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "What pivotal quantity is used to derive the CI for $\\mu$ (known $\\sigma$)?",
+      "back": "$Z = \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)$. Rearrange $P(-z_{\\alpha/2} \\leq Z \\leq z_{\\alpha/2}) = 1-\\alpha$ to isolate $\\mu$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the CI for $\\mu$ (known $\\sigma$) from the CLT in three steps.",
+      "back": "1. CLT: $\\bar{X} \\approx N(\\mu,\\sigma^2/n)$. 2. Standardize to $Z$. 3. Invert $P(-z_{\\alpha/2} \\leq Z \\leq z_{\\alpha/2})=1-\\alpha$ yielding $\\bar{x} \\pm z_{\\alpha/2}\\sigma/\\sqrt{n}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "When must the t-distribution be used instead of z for a CI of $\\mu$?",
+      "back": "When $\\sigma$ is unknown and estimated by $s$, and either $n<30$ or the population is non-normal; the pivotal quantity becomes $T=(\\bar{X}-\\mu)/(s/\\sqrt{n}) \\sim t_{n-1}$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the conditions required for the normal approximation CI of a proportion $p$.",
+      "back": "$np_0\\geq 10$ and $n(1-p_0)\\geq 10$ (or $n\\hat{p}\\geq 10$, $n(1-\\hat{p})\\geq 10$), and observations are independent (SRS, $n<10\\%N$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Derive the Wald CI for a binomial proportion $p$.",
+      "back": "Let $\\hat{p}=X/n$. By CLT, $\\frac{\\hat{p}-p}{\\sqrt{p(1-p)/n}}\\approx N(0,1)$. Substitute $\\hat{p}$ for $p$ in SE to obtain $\\hat{p}\\pm z_{\\alpha/2}\\sqrt{\\hat{p}(1-\\hat{p})/n}$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Explain why a 95% CI does NOT mean $P(\\mu \\in [L,U])=0.95$ after data are observed.",
+      "back": "After observing data, $[L,U]$ is fixed; either $\\mu$ lies in it or not. The 95% refers to the long-run coverage frequency of the random interval over repeated samples.",
+      "difficulty": "hard"
+    }
+  ]
+}

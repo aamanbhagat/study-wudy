@@ -1,0 +1,46 @@
+{
+  "subtopicId": "math-p4-4-6-non-homogeneous-variation-of-parameters",
+  "subtopicTitle": "Non-homogeneous — variation of parameters",
+  "topicId": "math-p4-4-6-ordinary-differential-equations",
+  "topicTitle": "Ordinary Differential Equations",
+  "field": "math",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:39:09.960Z",
+  "cards": [
+    {
+      "front": "What is the variation of parameters method used for?",
+      "back": "It finds a particular solution $y_p$ to a non-homogeneous linear ODE $y^{(n)}+p_{n-1}y^{(n-1)}+\\dots+p_0y=g(x)$ when a fundamental set of solutions to the homogeneous equation is known.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "State the general form of the particular solution assumed in variation of parameters for a second-order equation.",
+      "back": "If $y_1,y_2$ are fundamental solutions to the homogeneous equation, assume $y_p=u_1(x)y_1+u_2(x)y_2$ where $u_1,u_2$ are functions to be determined.",
+      "difficulty": "easy"
+    },
+    {
+      "front": "For $y''+p y'+q y=g(x)$, derive the system solved for $u_1',u_2'$.",
+      "back": "The system is\n$$u_1'y_1+u_2'y_2=0,$$\n$$u_1'y_1'+u_2'y_2'=g(x).$$\nIt arises by imposing $y_p'=u_1'y_1+u_2'y_2$ (no $u'$ terms) and substituting into the ODE.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Give the explicit formulas for $u_1'$ and $u_2'$ using the Wronskian $W$.",
+      "back": "$$u_1'=-y_2 g/W,\\quad u_2'=y_1 g/W,$$\nwhere $W=y_1 y_2'-y_2 y_1'$. Then integrate to obtain $u_1,u_2$.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "How is the Wronskian $W(y_1,y_2)$ used to guarantee a solution exists?",
+      "back": "If $y_1,y_2$ are linearly independent solutions of the homogeneous equation then $W\neq0$ on the interval, so the linear system for $u_1',u_2'$ always has a unique solution.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Write the formula for a particular solution of an $n$th-order linear ODE via variation of parameters.",
+      "back": "$$y_p=\\sum_{i=1}^n u_i(x)y_i(x),$$\nwhere the vector $(u_1',\\dots,u_n')$ solves the linear system whose matrix is the Wronskian matrix and whose last row produces $g(x)$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "Outline the four standard steps to apply variation of parameters to a second-order non-homogeneous ODE.",
+      "back": "1. Find fundamental solutions $y_1,y_2$ of the homogeneous equation.\n2. Compute $W$ and form $u_1',u_2'$.\n3. Integrate to obtain $u_1,u_2$.\n4. Form $y_p=u_1 y_1+u_2 y_2$ and add the homogeneous solution.",
+      "difficulty": "medium"
+    }
+  ]
+}

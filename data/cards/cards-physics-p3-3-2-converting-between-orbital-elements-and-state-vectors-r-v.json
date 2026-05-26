@@ -1,0 +1,46 @@
+{
+  "subtopicId": "physics-p3-3-2-converting-between-orbital-elements-and-state-vectors-r-v",
+  "subtopicTitle": "Converting between orbital elements and state vectors (r, v)",
+  "topicId": "physics-p3-3-2-orbital-mechanics-astrodynamics",
+  "topicTitle": "Orbital Mechanics & Astrodynamics",
+  "field": "physics",
+  "model": "grok-4.3",
+  "generatedAt": "2026-05-26T00:40:27.909Z",
+  "cards": [
+    {
+      "front": "What are the six classical Keplerian orbital elements?",
+      "back": "Semi-major axis $a$, eccentricity $e$, inclination $i$, right ascension of the ascending node $\\Omega$, argument of periapsis $\\omega$, and true anomaly $\\nu$ (or mean anomaly $M$).",
+      "difficulty": "easy"
+    },
+    {
+      "front": "How is specific angular momentum $\\mathbf{h}$ obtained from state vectors $\\mathbf{r}$ and $\\mathbf{v}$?",
+      "back": "$\\mathbf{h} = \\mathbf{r} \\times \\mathbf{v}$ (used to find $i$, $\\Omega$, and orbit plane).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "What is the polar equation for radial distance $r$ from orbital elements $a$, $e$, $\\nu$?",
+      "back": "$r = \\frac{a(1-e^2)}{1+e\\cos\\nu}$ (valid for ellipse, parabola, hyperbola with appropriate $a$).",
+      "difficulty": "medium"
+    },
+    {
+      "front": "Give the vector expression for eccentricity $\\mathbf{e}$ from $\\mathbf{r}$, $\\mathbf{v}$, and gravitational parameter $\\mu$.",
+      "back": "$\\mathbf{e} = \\frac{1}{\\mu} \\left[ (v^2 - \\frac{\\mu}{r})\\mathbf{r} - (\\mathbf{r}\\cdot\\mathbf{v})\\mathbf{v} \\right]$.",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is orbital inclination $i$ computed from $\\mathbf{h}$?",
+      "back": "$\\cos i = h_z / |\\mathbf{h}|$ where $h_z$ is the z-component in the inertial frame.",
+      "difficulty": "medium"
+    },
+    {
+      "front": "State the three successive rotation matrices that transform perifocal (PQW) vectors to ECI.",
+      "back": "$\\mathbf{R} = R_3(-\\Omega) R_1(-i) R_3(-\\omega)$ (applied to both $\\mathbf{r}_{PQW}$ and $\\mathbf{v}_{PQW}$).",
+      "difficulty": "hard"
+    },
+    {
+      "front": "How is semi-major axis $a$ recovered from state vectors $\\mathbf{r}$ and $\\mathbf{v}$?",
+      "back": "Compute specific energy $\\varepsilon = v^2/2 - \\mu/r$, then $a = -\\mu/(2\\varepsilon)$.",
+      "difficulty": "medium"
+    }
+  ]
+}
