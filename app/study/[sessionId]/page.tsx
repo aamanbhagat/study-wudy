@@ -864,7 +864,7 @@ function NavigationBar({
           <div className="min-w-0 flex-1">
             <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Previous</p>
             <p className="truncate text-sm font-medium">
-              <span className="font-mono text-xs text-muted-foreground">{prev.topic.number}</span>{" "}
+              <span className="font-mono text-xs text-muted-foreground">{prev.fullNumber}</span>{" "}
               {prev.subtopic.title}
             </p>
           </div>
@@ -880,7 +880,7 @@ function NavigationBar({
           <div className="min-w-0 flex-1 text-right sm:text-left">
             <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Up next</p>
             <p className="truncate text-sm font-medium">
-              <span className="font-mono text-xs text-muted-foreground">{next.topic.number}</span>{" "}
+              <span className="font-mono text-xs text-muted-foreground">{next.fullNumber}</span>{" "}
               {next.subtopic.title}
             </p>
           </div>
