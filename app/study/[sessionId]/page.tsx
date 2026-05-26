@@ -447,7 +447,7 @@ export default function ActiveSessionPage() {
       </div>
 
       <div className="grid gap-0 lg:grid-cols-[65fr_35fr] lg:h-[calc(100vh-9rem)]">
-        <ScrollArea className="lg:h-full">
+        <ScrollArea className="min-w-0 lg:h-full">
           <div className="space-y-5 px-4 py-6 sm:px-6 lg:px-10">
             <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}>
               <Card>
@@ -535,7 +535,7 @@ export default function ActiveSessionPage() {
           </div>
         </ScrollArea>
 
-        <div className="border-t bg-card lg:border-l lg:border-t-0 lg:h-full">
+        <div className="min-w-0 border-t bg-card lg:border-l lg:border-t-0 lg:h-full">
           <SessionRightPanel
             topicTitle={payload.topicTitle}
             topicId={payload.topicId}

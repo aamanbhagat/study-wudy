@@ -60,7 +60,7 @@ export function MarkdownWithMath({ content, className }: Props) {
   return (
     <div
       className={cn(
-        "prose prose-slate max-w-none",
+        "prose prose-slate min-w-0 max-w-none break-words",
         "prose-headings:tracking-tight prose-headings:font-semibold",
         "prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg",
         "prose-p:leading-relaxed prose-p:my-3",
@@ -74,11 +74,15 @@ export function MarkdownWithMath({ content, className }: Props) {
         "[&_pre_code]:bg-transparent [&_pre_code]:text-slate-100 [&_pre_code]:p-0 [&_pre_code]:rounded-none [&_pre_code]:whitespace-pre [&_pre_code]:font-mono [&_pre_code]:text-[0.85em] [&_pre_code]:leading-snug",
         "prose-li:my-1 prose-ul:my-2 prose-ol:my-2",
         "prose-strong:text-foreground",
-        "prose-a:text-brand-navy hover:prose-a:underline",
+        "prose-a:text-brand-navy hover:prose-a:underline prose-a:break-all",
         "prose-table:text-sm",
+        // Tables — wrap them in horizontal scroll so wide tables never push the column wider.
+        "[&_table]:block [&_table]:w-full [&_table]:overflow-x-auto",
         // KaTeX block layout — let display math wrap on small screens instead of overflowing.
         "[&_.katex-display]:my-4 [&_.katex-display]:overflow-x-auto",
         "[&_.katex-display]:py-1",
+        // KaTeX inline math should not stretch the line; allow wrap around it.
+        "[&_.katex]:break-words",
         "dark:prose-invert",
         "dark:[&_pre_code]:text-slate-100",
         className,
