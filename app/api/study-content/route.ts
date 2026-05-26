@@ -87,8 +87,14 @@ export async function POST(req: NextRequest) {
 
   let content = "";
   let modelUsed: string;
+  // If the resolver picks Gemini but the key isn't actually present, and Grok
+  // is available, prefer Grok rather than failing with "key not set".
+  const effectiveProvider: Provider =
+    provider === "gemini" && !process.env.GOOGLE_GEMINI_API_KEY && process.env.XAI_API_KEY
+      ? "grok"
+      : provider;
   try {
-    if (provider === "grok") {
+    if (effectiveProvider === "grok") {
       modelUsed = GROK_MODEL;
       content = await callGrok();
     } else {
@@ -100,6 +106,10 @@ export async function POST(req: NextRequest) {
         if (isDailyQuotaError(msg)) {
           modelUsed = FALLBACK_MODEL;
           content = await callGemini(FALLBACK_MODEL);
+        } else if (process.env.XAI_API_KEY) {
+          // Last-resort fallback to Grok if Gemini hard-fails for any reason.
+          modelUsed = GROK_MODEL;
+          content = await callGrok();
         } else {
           throw e;
         }
