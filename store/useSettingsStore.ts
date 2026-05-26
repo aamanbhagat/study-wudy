@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type AiProvider = "auto" | "anthropic" | "gemini";
+export type AiProvider = "auto" | "anthropic" | "gemini" | "grok";
 
 interface SettingsState {
   theme: "light" | "dark" | "system";
@@ -30,6 +30,6 @@ export const useSettingsStore = create<SettingsState>()(
   ),
 );
 
-export function providerForRequest(p: AiProvider): "anthropic" | "gemini" | undefined {
+export function providerForRequest(p: AiProvider): "anthropic" | "gemini" | "grok" | undefined {
   return p === "auto" ? undefined : p;
 }

@@ -1,17 +1,20 @@
 import { getAnthropicClient, ANTHROPIC_MODEL } from "@/lib/ai/client";
 import { getGeminiModel } from "@/lib/ai/gemini";
+import { grokGenerateJson, grokStreamText } from "@/lib/ai/grok";
 import type Anthropic from "@anthropic-ai/sdk";
 import type { Part } from "@google/generative-ai";
 
-export type Provider = "anthropic" | "gemini";
+export type Provider = "anthropic" | "gemini" | "grok";
 
 export function resolveProvider(requested?: Provider | null): Provider {
-  if (requested === "anthropic" || requested === "gemini") return requested;
+  if (requested === "anthropic" || requested === "gemini" || requested === "grok") return requested;
   const env = (process.env.AI_PROVIDER ?? "").toLowerCase();
   if (env === "gemini") return "gemini";
   if (env === "anthropic") return "anthropic";
+  if (env === "grok" || env === "xai") return "grok";
   if (process.env.ANTHROPIC_API_KEY) return "anthropic";
   if (process.env.GOOGLE_GEMINI_API_KEY) return "gemini";
+  if (process.env.XAI_API_KEY) return "grok";
   return "anthropic";
 }
 
@@ -82,6 +85,15 @@ export function streamChatResponse(args: StreamArgs): Response {
             const text = chunk.text();
             if (text) sendDelta(text);
           }
+        } else if (provider === "grok") {
+          const result = grokStreamText({
+            system: args.system,
+            messages: args.messages.map((m) => ({ role: m.role, content: m.content })),
+            maxTokens: args.maxTokens,
+          });
+          for await (const textPart of result.textStream) {
+            if (textPart) sendDelta(textPart);
+          }
         } else {
           const client = getAnthropicClient();
           const stream = await client.messages.stream({
@@ -127,6 +139,9 @@ export async function generateJsonText({ provider, prompt, maxTokens, system }: 
     const model = getGeminiModel({ json: true, system });
     const result = await model.generateContent(prompt);
     return result.response.text();
+  }
+  if (p === "grok") {
+    return grokGenerateJson({ prompt, system, maxTokens });
   }
   const client = getAnthropicClient();
   const result = await client.messages.create({

@@ -26,7 +26,7 @@ const SettingsSchema = z.object({
   dailyMinuteTarget: z.number().int().min(15).max(720),
   fieldFocus: z.enum(["balanced", "math", "cs", "physics"]),
   theme: z.enum(["light", "dark", "system"]),
-  aiProvider: z.enum(["auto", "anthropic", "gemini"]),
+  aiProvider: z.enum(["auto", "anthropic", "gemini", "grok"]),
   showLatex: z.boolean(),
   notifyMorningPlan: z.boolean(),
   notifySessionReminders: z.boolean(),
@@ -237,6 +237,7 @@ export default function SettingsPage() {
                   <SelectItem value="auto">Auto (use whichever key is set)</SelectItem>
                   <SelectItem value="anthropic">Anthropic — Claude Sonnet 4.5</SelectItem>
                   <SelectItem value="gemini">Google — Gemini 2.0 Flash</SelectItem>
+                  <SelectItem value="grok">xAI — Grok 4</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-xs text-muted-foreground">
